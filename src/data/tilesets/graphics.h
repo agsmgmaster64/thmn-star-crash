@@ -2212,7 +2212,6 @@ const u16 gTilesetPalettes_Snow2[][16] =
 };
 
 const u32 gTilesetTiles_Snow2[] = INCBIN_U32("data/tilesets/secondary/snow_2/tiles.4bpp.lz");
-#if IS_FRLG
 
 const u32 gTilesetTiles_Building_Frlg[] = INCBIN_U32("data/tilesets/primary/building_frlg/tiles.4bpp.smol");
 
@@ -3623,5 +3622,3 @@ const u16 ALIGNED(4) gTilesetPalettes_General_Frlg[][16] =
 };
 
 const u32 gTilesetTiles_General_Frlg[] = INCBIN_U32("data/tilesets/primary/general_frlg/tiles.4bpp.smol");
-
-#endif // IS_FRLG
