@@ -420,17 +420,17 @@ u8 MapGridGetCollisionAt(int x, int y)
 
 u32 GetNumTilesInPrimary(struct MapLayout const *mapLayout)
 {
-    return mapLayout->isFrlg ? NUM_TILES_IN_PRIMARY_FRLG : NUM_TILES_IN_PRIMARY;
+    return NUM_TILES_IN_PRIMARY;
 }
 
 u32 GetNumMetatilesInPrimary(struct MapLayout const *mapLayout)
 {
-    return mapLayout->isFrlg ? NUM_METATILES_IN_PRIMARY_FRLG : NUM_METATILES_IN_PRIMARY;
+    return NUM_METATILES_IN_PRIMARY;
 }
 
 u32 GetNumPalsInPrimary(struct MapLayout const *mapLayout)
 {
-    return mapLayout->isFrlg ? NUM_PALS_IN_PRIMARY_FRLG : NUM_PALS_IN_PRIMARY;
+    return NUM_PALS_IN_PRIMARY;
 }
 
 u32 MapGridGetMetatileIdAt(int x, int y)
@@ -443,7 +443,7 @@ u32 MapGridGetMetatileIdAt(int x, int y)
     return UNPACK_METATILE(block);
 }
 
-u32 MapGridGetMetatileAttributeAt(int x, int y, u8 attributeType)
+u32 MapGridGetMetatileAttributeAt(s16 x, s16 y, u8 attributeType)
 {
     u16 metatileId = MapGridGetMetatileIdAt(x, y);
     return GetMetatileAttributesById(metatileId, attributeType);
@@ -491,21 +491,24 @@ u32 ExtractMetatileAttribute(u32 attributes, u8 attributeType)
 
 u32 GetMetatileAttributesById(u16 metatile, u8 attributeType)
 {
-    const u32 *attributes;
+    u32 attribute;
     if (metatile < NUM_METATILES_IN_PRIMARY)
     {
-        attributes = gMapHeader.mapLayout->primaryTileset->metatileAttributes;
-        return ExtractMetatileAttribute(attributes[metatile], attributeType);
+        const u32 *attributes = (const u32*)gMapHeader.mapLayout->primaryTileset->metatileAttributes;
+        attribute = attributes[metatile];
     }
     else if (metatile < NUM_METATILES_TOTAL)
     {
-        attributes = gMapHeader.mapLayout->secondaryTileset->metatileAttributes;
-        return ExtractMetatileAttribute(attributes[metatile - NUM_METATILES_IN_PRIMARY], attributeType);
+        const u32 *attributes = (const u32*) gMapHeader.mapLayout->secondaryTileset->metatileAttributes;
+        metatile -= NUM_METATILES_IN_PRIMARY;
+        attribute = attributes[metatile];
     }
     else
     {
         return MB_INVALID;
     }
+
+    return ExtractMetatileAttribute(attribute, attributeType);
 }
 
 void SaveMapView(void)

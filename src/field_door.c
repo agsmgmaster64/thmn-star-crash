@@ -443,12 +443,6 @@ static void DrawCurrentDoorAnimFrameFrlg(const struct DoorGraphics *gfx, int x, 
 
 static void DrawCurrentDoorAnimFrame(const struct DoorGraphics *gfx, u32 x, u32 y, const u8 *paletteNums)
 {
-    if (gMapHeader.mapLayout->isFrlg)
-    {
-        DrawCurrentDoorAnimFrameFrlg(gfx, x, y, paletteNums);
-        return;
-    }
-
     u16 tiles[24];
 
     switch (gfx->size)
@@ -500,12 +494,6 @@ static void DrawClosedDoorTilesFrlg(const struct DoorGraphics *gfx, int x, int y
 
 static void DrawClosedDoorTiles(const struct DoorGraphics *gfx, u32 x, u32 y)
 {
-    if (gMapHeader.mapLayout->isFrlg)
-    {
-        DrawClosedDoorTilesFrlg(gfx, x, y);
-        return;
-    }
-
     CurrentMapDrawMetatileAt(x, y - 1);
     CurrentMapDrawMetatileAt(x, y);
 

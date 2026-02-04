@@ -49,7 +49,7 @@ u8 MapGridGetElevationAt(int x, int y);
 bool8 CameraMove(int x, int y);
 void SaveMapView(void);
 u32 ExtractMetatileAttribute(u32, u8);
-u32 MapGridGetMetatileAttributeAt(int, int, u8);
+u32 MapGridGetMetatileAttributeAt(s16 x, s16 y, u8 attributeType);
 void SetCameraFocusCoords(u16 x, u16 y);
 void InitMap(void);
 void InitMapFromSavedGame(void);
