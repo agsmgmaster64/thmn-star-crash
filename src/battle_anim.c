@@ -705,7 +705,7 @@ static void CreateSpriteOnTargets(const struct SpriteTemplate *template, u8 argV
 
     for (i = 0; i < ntargets; i++)
     {
-        battler = targets[i];
+        battler = GetAnimBattlerId((enum AnimBattler)targets[i]);
         if (overwriteAnimTgt)
             gBattleAnimArgs[battlerArgIndex] = targets[i];
 

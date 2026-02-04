@@ -4472,8 +4472,8 @@ static void UIEndTask(u8 taskId)
 
 static void UIShowMoveList(u8 taskId)
 {
-    gSpecialVar_0x8008 = gTasks[taskId].tPartyIndex;
-    gSpecialVar_0x8009 = gTasks[taskId].tMove;
+    gSpecialVar_0x8000 = gTasks[taskId].tPartyIndex;
+    gSpecialVar_0x8001 = gTasks[taskId].tMove;
     DestroyTask(taskId);
     if (BW_SUMMARY_SCREEN)
         ShowSelectMovePokemonSummaryScreen_BW(gPlayerParty, gTasks[taskId].tPartyIndex, CB2_ReturnToFieldWhileLearningMove, gTasks[taskId].tMove);
@@ -4531,8 +4531,8 @@ static void Task_ReturnToFieldWhileLearningMove(u8 taskId)
     {
         gTasks[taskId].func = Task_LearnMove;
         gTasks[taskId].tState = GetLearnMoveResumeAfterSummaryScreenState();
-        gTasks[taskId].tPartyIndex = gSpecialVar_0x8008;
-        gTasks[taskId].tMove = gSpecialVar_0x8009;
+        gTasks[taskId].tPartyIndex = gSpecialVar_0x8000;
+        gTasks[taskId].tMove = gSpecialVar_0x8001;
     }
 }
 
