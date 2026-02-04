@@ -1072,18 +1072,16 @@ static const struct InGameTrade sIngameTrades[] =
     {
 #if defined(FIRERED)
         .nickname = _("MS. NIDO"),
-        .species = SPECIES_NIDORAN_F,
+        .species = SPECIES_GOLIATH,
         .ivs = {22, 18, 25, 19, 15, 22},
         .abilityNum = 0,
         .otId = 63184,
-        .conditions = {5, 5, 5, 5, 30},
         .personality = 0x4c970b89,
         .heldItem = ITEM_GREEN_UFO,
         .mailNum = MAIL_NONE,
         .otName = _("SAIGE"),
         .otGender = FEMALE,
-        .sheen = 10,
-        .requestedSpecies = SPECIES_NIDORAN_M
+        .requestedSpecies = SPECIES_GOLIATH
 #else
         .nickname = _("MR. NIDO"),
         .species = SPECIES_GOLIATH,
@@ -1116,18 +1114,16 @@ static const struct InGameTrade sIngameTrades[] =
     {
 #if defined(FIRERED)
         .nickname = _("NINA"),
-        .species = SPECIES_NIDORINA,
+        .species = SPECIES_GOLIATH,
         .ivs = {22, 25, 18, 19, 22, 15},
         .abilityNum = 0,
         .otId = 13637,
-        .conditions = {5, 5, 30, 5, 5},
         .personality = 0x00eeca15,
         .heldItem = ITEM_NONE,
         .mailNum = 255,
         .otName = _("TURNER"),
         .otGender = MALE,
-        .sheen = 10,
-        .requestedSpecies = SPECIES_NIDORINO
+        .requestedSpecies = SPECIES_GOLIATH
 #else
         .nickname = _("NINO"),
         .species = SPECIES_GOLIATH,
@@ -1155,7 +1151,7 @@ static const struct InGameTrade sIngameTrades[] =
         .otName = _("HADEN"),
         .otGender = MALE,
 #if defined(FIRERED)
-        .requestedSpecies = SPECIES_GOLDUCK
+        .requestedSpecies = SPECIES_GOLIATH
 #else
         .requestedSpecies = SPECIES_GOLIATH
 #endif

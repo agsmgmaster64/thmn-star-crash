@@ -30,7 +30,7 @@ PalletTown_ProfessorOaksLab_EventScript_SetNationalDexSceneFinished::
 PalletTown_ProfessorOaksLab_EventScript_ReadyOakForStarterScene::
 	setobjectxyperm LOCALID_OAKS_LAB_PROF_OAK, 6, 11
 	setobjectmovementtype LOCALID_OAKS_LAB_PROF_OAK, MOVEMENT_TYPE_FACE_UP
-	savebgm MUS_RG_OAK
+	savebgm MUS_ZGS_OAK
 	return
 
 PalletTown_ProfessorOaksLab_EventScript_ReadyOakForNationalDexScene::
@@ -122,7 +122,7 @@ PalletTown_ProfessorOaksLab_EventScript_NationalDexScene::
 PalletTown_ProfessorOaksLab_EventScript_NationalDexSceneRivalEnterNorth::
 	setobjectxyperm LOCALID_OAKS_LAB_RIVAL, 5, 10
 	addobject LOCALID_OAKS_LAB_RIVAL
-	playbgm MUS_RG_ENCOUNTER_RIVAL, 0
+	playbgm MUS_ZGS_ENCOUNTER_RIVAL, 0
 	applymovement LOCALID_PLAYER, PalletTown_ProfessorOaksLab_Movement_WatchRivalEnterNorth
 	applymovement LOCALID_OAKS_LAB_RIVAL, PalletTown_ProfessorOaksLab_Movement_RivalEnter
 	waitmovement 0
@@ -131,7 +131,7 @@ PalletTown_ProfessorOaksLab_EventScript_NationalDexSceneRivalEnterNorth::
 PalletTown_ProfessorOaksLab_EventScript_NationalDexSceneRivalEnterEastWest::
 	setobjectxyperm LOCALID_OAKS_LAB_RIVAL, 6, 10
 	addobject LOCALID_OAKS_LAB_RIVAL
-	playbgm MUS_RG_ENCOUNTER_RIVAL, 0
+	playbgm MUS_ZGS_ENCOUNTER_RIVAL, 0
 	applymovement LOCALID_OAKS_LAB_PROF_OAK, Common_Movement_WalkInPlaceFasterDown
 	applymovement LOCALID_PLAYER, PalletTown_ProfessorOaksLab_Movement_WatchRivalEnterEastWest
 	applymovement LOCALID_OAKS_LAB_RIVAL, PalletTown_ProfessorOaksLab_Movement_RivalEnter
@@ -141,7 +141,7 @@ PalletTown_ProfessorOaksLab_EventScript_NationalDexSceneRivalEnterEastWest::
 PalletTown_ProfessorOaksLab_EventScript_NationalDexSceneRivalEnterSouth::
 	setobjectxyperm LOCALID_OAKS_LAB_RIVAL, 6, 10
 	addobject LOCALID_OAKS_LAB_RIVAL
-	playbgm MUS_RG_ENCOUNTER_RIVAL, 0
+	playbgm MUS_ZGS_ENCOUNTER_RIVAL, 0
 	applymovement LOCALID_OAKS_LAB_PROF_OAK, Common_Movement_WalkInPlaceFasterDown
 	applymovement LOCALID_OAKS_LAB_RIVAL, PalletTown_ProfessorOaksLab_Movement_RivalEnter
 	waitmovement 0
@@ -287,7 +287,7 @@ PalletTown_ProfessorOaksLab_EventScript_RivalBattleTriggerRight::
 
 PalletTown_ProfessorOaksLab_EventScript_RivalBattle::
 	textcolor NPC_TEXT_COLOR_MALE
-	playbgm MUS_RG_ENCOUNTER_RIVAL, 0
+	playbgm MUS_ZGS_ENCOUNTER_RIVAL, 0
 	applymovement LOCALID_OAKS_LAB_RIVAL, Common_Movement_WalkInPlaceFasterDown
 	waitmovement 0
 	applymovement LOCALID_PLAYER, Common_Movement_WalkInPlaceFasterUp
@@ -605,7 +605,7 @@ PalletTown_ProfessorOaksLab_EventScript_ReceiveDexScene::
 	call EventScript_RestorePrevTextColor
 	removeitem ITEM_OAKS_PARCEL
 	msgbox PalletTown_ProfessorOaksLab_Text_OakCustomBallIOrdered
-	playbgm MUS_RG_ENCOUNTER_RIVAL, 0
+	playbgm MUS_ZGS_ENCOUNTER_RIVAL, 0
 	msgbox PalletTown_ProfessorOaksLab_Text_RivalGramps
 	closemessage
 	call_if_eq VAR_FACING, DIR_NORTH, PalletTown_ProfessorOaksLab_EventScript_DexSceneRivalEnterNorth
@@ -657,7 +657,7 @@ PalletTown_ProfessorOaksLab_EventScript_ReceiveDexScene::
 	special SetUnlockedPokedexFlags
 	setvar VAR_MAP_SCENE_POKEMON_CENTER_TEALA, 1
 	msgbox PalletTown_ProfessorOaksLab_Text_OakCatchMonsForDataTakeThese
-	giveitem_msg PalletTown_ProfessorOaksLab_Text_ReceivedFivePokeBalls, ITEM_POKE_BALL, 5
+	giveitem_msg PalletTown_ProfessorOaksLab_Text_ReceivedFivePokeBalls, ITEM_TOHO_ORB, 5
 	msgbox PalletTown_ProfessorOaksLab_Text_OakExplainCatching
 	famechecker FAMECHECKER_OAK, 1
 	msgbox PalletTown_ProfessorOaksLab_Text_OakCompleteMonGuideWasMyDream
@@ -918,7 +918,7 @@ PalletTown_ProfessorOaksLab_EventScript_DontStartNationalDexScene::
 PalletTown_ProfessorOaksLab_EventScript_CheckIfPlayerNeedsBalls::
 	goto_if_set FLAG_OAK_SKIP_22_RIVAL_CHECK, PalletTown_ProfessorOaksLab_EventScript_MonsAroundWorldWait
 	goto_if_set FLAG_GOT_POKEBALLS_FROM_OAK_AFTER_22_RIVAL, PalletTown_ProfessorOaksLab_EventScript_PlayerAlreadyGotBalls
-	checkitem ITEM_POKE_BALL
+	checkitem ITEM_TOHO_ORB
 	goto_if_eq VAR_RESULT, FALSE, PalletTown_ProfessorOaksLab_EventScript_PlayerOutOfBalls
 	goto PalletTown_ProfessorOaksLab_EventScript_MonsAroundWorldWait
 	end
@@ -930,7 +930,7 @@ PalletTown_ProfessorOaksLab_EventScript_PlayerOutOfBalls::
 
 PalletTown_ProfessorOaksLab_EventScript_GivePlayerMoreBalls::
 	msgbox PalletTown_ProfessorOaksLab_Text_OakAddedNothingToPokedex
-	giveitem_msg PalletTown_ProfessorOaksLab_Text_ReceivedFivePokeBalls, ITEM_POKE_BALL, 5
+	giveitem_msg PalletTown_ProfessorOaksLab_Text_ReceivedFivePokeBalls, ITEM_TOHO_ORB, 5
 	setflag FLAG_GOT_POKEBALLS_FROM_OAK_AFTER_22_RIVAL
 	release
 	end

@@ -28,7 +28,7 @@ Route12_FishingHouse_EventScript_NoRoomForSuperRod::
 	end
 
 Route12_FishingHouse_EventScript_CheckMagikarpRecord::
-	setvar VAR_0x8004, SPECIES_MAGIKARP
+	setvar VAR_0x8004, SPECIES_GOLIATH
 	specialvar VAR_RESULT, DoesPlayerPartyContainSpecies
 	goto_if_eq VAR_RESULT, FALSE, Route12_FishingHouse_EventScript_NoMagikarpInParty
 	special GetMagikarpSizeRecordInfo
@@ -74,7 +74,7 @@ Route12_FishingHouse_EventScript_TieRecordMagikarp::
 Route12_FishingHouse_EventScript_NewRecordMagikarp::
 	setflag FLAG_GOT_RECORD_SETTING_MAGIKARP
 	msgbox Route12_FishingHouse_Text_WhoaXInchesTakeThis
-	giveitem ITEM_NET_BALL
+	giveitem ITEM_NET_ORB
 	goto_if_eq VAR_RESULT, FALSE, Route12_FishingHouse_EventScript_NoRoomForNetBall
 	msgbox Route12_FishingHouse_Text_LookForwardToGreaterRecords
 	release

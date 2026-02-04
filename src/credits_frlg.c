@@ -1160,28 +1160,28 @@ static void LoadCreditsMonPic(u8 whichMon)
     case CREDITSMON_CHARIZARD:
         InitWindows(sWindowTemplates_Charizard);
         FillWindowPixelBuffer(0, PIXEL_FILL(0));
-        CreateTrainerCardMonIconSprite(SPECIES_CHARIZARD, FALSE, 0, TRUE, 0, 0, 10, 0);
+        CreateTrainerCardMonIconSprite(SPECIES_NORMAL_SANAE, FALSE, 0, TRUE, 0, 0, 10, 0);
         CopyToWindowPixelBuffer(1, (const void *)sCharizard1_Tiles, 0, 0);
         CopyToWindowPixelBuffer(2, (const void *)sCharizard2_Tiles, 0, 0);
         break;
     case CREDITSMON_VENUSAUR:
         InitWindows(sWindowTemplates_Venusaur);
         FillWindowPixelBuffer(0, PIXEL_FILL(0));
-        CreateTrainerCardMonIconSprite(SPECIES_VENUSAUR, FALSE, 0, TRUE, 0, 0, 10, 0);
+        CreateTrainerCardMonIconSprite(SPECIES_NORMAL_ALICE, FALSE, 0, TRUE, 0, 0, 10, 0);
         CopyToWindowPixelBuffer(1, (const void *)sVenusaur1_Tiles, 0, 0);
         CopyToWindowPixelBuffer(2, (const void *)sVenusaur2_Tiles, 0, 0);
         break;
     case CREDITSMON_BLASTOISE:
         InitWindows(sWindowTemplates_Blastoise);
         FillWindowPixelBuffer(0, PIXEL_FILL(0));
-        CreateTrainerCardMonIconSprite(SPECIES_BLASTOISE, FALSE, 0, TRUE, 0, 0, 10, 0);
+        CreateTrainerCardMonIconSprite(SPECIES_NORMAL_REISEN, FALSE, 0, TRUE, 0, 0, 10, 0);
         CopyToWindowPixelBuffer(1, (const void *)sBlastoise1_Tiles, 0, 0);
         CopyToWindowPixelBuffer(2, (const void *)sBlastoise2_Tiles, 0, 0);
         break;
     case CREDITSMON_PIKACHU:
         InitWindows(sWindowTemplates_Pikachu);
         FillWindowPixelBuffer(0, PIXEL_FILL(0));
-        CreateTrainerCardMonIconSprite(SPECIES_PIKACHU, FALSE, 0, TRUE, 0, 0, 10, 0);
+        CreateTrainerCardMonIconSprite(SPECIES_CHIBI_CIRNO, FALSE, 0, TRUE, 0, 0, 10, 0);
         CopyToWindowPixelBuffer(1, (const void *)sPikachu1_Tiles, 0, 0);
         CopyToWindowPixelBuffer(2, (const void *)sPikachu2_Tiles, 0, 0);
         break;
@@ -1196,13 +1196,13 @@ static u16 GetCreditsMonSpecies(u8 whichMon)
     switch (whichMon)
     {
     case CREDITSMON_CHARIZARD:
-        return SPECIES_CHARIZARD;
+        return SPECIES_NORMAL_SANAE;
     case CREDITSMON_VENUSAUR:
-        return SPECIES_VENUSAUR;
+        return SPECIES_NORMAL_ALICE;
     case CREDITSMON_BLASTOISE:
-        return SPECIES_BLASTOISE;
+        return SPECIES_NORMAL_REISEN;
     case CREDITSMON_PIKACHU:
-        return SPECIES_PIKACHU;
+        return SPECIES_CHIBI_CIRNO;
     default:
         return SPECIES_NONE;
     }

@@ -182,7 +182,7 @@ PalletTown_EventScript_OakTrigger::
 	famechecker FAMECHECKER_OAK, FCPICKSTATE_COLORED, UpdatePickStateFromSpecialVar8005
 	textcolor NPC_TEXT_COLOR_MALE
 	delay 30
-	playbgm MUS_RG_OAK, 0
+	playbgm MUS_ZGS_OAK, 0
 	message PalletTown_Text_OakDontGoOut
 	waitmessage
 	delay 85

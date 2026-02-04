@@ -2,7 +2,7 @@
   "id": "MAP_ROUTE4",
   "name": "Route4_Frlg",
   "layout": "LAYOUT_ROUTE4",
-  "music": "MUS_RG_ROUTE3",
+  "music": "MUS_ZGS_ROUTE3",
   "region_map_section": "MAPSEC_ROUTE_4",
   "requires_flash": false,
   "weather": "WEATHER_SUNNY",
@@ -165,7 +165,7 @@
       "x": 43,
       "y": 2,
       "elevation": 3,
-      "item": "ITEM_GREAT_BALL",
+      "item": "ITEM_GREAT_ORB",
       "flag": "FLAG_HIDDEN_ITEM_ROUTE4_GREAT_BALL",
       "quantity": 1,
       "underfoot": false

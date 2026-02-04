@@ -2,7 +2,7 @@
   "id": "MAP_SEAFOAM_ISLANDS_B4F",
   "name": "SeafoamIslands_B4F_Frlg",
   "layout": "LAYOUT_SEAFOAM_ISLANDS_B4F",
-  "music": "MUS_RG_VIRIDIAN_FOREST",
+  "music": "MUS_ZGS_VIRIDIAN_FOREST",
   "region": "REGION_KANTO",
   "region_map_section": "MAPSEC_SEAFOAM_ISLANDS",
   "requires_flash": false,
@@ -138,7 +138,7 @@
       "x": 13,
       "y": 8,
       "elevation": 0,
-      "item": "ITEM_WATER_STONE",
+      "item": "ITEM_GUARD_HEART",
       "flag": "FLAG_HIDDEN_ITEM_SEAFOAM_ISLANDS_B4F_WATER_STONE",
       "quantity": 1,
       "underfoot": false

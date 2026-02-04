@@ -19,7 +19,7 @@ PokemonTower_2F_EventScript_RivalTriggerDown::
 
 PokemonTower_2F_EventScript_Rival::
 	textcolor NPC_TEXT_COLOR_MALE
-	playbgm MUS_RG_ENCOUNTER_RIVAL, 0
+	playbgm MUS_ZGS_ENCOUNTER_RIVAL, 0
 	call_if_eq VAR_TEMP_1, 0, PokemonTower_2F_EventScript_RivalFacePlayerRight
 	call_if_eq VAR_TEMP_1, 1, PokemonTower_2F_EventScript_RivalFacePlayerDown
 	applymovement LOCALID_POKEMON_TOWER_RIVAL, Common_Movement_ExclamationMark

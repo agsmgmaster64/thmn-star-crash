@@ -4,7 +4,7 @@ SixIsland_WaterPath_House1_Frlg_MapScripts::
 SixIsland_WaterPath_House1_EventScript_Beauty::
 	lock
 	faceplayer
-	setvar VAR_0x8004, SPECIES_HERACROSS
+	setvar VAR_0x8004, SPECIES_GOLIATH
 	specialvar VAR_RESULT, DoesPlayerPartyContainSpecies
 	goto_if_eq VAR_RESULT, FALSE, SixIsland_WaterPath_House1_EventScript_NoHeracrossInParty
 	special GetHeracrossSizeRecordInfo
@@ -50,7 +50,7 @@ SixIsland_WaterPath_House1_EventScript_ShownTiedHeracross::
 SixIsland_WaterPath_House1_EventScript_ShownBigHeracross::
 	setflag FLAG_GOT_NEST_BALL_FROM_WATER_PATH_HOUSE_1
 	msgbox SixIsland_WaterPath_House1_Text_ItsXInchesDeserveReward
-	giveitem ITEM_NEST_BALL
+	giveitem ITEM_NEST_ORB
 	goto_if_eq VAR_RESULT, FALSE, SixIsland_WaterPath_House1_EventScript_NoRoomForNestBall
 	msgbox SixIsland_WaterPath_House1_Text_WantToSeeBiggerOne
 	release

@@ -44,7 +44,7 @@ NavelRock_Summit_EventScript_HoOh::
 	setweather 0
 	doweather
 	waitse
-	playmoncry SPECIES_HO_OH, CRY_MODE_ENCOUNTER
+	playmoncry SPECIES_GOLIATH, CRY_MODE_ENCOUNTER
 	delay 30
 	waitmoncry
 	delay 60
@@ -55,7 +55,7 @@ NavelRock_Summit_EventScript_HoOh::
 	applymovement LOCALID_NAVEL_ROCK_HO_OH, Movement_HoOhApproach
 	waitmovement 0
 	special RemoveCameraObject
-	seteventmon SPECIES_HO_OH, 70
+	seteventmon SPECIES_GOLIATH, 70
 	setflag FLAG_SYS_CTRL_OBJ_DELETE
 	special BattleSetup_StartLegendaryBattle
 	waitstate
@@ -71,12 +71,12 @@ NavelRock_Summit_EventScript_HoOh::
 
 NavelRock_Summit_EventScript_DefeatedHoOh::
 	setflag FLAG_HO_OH_FLEW_AWAY
-	setvar VAR_0x8004, SPECIES_HO_OH
+	setvar VAR_0x8004, SPECIES_GOLIATH
 	goto EventScript_MonFlewAway
 	end
 
 NavelRock_Summit_EventScript_RanFromHoOh::
-	setvar VAR_0x8004, SPECIES_HO_OH
+	setvar VAR_0x8004, SPECIES_GOLIATH
 	goto EventScript_MonFlewAway
 	end
 

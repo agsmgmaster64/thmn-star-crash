@@ -1046,7 +1046,6 @@ gStdScripts_End::
 	.include "data/scripts/trainers_frlg.inc"
 	.include "data/text/trainers_frlg.inc"
 	.include "data/text/ingame_trade_frlg.inc"
-	.include "data/scripts/flavor_text.inc"
 	.include "data/scripts/pkmn_center_nurse_frlg.inc"
 
 .endif
@@ -1056,6 +1055,7 @@ gStdScripts_End::
 	.include "data/scripts/new_game.inc"
 	.include "data/scripts/hall_of_fame.inc"
 	.include "data/scripts/hall_of_fame_frlg.inc"
+	.include "data/scripts/flavor_text.inc"
 
 	.include "data/scripts/config.inc"
 	.include "data/scripts/debug.inc"

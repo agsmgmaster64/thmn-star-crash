@@ -29,6 +29,7 @@
 #include "strings.h"
 #include "task.h"
 #include "text_window.h"
+#include "oak_speech.h"
 #include "overworld.h"
 #include "outfit_menu.h"
 #include "event_data.h"
@@ -402,7 +403,14 @@ void Task_OpenMainMenu(u8 taskId)
             default:
                 gExitStairsMovementDisabled = FALSE;
                 ResetChallengesData();
-                gMain.savedCallback = CB2_NewGameBirchSpeech_ReturnFromOptionsMenu;
+                if (IS_FRLG)
+                {
+                    gMain.savedCallback = StartNewGameSceneFrlg;
+                }
+                else
+                {
+                    gMain.savedCallback = CB2_NewGameBirchSpeech_ReturnFromOptionsMenu;
+                }
                 SetMainCallback2(CB2_InitOptionPlusMenu);
                 DestroyTask(taskId);
                 return;

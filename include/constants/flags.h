@@ -686,10 +686,10 @@
 #define FLAG_POINT_BATTLE  0x27B
 #define FLAG_GIGI_FOLLOWER  0x27C
 #define FLAG_ORAS_DOWSE  0x27D
-#define FLAG_UNUSED_0x27E  0x27E // Unused Flag
-#define FLAG_BANK_SAVE_MONEY  0x27F // Unused Flag
-#define FLAG_UNUSED_0x280  0x280 // Unused Flag
-#define FLAG_UNUSED_0x281  0x281 // Unused Flag
+#define FLAG_BATTLE_MENU_COMING_FROM_SUMMARY_SCREEN  0x27E // Unused Flag
+#define FLAG_BANK_SAVE_MONEY  0x27F
+#define FLAG_DERBY_RESET  0x280
+#define FLAG_DERBY_NICKNAME  0x281
 #define FLAG_UNUSED_0x282  0x282 // Unused Flag
 #define FLAG_UNUSED_0x283  0x283 // Unused Flag
 #define FLAG_UNUSED_0x284  0x284 // Unused Flag
@@ -1383,7 +1383,7 @@
 #define FLAG_IS_CHAMPION                            (SYSTEM_FLAGS + 0x1F) // Seems to be related to linking.
 #define FLAG_NURSE_UNION_ROOM_REMINDER              (SYSTEM_FLAGS + 0x20)
 
-#define FLAG_UNUSED_0x881                           (SYSTEM_FLAGS + 0x21) // Unused Flag
+#define FLAG_DEXNAV_SEARCH                          (SYSTEM_FLAGS + 0x21) // Unused Flag
 #define FLAG_UNUSED_0x882                           (SYSTEM_FLAGS + 0x22) // Unused Flag
 #define FLAG_UNUSED_0x883                           (SYSTEM_FLAGS + 0x23) // Unused Flag
 #define FLAG_SYS_USE_CUT                            (SYSTEM_FLAGS + 0x24)
@@ -1399,8 +1399,8 @@
 #define FLAG_SYS_SAFARI_MODE                        (SYSTEM_FLAGS + 0x2C)
 #define FLAG_SYS_CRUISE_MODE                        (SYSTEM_FLAGS + 0x2D)
 
-#define FLAG_UNUSED_0x88E                           (SYSTEM_FLAGS + 0x2E) // Unused Flag
-#define FLAG_UNUSED_0x88F                           (SYSTEM_FLAGS + 0x2F) // Unused Flag
+#define FLAG_DEXNAV_DETECTOR_MODE                   (SYSTEM_FLAGS + 0x2E) // Unused Flag
+#define FLAG_SYS_DEXNAV_GET                         (SYSTEM_FLAGS + 0x2F) // Unused Flag
 
 #define FLAG_SYS_TV_HOME                            (SYSTEM_FLAGS + 0x30)
 #define FLAG_SYS_TV_WATCH                           (SYSTEM_FLAGS + 0x31)

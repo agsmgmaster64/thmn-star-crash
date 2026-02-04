@@ -402,8 +402,6 @@ CableClub_EventScript_EnterTradeCenter_Frlg::
 CableClub_EventScript_CheckPartyTradeRequirements_Frlg::
 	specialvar VAR_RESULT, CalculatePlayerPartyCount
 	goto_if_lt VAR_RESULT, 2, CableClub_EventScript_NeedTwoMonsToTrade_Frlg
-	specialvar VAR_RESULT, DoesPartyHaveEnigmaBerry
-	goto_if_eq VAR_RESULT, TRUE, CableClub_EventScript_CantTradeEnigmaBerry_Frlg
 	setvar VAR_RESULT, TRUE
 	return
 
@@ -717,8 +715,6 @@ CableClub_EventScript_UnionRoomAttendant_Frlg::
 	lock
 	faceplayer
 	goto_if_unset FLAG_SYS_POKEDEX_GET, CableClub_EventScript_WirelessClubAdjustements_Frlg
-	specialvar VAR_RESULT, IsBadEggInParty
-	goto_if_eq VAR_RESULT, TRUE, CableClub_EventScript_AbortLinkPlayerHasBadEgg_Frlg
 	copyvar VAR_0x8007, VAR_LAST_TALKED
 	specialvar VAR_RESULT, IsWirelessAdapterConnected
 	goto_if_eq VAR_RESULT, FALSE, CableClub_EventScript_UnionRoomAdapterNotConnected_Frlg
@@ -778,8 +774,6 @@ CableClub_EventScript_EnterUnionRoom_Frlg::
 CableClub_EventScript_CheckPartyUnionRoomRequirements_Frlg::
 	specialvar VAR_RESULT, CountPartyNonEggMons
 	goto_if_lt VAR_RESULT, 2, CableClub_EventScript_NeedTwoMonsForUnionRoom_Frlg
-	specialvar VAR_RESULT, DoesPartyHaveEnigmaBerry
-	goto_if_eq VAR_RESULT, TRUE, CableClub_EventScript_NoEnigmaBerryInUnionRoom_Frlg
 	setvar VAR_RESULT, TRUE
 	return
 
@@ -817,8 +811,6 @@ CableClub_EventScript_DirectCornerAttendant_Frlg::
 	lock
 	faceplayer
 	goto_if_unset FLAG_SYS_POKEDEX_GET, CableClub_EventScript_WirelessClubAdjustements_Frlg
-	specialvar VAR_RESULT, IsBadEggInParty
-	goto_if_eq VAR_RESULT, TRUE, CableClub_EventScript_AbortLinkPlayerHasBadEgg_Frlg
 	specialvar VAR_RESULT, IsWirelessAdapterConnected
 	goto_if_eq VAR_RESULT, FALSE, CableClub_EventScript_WelcomeToCableClub_Frlg
 	message CableClub_Text_WelcomeWhichDirectCornerRoom_Frlg

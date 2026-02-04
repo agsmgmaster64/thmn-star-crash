@@ -21,7 +21,7 @@ PewterCity_Mart_EventScript_Clerk::
 
 	.align 2
 PewterCity_Mart_Items::
-	.2byte ITEM_POKE_BALL
+	.2byte ITEM_TOHO_ORB
 	.2byte ITEM_POTION
 	.2byte ITEM_ANTIDOTE
 	.2byte ITEM_PARALYZE_HEAL

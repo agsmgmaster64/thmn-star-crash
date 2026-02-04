@@ -2,7 +2,7 @@
   "id": "MAP_MT_MOON_B2F",
   "name": "MtMoon_B2F_Frlg",
   "layout": "LAYOUT_MT_MOON_B2F",
-  "music": "MUS_RG_MT_MOON",
+  "music": "MUS_ZGS_MT_MOON",
   "region": "REGION_KANTO",
   "region_map_section": "MAPSEC_MT_MOON",
   "requires_flash": false,
@@ -221,7 +221,7 @@
       "x": 20,
       "y": 16,
       "elevation": 3,
-      "item": "ITEM_MOON_STONE",
+      "item": "ITEM_NEUTRAL_HEART",
       "flag": "FLAG_HIDDEN_ITEM_MT_MOON_B2F_MOON_STONE",
       "quantity": 1,
       "underfoot": false

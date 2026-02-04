@@ -23,7 +23,7 @@ SSAnne_2F_Corridor_EventScript_RivalTrigger::
 	textcolor NPC_TEXT_COLOR_MALE
 	playse SE_EXIT
 	delay 5
-	playbgm MUS_RG_ENCOUNTER_RIVAL, 0
+	playbgm MUS_ZGS_ENCOUNTER_RIVAL, 0
 	addobject LOCALID_SS_ANNE_RIVAL
 	delay 10
 	applymovement LOCALID_SS_ANNE_RIVAL, Common_Movement_WalkInPlaceFasterDown

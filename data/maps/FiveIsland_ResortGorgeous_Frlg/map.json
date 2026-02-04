@@ -2,7 +2,7 @@
   "id": "MAP_FIVE_ISLAND_RESORT_GORGEOUS",
   "name": "FiveIsland_ResortGorgeous_Frlg",
   "layout": "LAYOUT_FIVE_ISLAND_RESORT_GORGEOUS",
-  "music": "MUS_RG_SEVII_ROUTE",
+  "music": "MUS_ZGS_SEVII_ROUTE",
   "region": "REGION_KANTO",
   "region_map_section": "MAPSEC_RESORT_GORGEOUS",
   "requires_flash": false,
@@ -161,7 +161,7 @@
       "x": 10,
       "y": 7,
       "elevation": 3,
-      "item": "ITEM_NEST_BALL",
+      "item": "ITEM_NEST_ORB",
       "flag": "FLAG_HIDDEN_ITEM_FIVE_ISLAND_RESORT_GORGEOUS_NEST_BALL",
       "quantity": 1,
       "underfoot": false

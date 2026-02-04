@@ -69,16 +69,16 @@ BirthIsland_Exterior_Frlg_EventScript_Deoxys::
 	setfieldeffectargument 1, MAP_NUM(MAP_BIRTH_ISLAND_EXTERIOR_FRLG)
 	setfieldeffectargument 2, MAP_GROUP(MAP_BIRTH_ISLAND_EXTERIOR_FRLG)
 	dofieldeffect FLDEFF_DESTROY_DEOXYS_ROCK
-	playbgm MUS_RG_ENCOUNTER_DEOXYS, 0
+	playbgm MUS_ZGS_ENCOUNTER_DEOXYS, 0
 	waitfieldeffect FLDEFF_DESTROY_DEOXYS_ROCK
 	applymovement LOCALID_BIRTH_ISLAND_DEOXYS, Movement_DeoxysApproach
 	waitmovement 0
 	waitse
-	playmoncry SPECIES_DEOXYS, CRY_MODE_ENCOUNTER
+	playmoncry SPECIES_GOLIATH, CRY_MODE_ENCOUNTER
 	delay 40
 	waitmoncry
 	setvar VAR_LAST_TALKED, LOCALID_BIRTH_ISLAND_DEOXYS
-	seteventmon SPECIES_DEOXYS, 30
+	seteventmon SPECIES_GOLIATH, 30
 	setflag FLAG_SYS_CTRL_OBJ_DELETE
 	special BattleSetup_StartLegendaryBattle
 	waitstate
@@ -93,12 +93,12 @@ BirthIsland_Exterior_Frlg_EventScript_Deoxys::
 
 BirthIsland_Exterior_Frlg_EventScript_DefeatedDeoxys::
 	setflag FLAG_DEOXYS_FLEW_AWAY
-	setvar VAR_0x8004, SPECIES_DEOXYS
+	setvar VAR_0x8004, SPECIES_GOLIATH
 	goto EventScript_MonFlewAway
 	end
 
 BirthIsland_Exterior_Frlg_EventScript_RanFromDeoxys::
-	setvar VAR_0x8004, SPECIES_DEOXYS
+	setvar VAR_0x8004, SPECIES_GOLIATH
 	goto EventScript_MonFlewAway
 	end
 

@@ -569,7 +569,7 @@ static const u8 *GetInteractedMetatileScript(struct MapPosition *position, u8 me
     if (MetatileBehavior_IsShopShelf(metatileBehavior) == TRUE)
         return EventScript_ShopShelf;
     if (MetatileBehavior_IsBlueprints(metatileBehavior) == TRUE)
-        return EventScript_Blueprint;
+        return EventScript_Blueprints;
     if (MetatileBehavior_IsFood(metatileBehavior) == TRUE)
         return EventScript_Food;
     if (MetatileBehavior_IsVideoGame(metatileBehavior) == TRUE)

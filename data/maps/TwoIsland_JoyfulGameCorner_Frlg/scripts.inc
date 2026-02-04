@@ -69,7 +69,7 @@ TwoIsland_JoyfulGameCorner_EventScript_HelpFindLostelleScene::
 	waitse
 	applymovement LOCALID_PLAYER, TwoIsland_JoyfulGameCorner_Movement_PlayerFaceDaddy
 	waitmovement 0
-	playbgm MUS_RG_ENCOUNTER_BOY, 0
+	playbgm MUS_ZGS_ENCOUNTER_BOY, 0
 	addobject LOCALID_JOYFUL_GAME_CORNER_BIKER
 	applymovement LOCALID_JOYFUL_GAME_CORNER_BIKER, TwoIsland_JoyfulGameCorner_Movement_BikerLookAround
 	waitmovement 0
@@ -162,11 +162,11 @@ TwoIsland_JoyfulGameCorner_EventScript_GiveDaddyMeteorite::
 	end
 
 TwoIsland_JoyfulGameCorner_EventScript_ReceiveMoonStone::
-	checkitemspace ITEM_MOON_STONE
+	checkitemspace ITEM_NEUTRAL_HEART
 	goto_if_eq VAR_RESULT, FALSE, TwoIsland_JoyfulGameCorner_EventScript_NoRoomForMoonStone
-	additem ITEM_MOON_STONE
+	additem ITEM_NEUTRAL_HEART
 	setflag FLAG_GOT_MOON_STONE_FROM_JOYFUL_GAME_CORNER
-	msgreceiveditem TwoIsland_JoyfulGameCorner_Text_ReceivedMoonStoneFromLostellesDaddy, ITEM_MOON_STONE
+	msgreceiveditem TwoIsland_JoyfulGameCorner_Text_ReceivedMoonStoneFromLostellesDaddy, ITEM_NEUTRAL_HEART
 	release
 	end
 

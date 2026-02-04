@@ -2,7 +2,7 @@
   "id": "MAP_ROCKET_HIDEOUT_B4F",
   "name": "RocketHideout_B4F_Frlg",
   "layout": "LAYOUT_ROCKET_HIDEOUT_B4F",
-  "music": "MUS_RG_ROCKET_HIDEOUT",
+  "music": "MUS_ZGS_ROCKET_HIDEOUT",
   "region": "REGION_KANTO",
   "region_map_section": "MAPSEC_ROCKET_HIDEOUT",
   "requires_flash": false,
@@ -176,7 +176,7 @@
       "x": 22,
       "y": 6,
       "elevation": 3,
-      "item": "ITEM_NEST_BALL",
+      "item": "ITEM_NEST_ORB",
       "flag": "FLAG_HIDDEN_ITEM_ROCKET_HIDEOUT_B4F_NEST_BALL",
       "quantity": 1,
       "underfoot": false
@@ -186,7 +186,7 @@
       "x": 16,
       "y": 6,
       "elevation": 3,
-      "item": "ITEM_NET_BALL",
+      "item": "ITEM_NET_ORB",
       "flag": "FLAG_HIDDEN_ITEM_ROCKET_HIDEOUT_B4F_NET_BALL",
       "quantity": 1,
       "underfoot": false

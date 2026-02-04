@@ -2,7 +2,7 @@
   "id": "MAP_POKEMON_TOWER_5F",
   "name": "PokemonTower_5F_Frlg",
   "layout": "LAYOUT_POKEMON_TOWER_5F",
-  "music": "MUS_RG_POKE_TOWER",
+  "music": "MUS_ZGS_POKE_TOWER",
   "region": "REGION_KANTO",
   "region_map_section": "MAPSEC_POKEMON_TOWER",
   "requires_flash": false,
@@ -292,7 +292,7 @@
       "x": 7,
       "y": 3,
       "elevation": 3,
-      "item": "ITEM_BIG_MUSHROOM",
+      "item": "ITEM_RED_UFO",
       "flag": "FLAG_HIDDEN_ITEM_POKEMON_TOWER_5F_BIG_MUSHROOM",
       "quantity": 1,
       "underfoot": false

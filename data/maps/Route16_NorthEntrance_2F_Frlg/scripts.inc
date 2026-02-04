@@ -32,9 +32,9 @@ Route16_NorthEntrance_2F_EventScript_Aide::
 	call Route16_NorthEntrance_2F_EventScript_GetAideRequestInfo
 	goto_if_lt VAR_0x8006, REQUIRED_CAUGHT_MONS, Aide_EventScript_HaventCaughtEnough
 	msgbox Route16_NorthEntrance_2F_Text_GreatHereYouGo
-	checkitemspace ITEM_AMULET_COIN
+	checkitemspace ITEM_DONATION_BOX
 	goto_if_eq VAR_RESULT, FALSE, Aide_EventScript_NoRoomForItem
-	giveitem_msg Route16_NorthEntrance_2F_Text_ReceivedAmuletCoinFromAide, ITEM_AMULET_COIN
+	giveitem_msg Route16_NorthEntrance_2F_Text_ReceivedAmuletCoinFromAide, ITEM_DONATION_BOX
 	setflag FLAG_GOT_AMULET_COIN_FROM_OAKS_AIDE
 	msgbox Route16_NorthEntrance_2F_Text_ExplainAmuletCoin
 	release
@@ -47,7 +47,7 @@ Route16_NorthEntrance_2F_EventScript_AlreadyGotAmuletCoin::
 
 Route16_NorthEntrance_2F_EventScript_GetAideRequestInfo::
 	buffernumberstring STR_VAR_1, REQUIRED_CAUGHT_MONS
-	bufferitemname STR_VAR_2, ITEM_AMULET_COIN
+	bufferitemname STR_VAR_2, ITEM_DONATION_BOX
 	return
 
 Route16_NorthEntrance_2F_Text_OnBikeRideWithGirlfriend::

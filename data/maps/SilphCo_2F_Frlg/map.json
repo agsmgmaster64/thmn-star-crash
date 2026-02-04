@@ -2,7 +2,7 @@
   "id": "MAP_SILPH_CO_2F",
   "name": "SilphCo_2F_Frlg",
   "layout": "LAYOUT_SILPH_CO_2F",
-  "music": "MUS_RG_SILPH",
+  "music": "MUS_ZGS_SILPH",
   "region": "REGION_KANTO",
   "region_map_section": "MAPSEC_SILPH_CO",
   "requires_flash": false,
@@ -209,7 +209,7 @@
       "x": 11,
       "y": 21,
       "elevation": 0,
-      "item": "ITEM_ULTRA_BALL",
+      "item": "ITEM_ULTRA_ORB",
       "flag": "FLAG_HIDDEN_ITEM_SILPH_CO_2F_ULTRA_BALL",
       "quantity": 1,
       "underfoot": false
