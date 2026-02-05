@@ -274,7 +274,7 @@ static void AnimPunishment(struct Sprite *sprite)
 
 void AnimTask_AttackerFadeToInvisible(u8 taskId)
 {
-    ANIM_CMD_ARGS(stepDelay);
+    CMD_ARGS(stepDelay);
 
     enum BattlerId battler;
     gTasks[taskId].data[0] = cmd->stepDelay;
@@ -314,7 +314,7 @@ static void AnimTask_AttackerFadeToInvisible_Step(u8 taskId)
 
 void AnimTask_AttackerFadeFromInvisible(u8 taskId)
 {
-    ANIM_CMD_ARGS(stepDelay);
+    CMD_ARGS(stepDelay);
 
     gTasks[taskId].data[0] = cmd->stepDelay;
     gTasks[taskId].data[1] = BLDALPHA_BLEND(0, 16);
@@ -403,7 +403,7 @@ static void AnimUnusedBagSteal_Step(struct Sprite *sprite)
 // Move sprite inward for Bite/Crunch and Clamp
 void AnimBite(struct Sprite *sprite)
 {
-    ANIM_CMD_ARGS(x, y, animation, xVelocity, yVelocity, halfDuration);
+    CMD_ARGS(x, y, animation, xVelocity, yVelocity, halfDuration);
 
     sprite->x += cmd->x;
     sprite->y += cmd->y;
@@ -437,7 +437,7 @@ static void AnimBite_Step2(struct Sprite *sprite)
 // Launches a tear drop away from the battler. Used by Fake Tears
 void AnimTearDrop(struct Sprite *sprite)
 {
-    ANIM_CMD_ARGS(relativeTo, type);
+    CMD_ARGS(relativeTo, type);
 
     enum BattlerId battler;
     s8 xOffset;
@@ -891,7 +891,7 @@ void AnimTask_MementoHandleBg(u8 taskId)
 // Animates a deep slash from a claw. Used by Metal Claw, Dragon Claw, and Crush Claw
 void AnimClawSlash(struct Sprite *sprite)
 {
-    ANIM_CMD_ARGS(x, y, animation);
+    CMD_ARGS(x, y, animation);
 
     sprite->x += cmd->x;
     sprite->y += cmd->y;
@@ -905,7 +905,7 @@ void AnimClawSlash(struct Sprite *sprite)
 // Custom color argument is used in MOVE_POISON_TAIL to make the mon turn purplish/pinkish as if became cloaked in poison.
 void AnimTask_MetallicShine(u8 taskId)
 {
-    ANIM_CMD_ARGS(permanent, useColor, color);
+    CMD_ARGS(permanent, useColor, color);
 
     u16 species;
     u8 spriteId;
@@ -1015,20 +1015,21 @@ static void AnimTask_MetallicShine_Step(u8 taskId)
 // Changes battler's palette to either grayscale or original.
 void AnimTask_SetGrayscaleOrOriginalPal(u8 taskId)
 {
-    ANIM_CMD_ARGS(animBattler, mode);
+    CMD_ARGS(battler, mode);
 
     u8 spriteId;
     enum BattlerId battler;
     bool8 calcSpriteId = FALSE;
     u8 position = B_POSITION_PLAYER_LEFT;
+    enum AnimBattler animBattler = cmd->battler;
 
-    switch (cmd->animBattler)
+    switch (animBattler)
     {
     case ANIM_ATTACKER:
     case ANIM_TARGET:
     case ANIM_ATK_PARTNER:
     case ANIM_DEF_PARTNER:
-        spriteId = GetAnimBattlerSpriteId(cmd->animBattler);
+        spriteId = GetAnimBattlerSpriteId(animBattler);
         break;
     case ANIM_PLAYER_LEFT:
         position = B_POSITION_PLAYER_LEFT;

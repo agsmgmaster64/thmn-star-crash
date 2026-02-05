@@ -384,7 +384,7 @@ static void AnimSpinningDracoMeteor(struct Sprite *sprite)
 
 void AnimOutrageFlame(struct Sprite *sprite)
 {
-    ANIM_CMD_ARGS(x, y, duration, xVelocity, yVelocity, flickerDuration);
+    CMD_ARGS(x, y, duration, xVelocity, yVelocity, flickerDuration);
 
     sprite->x = GetBattlerSpriteCoord(gBattleAnimAttacker, BATTLER_COORD_X_2);
     sprite->y = GetBattlerSpriteCoord(gBattleAnimAttacker, BATTLER_COORD_Y_PIC_OFFSET);
@@ -411,7 +411,7 @@ void AnimOutrageFlame(struct Sprite *sprite)
 
 static void StartDragonFireTranslation(struct Sprite *sprite)
 {
-    ANIM_CMD_ARGS(initialX, initialY, targetX, targetY, duration);
+    CMD_ARGS(initialX, initialY, targetX, targetY, duration);
 
     SetSpriteCoordsToAnimAttackerCoords(sprite);
     sprite->data[2] = GetBattlerSpriteCoord(gBattleAnimTarget, BATTLER_COORD_X_2);
@@ -442,7 +442,7 @@ static void StartDragonFireTranslation(struct Sprite *sprite)
 // args[2] - initial y offset
 void AnimDragonRageFirePlume(struct Sprite *sprite)
 {
-    ANIM_CMD_ARGS(relativeTo, x, y);
+    CMD_ARGS(relativeTo, x, y);
 
     if (cmd->relativeTo == ANIM_ATTACKER)
     {
@@ -472,7 +472,7 @@ void AnimDragonFireToTarget(struct Sprite *sprite)
 
 void AnimDragonDanceOrb(struct Sprite *sprite)
 {
-    ANIM_CMD_ARGS(angle);
+    CMD_ARGS(angle);
 
     u16 r5;
     u16 r0;
@@ -621,7 +621,7 @@ static void UpdateDragonDanceScanlineEffect(struct Task *task)
 
 void AnimOverheatFlame(struct Sprite *sprite)
 {
-    ANIM_CMD_ARGS(speed, unk1, unk2, duration, y);
+    CMD_ARGS(speed, unk1, unk2, duration, y);
 
     int yAmplitude = (cmd->unk2 * 3) / 5;
     sprite->x = GetBattlerSpriteCoord(gBattleAnimAttacker, BATTLER_COORD_X_2);
