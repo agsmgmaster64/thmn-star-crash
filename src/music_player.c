@@ -129,19 +129,27 @@ static const u8 *const sModeNames[MP3_MENU_COUNT] = {
     [MP3_MENU_RESET_ALL]   = COMPOUND_STRING("Reset All"),
 };
 
+#define DEFAULT_WILD_BATTLE_MUSIC      IS_FRLG ? MUS_ZGS_VS_WILD : MUS_WLD_VS_WILD
+#define DEFAULT_TRAINER_BATTLE_MUSIC   IS_FRLG ? MUS_ZGS_VS_TRAINER : MUS_ZGS_VS_AYA_REMATCH
+#define DEFAULT_GYM_BATTLE_MUSIC       IS_FRLG ? MUS_ZGS_VS_GYM_LEADER : MUS_ZGS_VS_EIKI
+#define DEFAULT_ELITE_4_BATTLE_MUSIC   IS_FRLG ? MUS_ZGS_VS_GYM_LEADER : MUS_VS_ELITE_FOUR
+#define DEFAULT_CHAMPION_BATTLE_MUSIC  IS_FRLG ? MUS_ZGS_VS_CHAMPION : MUS_ZGS_VS_MARISA_REMATCH
+#define DEFAULT_SURF_MUSIC             IS_FRLG ? MUS_ZGS_SURF : MUS_WLD_SURF
+#define DEFAULT_BIKE_MUSIC             IS_FRLG ? MUS_ZGS_CYCLING : MUS_CYCLING
+
 static const struct PlaylistMusicList sPlaylistMusicList[PLAYLIST_SET_STYLE_COUNT] =
 {
     [PLAYLIST_SET_STYLE_DEFAULT] =
     {
-        .wildBattleMusic = MUS_WLD_VS_WILD,
-        .trainerBattleMusic = MUS_ZGS_VS_AYA_REMATCH,
-        .gymLeaderBattleMusic = MUS_ZGS_VS_EIKI,
-        .eliteFourBattleMusic = MUS_VS_ELITE_FOUR,
-        .championBattleMusic = MUS_ZGS_VS_MARISA_REMATCH,
-        .surfMusic = MUS_WLD_SURF,
-        .bikeMusic = MUS_CYCLING,
+        .wildBattleMusic = DEFAULT_WILD_BATTLE_MUSIC,
+        .trainerBattleMusic = DEFAULT_TRAINER_BATTLE_MUSIC,
+        .gymLeaderBattleMusic = DEFAULT_GYM_BATTLE_MUSIC,
+        .eliteFourBattleMusic = DEFAULT_ELITE_4_BATTLE_MUSIC,
+        .championBattleMusic = DEFAULT_CHAMPION_BATTLE_MUSIC,
+        .surfMusic = DEFAULT_SURF_MUSIC,
+        .bikeMusic = DEFAULT_BIKE_MUSIC,
     },
-    [PLAYLIST_SET_STYLE_REGULAR] = // duplicate of first for ability to override to this set
+    [PLAYLIST_SET_STYLE_REGULAR] =
     {
         .wildBattleMusic = MUS_WLD_VS_WILD,
         .trainerBattleMusic = MUS_ZGS_VS_AYA_REMATCH,
@@ -671,6 +679,8 @@ u16 GetLegndaryWildBattleMusic(u16 species)
     case SPECIES_LAST_WORD_SUWAKO:
     case SPECIES_LAST_WORD_UTSUHO:
         return MUS_VS_KYOGRE_GROUDON;
+    case SPECIES_NORMAL_SARIEL:
+        return MUS_ZGS_VS_SARIEL;
     case SPECIES_REGIELEKI:
     case SPECIES_REGIDRAGO:
         return MUS_VS_REGI;
@@ -697,12 +707,15 @@ u16 GetTrainerBattleMusic(u8 trainerClass)
     case TRAINER_CLASS_MAGMA_ADMIN:
         return MUS_VS_AQUA_MAGMA;
     case TRAINER_CLASS_LEADER:
+    case TRAINER_CLASS_LEADER_FRLG:
         return sPlaylistMusicList[musicStyle].gymLeaderBattleMusic;
     case TRAINER_CLASS_CHAMPION:
+    case TRAINER_CLASS_CHAMPION_FRLG:
         return sPlaylistMusicList[musicStyle].championBattleMusic;
     case TRAINER_CLASS_RIVAL:
         return MUS_VS_RIVAL;
     case TRAINER_CLASS_ELITE_FOUR:
+    case TRAINER_CLASS_ELITE_FOUR_FRLG:
         return sPlaylistMusicList[musicStyle].eliteFourBattleMusic;
     case TRAINER_CLASS_SALON_MAIDEN:
     case TRAINER_CLASS_DOME_ACE:
@@ -740,6 +753,9 @@ void PlayVictoryMusic(u8 battleType)
             PlayBGM(MUS_VICTORY_AQUA_MAGMA);
             break;
         case TRAINER_CLASS_LEADER:
+        case TRAINER_CLASS_LEADER_FRLG:
+        case TRAINER_CLASS_ELITE_FOUR_FRLG:
+        case TRAINER_CLASS_CHAMPION_FRLG:
             PlayBGM(MUS_ZGS_VICTORY_GYM_LEADER);
             break;
         default:

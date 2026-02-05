@@ -131,6 +131,12 @@ static inline bool32 ShouldSpawnWaterOWE(void)
     return TestPlayerAvatarFlags(PLAYER_AVATAR_FLAG_SURFING | PLAYER_AVATAR_FLAG_UNDERWATER);
 }
 
+static inline u32 GetEncounterType(s32 x, s32 y)
+{
+    u32 metatileAttributes = MapGridGetMetatileAttributeAt(x, y, METATILE_ATTRIBUTES_ALL);
+    return ExtractMetatileAttribute(metatileAttributes, METATILE_ATTRIBUTE_ENCOUNTER_TYPE);
+}
+
 static bool32 CreateEnemyPartyOWE(u32 *speciesId, u32 *level, u32 *indexRoamerOutbreak, s32 x, s32 y);
 static bool32 OWE_DoesOWERoamerExist(void);
 static u32 GetOWERoamerStatusFromIndex(u32 indexRoamer);
@@ -356,6 +362,7 @@ static bool32 CreateEnemyPartyOWE(u32 *speciesId, u32 *level, u32 *indexRoamerOu
     enum TimeOfDay timeOfDay;
     u32 headerId = GetCurrentMapWildMonHeaderId();
     u32 metatileBehavior = MapGridGetMetatileBehaviorAt(x, y);
+    u32 encounterType = GetEncounterType(x, y);
 
     if (headerId == HEADER_NONE)
     {
@@ -386,7 +393,7 @@ static bool32 CreateEnemyPartyOWE(u32 *speciesId, u32 *level, u32 *indexRoamerOu
         return FALSE;
     }
 
-    if (MetatileBehavior_IsWaterWildEncounter(metatileBehavior))
+    if (encounterType == TILE_ENCOUNTER_WATER)
     {
         wildArea = WILD_AREA_WATER;
         timeOfDay = GetTimeOfDayForEncounters(headerId, wildArea);
@@ -421,7 +428,7 @@ static bool32 CreateEnemyPartyOWE(u32 *speciesId, u32 *level, u32 *indexRoamerOu
             *indexRoamerOutbreak = GetOWERoamerStatusFromIndex(gEncounteredRoamerIndex);
             return TRUE;
         }
-        else if (WE_OWE_FEEBAS_SPOTS && MetatileBehavior_IsWaterWildEncounter(metatileBehavior) && CheckFeebasAtCoords(x, y))
+        else if (WE_OWE_FEEBAS_SPOTS && MetatileBehavior_HasFeebas(metatileBehavior))
         {
             CreateWildMon(gWildFeebas.species, ChooseWildMonLevel(&gWildFeebas, 0, WILD_AREA_FISHING));
             if (WE_OWE_PREVENT_FEEBAS_DESPAWN)
@@ -429,7 +436,7 @@ static bool32 CreateEnemyPartyOWE(u32 *speciesId, u32 *level, u32 *indexRoamerOu
 
             return TRUE;
         }
-        else if (DoMassOutbreakEncounterTest() && MetatileBehavior_IsLandWildEncounter(metatileBehavior))
+        else if (DoMassOutbreakEncounterTest() && encounterType == TILE_ENCOUNTER_LAND)
         {
             SetUpMassOutbreakEncounter(0);
             *indexRoamerOutbreak = OWE_MASS_OUTBREAK_INDEX;
@@ -540,13 +547,13 @@ static bool32 StartWildBattleWithOWE_CheckDoubleBattle(struct ObjectEvent *owe, 
     enum WildPokemonArea wildArea;
     enum TimeOfDay timeOfDay;
     const struct WildPokemonInfo *wildMonInfo;
-    u32 metatileBehavior = MapGridGetMetatileBehaviorAt(owe->currentCoords.x, owe->currentCoords.y);
+    u32 encounterType = GetEncounterType(owe->currentCoords.x, owe->currentCoords.y);
 
     if (TryDoDoubleWildBattle())
     {
         struct Pokemon mon1 = gEnemyParty[0];
 
-        if (MetatileBehavior_IsWaterWildEncounter(metatileBehavior))
+        if (encounterType == TILE_ENCOUNTER_WATER)
         {
             wildArea = WILD_AREA_WATER;
             timeOfDay = GetTimeOfDayForEncounters(headerId, wildArea);
@@ -743,10 +750,10 @@ static u32 GetSpeciesByOWESpawnSlot(u32 spawnSlot)
 static bool32 TrySelectTileForOWE(s32* outX, s32* outY)
 {
     u32 elevation;
-    u32 tileBehavior;
     s16 playerX, playerY;
     s16 x, y;
     u32 closeDistance;
+    u32 curMetatileEncounterType;
     bool32 isEncounterTile = FALSE;
 
     // Spawn further away when surfing
@@ -813,11 +820,11 @@ static bool32 TrySelectTileForOWE(s32* outX, s32* outY)
     if (elevation == 0 || elevation == 15)
         return FALSE;
 
-    tileBehavior = MapGridGetMetatileBehaviorAt(x, y);
-    if (ShouldSpawnWaterOWE() && MetatileBehavior_IsWaterWildEncounter(tileBehavior))
+    curMetatileEncounterType = GetEncounterType(x, y);
+    if (ShouldSpawnWaterOWE() && curMetatileEncounterType == TILE_ENCOUNTER_WATER)
         isEncounterTile = TRUE;
 
-    if (!ShouldSpawnWaterOWE() && (MetatileBehavior_IsLandWildEncounter(tileBehavior) || MetatileBehavior_IsIndoorEncounter(tileBehavior)))
+    if (!ShouldSpawnWaterOWE() && curMetatileEncounterType == TILE_ENCOUNTER_LAND)
         isEncounterTile = TRUE;
 
     if (gMapHeader.mapLayoutId == LAYOUT_BATTLE_FRONTIER_BATTLE_PIKE_ROOM_WILD_MONS
@@ -850,9 +857,6 @@ static void SetSpeciesInfoForOWE(u32 *speciesId, bool32 *isShiny, bool32 *isFema
     *speciesId = GetMonData(&gEnemyParty[0], MON_DATA_SPECIES);
     SetOWEEncounterLevel(level, GetMonData(&gEnemyParty[0], MON_DATA_LEVEL));
     personality = GetMonData(&gEnemyParty[0], MON_DATA_PERSONALITY);
-
-    if (*speciesId == SPECIES_UNOWN)
-        *speciesId = GetUnownSpeciesId(personality);
 
     *isShiny = ComputePlayerShinyOdds(personality, READ_OTID_FROM_SAVE);
     if (GetGenderFromSpeciesAndPersonality(*speciesId, personality) == MON_FEMALE)
@@ -1386,24 +1390,19 @@ static bool32 CheckRestrictedOWEMovementMetatile(s32 xCurrent, s32 yCurrent, s32
 {
     if (!WE_OWE_RESTRICT_METATILE)
         return FALSE;
-    u32 metatileBehaviourCurrent = MapGridGetMetatileBehaviorAt(xCurrent, yCurrent);
-    u32 metatileBehaviourNew = MapGridGetMetatileBehaviorAt(xNew, yNew);
+    u32 encounterTypeCurrent = GetEncounterType(xCurrent, yCurrent);
+    u32 encounterTypeNew = GetEncounterType(xNew, yNew);
 
-    if (MetatileBehavior_IsLandWildEncounter(metatileBehaviourCurrent)
-     && MetatileBehavior_IsLandWildEncounter(metatileBehaviourNew))
+    if (encounterTypeCurrent == TILE_ENCOUNTER_LAND
+     && encounterTypeNew == TILE_ENCOUNTER_LAND)
         return FALSE;
 
-    if (MetatileBehavior_IsWaterWildEncounter(metatileBehaviourCurrent)
-     && MetatileBehavior_IsWaterWildEncounter(metatileBehaviourNew))
+    if (encounterTypeCurrent == TILE_ENCOUNTER_WATER
+     && encounterTypeNew == TILE_ENCOUNTER_WATER)
         return FALSE;
 
-    if (MetatileBehavior_IsIndoorEncounter(metatileBehaviourCurrent)
-     && MetatileBehavior_IsIndoorEncounter(metatileBehaviourNew))
-        return FALSE;
-
-    if (!MetatileBehavior_IsLandWildEncounter(metatileBehaviourCurrent)
-     && !MetatileBehavior_IsWaterWildEncounter(metatileBehaviourCurrent)
-     && !MetatileBehavior_IsIndoorEncounter(metatileBehaviourCurrent))
+    if (encounterTypeCurrent != TILE_ENCOUNTER_LAND
+     && encounterTypeCurrent != TILE_ENCOUNTER_WATER)
         return FALSE;
 
     return TRUE;
