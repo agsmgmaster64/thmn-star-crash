@@ -89,6 +89,7 @@
 #define FLDEFF_SMILEY_FACE_ICON          84
 #define FLDEFF_HALL_OF_FAME_RECORD_FRLG  85
 #define FLDEFF_PHOTO_FLASH               86
+#define FLDEFF_OW_ENCOUNTER_SPAWN_ANIM   87
 
 #define FLDEFFOBJ_SHADOW_S              0
 #define FLDEFFOBJ_SHADOW_M              1
@@ -137,6 +138,7 @@
 #define FLDEFFOBJ_ROCK_CLIMB_BLOB       44
 #define FLDEFFOBJ_ROCK_CLIMB_DUST       45
 #define FLDEFFOBJ_FALL_GRASS            46
+#define FLDEFFOBJ_SHINY_SPARKLE         47
 
 #define FLDEFF_PAL_TAG_CUT_GRASS          0x1000
 #define FLDEFF_PAL_TAG_SECRET_POWER_TREE  0x1003
