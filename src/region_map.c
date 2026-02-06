@@ -368,6 +368,16 @@ const struct RegionMapInfo gRegionMapInfos[] =
         .regionMapGfx = sRegionMapSevii67_Gfx,
         .regionMapTilemap = sRegionMapSevii67_Tilemap,
     },
+    [REGION_MAP_JOHTO]  =
+    {
+        .dexMapPalette = sPokedexAreaMapSevii67_Pal,
+        .dexMapGfx = sPokedexAreaMapSevii67_Gfx,
+        .dexMapTilemap = sPokedexAreaMapSevii67_Tilemap,
+        .dexMapPaletteSize = sizeof(sPokedexAreaMapSevii67_Pal),
+        .regionMapPalette = sRegionMapSevii67_Pal,
+        .regionMapGfx = sRegionMapSevii67_Gfx,
+        .regionMapTilemap = sRegionMapSevii67_Tilemap,
+    },
 };
 
 static const u8 sMapHealLocations[][3] =
@@ -1168,6 +1178,8 @@ enum RegionMapType GetRegionMapType(u32 mapSecId)
                 default:
                     return REGION_MAP_KANTO;
             }
+        case REGION_JOHTO:
+            return REGION_MAP_JOHTO;
         case REGION_HOENN:
         default:
             return REGION_MAP_HOENN;

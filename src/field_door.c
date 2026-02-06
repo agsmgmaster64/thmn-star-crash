@@ -425,22 +425,6 @@ static void BuildDoorTiles(u16 *tiles, u16 tileNum, const u8 *paletteNums)
     }
 }
 
-static void DrawCurrentDoorAnimFrameFrlg(const struct DoorGraphics *gfx, int x, int y, const u8 *paletteNums)
-{
-    u16 tiles[8];
-    if (gfx->size == 1)
-        BuildDoorTiles(tiles, DOOR_TILE_START_SIZE1, paletteNums);
-
-    else
-    {
-        BuildDoorTiles(tiles, DOOR_TILE_START_SIZE1, paletteNums);
-        DrawDoorMetatileAt(x, y - 1, tiles);
-        BuildDoorTiles(tiles, DOOR_TILE_START_SIZE1 + 4, &paletteNums[4]);
-    }
-
-    DrawDoorMetatileAt(x, y, tiles);
-}
-
 static void DrawCurrentDoorAnimFrame(const struct DoorGraphics *gfx, u32 x, u32 y, const u8 *paletteNums)
 {
     u16 tiles[24];
@@ -481,26 +465,24 @@ static void DrawCurrentDoorAnimFrame(const struct DoorGraphics *gfx, u32 x, u32 
     }
 }
 
-static void DrawClosedDoorTilesFrlg(const struct DoorGraphics *gfx, int x, int y)
-{
-    if (gfx->size == 1)
-        CurrentMapDrawMetatileAt(x, y);
-    else
-    {
-        CurrentMapDrawMetatileAt(x, y);
-        CurrentMapDrawMetatileAt(x, y - 1);
-    }
-}
-
 static void DrawClosedDoorTiles(const struct DoorGraphics *gfx, u32 x, u32 y)
 {
-    CurrentMapDrawMetatileAt(x, y - 1);
-    CurrentMapDrawMetatileAt(x, y);
-
-    if (gfx->size == DOOR_SIZE_2x2)
+    switch (gfx->size)
     {
+    case DOOR_SIZE_2x2:
         CurrentMapDrawMetatileAt(x + 1, y - 1);
         CurrentMapDrawMetatileAt(x + 1, y);
+        CurrentMapDrawMetatileAt(x, y - 1);
+        CurrentMapDrawMetatileAt(x, y);
+        break;
+    case DOOR_SIZE_1x2:
+        CurrentMapDrawMetatileAt(x, y - 1);
+        CurrentMapDrawMetatileAt(x, y);
+        break;
+    default:
+    case DOOR_SIZE_1x1:
+        CurrentMapDrawMetatileAt(x, y);
+        break;
     }
 }
 

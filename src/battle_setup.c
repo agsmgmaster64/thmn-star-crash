@@ -2239,7 +2239,7 @@ void SetNuzlockeChecks(void)
     {
         gNuzlockeIsSpeciesClauseActive = NuzlockeIsCaptureBlockedBySpeciesClause(GetMonData(&gEnemyParty[0], MON_DATA_SPECIES));
 
-        gNuzlockeIsCaptureBlocked = NuzlockeFlagGet(NuzlockeGetCurrentRegionMapSectionId());
+        gNuzlockeIsCaptureBlocked = NuzlockeFlagGet(GetCurrentRegionMapSectionId());
 
         if (IsMonShiny(&gEnemyParty[0]) && gSaveBlock2Ptr->tx_Nuzlocke_ShinyClause)
         {

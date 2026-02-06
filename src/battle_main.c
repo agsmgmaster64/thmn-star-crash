@@ -5720,7 +5720,7 @@ static void HandleEndTurn_FinishBattle(void)
                                         | BATTLE_TYPE_RECORDED_LINK)))
             {
                 if (!gNuzlockeIsSpeciesClauseActive)
-                    NuzlockeFlagSet(NuzlockeGetCurrentRegionMapSectionId());
+                    NuzlockeFlagSet(GetCurrentRegionMapSectionId());
             }
             gNuzlockeIsCaptureBlocked = FALSE;
             gNuzlockeIsSpeciesClauseActive = FALSE;
