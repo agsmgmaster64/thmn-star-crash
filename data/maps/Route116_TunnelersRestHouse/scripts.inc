@@ -1330,43 +1330,43 @@ Route116_TunnelersRestHouse_EventScript_UFOTraderTutor::
 	switch VAR_RESULT
 # 598 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	case 0, Route116_TunnelersRestHouse_EventScript_UFOTraderTutor_6
-# 601 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 600 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	case 1, Route116_TunnelersRestHouse_EventScript_UFOTraderTutor_7
 Route116_TunnelersRestHouse_EventScript_UFOTraderTutor_4:
-# 605 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 603 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	compare VAR_RESULT, YES
 	goto_if_ne Route116_TunnelersRestHouse_EventScript_UFOTraderTutor_9
-# 608 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 606 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	msgbox Route116_TunnelersRestHouse_Text_UFOTraderSeePuppet
-# 609 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 607 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	special ChooseMonForMoveRelearner
-# 610 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 608 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	waitstate
-# 611 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 609 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	compare VAR_0x8004, PARTY_NOTHING_CHOSEN
 	goto_if_eq Route116_TunnelersRestHouse_EventScript_UFOTraderTutor_12
-# 614 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 612 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	special IsSelectedMonEgg
-# 615 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 613 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	compare VAR_RESULT, TRUE
 	goto_if_eq Route116_TunnelersRestHouse_EventScript_UFOTraderTutor_15
-# 619 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 617 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	compare VAR_0x8005, 0
 	goto_if_eq Route116_TunnelersRestHouse_EventScript_UFOTraderTutor_18
-# 623 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 621 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	special TeachMoveRelearnerMove
-# 624 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 622 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	waitstate
-# 625 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 623 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	compare VAR_0x8004, 0
 	goto_if_eq Route116_TunnelersRestHouse_EventScript_UFOTraderTutor_21
-# 628 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 626 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	msgbox Route116_TunnelersRestHouse_EventScript_UFOTraderTutor_Text_7
-# 629 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 627 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	removeitem ITEM_BLUE_UFO
-# 630 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 628 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	bufferitemname STR_VAR_1, ITEM_BLUE_UFO
-# 631 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 629 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	msgbox Route116_TunnelersRestHouse_Text_TakeUfo
 	return
 
@@ -1375,15 +1375,11 @@ Route116_TunnelersRestHouse_EventScript_UFOTraderTutor_2:
 
 Route116_TunnelersRestHouse_EventScript_UFOTraderTutor_6:
 # 599 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
-	setvar VAR_MOVE_MANAGER, MOVE_REMINDER_LEARN_ALL_MOVES
-# 600 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	msgbox Route116_TunnelersRestHouse_EventScript_UFOTraderTutor_Text_3, MSGBOX_YESNO
 	goto Route116_TunnelersRestHouse_EventScript_UFOTraderTutor_4
 
 Route116_TunnelersRestHouse_EventScript_UFOTraderTutor_7:
-# 602 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
-	setvar VAR_MOVE_MANAGER, MOVE_TUTOR_EGG_MOVES
-# 603 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 601 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	msgbox Route116_TunnelersRestHouse_EventScript_UFOTraderTutor_Text_4, MSGBOX_YESNO
 	goto Route116_TunnelersRestHouse_EventScript_UFOTraderTutor_4
 
@@ -1394,12 +1390,12 @@ Route116_TunnelersRestHouse_EventScript_UFOTraderTutor_12:
 	return
 
 Route116_TunnelersRestHouse_EventScript_UFOTraderTutor_15:
-# 616 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 614 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	msgbox Route116_TunnelersRestHouse_EventScript_UFOTraderTutor_Text_5
 	return
 
 Route116_TunnelersRestHouse_EventScript_UFOTraderTutor_18:
-# 620 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 618 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	msgbox Route116_TunnelersRestHouse_EventScript_UFOTraderTutor_Text_6
 	return
 
@@ -1408,24 +1404,24 @@ Route116_TunnelersRestHouse_EventScript_UFOTraderTutor_21:
 
 
 Route116_TunnelersRestHouse_EventScript_UFOTraderPerfectAllIV::
-# 636 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 634 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	msgbox Route116_TunnelersRestHouse_Text_UFOTraderSeePuppet
-# 637 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 635 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	special ChoosePartyMon
-# 638 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 636 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	waitstate
-# 639 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 637 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	compare VAR_0x8004, PARTY_NOTHING_CHOSEN
 	goto_if_eq Route116_TunnelersRestHouse_EventScript_UFOTraderPerfectAllIV_2
-# 642 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 640 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	special IsSelectedMonEgg
-# 643 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 641 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	compare VAR_RESULT, TRUE
 	goto_if_eq Route116_TunnelersRestHouse_EventScript_UFOTraderPerfectAllIV_5
 Route116_TunnelersRestHouse_EventScript_UFOTraderPerfectAllIV_4:
-# 646 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 644 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	msgbox Route116_TunnelersRestHouse_Text_UFOTraderHPPerfect, MSGBOX_YESNO
-# 647 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 645 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	compare VAR_RESULT, YES
 	goto_if_ne Route116_TunnelersRestHouse_EventScript_UFOTraderPerfectAllIV_8
 	canhypertrain STAT_HP, VAR_0x8004
@@ -1433,25 +1429,25 @@ Route116_TunnelersRestHouse_EventScript_UFOTraderPerfectAllIV_4:
 	compare VAR_RESULT, 0
 	goto_if_eq Route116_TunnelersRestHouse_EventScript_UFOTraderPerfectAllIV_13
 Route116_TunnelersRestHouse_EventScript_UFOTraderPerfectAllIV_10:
-# 654 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 652 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	hypertrain STAT_HP, VAR_0x8004
-# 655 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 653 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	hypertrain STAT_ATK, VAR_0x8004
-# 656 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 654 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	hypertrain STAT_DEF, VAR_0x8004
-# 657 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 655 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	hypertrain STAT_SPEED, VAR_0x8004
-# 658 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 656 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	hypertrain STAT_SPATK, VAR_0x8004
-# 659 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 657 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	hypertrain STAT_SPDEF, VAR_0x8004
-# 660 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 658 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	msgbox Route116_TunnelersRestHouse_EventScript_UFOTraderPerfectAllIV_Text_1
-# 661 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 659 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	removeitem ITEM_BLUE_UFO
-# 662 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 660 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	bufferitemname STR_VAR_1, ITEM_BLUE_UFO
-# 663 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 661 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	msgbox Route116_TunnelersRestHouse_Text_TakeUfo
 	return
 
@@ -1459,7 +1455,7 @@ Route116_TunnelersRestHouse_EventScript_UFOTraderPerfectAllIV_2:
 	return
 
 Route116_TunnelersRestHouse_EventScript_UFOTraderPerfectAllIV_5:
-# 644 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 642 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	goto Route116_TunnelersRestHouse_EventScript_UFOTraderShowEgg
 	goto Route116_TunnelersRestHouse_EventScript_UFOTraderPerfectAllIV_4
 
@@ -1467,7 +1463,7 @@ Route116_TunnelersRestHouse_EventScript_UFOTraderPerfectAllIV_8:
 	return
 
 Route116_TunnelersRestHouse_EventScript_UFOTraderPerfectAllIV_11:
-# 651 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 649 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	msgbox Route116_TunnelersRestHouse_EventScript_UFOTraderPerfectAllIV_Text_0
 	return
 
@@ -1508,7 +1504,7 @@ Route116_TunnelersRestHouse_EventScript_UFOTraderPerfectAllIV_20:
 
 
 Route116_TunnelersRestHouse_EventScript_UFOTraderShowEgg::
-# 668 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 666 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	msgbox Route116_TunnelersRestHouse_EventScript_UFOTraderShowEgg_Text_0
 	return
 
@@ -1529,9 +1525,9 @@ Route116_TunnelersRestHouse_EventScript_UFOTraderExchangeUFO_6:
 	compare VAR_RESULT, 0
 	goto_if_eq Route116_TunnelersRestHouse_EventScript_UFOTraderExchangeUFO_13
 Route116_TunnelersRestHouse_EventScript_UFOTraderExchangeUFO_11:
-# 682 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 680 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	message Route116_TunnelersRestHouse_EventScript_UFOTraderExchangeUFO_Text_0
-# 683 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 681 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	waitmessage
 	checkitem ITEM_GREEN_UFO, 2
 # 0 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
@@ -1548,26 +1544,26 @@ Route116_TunnelersRestHouse_EventScript_UFOTraderExchangeUFO_19:
 	compare VAR_RESULT, 0
 	goto_if_ne Route116_TunnelersRestHouse_EventScript_UFOTraderExchangeUFO_23
 Route116_TunnelersRestHouse_EventScript_UFOTraderExchangeUFO_22:
-# 693 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 691 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	dynmultipush Route116_TunnelersRestHouse_Text_Nevermind, 4
-# 694 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 692 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	dynmultistack 0, 0, FALSE, 5, FALSE, 0, NULL
-# 695 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 693 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	compare VAR_RESULT, 2
 	goto_if_gt Route116_TunnelersRestHouse_EventScript_UFOTraderExchangeUFO_26
-# 698 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 696 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	switch VAR_RESULT
-# 699 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 697 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	case 0, Route116_TunnelersRestHouse_EventScript_UFOTraderExchangeUFO_30
-# 701 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 699 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	case 1, Route116_TunnelersRestHouse_EventScript_UFOTraderExchangeUFO_31
-# 703 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 701 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	case 2, Route116_TunnelersRestHouse_EventScript_UFOTraderExchangeUFO_32
 Route116_TunnelersRestHouse_EventScript_UFOTraderExchangeUFO_28:
 	return
 
 Route116_TunnelersRestHouse_EventScript_UFOTraderExchangeUFO_2:
-# 674 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 672 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	goto Route116_TunnelersRestHouse_EventScript_UFOTraderExchangeGreenUFO
 	goto Route116_TunnelersRestHouse_EventScript_UFOTraderExchangeUFO_1
 
@@ -1579,7 +1575,7 @@ Route116_TunnelersRestHouse_EventScript_UFOTraderExchangeUFO_3:
 	goto Route116_TunnelersRestHouse_EventScript_UFOTraderExchangeUFO_1
 
 Route116_TunnelersRestHouse_EventScript_UFOTraderExchangeUFO_7:
-# 677 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 675 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	goto Route116_TunnelersRestHouse_EventScript_UFOTraderExchangeRedUFO
 	goto Route116_TunnelersRestHouse_EventScript_UFOTraderExchangeUFO_6
 
@@ -1591,7 +1587,7 @@ Route116_TunnelersRestHouse_EventScript_UFOTraderExchangeUFO_8:
 	goto Route116_TunnelersRestHouse_EventScript_UFOTraderExchangeUFO_6
 
 Route116_TunnelersRestHouse_EventScript_UFOTraderExchangeUFO_12:
-# 680 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 678 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	goto Route116_TunnelersRestHouse_EventScript_UFOTraderExchangeBlueUFO
 	goto Route116_TunnelersRestHouse_EventScript_UFOTraderExchangeUFO_11
 
@@ -1603,17 +1599,17 @@ Route116_TunnelersRestHouse_EventScript_UFOTraderExchangeUFO_13:
 	goto Route116_TunnelersRestHouse_EventScript_UFOTraderExchangeUFO_11
 
 Route116_TunnelersRestHouse_EventScript_UFOTraderExchangeUFO_17:
-# 685 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 683 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	dynmultipush Route116_TunnelersRestHouse_Text_GreenUFO, 0
 	goto Route116_TunnelersRestHouse_EventScript_UFOTraderExchangeUFO_16
 
 Route116_TunnelersRestHouse_EventScript_UFOTraderExchangeUFO_20:
-# 688 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 686 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	dynmultipush Route116_TunnelersRestHouse_Text_RedUFO, 1
 	goto Route116_TunnelersRestHouse_EventScript_UFOTraderExchangeUFO_19
 
 Route116_TunnelersRestHouse_EventScript_UFOTraderExchangeUFO_23:
-# 691 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 689 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	dynmultipush Route116_TunnelersRestHouse_Text_BlueUFO, 2
 	goto Route116_TunnelersRestHouse_EventScript_UFOTraderExchangeUFO_22
 
@@ -1621,25 +1617,25 @@ Route116_TunnelersRestHouse_EventScript_UFOTraderExchangeUFO_26:
 	return
 
 Route116_TunnelersRestHouse_EventScript_UFOTraderExchangeUFO_30:
-# 700 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 698 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	goto Route116_TunnelersRestHouse_EventScript_UFOTraderExchangeGreenUFO
 	goto Route116_TunnelersRestHouse_EventScript_UFOTraderExchangeUFO_28
 
 Route116_TunnelersRestHouse_EventScript_UFOTraderExchangeUFO_31:
-# 702 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 700 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	goto Route116_TunnelersRestHouse_EventScript_UFOTraderExchangeRedUFO
 	goto Route116_TunnelersRestHouse_EventScript_UFOTraderExchangeUFO_28
 
 Route116_TunnelersRestHouse_EventScript_UFOTraderExchangeUFO_32:
-# 704 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 702 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	goto Route116_TunnelersRestHouse_EventScript_UFOTraderExchangeBlueUFO
 	goto Route116_TunnelersRestHouse_EventScript_UFOTraderExchangeUFO_28
 
 
 Route116_TunnelersRestHouse_EventScript_UFOTraderExchangeGreenUFO::
-# 710 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 708 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	msgbox Route116_TunnelersRestHouse_EventScript_UFOTraderExchangeGreenUFO_Text_0, MSGBOX_YESNO
-# 711 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 709 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	compare VAR_RESULT, YES
 	goto_if_ne Route116_TunnelersRestHouse_EventScript_UFOTraderExchangeGreenUFO_2
 	checkitemspace ITEM_RED_UFO
@@ -1647,19 +1643,19 @@ Route116_TunnelersRestHouse_EventScript_UFOTraderExchangeGreenUFO::
 	compare VAR_RESULT, 0
 	goto_if_eq Route116_TunnelersRestHouse_EventScript_UFOTraderExchangeGreenUFO_5
 Route116_TunnelersRestHouse_EventScript_UFOTraderExchangeGreenUFO_4:
-# 717 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 715 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	bufferitemname STR_VAR_1, ITEM_RED_UFO
-# 718 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 716 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	msgbox Route116_TunnelersRestHouse_Text_UFOTraderGiveItem
-# 719 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 717 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	hidespeakername
-# 720 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 718 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	giveitem ITEM_RED_UFO
-# 721 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 719 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	removeitem ITEM_GREEN_UFO, 2
-# 722 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 720 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	bufferitemnameplural STR_VAR_1, ITEM_GREEN_UFO, 2
-# 723 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 721 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	msgbox Route116_TunnelersRestHouse_Text_TakeUfo
 	return
 
@@ -1667,7 +1663,7 @@ Route116_TunnelersRestHouse_EventScript_UFOTraderExchangeGreenUFO_2:
 	return
 
 Route116_TunnelersRestHouse_EventScript_UFOTraderExchangeGreenUFO_5:
-# 715 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 713 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	goto Route116_TunnelersRestHouse_EventScript_UFOTraderNotEnoughSpace
 	goto Route116_TunnelersRestHouse_EventScript_UFOTraderExchangeGreenUFO_4
 
@@ -1678,32 +1674,32 @@ Route116_TunnelersRestHouse_EventScript_UFOTraderExchangeRedUFO::
 	compare VAR_RESULT, 0
 	goto_if_eq Route116_TunnelersRestHouse_EventScript_UFOTraderExchangeRedUFO_2
 Route116_TunnelersRestHouse_EventScript_UFOTraderExchangeRedUFO_1:
-# 731 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 729 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	message Route116_TunnelersRestHouse_EventScript_UFOTraderExchangeRedUFO_Text_0
-# 732 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 730 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	waitmessage
-# 733 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 731 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	dynmultipush Route116_TunnelersRestHouse_Text_GreenUFO, 0
-# 734 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 732 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	dynmultipush Route116_TunnelersRestHouse_Text_BlueUFO, 2
-# 735 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 733 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	dynmultipush Route116_TunnelersRestHouse_Text_Nevermind, 4
-# 736 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 734 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	dynmultistack 0, 0, FALSE, 5, FALSE, 0, NULL
-# 737 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 735 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	compare VAR_RESULT, 2
 	goto_if_gt Route116_TunnelersRestHouse_EventScript_UFOTraderExchangeRedUFO_5
-# 740 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 738 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	switch VAR_RESULT
-# 741 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 739 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	case 0, Route116_TunnelersRestHouse_EventScript_UFOTraderExchangeRedUFO_9
-# 743 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 741 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	case 2, Route116_TunnelersRestHouse_EventScript_UFOTraderExchangeRedUFO_10
 Route116_TunnelersRestHouse_EventScript_UFOTraderExchangeRedUFO_7:
 	return
 
 Route116_TunnelersRestHouse_EventScript_UFOTraderExchangeRedUFO_2:
-# 729 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 727 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	goto Route116_TunnelersRestHouse_EventScript_UFOTraderExchangeRedUFOForGreen
 	goto Route116_TunnelersRestHouse_EventScript_UFOTraderExchangeRedUFO_1
 
@@ -1711,20 +1707,20 @@ Route116_TunnelersRestHouse_EventScript_UFOTraderExchangeRedUFO_5:
 	return
 
 Route116_TunnelersRestHouse_EventScript_UFOTraderExchangeRedUFO_9:
-# 742 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 740 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	goto Route116_TunnelersRestHouse_EventScript_UFOTraderExchangeRedUFOForGreen
 	goto Route116_TunnelersRestHouse_EventScript_UFOTraderExchangeRedUFO_7
 
 Route116_TunnelersRestHouse_EventScript_UFOTraderExchangeRedUFO_10:
-# 744 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 742 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	goto Route116_TunnelersRestHouse_EventScript_UFOTraderExchangeRedUFOForBlue
 	goto Route116_TunnelersRestHouse_EventScript_UFOTraderExchangeRedUFO_7
 
 
 Route116_TunnelersRestHouse_EventScript_UFOTraderExchangeRedUFOForGreen::
-# 750 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 748 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	msgbox Route116_TunnelersRestHouse_EventScript_UFOTraderExchangeRedUFOForGreen_Text_0, MSGBOX_YESNO
-# 751 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 749 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	compare VAR_RESULT, YES
 	goto_if_ne Route116_TunnelersRestHouse_EventScript_UFOTraderExchangeRedUFOForGreen_2
 	checkitemspace ITEM_GREEN_UFO, 2
@@ -1732,19 +1728,19 @@ Route116_TunnelersRestHouse_EventScript_UFOTraderExchangeRedUFOForGreen::
 	compare VAR_RESULT, 0
 	goto_if_eq Route116_TunnelersRestHouse_EventScript_UFOTraderExchangeRedUFOForGreen_5
 Route116_TunnelersRestHouse_EventScript_UFOTraderExchangeRedUFOForGreen_4:
-# 757 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 755 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	bufferitemnameplural STR_VAR_1, ITEM_GREEN_UFO, 2
-# 758 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 756 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	msgbox Route116_TunnelersRestHouse_Text_UFOTraderGiveItem
-# 759 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 757 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	hidespeakername
-# 760 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 758 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	giveitem ITEM_GREEN_UFO, 2
-# 761 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 759 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	removeitem ITEM_RED_UFO
-# 762 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 760 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	bufferitemname STR_VAR_1, ITEM_RED_UFO
-# 763 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 761 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	msgbox Route116_TunnelersRestHouse_Text_TakeUfo
 	return
 
@@ -1752,15 +1748,15 @@ Route116_TunnelersRestHouse_EventScript_UFOTraderExchangeRedUFOForGreen_2:
 	return
 
 Route116_TunnelersRestHouse_EventScript_UFOTraderExchangeRedUFOForGreen_5:
-# 755 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 753 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	goto Route116_TunnelersRestHouse_EventScript_UFOTraderNotEnoughSpace
 	goto Route116_TunnelersRestHouse_EventScript_UFOTraderExchangeRedUFOForGreen_4
 
 
 Route116_TunnelersRestHouse_EventScript_UFOTraderExchangeRedUFOForBlue::
-# 768 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 766 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	msgbox Route116_TunnelersRestHouse_EventScript_UFOTraderExchangeRedUFOForBlue_Text_0, MSGBOX_YESNO
-# 769 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 767 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	compare VAR_RESULT, YES
 	goto_if_ne Route116_TunnelersRestHouse_EventScript_UFOTraderExchangeRedUFOForBlue_2
 	checkitemspace ITEM_BLUE_UFO
@@ -1768,19 +1764,19 @@ Route116_TunnelersRestHouse_EventScript_UFOTraderExchangeRedUFOForBlue::
 	compare VAR_RESULT, 0
 	goto_if_eq Route116_TunnelersRestHouse_EventScript_UFOTraderExchangeRedUFOForBlue_5
 Route116_TunnelersRestHouse_EventScript_UFOTraderExchangeRedUFOForBlue_4:
-# 775 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 773 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	bufferitemname STR_VAR_1, ITEM_BLUE_UFO
-# 776 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 774 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	msgbox Route116_TunnelersRestHouse_Text_UFOTraderGiveItem
-# 777 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 775 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	hidespeakername
-# 778 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 776 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	giveitem ITEM_BLUE_UFO
-# 779 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 777 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	removeitem ITEM_RED_UFO, 2
-# 780 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 778 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	bufferitemnameplural STR_VAR_1, ITEM_RED_UFO, 2
-# 781 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 779 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	msgbox Route116_TunnelersRestHouse_Text_TakeUfo
 	return
 
@@ -1788,15 +1784,15 @@ Route116_TunnelersRestHouse_EventScript_UFOTraderExchangeRedUFOForBlue_2:
 	return
 
 Route116_TunnelersRestHouse_EventScript_UFOTraderExchangeRedUFOForBlue_5:
-# 773 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 771 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	goto Route116_TunnelersRestHouse_EventScript_UFOTraderNotEnoughSpace
 	goto Route116_TunnelersRestHouse_EventScript_UFOTraderExchangeRedUFOForBlue_4
 
 
 Route116_TunnelersRestHouse_EventScript_UFOTraderExchangeBlueUFO::
-# 786 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 784 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	msgbox Route116_TunnelersRestHouse_EventScript_UFOTraderExchangeBlueUFO_Text_0, MSGBOX_YESNO
-# 787 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 785 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	compare VAR_RESULT, YES
 	goto_if_ne Route116_TunnelersRestHouse_EventScript_UFOTraderExchangeBlueUFO_2
 	checkitemspace ITEM_RED_UFO, 2
@@ -1804,19 +1800,19 @@ Route116_TunnelersRestHouse_EventScript_UFOTraderExchangeBlueUFO::
 	compare VAR_RESULT, 0
 	goto_if_eq Route116_TunnelersRestHouse_EventScript_UFOTraderExchangeBlueUFO_5
 Route116_TunnelersRestHouse_EventScript_UFOTraderExchangeBlueUFO_4:
-# 793 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 791 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	bufferitemnameplural STR_VAR_1, ITEM_RED_UFO, 2
-# 794 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 792 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	msgbox Route116_TunnelersRestHouse_Text_UFOTraderGiveItem
-# 795 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 793 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	hidespeakername
-# 796 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 794 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	giveitem ITEM_RED_UFO, 2
-# 797 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 795 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	removeitem ITEM_BLUE_UFO
-# 798 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 796 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	bufferitemname STR_VAR_1, ITEM_BLUE_UFO
-# 799 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 797 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	msgbox Route116_TunnelersRestHouse_Text_TakeUfo
 	return
 
@@ -1824,166 +1820,166 @@ Route116_TunnelersRestHouse_EventScript_UFOTraderExchangeBlueUFO_2:
 	return
 
 Route116_TunnelersRestHouse_EventScript_UFOTraderExchangeBlueUFO_5:
-# 791 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 789 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	goto Route116_TunnelersRestHouse_EventScript_UFOTraderNotEnoughSpace
 	goto Route116_TunnelersRestHouse_EventScript_UFOTraderExchangeBlueUFO_4
 
 
-# 1015 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 1013 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 Route116_TunnelersRestHouse_Movement_PlayerMoveRightToFront:
+# 1014 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+	walk_down
+# 1015 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+	walk_right
 # 1016 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
-	walk_down
-# 1017 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
-	walk_right
-# 1018 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	face_up
 	step_end
 
-# 1021 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 1019 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 Route116_TunnelersRestHouse_Movement_PlayerMoveLeftToFront:
+# 1020 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+	walk_down
+# 1021 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+	walk_left
 # 1022 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
-	walk_down
-# 1023 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
-	walk_left
-# 1024 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	face_up
 	step_end
 
-# 1027 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 1025 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 Route116_TunnelersRestHouse_Movement_PlayerMoveTheWayToFront:
-# 1028 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 1026 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	walk_left
-# 1029 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 1027 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	walk_down
-# 1030 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 1028 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	walk_right
-# 1031 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 1029 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	face_up
 	step_end
 
-# 1034 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 1032 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 
-# 1035 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 1033 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 Route116_TunnelersRestHouse_MapScripts::
-# 1036 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 1034 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	map_script MAP_SCRIPT_ON_TRANSITION, Route116_TunnelersRestHouse_OnTransition
-# 1037 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 1035 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	.byte 0
-# 1038 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 1036 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 
-# 1039 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 1037 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 Route116_TunnelersRestHouse_OnTransition:
-# 1040 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 1038 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	setflag FLAG_LANDMARK_TUNNELERS_REST_HOUSE
+# 1039 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+	end
+# 1040 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+
 # 1041 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
-	end
-# 1042 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
-
-# 1043 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 Route116_TunnelersRestHouse_EventScript_Tunneler1::
-# 1044 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 1042 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	msgbox Route116_TunnelersRestHouse_Text_WeHadToStopBoring, MSGBOX_NPC
+# 1043 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+	end
+# 1044 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+
 # 1045 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
-	end
-# 1046 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
-
-# 1047 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 Route116_TunnelersRestHouse_EventScript_Tunneler2::
-# 1048 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 1046 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	msgbox Route116_TunnelersRestHouse_Text_ManDiggingHisWayToVerdanturf, MSGBOX_NPC
+# 1047 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+	end
+# 1048 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+
 # 1049 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
-	end
-# 1050 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
-
-# 1051 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 Route116_TunnelersRestHouse_EventScript_Tunneler3::
-# 1052 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 1050 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	lock
-# 1053 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 1051 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	faceplayer
-# 1054 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 1052 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	goto_if_set FLAG_RUSTURF_TUNNEL_OPENED, Route116_TunnelersRestHouse_EventScript_TunnelOpened
-# 1055 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 1053 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	msgbox Route116_TunnelersRestHouse_Text_GetToVerdanturfWithoutTunnel, MSGBOX_DEFAULT
+# 1054 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+	release
+# 1055 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+	end
 # 1056 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
-	release
+
 # 1057 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
-	end
-# 1058 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
-
-# 1059 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 Route116_TunnelersRestHouse_EventScript_TunnelOpened::
-# 1060 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 1058 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	msgbox Route116_TunnelersRestHouse_Text_TunnelHasGoneThrough, MSGBOX_DEFAULT
-# 1061 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 1059 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	release
-# 1062 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 1060 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	end
-# 1063 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 1061 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 
-# 1064 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 1062 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 Route116_TunnelersRestHouse_Text_WeHadToStopBoring:
-# 1065 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 1063 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	.string "That RUSTURF TUNNEL there…\p"
-# 1066 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 1064 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	.string "At first, we had a huge work crew boring\n"
-# 1067 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 1065 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	.string "through rock with the latest machinery.\l"
-# 1068 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 1066 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	.string "But, we had to stop.\p"
-# 1069 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 1067 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	.string "It turns out that we would have had\n"
-# 1070 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 1068 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	.string "a negative effect on wild POKéMON in\l"
-# 1071 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 1069 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	.string "the area.\p"
-# 1072 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 1070 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	.string "So, we've got nothing to do but loll\n"
-# 1073 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 1071 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	.string "around here doing nothing.$"
-# 1074 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 1072 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 
-# 1075 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 1073 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 Route116_TunnelersRestHouse_Text_ManDiggingHisWayToVerdanturf:
-# 1076 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 1074 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	.string "There's a man digging his way to\n"
-# 1077 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 1075 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	.string "VERDANTURF all by his lonesome.\l"
-# 1078 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 1076 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	.string "He's desperate to get through.\p"
-# 1079 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 1077 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	.string "He says that if he digs little by little\n"
-# 1080 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 1078 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	.string "without using machines, he won't\l"
-# 1081 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 1079 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	.string "disturb POKéMON, and he'll avoid\l"
-# 1082 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 1080 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	.string "harming the natural environment.\p"
-# 1083 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 1081 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	.string "I wonder if he made it through yet.$"
-# 1084 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 1082 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 
-# 1085 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 1083 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 Route116_TunnelersRestHouse_Text_GetToVerdanturfWithoutTunnel:
-# 1086 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 1084 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	.string "To get to VERDANTURF without using\n"
-# 1087 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 1085 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	.string "this TUNNEL, you'd have to cross the\l"
-# 1088 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 1086 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	.string "sea to DEWFORD, sail on to SLATEPORT,\l"
-# 1089 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 1087 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	.string "then travel through MAUVILLE.$"
-# 1090 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 1088 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 
-# 1091 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 1089 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 Route116_TunnelersRestHouse_Text_TunnelHasGoneThrough:
-# 1092 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 1090 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	.string "Did you hear? The TUNNEL to VERDANTURF\n"
-# 1093 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 1091 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	.string "has gone through!\p"
-# 1094 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 1092 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	.string "Sometimes, if you hope strongly enough,\n"
-# 1095 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 1093 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	.string "dreams do come true.$"
 
 Route116_TunnelersRestHouse_EventScript_UFOTrader_Text_0:
@@ -2146,119 +2142,119 @@ Route116_TunnelersRestHouse_EventScript_UFOTraderTutor_Text_2:
 	.string "Egg Moves$"
 
 Route116_TunnelersRestHouse_EventScript_UFOTraderTutor_Text_3:
-# 600 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 599 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	.string "{SPEAKER NAME_UFO_TRADER}So you want me to teach a Puppet any\n"
 	.string "move it naturally learns?$"
 
 Route116_TunnelersRestHouse_EventScript_UFOTraderTutor_Text_4:
-# 603 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 601 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	.string "{SPEAKER NAME_UFO_TRADER}So you want me to teach a Puppet an egg\n"
 	.string "move?$"
 
 Route116_TunnelersRestHouse_EventScript_UFOTraderTutor_Text_5:
-# 616 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 614 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	.string "{SPEAKER NAME_UFO_TRADER}That's an egg. It hasn't even hatched\n"
 	.string "for me to be able to teach any moves at\l"
 	.string "all!$"
 
 Route116_TunnelersRestHouse_EventScript_UFOTraderTutor_Text_6:
-# 620 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 618 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	.string "{SPEAKER NAME_UFO_TRADER}Hmm, this Puppet doesn't have any moves\n"
 	.string "I can teach of this specific kind.\p"
 	.string "Sorry, I wanna be fair with getting your\n"
 	.string "UFOs at least.$"
 
 Route116_TunnelersRestHouse_EventScript_UFOTraderTutor_Text_7:
-# 628 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 626 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	.string "{SPEAKER NAME_UFO_TRADER}And there, the move is now taught to\n"
 	.string "your Puppet!$"
 
 Route116_TunnelersRestHouse_EventScript_UFOTraderPerfectAllIV_Text_0:
-# 651 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 649 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	.string "{SPEAKER NAME_UFO_TRADER}Hmm, it seems like this Puppet has\n"
 	.string "already reached its max potential\l"
 	.string "already.$"
 
 Route116_TunnelersRestHouse_EventScript_UFOTraderPerfectAllIV_Text_1:
-# 660 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 658 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	.string "{SPEAKER NAME_UFO_TRADER}Alright, let me just try and perfect all\n"
 	.string "the IVs here.\p"
 	.string "And there, your Puppet now has\n"
 	.string "perfected their potential!$"
 
 Route116_TunnelersRestHouse_EventScript_UFOTraderShowEgg_Text_0:
-# 668 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 666 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	.string "That's an egg. I don't even know what\n"
 	.string "the stats of the egg will be.$"
 
 Route116_TunnelersRestHouse_EventScript_UFOTraderExchangeUFO_Text_0:
-# 682 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 680 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	.string "{SPEAKER NAME_UFO_TRADER}Hmm, which type of UFO are you going to\n"
 	.string "exchange exactly?$"
 
 Route116_TunnelersRestHouse_EventScript_UFOTraderExchangeGreenUFO_Text_0:
-# 710 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 708 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	.string "{SPEAKER NAME_UFO_TRADER}I can give you a single Red UFO for 2\n"
 	.string "Green UFOs then.$"
 
 Route116_TunnelersRestHouse_EventScript_UFOTraderExchangeRedUFO_Text_0:
-# 731 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 729 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	.string "{SPEAKER NAME_UFO_TRADER}Hmm, what type of UFO do you want to\n"
 	.string "exchange for the Red UFO?$"
 
 Route116_TunnelersRestHouse_EventScript_UFOTraderExchangeRedUFOForGreen_Text_0:
-# 750 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 748 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	.string "{SPEAKER NAME_UFO_TRADER}I can give you 2 Green UFOs for a single\n"
 	.string "Red UFO then.$"
 
 Route116_TunnelersRestHouse_EventScript_UFOTraderExchangeRedUFOForBlue_Text_0:
-# 768 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 766 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	.string "{SPEAKER NAME_UFO_TRADER}I can give you a single Blue UFO for 2\n"
 	.string "Red UFOs then.$"
 
 Route116_TunnelersRestHouse_EventScript_UFOTraderExchangeBlueUFO_Text_0:
-# 786 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 784 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	.string "{SPEAKER NAME_UFO_TRADER}I can give you 2 Red UFOs for a single\n"
 	.string "Blue UFO then.$"
 
 Route116_TunnelersRestHouse_Text_Gigi::
-# 803 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 801 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	.string "Gigi$"
 
 Route116_TunnelersRestHouse_Text_Baelz::
-# 807 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 805 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	.string "Baelz$"
 
 Route116_TunnelersRestHouse_Text_Ina::
-# 811 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 809 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	.string "Ina$"
 
 Route116_TunnelersRestHouse_Text_Player::
-# 815 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 813 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	.string "{PLAYER}$"
 
 Route116_TunnelersRestHouse_Text_Nevermind::
-# 819 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 817 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	.string "Nevermind$"
 
 Route116_TunnelersRestHouse_Text_GreenUFO::
-# 823 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 821 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	.string "Green UFO$"
 
 Route116_TunnelersRestHouse_Text_RedUFO::
-# 827 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 825 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	.string "Red UFO$"
 
 Route116_TunnelersRestHouse_Text_BlueUFO::
-# 831 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 829 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	.string "Blue UFO$"
 
 Route116_TunnelersRestHouse_Text_UFOTrader::
-# 835 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 833 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	.string "UFO Trader$"
 
 Route116_TunnelersRestHouse_Text_UFOTraderIntro::
-# 839 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 837 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	.string "{SPEAKER NAME_UFO_TRADER}Hey, the name's UFO Trader here!\p"
 	.string "I just love collecting UFOs, but I can\n"
 	.string "never seem to get enough of them.\p"
@@ -2269,103 +2265,103 @@ Route116_TunnelersRestHouse_Text_UFOTraderIntro::
 	.string "UFOs!$"
 
 Route116_TunnelersRestHouse_Text_UFOTraderHaveUFOs::
-# 844 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 842 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	.string "{SPEAKER NAME_UFO_TRADER}You seem to have some UFOs with you\n"
 	.string "right now.\p"
 	.string "You mind letting me have a look at them?$"
 
 Route116_TunnelersRestHouse_Text_UFOTraderSoYouWantXForY::
-# 848 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 846 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	.string "{SPEAKER NAME_UFO_TRADER}So you want the {STR_VAR_1}\n"
 	.string "for a {STR_VAR_2}?$"
 
 Route116_TunnelersRestHouse_Text_UFOTraderGiveItem::
-# 852 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 850 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	.string "{SPEAKER NAME_UFO_TRADER}Alright, here's your\n"
 	.string "{STR_VAR_1}.$"
 
 Route116_TunnelersRestHouse_Text_TakeUfo::
-# 856 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 854 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	.string "{SPEAKER NAME_UFO_TRADER}I'll take the {STR_VAR_1} then,\n"
 	.string "thank you very much.$"
 
 Route116_TunnelersRestHouse_Text_UFOTraderWhichStatShouldModify::
-# 860 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 858 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	.string "{SPEAKER NAME_UFO_TRADER}Alright, which stat should I modify?$"
 
 Route116_TunnelersRestHouse_Text_UFOTraderHPWorse::
-# 864 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 862 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	.string "Hmm, I'll worsen the HP IV of this\n"
 	.string "Puppet for a Green UFO then.$"
 
 Route116_TunnelersRestHouse_Text_UFOTraderAttackWorse::
-# 868 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 866 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	.string "Hmm, I'll worsen the Attack IV of this\n"
 	.string "Puppet for a Green UFO then.$"
 
 Route116_TunnelersRestHouse_Text_UFOTraderDefenseWorse::
-# 872 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 870 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	.string "Hmm, I'll worsen the Defense IV of this\n"
 	.string "Puppet for a Green UFO then.$"
 
 Route116_TunnelersRestHouse_Text_UFOTraderSpeedWorse::
-# 876 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 874 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	.string "Hmm, I'll worsen the Speed IV of this\n"
 	.string "Puppet for a Green UFO then.$"
 
 Route116_TunnelersRestHouse_Text_UFOTraderSpAttackWorse::
-# 880 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 878 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	.string "Hmm, I'll worsen the Sp. Atk IV of this\n"
 	.string "Puppet for a Green UFO then.$"
 
 Route116_TunnelersRestHouse_Text_UFOTraderSpDefenseWorse::
-# 884 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 882 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	.string "Hmm, I'll worsen the Sp. Def IV of this\n"
 	.string "Puppet for a Green UFO then.$"
 
 Route116_TunnelersRestHouse_Text_UFOTraderHPPerfect::
-# 888 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 886 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	.string "Hmm, I'll perfect the HP IV of this\n"
 	.string "Puppet for a Red UFO then.$"
 
 Route116_TunnelersRestHouse_Text_UFOTraderAttackPerfect::
-# 892 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 890 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	.string "Hmm, I'll perfect the Attack IV of this\n"
 	.string "Puppet for a Red UFO then.$"
 
 Route116_TunnelersRestHouse_Text_UFOTraderDefensePerfect::
-# 896 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 894 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	.string "Hmm, I'll perfect the Defense IV of this\n"
 	.string "Puppet for a Red UFO then.$"
 
 Route116_TunnelersRestHouse_Text_UFOTraderSpeedPerfect::
-# 900 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 898 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	.string "Hmm, I'll perfect the Speed IV of this\n"
 	.string "Puppet for a Red UFO then.$"
 
 Route116_TunnelersRestHouse_Text_UFOTraderSpAttackPerfect::
-# 904 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 902 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	.string "Hmm, I'll perfect the Sp. Atk IV of this\n"
 	.string "Puppet for a Red UFO then.$"
 
 Route116_TunnelersRestHouse_Text_UFOTraderSpDefensePerfect::
-# 908 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 906 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	.string "Hmm, I'll perfect the Sp. Def IV of this\n"
 	.string "Puppet for a Green UFO then.$"
 
 Route116_TunnelersRestHouse_Text_UFOTraderSeePuppet::
-# 912 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 910 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	.string "{SPEAKER NAME_UFO_TRADER}Alright, let me see the Puppet in\n"
 	.string "question.$"
 
 Route116_TunnelersRestHouse_Text_GigiMurinIntro::
-# 916 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 914 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	.string "{CREATE_MUGSHOT MUGSHOT_GIGI EMOTE_NORMAL}GI MURIN!\p"
 	.string "The name's Gigi Murin for you trainer.\p"
 	.string "This red one with me is my friend here.$"
 
 Route116_TunnelersRestHouse_Text_HakosBaelzIntro::
-# 920 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 918 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	.string "{DESTROY_MUGSHOT}Wazzup!\p"
 	.string "I am chaos, the end of ends.\p"
 	.string "A steel rose trapped in an ice cage.\p"
@@ -2375,22 +2371,22 @@ Route116_TunnelersRestHouse_Text_HakosBaelzIntro::
 	.string "like you by the way, Gigi?$"
 
 Route116_TunnelersRestHouse_Text_GigiOutOfBudget::
-# 925 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 923 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	.string "{CREATE_MUGSHOT MUGSHOT_GIGI EMOTE_NORMAL}We didn't have the budget to afford a\n"
 	.string "mugshot for you.\p"
 	.string "We could only afford mines, Ame's, and\n"
 	.string "even the player's mugshot.$"
 
 Route116_TunnelersRestHouse_Text_RenkoFrickinTalking::
-# 930 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 928 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	.string "{DESTROY_MUGSHOT}{CREATE_MUGSHOT MUGSHOT_RENKO EMOTE_NORMAL}I guess I'm here.$"
 
 Route116_TunnelersRestHouse_Text_MaribelFrickinTalking::
-# 934 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 932 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	.string "{DESTROY_MUGSHOT}{CREATE_MUGSHOT MUGSHOT_MARIBEL EMOTE_NORMAL}Yeah, I'm here.$"
 
 Route116_TunnelersRestHouse_Text_BaelzInvested::
-# 938 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 936 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	.string "{CREATE_MUGSHOT MUGSHOT_BAELZ EMOTE_NORMAL}Wazzup!\p"
 	.string "I invested in Kronii coin, and now I was\n"
 	.string "finally able to buy myself my own\l"
@@ -2398,7 +2394,7 @@ Route116_TunnelersRestHouse_Text_BaelzInvested::
 	.string "How cool is that for you, {PLAYER}?$"
 
 Route116_TunnelersRestHouse_Text_GigiBoughtIn::
-# 944 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 942 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	.string "{CREATE_MUGSHOT MUGSHOT_GIGI EMOTE_NORMAL}Yo, you bought into the coin as well,\n"
 	.string "Bae?\p"
 	.string "Good for you, bet you can even get\n"
@@ -2407,13 +2403,13 @@ Route116_TunnelersRestHouse_Text_GigiBoughtIn::
 	.string "regarding the coin.$"
 
 Route116_TunnelersRestHouse_Text_BaelzWhat::
-# 950 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 948 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	.string "Calli's video?\p"
 	.string "You mean she tried to expose it or\n"
 	.string "something?$"
 
 Route116_TunnelersRestHouse_Text_GigiDefense::
-# 954 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 952 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	.string "{CREATE_MUGSHOT MUGSHOT_GIGI EMOTE_NORMAL}Yeah, although I came in to her defense\n"
 	.string "to keep the coin safe.\p"
 	.string "I think I did a pretty good job making\n"
@@ -2421,26 +2417,26 @@ Route116_TunnelersRestHouse_Text_GigiDefense::
 	.string "Gotta keep my coin's worth, you know?$"
 
 Route116_TunnelersRestHouse_Text_BaelzHuh::
-# 960 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 958 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	.string "Huh.\p"
 	.string "{CREATE_MUGSHOT MUGSHOT_BAELZ EMOTE_NORMAL}Well, {PLAYER}, do you want some nice\n"
 	.string "Kronii Coin?$"
 
 Route116_TunnelersRestHouse_Text_InaWah::
-# 965 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 963 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	.string "Wah!\n"
 	.string "Hello there, {PLAYER}.\p"
 	.string "My name is Ina and I'm just visiting my\n"
 	.string "friends here, Gigi and Bae.$"
 
 Route116_TunnelersRestHouse_Text_BaelzNoMugshots::
-# 970 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 968 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	.string "{CREATE_MUGSHOT MUGSHOT_BAELZ EMOTE_NORMAL}Yo Ina, look at this nice mugshot I got\n"
 	.string "here!\p"
 	.string "Looks pretty nice, doesn't it?$"
 
 Route116_TunnelersRestHouse_Text_InaAdmit::
-# 975 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 973 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	.string "Huh.\p"
 	.string "I'll admit, it looks pretty nice,\n"
 	.string "especially for you, Bae.\p"
@@ -2449,19 +2445,19 @@ Route116_TunnelersRestHouse_Text_InaAdmit::
 	.string "right now.$"
 
 Route116_TunnelersRestHouse_Text_BaelzCheerUp::
-# 982 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 980 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	.string "{CREATE_MUGSHOT MUGSHOT_BAELZ EMOTE_NORMAL}Hey, cheer up, Ina.\p"
 	.string "You'll get one eventually as well, I'm\n"
 	.string "sure of it.$"
 
 Route116_TunnelersRestHouse_Text_GigiCookie::
-# 987 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 985 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	.string "{CREATE_MUGSHOT MUGSHOT_GIGI EMOTE_NORMAL}Oh yeah, Ina, I have some cookies for\n"
 	.string "you, by the way.\p"
 	.string "Maybe this will cheer you up as well.$"
 
 Route116_TunnelersRestHouse_Text_InaThankYou::
-# 992 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 990 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	.string "Thank you both.\p"
 	.string "I appreciate it, you guys looking after\n"
 	.string "me as well.\p"
@@ -2469,7 +2465,7 @@ Route116_TunnelersRestHouse_Text_InaThankYou::
 	.string "anyways, Gigi?$"
 
 Route116_TunnelersRestHouse_Text_GigiLavaridge::
-# 998 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 996 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	.string "{CREATE_MUGSHOT MUGSHOT_GIGI EMOTE_NORMAL}I found these near Lavaridge, where\n"
 	.string "someone called Mokou was giving them\l"
 	.string "away.\p"
@@ -2479,13 +2475,13 @@ Route116_TunnelersRestHouse_Text_GigiLavaridge::
 	.string "left over.$"
 
 Route116_TunnelersRestHouse_Text_GigiMurinBogosBinted::
-# 1003 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 1001 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	.string "{CREATE_MUGSHOT MUGSHOT_GIGI EMOTE_NORMAL}Boat goes Binted?$"
 
 Route116_TunnelersRestHouse_Text_GigiMurinLaugh::
-# 1007 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 1005 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	.string "{CREATE_MUGSHOT MUGSHOT_GIGI EMOTE_NORMAL}HAHAHAHAHAHA!!$"
 
 Route116_TunnelersRestHouse_Text_NueBogosBinted::
-# 1011 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
+# 1009 "data/maps/Route116_TunnelersRestHouse/scripts.pory"
 	.string "Nuuu-e?$"

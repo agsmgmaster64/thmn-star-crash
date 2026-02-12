@@ -1801,45 +1801,6 @@ static const FeebasNames FeebasNamesValues[] = {
 
 #define MAX_NAMES 53
 
-typedef struct  {
-    u16 racerVar;
-    u16 racerNicknameVar;
-} DerbyRacerVars;
-
-static const DerbyRacerVars sDerbyRacerVars[] =
-{
-    [DERBY_RACER_1] =
-    {
-        .racerVar = DERBY_VAR_RACER_1,
-        .racerNicknameVar = DERBY_VAR_RACER_NAME_1,
-    },
-    [DERBY_RACER_2] =
-    {
-        .racerVar = DERBY_VAR_RACER_2,
-        .racerNicknameVar = DERBY_VAR_RACER_NAME_2,
-    },
-    [DERBY_RACER_3] =
-    {
-        .racerVar = DERBY_VAR_RACER_3,
-        .racerNicknameVar = DERBY_VAR_RACER_NAME_3,
-    },
-    [DERBY_RACER_4] =
-    {
-        .racerVar = DERBY_VAR_RACER_4,
-        .racerNicknameVar = DERBY_VAR_RACER_NAME_4,
-    },
-    [DERBY_RACER_5] =
-    {
-        .racerVar = DERBY_VAR_RACER_5,
-        .racerNicknameVar = DERBY_VAR_RACER_NAME_5,
-    },
-    [DERBY_RACER_6] =
-    {
-        .racerVar = DERBY_VAR_RACER_6,
-        .racerNicknameVar = DERBY_VAR_RACER_NAME_6,
-    },
-};
-
 static inline u32 GetDerbySpeciesSpeedPay(u32 species, u32 condition)
 {
     switch (species)
@@ -1893,7 +1854,7 @@ static void GetRacerSpeeds(u8 racerSpecies, u8 racer)
 
 static inline bool32 GetDerbyShinyChance(void)
 {
-    if ((Random() % 8192) == 777) // Shiny
+    if ((Random() % 8192) == 777)
         return TRUE;
     return FALSE;
 }
@@ -1921,16 +1882,16 @@ void GetNewDerby(void)
     odds = (Random() % 100); // Feebas: 0-99
     if (odds != 99) // No Feebas
     {
-        odds = (Random() % 3); // Ponyta/Rapidash/Rattata 0-2
+        odds = (Random() % 3);
 
         if (odds == 1) // Rattata
         {
-            odd_one = (Random() % DERBY_RACER_COUNT); // Picks a random racer
+            odd_one = (Random() % DERBY_RACER_COUNT);
             derbySpecies[odd_one] = DERBY_SPECIES_RATTATA;
         }
         else if (odds == 2) // Rapidash
         {
-            odd_one = (Random() % DERBY_RACER_COUNT); // Picks a random racer
+            odd_one = (Random() % DERBY_RACER_COUNT);
             derbySpecies[odd_one] = DERBY_SPECIES_RAPIDASH;
         }
     }
@@ -1940,13 +1901,11 @@ void GetNewDerby(void)
         derbySpecies[odd_one] = DERBY_SPECIES_FEEBAS;
     }
 
-    // Generate all derby species with random Ponyta by default
     for (i = DERBY_RACER_1; i < DERBY_RACER_COUNT; i++)
     {
         derbyShiny[i] = GetDerbyShinyChance();
     }
 
-    // Generate all racers with low stars by default
     for (i = DERBY_RACER_1; i < DERBY_RACER_COUNT; i++)
     {
         conditions[i] = Random() % CONDITION_3_STAR;
@@ -1968,8 +1927,9 @@ void GetNewDerby(void)
     // Generate all racers with low stars by default
     for (i = DERBY_RACER_1; i < DERBY_RACER_COUNT; i++)
     {
-        racerVar = sDerbyRacerVars[i].racerVar;
-        VarSet(racerVar, (derbySpecies[i] * 100) + (derbyShiny[i] * 10) + conditions[i]);
+        gSaveBlock3Ptr->derbyRacers[i].species = derbySpecies[i];
+        gSaveBlock3Ptr->derbyRacers[i].isShiny = derbyShiny[i];
+        gSaveBlock3Ptr->derbyRacers[i].condition = conditions[i];
     }
 
     FlagSet(DERBY_FLAG_RESET);
@@ -1984,11 +1944,9 @@ void InitiateRacers(void)
     // Generate all racers with low stars by default
     for (i = DERBY_RACER_1; i < DERBY_RACER_COUNT; i++)
     {
-        racerVar = sDerbyRacerVars[i].racerVar;
-        number = VarGet(racerVar);
-        sDerby->racerSpecies[i] = number / 100;           // Hundreds place
-        sDerby->racerShiny[i] = (number / 10) % 10;     // Tens place
-        sDerby->racerCondition[i] = number % 10;            // Ones place
+        sDerby->racerSpecies[i] = gSaveBlock3Ptr->derbyRacers[i].species;
+        sDerby->racerShiny[i] = gSaveBlock3Ptr->derbyRacers[i].isShiny;
+        sDerby->racerCondition[i] = gSaveBlock3Ptr->derbyRacers[i].condition;
     }
 }
 
@@ -2313,42 +2271,42 @@ static void UpdateNicknames(void)
 {
     int i;
     u32 racerSpecies = 0;
-    u16 racerNicknameVar;
+    u16 racerNicknameId;
 
     InitWindows(sDerbyWinTemplates);
     DeactivateAllTextPrinters();
     LoadPalette(GetTextWindowPalette(2), 11 * 16, 32);
 
     racerSpecies = sDerby->racerSpecies[sDerby->MenuPosition];
-    racerNicknameVar = sDerbyRacerVars[sDerby->MenuPosition].racerNicknameVar;
+    racerNicknameId = gSaveBlock3Ptr->derbyRacers[sDerby->MenuPosition].nicknameId;
 
     switch (racerSpecies)
     {
     default:
         for (i = 0; i < MAX_NAMES; i++)
         {
-            if (PonytaNamesValues[i].ID == (VarGet(racerNicknameVar)))
+            if (PonytaNamesValues[i].ID == racerNicknameId)
                 ShowName(PonytaNamesValues[i].NameString);
         }
         break;
     case DERBY_SPECIES_RATTATA:
         for (i = 0; i < MAX_NAMES; i++)
         {
-            if (RattataNamesValues[i].ID == (VarGet(racerNicknameVar)))
+            if (RattataNamesValues[i].ID == racerNicknameId)
                 ShowName(RattataNamesValues[i].NameString);
         }
         break;
     case DERBY_SPECIES_RAPIDASH:
         for (i = 0; i < MAX_NAMES; i++)
         {
-            if (RapidashNamesValues[i].ID == (VarGet(racerNicknameVar)))
+            if (RapidashNamesValues[i].ID == racerNicknameId)
                 ShowName(RapidashNamesValues[i].NameString);
         }
         break;
     case DERBY_SPECIES_FEEBAS:
         for (i = 0; i < MAX_NAMES; i++)
         {
-            if (FeebasNamesValues[i].ID == (VarGet(racerNicknameVar)))
+            if (FeebasNamesValues[i].ID == racerNicknameId)
                 ShowName(FeebasNamesValues[i].NameString);
         }
         break;
@@ -2385,17 +2343,14 @@ static void SetNicknames(void)
     u32 i;
     u16 racerNicknameVar;
 
-    // Generate all racers with low stars by default
     for (i = DERBY_RACER_1; i < DERBY_RACER_COUNT; i++)
     {
         names[i] = GetUniquePonytaName(sDerby->racerSpecies[i], previousNames);
     }
 
-    // Generate all racers with low stars by default
     for (i = DERBY_RACER_1; i < DERBY_RACER_COUNT; i++)
     {
-        racerNicknameVar = sDerbyRacerVars[i].racerNicknameVar;
-        VarSet(racerNicknameVar, names[i]);
+        gSaveBlock3Ptr->derbyRacers[i].nicknameId = names[i];
     }
 
     FlagSet(DERBY_FLAG_NICKNAME);

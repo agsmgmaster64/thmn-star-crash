@@ -82,17 +82,17 @@ PewterCity_Gym_EventScript_GymStatuePostVictory::
 	end
 
 PewterCity_Gym_Text_BrockIntro::
-    .string "So, you're here. I'm BROCK.\n"
+    .string "So, you're here. I'm Brock.\n"
     .string "I'm PEWTER's GYM LEADER.\p"
     .string "My rock-hard willpower is evident\n"
-    .string "even in my POKéMON.\p"
-    .string "My POKéMON are all rock hard, and\n"
+    .string "even in my Puppets.\p"
+    .string "My Puppets are all rock hard, and\n"
     .string "have true-grit determination.\p"
-    .string "That's right - my POKéMON are all\n"
-    .string "the ROCK type!\p"
+    .string "That's right - my Puppets are all\n"
+    .string "the Earth type!\p"
     .string "Fuhaha! You're going to challenge\n"
     .string "me knowing that you'll lose?\p"
-    .string "That's the TRAINER's honor that\n"
+    .string "That's the Trainer's honor that\n"
     .string "compels you to challenge me.\p"
     .string "Fine, then!\n"
     .string "Show me your best!{PLAY_BGM}{MUS_ZGS_ENCOUNTER_GYM_LEADER}$"
@@ -101,15 +101,15 @@ PewterCity_Gym_Text_BrockDefeat::
     .string "I took you for granted, and so\n"
     .string "I lost.\p"
     .string "As proof of your victory, I confer\n"
-    .string "on you this…the official POKéMON\l"
-    .string "LEAGUE BOULDERBADGE.\p"
+    .string "on you this…the official Puppet\l"
+    .string "League BOULDERBADGE.\p"
     .string "{FONT_NORMAL}{PLAYER} received the BOULDERBADGE\n"
-    .string "from BROCK!{PAUSE_MUSIC}{PLAY_BGM}{MUS_OBTAIN_BADGE}{PAUSE 0xFE}{PAUSE 0x56}{RESUME_MUSIC}\p"
+    .string "from Brock!{PAUSE_MUSIC}{PLAY_BGM}{MUS_OBTAIN_BADGE}{PAUSE 0xFE}{PAUSE 0x56}{RESUME_MUSIC}\p"
     .string "{FONT_MALE}Just having the BOULDERBADGE makes\n"
-    .string "your POKéMON more powerful.\p"
+    .string "your Puppets more powerful.\p"
     .string "It also enables the use of the\n"
     .string "move FLASH outside of battle.\p"
-    .string "Of course, a POKéMON must know the\n"
+    .string "Of course, a Puppet must know the\n"
     .string "move FLASH to use it.$"
 
 PewterCity_Gym_Text_TakeThisWithYou::
@@ -148,7 +148,7 @@ PewterCity_Gym_Text_DontHaveRoomForThis::
 PewterCity_Gym_Text_LiamIntro::
     .string "Stop right there, kid!\p"
     .string "You're ten thousand light-years \n"
-    .string "from facing BROCK!$"
+    .string "from facing Brock!$"
 
 PewterCity_Gym_Text_LiamDefeat::
     .string "Darn!\p"
@@ -157,14 +157,14 @@ PewterCity_Gym_Text_LiamDefeat::
 
 PewterCity_Gym_Text_LiamPostBattle::
     .string "You're pretty hot.\n"
-    .string "…But not as hot as BROCK!$"
+    .string "…But not as hot as Brock!$"
 
 PewterCity_Gym_Text_LetMeTakeYouToTheTop::
     .string "Hiya!\n"
     .string "Do you want to dream big?\p"
     .string "Do you dare to dream of becoming\n"
-    .string "the POKéMON champ?\p"
-    .string "I'm no TRAINER, but I can advise\n"
+    .string "the Puppet champ?\p"
+    .string "I'm no Trainer, but I can advise\n"
     .string "you on how to win.\p"
     .string "Let me take you to the top!$"
 

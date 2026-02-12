@@ -237,6 +237,14 @@ struct SavedPlayerMusic
     u16 victorySavedMusic;
 };
 
+struct DerbyRacers
+{
+    u16 nicknameId:6;
+    u16 species:4;
+    u16 isShiny:1;
+    u16 condition:5;
+};
+
 struct NPCFollowerPadding
 {
     u8 padding1;
@@ -296,6 +304,10 @@ struct SaveBlock3
     u8 questData[QUEST_FLAGS_COUNT * QUEST_STATES];
     u8 subQuests[SUB_FLAGS_COUNT];
     u32 bankMoney;
+    struct DerbyRacers derbyRacers[6]; // DERBY_RACER_COUNT
+#if FLAPPY_STORE_HIGH_SCORE == TRUE
+    u16 flappyHighScore;
+#endif
 #if APRICORN_TREE_COUNT > 0
     u8 apricornTrees[NUM_APRICORN_TREE_BYTES];
 #endif

@@ -905,11 +905,11 @@ Music: Male
 Double Battle: No
 AI: Check Bad Move
 
-Akyuu
+Chibi Nitori
 Level: 21
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-Akyuu
+Chibi Nitori
 Level: 21
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
@@ -922,18 +922,13 @@ Music: Male
 Double Battle: No
 AI: Check Bad Move
 
-Akyuu
+Chibi Yamame
 Level: 10
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-- Tackle
-- Defense Curl
 
-Akyuu
+Chibi Yamame
 Level: 11
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-- Scratch
-- Defense Curl
-- Sand Attack
 
 === TRAINER_CAMPER_SHANE ===
 Name: SHANE
@@ -944,11 +939,11 @@ Music: Male
 Double Battle: No
 AI: Check Bad Move
 
-Akyuu
+Chibi Tokiko
 Level: 14
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-Akyuu
+Chibi Letty
 Level: 14
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
@@ -961,7 +956,7 @@ Music: Male
 Double Battle: No
 AI: Check Bad Move
 
-Akyuu
+Chibi Kokoro
 Level: 18
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
@@ -974,7 +969,7 @@ Music: Male
 Double Battle: No
 AI: Check Bad Move
 
-Akyuu
+Chibi Hatate
 Level: 20
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
@@ -7025,18 +7020,19 @@ Music: Male
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 
-Akyuu
+Chibi Suika
 Level: 12
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-- Tackle
-- Defense Curl
+- Harden
+- Rock Tomb
+- Karate Chop
 
-Akyuu
+Chibi Yuugi
 Level: 14
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-- Tackle
-- Bind
+- Howl
 - Rock Tomb
+- Karate Chop
 
 === TRAINER_LEADER_MISTY ===
 Name: MISTY

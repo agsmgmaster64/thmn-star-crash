@@ -48,9 +48,6 @@
 #include "constants/rgb.h"
 #include "trig.h"
 
-#define VAR_BATTLE_MENU_MON_ID_X VAR_UNUSED_0x40A1
-#define VAR_BATTLE_MENU_MON_ID_Y VAR_UNUSED_0x40A8
-
 //==========DEFINES==========//
 enum
 {
@@ -189,6 +186,13 @@ struct MenuResources
     bool8 isEnemyMon;
 };
 
+struct StaticMenuResources
+{
+    u16 monIdX;
+    u16 monIdY;
+    u8 fromSummaryScreen;
+};
+
 enum WindowIds
 {
     WINDOW_1,
@@ -242,6 +246,7 @@ enum move_modes
 
 //==========EWRAM==========//
 static EWRAM_DATA struct MenuResources *sMenuDataPtr = NULL;
+static EWRAM_DATA struct StaticMenuResources sBattleMenuStaticResources = {};
 static EWRAM_DATA MainCallback sTempSavedCallback = NULL; // Temporary Callback
 static EWRAM_DATA u8 *sBg1TilemapBuffer = NULL;
 
@@ -311,6 +316,7 @@ static const struct WindowTemplate sMenuWindowTemplates[] =
         .paletteNum = 0,    // palette index to use for text
         .baseBlock = 1,     // tile start in VRAM
     },
+    DUMMY_WIN_TEMPLATE
 };
 
 static const u32 sMenuTiles[]      = INCBIN_U32("graphics/ui_menus/battle_menu/tiles.4bpp.smol");
@@ -749,25 +755,25 @@ void UI_Battle_Menu_Init(MainCallback callback)
         }
     }
 
-    if (FlagGet(FLAG_BATTLE_MENU_COMING_FROM_SUMMARY_SCREEN))
+    if (sBattleMenuStaticResources.fromSummaryScreen)
     {
-        if (VarGet(VAR_BATTLE_MENU_MON_ID_X) >= 0xFF)
+        if (sBattleMenuStaticResources.monIdX >= 0xFF)
         {
-           sMenuDataPtr->modeId = VarGet(VAR_BATTLE_MENU_MON_ID_Y);
-           sMenuDataPtr->tabId  = VarGet(VAR_BATTLE_MENU_MON_ID_X) - 0xFF;
+           sMenuDataPtr->modeId = sBattleMenuStaticResources.monIdY;
+           sMenuDataPtr->tabId  = sBattleMenuStaticResources.monIdX - 0xFF;
         }
         else
         {
-            sMenuDataPtr->partyMenuSelectorID_X = VarGet(VAR_BATTLE_MENU_MON_ID_X);
-            sMenuDataPtr->partyMenuSelectorID_Y = VarGet(VAR_BATTLE_MENU_MON_ID_Y);
+            sMenuDataPtr->partyMenuSelectorID_X = sBattleMenuStaticResources.monIdX;
+            sMenuDataPtr->partyMenuSelectorID_Y = sBattleMenuStaticResources.monIdY;
             sMenuDataPtr->partySelectorMode = TRUE;
         }
     }
 
     //Reset the flags
-    VarSet(VAR_BATTLE_MENU_MON_ID_X, 0);
-    VarSet(VAR_BATTLE_MENU_MON_ID_Y, 0);
-    FlagClear(FLAG_BATTLE_MENU_COMING_FROM_SUMMARY_SCREEN);
+    sBattleMenuStaticResources.monIdX = 0;
+    sBattleMenuStaticResources.monIdY = 0;
+    sBattleMenuStaticResources.fromSummaryScreen = FALSE;
 
 
     SetMainCallback2(Battle_Menu_RunSetup);
@@ -3551,9 +3557,9 @@ static void StartSummaryScreen(u8 taskId)
     bool8 isEnemyMon = FALSE;
 
     //Save State
-    VarSet(VAR_BATTLE_MENU_MON_ID_X, sMenuDataPtr->partyMenuSelectorID_X);
-    VarSet(VAR_BATTLE_MENU_MON_ID_Y, sMenuDataPtr->partyMenuSelectorID_Y);
-    FlagSet(FLAG_BATTLE_MENU_COMING_FROM_SUMMARY_SCREEN);
+    sBattleMenuStaticResources.monIdX = sMenuDataPtr->partyMenuSelectorID_X;
+    sBattleMenuStaticResources.monIdY = sMenuDataPtr->partyMenuSelectorID_Y;
+    sBattleMenuStaticResources.fromSummaryScreen = TRUE;
 
     //Check if the mon is from the enemy party or the player party
     if (currMonId < PARTY_SIZE)
@@ -3586,9 +3592,9 @@ static void StartSummaryScreen(u8 taskId)
     {
         //There is no pokemon in that slot
         PlaySE(SE_BOO);
-        FlagClear(FLAG_BATTLE_MENU_COMING_FROM_SUMMARY_SCREEN);
-        VarSet(VAR_BATTLE_MENU_MON_ID_X, 0);
-        VarSet(VAR_BATTLE_MENU_MON_ID_Y, 0);
+        sBattleMenuStaticResources.fromSummaryScreen = FALSE;
+        sBattleMenuStaticResources.monIdX = 0;
+        sBattleMenuStaticResources.monIdY = 0;
     }
 }
 
@@ -3601,9 +3607,9 @@ static void StartSummaryScreenForSpecificMon(u8 taskId)
     bool8 isEnemyMon = FALSE;
 
     //Save State
-    VarSet(VAR_BATTLE_MENU_MON_ID_X, 0xFF + sMenuDataPtr->tabId);
-    VarSet(VAR_BATTLE_MENU_MON_ID_Y, sMenuDataPtr->modeId);
-    FlagSet(FLAG_BATTLE_MENU_COMING_FROM_SUMMARY_SCREEN);
+    sBattleMenuStaticResources.monIdX = 0xFF + sMenuDataPtr->tabId;
+    sBattleMenuStaticResources.monIdY = sMenuDataPtr->modeId;
+    sBattleMenuStaticResources.fromSummaryScreen = TRUE;
 
     species = GetMonData(GetBattlerMon(battler), MON_DATA_SPECIES, NULL);
     //Check if the mon is from the enemy party or the player party
@@ -3624,9 +3630,9 @@ static void StartSummaryScreenForSpecificMon(u8 taskId)
     {
         //There is no pokemon in that slot
         PlaySE(SE_BOO);
-        FlagClear(FLAG_BATTLE_MENU_COMING_FROM_SUMMARY_SCREEN);
-        VarSet(VAR_BATTLE_MENU_MON_ID_X, 0);
-        VarSet(VAR_BATTLE_MENU_MON_ID_Y, 0);
+        sBattleMenuStaticResources.fromSummaryScreen = FALSE;
+        sBattleMenuStaticResources.monIdX = 0;
+        sBattleMenuStaticResources.monIdY = 0;
     }
 }
 

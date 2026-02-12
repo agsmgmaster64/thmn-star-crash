@@ -596,10 +596,8 @@ script Route116_TunnelersRestHouse_EventScript_UFOTraderTutor {
     }
 	switch (var(VAR_RESULT)) {
 		case TUTOR_ALL_LEVEL:
-			setvar(VAR_MOVE_MANAGER, MOVE_REMINDER_LEARN_ALL_MOVES)
 			msgbox(format("{SPEAKER NAME_UFO_TRADER}So you want me to teach a Puppet any move it naturally learns?"), MSGBOX_YESNO)
 		case TUTOR_EGG_MOVE:
-			setvar(VAR_MOVE_MANAGER, MOVE_TUTOR_EGG_MOVES)
 			msgbox(format("{SPEAKER NAME_UFO_TRADER}So you want me to teach a Puppet an egg move?"), MSGBOX_YESNO)
     }
 	if (var(VAR_RESULT) != YES) {
