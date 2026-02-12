@@ -24,7 +24,9 @@ enum
     MAP_INPUT_MOVE_END,
     MAP_INPUT_A_BUTTON,
     MAP_INPUT_B_BUTTON,
-    MAP_INPUT_R_BUTTON
+    MAP_INPUT_R_BUTTON,
+    MAP_INPUT_SWITCH,
+    MAP_INPUT_CANCEL
 };
 
 enum {
@@ -141,6 +143,7 @@ enum RegionMapType GetRegionMapType(u32 mapSecId);
 //Pokenav Fly funcs
 u32 FilterFlyDestination(struct RegionMap* regionMap);
 void SetFlyDestination(struct RegionMap* regionMap);
+void SetFlyDestinationMapSec(u32 mapSec);
 
 extern const struct RegionMapLocation gRegionMapEntries[];
 extern const struct RegionMapInfo gRegionMapInfos[];
