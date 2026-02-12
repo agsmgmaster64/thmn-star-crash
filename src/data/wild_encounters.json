@@ -13350,64 +13350,64 @@
             "encounter_rate": 7,
             "mons": [
               {
-                "min_level": 7,
-                "max_level": 7,
-                "species": "SPECIES_AKYUU"
-              },
-              {
                 "min_level": 8,
                 "max_level": 8,
-                "species": "SPECIES_AKYUU"
-              },
-              {
-                "min_level": 7,
-                "max_level": 7,
-                "species": "SPECIES_AKYUU"
+                "species": "SPECIES_CHIBI_RUMIA"
               },
               {
                 "min_level": 9,
                 "max_level": 9,
-                "species": "SPECIES_AKYUU"
+                "species": "SPECIES_CHIBI_RUMIA"
+              },
+              {
+                "min_level": 9,
+                "max_level": 9,
+                "species": "SPECIES_CHIBI_KISUME"
               },
               {
                 "min_level": 10,
                 "max_level": 10,
-                "species": "SPECIES_AKYUU"
+                "species": "SPECIES_CHIBI_KYOUKO"
               },
               {
-                "min_level": 8,
-                "max_level": 8,
-                "species": "SPECIES_AKYUU"
+                "min_level": 11,
+                "max_level": 11,
+                "species": "SPECIES_CHIBI_KYOUKO"
+              },
+              {
+                "min_level": 10,
+                "max_level": 10,
+                "species": "SPECIES_CHIBI_KISUME"
               },
               {
                 "min_level": 9,
                 "max_level": 9,
-                "species": "SPECIES_AKYUU"
+                "species": "SPECIES_CHIBI_KISUME"
               },
               {
-                "min_level": 8,
-                "max_level": 8,
-                "species": "SPECIES_AKYUU"
+                "min_level": 10,
+                "max_level": 10,
+                "species": "SPECIES_CHIBI_KYOUKO"
               },
               {
-                "min_level": 7,
-                "max_level": 7,
-                "species": "SPECIES_AKYUU"
+                "min_level": 9,
+                "max_level": 9,
+                "species": "SPECIES_CHIBI_KOAKUMA"
               },
               {
-                "min_level": 7,
-                "max_level": 7,
-                "species": "SPECIES_AKYUU"
+                "min_level": 11,
+                "max_level": 11,
+                "species": "SPECIES_CHIBI_KOAKUMA"
               },
               {
-                "min_level": 7,
-                "max_level": 7,
-                "species": "SPECIES_AKYUU"
+                "min_level": 9,
+                "max_level": 9,
+                "species": "SPECIES_CHIBI_KOAKUMA"
               },
               {
-                "min_level": 8,
-                "max_level": 8,
-                "species": "SPECIES_AKYUU"
+                "min_level": 11,
+                "max_level": 11,
+                "species": "SPECIES_CHIBI_KOAKUMA"
               }
             ]
           }
@@ -13485,67 +13485,67 @@
           "map": "MAP_MT_MOON_B1F",
           "base_label": "sMtMoonB1F_FireRed",
           "land_mons": {
-            "encounter_rate": 5,
+            "encounter_rate": 7,
             "mons": [
               {
-                "min_level": 7,
-                "max_level": 7,
-                "species": "SPECIES_AKYUU"
-              },
-              {
                 "min_level": 8,
                 "max_level": 8,
-                "species": "SPECIES_AKYUU"
-              },
-              {
-                "min_level": 5,
-                "max_level": 5,
-                "species": "SPECIES_AKYUU"
-              },
-              {
-                "min_level": 6,
-                "max_level": 6,
-                "species": "SPECIES_AKYUU"
+                "species": "SPECIES_CHIBI_RUMIA"
               },
               {
                 "min_level": 9,
                 "max_level": 9,
-                "species": "SPECIES_AKYUU"
-              },
-              {
-                "min_level": 10,
-                "max_level": 10,
-                "species": "SPECIES_AKYUU"
-              },
-              {
-                "min_level": 7,
-                "max_level": 7,
-                "species": "SPECIES_AKYUU"
-              },
-              {
-                "min_level": 8,
-                "max_level": 8,
-                "species": "SPECIES_AKYUU"
-              },
-              {
-                "min_level": 5,
-                "max_level": 5,
-                "species": "SPECIES_AKYUU"
-              },
-              {
-                "min_level": 6,
-                "max_level": 6,
-                "species": "SPECIES_AKYUU"
+                "species": "SPECIES_CHIBI_RUMIA"
               },
               {
                 "min_level": 9,
                 "max_level": 9,
-                "species": "SPECIES_AKYUU"
+                "species": "SPECIES_CHIBI_KYOUKO"
+              },
+              {
+                "min_level": 8,
+                "max_level": 8,
+                "species": "SPECIES_CHIBI_KYOUKO"
               },
               {
                 "min_level": 10,
                 "max_level": 10,
-                "species": "SPECIES_AKYUU"
+                "species": "SPECIES_CHIBI_KISUME"
+              },
+              {
+                "min_level": 11,
+                "max_level": 11,
+                "species": "SPECIES_CHIBI_KISUME"
+              },
+              {
+                "min_level": 10,
+                "max_level": 10,
+                "species": "SPECIES_CHIBI_KOAKUMA"
+              },
+              {
+                "min_level": 10,
+                "max_level": 11,
+                "species": "SPECIES_CHIBI_KOAKUMA"
+              },
+              {
+                "min_level": 9,
+                "max_level": 9,
+                "species": "SPECIES_CHIBI_KYOUKO"
+              },
+              {
+                "min_level": 8,
+                "max_level": 8,
+                "species": "SPECIES_CHIBI_KISUME"
+              },
+              {
+                "min_level": 10,
+                "max_level": 10,
+                "species": "SPECIES_CHIBI_KOGASA"
+              },
+              {
+                "min_level": 12,
+                "max_level": 12,
+                "species": "SPECIES_CHIBI_KOGASA"
               }
             ]
           }
@@ -13628,62 +13628,62 @@
               {
                 "min_level": 8,
                 "max_level": 8,
-                "species": "SPECIES_AKYUU"
+                "species": "SPECIES_CHIBI_KYOUKO"
               },
               {
                 "min_level": 9,
                 "max_level": 9,
-                "species": "SPECIES_AKYUU"
+                "species": "SPECIES_CHIBI_KISUME"
               },
               {
                 "min_level": 9,
                 "max_level": 9,
-                "species": "SPECIES_AKYUU"
+                "species": "SPECIES_CHIBI_KOAKUMA"
               },
               {
                 "min_level": 10,
                 "max_level": 10,
-                "species": "SPECIES_AKYUU"
+                "species": "SPECIES_CHIBI_KOAKUMA"
               },
               {
                 "min_level": 10,
                 "max_level": 10,
-                "species": "SPECIES_AKYUU"
+                "species": "SPECIES_CHIBI_RUMIA"
               },
               {
                 "min_level": 10,
                 "max_level": 10,
-                "species": "SPECIES_AKYUU"
+                "species": "SPECIES_CHIBI_RUMIA"
               },
               {
                 "min_level": 12,
                 "max_level": 12,
-                "species": "SPECIES_AKYUU"
+                "species": "SPECIES_CHIBI_KISUME"
               },
               {
                 "min_level": 10,
                 "max_level": 10,
-                "species": "SPECIES_AKYUU"
+                "species": "SPECIES_CHIBI_KYOUKO"
               },
               {
                 "min_level": 11,
                 "max_level": 11,
-                "species": "SPECIES_AKYUU"
+                "species": "SPECIES_CHIBI_KOGASA"
               },
               {
                 "min_level": 11,
                 "max_level": 11,
-                "species": "SPECIES_AKYUU"
+                "species": "SPECIES_CHIBI_KOGASA"
               },
               {
                 "min_level": 11,
                 "max_level": 11,
-                "species": "SPECIES_AKYUU"
+                "species": "SPECIES_CHIBI_KOGASA"
               },
               {
                 "min_level": 12,
                 "max_level": 12,
-                "species": "SPECIES_AKYUU"
+                "species": "SPECIES_CHIBI_KOGASA"
               }
             ]
           }
@@ -28880,62 +28880,62 @@
               {
                 "min_level": 6,
                 "max_level": 6,
-                "species": "SPECIES_AKYUU"
+                "species": "SPECIES_CHIBI_CHEN"
               },
               {
                 "min_level": 6,
                 "max_level": 6,
-                "species": "SPECIES_AKYUU"
+                "species": "SPECIES_CHIBI_MYSTIA"
               },
               {
                 "min_level": 7,
                 "max_level": 7,
-                "species": "SPECIES_AKYUU"
+                "species": "SPECIES_CHIBI_KYOUKO"
               },
               {
                 "min_level": 7,
                 "max_level": 7,
-                "species": "SPECIES_AKYUU"
+                "species": "SPECIES_CHIBI_KYOUKO"
               },
               {
                 "min_level": 6,
                 "max_level": 6,
-                "species": "SPECIES_AKYUU"
+                "species": "SPECIES_CHIBI_CHEN"
               },
               {
                 "min_level": 7,
                 "max_level": 7,
-                "species": "SPECIES_AKYUU"
+                "species": "SPECIES_CHIBI_MYSTIA"
               },
               {
                 "min_level": 8,
                 "max_level": 8,
-                "species": "SPECIES_AKYUU"
+                "species": "SPECIES_CHIBI_KYOUKO"
               },
               {
                 "min_level": 3,
                 "max_level": 3,
-                "species": "SPECIES_AKYUU"
+                "species": "SPECIES_CHIBI_CHEN"
               },
               {
                 "min_level": 7,
                 "max_level": 7,
-                "species": "SPECIES_AKYUU"
+                "species": "SPECIES_CHIBI_MYSTIA"
               },
               {
                 "min_level": 5,
                 "max_level": 5,
-                "species": "SPECIES_AKYUU"
+                "species": "SPECIES_CHIBI_TEWI"
               },
               {
                 "min_level": 6,
                 "max_level": 6,
-                "species": "SPECIES_AKYUU"
+                "species": "SPECIES_CHIBI_MYSTIA"
               },
               {
                 "min_level": 7,
                 "max_level": 7,
-                "species": "SPECIES_AKYUU"
+                "species": "SPECIES_CHIBI_TEWI"
               }
             ]
           }
@@ -29018,62 +29018,62 @@
               {
                 "min_level": 10,
                 "max_level": 10,
-                "species": "SPECIES_AKYUU"
+                "species": "SPECIES_CHIBI_CHEN"
               },
               {
                 "min_level": 10,
                 "max_level": 10,
-                "species": "SPECIES_AKYUU"
+                "species": "SPECIES_CHIBI_MYSTIA"
               },
               {
-                "min_level": 6,
-                "max_level": 6,
-                "species": "SPECIES_AKYUU"
+                "min_level": 11,
+                "max_level": 11,
+                "species": "SPECIES_CHIBI_KYOUKO"
               },
               {
-                "min_level": 10,
-                "max_level": 10,
-                "species": "SPECIES_AKYUU"
+                "min_level": 11,
+                "max_level": 11,
+                "species": "SPECIES_CHIBI_KOGASA"
               },
               {
-                "min_level": 8,
-                "max_level": 8,
-                "species": "SPECIES_AKYUU"
+                "min_level": 11,
+                "max_level": 11,
+                "species": "SPECIES_CHIBI_NAZRIN"
               },
               {
-                "min_level": 8,
-                "max_level": 8,
-                "species": "SPECIES_AKYUU"
+                "min_level": 11,
+                "max_level": 11,
+                "species": "SPECIES_CHIBI_NAZRIN"
               },
               {
-                "min_level": 12,
-                "max_level": 12,
-                "species": "SPECIES_AKYUU"
+                "min_level": 13,
+                "max_level": 13,
+                "species": "SPECIES_CHIBI_KYOUKO"
               },
               {
-                "min_level": 12,
-                "max_level": 12,
-                "species": "SPECIES_AKYUU"
+                "min_level": 13,
+                "max_level": 13,
+                "species": "SPECIES_CHIBI_KOGASA"
               },
               {
-                "min_level": 10,
-                "max_level": 10,
-                "species": "SPECIES_AKYUU"
+                "min_level": 11,
+                "max_level": 11,
+                "species": "SPECIES_CHIBI_LILY_WHITE"
               },
               {
-                "min_level": 8,
-                "max_level": 8,
-                "species": "SPECIES_AKYUU"
+                "min_level": 11,
+                "max_level": 11,
+                "species": "SPECIES_CHIBI_LILY_BLACK"
               },
               {
-                "min_level": 12,
-                "max_level": 12,
-                "species": "SPECIES_AKYUU"
+                "min_level": 13,
+                "max_level": 13,
+                "species": "SPECIES_CHIBI_LILY_WHITE"
               },
               {
-                "min_level": 12,
-                "max_level": 12,
-                "species": "SPECIES_AKYUU"
+                "min_level": 13,
+                "max_level": 13,
+                "species": "SPECIES_CHIBI_LILY_BLACK"
               }
             ]
           },
@@ -33080,62 +33080,62 @@
               {
                 "min_level": 3,
                 "max_level": 3,
-                "species": "SPECIES_AKYUU"
+                "species": "SPECIES_CHIBI_TOKIKO"
               },
               {
                 "min_level": 3,
                 "max_level": 3,
-                "species": "SPECIES_AKYUU"
+                "species": "SPECIES_CHIBI_NAZRIN"
               },
               {
                 "min_level": 4,
                 "max_level": 4,
-                "species": "SPECIES_AKYUU"
+                "species": "SPECIES_CHIBI_TOKIKO"
               },
               {
                 "min_level": 4,
                 "max_level": 4,
-                "species": "SPECIES_AKYUU"
+                "species": "SPECIES_CHIBI_NAZRIN"
               },
               {
                 "min_level": 2,
                 "max_level": 2,
-                "species": "SPECIES_AKYUU"
+                "species": "SPECIES_CHIBI_TOKIKO"
               },
               {
                 "min_level": 2,
                 "max_level": 2,
-                "species": "SPECIES_AKYUU"
+                "species": "SPECIES_CHIBI_NAZRIN"
               },
               {
                 "min_level": 3,
                 "max_level": 3,
-                "species": "SPECIES_AKYUU"
+                "species": "SPECIES_CHIBI_DAIYOUSEI"
               },
               {
                 "min_level": 5,
                 "max_level": 5,
-                "species": "SPECIES_AKYUU"
+                "species": "SPECIES_CHIBI_DAIYOUSEI"
               },
               {
                 "min_level": 5,
                 "max_level": 5,
-                "species": "SPECIES_AKYUU"
+                "species": "SPECIES_CHIBI_CHEN"
               },
               {
                 "min_level": 5,
                 "max_level": 5,
-                "species": "SPECIES_AKYUU"
+                "species": "SPECIES_CHIBI_MYSTIA"
               },
               {
                 "min_level": 5,
                 "max_level": 5,
-                "species": "SPECIES_AKYUU"
+                "species": "SPECIES_CHIBI_CHEN"
               },
               {
                 "min_level": 5,
                 "max_level": 5,
-                "species": "SPECIES_AKYUU"
+                "species": "SPECIES_CHIBI_MYSTIA"
               }
             ]
           },
@@ -33145,27 +33145,27 @@
               {
                 "min_level": 20,
                 "max_level": 25,
-                "species": "SPECIES_AKYUU"
+                "species": "SPECIES_CHIBI_STAR"
               },
               {
                 "min_level": 20,
                 "max_level": 25,
-                "species": "SPECIES_AKYUU"
+                "species": "SPECIES_CHIBI_KOMACHI"
               },
               {
                 "min_level": 25,
                 "max_level": 30,
-                "species": "SPECIES_AKYUU"
+                "species": "SPECIES_CHIBI_MYSTIA"
               },
               {
                 "min_level": 30,
                 "max_level": 35,
-                "species": "SPECIES_AKYUU"
+                "species": "SPECIES_CHIBI_SUWAKO"
               },
               {
                 "min_level": 35,
                 "max_level": 40,
-                "species": "SPECIES_AKYUU"
+                "species": "SPECIES_CHIBI_SUWAKO"
               }
             ]
           },
@@ -33175,52 +33175,52 @@
               {
                 "min_level": 5,
                 "max_level": 5,
-                "species": "SPECIES_AKYUU"
+                "species": "SPECIES_CHIBI_HINA"
               },
               {
                 "min_level": 5,
                 "max_level": 5,
-                "species": "SPECIES_AKYUU"
+                "species": "SPECIES_CHIBI_HINA"
               },
               {
                 "min_level": 5,
                 "max_level": 15,
-                "species": "SPECIES_AKYUU"
+                "species": "SPECIES_CHIBI_HINA"
               },
               {
                 "min_level": 5,
                 "max_level": 15,
-                "species": "SPECIES_AKYUU"
+                "species": "SPECIES_CHIBI_NITORI"
               },
               {
                 "min_level": 5,
                 "max_level": 15,
-                "species": "SPECIES_AKYUU"
+                "species": "SPECIES_CHIBI_NITORI"
               },
               {
                 "min_level": 15,
                 "max_level": 25,
-                "species": "SPECIES_AKYUU"
+                "species": "SPECIES_CHIBI_HINA"
               },
               {
                 "min_level": 20,
                 "max_level": 30,
-                "species": "SPECIES_AKYUU"
+                "species": "SPECIES_CHIBI_NITORI"
               },
               {
                 "min_level": 15,
                 "max_level": 25,
-                "species": "SPECIES_AKYUU"
+                "species": "SPECIES_CHIBI_NITORI"
               },
               {
                 "min_level": 15,
                 "max_level": 25,
-                "species": "SPECIES_AKYUU"
+                "species": "SPECIES_CHIBI_SUWAKO"
               },
               {
                 "min_level": 25,
                 "max_level": 35,
-                "species": "SPECIES_AKYUU"
+                "species": "SPECIES_CHIBI_SUWAKO"
               }
             ]
           }
@@ -33696,62 +33696,62 @@
               {
                 "min_level": 7,
                 "max_level": 7,
-                "species": "SPECIES_AKYUU"
+                "species": "SPECIES_CHIBI_SHIZUHA"
               },
               {
                 "min_level": 7,
                 "max_level": 7,
-                "species": "SPECIES_AKYUU"
+                "species": "SPECIES_CHIBI_MINORIKO"
               },
               {
                 "min_level": 11,
                 "max_level": 11,
-                "species": "SPECIES_AKYUU"
+                "species": "SPECIES_CHIBI_SHIZUHA"
+              },
+              {
+                "min_level": 11,
+                "max_level": 12,
+                "species": "SPECIES_CHIBI_MINORIKO"
+              },
+              {
+                "min_level": 12,
+                "max_level": 13,
+                "species": "SPECIES_CHIBI_LILY_WHITE"
               },
               {
                 "min_level": 12,
                 "max_level": 12,
-                "species": "SPECIES_AKYUU"
-              },
-              {
-                "min_level": 13,
-                "max_level": 13,
-                "species": "SPECIES_AKYUU"
-              },
-              {
-                "min_level": 10,
-                "max_level": 10,
-                "species": "SPECIES_AKYUU"
-              },
-              {
-                "min_level": 13,
-                "max_level": 13,
-                "species": "SPECIES_AKYUU"
+                "species": "SPECIES_CHIBI_LILY_BLACK"
               },
               {
                 "min_level": 14,
                 "max_level": 14,
-                "species": "SPECIES_AKYUU"
+                "species": "SPECIES_CHIBI_SHIZUHA"
               },
               {
-                "min_level": 8,
-                "max_level": 8,
-                "species": "SPECIES_AKYUU"
+                "min_level": 14,
+                "max_level": 14,
+                "species": "SPECIES_CHIBI_MINORIKO"
               },
               {
-                "min_level": 8,
-                "max_level": 8,
-                "species": "SPECIES_AKYUU"
+                "min_level": 14,
+                "max_level": 14,
+                "species": "SPECIES_CHIBI_LILY_WHITE"
               },
               {
-                "min_level": 8,
-                "max_level": 8,
-                "species": "SPECIES_AKYUU"
+                "min_level": 14,
+                "max_level": 14,
+                "species": "SPECIES_CHIBI_LILY_BLACK"
+              },
+              {
+                "min_level": 10,
+                "max_level": 10,
+                "species": "SPECIES_CHIBI_KEINE"
               },
               {
                 "min_level": 12,
                 "max_level": 12,
-                "species": "SPECIES_AKYUU"
+                "species": "SPECIES_CHIBI_KEINE"
               }
             ]
           },
@@ -34004,62 +34004,62 @@
               {
                 "min_level": 8,
                 "max_level": 8,
-                "species": "SPECIES_AKYUU"
+                "species": "SPECIES_CHIBI_SHIZUHA"
               },
               {
                 "min_level": 8,
                 "max_level": 8,
-                "species": "SPECIES_AKYUU"
-              },
-              {
-                "min_level": 13,
-                "max_level": 13,
-                "species": "SPECIES_AKYUU"
-              },
-              {
-                "min_level": 14,
-                "max_level": 14,
-                "species": "SPECIES_AKYUU"
-              },
-              {
-                "min_level": 13,
-                "max_level": 13,
-                "species": "SPECIES_AKYUU"
-              },
-              {
-                "min_level": 11,
-                "max_level": 11,
-                "species": "SPECIES_AKYUU"
-              },
-              {
-                "min_level": 11,
-                "max_level": 11,
-                "species": "SPECIES_AKYUU"
+                "species": "SPECIES_CHIBI_MINORIKO"
               },
               {
                 "min_level": 12,
                 "max_level": 12,
-                "species": "SPECIES_AKYUU"
+                "species": "SPECIES_CHIBI_SHIZUHA"
               },
               {
-                "min_level": 9,
-                "max_level": 9,
-                "species": "SPECIES_AKYUU"
-              },
-              {
-                "min_level": 9,
-                "max_level": 9,
-                "species": "SPECIES_AKYUU"
-              },
-              {
-                "min_level": 9,
-                "max_level": 9,
-                "species": "SPECIES_AKYUU"
+                "min_level": 12,
+                "max_level": 12,
+                "species": "SPECIES_CHIBI_MINORIKO"
               },
               {
                 "min_level": 13,
                 "max_level": 13,
-                "species": "SPECIES_AKYUU"
+                "species": "SPECIES_CHIBI_LILY_WHITE"
+              },
+              {
+                "min_level": 13,
+                "max_level": 13,
+                "species": "SPECIES_CHIBI_LILY_BLACK"
+              },
+              {
+                "min_level": 14,
+                "max_level": 14,
+                "species": "SPECIES_CHIBI_SHIZUHA"
+              },
+              {
+                "min_level": 14,
+                "max_level": 14,
+                "species": "SPECIES_CHIBI_MINORIKO"
+              },
+              {
+                "min_level": 15,
+                "max_level": 15,
+                "species": "SPECIES_CHIBI_LILY_WHITE"
+              },
+              {
+                "min_level": 15,
+                "max_level": 15,
+                "species": "SPECIES_CHIBI_LILY_BLACK"
+              },
+              {
+                "min_level": 11,
+                "max_level": 11,
+                "species": "SPECIES_CHIBI_KEINE"
+              },
+              {
+                "min_level": 13,
+                "max_level": 13,
+                "species": "SPECIES_CHIBI_KEINE"
               }
             ]
           },
