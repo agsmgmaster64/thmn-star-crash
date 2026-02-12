@@ -545,7 +545,7 @@ static bool32 PaletteFadeActive(void)
 
 static bool32 WaitForWeatherFadeIn(void)
 {
-    if (IsWeatherNotFadingIn() == TRUE)
+    if (IsWeatherNotFadingIn() == TRUE && ForestMapPreviewScreenIsRunning())
         return TRUE;
     else
         return FALSE;
