@@ -63,6 +63,9 @@ static void Task_ExitDoor(u8);
 static bool32 WaitForWeatherFadeIn(void);
 static void Task_SpinEnterWarp(u8 taskId);
 static void Task_EnableScriptAfterMusicFade(u8 taskId);
+static void DoOutwardBarnDoorWipe(void);
+static void Task_BarnDoorWipe(u8 taskId);
+static void Task_BarnDoorWipeChild(u8 taskId);
 
 static void ExitStairsMovement(s16*, s16*, s16*, s16*, s16*);
 static void GetStairsMovementDirection(u32, s16*, s16*);
@@ -114,6 +117,22 @@ void WarpFadeInScreen(void)
     case 1:
         FillPalBufferWhite();
         FadeScreen(FADE_FROM_WHITE, 0);
+    }
+}
+
+static void WarpFadeInScreenWithDelay(void)
+{
+    enum MapType previousMapType = GetLastUsedWarpMapType();
+    switch (GetMapPairFadeFromType(previousMapType, GetCurrentMapType()))
+    {
+    case FALSE:
+        FillPalBufferBlack();
+        FadeScreen(FADE_FROM_BLACK, 3);
+        break;
+    case TRUE:
+        FillPalBufferWhite();
+        FadeScreen(FADE_FROM_WHITE, 3);
+        break;
     }
 }
 
@@ -358,6 +377,9 @@ static void Task_ExitDoor(u8 taskId)
     s16 *x = &task->data[2];
     s16 *y = &task->data[3];
 
+    if (task->tState == 0)
+        task->tState = 5;
+
     switch (task->tState)
     {
     case 0:
@@ -367,6 +389,58 @@ static void Task_ExitDoor(u8 taskId)
         PlayerGetDestCoords(x, y);
         FieldSetDoorOpened(*x, *y);
         task->tState = 1;
+        break;
+    case 5:
+        HideNPCFollower();
+        SetPlayerVisibility(FALSE);
+        FreezeObjectEvents();
+        DoOutwardBarnDoorWipe();
+        WarpFadeInScreenWithDelay();
+        task->tState = 6;
+        break;
+    case 6:
+        task->data[15]++;
+        if (task->data[15] == 25)
+        {
+            PlayerGetDestCoords(x, y);
+            PlaySE(GetDoorSoundEffect(*x, *y));
+            FieldAnimateDoorOpen(*x, *y);
+            task->tState = 7;
+        }
+        break;
+    case 7:
+        if (!FieldIsDoorAnimationRunning())
+        {
+            u8 objEventId;
+            PlayerGetDestCoords(&task->data[12], &task->data[13]);
+            SetPlayerVisibility(TRUE);
+            objEventId = GetObjectEventIdByLocalIdAndMap(LOCALID_PLAYER, 0, 0);
+            ObjectEventSetHeldMovement(&gObjectEvents[objEventId], MOVEMENT_ACTION_WALK_NORMAL_DOWN);
+            task->tState = 8;
+        }
+        break;
+    case 8:
+        task->data[14]++;
+        if (task->data[14] == 14)
+        {
+            FieldAnimateDoorClose(task->data[12], task->data[13]);
+            task->tState = 9;
+        }
+        break;
+    case 9:
+        if (WaitForWeatherFadeIn() && IsPlayerStandingStill() && !FieldIsDoorAnimationRunning() && !FuncIsActiveTask(Task_BarnDoorWipe))
+        {
+            u8 objEventId;
+            objEventId = GetObjectEventIdByLocalIdAndMap(LOCALID_PLAYER, 0, 0);
+            ObjectEventClearHeldMovementIfFinished(&gObjectEvents[objEventId]);
+            task->tState = 10;
+        }
+        break;
+    case 10:
+        FollowerNPC_SetIndicatorToComeOutDoor();
+        FollowerNPC_WarpSetEnd();
+        UnfreezeObjectEvents();
+        task->tState = 4;
         break;
     case 1:
         if (WaitForWeatherFadeIn())
@@ -1381,6 +1455,129 @@ static void Task_EnableScriptAfterMusicFade(u8 taskId)
         ScriptContext_Enable();
     }
 }
+
+#define tState data[9]
+#define tDirection data[10]
+#define DIR_WIPE_IN 0 // From edges to center.
+#define DIR_WIPE_OUT 1 // From center to edges.
+#define tChildOffset data[0]
+
+static void DoOutwardBarnDoorWipe(void)
+{
+    u8 taskId = CreateTask(Task_BarnDoorWipe, 80);
+    gTasks[taskId].tDirection = DIR_WIPE_OUT;
+}
+
+static void BarnDoorWipeSaveGpuRegs(u8 taskId)
+{
+    s16 *data = gTasks[taskId].data;
+    data[0] = GetGpuReg(REG_OFFSET_DISPCNT);
+    data[1] = GetGpuReg(REG_OFFSET_WININ);
+    data[2] = GetGpuReg(REG_OFFSET_WINOUT);
+    data[3] = GetGpuReg(REG_OFFSET_BLDCNT);
+    data[4] = GetGpuReg(REG_OFFSET_BLDALPHA);
+    data[5] = GetGpuReg(REG_OFFSET_WIN0H);
+    data[6] = GetGpuReg(REG_OFFSET_WIN0V);
+    data[7] = GetGpuReg(REG_OFFSET_WIN1H);
+    data[8] = GetGpuReg(REG_OFFSET_WIN1V);
+}
+
+static void BarnDoorWipeLoadGpuRegs(u8 taskId)
+{
+    s16 *data = gTasks[taskId].data;
+    SetGpuReg(REG_OFFSET_DISPCNT, data[0]);
+    SetGpuReg(REG_OFFSET_WININ, data[1]);
+    SetGpuReg(REG_OFFSET_WINOUT, data[2]);
+    SetGpuReg(REG_OFFSET_BLDCNT, data[3]);
+    SetGpuReg(REG_OFFSET_BLDALPHA, data[4]);
+    SetGpuReg(REG_OFFSET_WIN0H, data[5]);
+    SetGpuReg(REG_OFFSET_WIN0V, data[6]);
+    SetGpuReg(REG_OFFSET_WIN1H, data[7]);
+    SetGpuReg(REG_OFFSET_WIN1V, data[8]);
+}
+
+static void Task_BarnDoorWipe(u8 taskId)
+{
+    s16 *data = gTasks[taskId].data;
+    switch (tState)
+    {
+        case 0:
+            BarnDoorWipeSaveGpuRegs(taskId);
+            SetGpuRegBits(REG_OFFSET_DISPCNT, DISPCNT_WIN0_ON);
+            SetGpuRegBits(REG_OFFSET_DISPCNT, DISPCNT_WIN1_ON);
+            if (data[10] == 0)
+            {
+                SetGpuReg(REG_OFFSET_WIN0H, WIN_RANGE(0, 0));
+                SetGpuReg(REG_OFFSET_WIN1H, WIN_RANGE(DISPLAY_WIDTH, 255));
+                SetGpuReg(REG_OFFSET_WIN0V, WIN_RANGE(0, 255));
+                SetGpuReg(REG_OFFSET_WIN1V, WIN_RANGE(0, 255));
+            }
+            else
+            {
+                SetGpuReg(REG_OFFSET_WIN0H, WIN_RANGE(0, DISPLAY_WIDTH / 2));
+                SetGpuReg(REG_OFFSET_WIN0V, WIN_RANGE(0, 255));
+                SetGpuReg(REG_OFFSET_WIN1H, WIN_RANGE(DISPLAY_WIDTH / 2, 255));
+                SetGpuReg(REG_OFFSET_WIN1V, WIN_RANGE(0, 255));
+            }
+            SetGpuReg(REG_OFFSET_WININ, 0);
+            SetGpuReg(REG_OFFSET_WINOUT, WINOUT_WIN01_BG_ALL | WINOUT_WIN01_OBJ | WINOUT_WIN01_CLR);
+            tState = 1;
+            break;
+        case 1:
+            CreateTask(Task_BarnDoorWipeChild, 80);
+            tState = 2;
+            break;
+        case 2:
+            if (!FuncIsActiveTask(Task_BarnDoorWipeChild))
+            {
+                tState = 3;
+            }
+            break;
+        case 3:
+            BarnDoorWipeLoadGpuRegs(taskId);
+            DestroyTask(taskId);
+            break;
+    }
+}
+
+static void Task_BarnDoorWipeChild(u8 taskId)
+{
+    s16 *data = gTasks[taskId].data;
+	u8 parentTaskId = FindTaskIdByFunc(Task_BarnDoorWipe);
+    s16 lhs, rhs;
+    if (gTasks[parentTaskId].tDirection == DIR_WIPE_IN)
+    {
+        lhs = tChildOffset;
+        rhs = DISPLAY_WIDTH - tChildOffset;
+        if (lhs > DISPLAY_WIDTH / 2)
+        {
+            DestroyTask(taskId);
+            return;
+        }
+    }
+    else
+    {
+        lhs = DISPLAY_WIDTH / 2 - tChildOffset;
+        rhs = DISPLAY_WIDTH / 2 + tChildOffset;
+        if (lhs < 0)
+        {
+            DestroyTask(taskId);
+            return;
+        }
+    }
+    SetGpuReg(REG_OFFSET_WIN0H, WIN_RANGE(0, lhs));
+    SetGpuReg(REG_OFFSET_WIN1H, WIN_RANGE(rhs, DISPLAY_WIDTH));
+    if (lhs < 90)
+        tChildOffset += 4;
+    else
+        tChildOffset += 2;
+}
+
+#undef tState
+#undef tDirection
+#undef DIR_WIPE_IN
+#undef DIR_WIPE_OUT
+#undef tChildOffset
 
 static const struct WindowTemplate sWindowTemplate_WhiteoutText =
 {
