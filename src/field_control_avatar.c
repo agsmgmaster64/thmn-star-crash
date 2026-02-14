@@ -30,6 +30,7 @@
 #include "overworld.h"
 #include "pokemon.h"
 #include "qol_field_moves.h"
+#include "renewable_hidden_items.h"
 #include "safari_zone.h"
 #include "script.h"
 #include "secret_base.h"
@@ -196,6 +197,7 @@ int ProcessPlayerFieldInput(struct FieldInput *input)
     if (input->tookStep)
     {
         IncrementGameStat(GAME_STAT_STEPS);
+        IncrementRenewableHiddenItemStepCounter();
         IncrementBirthIslandRockStepCount();
         if (TryStartStepBasedScript(&position, metatileBehavior, playerDirection) == TRUE)
             return TRUE;

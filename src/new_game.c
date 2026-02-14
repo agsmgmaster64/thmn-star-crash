@@ -60,6 +60,7 @@
 #include "string_util.h"
 #include "strings.h"
 #include "bank_money.h"
+#include "renewable_hidden_items.h"
 
 extern const u8 EventScript_ResetAllMapFlags[];
 extern const u8 EventScript_ResetAllMapFlagsFrlg[];
@@ -255,6 +256,7 @@ void NewGameInitData(void)
     InitDewfordTrend();
     ResetFanClub();
     ResetLotteryCorner();
+    SetAllRenewableItemFlags();
     WarpToTruck();
     if (IS_FRLG)
         RunScriptImmediately(EventScript_ResetAllMapFlagsFrlg);
