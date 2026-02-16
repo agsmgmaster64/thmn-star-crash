@@ -3,7 +3,6 @@
   "name": "ThreeIsland_DunsparceTunnel_Frlg",
   "layout": "LAYOUT_THREE_ISLAND_DUNSPARCE_TUNNEL",
   "music": "MUS_ZGS_VIRIDIAN_FOREST",
-  "region": "REGION_KANTO",
   "region_map_section": "MAPSEC_THREE_ISLE_PATH",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
@@ -14,7 +13,7 @@
   "show_map_name": true,
   "floor_number": 0,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
-  "connections": 0,
+  "connections": null,
   "object_events": [
     {
       "local_id": "LOCALID_PROSPECTOR",
@@ -48,9 +47,7 @@
       "dest_warp_id": "1"
     }
   ],
-  "coord_events": [
-
-  ],
+  "coord_events": [],
   "bg_events": [
     {
       "type": "hidden_item",
@@ -62,5 +59,6 @@
       "quantity": 1,
       "underfoot": false
     }
-  ]
+  ],
+  "region": "REGION_KANTO"
 }
