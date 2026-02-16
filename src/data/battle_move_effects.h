@@ -838,14 +838,6 @@ const struct BattleMoveEffect gBattleMoveEffects[NUM_BATTLE_MOVE_EFFECTS] =
         .semiInvulnerableEffect = TRUE,
     },
 
-    [EFFECT_PREDATOR_STALK] =
-    {
-        .battleScript = BattleScript_EffectHit,
-        .battleTvScore = 3,
-        .twoTurnEffect = TRUE,
-        .semiInvulnerableEffect = TRUE,
-    },
-
     [EFFECT_SOFTBOILED] =
     {
         .battleScript = BattleScript_EffectSoftboiled,

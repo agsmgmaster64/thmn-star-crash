@@ -4056,7 +4056,6 @@ static bool32 IsDomeComboMove(enum Move move)
     case EFFECT_MOONLIGHT:
     case EFFECT_SHORE_UP:
     case EFFECT_SOLAR_BEAM:
-    case EFFECT_PREDATOR_STALK:
     case EFFECT_GROWTH:
     case EFFECT_AURORA_VEIL:
     case EFFECT_WEATHER_BALL:

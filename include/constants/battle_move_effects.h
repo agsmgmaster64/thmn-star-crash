@@ -120,7 +120,6 @@ enum __attribute__((packed)) BattleMoveEffects
     EFFECT_TELEPORT,
     EFFECT_BEAT_UP,
     EFFECT_SEMI_INVULNERABLE,
-    EFFECT_PREDATOR_STALK,
     EFFECT_SOFTBOILED, // differences vs Recover - can be used outside of battle to restore HP
     EFFECT_FIRST_TURN_ONLY,
     EFFECT_UPROAR,

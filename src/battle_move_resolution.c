@@ -1458,6 +1458,7 @@ static bool32 CanTwoTurnMoveFireThisTurn(struct BattleContext *ctx)
 {
     if (gBattleMoveEffects[GetMoveEffect(ctx->move)].semiInvulnerableEffect
      || GetMoveEffect(ctx->move) == EFFECT_GEOMANCY
+     || GetMoveEffect(ctx->move) == EFFECT_GROUP_PRANK
      || !IsBattlerWeatherAffected(ctx->battlerAtk, GetMoveTwoTurnAttackWeather(ctx->move)))
         return FALSE;
     return TRUE;

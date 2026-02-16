@@ -8842,7 +8842,9 @@ gBattleAnimMove_SpikyShield::
 	end
 
 gBattleAnimMove_GroupPrank::
-	choosetwoturnanim GroupPrankSetup, GroupPrankAttackSecond
+	jumpifmoveturn 0, GroupPrankSetup
+	jumpifmoveturn 2, GroupPrankAttackSecond
+	goto gBattleAnimMove_Prank
 
 GroupPrankSetup::
 	loadspritegfx ANIM_TAG_ITEM_BAG
