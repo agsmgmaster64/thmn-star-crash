@@ -3601,7 +3601,7 @@ const u16 gTilesetPalettes_DepartmentStore[][16] =
 
 const u32 gTilesetTiles_DepartmentStore[] = INCBIN_U32("data/tilesets/secondary/department_store_frlg/tiles.4bpp.fastSmol");
 
-const u16 ALIGNED(4) gTilesetPalettes_General_Frlg[][16] =
+const u16 ALIGNED(4) gTilesetPalettes_GeneralFrlg[][16] =
 {
     INCBIN_U16("data/tilesets/primary/general_frlg/palettes/00.gbapal"),
     INCBIN_U16("data/tilesets/primary/general_frlg/palettes/01.gbapal"),
@@ -3621,4 +3621,4 @@ const u16 ALIGNED(4) gTilesetPalettes_General_Frlg[][16] =
     INCBIN_U16("data/tilesets/primary/general_frlg/palettes/15.gbapal"),
 };
 
-const u32 gTilesetTiles_General_Frlg[] = INCBIN_U32("data/tilesets/primary/general_frlg/tiles.4bpp.smol");
+const u32 gTilesetTiles_GeneralFrlg[] = INCBIN_U32("data/tilesets/primary/general_frlg/tiles.4bpp.smol");

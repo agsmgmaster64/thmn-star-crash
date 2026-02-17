@@ -5,6 +5,7 @@
 extern const u32 gSignpostWindow_Gfx[];
 extern const u32 gMessageBox_Gfx[];
 extern const u16 gMessageBox_Pal[];
+extern const u16 gMessageBox_PalAlt[];
 
 // pokeballs
 extern const u32 gBallGfx_Strange[];
@@ -214,6 +215,7 @@ extern const u16 gBerryFixWindow_Pal[];
 extern const u32 gBattleTextboxTiles[];
 extern const u32 gBattleTextboxTilemap[];
 extern const u16 gBattleTextboxPalette[];
+extern const u16 gBattleTextboxPaletteAlt[];
 extern const u32 gVsLettersGfx[];
 extern const u32 gBattleVSFrame_Gfx[];
 extern const u16 gBattleVSFrame_Pal[];

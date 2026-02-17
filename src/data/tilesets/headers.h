@@ -1151,15 +1151,15 @@ const struct Tileset gTileset_BuildingFrlg =
     .callback = NULL,
 };
 
-const struct Tileset gTileset_General_Frlg =
+const struct Tileset gTileset_GeneralFrlg =
 {
     .isCompressed = TRUE,
     .isSecondary = FALSE,
-    .tiles = gTilesetTiles_General_Frlg,
-    .palettes = gTilesetPalettes_General_Frlg,
-    .metatiles = gMetatiles_General_Frlg,
-    .metatileAttributes = gMetatileAttributes_General_Frlg,
-    .callback = InitTilesetAnim_General_Frlg,
+    .tiles = gTilesetTiles_GeneralFrlg,
+    .palettes = gTilesetPalettes_GeneralFrlg,
+    .metatiles = gMetatiles_GeneralFrlg,
+    .metatileAttributes = gMetatileAttributes_GeneralFrlg,
+    .callback = InitTilesetAnim_GeneralFrlg,
 };
 
 const struct Tileset gTileset_PalletTown =

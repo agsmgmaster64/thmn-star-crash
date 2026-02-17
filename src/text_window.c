@@ -204,6 +204,8 @@ const u16 *GetTextWindowPalette(u8 id)
 
 const u16 *GetOverworldTextboxPalettePtr(void)
 {
+    if (IS_FRLG)
+        return gMessageBox_PalAlt;
     return gMessageBox_Pal;
 }
 

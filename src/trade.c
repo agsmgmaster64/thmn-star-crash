@@ -2981,7 +2981,10 @@ static void TradeAnimInit_LoadGfx(void)
     // Doing the graphics load.
     DecompressAndLoadBgGfxUsingHeap(0, gBattleTextboxTiles, 0, 0, 0);
     DecompressAndCopyToBgTilemapBuffer(0, gBattleTextboxTilemap, BG_SCREEN_SIZE, 0);
-    LoadPalette(gBattleTextboxPalette, BG_PLTT_ID(0), PLTT_SIZE_4BPP);
+    if (IS_FRLG)
+        LoadPalette(gBattleTextboxPaletteAlt, BG_PLTT_ID(0), PLTT_SIZE_4BPP);
+    else
+        LoadPalette(gBattleTextboxPalette, BG_PLTT_ID(0), PLTT_SIZE_4BPP);
     InitWindows(sTradeSequenceWindowTemplates);
 }
 

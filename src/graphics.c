@@ -3,6 +3,7 @@
 
 const u32 gBattleTextboxTiles[] = INCBIN_U32("graphics/battle_interface/textbox.4bpp.smol");
 const u16 gBattleTextboxPalette[] = INCBIN_U16("graphics/battle_interface/textbox.gbapal");
+const u16 gBattleTextboxPaletteAlt[] = INCBIN_U16("graphics/battle_interface/textbox_alt.gbapal");
 const u32 gBattleTextboxTilemap[] = INCBIN_U32("graphics/battle_interface/textbox_map.bin.smolTM");
 
 const u32 gUnusedGfx_OldCharmap[] = INCBIN_U32("graphics/unused/old_charmap.4bpp.smol"); // japanese table and bunch of stuff
@@ -2066,6 +2067,7 @@ const u16 gTradeMenu_Tilemap[] = INCBIN_U16("graphics/trade/menu.bin");
 const u16 gTradeMenuMonBox_Tilemap[] = INCBIN_U16("graphics/trade/menu_mon_box.bin");
 
 const u16 gMessageBox_Pal[] = INCBIN_U16("graphics/text_window/message_box.gbapal");
+const u16 gMessageBox_PalAlt[] = INCBIN_U16("graphics/text_window/message_box_alt.gbapal");
 const u32 gMessageBox_Gfx[] = INCBIN_U32("graphics/text_window/message_box.4bpp");
 const u32 gSignpostWindow_Gfx[] = INCBIN_U32("graphics/text_window/signpost.4bpp");
 
