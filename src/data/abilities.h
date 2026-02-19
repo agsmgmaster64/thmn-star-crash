@@ -2612,7 +2612,7 @@ const struct AbilityInfo gAbilitiesInfo[ABILITIES_COUNT] =
     [ABILITY_GRAND_THEORY] =
     {
         .name = _("Grand Theory"),
-        .description = COMPOUND_STRING("Confuses poisoned foes."),
+        .description = COMPOUND_STRING("Raises Sp. Atk."),
         .aiRating = 8,
     },
 
