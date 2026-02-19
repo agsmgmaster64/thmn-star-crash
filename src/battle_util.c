@@ -3877,6 +3877,42 @@ u32 AbilityBattleEffects(enum AbilityEffect caseID, enum BattlerId battler, enum
             break;
         }
         break;
+    case ABILITYEFFECT_ECHO_ABILITIES:
+        switch (gLastUsedAbility)
+        {
+        case ABILITY_PRIDE:
+            if (IsBattlerAlive(battler)
+             && !gBattleStruct->unableToUseMove
+             && IsHealingMove(move)
+             && GetBattlerSide(battler) != GetBattlerSide(gBattlerAttacker)
+             && CompareStat(battler, STAT_SPATK, MAX_STAT_STAGE, CMP_LESS_THAN, gLastUsedAbility))
+            {
+                gEffectBattler = gBattlerAbility = battler;
+                SET_STATCHANGER(STAT_SPATK, 1, FALSE);
+                BattleScriptCall(BattleScript_BerserkActivates);
+                effect++;
+            }
+            break;
+        case ABILITY_GRAND_THEORY:
+            if (battler != gBattlerAttacker
+             && IsBattlerAlive(battler)
+             && !gBattleStruct->unableToUseMove
+             && CompareStat(battler, STAT_SPATK, MAX_STAT_STAGE, CMP_LESS_THAN, gLastUsedAbility)
+             && (gBattleMons[battler].moves[0] == move
+                 || gBattleMons[battler].moves[1] == move
+                 || gBattleMons[battler].moves[2] == move
+                 || gBattleMons[battler].moves[3] == move))
+            {
+                gEffectBattler = gBattlerAbility = battler;
+                SET_STATCHANGER(STAT_SPATK, 1, FALSE);
+                BattleScriptCall(BattleScript_BerserkActivates);
+                effect++;
+            }
+            break;
+        default:
+            break;
+        }
+        break;
     case ABILITYEFFECT_MOVE_END: // Think contact abilities.
         switch (gLastUsedAbility)
         {

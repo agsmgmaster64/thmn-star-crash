@@ -2608,4 +2608,18 @@ const struct AbilityInfo gAbilitiesInfo[ABILITIES_COUNT] =
         .description = COMPOUND_STRING("Confuses poisoned foes."),
         .aiRating = 8,
     },
+
+    [ABILITY_GRAND_THEORY] =
+    {
+        .name = _("Grand Theory"),
+        .description = COMPOUND_STRING("Confuses poisoned foes."),
+        .aiRating = 8,
+    },
+
+    [ABILITY_PRIDE] =
+    {
+        .name = _("Pride"),
+        .description = COMPOUND_STRING("Confuses poisoned foes."),
+        .aiRating = 8,
+    },
 };
