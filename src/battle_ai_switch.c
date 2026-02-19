@@ -1648,7 +1648,7 @@ static u32 GetSwitchinRecurringDamage(enum BattlerId battler)
     // Items
     if (ability != ABILITY_MAGIC_GUARD && ability != ABILITY_KLUTZ)
     {
-        if (holdEffect == HOLD_EFFECT_BLACK_SLUDGE && IS_BATTLER_OF_TYPE(battler, TYPE_MIASMA))
+        if (holdEffect == HOLD_EFFECT_BLACK_SLUDGE && !IS_BATTLER_OF_TYPE(battler, TYPE_MIASMA))
         {
             passiveDamage = maxHP / 8;
             if (passiveDamage == 0)
@@ -1722,8 +1722,8 @@ static u32 GetSwitchinStatusDamage(enum BattlerId battler)
 
     // Apply hypothetical poisoning from Toxic Spikes, which means the first turn of damage already added in GetSwitchinHazardsDamage
     // Do this last to skip one iteration of Poison / Toxic damage, and start counting Toxic damage one turn later.
-    if (tSpikesLayers != 0 && (IS_BATTLER_OF_TYPE(battler, TYPE_MIASMA)
-        && ability != ABILITY_IMMUNITY && ability != ABILITY_POISON_HEAL
+    if (tSpikesLayers != 0 && (!IS_BATTLER_ANY_TYPE(battler, TYPE_MIASMA, TYPE_STEEL)
+        && ability != ABILITY_IMMUNITY && ability != ABILITY_POISON_HEAL && ability != ABILITY_PASTEL_VEIL
         && status == 0
         && !(heldItemEffect == HOLD_EFFECT_HEAVY_DUTY_BOOTS
             && (((gFieldStatuses & STATUS_FIELD_MAGIC_ROOM) || ability == ABILITY_KLUTZ)))
