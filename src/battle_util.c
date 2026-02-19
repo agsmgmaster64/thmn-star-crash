@@ -463,6 +463,8 @@ void HandleAction_UseMove(void)
     {
         gBattleStruct->battlerState[battler].wasAboveHalfHp = gBattleMons[battler].hp > gBattleMons[battler].maxHP / 2;
         gBattleMons[battler].volatiles.activateDancer = FALSE;
+        gBattleMons[battler].volatiles.activateConcerto = FALSE;
+        gBattleMons[battler].volatiles.activateWallMaster = FALSE;
     }
 
     gCurrentActionFuncId = B_ACTION_EXEC_SCRIPT;
@@ -4477,6 +4479,7 @@ u32 AbilityBattleEffects(enum AbilityEffect caseID, enum BattlerId battler, enum
                 // Set bit and save Concerto mon's original target
                 gSpecialStatuses[battler].concertoUsedMove = TRUE;
                 gSpecialStatuses[battler].concertoOriginalTarget = gBattleStruct->moveTarget[battler] | 0x4;
+                gBattleMons[battler].volatiles.activateConcerto = FALSE;
                 gBattlerAttacker = gBattlerAbility = battler;
                 gCalledMove = move;
 
@@ -4486,6 +4489,18 @@ u32 AbilityBattleEffects(enum AbilityEffect caseID, enum BattlerId battler, enum
                 // Make sure that the target isn't an ally - if it is, target the original user
                 if (IsBattlerAlly(gBattlerTarget, gBattlerAttacker))
                     gBattlerTarget = (gBattleScripting.savedBattler & 0xF0) >> 4;
+                BattleScriptExecute(BattleScript_DancerActivates);
+                effect++;
+            }
+        case ABILITY_WALL_MASTER:
+            if (IsBattlerAlive(gBattlerAttacker)
+             && IsWallMove(move))
+            {
+                gSpecialStatuses[battler].wallMasterUsedMove = TRUE;
+                gBattleMons[battler].volatiles.activateWallMaster = FALSE;
+                gBattlerAttacker = gBattlerAbility = battler;
+                gCalledMove = move;
+
                 BattleScriptExecute(BattleScript_DancerActivates);
                 effect++;
             }

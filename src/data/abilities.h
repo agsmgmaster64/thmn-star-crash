@@ -2601,4 +2601,11 @@ const struct AbilityInfo gAbilitiesInfo[ABILITIES_COUNT] =
         .description = COMPOUND_STRING("Confuses poisoned foes."),
         .aiRating = 8,
     },
+
+    [ABILITY_WALL_MASTER] =
+    {
+        .name = _("Wall Master"),
+        .description = COMPOUND_STRING("Confuses poisoned foes."),
+        .aiRating = 8,
+    },
 };

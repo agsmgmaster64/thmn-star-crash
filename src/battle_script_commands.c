@@ -2835,7 +2835,10 @@ void SetMoveEffect(enum BattlerId battlerAtk, enum BattlerId effectBattler, enum
     }
     case MOVE_EFFECT_THRASH:
         // Petal Dance doesn't lock mons that copy the move with Dancer
-        if (gSpecialStatuses[gEffectBattler].dancerUsedMove || gBattleMons[gEffectBattler].volatiles.rampageTurns)
+        if (gSpecialStatuses[gEffectBattler].dancerUsedMove
+         || gSpecialStatuses[gEffectBattler].concertoUsedMove
+         || gSpecialStatuses[gEffectBattler].wallMasterUsedMove
+         || gBattleMons[gEffectBattler].volatiles.rampageTurns)
         {
             gBattlescriptCurrInstr = battleScript;
         }

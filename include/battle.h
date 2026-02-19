@@ -127,8 +127,11 @@ struct SpecialStatus
     u8 dancerOriginalTarget:3;
     // End of byte
     u8 concertoOriginalTarget:3;
+    u8 wallMasterTracker:5;
+    // End of byte
     u8 statRaised:1;
     u8 concertoUsedMove:1;
+    u8 wallMasterUsedMove:1;
 };
 
 struct SideTimer

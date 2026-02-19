@@ -232,6 +232,8 @@ static enum CancelerResult CancelerPowerPoints(struct BattleContext *ctx)
     if (gBattleMons[ctx->battlerAtk].pp[gCurrMovePos] == 0
      && ctx->move != MOVE_STRUGGLE
      && !gSpecialStatuses[ctx->battlerAtk].dancerUsedMove
+     && !gSpecialStatuses[ctx->battlerAtk].concertoUsedMove
+     && !gSpecialStatuses[ctx->battlerAtk].wallMasterUsedMove
      && !gBattleMons[ctx->battlerAtk].volatiles.multipleTurns)
     {
         gBattlescriptCurrInstr = BattleScript_NoPPForMove;
@@ -608,7 +610,9 @@ static enum CancelerResult CancelerStanceChangeTwo(struct BattleContext *ctx)
 static enum CancelerResult CancelerAttackstring(struct BattleContext *ctx)
 {
     BattleScriptCall(BattleScript_Attackstring);
-    if (!gSpecialStatuses[gBattlerAttacker].dancerUsedMove)
+    if (!gSpecialStatuses[gBattlerAttacker].dancerUsedMove
+     && !gSpecialStatuses[gBattlerAttacker].concertoUsedMove
+     && !gSpecialStatuses[gBattlerAttacker].wallMasterUsedMove)
     {
         gBattleMons[gBattlerAttacker].volatiles.usedMoves |= 1u << gCurrMovePos;
         gBattleStruct->battlerState[gBattlerAttacker].lastMoveTarget = gBattlerTarget;
@@ -923,6 +927,8 @@ static enum CancelerResult CancelerPPDeduction(struct BattleContext *ctx)
 {
     if (gBattleMons[ctx->battlerAtk].volatiles.multipleTurns
      || gSpecialStatuses[ctx->battlerAtk].dancerUsedMove
+     || gSpecialStatuses[ctx->battlerAtk].concertoUsedMove
+     || gSpecialStatuses[ctx->battlerAtk].wallMasterUsedMove
      || gBattleStruct->bouncedMoveIsUsed
      || ctx->move == MOVE_STRUGGLE)
         return CANCELER_RESULT_SUCCESS;
@@ -2288,6 +2294,61 @@ static enum MoveEndResult MoveEndQueueDancer(void)
     return MOVEEND_RESULT_CONTINUE;
 }
 
+static enum MoveEndResult MoveEndQueueConcerto(void)
+{
+    if (!IsSoundMove(gCurrentMove)
+     || IsBattlerUnaffectedByMove(gBattlerTarget)
+     || gBattleStruct->unableToUseMove
+     || gSpecialStatuses[gBattlerAttacker].concertoUsedMove
+     || gBattleStruct->snatchedMoveIsUsed
+     || gBattleStruct->bouncedMoveIsUsed)
+    {
+        gBattleScripting.moveendState++;
+        return MOVEEND_RESULT_CONTINUE;
+    }
+
+    for (enum BattlerId battler = 0; battler < gBattlersCount; battler++)
+    {
+        if (battler == gBattlerAttacker || !IsBattlerAlive(battler))
+            continue;
+
+        if (GetBattlerAbility(gBattlerAttacker) == ABILITY_CONCERTO)
+            gBattleMons[gBattlerAttacker].volatiles.activateConcerto = TRUE;
+    }
+
+    gBattleScripting.moveendState++;
+    return MOVEEND_RESULT_CONTINUE;
+}
+
+static enum MoveEndResult MoveEndQueueWallMaster(void)
+{
+    if (!IsWallMove(gCurrentMove)
+     || gBattleStruct->unableToUseMove
+     || gBattleStruct->snatchedMoveIsUsed
+     || gBattleStruct->bouncedMoveIsUsed)
+    {
+        gBattleScripting.moveendState++;
+        return MOVEEND_RESULT_CONTINUE;
+    }
+
+    if (GetBattlerAbility(gBattlerAttacker) == ABILITY_WALL_MASTER)
+    {
+        u8 i;
+        // flag the current move
+        for (i = 0; i < 4; i++)
+        {
+            if (gCurrentMove == gBattleMons[gBattlerAttacker].moves[i])
+            {
+                gSpecialStatuses[gBattlerAttacker].wallMasterTracker |= (1 << i);
+            }
+        }
+        gBattleMons[gBattlerAttacker].volatiles.activateWallMaster = TRUE;
+    }
+
+    gBattleScripting.moveendState++;
+    return MOVEEND_RESULT_CONTINUE;
+}
+
 static enum MoveEndResult MoveEndStatusImmunityAbilities(void)
 {
     enum MoveEndResult result = MOVEEND_RESULT_CONTINUE;
@@ -2617,7 +2678,9 @@ static enum MoveEndResult MoveEndUpdateLastMoves(void)
     {
         if (!gBattleStruct->unableToUseMove)
         {
-            if (!gSpecialStatuses[gBattlerAttacker].dancerUsedMove)
+            if (!gSpecialStatuses[gBattlerAttacker].dancerUsedMove
+             && !gSpecialStatuses[gBattlerAttacker].concertoUsedMove
+             && !gSpecialStatuses[gBattlerAttacker].wallMasterUsedMove)
             {
                 gLastMoves[gBattlerAttacker] = gChosenMove;
                 gLastResultingMoves[gBattlerAttacker] = gCurrentMove;
@@ -2644,7 +2707,9 @@ static enum MoveEndResult MoveEndUpdateLastMoves(void)
             {
                 gLastLandedMoves[gBattlerTarget] = gCurrentMove;
                 gLastHitByType[gBattlerTarget] = GetBattleMoveType(gCurrentMove);
-                if (!gSpecialStatuses[gBattlerAttacker].dancerUsedMove)
+                if (!gSpecialStatuses[gBattlerAttacker].dancerUsedMove
+                 && !gSpecialStatuses[gBattlerAttacker].concertoUsedMove
+                 && !gSpecialStatuses[gBattlerAttacker].wallMasterUsedMove)
                 {
                     gLastUsedMove = gCurrentMove;
                     if (IsMaxMove(gCurrentMove))
@@ -3759,6 +3824,78 @@ static enum MoveEndResult MoveEndDancer(void)
     return result;
 }
 
+static enum MoveEndResult MoveEndConcerto(void)
+{
+    enum MoveEndResult result = MOVEEND_RESULT_CONTINUE;
+    bool32 anyConcertoQueued = FALSE;
+    enum BattlerId nextConcerto = 0;
+
+    for (enum BattlerId battler = 0; battler < gBattlersCount; battler++)
+    {
+        if (gBattleMons[battler].volatiles.activateConcerto && !gSpecialStatuses[battler].concertoUsedMove)
+        {
+            if (!anyConcertoQueued || (gBattleMons[battler].speed < gBattleMons[nextConcerto].speed))
+                nextConcerto = battler;
+            anyConcertoQueued = TRUE;
+        }
+    }
+
+    if (!anyConcertoQueued)
+    {
+        gBattleScripting.moveendState++;
+        return result;
+    }
+
+    // Dance move succeeds
+    // Set target for other Dancer mons; set bit so that mon cannot activate Dancer off of its own move
+    if (!gSpecialStatuses[gBattlerAttacker].concertoUsedMove)
+    {
+        gBattleScripting.savedBattler = gBattlerTarget | 0x4;
+        gBattleScripting.savedBattler |= (gBattlerAttacker << 4);
+        gSpecialStatuses[gBattlerAttacker].concertoUsedMove = TRUE;
+    }
+
+    if (AbilityBattleEffects(ABILITYEFFECT_MOVE_END_OTHER, nextConcerto, ABILITY_CONCERTO, gCurrentMove, TRUE))
+        result = MOVEEND_RESULT_RUN_SCRIPT;
+
+    gBattleScripting.moveendState++;
+    return result;
+}
+
+static enum MoveEndResult MoveEndWallMaster(void)
+{
+    enum MoveEndResult result = MOVEEND_RESULT_CONTINUE;
+    enum Move wallMasterMove = MOVE_NONE;
+
+    if (!gBattleMons[gBattlerAttacker].volatiles.activateWallMaster)
+    {
+        gBattleScripting.moveendState++;
+        return result;
+    }
+
+    for (u8 i = 0; i < 4; i++)
+    {
+        if (!(gSpecialStatuses[gBattlerAttacker].wallMasterTracker & (1 << i))
+            && IsWallMove(gBattleMons[gBattlerAttacker].moves[i]))
+        {
+            wallMasterMove = gBattleMons[gBattlerAttacker].moves[i];
+            break;
+        }
+    }
+
+    if (!wallMasterMove)
+    {
+        gBattleScripting.moveendState++;
+        return result;
+    }
+
+    if (AbilityBattleEffects(ABILITYEFFECT_MOVE_END_OTHER, gBattlerAttacker, ABILITY_WALL_MASTER, wallMasterMove, TRUE))
+        result = MOVEEND_RESULT_RUN_SCRIPT;
+
+    gBattleScripting.moveendState++;
+    return result;
+}
+
 static enum MoveEndResult MoveEndPursuitNextAction(void)
 {
     enum MoveEndResult result = MOVEEND_RESULT_CONTINUE;
@@ -3800,6 +3937,8 @@ static enum MoveEndResult (*const sMoveEndHandlers[])(void) =
     [MOVEEND_FORM_CHANGE_ON_HIT] = MoveEndFormChangeOnHit,
     [MOVEEND_ABILITIES_ATTACKER] = MoveEndAbilitiesAttacker,
     [MOVEEND_QUEUE_DANCER] = MoveEndQueueDancer,
+    [MOVEEND_QUEUE_CONCERTO] = MoveEndQueueConcerto,
+    [MOVEEND_QUEUE_WALL_MASTER] = MoveEndQueueWallMaster,
     [MOVEEND_STATUS_IMMUNITY_ABILITIES] = MoveEndStatusImmunityAbilities,
     [MOVEEND_SYNCHRONIZE_ATTACKER] = MoveEndSynchronizeAttacker,
     [MOVEEND_ATTACKER_INVISIBLE] = MoveEndAttackerInvisible,
@@ -3838,6 +3977,8 @@ static enum MoveEndResult (*const sMoveEndHandlers[])(void) =
     [MOVEEND_PICKPOCKET] = MoveEndPickpocket,
     [MOVEEND_CLEAR_BITS] = MoveEndClearBits,
     [MOVEEND_DANCER] = MoveEndDancer,
+    [MOVEEND_CONCERTO] = MoveEndConcerto,
+    [MOVEEND_WALL_MASTER] = MoveEndWallMaster,
     [MOVEEND_PURSUIT_NEXT_ACTION] = MoveEndPursuitNextAction,
 };
 
