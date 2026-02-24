@@ -47,4 +47,6 @@ void ShowWarpArrowSprite(u8 spriteId, enum Direction direction, s16 x, s16 y);
 void UpdateSnowGrassFieldEffect(struct Sprite *);
 void UpdateFallGrassFieldEffect(struct Sprite *);
 
+u32 FldEff_TallGrass(void);
+
 #endif //GUARD_FIELD_EFFECT_HELPERS_H
