@@ -7471,7 +7471,7 @@
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_GeneralFrlg",
-      "secondary_tileset": "gTileset_RockTunnel",
+      "secondary_tileset": "gTileset_RG_RockTunnel",
       "border_filepath": "data/layouts/RockTunnel_1F_Frlg/border.bin",
       "blockdata_filepath": "data/layouts/RockTunnel_1F_Frlg/map.bin",
       "layout_version": "frlg"
