@@ -426,6 +426,7 @@ static const u8 *GetInteractedObjectEventScript(struct MapPosition *position, u8
     s16 currY = gObjectEvents[gPlayerAvatar.objectEventId].currentCoords.y;
     u8 currBehavior = MapGridGetMetatileBehaviorAt(currX, currY);
 
+    gSpecialVar_Facing = direction;
     switch (direction)
     {
     case DIR_EAST:
@@ -468,7 +469,6 @@ static const u8 *GetInteractedObjectEventScript(struct MapPosition *position, u8
 
     gSelectedObjectEvent = objectEventId;
     gSpecialVar_LastTalked = gObjectEvents[objectEventId].localId;
-    gSpecialVar_Facing = direction;
 
     if (InTrainerHill() == TRUE)
         script = GetTrainerHillTrainerScript();
@@ -545,7 +545,12 @@ static const u8 *GetInteractedMetatileScript(struct MapPosition *position, u8 me
     s8 elevation;
 
     if (MetatileBehavior_IsPlayerFacingTVScreen(metatileBehavior, direction) == TRUE)
-        return EventScript_TV;
+    {
+        if (IS_FRLG)
+            return EventScript_PlayerFacingTVScreen;
+        else
+            return EventScript_TV;
+    }
     if (MetatileBehavior_IsPC(metatileBehavior) == TRUE)
         return EventScript_PC;
     if (MetatileBehavior_IsClosedSootopolisDoor(metatileBehavior) == TRUE)
