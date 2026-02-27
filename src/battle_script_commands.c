@@ -7767,7 +7767,7 @@ static void TryPlayStatChangeAnimation(enum BattlerId battler, enum Ability abil
 
 static u32 ChangeStatBuffs(enum BattlerId battler, s8 statValue, enum Stat statId, union StatChangeFlags flags, u32 stats, const u8 *BS_ptr)
 {
-    u32 index, battlerAbility;
+    u32 index, battlerAbility, battlerCheck;
     enum HoldEffect battlerHoldEffect;
     battlerAbility = GetBattlerAbility(battler);
     battlerHoldEffect = GetBattlerHoldEffect(battler);
@@ -7951,6 +7951,28 @@ static u32 ChangeStatBuffs(enum BattlerId battler, s8 statValue, enum Stat statI
                     BattleScriptPush(BS_ptr);
                     gBattleScripting.battler = battler;
                     gBattlescriptCurrInstr = BattleScript_HolyTerrainPrevents;
+                    gSpecialStatuses[battler].statRaised = TRUE;
+                }
+            }
+            return STAT_CHANGE_DIDNT_WORK;
+        }
+        else if ((battlerCheck = IsAbilityOnOpposingSide(battler, ABILITY_STASIS_GAZE)))
+        {
+            if (flags.allowPtr)
+            {
+                battlerCheck--; // IsAbilityOnOpposingSide will return 1 greater to return not false, this sets it back
+                gBattleScripting.battler = battlerCheck;
+                if (gSpecialStatuses[battler].statRaised)
+                {
+                    gBattlescriptCurrInstr = BS_ptr;
+                }
+                else
+                {
+                    gBattlerAbility = battlerCheck;
+                    BattleScriptPush(BS_ptr);
+                    gBattlescriptCurrInstr = BattleScript_AbilityNoStatGain;
+                    gLastUsedAbility = ABILITY_STASIS_GAZE;
+                    RecordAbilityBattle(battlerCheck, gLastUsedAbility);
                     gSpecialStatuses[battler].statRaised = TRUE;
                 }
             }

@@ -2622,4 +2622,11 @@ const struct AbilityInfo gAbilitiesInfo[ABILITIES_COUNT] =
         .description = COMPOUND_STRING("Confuses poisoned foes."),
         .aiRating = 8,
     },
+
+    [ABILITY_STASIS_GAZE] =
+    {
+        .name = _("Stasis Gaze"),
+        .description = COMPOUND_STRING("Confuses poisoned foes."),
+        .aiRating = 8,
+    },
 };
