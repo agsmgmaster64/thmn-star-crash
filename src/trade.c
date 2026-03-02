@@ -3002,7 +3002,7 @@ static void CB2_InitInGameTrade(void)
     {
     case 0:
         //If ChooseBoxMon points to a pc mon, we store it into gEnemyParty
-        if(gSpecialVar_0x8004 == PC_MON_CHOSEN)
+        if (gSpecialVar_0x8004 == PC_MON_CHOSEN)
         {
             gSelectedTradeMonPositions[TRADE_PLAYER] = TRADEMON_FROM_PC;
             RemoveSelectedPcMon(&gEnemyParty[TRADEMON_FROM_PC]);
@@ -3380,7 +3380,7 @@ static void BufferTradeSceneStrings(void)
         GetMonData(&gEnemyParty[0], MON_DATA_OT_NAME, gStringVar1);
         ConvertInternationalString(gStringVar1, GetMonData(&gEnemyParty[0], MON_DATA_LANGUAGE));
         GetMonData(&gEnemyParty[0], MON_DATA_NICKNAME, name);
-        if(gSpecialVar_0x8004 == PC_MON_CHOSEN)
+        if (gSpecialVar_0x8004 == PC_MON_CHOSEN)
             GetMonData(&gEnemyParty[TRADEMON_FROM_PC], MON_DATA_NICKNAME, name);
         else
             GetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_NICKNAME, name);

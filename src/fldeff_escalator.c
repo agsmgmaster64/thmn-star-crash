@@ -168,27 +168,27 @@ static void Task_DrawEscalator(u8 taskId)
     // Set tile for each section of the escalator in sequence for current transition stage
     switch (tState)
     {
-        case 0:
-            SetEscalatorMetatile(taskId, sEscalatorMetatiles_BottomNextRail, 0);
-            break;
-        case 1:
-            SetEscalatorMetatile(taskId, sEscalatorMetatiles_BottomRail, 0);
-            break;
-        case 2:
-            SetEscalatorMetatile(taskId, sEscalatorMetatiles_BottomNext, MAPGRID_IMPASSABLE);
-            break;
-        case 3:
-            SetEscalatorMetatile(taskId, sEscalatorMetatiles_Bottom, 0);
-            break;
-        case 4:
-            SetEscalatorMetatile(taskId, sEscalatorMetatiles_TopNext, MAPGRID_IMPASSABLE);
-            break;
-        case 5:
-            SetEscalatorMetatile(taskId, sEscalatorMetatiles_Top, 0);
-            break;
-        case 6:
-            SetEscalatorMetatile(taskId, sEscalatorMetatiles_TopNextRail, 0);
-            break;
+    case 0:
+        SetEscalatorMetatile(taskId, sEscalatorMetatiles_BottomNextRail, 0);
+        break;
+    case 1:
+        SetEscalatorMetatile(taskId, sEscalatorMetatiles_BottomRail, 0);
+        break;
+    case 2:
+        SetEscalatorMetatile(taskId, sEscalatorMetatiles_BottomNext, MAPGRID_IMPASSABLE);
+        break;
+    case 3:
+        SetEscalatorMetatile(taskId, sEscalatorMetatiles_Bottom, 0);
+        break;
+    case 4:
+        SetEscalatorMetatile(taskId, sEscalatorMetatiles_TopNext, MAPGRID_IMPASSABLE);
+        break;
+    case 5:
+        SetEscalatorMetatile(taskId, sEscalatorMetatiles_Top, 0);
+        break;
+    case 6:
+        SetEscalatorMetatile(taskId, sEscalatorMetatiles_TopNextRail, 0);
+        break;
     }
 
     tState = (tState + 1) & 7;

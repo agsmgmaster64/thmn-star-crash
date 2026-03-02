@@ -2623,7 +2623,7 @@ static const u8 sBerryMutations[][3] = {
 static u8 GetMutationOutcome(u8 berry1, u8 berry2)
 {
     u8 i;
-    for(i = 0; i < ARRAY_COUNT(sBerryMutations); i++)
+    for (i = 0; i < ARRAY_COUNT(sBerryMutations); i++)
     {
         if ((sBerryMutations[i][0] == berry1 && sBerryMutations[i][1] == berry2)
           ||(sBerryMutations[i][0] == berry2 && sBerryMutations[i][1] == berry1))
@@ -2715,26 +2715,26 @@ static u16 GetBerryPestSpecies(u8 berryId)
 {
 #if OW_BERRY_PESTS == TRUE
     const struct Berry *berry = GetBerryInfo(berryId);
-    switch(berry->color)
+    switch (berry->color)
     {
-        case BERRY_COLOR_RED:
-            return P_FAMILY_LEDYBA ? SPECIES_CHIBI_SHIZUHA : SPECIES_NONE;
-            break;
-        case BERRY_COLOR_BLUE:
-            return P_FAMILY_VOLBEAT_ILLUMISE ? SPECIES_CHIBI_STAR : SPECIES_NONE;
-            break;
-        case BERRY_COLOR_PURPLE:
-            return P_FAMILY_VOLBEAT_ILLUMISE ? SPECIES_TECH_SUIKA : SPECIES_NONE;
-            break;
-        case BERRY_COLOR_GREEN:
-            return P_FAMILY_BURMY ? SPECIES_CHIBI_GENGETSU : SPECIES_NONE;
-            break;
-        case BERRY_COLOR_YELLOW:
-            return P_FAMILY_COMBEE ? SPECIES_CHIBI_SARA : SPECIES_NONE;
-            break;
-        case BERRY_COLOR_PINK:
-            return P_FAMILY_SCATTERBUG ? SPECIES_SPEWPA : SPECIES_NONE;
-            break;
+    case BERRY_COLOR_RED:
+        return P_FAMILY_LEDYBA ? SPECIES_CHIBI_SUNNY : SPECIES_NONE;
+        break;
+    case BERRY_COLOR_BLUE:
+        return P_FAMILY_VOLBEAT_ILLUMISE ? SPECIES_CHIBI_STAR : SPECIES_NONE;
+        break;
+    case BERRY_COLOR_PURPLE:
+        return P_FAMILY_VOLBEAT_ILLUMISE ? SPECIES_TECH_SUIKA : SPECIES_NONE;
+        break;
+    case BERRY_COLOR_GREEN:
+        return P_FAMILY_BURMY ? SPECIES_CHIBI_DAIYOUSEI : SPECIES_NONE;
+        break;
+    case BERRY_COLOR_YELLOW:
+        return P_FAMILY_COMBEE ? SPECIES_CHIBI_LUNA : SPECIES_NONE;
+        break;
+    case BERRY_COLOR_PINK:
+        return P_FAMILY_SCATTERBUG ? SPECIES_SPEWPA : SPECIES_NONE;
+        break;
     }
 #endif
     return SPECIES_NONE;

@@ -1148,7 +1148,7 @@ static void PokecenterHealEffect_WaitForBallPlacement(struct Task *task)
 {
     if (gSprites[task->tBallSpriteId].sState > 1)
     {
-        gSprites[task->tMonitorSpriteId].sState++;
+        gSprites[task->tMonitorSpriteId].data[0]++;
         task->tState++;
     }
 }
@@ -2372,7 +2372,7 @@ void StartLavaridgeGym1FWarp(u8 priority)
 
 static void Task_LavaridgeGym1FWarp(u8 taskId)
 {
-    while(sLavaridgeGym1FWarpEffectFuncs[gTasks[taskId].data[0]](&gTasks[taskId], &gObjectEvents[gPlayerAvatar.objectEventId], &gSprites[gPlayerAvatar.spriteId]));
+    while (sLavaridgeGym1FWarpEffectFuncs[gTasks[taskId].data[0]](&gTasks[taskId], &gObjectEvents[gPlayerAvatar.objectEventId], &gSprites[gPlayerAvatar.spriteId]));
 }
 
 static bool8 LavaridgeGym1FWarpEffect_Init(struct Task *task, struct ObjectEvent *objectEvent, struct Sprite *sprite)
@@ -4217,33 +4217,33 @@ static void Task_MoveDeoxysRock(u8 taskId)
     struct Sprite *sprite = &gSprites[tSpriteId];
     switch (tState)
     {
-        case 0:
-            tCurX = sprite->x << 4;
-            tCurY = sprite->y << 4;
-            tVelocityX = SAFE_DIV(tTargetX * 16 - tCurX, tMoveSteps);
-            tVelocityY = SAFE_DIV(tTargetY * 16 - tCurY, tMoveSteps);
-            tState++;
-            // fallthrough
-        case 1:
-            if (tMoveSteps != 0)
-            {
-                tMoveSteps--;
-                tCurX += tVelocityX;
-                tCurY += tVelocityY;
-                sprite->x = tCurX >> 4;
-                sprite->y = tCurY >> 4;
-            }
-            else
-            {
-                struct ObjectEvent *object = &gObjectEvents[tObjEventId];
-                sprite->x = tTargetX;
-                sprite->y = tTargetY;
-                ShiftStillObjectEventCoords(object);
-                object->triggerGroundEffectsOnStop = TRUE;
-                FieldEffectActiveListRemove(FLDEFF_MOVE_DEOXYS_ROCK);
-                DestroyTask(taskId);
-            }
-            break;
+    case 0:
+        tCurX = sprite->x << 4;
+        tCurY = sprite->y << 4;
+        tVelocityX = SAFE_DIV(tTargetX * 16 - tCurX, tMoveSteps);
+        tVelocityY = SAFE_DIV(tTargetY * 16 - tCurY, tMoveSteps);
+        tState++;
+        // fallthrough
+    case 1:
+        if (tMoveSteps != 0)
+        {
+            tMoveSteps--;
+            tCurX += tVelocityX;
+            tCurY += tVelocityY;
+            sprite->x = tCurX >> 4;
+            sprite->y = tCurY >> 4;
+        }
+        else
+        {
+            struct ObjectEvent *object = &gObjectEvents[tObjEventId];
+            sprite->x = tTargetX;
+            sprite->y = tTargetY;
+            ShiftStillObjectEventCoords(object);
+            object->triggerGroundEffectsOnStop = TRUE;
+            FieldEffectActiveListRemove(FLDEFF_MOVE_DEOXYS_ROCK);
+            DestroyTask(taskId);
+        }
+        break;
     }
 }
 

@@ -522,63 +522,6 @@ EventScript_NoSurface::
 	releaseall
 	end
 
-EventScript_UseRockClimb::
-	lockall
-	checkfieldmove FIELD_MOVE_ROCK_CLIMB, TRUE
-	goto_if_eq VAR_RESULT, PARTY_SIZE, EventScript_CanUseRockClimbOtherwise
-	bufferpartymonnick STR_VAR_1, VAR_RESULT
-	setfieldeffectargument 0, VAR_RESULT
-	msgbox Text_WantToRockClimb, MSGBOX_YESNO
-	goto_if_eq VAR_RESULT, NO, EventScript_EndRockClimb
-	buffermovename STR_VAR_2, MOVE_ROCK_CLIMB
-	msgbox Text_MonUsedFieldMove, MSGBOX_DEFAULT
-	closemessage
-EventScript_RockClimbCommon::
-	dofieldeffect FLDEFF_USE_ROCK_CLIMB
-	waitstate
-EventScript_EndRockClimb::
-	releaseall
-	end
-
-EventScript_CanUseRockClimbOtherwise::
-	partycheckfieldmove FIELD_MOVE_ROCK_CLIMB, TRUE
-	goto_if_eq VAR_RESULT, PARTY_SIZE, EventScript_CanUseRockClimbTool
-	setfieldeffectargument 0, VAR_RESULT
-	bufferpartymonnick STR_VAR_1, VAR_RESULT
-	msgbox Text_WantToRockClimb, MSGBOX_YESNO
-	goto_if_eq VAR_RESULT, NO, EventScript_EndRockClimb
-	buffermovename STR_VAR_2, MOVE_ROCK_CLIMB
-	msgbox Text_MonAttemptedToUseFieldMove, MSGBOX_DEFAULT
-	closemessage
-	goto EventScript_RockClimbCommon
-
-EventScript_CanUseRockClimbTool::
-	checkitem ITEM_CLIMBING_GEAR, 1
-	goto_if_ne VAR_RESULT, TRUE, EventScript_CantRockClimb
-EventScript_UseRockClimbTool_SkipCheck::
-	bufferitemname STR_VAR_2, ITEM_CLIMBING_GEAR
-	msgbox Text_PlayerUsedFieldTool, MSGBOX_DEFAULT
-	waitmessage
-	dofieldeffect FLDEFF_USE_ROCK_CLIMB_TOOL
-	releaseall
-	end
-
-EventScript_CantRockClimb::
-	msgbox Text_CantRockClimb, MSGBOX_DEFAULT
-	goto EventScript_EndRockClimb
-
-Text_WantToRockClimb:
-	.string "The cliff is steep.\n"
-	.string "Would you like to use Rock Climb?$"
-
-Text_CantRockClimb:
-	.string "The cliff is steep.\n"
-	.string "A Puppet may be able to climb it.$"
-
-EventScript_UseRockClimbTool::
-	lock
-	goto EventScript_UseRockClimbTool_SkipCheck
-
 EventScript_DigCommon:
 	isfollowerfieldmoveuser VAR_0x8004
 	setfieldeffectargument 3, VAR_0x8004 @ skip pose if true
@@ -657,3 +600,60 @@ EventScript_UseDefog::
 	waitstate
 	releaseall
 	end
+
+EventScript_UseRockClimb::
+	lockall
+	checkfieldmove FIELD_MOVE_ROCK_CLIMB, TRUE
+	goto_if_eq VAR_RESULT, PARTY_SIZE, EventScript_CanUseRockClimbOtherwise
+	bufferpartymonnick STR_VAR_1, VAR_RESULT
+	setfieldeffectargument 0, VAR_RESULT
+	msgbox Text_WantToRockClimb, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, EventScript_EndRockClimb
+	buffermovename STR_VAR_2, MOVE_ROCK_CLIMB
+	msgbox Text_MonUsedFieldMove, MSGBOX_DEFAULT
+	closemessage
+EventScript_RockClimbCommon::
+	dofieldeffect FLDEFF_USE_ROCK_CLIMB
+	waitstate
+EventScript_EndRockClimb::
+	releaseall
+	end
+
+EventScript_CanUseRockClimbOtherwise::
+	partycheckfieldmove FIELD_MOVE_ROCK_CLIMB, TRUE
+	goto_if_eq VAR_RESULT, PARTY_SIZE, EventScript_CanUseRockClimbTool
+	setfieldeffectargument 0, VAR_RESULT
+	bufferpartymonnick STR_VAR_1, VAR_RESULT
+	msgbox Text_WantToRockClimb, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, EventScript_EndRockClimb
+	buffermovename STR_VAR_2, MOVE_ROCK_CLIMB
+	msgbox Text_MonAttemptedToUseFieldMove, MSGBOX_DEFAULT
+	closemessage
+	goto EventScript_RockClimbCommon
+
+EventScript_CanUseRockClimbTool::
+	checkitem ITEM_CLIMBING_GEAR, 1
+	goto_if_ne VAR_RESULT, TRUE, EventScript_CantRockClimb
+EventScript_UseRockClimbTool_SkipCheck::
+	bufferitemname STR_VAR_2, ITEM_CLIMBING_GEAR
+	msgbox Text_PlayerUsedFieldTool, MSGBOX_DEFAULT
+	waitmessage
+	dofieldeffect FLDEFF_USE_ROCK_CLIMB_TOOL
+	releaseall
+	end
+
+EventScript_CantRockClimb::
+	msgbox Text_CantRockClimb, MSGBOX_DEFAULT
+	goto EventScript_EndRockClimb
+
+Text_WantToRockClimb:
+	.string "The cliff is steep.\n"
+	.string "Would you like to use Rock Climb?$"
+
+Text_CantRockClimb:
+	.string "The cliff is steep.\n"
+	.string "A Puppet may be able to climb it.$"
+
+EventScript_UseRockClimbTool::
+	lock
+	goto EventScript_UseRockClimbTool_SkipCheck

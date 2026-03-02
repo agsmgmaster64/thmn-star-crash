@@ -3846,7 +3846,7 @@ static void PrintSkillsPageText(void)
     PrintHeldItemName();
     PrintFriendship();
     PrintNatureColouredStatNames();
-    if(ShouldShowIvEvPrompt())
+    if (ShouldShowIvEvPrompt())
         ShowUtilityPrompt(SUMMARY_SKILLS_MODE_STATS);
     BufferLeftColumnStats();
     PrintLeftColumnStats();

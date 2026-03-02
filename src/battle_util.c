@@ -722,7 +722,7 @@ void HandleAction_ThrowBall(void)
     gBattle_BG0_Y = 0;
     gLastUsedItem = gBallToDisplay;
     if (!GetItemImportance(gLastUsedItem))
-    	RemoveBagItem(gLastUsedItem, 1);
+        RemoveBagItem(gLastUsedItem, 1);
     gBattlescriptCurrInstr = BattleScript_BallThrow;
     gCurrentActionFuncId = B_ACTION_EXEC_SCRIPT;
 }
@@ -5110,6 +5110,9 @@ u32 IsAbilityPreventingEscape(enum BattlerId battler)
     {
         if (battler == battlerDef || IsBattlerAlly(battler, battlerDef))
             continue;
+        
+        if (!IsBattlerAlive(battlerDef))
+            continue;
 
         enum Ability ability = GetBattlerAbility(battlerDef);
 
@@ -5261,6 +5264,7 @@ static u32 GetStatValueWithStages(enum BattlerId battler, enum Stat stat)
 enum Stat GetParadoxHighestStatId(enum BattlerId battler)
 {
     enum Stat highestId = STAT_ATK;
+    bool32 wonderRoom = gFieldStatuses & STATUS_FIELD_WONDER_ROOM;
     u32 highestStat = GetStatValueWithStages(battler, STAT_ATK);
 
     for (u32 stat = STAT_DEF; stat < NUM_STATS; stat++)
@@ -5268,7 +5272,23 @@ enum Stat GetParadoxHighestStatId(enum BattlerId battler)
         if (stat == STAT_SPEED)
             continue;
 
-        u32 statValue = GetStatValueWithStages(battler, stat);
+        u32 statValue;
+        switch (stat)
+        {
+        case STAT_DEF:
+            statValue = wonderRoom ? gBattleMons[battler].spDefense : gBattleMons[battler].defense;
+            statValue *= gStatStageRatios[gBattleMons[battler].statStages[STAT_DEF]][0];
+            statValue /= gStatStageRatios[gBattleMons[battler].statStages[STAT_DEF]][1];
+            break;
+        case STAT_SPDEF:
+            statValue = wonderRoom ? gBattleMons[battler].defense : gBattleMons[battler].spDefense;
+            statValue *= gStatStageRatios[gBattleMons[battler].statStages[STAT_SPDEF]][0];
+            statValue /= gStatStageRatios[gBattleMons[battler].statStages[STAT_SPDEF]][1];
+            break;
+        default:
+            statValue = GetStatValueWithStages(battler, stat);
+            break;
+        }
         if (statValue > highestStat)
         {
             highestStat = statValue;
@@ -7327,8 +7347,13 @@ static inline u32 CalcDefenseStat(struct BattleContext *ctx)
             modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(2.0));
         break;
     case HOLD_EFFECT_EVIOLITE:
-        if (CanEvolve(gBattleMons[battlerDef].species))
-            modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(1.5));
+        {
+            u16 species = gBattleMons[battlerDef].species;
+            if (gBattleMons[battlerDef].volatiles.transformed && gBattleMons[battlerDef].volatiles.transformedMonSpecies != SPECIES_NONE)
+                species = gBattleMons[battlerDef].volatiles.transformedMonSpecies;
+            if (CanEvolve(species))
+                modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(1.5));
+        }
         break;
     case HOLD_EFFECT_ASSAULT_VEST:
         if (!usesDefStat)
@@ -7370,12 +7395,12 @@ static inline s32 CalculateBaseDamage(u32 power, u32 userFinalAttack, u32 level,
 static inline uq4_12_t GetTargetDamageModifier(struct BattleContext *ctx)
 {
     if (IsDoubleBattle())
-	{
+    {
         if (GetMoveTargetCount(ctx) == 2)
             return B_MULTIPLE_TARGETS_DMG >= GEN_4 ? UQ_4_12(0.75) : UQ_4_12(0.5);
         else if (GetMoveTargetCount(ctx) >= 3)
             return B_MULTIPLE_TARGETS_DMG >= GEN_4 ? UQ_4_12(0.75) : UQ_4_12(1.0);
-	}
+    }
     return UQ_4_12(1.0);
 }
 
@@ -9994,7 +10019,7 @@ void ClearDamageCalcResults(void)
     gBattleStruct->printedStrongWindsWeakenedAttack = FALSE;
     gBattleStruct->numSpreadTargets = 0;
     gBattleStruct->unableToUseMove = FALSE;
-	gBattleStruct->attackAnimPlayed = FALSE;
+    gBattleStruct->attackAnimPlayed = FALSE;
     gBattleStruct->preAttackEffectHappened = FALSE;
     gBattleScripting.savedDmg = 0;
     if (gCurrentMove != MOVE_NONE)
@@ -10253,13 +10278,13 @@ ARM_FUNC u32 GetBattlerVolatile(enum BattlerId battler, enum Volatile _volatile)
 {
     switch (_volatile)
     {
-        VOLATILE_DEFINITIONS(UNPACK_VOLATILE_GETTERS)
-        /* Expands to:
-        case VOLATILE_CONFUSION:
-            return gBattleMons[battler].volatiles.confusionTurns;
-        */
-        default: // Invalid volatile status
-            return 0;
+    VOLATILE_DEFINITIONS(UNPACK_VOLATILE_GETTERS)
+    /* Expands to:
+    case VOLATILE_CONFUSION:
+        return gBattleMons[battler].volatiles.confusionTurns;
+    */
+    default: // Invalid volatile status
+        return 0;
     }
 }
 
@@ -10273,11 +10298,11 @@ void SetMonVolatile(enum BattlerId battler, enum Volatile _volatile, u32 newValu
     {
         VOLATILE_DEFINITIONS(UNPACK_VOLATILE_SETTERS)
         /* Expands to:
-        case VOLATILE_CONFUSION:
+    case VOLATILE_CONFUSION:
             gBattleMons[battler].volatiles.confusionTurns = min(MAX_BITS(3), newValue);
             break;
         */
-        default: // Invalid volatile status
+    default: // Invalid volatile status
             return;
     }
 }
@@ -10830,7 +10855,7 @@ bool32 IsBattlerInvalidForSpreadMove(enum BattlerId battlerAtk, enum BattlerId b
 
 bool32 IsAllowedToUseBag(void)
 {
-    switch(VarGet(B_VAR_NO_BAG_USE))
+    switch (VarGet(B_VAR_NO_BAG_USE))
     {
     case NO_BAG_RESTRICTION:
         return TRUE;
