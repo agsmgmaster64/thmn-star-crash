@@ -17,6 +17,7 @@
 #include "sound.h"
 #include "sprite.h"
 #include "task.h"
+#include "tilesets.h"
 #include "trig.h"
 #include "constants/abilities.h"
 #include "constants/event_objects.h"
@@ -42,6 +43,13 @@ extern const u16 gFieldEffectPal_CutGrass[];
 #define CUT_GRASS_BOTTOM 0
 #define CUT_GRASS_TOP 1
 
+struct CutGrassMetatile
+{
+    u16 naturalTile;
+    u16 trimmedTile;
+    const struct Tileset *tileset;
+};
+
 // this file's functions
 static void FieldCallback_CutTree(void);
 static void FieldCallback_CutGrass(void);
@@ -56,74 +64,126 @@ static void CutGrassSpriteCallbackEnd(struct Sprite *);
 static EWRAM_DATA u8 *sCutGrassSpriteArrayPtr = NULL;
 static EWRAM_DATA bool8 sScheduleOpenDottedHole = FALSE;
 
-static const u16 sCutGrassMetatileMapping[][2] = {
+static const struct CutGrassMetatile sCutGrassMetatileMapping[] = {
     {
-        [CUT_GRASS_BOTTOM] = METATILE_RG_General_TallGrass,
-        [CUT_GRASS_TOP]    = METATILE_RG_General_Grass
+        .naturalTile = METATILE_RG_General_TallGrass,
+        .trimmedTile = METATILE_RG_General_Grass,
+        .tileset = &gTileset_RG_General,
     },
     {
-        [CUT_GRASS_BOTTOM] = METATILE_RG_General_TallGrass_ShortTree,
-        [CUT_GRASS_TOP]    = METATILE_RG_General_Grass_ShortTree
+        .naturalTile = METATILE_RG_General_TallGrass_ShortTree,
+        .trimmedTile = METATILE_RG_General_Grass_ShortTree,
+        .tileset = &gTileset_RG_General,
     },
     {
-        [CUT_GRASS_BOTTOM] = METATILE_RG_General_TallGrass_TreeLeft,
-        [CUT_GRASS_TOP]    = METATILE_RG_General_Grass_TreeLeft
+        .naturalTile = METATILE_RG_General_TallGrass_TreeLeft,
+        .trimmedTile = METATILE_RG_General_Grass_TreeLeft,
+        .tileset = &gTileset_RG_General,
     },
     {
-        [CUT_GRASS_BOTTOM] = METATILE_RG_General_TallGrass_TreeRight,
-        [CUT_GRASS_TOP]    = METATILE_RG_General_Grass_TreeRight
+        .naturalTile = METATILE_RG_General_TallGrass_TreeRight,
+        .trimmedTile = METATILE_RG_General_Grass_TreeRight,
+        .tileset = &gTileset_RG_General,
     },
     {
-        [CUT_GRASS_BOTTOM] = METATILE_RG_General_LongGrass,
-        [CUT_GRASS_TOP]    = METATILE_RG_General_Grass
+        .naturalTile = METATILE_RG_General_LongGrass,
+        .trimmedTile = METATILE_RG_General_Grass,
+        .tileset = &gTileset_RG_General,
     },
     {
-        [CUT_GRASS_BOTTOM] = METATILE_RG_General_LongGrassInner,
-        [CUT_GRASS_TOP]    = METATILE_RG_General_Grass
+        .naturalTile = METATILE_RG_General_LongGrassInner,
+        .trimmedTile = METATILE_RG_General_Grass,
+        .tileset = &gTileset_RG_General,
     },
     {
-        [CUT_GRASS_BOTTOM] = METATILE_RG_General_LongGrass_Root,
-        [CUT_GRASS_TOP]    = METATILE_RG_General_Grass
+        .naturalTile = METATILE_RG_General_LongGrass_Root,
+        .trimmedTile = METATILE_RG_General_Grass,
+        .tileset = &gTileset_RG_General,
     },
     {
-        [CUT_GRASS_BOTTOM] = METATILE_RG_General_LongGrass_Root_ShortTree,
-        [CUT_GRASS_TOP]    = METATILE_RG_General_Grass_ShortTree
+        .naturalTile = METATILE_RG_General_LongGrass_Root_ShortTree,
+        .trimmedTile = METATILE_RG_General_Grass_ShortTree,
+        .tileset = &gTileset_RG_General,
     },
     {
-        [CUT_GRASS_BOTTOM] = METATILE_RG_General_LongGrass_Root_TreeLeft,
-        [CUT_GRASS_TOP]    = METATILE_RG_General_Grass_TreeLeft
+        .naturalTile = METATILE_RG_General_LongGrass_Root_TreeLeft,
+        .trimmedTile = METATILE_RG_General_Grass_TreeLeft,
+        .tileset = &gTileset_RG_General,
     },
     {
-        [CUT_GRASS_BOTTOM] = METATILE_RG_General_LongGrass_Root_TreeRight,
-        [CUT_GRASS_TOP]    = METATILE_RG_General_Grass_TreeRight
+        .naturalTile = METATILE_RG_General_LongGrass_Root_TreeRight,
+        .trimmedTile = METATILE_RG_General_Grass_TreeRight,
+        .tileset = &gTileset_RG_General,
     },
     {
-        [CUT_GRASS_BOTTOM] = METATILE_Fortree_SecretBase_LongGrass_BottomLeft,
-        [CUT_GRASS_TOP]    = METATILE_Fortree_SecretBase_LongGrass_TopLeft
+        .naturalTile = METATILE_GeneralFrlg_Plain_Grass,
+        .trimmedTile = METATILE_GeneralFrlg_Plain_Mowed,
+        .tileset = &gTileset_GeneralFrlg,
     },
     {
-        [CUT_GRASS_BOTTOM] = METATILE_Fortree_SecretBase_LongGrass_BottomMid,
-        [CUT_GRASS_TOP]    = METATILE_Fortree_SecretBase_LongGrass_TopMid
+        .naturalTile = METATILE_GeneralFrlg_ThinTreeTop_Grass,
+        .trimmedTile = METATILE_GeneralFrlg_ThinTreeTop_Mowed,
+        .tileset = &gTileset_GeneralFrlg,
     },
     {
-        [CUT_GRASS_BOTTOM] = METATILE_Fortree_SecretBase_LongGrass_BottomRight,
-        [CUT_GRASS_TOP]    = METATILE_Fortree_SecretBase_LongGrass_TopRight
+        .naturalTile = METATILE_GeneralFrlg_WideTreeTopLeft_Grass,
+        .trimmedTile = METATILE_GeneralFrlg_WideTreeTopLeft_Mowed,
+        .tileset = &gTileset_GeneralFrlg,
     },
     {
-        [CUT_GRASS_BOTTOM] = METATILE_Lavaridge_NormalGrass,
-        [CUT_GRASS_TOP]    = METATILE_Lavaridge_LavaField
+        .naturalTile = METATILE_GeneralFrlg_WideTreeTopRight_Grass,
+        .trimmedTile = METATILE_GeneralFrlg_WideTreeTopRight_Mowed,
+        .tileset = &gTileset_GeneralFrlg,
     },
     {
-        [CUT_GRASS_BOTTOM] = METATILE_Lavaridge_AshGrass,
-        [CUT_GRASS_TOP]    = METATILE_Lavaridge_LavaField
+        .naturalTile = METATILE_GeneralFrlg_Plain_LongGrass,
+        .trimmedTile = METATILE_GeneralFrlg_Plain_Mowed,
+        .tileset = &gTileset_GeneralFrlg,
     },
     {
-        [CUT_GRASS_BOTTOM] = METATILE_Lavaridge_TallGrass_Bamboo,
-        [CUT_GRASS_TOP]    = METATILE_RG_General_Grass
+        .naturalTile = METATILE_GeneralFrlg_Plain_LongGrassInner,
+        .trimmedTile = METATILE_GeneralFrlg_Plain_Mowed,
+        .tileset = &gTileset_GeneralFrlg,
     },
     {
-        [CUT_GRASS_BOTTOM] = 0xFFFF,
-        [CUT_GRASS_TOP]    = 0xFFFF
+        .naturalTile = METATILE_GeneralFrlg_Plain_LongGrassSouth,
+        .trimmedTile = METATILE_GeneralFrlg_Plain_Mowed,
+        .tileset = &gTileset_GeneralFrlg,
+    },
+    {
+        .naturalTile = METATILE_Fortree_SecretBase_LongGrass_BottomLeft,
+        .trimmedTile = METATILE_Fortree_SecretBase_LongGrass_TopLeft,
+        .tileset = &gTileset_Fortree,
+    },
+    {
+        .naturalTile = METATILE_Fortree_SecretBase_LongGrass_BottomMid,
+        .trimmedTile = METATILE_Fortree_SecretBase_LongGrass_TopMid,
+        .tileset = &gTileset_Fortree,
+    },
+    {
+        .naturalTile = METATILE_Fortree_SecretBase_LongGrass_BottomRight,
+        .trimmedTile = METATILE_Fortree_SecretBase_LongGrass_TopRight,
+        .tileset = &gTileset_Fortree,
+    },
+    {
+        .naturalTile = METATILE_Lavaridge_NormalGrass,
+        .trimmedTile = METATILE_Lavaridge_LavaField,
+        .tileset = &gTileset_Lavaridge,
+    },
+    {
+        .naturalTile = METATILE_Lavaridge_AshGrass,
+        .trimmedTile = METATILE_Lavaridge_LavaField,
+        .tileset = &gTileset_Lavaridge,
+    },
+    {
+        .naturalTile = METATILE_Lavaridge_TallGrass_Bamboo,
+        .trimmedTile = METATILE_RG_General_Grass,
+        .tileset = &gTileset_Lavaridge,
+    },
+    {
+        .naturalTile = 0xFFFF,
+        .trimmedTile = 0xFFFF,
+        .tileset = NULL,
     }
 };
 
@@ -325,14 +385,19 @@ static void SetCutGrassMetatile(s32 x, s32 y)
 
     while (TRUE)
     {
-        const u16 *metatileMapping = sCutGrassMetatileMapping[i];
-        if (metatileMapping[0] != 0xFFFF)
+        struct CutGrassMetatile metatileMapping = sCutGrassMetatileMapping[i];
+        if (metatileMapping.naturalTile == 0xFFFF)
         {
-            if (metatileMapping[0] == metatileId)
-            {
-                MapGridSetMetatileIdAt(x, y, metatileMapping[1]);
-            }
+            return;
         }
+        if (metatileMapping.tileset != gMapHeader.mapLayout->primaryTileset
+         && metatileMapping.tileset != gMapHeader.mapLayout->secondaryTileset)
+            continue;
+        if (metatileMapping.naturalTile == metatileId)
+        {
+            MapGridSetMetatileIdAt(x, y, metatileMapping.trimmedTile);
+        }
+        i++;
     }
 }
 
@@ -364,11 +429,22 @@ static u32 GetCutGrassMetatile(s32 x, s32 y, bool32 isTop)
 {   
     u32 i;
     u32 metatileId = MapGridGetMetatileIdAt(x, y);
-    for (i = 0; sCutGrassMetatileMapping[i][0] != 0xFFFF; i++)
+    for (i = 0; sCutGrassMetatileMapping[i].naturalTile != 0xFFFF; i++)
     {
-        const u16 *metatileMapping = sCutGrassMetatileMapping[i];
-        if (metatileMapping[!isTop] == metatileId)
-            return metatileMapping[isTop];
+        struct CutGrassMetatile metatileMapping = sCutGrassMetatileMapping[i];
+        if (metatileMapping.tileset != gMapHeader.mapLayout->primaryTileset
+         && metatileMapping.tileset != gMapHeader.mapLayout->secondaryTileset)
+            continue;
+        if (!isTop)
+        {
+            if (metatileMapping.trimmedTile == metatileId)
+                return metatileMapping.naturalTile;
+        }
+        else
+        {
+            if (metatileMapping.naturalTile == metatileId)
+                return metatileMapping.trimmedTile;
+        }
     }
     return metatileId;
 }

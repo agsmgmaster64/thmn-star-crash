@@ -137,7 +137,13 @@ static enum CancelerResult CancelerAsleepOrFrozen(struct BattleContext *ctx)
             if (gBattleMons[ctx->battlerAtk].status1 & STATUS1_SLEEP)
             {
                 enum BattleMoveEffects moveEffect = GetMoveEffect(ctx->move);
-                if (moveEffect == EFFECT_SNORE)
+                if (IsAbilityAndRecord(ctx->battlerAtk, ctx->abilityAtk, ABILITY_LUCID_DREAMING))
+                {
+                    gBattlerAbility = ctx->battlerAtk;
+                    BattleScriptCall(BattleScript_MoveUsedLucidDreaming);
+                    result = CANCELER_RESULT_BREAK;
+                }
+                else if (moveEffect == EFFECT_SNORE)
                 {
                     BattleScriptCall(BattleScript_BeforeSnoreMessage);
                     result = CANCELER_RESULT_BREAK;

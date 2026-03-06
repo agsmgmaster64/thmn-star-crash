@@ -1506,11 +1506,9 @@ static void QueueAnimTiles_General_SandWatersEdge(u16 timer)
 
 static void TilesetAnim_GeneralFrlg(u16 timer)
 {
-    if (timer % 8 == 0)
-        QueueAnimTiles_General_SandWatersEdge(timer / 8);
+    if (timer % 16 == 0)
+        QueueAnimTiles_RG_General_Water_Current_LandWatersEdge(timer / 8);
     if (timer % 16 == 1)
-        QueueAnimTiles_General_Water_Current_LandWatersEdge(timer / 16);
-    if (timer % 16 == 2)
         QueueAnimTiles_GeneralFrlg_Flower(timer / 16);
 }
 

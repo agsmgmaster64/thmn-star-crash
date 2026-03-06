@@ -347,7 +347,7 @@
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_RG_General",
-      "secondary_tileset": "gTileset_Desert",
+      "secondary_tileset": "gTileset_Barn",
       "border_filepath": "data/layouts/Route111/border.bin",
       "blockdata_filepath": "data/layouts/Route111/map.bin",
       "layout_version": "emerald"
@@ -5806,7 +5806,7 @@
       "height": 40,
       "border_width": 2,
       "border_height": 2,
-      "primary_tileset": "gTileset_RG_General",
+      "primary_tileset": "gTileset_GeneralFrlg",
       "secondary_tileset": "gTileset_RG_SeviiIslands123",
       "border_filepath": "data/layouts/HouseLikeCarpet/border.bin",
       "blockdata_filepath": "data/layouts/HouseLikeCarpet/map.bin",
@@ -5819,8 +5819,8 @@
       "height": 36,
       "border_width": 2,
       "border_height": 2,
-      "primary_tileset": "gTileset_RG_General",
-      "secondary_tileset": "gTileset_RG_SeviiIslands123",
+      "primary_tileset": "gTileset_GeneralFrlg",
+      "secondary_tileset": "gTileset_SeviiIslands123",
       "border_filepath": "data/layouts/HomeLikeCarpet/border.bin",
       "blockdata_filepath": "data/layouts/HomeLikeCarpet/map.bin",
       "layout_version": "emerald"
@@ -5832,8 +5832,8 @@
       "height": 20,
       "border_width": 2,
       "border_height": 2,
-      "primary_tileset": "gTileset_RG_General",
-      "secondary_tileset": "gTileset_RG_SeviiIslands123",
+      "primary_tileset": "gTileset_GeneralFrlg",
+      "secondary_tileset": "gTileset_SeviiIslands123",
       "border_filepath": "data/layouts/ApartmentLikeCarpet/border.bin",
       "blockdata_filepath": "data/layouts/ApartmentLikeCarpet/map.bin",
       "layout_version": "emerald"
@@ -5845,8 +5845,8 @@
       "height": 20,
       "border_width": 2,
       "border_height": 2,
-      "primary_tileset": "gTileset_RG_General",
-      "secondary_tileset": "gTileset_RG_SeviiIslands123",
+      "primary_tileset": "gTileset_GeneralFrlg",
+      "secondary_tileset": "gTileset_SeviiIslands123",
       "border_filepath": "data/layouts/ResidentialLikeCarpet/border.bin",
       "blockdata_filepath": "data/layouts/ResidentialLikeCarpet/map.bin",
       "layout_version": "emerald"
@@ -5884,8 +5884,8 @@
       "height": 20,
       "border_width": 2,
       "border_height": 2,
-      "primary_tileset": "gTileset_RG_General",
-      "secondary_tileset": "gTileset_RG_SeviiIslands123",
+      "primary_tileset": "gTileset_GeneralFrlg",
+      "secondary_tileset": "gTileset_SeviiIslands123",
       "border_filepath": "data/layouts/VillaLikeCarpet/border.bin",
       "blockdata_filepath": "data/layouts/VillaLikeCarpet/map.bin",
       "layout_version": "emerald"
@@ -6678,7 +6678,7 @@
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_GeneralFrlg",
-      "secondary_tileset": "gTileset_CeruleanCity",
+      "secondary_tileset": "gTileset_Barn",
       "border_filepath": "data/layouts/Route5_Frlg/border.bin",
       "blockdata_filepath": "data/layouts/Route5_Frlg/map.bin",
       "layout_version": "frlg"
@@ -10439,6 +10439,18 @@
       "border_filepath": "data/layouts/OneIsland_KindleRoad_EmberSpa_Frlg/border.bin",
       "blockdata_filepath": "data/layouts/OneIsland_KindleRoad_EmberSpa_Frlg/map.bin",
       "layout_version": "frlg"
+    },
+    {
+      "id": "LAYOUT_TRACEN_ACADEMY",
+      "name": "TracenAcademy_Layout",
+      "width": 60,
+      "height": 60,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_GeneralFrlg",
+      "secondary_tileset": "gTileset_Barn",
+      "border_filepath": "data/layouts/TracenAcademy/border.bin",
+      "blockdata_filepath": "data/layouts/TracenAcademy/map.bin"
     }
   ]
 }

@@ -1843,3 +1843,14 @@ const struct Tileset gTileset_HallOfFame =
     .metatileAttributes = gMetatileAttributes_HallOfFame,
     .callback = NULL,
 };
+
+const struct Tileset gTileset_Barn =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_Barn,
+    .palettes = gTilesetPalettes_Barn,
+    .metatiles = gMetatiles_Barn,
+    .metatileAttributes = gMetatileAttributes_Barn,
+    .callback = NULL,
+};
