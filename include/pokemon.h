@@ -839,5 +839,6 @@ u32 OWE_GetViewWidthFromSpecies(u32 speciesId);
 u32 OWE_GetViewActiveDistanceFromSpecies(u32 speciesId);
 enum SpeedOWE OWE_GetIdleSpeedFromSpecies(u32 speciesId);
 enum SpeedOWE OWE_GetActiveSpeedFromSpecies(u32 speciesId);
+bool32 HasShedinjaHPHandling(u32 species);
 
 #endif // GUARD_POKEMON_H

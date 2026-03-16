@@ -132,8 +132,10 @@ bool32 IsGigantamaxed(enum BattlerId battler)
 // Applies the HP Multiplier for Dynamaxed Pokemon and Raid Bosses.
 void ApplyDynamaxHPMultiplier(struct Pokemon* mon)
 {
-    if (gSpeciesInfo[GetMonData(mon, MON_DATA_SPECIES)].baseHP == 1)
+    if (HasShedinjaHPHandling(GetMonData(mon, MON_DATA_SPECIES)))
+    {
         return;
+    }
     else
     {
         uq4_12_t multiplier = GetDynamaxLevelHPMultiplier(GetMonData(mon, MON_DATA_DYNAMAX_LEVEL), FALSE);
@@ -147,8 +149,10 @@ void ApplyDynamaxHPMultiplier(struct Pokemon* mon)
 // Returns the non-Dynamax HP of a Pokemon.
 u32 GetNonDynamaxHP(enum BattlerId battler)
 {
-    if (GetActiveGimmick(battler) != GIMMICK_DYNAMAX || gSpeciesInfo[gBattleMons[battler].species].baseHP == 1)
+    if (GetActiveGimmick(battler) != GIMMICK_DYNAMAX || HasShedinjaHPHandling(gBattleMons[battler].species))
+    {
         return gBattleMons[battler].hp;
+    }
     else
     {
         struct Pokemon *mon = GetBattlerMon(battler);
@@ -161,8 +165,10 @@ u32 GetNonDynamaxHP(enum BattlerId battler)
 // Returns the non-Dynamax Max HP of a Pokemon.
 u32 GetNonDynamaxMaxHP(enum BattlerId battler)
 {
-    if (GetActiveGimmick(battler) != GIMMICK_DYNAMAX || gSpeciesInfo[gBattleMons[battler].species].baseHP == 1)
+    if (GetActiveGimmick(battler) != GIMMICK_DYNAMAX || HasShedinjaHPHandling(gBattleMons[battler].species))
+    {
         return gBattleMons[battler].maxHP;
+    }
     else
     {
         struct Pokemon *mon = GetBattlerMon(battler);

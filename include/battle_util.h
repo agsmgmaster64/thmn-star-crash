@@ -162,6 +162,12 @@ enum EjectPackTiming
     OTHER,
 };
 
+enum SubCheck
+{
+    EXCLUDING_SUBSTITUTES,
+    INCLUDING_SUBSTITUTES
+};
+
 void HandleAction_ThrowBall(void);
 uq4_12_t CalcTypeEffectivenessMultiplierHelper(enum Move move, enum Type moveType, enum BattlerId battlerAtk, enum BattlerId battlerDef, enum Ability abilityAtk, enum Ability abilityDef, bool32 recordAbilities);
 u32 GetCurrentBattleWeather(void);
@@ -406,7 +412,7 @@ void RemoveAbilityFlags(enum BattlerId battler);
 void CheckSetUnburden(enum BattlerId battler);
 bool32 IsDazzlingAbility(enum Ability ability);
 bool32 IsAllowedToUseBag(void);
-bool32 IsAnyTargetTurnDamaged(enum BattlerId battlerAtk);
+bool32 IsAnyTargetTurnDamaged(enum BattlerId battlerAtk, enum SubCheck subCheck);
 bool32 IsAnyTargetAffected(void);
 bool32 IsMimikyuDisguised(enum BattlerId battler);
 bool32 IsDoubleSpreadMove(void);
@@ -419,6 +425,7 @@ bool32 ChangeOrderTargetAfterAttacker(void);
 bool32 CanUseMoveConsecutively(enum BattlerId battler);
 void TryResetConsecutiveUseCounter(enum BattlerId battler);
 void SetOrClearRageVolatile(void);
+enum BattlerId GetTargetBySlot(enum BattlerId battlerAtk, enum BattlerId battlerDef);
 bool32 IsNaturalEnemy(u32 speciesAttacker, u32 speciesTarget);
 
 #endif // GUARD_BATTLE_UTIL_H

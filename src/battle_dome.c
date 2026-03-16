@@ -2133,7 +2133,7 @@ static void CalcDomeMonStats(const struct TrainerMon *fmon, int level, u8 ivs, i
             evs[i] = 0;
     }
 
-    if (gSpeciesInfo[fmon->species].baseHP == 1)
+    if (HasShedinjaHPHandling(fmon->species))
     {
         stats[STAT_HP] = 1;
     }

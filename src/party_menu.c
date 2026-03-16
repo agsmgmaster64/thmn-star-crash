@@ -5074,7 +5074,7 @@ static void GetMedicineItemEffectMessage(enum Item item, u32 statusCured)
 
 static bool32 NotUsingHPEVItemOn1HPMon(struct Pokemon *mon, enum Item item)
 {
-    if (GetItemEffectType(item) == ITEM_EFFECT_HP_EV && gSpeciesInfo[GetMonData(mon, MON_DATA_SPECIES)].baseHP != 1)
+    if (GetItemEffectType(item) == ITEM_EFFECT_HP_EV && HasShedinjaHPHandling(GetMonData(mon, MON_DATA_SPECIES)))
         return FALSE;
     return TRUE;
 }
@@ -5573,7 +5573,7 @@ static u16 ItemEffectToMonEv(struct Pokemon *mon, u8 effectType)
     switch (effectType)
     {
     case ITEM_EFFECT_HP_EV:
-        if (gSpeciesInfo[GetMonData(mon, MON_DATA_SPECIES)].baseHP != 1)
+        if (!HasShedinjaHPHandling(GetMonData(mon, MON_DATA_SPECIES)))
             return GetMonData(mon, MON_DATA_HP_EV);
         break;
     case ITEM_EFFECT_ATK_EV:

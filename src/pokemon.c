@@ -1367,7 +1367,12 @@ void CalculateMonStats(struct Pokemon *mon)
         SetMonData(mon, MON_DATA_MAX_HP + i, &n);
     }
 
-    if (gSpeciesInfo[species].baseHP == 1)
+#if TESTING
+    if (hyperTrained[STAT_HP] && gMain.inBattle)
+        return;
+#endif
+
+    if (HasShedinjaHPHandling(species))
     {
         newMaxHP = 1;
     }
@@ -6232,7 +6237,7 @@ u16 GetSpeciesPreEvolution(u16 species)
 
         for (j = 0; evolutions[j].method != EVOLUTIONS_END; j++)
         {
-            if (SanitizeSpeciesId(evolutions[j].targetSpecies) == species)
+            if (IsSpeciesEnabled(evolutions[j].targetSpecies) && SanitizeSpeciesId(evolutions[j].targetSpecies) == species)
                 return i;
         }
     }
@@ -6444,4 +6449,11 @@ enum SpeedOWE OWE_GetActiveSpeedFromSpecies(u32 speciesId)
     speciesId = SanitizeSpeciesId(speciesId);
     enum OverworldWildEncounterBehaviors behavior = gSpeciesInfo[speciesId].overworldEncounterBehavior;
     return sOWESpeciesBehavior[behavior].activeSpeed;
+}
+
+bool32 HasShedinjaHPHandling(u32 species)
+{
+    if (GetSpeciesBaseHP(species) == 1)
+        return TRUE;
+    return FALSE;
 }

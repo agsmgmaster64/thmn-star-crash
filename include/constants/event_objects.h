@@ -593,7 +593,7 @@ enum
 #define OBJ_EVENT_PAL_TAG_METEORITE               0x1141
 #define OBJ_EVENT_PAL_TAG_SEAGALLOP               0x1142
 #define OBJ_EVENT_PAL_TAG_SS_ANNE                 0x1143
-#define OBJ_EVENT_PAL_TAG_DYNAMIC                 0x114F
+#define OBJ_EVENT_PAL_TAG_DYNAMIC                 0x1144
 
 #if OW_FOLLOWERS_POKEBALLS
 // Vanilla
