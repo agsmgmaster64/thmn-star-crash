@@ -1190,7 +1190,7 @@ void AnimTask_VoltTackleBolt(u8 taskId)
         const struct SpriteTemplate *template;
         switch(gAnimMoveIndex)
         {
-        case MOVE_FAIRY_LOCK:
+        case MOVE_DEMON_BOOK:
             template = &gFairyLockChainsSpriteTemplate;
             break;
         case MOVE_COLLISION_COURSE:

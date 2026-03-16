@@ -339,7 +339,7 @@ extern const u8 gBattleAnimMove_IcicleSpear[];
 extern const u8 gBattleAnimMove_IronDefense[];
 extern const u8 gBattleAnimMove_Block[];
 extern const u8 gBattleAnimMove_Howl[];
-extern const u8 gBattleAnimMove_HearkBreak[];
+extern const u8 gBattleAnimMove_HeartBreak[];
 extern const u8 gBattleAnimMove_FrenzyPlant[];
 extern const u8 gBattleAnimMove_BulkUp[];
 extern const u8 gBattleAnimMove_Bounce[];

@@ -9016,7 +9016,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .contestCategory = CONTEST_CATEGORY_COOL,
         .contestComboStarterId = 0,
         .contestComboMoves = {COMBO_STARTER_DRAGON_BREATH, COMBO_STARTER_DRAGON_DANCE, COMBO_STARTER_DRAGON_RAGE, COMBO_STARTER_DRAGON_RUSH, COMBO_STARTER_DRAGON_TAIL},
-        .battleAnimScript = gBattleAnimMove_HearkBreak,
+        .battleAnimScript = gBattleAnimMove_HeartBreak,
         .validApprenticeMove = TRUE,
     },
 

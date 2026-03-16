@@ -2256,31 +2256,7 @@ void Task_DoReturnToFieldFishTreasure(u8 taskId)
                 {
                     PlaySE(SE_SELECT);
 
-                    switch (GetItemPocket(gSpecialVar_ItemId))
-                    {
-                    default:
-                    case POCKET_ITEMS:
-                        StringCopy(gStringVar3, gText_Items);
-                        break;
-                    case POCKET_POKE_BALLS:
-                        StringCopy(gStringVar3, gText_Poke_Balls);
-                        break;
-                    case POCKET_TM_HM:
-                        StringCopy(gStringVar3, gText_TMs_Hms);
-                        break;
-                    case POCKET_BERRIES:
-                        StringCopy(gStringVar3, gText_Berries2);
-                        break;
-                    case POCKET_KEY_ITEMS:
-                        StringCopy(gStringVar3, gText_Key_Items);
-                        break;
-                    case POCKET_MEDICINE:
-                        StringCopy(gStringVar3, gText_Medicine);
-                        break;
-                    case POCKET_BATTLE_ITEMS:
-                        StringCopy(gStringVar3, gText_BattleItems);
-                        break;
-                    }
+                    StringCopy(gStringVar3, gPocketNamesStringsTable[GetItemPocket(gSpecialVar_ItemId)]);
                 }
 
                 TaskState = FISHTASK_DESTROY_TREASURE_SPRITE;
