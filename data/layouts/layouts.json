@@ -6548,7 +6548,7 @@
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_GeneralFrlg",
-      "secondary_tileset": "gTileset_VermilionCity",
+      "secondary_tileset": "gTileset_Harbor",
       "border_filepath": "data/layouts/VermilionCity_Frlg/border.bin",
       "blockdata_filepath": "data/layouts/VermilionCity_Frlg/map.bin",
       "layout_version": "frlg"
@@ -10448,7 +10448,7 @@
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_GeneralFrlg",
-      "secondary_tileset": "gTileset_Barn",
+      "secondary_tileset": "gTileset_JapaneseTown",
       "border_filepath": "data/layouts/TracenAcademy/border.bin",
       "blockdata_filepath": "data/layouts/TracenAcademy/map.bin"
     }

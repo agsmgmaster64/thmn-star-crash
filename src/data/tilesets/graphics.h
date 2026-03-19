@@ -3641,3 +3641,41 @@ const u16 gTilesetPalettes_Barn[][16] =
 };
 
 const u32 gTilesetTiles_Barn[] = INCBIN_U32("data/tilesets/secondary/barn/tiles.4bpp.lz");
+
+const u16 gTilesetPalettes_Harbor[][16] =
+{
+    INCBIN_U16("data/tilesets/secondary/harbor/palettes/00.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/harbor/palettes/01.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/harbor/palettes/02.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/harbor/palettes/03.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/harbor/palettes/04.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/harbor/palettes/05.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/harbor/palettes/06.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/harbor/palettes/07.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/harbor/palettes/08.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/harbor/palettes/09.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/harbor/palettes/10.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/harbor/palettes/11.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/harbor/palettes/12.gbapal"),
+};
+
+const u32 gTilesetTiles_Harbor[] = INCBIN_U32("data/tilesets/secondary/harbor/tiles.4bpp.lz");
+
+const u16 gTilesetPalettes_JapaneseTown[][16] =
+{
+    INCBIN_U16("data/tilesets/secondary/japanese_town/palettes/00.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/japanese_town/palettes/01.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/japanese_town/palettes/02.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/japanese_town/palettes/03.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/japanese_town/palettes/04.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/japanese_town/palettes/05.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/japanese_town/palettes/06.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/japanese_town/palettes/07.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/japanese_town/palettes/08.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/japanese_town/palettes/09.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/japanese_town/palettes/10.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/japanese_town/palettes/11.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/japanese_town/palettes/12.gbapal"),
+};
+
+const u32 gTilesetTiles_JapaneseTown[] = INCBIN_U32("data/tilesets/secondary/japanese_town/tiles.4bpp.lz");

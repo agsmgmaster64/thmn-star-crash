@@ -1854,3 +1854,25 @@ const struct Tileset gTileset_Barn =
     .metatileAttributes = gMetatileAttributes_Barn,
     .callback = NULL,
 };
+
+const struct Tileset gTileset_Harbor =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_Harbor,
+    .palettes = gTilesetPalettes_Harbor,
+    .metatiles = gMetatiles_Harbor,
+    .metatileAttributes = gMetatileAttributes_Harbor,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_JapaneseTown =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_JapaneseTown,
+    .palettes = gTilesetPalettes_JapaneseTown,
+    .metatiles = gMetatiles_JapaneseTown,
+    .metatileAttributes = gMetatileAttributes_JapaneseTown,
+    .callback = NULL,
+};

@@ -489,3 +489,9 @@ const u32 gMetatileAttributes_HallOfFame[] = INCBIN_U32("data/tilesets/secondary
 
 const u16 gMetatiles_Barn[] = INCBIN_U16("data/tilesets/secondary/barn/metatiles.bin");
 const u32 gMetatileAttributes_Barn[] = INCBIN_U32("data/tilesets/secondary/barn/metatile_attributes.bin");
+
+const u16 gMetatiles_Harbor[] = INCBIN_U16("data/tilesets/secondary/harbor/metatiles.bin");
+const u32 gMetatileAttributes_Harbor[] = INCBIN_U32("data/tilesets/secondary/harbor/metatile_attributes.bin");
+
+const u16 gMetatiles_JapaneseTown[] = INCBIN_U16("data/tilesets/secondary/japanese_town/metatiles.bin");
+const u32 gMetatileAttributes_JapaneseTown[] = INCBIN_U32("data/tilesets/secondary/japanese_town/metatile_attributes.bin");
