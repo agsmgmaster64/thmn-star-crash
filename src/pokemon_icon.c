@@ -277,7 +277,7 @@ void LoadMonIconPalettePersonality(enum Species species, u32 personality)
         LoadSpritePalette(&gMonIconPaletteTable[palIndex]);
 }
 
-u8 LoadMonIconPaletteGetIndex(u16 species, u32 personality)
+u8 LoadMonIconPaletteGetIndex(enum Species species, u32 personality)
 {
     u8 palIndex;
     u8 palSlot;

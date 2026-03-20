@@ -20,6 +20,8 @@ static void SampleRenewableItemFlags(void);
 #define HIDDEN_ID(flag)(flag - FLAG_HIDDEN_ITEMS_START)
 #define NO_ITEM 0xFF
 
+#if IS_FRLG
+
 static const struct RenewableHiddenItemData sRenewableHiddenItems[] = {
     {
         .mapGroup = MAP_GROUP(MAP_ROUTE20),
@@ -533,13 +535,13 @@ static const struct RenewableHiddenItemData sRenewableHiddenItems[] = {
     },
 };
 
+#endif
+
 void SetAllRenewableItemFlags(void)
 {
     u8 i, j;
 
-    if (!IS_FRLG)
-        return;
-
+#if IS_FRLG
     for (i = 0; i < ARRAY_COUNT(sRenewableHiddenItems); i++)
     {
         const u8 * rare = sRenewableHiddenItems[i].rare;
@@ -555,6 +557,7 @@ void SetAllRenewableItemFlags(void)
                 FlagSet(FLAG_HIDDEN_ITEMS_START + common[j]);
         }
     }
+#endif
 }
 
 void IncrementRenewableHiddenItemStepCounter(void)
@@ -574,9 +577,7 @@ void TryRegenerateRenewableHiddenItems(void)
     u8 i;
     u8 found_map = 0xFF;
 
-    if (!IS_FRLG)
-        return;
-
+#if IS_FRLG
     for (i = 0; i < ARRAY_COUNT(sRenewableHiddenItems); i++)
     {
         if (sRenewableHiddenItems[i].mapGroup == gSaveBlock1Ptr->location.mapGroup
@@ -592,6 +593,7 @@ void TryRegenerateRenewableHiddenItems(void)
         SetAllRenewableItemFlags();
         SampleRenewableItemFlags();
     }
+#endif
 }
 
 static void SampleRenewableItemFlags(void)
@@ -600,6 +602,7 @@ static void SampleRenewableItemFlags(void)
     const u8 * flags;
     u16 rval;
 
+#if IS_FRLG
     for (i = 0; i < ARRAY_COUNT(sRenewableHiddenItems); i++)
     {
         rval = Random() % 100;
@@ -615,4 +618,5 @@ static void SampleRenewableItemFlags(void)
                 FlagClear(FLAG_HIDDEN_ITEMS_START + flags[j]);
         }
     }
+#endif
 }

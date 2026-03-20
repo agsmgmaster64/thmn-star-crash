@@ -228,7 +228,7 @@ static const struct FormChange sGengarFormChangeTable[] =
 static const struct FormChange sSteelixFormChangeTable[] =
 {
 #if P_MEGA_EVOLUTIONS
-    {FORM_CHANGE_BATTLE_MEGA_EVOLUTION_ITEM,    SPECIES_ATTACK_RIN_MEGA, ITEM_STEELIXITE},
+    {FORM_CHANGE_BATTLE_MEGA_EVOLUTION_ITEM,    SPECIES_STEELIX_MEGA, ITEM_STEELIXITE},
 #endif
     {FORM_CHANGE_FAINT,                         SPECIES_STEELIX},
     {FORM_CHANGE_END_BATTLE,                    SPECIES_STEELIX},
@@ -722,7 +722,7 @@ static const struct FormChange sCastformFormChangeTable[] =
 static const struct FormChange sSalamenceFormChangeTable[] =
 {
 #if P_MEGA_EVOLUTIONS
-    {FORM_CHANGE_BATTLE_MEGA_EVOLUTION_ITEM,    SPECIES_CHIBI_MEIRA_MEGA, ITEM_SALAMENCITE},
+    {FORM_CHANGE_BATTLE_MEGA_EVOLUTION_ITEM,    SPECIES_SALAMENCE_MEGA, ITEM_SALAMENCITE},
 #endif
     {FORM_CHANGE_FAINT,                         SPECIES_SALAMENCE},
     {FORM_CHANGE_END_BATTLE,                    SPECIES_SALAMENCE},

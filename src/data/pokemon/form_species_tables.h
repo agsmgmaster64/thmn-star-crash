@@ -461,7 +461,7 @@ static const u16 sGengarFormSpeciesIdTable[] = {
 static const u16 sSteelixFormSpeciesIdTable[] = {
     SPECIES_ATTACK_RIN,
 #if P_MEGA_EVOLUTIONS
-    SPECIES_ATTACK_RIN_MEGA,
+    SPECIES_STEELIX_MEGA,
 #endif
     FORM_SPECIES_END,
 };
@@ -1069,7 +1069,7 @@ static const u16 sFroslassFormSpeciesIdTable[] = {
 static const u16 sSalamenceFormSpeciesIdTable[] = {
     SPECIES_CHIBI_MEIRA,
 #if P_MEGA_EVOLUTIONS
-    SPECIES_CHIBI_MEIRA_MEGA,
+    SPECIES_SALAMENCE_MEGA,
 #endif
     FORM_SPECIES_END,
 };
