@@ -89,7 +89,7 @@ struct
     /*0x004*/ MainCallback prev; // unused
     /*0x008*/ MainCallback next; // unused
     /*0x00C*/ u16 state; // unused
-    /*0x00E*/ u16 species;
+    /*0x00E*/ enum Species species;
     /*0x010*/ struct OverworldArea overworldAreasWithMons[MAX_AREA_HIGHLIGHTS];
     /*0x110*/ u16 numOverworldAreas;
     /*0x112*/ u16 numSpecialAreas;
@@ -117,13 +117,13 @@ struct
 
 EWRAM_DATA u8 gAreaTimeOfDay = 0;
 
-static void FindMapsWithMon(u16);
+static void FindMapsWithMon(enum Species);
 static void BuildAreaGlowTilemap(void);
 static void SetAreaHasMon(u16, u16);
 static void SetSpecialMapHasMon(u16, u16);
 static mapsec_u16_t GetRegionMapSectionId(u8, u8);
-static bool8 MapHasSpecies(const struct WildEncounterTypes *, u16);
-static bool8 MonListHasSpecies(const struct WildEncounterTypes *, u16, u32, u32, enum WildPokemonArea);
+static bool8 MapHasSpecies(const struct WildEncounterTypes *, enum Species);
+static bool8 MonListHasSpecies(const struct WildEncounterTypes *, enum Species, u32, u32, enum WildPokemonArea);
 static void DoAreaGlow(void);
 static void Task_ShowPokedexAreaScreen(u8 taskId);
 static void Task_UpdatePokedexAreaScreen(u8 taskId);
@@ -294,7 +294,7 @@ static bool8 DrawAreaGlow(void)
     return TRUE;
 }
 
-static void FindMapsWithMon(u16 species)
+static void FindMapsWithMon(enum Species species)
 {
     enum RegionMapType currentRegionMapType;
     u16 i;
@@ -438,7 +438,7 @@ static mapsec_u16_t GetRegionMapSectionId(u8 mapGroup, u8 mapNum)
     return Overworld_GetMapHeaderByGroupAndId(mapGroup, mapNum)->regionMapSectionId;
 }
 
-static bool8 MapHasSpecies(const struct WildEncounterTypes *info, u16 species)
+static bool8 MapHasSpecies(const struct WildEncounterTypes *info, enum Species species)
 {
     u32 headerId = GetCurrentMapWildMonHeaderId();
     u8 currentMapGroup = gWildMonHeaders[headerId].mapGroup;
@@ -462,7 +462,7 @@ static bool8 MapHasSpecies(const struct WildEncounterTypes *info, u16 species)
     return FALSE;
 }
 
-static bool8 MonListHasSpecies(const struct WildEncounterTypes *info, u16 species, u32 currentMapGroup, u32 currentMapNum, enum WildPokemonArea area)
+static bool8 MonListHasSpecies(const struct WildEncounterTypes *info, enum Species species, u32 currentMapGroup, u32 currentMapNum, enum WildPokemonArea area)
 {
     u16 i, size;
     const struct WildPokemonInfo *actualInfo;
@@ -745,7 +745,7 @@ bool32 ShouldShowAreaUnknownLabel(void)
 
 #define tState data[0]
 
-void DisplayPokedexAreaScreen(u16 species, u8 *screenSwitchState, enum TimeOfDay timeOfDay, enum PokedexAreaScreenState areaState)
+void DisplayPokedexAreaScreen(enum Species species, u8 *screenSwitchState, enum TimeOfDay timeOfDay, enum PokedexAreaScreenState areaState)
 {
     u8 taskId;
 

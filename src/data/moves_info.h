@@ -6106,8 +6106,16 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
     {
         .name = COMPOUND_STRING("Encore"),
         .description = COMPOUND_STRING(
+        #if B_ENCORE_TURNS >= GEN_5
             "Makes the foe repeat its\n"
             "last move over 3 turns."),
+        #elif B_ENCORE_TURNS >= GEN_4
+            "Makes the foe repeat its\n"
+            "last move over 3-7 turns."),
+        #else
+            "Makes the foe repeat its\n"
+            "last move over 2-6 turns."),
+        #endif
         .effect = EFFECT_ENCORE,
         .power = 0,
         .type = TYPE_ILLUSION,
@@ -17540,6 +17548,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .metronomeBanned = TRUE,
         .additionalEffects = ADDITIONAL_EFFECTS({
             .moveEffect = MOVE_EFFECT_LIGHT_SCREEN,
+            .self = TRUE,
         }),
         .battleAnimScript = gBattleAnimMove_GlitzyGlow,
     },
@@ -17562,6 +17571,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .metronomeBanned = TRUE,
         .additionalEffects = ADDITIONAL_EFFECTS({
             .moveEffect = MOVE_EFFECT_REFLECT,
+            .self = TRUE,
         }),
         .battleAnimScript = gBattleAnimMove_BaddyBad,
     },
@@ -17629,6 +17639,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .metronomeBanned = TRUE,
         .additionalEffects = ADDITIONAL_EFFECTS({
             .moveEffect = MOVE_EFFECT_AROMATHERAPY,
+            .self = TRUE,
         }),
         .battleAnimScript = gBattleAnimMove_SparklySwirl,
     },
@@ -22045,6 +22056,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .battleAnimScript = gBattleAnimMove_MaxKnuckle,
         .additionalEffects = ADDITIONAL_EFFECTS({
             .moveEffect = MOVE_EFFECT_RAISE_TEAM_ATTACK,
+            .self = TRUE,
         }),
     },
 
@@ -22105,6 +22117,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .battleAnimScript = gBattleAnimMove_MaxOoze,
         .additionalEffects = ADDITIONAL_EFFECTS({
             .moveEffect = MOVE_EFFECT_RAISE_TEAM_SP_ATK,
+            .self = TRUE,
         }),
     },
 
@@ -22145,6 +22158,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .battleAnimScript = gBattleAnimMove_MaxAirstream,
         .additionalEffects = ADDITIONAL_EFFECTS({
             .moveEffect = MOVE_EFFECT_RAISE_TEAM_SPEED,
+            .self = TRUE,
         }),
     },
 
@@ -22246,6 +22260,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .battleAnimScript = gBattleAnimMove_MaxQuake,
         .additionalEffects = ADDITIONAL_EFFECTS({
             .moveEffect = MOVE_EFFECT_RAISE_TEAM_SP_DEF,
+            .self = TRUE,
         }),
     },
 
@@ -22306,6 +22321,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .battleAnimScript = gBattleAnimMove_MaxSteelspike,
         .additionalEffects = ADDITIONAL_EFFECTS({
             .moveEffect = MOVE_EFFECT_RAISE_TEAM_DEFENSE,
+            .self = TRUE,
         }),
     },
 
@@ -22446,6 +22462,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .battleAnimScript = gBattleAnimMove_GMaxChiStrike,
         .additionalEffects = ADDITIONAL_EFFECTS({
             .moveEffect = MOVE_EFFECT_CRIT_PLUS_SIDE,
+            .self = TRUE,
         }),
     },
 
@@ -22506,6 +22523,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .battleAnimScript = gBattleAnimMove_GMaxResonance,
         .additionalEffects = ADDITIONAL_EFFECTS({
             .moveEffect = MOVE_EFFECT_AURORA_VEIL,
+            .self = TRUE,
         }),
     },
 
@@ -22546,6 +22564,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .battleAnimScript = gBattleAnimMove_GMaxReplenish,
         .additionalEffects = ADDITIONAL_EFFECTS({
             .moveEffect = MOVE_EFFECT_RECYCLE_BERRIES,
+            .self = TRUE,
         }),
     },
 
@@ -22689,6 +22708,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .battleAnimScript = gBattleAnimMove_GMaxGravitas,
         .additionalEffects = ADDITIONAL_EFFECTS({
             .moveEffect = MOVE_EFFECT_GRAVITY,
+            .self = TRUE,
         }),
     },
 
@@ -22769,6 +22789,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .battleAnimScript = gBattleAnimMove_GMaxSweetness,
         .additionalEffects = ADDITIONAL_EFFECTS({
             .moveEffect = MOVE_EFFECT_AROMATHERAPY,
+            .self = TRUE,
         }),
     },
 
@@ -22890,6 +22911,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .battleAnimScript = gBattleAnimMove_GMaxFinale,
         .additionalEffects = ADDITIONAL_EFFECTS({
             .moveEffect = MOVE_EFFECT_HEAL_TEAM,
+            .self = TRUE,
         }),
     },
 

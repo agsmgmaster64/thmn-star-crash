@@ -34,7 +34,7 @@ struct PikeRoomNPC
 
 struct PikeWildMon
 {
-    u16 species;
+    enum Species species;
     u8 levelDelta;
     u16 moves[MAX_MON_MOVES];
 };
@@ -83,7 +83,7 @@ static void PrepareTwoTrainers(void);
 static void TryHealMons(u8 healCount);
 static void Task_DoStatusInflictionScreenFlash(u8 taskId);
 static bool8 AtLeastTwoAliveMons(void);
-static u8 SpeciesToPikeMonId(u16 species);
+static u8 SpeciesToPikeMonId(enum Species species);
 static bool8 CanEncounterWildMon(u8 monLevel);
 static u8 GetPikeQueenFightType(u8);
 static bool8 StatusInflictionFadeOut(struct Task *task);
@@ -847,7 +847,7 @@ bool8 DoesAbilityPreventStatus(struct Pokemon *mon, u32 status)
     return ret;
 }
 
-static bool8 DoesTypePreventStatus(u16 species, u32 status)
+static bool8 DoesTypePreventStatus(enum Species species, u32 status)
 {
     bool8 ret = FALSE;
 
@@ -884,7 +884,7 @@ static bool8 TryInflictRandomStatus(void)
     u8 count;
     u8 indices[FRONTIER_PARTY_SIZE];
     u32 status;
-    u16 species;
+    enum Species species;
     bool8 statusChosen;
     struct Pokemon *mon;
 
@@ -1638,7 +1638,7 @@ static bool8 CanEncounterWildMon(u8 enemyMonLevel)
     return TRUE;
 }
 
-static u8 SpeciesToPikeMonId(u16 species)
+static u8 SpeciesToPikeMonId(enum Species species)
 {
     u8 ret;
 

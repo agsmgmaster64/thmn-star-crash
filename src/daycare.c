@@ -33,7 +33,7 @@
 #define IS_DITTO(species) (gSpeciesInfo[species].eggGroups[0] == EGG_GROUP_DITTO || gSpeciesInfo[species].eggGroups[1] == EGG_GROUP_DITTO)
 
 static void ClearDaycareMonMail(struct DaycareMail *mail);
-static void SetInitialEggData(struct Pokemon *mon, u16 species, struct DayCare *daycare);
+static void SetInitialEggData(struct Pokemon *mon, enum Species species, struct DayCare *daycare);
 static void DaycarePrintMonInfo(u8 windowId, u32 daycareSlotId, u8 y);
 static u8 ModifyBreedingScoreForOvalCharm(u8 score);
 
@@ -87,9 +87,9 @@ static const struct ListMenuTemplate sDaycareListMenuLevelTemplate =
 };
 
 static const struct {
-  u16 currSpecies;
+  enum Species currSpecies;
   enum Item item;
-  u16 babySpecies;
+  enum Species babySpecies;
 } sIncenseBabyTable[] =
 {
     // Regular offspring,   Item,              Incense Offspring
@@ -187,8 +187,8 @@ static void TransferEggMoves(void)
 
     for (i = 0; i < DAYCARE_MON_COUNT; i++)
     {
-        u16 moveLearnerSpecies = GetBoxMonData(&gSaveBlock1Ptr->daycare.mons[i].mon, MON_DATA_SPECIES);
-        u16 eggSpecies = GetEggSpecies(moveLearnerSpecies);
+        enum Species moveLearnerSpecies = GetBoxMonData(&gSaveBlock1Ptr->daycare.mons[i].mon, MON_DATA_SPECIES);
+        enum Species eggSpecies = GetEggSpecies(moveLearnerSpecies);
 
         if (!GetBoxMonData(&gSaveBlock1Ptr->daycare.mons[i].mon, MON_DATA_SANITY_HAS_SPECIES))
             continue;
@@ -213,7 +213,7 @@ static void TransferEggMoves(void)
             // Go through other Daycare mons
             for (k = 0; k < DAYCARE_MON_COUNT; k++)
             {
-                u16 moveTeacherSpecies = GetBoxMonData(&gSaveBlock1Ptr->daycare.mons[k].mon, MON_DATA_SPECIES);
+                enum Species moveTeacherSpecies = GetBoxMonData(&gSaveBlock1Ptr->daycare.mons[k].mon, MON_DATA_SPECIES);
 
                 if (k == i || !GetBoxMonData(&gSaveBlock1Ptr->daycare.mons[k].mon, MON_DATA_SANITY_HAS_SPECIES))
                     continue;
@@ -380,7 +380,7 @@ static u16 TakeSelectedPokemonFromDaycare(struct DaycareMon *daycareMon)
 
 static u16 TakeSelectedPokemonMonFromDaycareShiftSlots(struct DayCare *daycare, u8 slotId)
 {
-    u16 species = TakeSelectedPokemonFromDaycare(&daycare->mons[slotId]);
+    enum Species species = TakeSelectedPokemonFromDaycare(&daycare->mons[slotId]);
     ShiftDaycareSlots(daycare);
     return species;
 }
@@ -487,7 +487,7 @@ static void UNUSED ClearAllDaycareData(struct DayCare *daycare)
 // Determines what the species of an Egg would be based on the given species.
 // It determines this by working backwards through the evolution chain of the
 // given species.
-u16 GetEggSpecies(u16 species)
+enum Species GetEggSpecies(enum Species species)
 {
     int i, j, k;
     bool8 found;
@@ -710,8 +710,8 @@ static void InheritPokeball(struct Pokemon *egg, struct BoxPokemon *father, stru
     enum PokeBall inheritBall = BALL_POKE;
     enum PokeBall fatherBall = GetBoxMonData(father, MON_DATA_POKEBALL);
     enum PokeBall motherBall = GetBoxMonData(mother, MON_DATA_POKEBALL);
-    u16 fatherSpecies = GetBoxMonData(father, MON_DATA_SPECIES);
-    u16 motherSpecies = GetBoxMonData(mother, MON_DATA_SPECIES);
+    enum Species fatherSpecies = GetBoxMonData(father, MON_DATA_SPECIES);
+    enum Species motherSpecies = GetBoxMonData(mother, MON_DATA_SPECIES);
 
     if (fatherBall == BALL_MASTER || fatherBall == BALL_CHERISH || fatherBall == BALL_STRANGE)
         fatherBall = BALL_POKE;
@@ -739,7 +739,7 @@ static void InheritAbility(struct Pokemon *egg, struct BoxPokemon *father, struc
 {
     enum Ability fatherAbility = GetBoxMonData(father, MON_DATA_ABILITY_NUM);
     enum Ability motherAbility = GetBoxMonData(mother, MON_DATA_ABILITY_NUM);
-    u16 motherSpecies = GetBoxMonData(mother, MON_DATA_SPECIES);
+    enum Species motherSpecies = GetBoxMonData(mother, MON_DATA_SPECIES);
     enum Ability inheritAbility = motherAbility;
 
     if (IS_DITTO(motherSpecies))
@@ -766,7 +766,7 @@ static void InheritAbility(struct Pokemon *egg, struct BoxPokemon *father, struc
 u8 GetEggMoves(struct Pokemon *pokemon, u16 *eggMoves)
 {
     u16 numEggMoves;
-    u16 species;
+    enum Species species;
     u32 i;
     const u16 *eggMoveLearnset;
 
@@ -783,7 +783,7 @@ u8 GetEggMoves(struct Pokemon *pokemon, u16 *eggMoves)
     return numEggMoves;
 }
 
-u8 GetEggMovesBySpecies(u16 species, u16 *eggMoves)
+u8 GetEggMovesBySpecies(enum Species species, u16 *eggMoves)
 {
     u16 numEggMoves;
     const u16 *eggMoveLearnset;
@@ -801,7 +801,7 @@ u8 GetEggMovesBySpecies(u16 species, u16 *eggMoves)
     return numEggMoves;
 }
 
-bool8 SpeciesCanLearnEggMove(u16 species, enum Move move) //Move search PokedexPlus HGSS_Ui
+bool8 SpeciesCanLearnEggMove(enum Species species, enum Move move) //Move search PokedexPlus HGSS_Ui
 {
     u32 i;
     const u16 *eggMoveLearnset = GetSpeciesEggMoves(species);
@@ -942,7 +942,7 @@ void RejectEggFromDayCare(void)
     RemoveEggFromDayCare(&gSaveBlock1Ptr->daycare);
 }
 
-static void AlterEggSpeciesWithIncenseItem(u16 *species, struct DayCare *daycare)
+static void AlterEggSpeciesWithIncenseItem(enum Species *species, struct DayCare *daycare)
 {
     u32 i;
     enum Item motherItem, fatherItem;
@@ -971,7 +971,8 @@ static const struct {
 
 static void GiveMoveIfItem(struct Pokemon *mon, struct DayCare *daycare)
 {
-    u16 i, species = GetMonData(mon, MON_DATA_SPECIES);
+    u16 i;
+    enum Species species = GetMonData(mon, MON_DATA_SPECIES);
     enum Item motherItem = GetBoxMonData(&daycare->mons[0].mon, MON_DATA_HELD_ITEM);
     enum Item fatherItem = GetBoxMonData(&daycare->mons[1].mon, MON_DATA_HELD_ITEM);
 
@@ -989,11 +990,11 @@ static void GiveMoveIfItem(struct Pokemon *mon, struct DayCare *daycare)
 
 STATIC_ASSERT(P_SCATTERBUG_LINE_FORM_BREED == SPECIES_SCATTERBUG_ICY_SNOW || (P_SCATTERBUG_LINE_FORM_BREED >= SPECIES_SCATTERBUG_POLAR && P_SCATTERBUG_LINE_FORM_BREED <= SPECIES_SCATTERBUG_POKEBALL), ScatterbugLineFormBreedMustBeAValidScatterbugForm);
 
-static u16 DetermineEggSpeciesAndParentSlots(struct DayCare *daycare, u8 *parentSlots)
+static enum Species DetermineEggSpeciesAndParentSlots(struct DayCare *daycare, u8 *parentSlots)
 {
     u32 i;
-    u32 species[DAYCARE_MON_COUNT];
-    u32 eggSpecies, parentSpecies;
+    enum Species species[DAYCARE_MON_COUNT];
+    enum Species eggSpecies, parentSpecies;
     bool32 hasMotherEverstone, hasFatherEverstone, motherIsForeign, fatherIsForeign;
     bool32 motherEggSpecies, fatherEggSpecies;
     u32 currentRegion = GetCurrentRegion();
@@ -1059,7 +1060,7 @@ static u16 DetermineEggSpeciesAndParentSlots(struct DayCare *daycare, u8 *parent
 static void _GiveEggFromDaycare(struct DayCare *daycare)
 {
     struct Pokemon egg;
-    u16 species;
+    enum Species species;
     u8 parentSlots[DAYCARE_MON_COUNT] = {0};
     bool8 isEgg;
 
@@ -1086,7 +1087,7 @@ static void _GiveEggFromDaycare(struct DayCare *daycare)
     RemoveEggFromDayCare(daycare);
 }
 
-void CreateEgg(struct Pokemon *mon, u16 species, bool8 setHotSpringsLocation)
+void CreateEgg(struct Pokemon *mon, enum Species species, bool8 setHotSpringsLocation)
 {
     u8 metLevel;
     enum PokeBall ball;
@@ -1113,7 +1114,7 @@ void CreateEgg(struct Pokemon *mon, u16 species, bool8 setHotSpringsLocation)
     SetMonData(mon, MON_DATA_IS_EGG, &isEgg);
 }
 
-static void SetInitialEggData(struct Pokemon *mon, u16 species, struct DayCare *daycare)
+static void SetInitialEggData(struct Pokemon *mon, enum Species species, struct DayCare *daycare)
 {
     u32 personality;
     enum PokeBall ball;
@@ -1228,7 +1229,7 @@ static void _GetDaycareMonNicknames(struct DayCare *daycare)
     }
 }
 
-u16 GetSelectedMonNicknameAndSpecies(void)
+enum Species GetSelectedMonNicknameAndSpecies(void)
 {
     struct BoxPokemon *boxmon = GetSelectedBoxMonFromPcOrParty();
     GetBoxMonNickname(boxmon, gStringVar1);
@@ -1288,7 +1289,7 @@ u8 GetDaycareCompatibilityScore(struct DayCare *daycare)
 {
     u32 i;
     u16 eggGroups[DAYCARE_MON_COUNT][EGG_GROUPS_PER_MON];
-    u16 species[DAYCARE_MON_COUNT];
+    enum Species species[DAYCARE_MON_COUNT];
     u32 trainerIds[DAYCARE_MON_COUNT];
     u32 genders[DAYCARE_MON_COUNT];
 
