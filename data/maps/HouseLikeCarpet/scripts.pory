@@ -93,6 +93,15 @@ script HouseLikeCarpet_Event_KroniiDeltarune {
     end
 }
 
+script HouseLikeCarpet_Event_TeiMaku {
+    lock
+    faceplayer
+    msgbox(format("{SPEAKER NAME_MCQUEEN}Wh- what happened to us?\p"
+        "{SPEAKER NAME_TEIO}I'm not sure, I can't even see like this."))
+    release
+    end
+}
+
 text HouseLikeCarpet_Text_GigiWantToFollow {
     format("Yo, mind if I follow you here?")
 }
