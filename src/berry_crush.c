@@ -1032,9 +1032,9 @@ void StartBerryCrush(MainCallback exitCallback, bool32 isSolo)
 
 static void GetBerryFromBag(void)
 {
-    u32 berryId;
+    enum BerryId berryId = ItemIdToBerryType(gSpecialVar_ItemId);
 
-    if (sGame->solo && gSpecialVar_ItemId < FIRST_BERRY_INDEX)
+    if (sGame->solo && !berryId)
     {
         RunOrScheduleCommand(CMD_PLAY_AGAIN_NO, RUN_CMD, NULL);
         sGame->taskId = CreateTask(MainTask, 8);
@@ -1042,18 +1042,22 @@ static void GetBerryFromBag(void)
         return;
     }
 
-    if (gSpecialVar_ItemId < FIRST_BERRY_INDEX || gSpecialVar_ItemId > LAST_BERRY_INDEX + 1)
-        gSpecialVar_ItemId = FIRST_BERRY_INDEX;
+    if (!berryId)
+    {
+        berryId = 1;
+        gSpecialVar_ItemId = BerryTypeToItemId(1);
+    }
     else
+    {
         RemoveBagItem(gSpecialVar_ItemId, 1);
+    }
 
-    berryId = gSpecialVar_ItemId - FIRST_BERRY_INDEX;
     sGame->players[sGame->localId].berryId = berryId;
     sGame->nextCmd = CMD_FADE;
     if (sGame->solo)
     {
-        sGame->targetAPresses += gBerryCrush_BerryData[berryId].difficulty;
-        sGame->powder += gBerryCrush_BerryData[berryId].powder;
+        sGame->targetAPresses += gBerries[berryId].berryCrushDifficulty;
+        sGame->powder += gBerries[berryId].berryCrushPowder;
         sGame->afterPalFadeCmd = CMD_DROP_BERRIES;
         sGame->gameState = STATE_DROP_BERRIES;
     }
@@ -1396,7 +1400,7 @@ static void CreateBerrySprites(struct BerryCrushGame *game, struct BerryCrushGam
             &sSpriteTemplate_PlayerBerry,
             sPlayerBerrySpriteTags[i],
             sPlayerBerrySpriteTags[i],
-            game->players[i].berryId + FIRST_BERRY_INDEX);
+            BerryTypeToItemId(game->players[i].berryId));
         gfx->berrySprites[i] = &gSprites[spriteId];
         gfx->berrySprites[i]->oam.priority = 3;
         gfx->berrySprites[i]->affineAnimPaused = TRUE;
@@ -1721,9 +1725,9 @@ static void PrintResultsText(struct BerryCrushGame *game, u8 page, u8 sp14, u8 b
             playerId = i;
             ranking = i;
             j = game->players[i].berryId;
-            if (j >= LAST_BERRY_INDEX - FIRST_BERRY_INDEX + 2)
-                j = 0;
-            StringCopy(gStringVar1, gBerries[j].name);
+            if (j > NUM_BERRIES)
+                j = 1;
+            StringCopy(gStringVar1, GetBerryInfo(j)->name);
             StringExpandPlaceholders(gStringVar4, sResultsTexts[page]);
             break;
         }
@@ -2472,10 +2476,10 @@ static u32 Cmd_WaitForOthersToPickBerries(struct BerryCrushGame *game, u8 *args)
         for (i = 0; i < game->playerCount; i++)
         {
             game->players[i].berryId = gBlockRecvBuffer[i][0];
-            if (game->players[i].berryId > LAST_BERRY_INDEX + 1)
-                game->players[i].berryId = 0;
-            game->targetAPresses += gBerryCrush_BerryData[game->players[i].berryId].difficulty;
-            game->powder += gBerryCrush_BerryData[game->players[i].berryId].powder;
+            if (game->players[i].berryId > NUM_BERRIES)
+                game->players[i].berryId = 1;
+            game->targetAPresses += gBerries[game->players[i].berryId].berryCrushDifficulty;
+            game->powder += gBerries[game->players[i].berryId].berryCrushPowder;
         }
         game->cmdTimer = 0;
         ResetBlockReceivedFlags();
@@ -3758,7 +3762,7 @@ static void ResetGame(struct BerryCrushGame *game)
     game->sparkleCounter = 0;
     for (i = 0; i < MAX_RFU_PLAYERS; i++)
     {
-        game->players[i].berryId = -1;
+        game->players[i].berryId = 0;
         game->players[i].inputTime = 0;
         game->players[i].neatInputStreak = 0;
         game->players[i].timeSincePrevInput = 1;

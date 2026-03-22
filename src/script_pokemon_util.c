@@ -748,3 +748,11 @@ void Script_SetKO(struct ScriptContext *ctx)
         SetMonData(&gPlayerParty[slot], MON_DATA_HP, &hp);
     }
 }
+
+void Script_GiveRandomBerry(struct ScriptContext *ctx)
+{
+    enum BerryId loBerry = ScriptReadByte(ctx);
+    enum BerryId hiBerry = ScriptReadByte(ctx);
+
+    gSpecialVar_Result = BerryTypeToItemId(RandomUniform(RNG_RANDOM_BERRY, loBerry, hiBerry));
+}
