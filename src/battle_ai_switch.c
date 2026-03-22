@@ -998,15 +998,15 @@ static bool32 CanIntimidateLowerOpponentAtk(enum BattlerId battler, enum Battler
     if (gSideStatuses[GetBattlerSide(opposingBattler)] & SIDE_STATUS_MIST)
         return FALSE;
 
-    if (IS_BATTLER_OF_TYPE(opposingBattler, TYPE_GRASS) && AI_IsAbilityOnSide(opposingBattler, ABILITY_FLOWER_VEIL))
+    if (IS_BATTLER_OF_TYPE(opposingBattler, TYPE_NATURE) && AI_IsAbilityOnSide(opposingBattler, ABILITY_FLOWER_VEIL))
         return FALSE;
 
     switch (abilityDef)
     {
-    case ABILITY_HYPER_CUTTER:
-    case ABILITY_CLEAR_BODY:
+    case ABILITY_HIGH_STRENGTH:
+    case ABILITY_MAGIC_BARRIER:
     case ABILITY_FULL_METAL_BODY:
-    case ABILITY_WHITE_SMOKE:
+    case ABILITY_HAKUREI_MIKO:
         return FALSE;
     default:
         break;

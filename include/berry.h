@@ -185,6 +185,18 @@ extern const u32 gBerryPic_Jaboca[];
 extern const u32 gBerryPic_Rowap[];
 extern const u32 gBerryPic_Kee[];
 extern const u32 gBerryPic_Maranga[];
+extern const u32 gBerryPic_Pumkin[];
+extern const u32 gBerryPic_Drash[];
+extern const u32 gBerryPic_Eggant[];
+extern const u32 gBerryPic_Strib[];
+extern const u32 gBerryPic_Turlan[];
+extern const u32 gBerryPic_Nutpea[];
+extern const u32 gBerryPic_Ionno[];
+extern const u32 gBerryPic_Kuo[];
+extern const u32 gBerryPic_Yago[];
+extern const u32 gBerryPic_Touga[];
+extern const u32 gBerryPic_Garlig[];
+extern const u32 gBerryPic_Topo[];
 
 extern const u16 gBerryPalette_Cheri[];
 extern const u16 gBerryPalette_Chesto[];
@@ -253,6 +265,18 @@ extern const u16 gBerryPalette_Jaboca[];
 extern const u16 gBerryPalette_Rowap[];
 extern const u16 gBerryPalette_Kee[];
 extern const u16 gBerryPalette_Maranga[];
+extern const u16 gBerryPalette_Pumkin[];
+extern const u16 gBerryPalette_Drash[];
+extern const u16 gBerryPalette_Eggant[];
+extern const u16 gBerryPalette_Strib[];
+extern const u16 gBerryPalette_Turlan[];
+extern const u16 gBerryPalette_Nutpea[];
+extern const u16 gBerryPalette_Ionno[];
+extern const u16 gBerryPalette_Kuo[];
+extern const u16 gBerryPalette_Yago[];
+extern const u16 gBerryPalette_Touga[];
+extern const u16 gBerryPalette_Garlig[];
+extern const u16 gBerryPalette_Topo[];
 
 extern const struct Berry gBerries[];
 

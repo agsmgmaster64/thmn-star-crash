@@ -189,8 +189,6 @@ static inline enum BerryId ItemIdToBerryType(enum Item itemId)
     switch (itemId)
     {
     FOREACH_BERRY(GET_BERRY_ID)
-    case ITEM_ENIGMA_BERRY_E_READER:
-        return BERRY_ID_ENGIMA_E_READER;
     default:
         return BERRY_ID_NONE;
     }
@@ -201,8 +199,6 @@ static inline enum Item BerryTypeToItemId(enum BerryId berryId)
     switch (berryId)
     {
     FOREACH_BERRY(GET_BERRY_ITEM_ID)
-    case BERRY_ID_ENGIMA_E_READER:
-        return ITEM_ENIGMA_BERRY_E_READER;
     default:
         return ITEM_NONE;
     }

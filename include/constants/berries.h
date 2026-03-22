@@ -68,6 +68,18 @@
     F(ROWAP) \
     F(ROSELI) \
     F(KEE) \
-    F(MARANGA)
+    F(MARANGA) \
+    F(PUMKIN) \
+    F(DRASH) \
+    F(EGGANT) \
+    F(STRIB) \
+    F(TURLAN) \
+    F(NUTPEA) \
+    F(IONNO) \
+    F(KUO) \
+    F(YAGO) \
+    F(TOUGA) \
+    F(GARLIG) \
+    F(TOPO)
 
 #endif
