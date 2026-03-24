@@ -10,6 +10,7 @@
 #include "map_preview_screen.h"
 #include "main.h"
 #include "map_name_popup.h"
+#include "map_preview_screen.h"
 #include "overworld.h"
 #include "palette.h"
 #include "party_menu.h"
@@ -41,7 +42,6 @@ static void Task_ExitCaveTransition4(u8 taskId);
 static void Task_ExitCaveTransition5(u8 taskId);
 static void DoEnterCaveTransition(void);
 static void Task_EnterCaveTransition1(u8 taskId);
-static void Task_EnterCaveTransition2(u8 taskId);
 static void Task_EnterCaveTransition3(u8 taskId);
 static void Task_EnterCaveTransition4(u8 taskId);
 static void RunMapPreviewScreen(u8 mapsecId);
@@ -165,11 +165,12 @@ static bool8 TryDoMapTransition(void)
     enum MapType fromType = GetLastUsedWarpMapType();
     enum MapType toType = GetCurrentMapType();
 
-    if (GetLastUsedWarpMapSectionId() != gMapHeader.regionMapSectionId && MapHasPreviewScreen_HandleQLState2(gMapHeader.regionMapSectionId, MPS_TYPE_CAVE) == TRUE)
+    if (ShouldRunMapPreview() && (CurrentMapHasPreviewScreen(MPS_TYPE_CAVE) == TRUE || CurrentMapHasPreviewScreen(MPS_TYPE_BASIC) == TRUE))
     {
-        RunMapPreviewScreen(gMapHeader.regionMapSectionId);
+        RunMapPreviewScreenNonFade(gMapHeader.regionMapSectionId);
         return TRUE;
     }
+
     for (i = 0; sTransitionTypes[i].fromType; i++)
     {
         if (sTransitionTypes[i].fromType == fromType && sTransitionTypes[i].toType == toType)
@@ -311,7 +312,7 @@ static void Task_EnterCaveTransition1(u8 taskId)
     gTasks[taskId].func = Task_EnterCaveTransition2;
 }
 
-static void Task_EnterCaveTransition2(u8 taskId)
+void Task_EnterCaveTransition2(u8 taskId)
 {
     SetGpuReg(REG_OFFSET_DISPCNT, 0);
     DecompressDataWithHeaderVram(sCaveTransitionTiles, (void *)(VRAM + 0xC000));

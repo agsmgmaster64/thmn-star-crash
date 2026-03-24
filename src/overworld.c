@@ -1624,14 +1624,9 @@ enum MapType GetLastUsedWarpMapType(void)
     return GetMapTypeByWarpData(&gLastUsedWarp);
 }
 
-u8 GetLastUsedWarpMapSectionId(void)
+mapsec_u8_t GetLastUsedWarpMapSectionId(void)
 {
     return Overworld_GetMapHeaderByGroupAndId(gLastUsedWarp.mapGroup, gLastUsedWarp.mapNum)->regionMapSectionId;
-}
-
-u8 GetDestinationWarpMapSectionId(void)
-{
-    return Overworld_GetMapHeaderByGroupAndId(sWarpDestination.mapGroup, sWarpDestination.mapNum)->regionMapSectionId;
 }
 
 bool8 IsMapTypeOutdoors(enum MapType mapType)
@@ -2450,10 +2445,10 @@ static bool32 LoadMapInStepsLocal(u8 *state, bool32 a2)
         (*state)++;
         break;
     case 11:
-        if (GetLastUsedWarpMapSectionId() != gMapHeader.regionMapSectionId && MapHasPreviewScreen_HandleQLState2(gMapHeader.regionMapSectionId, MPS_TYPE_FOREST) == TRUE)
+        if (ShouldRunMapPreview() && CurrentMapHasPreviewScreen(MPS_TYPE_FADE_IN) == TRUE)
         {
             MapPreview_LoadGfx(gMapHeader.regionMapSectionId);
-            MapPreview_StartForestTransition(gMapHeader.regionMapSectionId);
+            RunMapPreviewScreenFadeIn(gMapHeader.regionMapSectionId);
         }
         else if (gMapHeader.showMapName == TRUE && SecretBaseMapPopupEnabled() == TRUE)
         {

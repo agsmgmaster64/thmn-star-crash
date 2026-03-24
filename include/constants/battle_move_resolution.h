@@ -113,8 +113,8 @@ enum MoveEndState
     MOVEEND_ECHO_ABILITIES,
     MOVEEND_KEE_MARANGA_HP_THRESHOLD_ITEM_TARGET,
     MOVEEND_CARD_BUTTON, // Red Card / Eject Button
-    MOVEEND_LIFE_ORB_SHELL_BELL,
     MOVEEND_FORM_CHANGE,
+    MOVEEND_LIFE_ORB_SHELL_BELL,
     MOVEEND_EMERGENCY_EXIT,
     MOVEEND_HIT_ESCAPE,
     MOVEEND_PICKPOCKET,
@@ -126,7 +126,9 @@ enum MoveEndState
     MOVEEND_THIRD_MOVE_BLOCK,
     MOVEEND_RAMPAGE,
     MOVEEND_CONFUSION_AFTER_SKY_DROP, // If target was previously rampaging, it should be confused when dropped
+    MOVEEND_SPRAY_LEPPA_BLUNDER, // Throat Spray, Leppa Berry, Blunder Policy
     MOVEEND_EJECT_PACK,
+    MOVEEND_SEND_OUT_REPLACEMENTS, // For all non-forced switching effects
     MOVEEND_CLEAR_BITS,
     MOVEEND_DANCER,
     MOVEEND_CONCERTO,

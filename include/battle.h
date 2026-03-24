@@ -125,6 +125,8 @@ struct SpecialStatus
     u8 teraShellAbilityDone:1;
     u8 backUpTarget:3;
     // End of byte
+    enum QueuedSwitch queuedSwitch;
+    // End of byte
     u8 concertoOriginalTarget:3;
     u8 wallMasterTracker:5;
     // End of byte
@@ -216,7 +218,6 @@ struct AiLogicData
     enum Ability abilities[MAX_BATTLERS_COUNT];
     enum Item items[MAX_BATTLERS_COUNT];
     enum HoldEffect holdEffects[MAX_BATTLERS_COUNT];
-    u8 holdEffectParams[MAX_BATTLERS_COUNT];
     enum Move lastUsedMove[MAX_BATTLERS_COUNT];
     u8 hpPercents[MAX_BATTLERS_COUNT];
     enum Move partnerMove;
@@ -229,6 +230,7 @@ struct AiLogicData
     u8 mostSuitableMonId[MAX_BATTLERS_COUNT]; // Stores result of GetMostSuitableMonToSwitchInto, which decides which generic mon the AI would switch into if they decide to switch. This can be overruled by specific mons found in ShouldSwitch; the final resulting mon is stored in AI_monToSwitchIntoId.
     enum Move predictedMove[MAX_BATTLERS_COUNT];
     u8 resistBerryAffected[MAX_BATTLERS_COUNT][MAX_BATTLERS_COUNT][MAX_MON_MOVES]; // Tracks whether currently calc'd move is affected by a resist berry into given target
+    u8 turnOrder[MAX_BATTLERS_COUNT];
 
     // Flags
     u32 weatherHasEffect:1; // The same as HasWeatherEffect(). Stored here, so it's called only once.
@@ -511,7 +513,8 @@ struct BattlerState
     // End of Word
     u16 hpOnSwitchout;
     u16 switchIn:1;
-    u16 fainted:1;
+    u16 notOnField:1;
+    u16 redCardSwitched:1;
     u16 isFirstTurn:2;
     u16 storedGivingHeart:1;
     u16 padding:11;
