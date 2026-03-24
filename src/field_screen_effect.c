@@ -157,10 +157,7 @@ void WarpFadeOutScreen(void)
         FadeScreen(FADE_TO_BLACK, 0);
         break;
     case 1:
-        if (MapHasPreviewScreen_HandleQLState2(GetDestinationWarpMapSectionId(), MPS_TYPE_CAVE))
-            FadeScreen(FADE_TO_BLACK, 0);
-        else
-            FadeScreen(FADE_TO_WHITE, 0);
+        FadeScreen(FADE_TO_WHITE, 0);
     }
 }
 
@@ -628,7 +625,7 @@ static bool32 PaletteFadeActive(void)
 
 static bool32 WaitForWeatherFadeIn(void)
 {
-    if (IsWeatherNotFadingIn() == TRUE && ForestMapPreviewScreenIsRunning())
+    if (IsWeatherNotFadingIn() == TRUE)
         return TRUE;
     else
         return FALSE;
@@ -1439,6 +1436,7 @@ void FadeOutOrbEffect(void)
     gTasks[taskId].tState = 6;
 }
 
+#undef tState
 #undef tBlueOrb
 #undef tCenterX
 #undef tCenterY

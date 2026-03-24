@@ -207,7 +207,6 @@ enum ItemObtainFlags
 };
 bool8 GetSetItemObtained(enum Item item, enum ItemObtainFlags caseId);
 u8 GetLastUsedWarpMapSectionId(void);
-u8 GetDestinationWarpMapSectionId(void);
 void CB2_ReturnToFullScreenStartMenu(void);
 
 void Overworld_CreditsMainCB(void);
