@@ -192,6 +192,7 @@ const u32 gObjectEventPic_BlackBelt2[] = INCBIN_U32("graphics/object_events/pics
 const u32 gObjectEventPic_AromaLady[] = INCBIN_U32("graphics/object_events/pics/people/aroma_lady.4bpp");
 const u32 gObjectEventPic_BattleGirl[] = INCBIN_U32("graphics/object_events/pics/people/battle_girl.4bpp");
 const u32 gObjectEventPic_BirdKeeper[] = INCBIN_U32("graphics/object_events/pics/people/bird_keeper.4bpp");
+const u32 gObjectEventPic_TokaiTeio[] = INCBIN_U32("graphics/object_events/pics/people/tokai_teio.4bpp");
 const u16 gObjectEventPal_HakosBaelz[] = INCBIN_U16("graphics/object_events/palettes/hakos_baelz.gbapal");
 const u16 gObjectEventPal_GigiMurin[] = INCBIN_U16("graphics/object_events/palettes/gigi_murin.gbapal");
 const u16 gObjectEventPal_Larry[] = INCBIN_U16("graphics/object_events/palettes/larry.gbapal");
@@ -211,6 +212,7 @@ const u16 gObjectEventPal_BlackBelt[] = INCBIN_U16("graphics/object_events/palet
 const u16 gObjectEventPal_AromaLady[] = INCBIN_U16("graphics/object_events/palettes/aroma_lady.gbapal");
 const u16 gObjectEventPal_BattleGirl[] = INCBIN_U16("graphics/object_events/palettes/battle_girl.gbapal");
 const u16 gObjectEventPal_BirdKeeper[] = INCBIN_U16("graphics/object_events/palettes/bird_keeper.gbapal");
+const u16 gObjectEventPal_TokaiTeio[] = INCBIN_U16("graphics/object_events/palettes/tokai_teio.gbapal");
 const u16 gObjectEventPal_Kyogre[] = INCBIN_U16("graphics/object_events/palettes/kyogre.gbapal");
 const u16 gObjectEventPal_KyogreReflection[] = INCBIN_U16("graphics/object_events/palettes/kyogre_reflection.gbapal");
 const u16 gObjectEventPal_Groudon[] = INCBIN_U16("graphics/object_events/palettes/groudon.gbapal");
@@ -525,8 +527,6 @@ const u32 gObjectEventPic_ApricornTree[] = INCBIN_U32("graphics/object_events/pi
 
 const u32 gFieldEffectObjectPic_ShinySparkle[] = INCBIN_U32("graphics/field_effects/pics/shiny_sparkle.4bpp");
 
-#if IS_FRLG
-
 const u16 gObjectEventPic_RedNormal[] = INCBIN_U16("graphics/object_events/pics/people/red/red_normal.4bpp");
 const u16 gObjectEventPic_RedBike[] = INCBIN_U16("graphics/object_events/pics/people/red/red_bike.4bpp");
 const u16 gObjectEventPic_RedSurf[] = INCBIN_U16("graphics/object_events/pics/people/red/red_surf.4bpp");
@@ -684,5 +684,3 @@ const u16 gObjectEventPic_PikachuOldFrlg[] = INCBIN_U16("graphics/object_events/
 const u16 gObjectEventPic_JigglypuffOld[] = INCBIN_U16("graphics/object_events/pics/pokemon_old/jigglypuff.4bpp");
 const u16 gObjectEventPic_PidgeyOld[] = INCBIN_U16("graphics/object_events/pics/pokemon_old/pidgey.4bpp");
 const u16 gObjectEventPic_ClefairyOld[] = INCBIN_U16("graphics/object_events/pics/pokemon_old/clefairy.4bpp");
-
-#endif // IS_FRLG

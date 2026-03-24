@@ -423,6 +423,7 @@ enum
     OBJ_EVENT_GFX_BLACK_BELT_2,
     OBJ_EVENT_GFX_AROMA_LADY,
     OBJ_EVENT_GFX_BIRD_KEEPER,
+    OBJ_EVENT_GFX_TOKAI_TEIO,
     NUM_OBJ_EVENT_GFX,
 };
 
@@ -593,7 +594,8 @@ enum
 #define OBJ_EVENT_PAL_TAG_METEORITE               0x1141
 #define OBJ_EVENT_PAL_TAG_SEAGALLOP               0x1142
 #define OBJ_EVENT_PAL_TAG_SS_ANNE                 0x1143
-#define OBJ_EVENT_PAL_TAG_DYNAMIC                 0x1144
+#define OBJ_EVENT_PAL_TAG_TOKAI_TEIO              0x1144
+#define OBJ_EVENT_PAL_TAG_DYNAMIC                 0x1145
 
 #if OW_FOLLOWERS_POKEBALLS
 // Vanilla
