@@ -71,6 +71,24 @@ bool8 MetatileBehavior_IsJumpSouth(u8 metatileBehavior)
         return FALSE;
 }
 
+bool8 MetatileBehavior_IsJumpEastWestElevated(u8 metatileBehavior)
+{
+    if (metatileBehavior == MB_JUMP_EAST_WEST
+     || metatileBehavior == MB_JUMP_ANY_DIRECTION)
+        return TRUE;
+    else
+        return FALSE;
+}
+
+bool8 MetatileBehavior_IsJumpNorthSouthElevated(u8 metatileBehavior)
+{
+    if (metatileBehavior == MB_JUMP_NORTH_SOUTH
+     || metatileBehavior == MB_JUMP_ANY_DIRECTION)
+        return TRUE;
+    else
+        return FALSE;
+}
+
 bool8 MetatileBehavior_IsPokeGrass(u8 metatileBehavior)
 {
     if (metatileBehavior == MB_TALL_GRASS

@@ -10199,13 +10199,53 @@ static u8 GetReflectionTypeByMetatileBehavior(u32 behavior)
         return REFL_TYPE_NONE;
 }
 
+static u8 CanJumpSouth(u8 behavior)
+{
+    if (MetatileBehavior_IsJumpSouth(behavior))
+        return TRUE;
+    if (PlayerGetElevation() == ELEVATION_ELEVATED
+     && MetatileBehavior_IsJumpNorthSouthElevated(behavior))
+        return TRUE;
+    return FALSE;
+}
+
+static u8 CanJumpNorth(u8 behavior)
+{
+    if (MetatileBehavior_IsJumpNorth(behavior))
+        return TRUE;
+    if (PlayerGetElevation() == ELEVATION_ELEVATED
+     && MetatileBehavior_IsJumpNorthSouthElevated(behavior))
+        return TRUE;
+    return FALSE;
+}
+
+static u8 CanJumpWest(u8 behavior)
+{
+    if (MetatileBehavior_IsJumpWest(behavior))
+        return TRUE;
+    if (PlayerGetElevation() == ELEVATION_ELEVATED
+     && MetatileBehavior_IsJumpEastWestElevated(behavior))
+        return TRUE;
+    return FALSE;
+}
+
+static u8 CanJumpEast(u8 behavior)
+{
+    if (MetatileBehavior_IsJumpEast(behavior))
+        return TRUE;
+    if (PlayerGetElevation() == ELEVATION_ELEVATED
+     && MetatileBehavior_IsJumpEastWestElevated(behavior))
+        return TRUE;
+    return FALSE;
+}
+
 enum Direction GetLedgeJumpDirection(s16 x, s16 y, enum Direction direction)
 {
     static bool8 (*const ledgeBehaviorFuncs[])(u8) = {
-        [DIR_SOUTH - 1] = MetatileBehavior_IsJumpSouth,
-        [DIR_NORTH - 1] = MetatileBehavior_IsJumpNorth,
-        [DIR_WEST - 1]  = MetatileBehavior_IsJumpWest,
-        [DIR_EAST - 1]  = MetatileBehavior_IsJumpEast,
+        [DIR_SOUTH - 1] = CanJumpSouth,
+        [DIR_NORTH - 1] = CanJumpNorth,
+        [DIR_WEST - 1]  = CanJumpWest,
+        [DIR_EAST - 1]  = CanJumpEast,
     };
 
     u8 behavior;
