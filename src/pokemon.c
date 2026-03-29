@@ -1284,6 +1284,7 @@ void ConvertPokemonToBattleTowerPokemon(struct Pokemon *mon, struct BattleTowerP
 static void CreateEventMon(struct Pokemon *mon, enum Species species, u8 level, u32 personality, struct OriginalTrainerId otId)
 {
     CreateMon(mon, species, level, personality, otId);
+    CalculateMonStats(mon);
 }
 
 enum TrainerPicID GetUnionRoomTrainerPic(void)
@@ -4625,9 +4626,9 @@ void AdjustFriendship(struct Pokemon *mon, u8 event)
     }
 }
 
-u8 CalculateFriendshipBonuses(struct Pokemon *mon, u32 modifier, enum HoldEffect itemHoldEffect)
+s32 CalculateFriendshipBonuses(struct Pokemon *mon, s32 modifier, enum HoldEffect itemHoldEffect)
 {
-    u32 bonus = 0;
+    s32 bonus = 0;
 
     if ((modifier > 0) && (itemHoldEffect == HOLD_EFFECT_FRIENDSHIP_UP))
         bonus += 150 * modifier / 100;

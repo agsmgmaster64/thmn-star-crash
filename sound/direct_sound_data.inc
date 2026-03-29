@@ -389,19 +389,27 @@ DirectSoundWaveData_unknown_17::
 .if P_CRIES_ENABLED == TRUE
 	.align 2
 Cry_Porygon::
+.if TESTING == FALSE
 	.incbin "sound/direct_sound_samples/cries/porygon.bin"
+.endif
 
 	.align 2
 Cry_Porygon2::
+.if TESTING == FALSE
 	.incbin "sound/direct_sound_samples/cries/porygon2.bin"
+.endif
 
 	.align 2
 Cry_PorygonZ::
+.if TESTING == FALSE
 	.incbin "sound/direct_sound_samples/cries/porygon_z.bin"
+.endif
 
 	.align 2
 Cry_Terapagos::
+.if TESTING == FALSE
 	.incbin "sound/direct_sound_samples/cries/terapagos.bin"
+.endif
 
 	.align 2
 Cry_Reimu::
@@ -1183,6 +1191,12 @@ Cry_Basiney::
 Cry_Blissea::
 	.incbin "sound/direct_sound_samples/cries/blissea.bin"
 .endif @ P_CRIES_ENABLED
+
+.if TESTING == TRUE
+@ Tests use a single shared cry for all mons, and Fletchling is the standard measurement
+	.align 2
+	.incbin "sound/direct_sound_samples/cries/medicine.bin"
+.endif
 
 	.align 2
 DirectSoundWaveData_register_noise::

@@ -35,6 +35,7 @@
 #include "match_call.h"
 #include "menu.h"
 #include "metatile_behavior.h"
+#include "music_player.h"
 #include "mystery_gift.h"
 #include "overworld.h"
 #include "party_menu.h"
@@ -5360,8 +5361,8 @@ void ForcePlayerOntoBike(void)
 {
     if (gPlayerAvatar.flags & PLAYER_AVATAR_FLAG_ON_FOOT)
         SetPlayerAvatarTransitionFlags(PLAYER_AVATAR_FLAG_BIKE);
-    Overworld_SetSavedMusic(MUS_CYCLING);
-    Overworld_ChangeMusicTo(MUS_CYCLING);
+    Overworld_SetSavedMusic(GetBikeMusic());
+    Overworld_ChangeMusicTo(GetBikeMusic());
 }
 
 bool8 IsPlayerNotInTrainerTowerLobby(void)

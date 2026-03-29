@@ -544,7 +544,7 @@ bool32 Ai_IsPriorityBlocked(enum BattlerId battlerAtk, enum BattlerId battlerDef
     return FALSE;
 }
 
-bool32 AI_CanMoveBeBlockedByTarget(struct BattleContext *ctx)
+bool32 AI_CanMoveBeBlockedByTarget(struct DamageContext *ctx)
 {
     return CanMoveBeBlockedByTarget(ctx, GetBattleMovePriority(ctx->battlerAtk, ctx->abilityAtk, ctx->move));
 }
@@ -557,7 +557,7 @@ bool32 MovesWithCategoryUnusable(u32 attacker, u32 target, enum DamageCategory c
     enum Move *moves = GetMovesArray(attacker);
     u32 moveLimitations = gAiLogicData->moveLimitations[attacker];
 
-    struct BattleContext ctx = {0};
+    struct DamageContext ctx = {0};
     ctx.battlerAtk = attacker;
     ctx.battlerDef = target;
     ctx.updateFlags = FALSE;
@@ -600,7 +600,7 @@ struct SimulatedDamage AI_CalcDamageSaveBattlers(enum Move move, enum BattlerId 
     return dmg;
 }
 
-static inline s32 LowestRollDmg(s32 dmg)
+static __attribute__((noinline)) ARM_FUNC s32 LowestRollDmg(s32 dmg)
 {
     dmg *= MIN_ROLL_PERCENTAGE;
     dmg /= 100;
@@ -614,14 +614,14 @@ static inline s32 HighestRollDmg(s32 dmg)
     return dmg;
 }
 
-static inline s32 DmgRoll(s32 dmg)
+static __attribute__((noinline)) ARM_FUNC s32 DmgRoll(s32 dmg)
 {
     dmg *= DMG_ROLL_PERCENTAGE;
     dmg /= 100;
     return dmg;
 }
 
-static inline s32 RandomRollDmg(s32 dmg)
+static __attribute__((noinline)) ARM_FUNC s32 RandomRollDmg(s32 dmg)
 {
     u32 randomRollPercentage = RandomUniform(RNG_AI_DMG_ROLL_RANDOM, MIN_ROLL_PERCENTAGE, MAX_ROLL_PERCENTAGE);
     dmg *= randomRollPercentage;
@@ -629,7 +629,7 @@ static inline s32 RandomRollDmg(s32 dmg)
     return dmg;
 }
 
-bool32 IsDamageMoveUnusable(struct BattleContext *ctx)
+bool32 IsDamageMoveUnusable(struct DamageContext *ctx)
 {
     enum Ability battlerDefAbility;
     enum Ability partnerDefAbility;
@@ -759,7 +759,7 @@ static inline void AI_RestoreBattlerTypes(enum BattlerId battlerAtk, enum Type *
     gBattleMons[battlerAtk].types[2] = types[2];
 }
 
-static inline void CalcDynamicMoveDamage(struct BattleContext *ctx, u16 *medianDamage, u16 *minimumDamage, u16 *maximumDamage, u16 *randomDamage)
+static inline void CalcDynamicMoveDamage(struct DamageContext *ctx, u16 *medianDamage, u16 *minimumDamage, u16 *maximumDamage, u16 *randomDamage)
 {
     enum BattleMoveEffects effect = GetMoveEffect(ctx->move);
     u16 median = *medianDamage;
@@ -846,7 +846,7 @@ static inline void CalcDynamicMoveDamage(struct BattleContext *ctx, u16 *medianD
     *randomDamage = random;
 }
 
-static inline bool32 ShouldCalcCritDamage(struct BattleContext *ctx)
+static inline bool32 ShouldCalcCritDamage(struct DamageContext *ctx)
 {
     s32 critChanceIndex = 0;
 
@@ -870,7 +870,7 @@ static inline bool32 ShouldCalcCritDamage(struct BattleContext *ctx)
     return FALSE;
 }
 
-static s32 HandleKOThroughBerryReduction(struct BattleContext *ctx, s32 dmg)
+static s32 HandleKOThroughBerryReduction(struct DamageContext *ctx, s32 dmg)
 {
     if (ctx->aiCheckBerryModifier) // Only set if AI running calcs
     {
@@ -896,7 +896,7 @@ static s32 HandleKOThroughBerryReduction(struct BattleContext *ctx, s32 dmg)
     return dmg;
 }
 
-static s32 AI_ApplyModifiersAfterDmgRoll(struct BattleContext *ctx, s32 dmg)
+static s32 AI_ApplyModifiersAfterDmgRoll(struct DamageContext *ctx, s32 dmg)
 {
     dmg = ApplyModifiersAfterDmgRoll(ctx, dmg);
     dmg = HandleKOThroughBerryReduction(ctx, dmg);
@@ -941,7 +941,7 @@ struct SimulatedDamage AI_CalcDamage(enum Move move, enum BattlerId battlerAtk, 
     gBattleStruct->magnitudeBasePower = 70;
     gBattleStruct->presentBasePower = 80;
 
-    struct BattleContext ctx = {0};
+    struct DamageContext ctx = {0};
     ctx.aiCalc = TRUE;
     ctx.aiCheckBerryModifier = FALSE;
     ctx.battlerAtk = battlerAtk;
@@ -1450,7 +1450,7 @@ uq4_12_t AI_GetMoveEffectiveness(enum Move move, enum BattlerId battlerAtk, enum
 
     gBattleStruct->dynamicMoveType = 0;
     SetTypeBeforeUsingMove(move, battlerAtk);
-    struct BattleContext ctx = {0};
+    struct DamageContext ctx = {0};
     ctx.battlerAtk = battlerAtk;
     ctx.battlerDef = battlerDef;
     ctx.move = ctx.chosenMove = move;
