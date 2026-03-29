@@ -802,7 +802,7 @@ static const u8 *const sTextColorTable[] = {
     [MAPSECTYPE_CITY_CANTFLY - 2] = sTextColor_Red
 };
 
-#include "data/region_map/region_map_layout_kanto.h"
+#include "data/region_map/region_map_layout_kanto_frlg.h"
 #include "data/region_map/region_map_layout_sevii_123.h"
 #include "data/region_map/region_map_layout_sevii_45.h"
 #include "data/region_map/region_map_layout_sevii_67.h"
