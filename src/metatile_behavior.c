@@ -717,10 +717,17 @@ bool8 MetatileBehavior_IsAshGrass(u8 metatileBehavior)
         return FALSE;
 }
 
-bool8 MetatileBehavior_IsFootprints(u8 metatileBehavior)
+bool8 MetatileBehavior_IsSandCave(u8 metatileBehavior)
 {
-    // MB_FOOTPRINTS is not used by any metatiles.
-    if (metatileBehavior == MB_FOOTPRINTS)
+    if (metatileBehavior == MB_SAND_CAVE)
+        return TRUE;
+    else
+        return FALSE;
+}
+
+bool8 MetatileBehavior_IsSnow(u8 metatileBehavior)
+{
+    if (metatileBehavior == MB_SNOW)
         return TRUE;
     else
         return FALSE;

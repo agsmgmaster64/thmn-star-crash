@@ -3679,3 +3679,41 @@ const u16 gTilesetPalettes_JapaneseTown[][16] =
 };
 
 const u32 gTilesetTiles_JapaneseTown[] = INCBIN_U32("data/tilesets/secondary/japanese_town/tiles.4bpp.lz");
+
+const u16 gTilesetPalettes_ScarletMansion[][16] =
+{
+    INCBIN_U16("data/tilesets/secondary/scarlet_mansion/palettes/00.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/scarlet_mansion/palettes/01.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/scarlet_mansion/palettes/02.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/scarlet_mansion/palettes/03.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/scarlet_mansion/palettes/04.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/scarlet_mansion/palettes/05.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/scarlet_mansion/palettes/06.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/scarlet_mansion/palettes/07.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/scarlet_mansion/palettes/08.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/scarlet_mansion/palettes/09.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/scarlet_mansion/palettes/10.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/scarlet_mansion/palettes/11.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/scarlet_mansion/palettes/12.gbapal"),
+};
+
+const u32 gTilesetTiles_ScarletMansion[] = INCBIN_U32("data/tilesets/secondary/scarlet_mansion/tiles.4bpp.lz");
+
+const u16 gTilesetPalettes_SkyRuin[][16] =
+{
+    INCBIN_U16("data/tilesets/secondary/sky_ruin/palettes/00.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/sky_ruin/palettes/01.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/sky_ruin/palettes/02.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/sky_ruin/palettes/03.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/sky_ruin/palettes/04.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/sky_ruin/palettes/05.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/sky_ruin/palettes/06.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/sky_ruin/palettes/07.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/sky_ruin/palettes/08.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/sky_ruin/palettes/09.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/sky_ruin/palettes/10.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/sky_ruin/palettes/11.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/sky_ruin/palettes/12.gbapal"),
+};
+
+const u32 gTilesetTiles_SkyRuin[] = INCBIN_U32("data/tilesets/secondary/sky_ruin/tiles.4bpp.lz");

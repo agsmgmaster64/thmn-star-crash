@@ -92,6 +92,7 @@ enum FollowerTransformTypes
 #define GROUND_EFFECT_FLAG_FALL_GRASS_ON_SPAWN   (1 << 23)
 #define GROUND_EFFECT_FLAG_FALL_GRASS_ON_MOVE    (1 << 24)
 #define GROUND_EFFECT_FLAG_LAND_IN_FALL_GRASS    (1 << 25)
+#define GROUND_EFFECT_FLAG_SNOW                  (1 << 26)
 
 // Sprite data for the CameraObject functions
 #define sCamera_FollowSpriteId data[0]

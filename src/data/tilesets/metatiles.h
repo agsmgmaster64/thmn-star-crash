@@ -495,3 +495,9 @@ const u32 gMetatileAttributes_Harbor[] = INCBIN_U32("data/tilesets/secondary/har
 
 const u16 gMetatiles_JapaneseTown[] = INCBIN_U16("data/tilesets/secondary/japanese_town/metatiles.bin");
 const u32 gMetatileAttributes_JapaneseTown[] = INCBIN_U32("data/tilesets/secondary/japanese_town/metatile_attributes.bin");
+
+const u16 gMetatiles_ScarletMansion[] = INCBIN_U16("data/tilesets/secondary/scarlet_mansion/metatiles.bin");
+const u32 gMetatileAttributes_ScarletMansion[] = INCBIN_U32("data/tilesets/secondary/scarlet_mansion/metatile_attributes.bin");
+
+const u16 gMetatiles_SkyRuin[] = INCBIN_U16("data/tilesets/secondary/sky_ruin/metatiles.bin");
+const u32 gMetatileAttributes_SkyRuin[] = INCBIN_U32("data/tilesets/secondary/sky_ruin/metatile_attributes.bin");

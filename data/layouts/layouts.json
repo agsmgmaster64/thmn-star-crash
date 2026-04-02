@@ -5919,12 +5919,12 @@
     {
       "id": "LAYOUT_CARPET_TRAINING",
       "name": "CarpetTraining_Layout",
-      "width": 12,
-      "height": 10,
+      "width": 30,
+      "height": 30,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_RG_Building",
-      "secondary_tileset": "gTileset_RG_GameCorner",
+      "secondary_tileset": "gTileset_ScarletMansion",
       "border_filepath": "data/layouts/CarpetTraining/border.bin",
       "blockdata_filepath": "data/layouts/CarpetTraining/map.bin",
       "layout_version": "emerald"
@@ -10447,8 +10447,8 @@
       "height": 60,
       "border_width": 2,
       "border_height": 2,
-      "primary_tileset": "gTileset_GeneralFrlg",
-      "secondary_tileset": "gTileset_Fallarbor",
+      "primary_tileset": "gTileset_RG_General",
+      "secondary_tileset": "gTileset_SkyRuin",
       "border_filepath": "data/layouts/TracenAcademy/border.bin",
       "blockdata_filepath": "data/layouts/TracenAcademy/map.bin"
     }

@@ -469,6 +469,53 @@ const struct SpriteTemplate gFieldEffectObjectTemplate_DeepSandFootprints = {
     .callback = UpdateFootprintsTireTracksFieldEffect,
 };
 
+static const struct SpriteFrameImage sPicTable_SnowFootprints[] = {
+    overworld_frame(gFieldEffectObjectPic_SnowFootprints, 2, 2, 0),
+    overworld_frame(gFieldEffectObjectPic_SnowFootprints, 2, 2, 1),
+};
+
+static const union AnimCmd sSnowFootprintsAnim_South[] =
+{
+    ANIMCMD_FRAME(0, 1, .vFlip = TRUE),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sSnowFootprintsAnim_North[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sSnowFootprintsAnim_West[] =
+{
+    ANIMCMD_FRAME(1, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sSnowFootprintsAnim_East[] =
+{
+    ANIMCMD_FRAME(1, 1, .hFlip = TRUE),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd *const sAnimTable_SnowFootprints[] =
+{
+    sSnowFootprintsAnim_South,
+    sSnowFootprintsAnim_South,
+    sSnowFootprintsAnim_North,
+    sSnowFootprintsAnim_West,
+    sSnowFootprintsAnim_East,
+};
+
+const struct SpriteTemplate gFieldEffectObjectTemplate_SnowFootprints = {
+    .tileTag = TAG_NONE,
+    .paletteTag = FLDEFF_PAL_TAG_SEASON_GRASS,
+    .oam = &gObjectEventBaseOam_16x16,
+    .anims = sAnimTable_SnowFootprints,
+    .images = sPicTable_SnowFootprints,
+    .callback = UpdateFootprintsTireTracksFieldEffect,
+};
+
 static const struct SpriteFrameImage sPicTable_BugTracks[] = {
     overworld_frame(gFieldEffectObjectPic_BugTracks, 2, 2, 0),
     overworld_frame(gFieldEffectObjectPic_BugTracks, 2, 2, 1),
@@ -504,6 +551,12 @@ static const struct SpriteFrameImage sPicTable_BikeTireTracks[] = {
     overworld_frame(gFieldEffectObjectPic_BikeTireTracks, 2, 2, 3),
 };
 
+static const struct SpriteFrameImage sPicTable_SnowBikeTireTracks[] = {
+    overworld_frame(gFieldEffectObjectPic_SnowBikeTireTracks, 2, 2, 0),
+    overworld_frame(gFieldEffectObjectPic_SnowBikeTireTracks, 2, 2, 1),
+    overworld_frame(gFieldEffectObjectPic_SnowBikeTireTracks, 2, 2, 2),
+    overworld_frame(gFieldEffectObjectPic_SnowBikeTireTracks, 2, 2, 3),
+};
 
 static const struct SpriteFrameImage sPicTable_SlitherTracks[] = {
     overworld_frame(gFieldEffectObjectPic_SlitherTracks, 2, 2, 0),
@@ -582,6 +635,14 @@ const struct SpriteTemplate gFieldEffectObjectTemplate_BikeTireTracks = {
     .callback = UpdateFootprintsTireTracksFieldEffect,
 };
 
+const struct SpriteTemplate gFieldEffectObjectTemplate_SnowBikeTireTracks = {
+    .tileTag = TAG_NONE,
+    .paletteTag = FLDEFF_PAL_TAG_SEASON_GRASS,
+    .oam = &gObjectEventBaseOam_16x16,
+    .anims = sAnimTable_BikeTireTracks,
+    .images = sPicTable_SnowBikeTireTracks,
+    .callback = UpdateFootprintsTireTracksFieldEffect,
+};
 
 const struct SpriteTemplate gFieldEffectObjectTemplate_SlitherTracks = {
     .tileTag = 0xFFFF,

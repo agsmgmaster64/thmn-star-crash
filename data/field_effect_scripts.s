@@ -94,6 +94,8 @@ gFieldEffectScriptPointers::
 	.4byte gFieldEffectScript_HallOfFameRecordFrlg      @ FLDEFF_HALL_OF_FAME_RECORD_FRLG
 	.4byte gFldEffScript_PhotoFlash      		        @ FLDEFF_PHOTO_FLASH
 	.4byte gFieldEffectScript_OWE_SpawnAnim				@ FLDEFF_OW_ENCOUNTER_SPAWN_ANIM
+	.4byte gFieldEffectScript_SnowFootprints            @ FLDEFF_SNOW_FOOTPRINTS
+	.4byte gFieldEffectScript_SnowBikeTireTracks        @ FLDEFF_SNOW_BIKE_TIRE_TRACKS
 
 gFieldEffectScript_ExclamationMarkIcon1::
 	field_eff_callnative FldEff_ExclamationMarkIcon
@@ -453,4 +455,12 @@ gFldEffScript_PhotoFlash::
 
 gFieldEffectScript_OWE_SpawnAnim::
 	field_eff_callnative FldEff_OWE_SpawnAnim
+	field_eff_end
+
+gFieldEffectScript_SnowFootprints::
+	field_eff_loadfadedpal_callnative gSpritePalette_SeasonGrass, FldEff_SnowFootprints
+	field_eff_end
+
+gFieldEffectScript_SnowBikeTireTracks::
+	field_eff_loadfadedpal_callnative gSpritePalette_SeasonGrass, FldEff_SnowBikeTireTracks
 	field_eff_end

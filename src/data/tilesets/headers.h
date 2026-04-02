@@ -1876,3 +1876,25 @@ const struct Tileset gTileset_JapaneseTown =
     .metatileAttributes = gMetatileAttributes_JapaneseTown,
     .callback = NULL,
 };
+
+const struct Tileset gTileset_ScarletMansion =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_ScarletMansion,
+    .palettes = gTilesetPalettes_ScarletMansion,
+    .metatiles = gMetatiles_ScarletMansion,
+    .metatileAttributes = gMetatileAttributes_ScarletMansion,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_SkyRuin =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_SkyRuin,
+    .palettes = gTilesetPalettes_SkyRuin,
+    .metatiles = gMetatiles_SkyRuin,
+    .metatileAttributes = gMetatileAttributes_SkyRuin,
+    .callback = NULL,
+};
