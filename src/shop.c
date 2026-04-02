@@ -38,6 +38,7 @@
 #include "text_window.h"
 #include "tv.h"
 #include "outfit_menu.h"
+#include "shop_criteria.h"
 #include "constants/decorations.h"
 #include "constants/event_objects.h"
 #include "constants/items.h"
@@ -415,6 +416,8 @@ static inline bool32 IsMartTypeOutfit(u8 martType)
     return martType == MART_TYPE_OUTFIT;
 }
 
+static const u16 sShopItemsListDummy[] = { ITEM_NONE };
+
 static u8 CreateShopMenu(u8 martType)
 {
     int numMenuItems;
@@ -460,6 +463,12 @@ static void SetShopItemsForSale(const u16 *items)
 
     sMartInfo.itemSource = items;
     sMartInfo.itemCount = 0;
+
+    assertf(items != NULL, "Shop items list should never be set as NULL")
+    {
+        sMartInfo.itemSource = sShopItemsListDummy;
+        return;
+    }
 
     // Read items until ITEM_NONE / DECOR_NONE is reached
     while (items[i])
@@ -652,7 +661,8 @@ static void CB2_InitBuyMenu(void)
         sShopData->scrollIndicatorsTaskId = TASK_NONE;
         sShopData->itemSpriteIds[0] = SPRITE_NONE;
         sShopData->itemSpriteIds[1] = SPRITE_NONE;
-        InitShopItemsForSale();
+        if (sMartInfo.martType == MART_TYPE_NORMAL)
+            TryBuildDynamicShopItemList(&sMartInfo.itemSource, &sMartInfo.itemCount);
         BuyMenuBuildListMenuTemplate();
         BuyMenuInitBgs();
         FillBgTilemapBufferRect_Palette0(0, 0, 0, 0, 0x20, 0x20);
@@ -738,6 +748,9 @@ static void CB2_InitBuyMenuAfterTutor(void)
 
 static void BuyMenuFreeMemory(void)
 {
+    if (sMartInfo.martType == MART_TYPE_NORMAL)
+        TryFreeDynamicShopItemList(&sMartInfo.itemSource);
+
     Free(sShopData);
     Free(sListMenuItems);
     Free(sItemNames);
