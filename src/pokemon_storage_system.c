@@ -1409,8 +1409,8 @@ u32 CountPartyNonEggMons(void)
 
     for (i = 0, count = 0; i < PARTY_SIZE; i++)
     {
-        if (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES) != SPECIES_NONE
-            && !GetMonData(&gPlayerParty[i], MON_DATA_IS_EGG))
+        if (GetMonData(&gParties[B_TRAINER_0][i], MON_DATA_SPECIES) != SPECIES_NONE
+            && !GetMonData(&gParties[B_TRAINER_0][i], MON_DATA_IS_EGG))
         {
             count++;
         }
@@ -1426,9 +1426,9 @@ u8 CountPartyAliveNonEggMonsExcept(u8 slotToIgnore)
     for (i = 0, count = 0; i < PARTY_SIZE; i++)
     {
         if (i != slotToIgnore
-            && GetMonData(&gPlayerParty[i], MON_DATA_SPECIES) != SPECIES_NONE
-            && !GetMonData(&gPlayerParty[i], MON_DATA_IS_EGG)
-            && GetMonData(&gPlayerParty[i], MON_DATA_HP) != 0)
+            && GetMonData(&gParties[B_TRAINER_0][i], MON_DATA_SPECIES) != SPECIES_NONE
+            && !GetMonData(&gParties[B_TRAINER_0][i], MON_DATA_IS_EGG)
+            && GetMonData(&gParties[B_TRAINER_0][i], MON_DATA_HP) != 0)
         {
             count++;
         }
@@ -1448,7 +1448,7 @@ u8 CountPartyMons(void)
 
     for (i = 0, count = 0; i < PARTY_SIZE; i++)
     {
-        if (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES) != SPECIES_NONE)
+        if (GetMonData(&gParties[B_TRAINER_0][i], MON_DATA_SPECIES) != SPECIES_NONE)
         {
             count++;
         }
@@ -3713,7 +3713,7 @@ static void Task_OnCloseBoxPressed(u8 taskId)
         if (!IsComputerScreenCloseEffectActive())
         {
             UpdateBoxToSendMons();
-            gPlayerPartyCount = CalculatePlayerPartyCount();
+            gPartiesCount[B_TRAINER_0] = CalculatePlayerPartyCount();
             if (sStorage->boxOption == OPTION_SELECT_MON)
             {
                 gSpecialVar_0x8004 = PARTY_NOTHING_CHOSEN;
@@ -3791,7 +3791,7 @@ static void Task_OnBPressed(u8 taskId)
         if (!IsComputerScreenCloseEffectActive())
         {
             UpdateBoxToSendMons();
-            gPlayerPartyCount = CalculatePlayerPartyCount();
+            gPartiesCount[B_TRAINER_0] = CalculatePlayerPartyCount();
             if (sStorage->boxOption == OPTION_SELECT_MON)
             {
                 gSpecialVar_0x8004  = PARTY_NOTHING_CHOSEN;
@@ -3858,8 +3858,8 @@ static void GiveChosenBagItem(void)
         u8 pos = GetCursorPosition();
         if (sInPartyMenu)
         {
-            struct Pokemon *mon = &gPlayerParty[pos];
-            SetMonData(&gPlayerParty[pos], MON_DATA_HELD_ITEM, &itemId);
+            struct Pokemon *mon = &gParties[B_TRAINER_0][pos];
+            SetMonData(&gParties[B_TRAINER_0][pos], MON_DATA_HELD_ITEM, &itemId);
             SetMonFormPSS_ItemHold(&mon->box);
         }
         else
@@ -4281,7 +4281,7 @@ static void SetPartySlotTilemaps(void)
     // as if it has a Pokémon in it
     for (i = 1; i < PARTY_SIZE; i++)
     {
-        s32 species = GetMonData(&gPlayerParty[i], MON_DATA_SPECIES);
+        s32 species = GetMonData(&gParties[B_TRAINER_0][i], MON_DATA_SPECIES);
         SetPartySlotTilemap(i, species != SPECIES_NONE);
     }
 }
@@ -4817,19 +4817,19 @@ static void SetBoxMonIconObjMode(u8 boxPosition, u8 objMode)
 static void CreatePartyMonsSprites(bool8 visible)
 {
     u16 i, count;
-    enum Species species = GetMonData(&gPlayerParty[0], MON_DATA_SPECIES);
-    bool32 isEgg = GetMonData(&gPlayerParty[0], MON_DATA_IS_EGG);
-    u32 personality = GetMonData(&gPlayerParty[0], MON_DATA_PERSONALITY);
+    enum Species species = GetMonData(&gParties[B_TRAINER_0][0], MON_DATA_SPECIES);
+    bool32 isEgg = GetMonData(&gParties[B_TRAINER_0][0], MON_DATA_IS_EGG);
+    u32 personality = GetMonData(&gParties[B_TRAINER_0][0], MON_DATA_PERSONALITY);
 
     sStorage->partySprites[0] = CreateMonIconSprite(species, personality, 104, 64, 1, 12, isEgg);
     count = 1;
     for (i = 1; i < PARTY_SIZE; i++)
     {
-        species = GetMonData(&gPlayerParty[i], MON_DATA_SPECIES);
-        isEgg = GetMonData(&gPlayerParty[i], MON_DATA_IS_EGG);
+        species = GetMonData(&gParties[B_TRAINER_0][i], MON_DATA_SPECIES);
+        isEgg = GetMonData(&gParties[B_TRAINER_0][i], MON_DATA_IS_EGG);
         if (species != SPECIES_NONE)
         {
-            personality = GetMonData(&gPlayerParty[i], MON_DATA_PERSONALITY);
+            personality = GetMonData(&gParties[B_TRAINER_0][i], MON_DATA_PERSONALITY);
             sStorage->partySprites[i] = CreateMonIconSprite(species, personality, 152,  8 * (3 * (i - 1)) + 16, 1, 12, isEgg);
             count++;
         }
@@ -4852,7 +4852,7 @@ static void CreatePartyMonsSprites(bool8 visible)
     {
         for (i = 0; i < PARTY_SIZE; i++)
         {
-            if (sStorage->partySprites[i] != NULL && GetMonData(&gPlayerParty[i], MON_DATA_HELD_ITEM) == ITEM_NONE)
+            if (sStorage->partySprites[i] != NULL && GetMonData(&gParties[B_TRAINER_0][i], MON_DATA_HELD_ITEM) == ITEM_NONE)
                 sStorage->partySprites[i]->oam.objMode = ST_OAM_OBJ_BLEND;
         }
     }
@@ -4861,7 +4861,7 @@ static void CreatePartyMonsSprites(bool8 visible)
     {
         for (i = 0; i < PARTY_SIZE; i++)
         {
-            if (sStorage->partySprites[i] != NULL && IsBoxMonExcluded(&(gPlayerParty[i].box)))
+            if (sStorage->partySprites[i] != NULL && IsBoxMonExcluded(&(gParties[B_TRAINER_0][i].box)))
                 sStorage->partySprites[i]->oam.objMode = ST_OAM_OBJ_BLEND;
         }
     }
@@ -5980,7 +5980,7 @@ static u16 GetSpeciesAtCursorPosition(void)
     switch (sCursorArea)
     {
     case CURSOR_AREA_IN_PARTY:
-        return GetMonData(&gPlayerParty[sCursorPosition], MON_DATA_SPECIES);
+        return GetMonData(&gParties[B_TRAINER_0][sCursorPosition], MON_DATA_SPECIES);
     case CURSOR_AREA_IN_BOX:
         return GetCurrentBoxMonData(sCursorPosition, MON_DATA_SPECIES);
     default:
@@ -6450,7 +6450,7 @@ static void PlaceMon(void)
     case CURSOR_AREA_IN_PARTY:
         SetPlacedMonData(TOTAL_BOXES_COUNT, sCursorPosition);
         SetPlacedMonSprite(TOTAL_BOXES_COUNT, sCursorPosition);
-        struct Pokemon *mon = &gPlayerParty[sCursorPosition];
+        struct Pokemon *mon = &gParties[B_TRAINER_0][sCursorPosition];
         UpdateSpeciesSpritePSS(&mon->box);
         break;
     case CURSOR_AREA_IN_BOX:
@@ -6475,8 +6475,8 @@ static void SetMovingMonData(u8 boxId, u8 position)
 {
     if (boxId == TOTAL_BOXES_COUNT)
     {
-        sStorage->movingMon = gPlayerParty[sCursorPosition];
-        if (&gPlayerParty[sCursorPosition] == GetFirstLiveMon())
+        sStorage->movingMon = gParties[B_TRAINER_0][sCursorPosition];
+        if (&gParties[B_TRAINER_0][sCursorPosition] == GetFirstLiveMon())
             gFollowerSteps = 0;
     }
     else
@@ -6496,8 +6496,8 @@ static void SetPlacedMonData(u8 boxId, u8 position)
 
     if (boxId == TOTAL_BOXES_COUNT)
     {
-        gPlayerParty[position] = sStorage->movingMon;
-        struct Pokemon *mon = &gPlayerParty[position];
+        gParties[B_TRAINER_0][position] = sStorage->movingMon;
+        struct Pokemon *mon = &gParties[B_TRAINER_0][position];
         if (mon == GetFirstLiveMon())
             gFollowerSteps = 0;
         SetMonFormPSS(&mon->box, FORM_CHANGE_WITHDRAW);
@@ -6512,7 +6512,7 @@ static void SetPlacedMonData(u8 boxId, u8 position)
 void PurgeMonOrBoxMon(u8 boxId, u8 position) //static //tx_randomizer_and_challenges
 {
     if (boxId == TOTAL_BOXES_COUNT)
-        ZeroMonData(&gPlayerParty[position]);
+        ZeroMonData(&gParties[B_TRAINER_0][position]);
     else
         ZeroBoxMonAt(boxId, position);
 }
@@ -6526,7 +6526,7 @@ static void SetShiftedMonData(u8 boxId, u8 position)
         else if (gSaveBlock3Ptr->followerIndex == position)
             gSaveBlock3Ptr->followerIndex = FOLLOWER_IN_HAND;
 
-        sStorage->tempMon = gPlayerParty[position];
+        sStorage->tempMon = gParties[B_TRAINER_0][position];
     }
     else
     {
@@ -6626,7 +6626,7 @@ static void ReleaseMon(void)
         {
             boxId = TOTAL_BOXES_COUNT;
             if (OW_PC_RELEASE_ITEM >= GEN_8)
-                item = GetMonData(&gPlayerParty[sCursorPosition], MON_DATA_HELD_ITEM);
+                item = GetMonData(&gParties[B_TRAINER_0][sCursorPosition], MON_DATA_HELD_ITEM);
             if (gSaveBlock3Ptr->followerIndex == sCursorPosition)
             {
                 gSaveBlock3Ptr->followerIndex = OW_FOLLOWER_NOT_SET;
@@ -6710,7 +6710,7 @@ static void InitCanReleaseMonVars(void)
     {
         if (sCursorArea == CURSOR_AREA_IN_PARTY)
         {
-            sStorage->tempMon = gPlayerParty[sCursorPosition];
+            sStorage->tempMon = gParties[B_TRAINER_0][sCursorPosition];
             sStorage->releaseBoxId = TOTAL_BOXES_COUNT;
         }
         else
@@ -6747,7 +6747,7 @@ static bool32 AtLeastThreeUsableMons(void)
     // Check party for usable Pokémon
     for (j = 0; j < PARTY_SIZE; j++)
     {
-        if (GetMonData(&gPlayerParty[j], MON_DATA_SANITY_HAS_SPECIES))
+        if (GetMonData(&gParties[B_TRAINER_0][j], MON_DATA_SANITY_HAS_SPECIES))
             count++;
     }
 
@@ -6788,7 +6788,7 @@ static s8 RunCanReleaseMon(void)
             // Make sure party Pokémon isn't the one we're releasing first
             if (sStorage->releaseBoxId != TOTAL_BOXES_COUNT || sStorage->releaseBoxPos != i)
             {
-                knownMoves = GetMonData(&gPlayerParty[i], MON_DATA_KNOWN_MOVES, (u8 *)sStorage->restrictedMoveList);
+                knownMoves = GetMonData(&gParties[B_TRAINER_0][i], MON_DATA_KNOWN_MOVES, (u8 *)sStorage->restrictedMoveList);
                 sStorage->restrictedReleaseMonMoves &= ~(knownMoves);
             }
         }
@@ -6878,7 +6878,7 @@ static void InitSummaryScreenData(void)
     }
     else if (sCursorArea == CURSOR_AREA_IN_PARTY)
     {
-        sStorage->summaryMon.mon = gPlayerParty;
+        sStorage->summaryMon.mon = gParties[B_TRAINER_0];
         sStorage->summaryStartPos = sCursorPosition;
         sStorage->summaryMaxPos = CountPartyMons() - 1;
         sStorage->summaryScreenMode = SUMMARY_MODE_NORMAL;
@@ -6907,12 +6907,12 @@ s16 CompactPartySlots(void)
 
     for (i = 0, last = 0; i < PARTY_SIZE; i++)
     {
-        enum Species species = GetMonData(&gPlayerParty[i], MON_DATA_SPECIES);
+        enum Species species = GetMonData(&gParties[B_TRAINER_0][i], MON_DATA_SPECIES);
         if (species != SPECIES_NONE)
         {
             if (i != last)
             {
-                gPlayerParty[last] = gPlayerParty[i];
+                gParties[B_TRAINER_0][last] = gParties[B_TRAINER_0][i];
                 if (gSaveBlock3Ptr->followerIndex == i)
                     gSaveBlock3Ptr->followerIndex--;
             }
@@ -6924,7 +6924,7 @@ s16 CompactPartySlots(void)
         }
     }
     for (; last < PARTY_SIZE; last++)
-        ZeroMonData(&gPlayerParty[last]);
+        ZeroMonData(&gParties[B_TRAINER_0][last]);
 
     return retVal;
 }
@@ -6939,7 +6939,7 @@ static void SetMonMarkings(u8 markings)
     else
     {
         if (sCursorArea == CURSOR_AREA_IN_PARTY)
-            SetMonData(&gPlayerParty[sCursorPosition], MON_DATA_MARKINGS, &markings);
+            SetMonData(&gParties[B_TRAINER_0][sCursorPosition], MON_DATA_MARKINGS, &markings);
         if (sCursorArea == CURSOR_AREA_IN_BOX)
             SetCurrentBoxMonData(sCursorPosition, MON_DATA_MARKINGS, &markings);
     }
@@ -6957,7 +6957,7 @@ static bool8 CanPlaceMon(void)
 {
     if (sIsMonBeingMoved)
     {
-        if (sCursorArea == CURSOR_AREA_IN_PARTY && GetMonData(&gPlayerParty[sCursorPosition], MON_DATA_SPECIES) == SPECIES_NONE)
+        if (sCursorArea == CURSOR_AREA_IN_PARTY && GetMonData(&gParties[B_TRAINER_0][sCursorPosition], MON_DATA_SPECIES) == SPECIES_NONE)
             return TRUE;
         else if (sCursorArea == CURSOR_AREA_IN_BOX && GetBoxMonDataAt(StorageGetCurrentBox(), sCursorPosition, MON_DATA_SPECIES_OR_EGG) == SPECIES_NONE)
             return TRUE;
@@ -7015,7 +7015,7 @@ static void TryRefreshDisplayMon(void)
         case CURSOR_AREA_IN_PARTY:
             if (sCursorPosition < PARTY_SIZE)
             {
-                SetDisplayMonData(&gPlayerParty[sCursorPosition], MODE_PARTY);
+                SetDisplayMonData(&gParties[B_TRAINER_0][sCursorPosition], MODE_PARTY);
                 break;
             }
             // fallthrough
@@ -8971,9 +8971,9 @@ static void TryLoadItemIconAtPos(u8 cursorArea, u8 cursorPos)
         heldItem = GetCurrentBoxMonData(cursorPos, MON_DATA_HELD_ITEM);
         break;
     case CURSOR_AREA_IN_PARTY:
-        if (cursorPos >= PARTY_SIZE || !GetMonData(&gPlayerParty[cursorPos], MON_DATA_SANITY_HAS_SPECIES))
+        if (cursorPos >= PARTY_SIZE || !GetMonData(&gParties[B_TRAINER_0][cursorPos], MON_DATA_SANITY_HAS_SPECIES))
             return;
-        heldItem = GetMonData(&gPlayerParty[cursorPos], MON_DATA_HELD_ITEM);
+        heldItem = GetMonData(&gParties[B_TRAINER_0][cursorPos], MON_DATA_HELD_ITEM);
         break;
     default:
         return;
@@ -9025,8 +9025,8 @@ static void TakeItemFromMon(u8 cursorArea, u8 cursorPos)
     }
     else
     {
-        struct Pokemon *mon = &gPlayerParty[cursorPos];
-        SetMonData(&gPlayerParty[cursorPos], MON_DATA_HELD_ITEM, &itemId);
+        struct Pokemon *mon = &gParties[B_TRAINER_0][cursorPos];
+        SetMonData(&gParties[B_TRAINER_0][cursorPos], MON_DATA_HELD_ITEM, &itemId);
         SetPartyMonIconObjMode(cursorPos, ST_OAM_OBJ_BLEND);
         SetMonFormPSS_ItemHold(&mon->box);
     }
@@ -9067,9 +9067,9 @@ static void SwapItemsWithMon(u8 cursorArea, u8 cursorPos)
     }
     else
     {
-        struct Pokemon *mon = &gPlayerParty[cursorPos];
-        itemId = GetMonData(&gPlayerParty[cursorPos], MON_DATA_HELD_ITEM);
-        SetMonData(&gPlayerParty[cursorPos], MON_DATA_HELD_ITEM, &sStorage->movingItemId);
+        struct Pokemon *mon = &gParties[B_TRAINER_0][cursorPos];
+        itemId = GetMonData(&gParties[B_TRAINER_0][cursorPos], MON_DATA_HELD_ITEM);
+        SetMonData(&gParties[B_TRAINER_0][cursorPos], MON_DATA_HELD_ITEM, &sStorage->movingItemId);
         sStorage->movingItemId = itemId;
         SetMonFormPSS_ItemHold(&mon->box);
     }
@@ -9097,8 +9097,8 @@ static void GiveItemToMon(u8 cursorArea, u8 cursorPos)
     }
     else
     {
-        struct Pokemon *mon = &gPlayerParty[cursorPos];
-        SetMonData(&gPlayerParty[cursorPos], MON_DATA_HELD_ITEM, &sStorage->movingItemId);
+        struct Pokemon *mon = &gParties[B_TRAINER_0][cursorPos];
+        SetMonData(&gParties[B_TRAINER_0][cursorPos], MON_DATA_HELD_ITEM, &sStorage->movingItemId);
         SetPartyMonIconObjMode(cursorPos, ST_OAM_OBJ_NORMAL);
         SetMonFormPSS_ItemHold(&mon->box);
     }
@@ -9124,8 +9124,8 @@ static void MoveItemFromMonToBag(u8 cursorArea, u8 cursorPos)
     }
     else
     {
-        struct Pokemon *mon = &gPlayerParty[cursorPos];
-        SetMonData(&gPlayerParty[cursorPos], MON_DATA_HELD_ITEM, &itemId);
+        struct Pokemon *mon = &gParties[B_TRAINER_0][cursorPos];
+        SetMonData(&gParties[B_TRAINER_0][cursorPos], MON_DATA_HELD_ITEM, &itemId);
         SetPartyMonIconObjMode(cursorPos, ST_OAM_OBJ_BLEND);
         SetMonFormPSS_ItemHold(&mon->box);
     }
@@ -9619,7 +9619,7 @@ static struct BoxPokemon *GetCursorBoxMon(void)
 {
     struct BoxPokemon *boxmon;
     if (sInPartyMenu)
-        boxmon = &(gPlayerParty[sCursorPosition].box);
+        boxmon = &(gParties[B_TRAINER_0][sCursorPosition].box);
     else
         boxmon = GetBoxedMonPtr(StorageGetCurrentBox(), sCursorPosition);
     return boxmon;

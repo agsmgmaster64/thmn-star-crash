@@ -92,6 +92,7 @@ void BeginBattleIntro(void);
 void SwitchInClearSetData(enum BattlerId battler, struct Volatiles *volatilesCopy);
 void FaintClearSetData(enum BattlerId battler);
 void BattleTurnPassed(void);
+bool32 EndTurnEvents(void);
 u8 IsRunningFromBattleImpossible(enum BattlerId battler);
 void SwitchTwoBattlersInParty(enum BattlerId battler, enum BattlerId battler2);
 void SwitchPartyOrder(enum BattlerId battler);
@@ -119,7 +120,7 @@ s32 Factorial(s32 n);
 bool32 InBattleChoosingMoves();
 bool32 InBattleRunningActions();
 
-extern struct MultiPartnerMenuPokemon gMultiPartnerParty[MULTI_PARTY_SIZE];
+extern struct MultiPartnerMenuPokemon *gMultiPartnerParty;
 
 extern const struct OamData gOamData_BattleSpriteOpponentSide;
 extern const struct OamData gOamData_BattleSpritePlayerSide;

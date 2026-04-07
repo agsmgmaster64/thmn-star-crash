@@ -28,6 +28,8 @@ Optional (but still recommended) fields for trainers:
     - Boss (Yes/No, defaults to No, disables randomized Ability
             for specified trainer)
     - Starting Status (see include/constants/battle.h for values)
+    - Multi Party   (Half reduces two-trainer battle sides to 3 Pokemon each)
+                    (defaults to Full but requires B_MULTI_HALF_TEAMS to be FALSE)
 
 Pokemon are then specified using the Showdown Export format.
 If a field is not specified, it will use it's default value.
@@ -9441,6 +9443,7 @@ Gender: Male
 Music: Magma
 Double Battle: No
 AI: Check Bad Move
+Multi Party: Half
 
 Goliath
 Level: 36
@@ -13608,6 +13611,7 @@ Gender: Male
 Music: Magma
 Double Battle: No
 AI: Basic Trainer
+Multi Party: Half
 
 Goliath
 Level: 42

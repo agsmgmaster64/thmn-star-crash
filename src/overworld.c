@@ -463,9 +463,9 @@ static u8 GetPlayerPartyHighestLevel(void)
     level = 1;
     for (slot = 0; slot < PARTY_SIZE; ++slot)
     {
-        if (GetMonData(&gPlayerParty[slot], MON_DATA_SANITY_HAS_SPECIES, NULL) == 1 && !GetMonData(&gPlayerParty[slot], MON_DATA_SANITY_IS_EGG, NULL))
+        if (GetMonData(&gParties[B_TRAINER_0][slot], MON_DATA_SANITY_HAS_SPECIES, NULL) == 1 && !GetMonData(&gParties[B_TRAINER_0][slot], MON_DATA_SANITY_IS_EGG, NULL))
         {
-            monLevel = GetMonData(&gPlayerParty[slot], MON_DATA_LEVEL, NULL);
+            monLevel = GetMonData(&gParties[B_TRAINER_0][slot], MON_DATA_LEVEL, NULL);
             if (monLevel > level)
                 level = monLevel;
         }

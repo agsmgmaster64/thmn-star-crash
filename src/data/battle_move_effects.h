@@ -853,12 +853,6 @@ const struct BattleMoveEffect gBattleMoveEffects[NUM_BATTLE_MOVE_EFFECTS] =
         .encourageEncore = TRUE,
     },
 
-    [EFFECT_UPROAR] =
-    {
-        .battleScript = BattleScript_EffectHit,
-        .battleTvScore = 4,
-    },
-
     [EFFECT_STOCKPILE] =
     {
         .battleScript = BattleScript_EffectStockpile,
@@ -2023,7 +2017,7 @@ const struct BattleMoveEffect gBattleMoveEffects[NUM_BATTLE_MOVE_EFFECTS] =
 
     [EFFECT_DARK_VOID] =
     {
-        .battleScript = BattleScript_EffectDarkVoid,
+        .battleScript = BattleScript_EffectNonVolatileStatus,
         .battleTvScore = 0, // TODO: Assign points
     },
 

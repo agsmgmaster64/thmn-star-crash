@@ -13,6 +13,7 @@ u32 GetRelearnerLevelUpMoves(struct BoxPokemon *mon, u16 *moves);
 u32 GetRelearnerEggMoves(struct BoxPokemon *mon, u16 *moves);
 u32 GetRelearnerTMMoves(struct BoxPokemon *mon, u16 *moves);
 u32 GetRelearnerTutorMoves(struct BoxPokemon *mon, u16 *moves);
+bool32 HasMoveToRelearn(struct BoxPokemon *boxMon, enum MoveRelearnerStates state);
 
 extern enum MoveRelearnerStates gMoveRelearnerState;
 extern enum RelearnMode gRelearnMode;

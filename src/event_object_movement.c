@@ -2230,7 +2230,7 @@ struct Pokemon *GetFirstLiveMon(void)
     {
         for (i = 0; i < PARTY_SIZE; i++)
         {
-            struct Pokemon *mon = &gPlayerParty[i];
+            struct Pokemon *mon = &gParties[B_TRAINER_0][i];
             enum Species species = GetMonData(mon, MON_DATA_SPECIES_OR_EGG);
             if (species == SPECIES_NONE)
                 continue;
@@ -2239,21 +2239,22 @@ struct Pokemon *GetFirstLiveMon(void)
             || (OW_FOLLOWERS_ALLOWED_MET_LVL && GetMonData(mon, MON_DATA_MET_LEVEL) != VarGet(OW_FOLLOWERS_ALLOWED_MET_LVL))
             || (OW_FOLLOWERS_ALLOWED_MET_LOC && GetMonData(mon, MON_DATA_MET_LOCATION) != VarGet(OW_FOLLOWERS_ALLOWED_MET_LOC)))
                 continue;
-            if (gPlayerParty[i].hp > 0 && !(gPlayerParty[i].box.isEgg))
-                return &gPlayerParty[i];
+
+            if (gParties[B_TRAINER_0][i].hp > 0 && !(gParties[B_TRAINER_0][i].box.isEgg || gParties[B_TRAINER_0][i].box.isBadEgg))
+                return &gParties[B_TRAINER_0][i];
         }
         return NULL;
     }                                                                 
-    if (gPlayerParty[j].hp > 0 && !(gPlayerParty[j].box.isEgg))
+    if (gParties[B_TRAINER_0][j].hp > 0 && !(gParties[B_TRAINER_0][j].box.isEgg))
     {
-        return &gPlayerParty[j];
+        return &gParties[B_TRAINER_0][j];
     }
     else
     {
         for (i = 0; i < PARTY_SIZE; i++)
         {
-            if (gPlayerParty[i].hp > 0 && !(gPlayerParty[i].box.isEgg))
-                return &gPlayerParty[i];
+            if (gParties[B_TRAINER_0][i].hp > 0 && !(gParties[B_TRAINER_0][i].box.isEgg))
+                return &gParties[B_TRAINER_0][i];
         }
         return NULL;
     }
@@ -6501,7 +6502,7 @@ void IsFollowerFieldMoveUser(struct ScriptContext *ctx)
     *var = FALSE;
     if (follower && obj && !obj->invisible)
     {
-        u16 followIndex = ((u32)follower - (u32)gPlayerParty) / sizeof(struct Pokemon);
+        u16 followIndex = ((u32)follower - (u32)gParties[B_TRAINER_0]) / sizeof(struct Pokemon);
         *var = userIndex == followIndex;
     }
 }
