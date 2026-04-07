@@ -501,3 +501,6 @@ const u32 gMetatileAttributes_ScarletMansion[] = INCBIN_U32("data/tilesets/secon
 
 const u16 gMetatiles_SkyRuin[] = INCBIN_U16("data/tilesets/secondary/sky_ruin/metatiles.bin");
 const u32 gMetatileAttributes_SkyRuin[] = INCBIN_U32("data/tilesets/secondary/sky_ruin/metatile_attributes.bin");
+
+const u16 gMetatiles_Swamp[] = INCBIN_U16("data/tilesets/secondary/swamp/metatiles.bin");
+const u32 gMetatileAttributes_Swamp[] = INCBIN_U32("data/tilesets/secondary/swamp/metatile_attributes.bin");

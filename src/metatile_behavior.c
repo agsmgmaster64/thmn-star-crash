@@ -1220,6 +1220,7 @@ bool8 MetatileBehavior_IsRunningDisallowed(u8 metatileBehavior)
     if (metatileBehavior == MB_NO_RUNNING
      || metatileBehavior == MB_LONG_GRASS
      || metatileBehavior == MB_HOT_SPRINGS
+     || metatileBehavior == MB_DEEP_MUD
      || MetatileBehavior_IsPacifidlogLog(metatileBehavior) != FALSE)
         return TRUE;
     else
@@ -1318,9 +1319,9 @@ bool8 MetatileBehavior_IsQuestionnaire(u8 metatileBehavior)
         return FALSE;
 }
 
-bool8 MetatileBehavior_IsLongGrass_Duplicate(u8 metatileBehavior)
+bool8 MetatileBehavior_IsDeepMud(u8 metatileBehavior)
 {
-    if (metatileBehavior == MB_LONG_GRASS)
+    if (metatileBehavior == MB_DEEP_MUD)
         return TRUE;
     else
         return FALSE;

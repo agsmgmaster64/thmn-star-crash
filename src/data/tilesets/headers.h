@@ -1898,3 +1898,14 @@ const struct Tileset gTileset_SkyRuin =
     .metatileAttributes = gMetatileAttributes_SkyRuin,
     .callback = NULL,
 };
+
+const struct Tileset gTileset_Swamp =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_Swamp,
+    .palettes = gTilesetPalettes_Swamp,
+    .metatiles = gMetatiles_Swamp,
+    .metatileAttributes = gMetatileAttributes_Swamp,
+    .callback = NULL,
+};
