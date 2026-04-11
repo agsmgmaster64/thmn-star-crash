@@ -556,9 +556,19 @@ static void Task_MoveRelearner_Quit(u8 taskId)
     if (gInitialSummaryScreenCallback != NULL)
     {
         if (gRelearnMode == RELEARN_MODE_PSS_PAGE_CONTEST_MOVES)
-            ShowPokemonSummaryScreen(SUMMARY_MODE_RELEARNER_CONTEST, gParties[B_TRAINER_0], gTasks[taskId].tPartyIndex, gPartiesCount[B_TRAINER_0] - 1, gInitialSummaryScreenCallback);
+        {
+            if (BW_SUMMARY_SCREEN)
+                ShowPokemonSummaryScreen_BW(SUMMARY_MODE_RELEARNER_CONTEST, gParties[B_TRAINER_0], gTasks[taskId].tPartyIndex, gPartiesCount[B_TRAINER_0] - 1, gInitialSummaryScreenCallback);
+            else
+                ShowPokemonSummaryScreen(SUMMARY_MODE_RELEARNER_CONTEST, gParties[B_TRAINER_0], gTasks[taskId].tPartyIndex, gPartiesCount[B_TRAINER_0] - 1, gInitialSummaryScreenCallback);
+        }
         else
-            ShowPokemonSummaryScreen(SUMMARY_MODE_RELEARNER_BATTLE, gParties[B_TRAINER_0], gTasks[taskId].tPartyIndex, gPartiesCount[B_TRAINER_0] - 1, gInitialSummaryScreenCallback);
+        {
+            if (BW_SUMMARY_SCREEN)
+                ShowPokemonSummaryScreen_BW(SUMMARY_MODE_RELEARNER_BATTLE, gParties[B_TRAINER_0], gTasks[taskId].tPartyIndex, gPartiesCount[B_TRAINER_0] - 1, gInitialSummaryScreenCallback);
+            else
+                ShowPokemonSummaryScreen(SUMMARY_MODE_RELEARNER_BATTLE, gParties[B_TRAINER_0], gTasks[taskId].tPartyIndex, gPartiesCount[B_TRAINER_0] - 1, gInitialSummaryScreenCallback);
+        }
     }
     else
     {

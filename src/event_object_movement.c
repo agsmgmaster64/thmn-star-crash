@@ -2240,7 +2240,7 @@ struct Pokemon *GetFirstLiveMon(void)
             || (OW_FOLLOWERS_ALLOWED_MET_LOC && GetMonData(mon, MON_DATA_MET_LOCATION) != VarGet(OW_FOLLOWERS_ALLOWED_MET_LOC)))
                 continue;
 
-            if (gParties[B_TRAINER_0][i].hp > 0 && !(gParties[B_TRAINER_0][i].box.isEgg || gParties[B_TRAINER_0][i].box.isBadEgg))
+            if (gParties[B_TRAINER_0][i].hp > 0 && !(gParties[B_TRAINER_0][i].box.isEgg))
                 return &gParties[B_TRAINER_0][i];
         }
         return NULL;

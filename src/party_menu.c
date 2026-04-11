@@ -3937,35 +3937,35 @@ void CursorCb_MoveItemCallback(u8 taskId)
         gPartyMenu.action = PARTY_ACTION_CHOOSE_MON;
 
         // look up held items
-        item1 = GetMonData(&gPlayerParty[gPartyMenu.slotId], MON_DATA_HELD_ITEM);
-        item2 = GetMonData(&gPlayerParty[gPartyMenu.slotId2], MON_DATA_HELD_ITEM);
+        item1 = GetMonData(&gParties[B_TRAINER_0][gPartyMenu.slotId], MON_DATA_HELD_ITEM);
+        item2 = GetMonData(&gParties[B_TRAINER_0][gPartyMenu.slotId2], MON_DATA_HELD_ITEM);
 
         // swap the held items
-        SetMonData(&gPlayerParty[gPartyMenu.slotId], MON_DATA_HELD_ITEM, &item2);
-        SetMonData(&gPlayerParty[gPartyMenu.slotId2], MON_DATA_HELD_ITEM, &item1);
+        SetMonData(&gParties[B_TRAINER_0][gPartyMenu.slotId], MON_DATA_HELD_ITEM, &item2);
+        SetMonData(&gParties[B_TRAINER_0][gPartyMenu.slotId2], MON_DATA_HELD_ITEM, &item1);
 
-        TryItemHoldFormChange(&gPlayerParty[gPartyMenu.slotId], gPartyMenu.slotId);
-        TryItemHoldFormChange(&gPlayerParty[gPartyMenu.slotId2], gPartyMenu.slotId2);
+        TryItemHoldFormChange(&gParties[B_TRAINER_0][gPartyMenu.slotId], gPartyMenu.slotId, B_TRAINER_0);
+        TryItemHoldFormChange(&gParties[B_TRAINER_0][gPartyMenu.slotId2], gPartyMenu.slotId2, B_TRAINER_0);
 
         // update the held item icons
-        UpdatePartyMonHeldItemSprite(&gPlayerParty[gPartyMenu.slotId], &sPartyMenuBoxes[gPartyMenu.slotId]);
-        UpdatePartyMonHeldItemSprite(&gPlayerParty[gPartyMenu.slotId2], &sPartyMenuBoxes[gPartyMenu.slotId2]);
+        UpdatePartyMonHeldItemSprite(&gParties[B_TRAINER_0][gPartyMenu.slotId], &sPartyMenuBoxes[gPartyMenu.slotId]);
+        UpdatePartyMonHeldItemSprite(&gParties[B_TRAINER_0][gPartyMenu.slotId2], &sPartyMenuBoxes[gPartyMenu.slotId2]);
 
         // create the string describing the move
         if (item2 == ITEM_NONE)
         {
-            GetMonNickname(&gPlayerParty[gPartyMenu.slotId2], gStringVar1);
+            GetMonNickname(&gParties[B_TRAINER_0][gPartyMenu.slotId2], gStringVar1);
             CopyItemName(item1, gStringVar2);
             StringExpandPlaceholders(gStringVar4, gText_PkmnWasGivenItem);
         }
         else
         {
-            GetMonNickname(&gPlayerParty[gPartyMenu.slotId], gStringVar1);
+            GetMonNickname(&gParties[B_TRAINER_0][gPartyMenu.slotId], gStringVar1);
             CopyItemName(item1, gStringVar2);
             StringExpandPlaceholders(buffer, gText_XsYAnd);
 
             StringAppend(buffer, gText_XsYWereSwapped);
-            GetMonNickname(&gPlayerParty[gPartyMenu.slotId2], gStringVar1);
+            GetMonNickname(&gParties[B_TRAINER_0][gPartyMenu.slotId2], gStringVar1);
             CopyItemName(item2, gStringVar2);
             StringExpandPlaceholders(gStringVar4, buffer);
         }

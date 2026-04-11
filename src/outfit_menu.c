@@ -506,8 +506,7 @@ static void SetupOutfitMenu_PrintStr(void)
 
 static inline void SetupOutfitMenu_Sprites_DrawTrainerSprite(bool32 update, bool32 unlocked)
 {
-    u32 frontSpriteId = GetPlayerTrainerPicIdByOutfitGenderType(sOutfitMenu->idx, gSaveBlock2Ptr->playerGender, 0);
-    u32 backSpriteId = GetPlayerTrainerPicIdByOutfitGenderType(sOutfitMenu->idx, gSaveBlock2Ptr->playerGender, 1);
+    u32 trainerSpriteId = GetPlayerTrainerPicIdByOutfitGenderType(sOutfitMenu->idx, gSaveBlock2Ptr->playerGender);
     u32 frontPalSlot = sOutfitMenu->slotId ? 9 : 10;
     u32 backPalSlot = sOutfitMenu->slotId ? 12 : 13;
     if (update)
@@ -516,10 +515,10 @@ static inline void SetupOutfitMenu_Sprites_DrawTrainerSprite(bool32 update, bool
         FreeAndDestroyTrainerPicSprite(sOutfitMenu->spriteIds[GFX_BTS]);
     }
 
-    sOutfitMenu->spriteIds[GFX_FTS] = CreateTrainerPicSprite(frontSpriteId, TRUE, 32+27, 32+32, frontPalSlot, TAG_NONE);
-    sOutfitMenu->spriteIds[GFX_BTS] = CreateTrainerPicSprite(backSpriteId, FALSE, 32+117, 32+32, backPalSlot, TAG_NONE);
-    LoadPalette(gTrainerBacksprites[backSpriteId].palette.data, OBJ_PLTT_ID(backPalSlot), PLTT_SIZE_4BPP);
-    gSprites[sOutfitMenu->spriteIds[GFX_BTS]].anims = gTrainerBacksprites[backSpriteId].animation;
+    sOutfitMenu->spriteIds[GFX_FTS] = CreateTrainerPicSprite(trainerSpriteId, TRUE, 32+27, 32+32, frontPalSlot, TAG_NONE);
+    sOutfitMenu->spriteIds[GFX_BTS] = CreateTrainerPicSprite(trainerSpriteId, FALSE, 32+117, 32+32, backPalSlot, TAG_NONE);
+    //LoadPalette(gTrainerBacksprites[backSpriteId].palette.data, OBJ_PLTT_ID(backPalSlot), PLTT_SIZE_4BPP); // Todo Later
+    //gSprites[sOutfitMenu->spriteIds[GFX_BTS]].anims = gTrainerBacksprites[backSpriteId].animation;
     StartSpriteAnim(&gSprites[sOutfitMenu->spriteIds[GFX_BTS]], 0);
     if (!unlocked)
     {
@@ -925,12 +924,12 @@ void BufferOutfitStrings(u8 *dest, u8 outfitId, u8 dataType)
     StringCopy(dest, src);
 }
 
-u32 GetPlayerTrainerPicIdByOutfitGenderType(u32 outfitId, u32 gender, bool32 type)
+u32 GetPlayerTrainerPicIdByOutfitGenderType(u32 outfitId, u32 gender)
 {
     if (outfitId > OUTFIT_NONE && outfitId < OUTFIT_COUNT)
-        return gOutfits[outfitId].trainerPics[gender][type];
+        return gOutfits[outfitId].trainerPics[gender];
     else
-        return gOutfits[OUTFIT_NONE].trainerPics[gender][type];
+        return gOutfits[OUTFIT_NONE].trainerPics[gender];
 }
 
 u32 GetPlayerMugshotIdByOutfitGender(u32 outfitId, u32 gender)

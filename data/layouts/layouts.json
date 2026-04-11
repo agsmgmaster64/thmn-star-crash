@@ -5924,7 +5924,7 @@
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_RG_Building",
-      "secondary_tileset": "gTileset_ScarletMansion",
+      "secondary_tileset": "gTileset_FancyInside",
       "border_filepath": "data/layouts/CarpetTraining/border.bin",
       "blockdata_filepath": "data/layouts/CarpetTraining/map.bin",
       "layout_version": "emerald"

@@ -1909,3 +1909,14 @@ const struct Tileset gTileset_Swamp =
     .metatileAttributes = gMetatileAttributes_Swamp,
     .callback = NULL,
 };
+
+const struct Tileset gTileset_FancyInside =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_FancyInside,
+    .palettes = gTilesetPalettes_FancyInside,
+    .metatiles = gMetatiles_FancyInside,
+    .metatileAttributes = gMetatileAttributes_FancyInside,
+    .callback = NULL,
+};

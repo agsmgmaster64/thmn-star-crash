@@ -504,3 +504,6 @@ const u32 gMetatileAttributes_SkyRuin[] = INCBIN_U32("data/tilesets/secondary/sk
 
 const u16 gMetatiles_Swamp[] = INCBIN_U16("data/tilesets/secondary/swamp/metatiles.bin");
 const u32 gMetatileAttributes_Swamp[] = INCBIN_U32("data/tilesets/secondary/swamp/metatile_attributes.bin");
+
+const u16 gMetatiles_FancyInside[] = INCBIN_U16("data/tilesets/secondary/fancy_inside/metatiles.bin");
+const u32 gMetatileAttributes_FancyInside[] = INCBIN_U32("data/tilesets/secondary/fancy_inside/metatile_attributes.bin");

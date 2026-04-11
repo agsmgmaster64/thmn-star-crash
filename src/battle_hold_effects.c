@@ -629,7 +629,9 @@ static enum ItemEffect TryFrostOrb(enum BattlerId battler)
     if (CanGetFrostbite(battler, battler, ability))
     {
         gBattleMons[battler].status1 = STATUS1_FROSTBITE;
-        BattleScriptExecute(BattleScript_FrostOrb);
+        gEffectBattler = battler;
+        gBattleCommunication[MULTISTRING_CHOOSER] = 0;
+        BattleScriptCall(BattleScript_MoveEffectFrostbite);
         effect = ITEM_STATUS_CHANGE;
     }
 

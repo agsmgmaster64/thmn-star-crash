@@ -6728,7 +6728,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
             "Makes a performance for 3\n"
             "turns and prevents sleep."),
         #endif
-        .effect = EFFECT_UPROAR,
+        .effect = EFFECT_HIT,
         .power = 100,
         .type = TYPE_GHOST,
         .accuracy = 100,
