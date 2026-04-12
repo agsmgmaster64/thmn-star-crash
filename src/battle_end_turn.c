@@ -1174,7 +1174,7 @@ static bool32 HandleEndTurnInverseRoom(enum BattlerId battler)
     if (gFieldStatuses & STATUS_FIELD_INVERSE_ROOM && gFieldTimers.inverseRoomTimer == gBattleTurnCounter)
     {
         gFieldStatuses &= ~STATUS_FIELD_INVERSE_ROOM;
-        BattleScriptExecute(BattleScript_InverseRoomEnds);
+        BattleScriptCall(BattleScript_InverseRoomEnds);
         effect = TRUE;
     }
 
