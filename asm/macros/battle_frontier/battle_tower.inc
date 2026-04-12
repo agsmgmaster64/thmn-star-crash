@@ -101,7 +101,7 @@
 	.macro multi_do type:req
 	callnative AreMultiPartiesFullTeams
 	goto_if_eq VAR_RESULT, TRUE, 1f
-		special ReducePlayerPartyToSelectedMons
+	special ReducePlayerPartyToSelectedMons
 	1:
 	setvar VAR_0x8004, FRONTIER_UTIL_FUNC_SET_DATA
 	setvar VAR_0x8005, FRONTIER_DATA_SELECTED_MON_ORDER

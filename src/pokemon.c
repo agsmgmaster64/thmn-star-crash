@@ -98,7 +98,7 @@ EWRAM_DATA u8 gPartiesCount[MAX_BATTLE_TRAINERS] = {0};
 EWRAM_DATA struct Pokemon gParties[MAX_BATTLE_TRAINERS][PARTY_SIZE] = {0};
 EWRAM_DATA struct SpriteTemplate gMultiuseSpriteTemplate = {0};
 EWRAM_DATA static struct MonSpritesGfxManager *sMonSpritesGfxManagers[MON_SPR_GFX_MANAGERS_COUNT] = {NULL};
-EWRAM_DATA static u8 sTriedEvolving = 0;
+EWRAM_DATA u8 gTriedEvolving = 0;
 EWRAM_DATA u16 gFollowerSteps = 0;
 
 #include "data/abilities.h"
@@ -121,86 +121,19 @@ static const struct CombinedMove sCombinedMoves[2] =
 // NOTE: The order of the elements in the array below is irrelevant.
 // To reorder the pokedex, see the values in include/constants/pokedex.h.
 
-#define KANTO_TO_NATIONAL(name)     [KANTO_DEX_##name - 1] = NATIONAL_DEX_##name
-#define HOENN_TO_NATIONAL(name)     [HOENN_DEX_##name - 1] = NATIONAL_DEX_##name
-
+#define KANTO_TO_NATIONAL(name)     [KANTO_DEX_##name - 1] = NATIONAL_DEX_##name,
+#define HOENN_TO_NATIONAL(name)     [HOENN_DEX_##name - 1] = NATIONAL_DEX_##name,
 
 static const enum NationalDexOrder sKantoToNationalOrder[KANTO_DEX_COUNT] =
 {
-    // Kanto
-    KANTO_TO_NATIONAL(CHIBI_SANAE),
-    KANTO_TO_NATIONAL(NORMAL_SANAE),
-    KANTO_TO_NATIONAL(CHIBI_ALICE),
-    KANTO_TO_NATIONAL(NORMAL_ALICE),
-    KANTO_TO_NATIONAL(CHIBI_REISEN),
-    KANTO_TO_NATIONAL(NORMAL_REISEN),
-    KANTO_TO_NATIONAL(CHIBI_LILY_WHITE),
-    KANTO_TO_NATIONAL(NORMAL_LILY_WHITE),
-    KANTO_TO_NATIONAL(CHIBI_LILY_BLACK),
-    KANTO_TO_NATIONAL(NORMAL_LILY_BLACK),
+    FOREACH_SPECIES_IN_KANTO_DEX_ORDER(KANTO_TO_NATIONAL)
 };
 
 
 // Assigns all Hoenn Dex Indexes to a National Dex Index
 static const enum NationalDexOrder sHoennToNationalOrder[HOENN_DEX_COUNT - 1] =
 {
-    HOENN_TO_NATIONAL(CHIBI_NAZRIN),
-    HOENN_TO_NATIONAL(NORMAL_NAZRIN),
-    HOENN_TO_NATIONAL(TECH_NAZRIN),
-    HOENN_TO_NATIONAL(HELPER_NAZRIN),
-    HOENN_TO_NATIONAL(CHIBI_TOKIKO),
-    HOENN_TO_NATIONAL(NORMAL_TOKIKO),
-    HOENN_TO_NATIONAL(ATTACK_TOKIKO),
-    HOENN_TO_NATIONAL(PLACEHOLD_TOKIKO),
-    HOENN_TO_NATIONAL(CHIBI_MOMIJI),
-    HOENN_TO_NATIONAL(NORMAL_MOMIJI),
-    HOENN_TO_NATIONAL(DEFENSE_MOMIJI),
-    HOENN_TO_NATIONAL(PLACEHOLD_MOMIJI),
-    HOENN_TO_NATIONAL(CHIBI_CHEN),
-    HOENN_TO_NATIONAL(NORMAL_CHEN),
-    HOENN_TO_NATIONAL(ATTACK_CHEN),
-    HOENN_TO_NATIONAL(TECH_CHEN),
-    HOENN_TO_NATIONAL(ADVENT_CHEN),
-    HOENN_TO_NATIONAL(CHIBI_AUNN),
-    HOENN_TO_NATIONAL(NORMAL_AUNN),
-    HOENN_TO_NATIONAL(PLACEHOLD_AUNN),
-    HOENN_TO_NATIONAL(CHIBI_MYSTIA),
-    HOENN_TO_NATIONAL(NORMAL_MYSTIA),
-    HOENN_TO_NATIONAL(ATTACK_MYSTIA),
-    HOENN_TO_NATIONAL(HELPER_MYSTIA),
-    HOENN_TO_NATIONAL(ADVENT_MYSTIA),
-    HOENN_TO_NATIONAL(CHIBI_DAIYOUSEI),
-    HOENN_TO_NATIONAL(NORMAL_DAIYOUSEI),
-    HOENN_TO_NATIONAL(ATTACK_DAIYOUSEI),
-    HOENN_TO_NATIONAL(DEFENSE_DAIYOUSEI),
-    HOENN_TO_NATIONAL(CHIBI_KAGEROU),
-    HOENN_TO_NATIONAL(NORMAL_KAGEROU),
-    HOENN_TO_NATIONAL(HELPER_KAGEROU),
-    HOENN_TO_NATIONAL(PLACEHOLD_KAGEROU),
-    HOENN_TO_NATIONAL(CHIBI_HINA),
-    HOENN_TO_NATIONAL(NORMAL_HINA),
-    HOENN_TO_NATIONAL(ATTACK_HINA),
-    HOENN_TO_NATIONAL(DEFENSE_HINA),
-    HOENN_TO_NATIONAL(CHIBI_WAKASAGIHIME),
-    HOENN_TO_NATIONAL(NORMAL_WAKASAGIHIME),
-    HOENN_TO_NATIONAL(DEFENSE_WAKASAGIHIME),
-    HOENN_TO_NATIONAL(PLACEHOLD_WAKASAGIHIME),
-    HOENN_TO_NATIONAL(CHIBI_MURASA),
-    HOENN_TO_NATIONAL(NORMAL_MURASA),
-    HOENN_TO_NATIONAL(ATTACK_MURASA),
-    HOENN_TO_NATIONAL(DEFENSE_MURASA),
-    HOENN_TO_NATIONAL(CHIBI_SEIRAN),
-    HOENN_TO_NATIONAL(NORMAL_SEIRAN),
-    HOENN_TO_NATIONAL(ATTACK_SEIRAN),
-    HOENN_TO_NATIONAL(PLACEHOLD_SEIRAN),
-    HOENN_TO_NATIONAL(CHIBI_RINGO),
-    HOENN_TO_NATIONAL(NORMAL_RINGO),
-    HOENN_TO_NATIONAL(HELPER_RINGO),
-    HOENN_TO_NATIONAL(PLACEHOLD_RINGO),
-    HOENN_TO_NATIONAL(CHIBI_KOSUZU),
-    HOENN_TO_NATIONAL(NORMAL_KOSUZU),
-    HOENN_TO_NATIONAL(PLACEHOLD_KOSUZU),
-    HOENN_TO_NATIONAL(PLACEHOLD2_KOSUZU),
+    FOREACH_SPECIES_IN_HOENN_DEX_ORDER(HOENN_TO_NATIONAL)
 };
 
 // In Battle Palace, moves are chosen based on the pokemons nature rather than by the player
@@ -842,6 +775,7 @@ void ZeroPlayerPartyMons(void)
 {
     for (s32 i = 0; i < PARTY_SIZE; i++)
         ZeroMonData(&gParties[B_TRAINER_0][i]);
+    gPlayerPartyCount = 0;
 }
 
 void ZeroEnemyPartyMons(void)
@@ -851,6 +785,8 @@ void ZeroEnemyPartyMons(void)
         ZeroMonData(&gParties[B_TRAINER_1][i]);
         ZeroMonData(&gParties[B_TRAINER_3][i]);
     }
+    gPartiesCount[B_TRAINER_1] = 0;
+    gPartiesCount[B_TRAINER_3] = 0;
 }
 
 void CreateRandomMon(struct Pokemon *mon, enum Species species, u8 level)
@@ -4219,6 +4155,8 @@ enum Species GetEvolutionTargetSpecies(struct Pokemon *mon, enum EvolutionMode m
                 continue;
             if (evolutions[i].method != EVO_SCRIPT_TRIGGER)
                 continue;
+            if (evolutions[i].param != evolutionItem)
+                continue;
             if (DoesMonMeetAdditionalConditions(mon, evolutions[i].params, NULL, PARTY_SIZE, canStopEvo, evoState))
             {
                 // All checks passed, so stop checking the rest of the evolutions.
@@ -5841,66 +5779,31 @@ void RemoveIVIndexFromList(u8 *ivs, u8 selectedIv)
     }
 }
 
-// Attempts to perform non-level/item related overworld evolutions; called by tryspecialevo command.
-void TryScriptEvolution(void)
-{
-    u8 i;
-    bool32 canStopEvo = gSpecialVar_0x8001;
-    u16 tryMultiple = gSpecialVar_0x8002;
-
-    for (i = 0; i < PARTY_SIZE; i++)
-    {
-        enum Species targetSpecies = GetEvolutionTargetSpecies(&gParties[B_TRAINER_0][i], EVO_MODE_SCRIPT_TRIGGER, 0, NULL, &canStopEvo, CHECK_EVO);
-
-        if (targetSpecies != SPECIES_NONE && !(sTriedEvolving & (1u << i)))
-        {
-            GetEvolutionTargetSpecies(&gParties[B_TRAINER_0][i], EVO_MODE_SCRIPT_TRIGGER, 0, NULL, &canStopEvo, DO_EVO);
-            sTriedEvolving |= 1u << i;
-            if (gMain.callback2 == TryScriptEvolution) // This fixes small graphics glitches.
-                EvolutionScene(&gParties[B_TRAINER_0][i], targetSpecies, canStopEvo, i);
-            else
-                BeginEvolutionScene(&gParties[B_TRAINER_0][i], targetSpecies, canStopEvo, i);
-
-            if (tryMultiple)
-                gCB2_AfterEvolution = TryScriptEvolution;
-            else
-                gCB2_AfterEvolution = CB2_ReturnToField;
-            return;
-        }
-    }
-
-    sTriedEvolving = 0;
-    SetMainCallback2(CB2_ReturnToField);
-}
-
 void TrySpecialOverworldEvo(void)
 {
     u8 i;
-    bool32 canStopEvo = gSpecialVar_0x8001;
-    u16 tryMultiple = gSpecialVar_0x8002;
+    bool32 canStopEvo = FALSE;
 
     for (i = 0; i < PARTY_SIZE; i++)
     {
         enum Species targetSpecies = GetEvolutionTargetSpecies(&gParties[B_TRAINER_0][i], EVO_MODE_OVERWORLD_SPECIAL, 0, NULL, &canStopEvo, CHECK_EVO);
 
-        if (targetSpecies != SPECIES_NONE && !(sTriedEvolving & (1u << i)))
+        if (targetSpecies != SPECIES_NONE && !(gTriedEvolving & (1u << i)))
         {
             GetEvolutionTargetSpecies(&gParties[B_TRAINER_0][i], EVO_MODE_OVERWORLD_SPECIAL, 0, NULL, &canStopEvo, DO_EVO);
-            sTriedEvolving |= 1u << i;
+            gTriedEvolving |= 1u << i;
+
             if (gMain.callback2 == TrySpecialOverworldEvo) // This fixes small graphics glitches.
                 EvolutionScene(&gParties[B_TRAINER_0][i], targetSpecies, canStopEvo, i);
             else
                 BeginEvolutionScene(&gParties[B_TRAINER_0][i], targetSpecies, canStopEvo, i);
 
-            if (tryMultiple)
-                gCB2_AfterEvolution = TrySpecialOverworldEvo;
-            else
-                gCB2_AfterEvolution = CB2_ReturnToField;
+            gCB2_AfterEvolution = TrySpecialOverworldEvo;
             return;
         }
     }
 
-    sTriedEvolving = 0;
+    gTriedEvolving = 0;
     SetMainCallback2(CB2_ReturnToField);
 }
 
@@ -6298,6 +6201,7 @@ u32 GiveScriptedMonToPlayer(struct Pokemon *mon, u8 slot)
         HandleSetPokedexFlagFromMon(mon, FLAG_SET_SEEN);
         HandleSetPokedexFlagFromMon(mon, FLAG_SET_CAUGHT);
     }
+    CalculatePlayerPartyCount();
     return sentToPc;
 }
 

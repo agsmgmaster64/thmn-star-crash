@@ -116,11 +116,7 @@ BattleScript_EffectTidyUp::
 	attackcanceler
 	pause B_WAIT_TIME_MED
 	waitstate
-	saveattacker
-	savetarget
 	trytidyup FALSE, BattleScript_EffectTidyUpDoMoveAnimation
-	restoreattacker
-	restoretarget
 	goto BattleScript_EffectDragonDanceFromStatUp
 
 BattleScript_EffectTidyUpDoMoveAnimation::
@@ -129,8 +125,6 @@ BattleScript_EffectTidyUpDoMoveAnimation::
 	trytidyup TRUE, NULL
 	printstring STRINGID_TIDYINGUPCOMPLETE
 	waitmessage B_WAIT_TIME_LONG
-	restoreattacker
-	restoretarget
 	goto BattleScript_EffectDragonDanceFromStatUp
 
 BattleScript_EffectShedTail::
@@ -1312,9 +1306,7 @@ BattleScript_DefogPrintString::
 	printfromtable gStatDownStringIds
 	waitmessage B_WAIT_TIME_LONG
 BattleScript_DefogTryHazards:
-	copybyte gEffectBattler, gBattlerAttacker
 	trydefog TRUE, NULL
-	copybyte gBattlerAttacker, gEffectBattler
 	goto BattleScript_MoveEnd
 BattleScript_DefogTryHazardsWithAnim:
 	attackanimation
@@ -1322,9 +1314,7 @@ BattleScript_DefogTryHazardsWithAnim:
 	goto BattleScript_DefogTryHazards
 
 BattleScript_MoveEffectDefog::
-	saveattacker
 	trydefog TRUE, NULL
-	restoreattacker
 	return
 
 BattleScript_EffectInstruct::
@@ -4551,12 +4541,10 @@ BattleScript_OverworldHazard::
 	end3
 
 BattleScript_SideStatusWoreOff::
+    saveattacker
+    copybyte gBattlerAttacker, sBATTLER
 	printstring STRINGID_PKMNSXWOREOFF
-	waitmessage B_WAIT_TIME_LONG
-	return
-
-BattleScript_SideStatusWoreOffReturn::
-	printstring STRINGID_PKMNSXWOREOFF
+    restoreattacker
 	waitmessage B_WAIT_TIME_LONG
 	return
 
@@ -4595,17 +4583,13 @@ BattleScript_MagicRoomHealingItemsLoop:
 BattleScript_InverseRoomEnds::
 	printstring STRINGID_INVERSEROOMENDS
 	waitmessage B_WAIT_TIME_LONG
-	end2
-
-BattleScript_TerrainEnds_Ret::
-	printfromtable gTerrainStringIds
-	waitmessage B_WAIT_TIME_LONG
-	playanimation BS_ATTACKER, B_ANIM_RESTORE_BG
-	tryboosterenergy ON_TERRAIN
 	return
 
 BattleScript_TerrainEnds::
-	call BattleScript_TerrainEnds_Ret
+	printfromtable gTerrainStringIds
+	waitmessage B_WAIT_TIME_LONG
+	playanimation BS_SCRIPTING, B_ANIM_RESTORE_BG
+	tryboosterenergy ON_TERRAIN
 	return
 
 BattleScript_MudSportEnds::
@@ -5074,11 +5058,14 @@ BattleScript_LeechSeedFree::
 
 BattleScript_RemoveHazards::
 	jumpifbyte CMP_NOT_EQUAL, cMULTISTRING_CHOOSER, HAZARDS_STICKY_WEB, BattleScript_RemoveHazardsCont
-	jumpifside BS_ATTACKER, B_SIDE_OPPONENT, BattleScript_RemoveHazardsCont
+	jumpifside BS_SCRIPTING, B_SIDE_OPPONENT, BattleScript_RemoveHazardsCont
 	printstring STRINGID_STICKYWEBDISAPPEAREDFROMYOU
 	goto BattleScript_RemoveHazardsRet
 BattleScript_RemoveHazardsCont:
+    saveattacker
+    copybyte gBattlerAttacker, sBATTLER
 	printfromtable gRemoveHazardsStringIds
+    restoreattacker
 BattleScript_RemoveHazardsRet:
 	waitmessage B_WAIT_TIME_LONG
 	return
@@ -7191,7 +7178,7 @@ BattleScript_IgnoresAndHitsItself::
 	goto BattleScript_DoSelfConfusionDmg
 
 BattleScript_SubstituteFade::
-	playanimation BS_TARGET, B_ANIM_SUBSTITUTE_FADE
+	playanimation BS_SCRIPTING, B_ANIM_SUBSTITUTE_FADE
 	printstring STRINGID_PKMNSUBSTITUTEFADED
 	return
 
