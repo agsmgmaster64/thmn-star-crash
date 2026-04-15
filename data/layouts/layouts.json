@@ -5829,11 +5829,11 @@
       "id": "LAYOUT_APARTMENT_LIKE_CARPET",
       "name": "ApartmentLikeCarpet_Layout",
       "width": 40,
-      "height": 20,
+      "height": 24,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_GeneralFrlg",
-      "secondary_tileset": "gTileset_SeviiIslands123",
+      "secondary_tileset": "gTileset_Slateport",
       "border_filepath": "data/layouts/ApartmentLikeCarpet/border.bin",
       "blockdata_filepath": "data/layouts/ApartmentLikeCarpet/map.bin",
       "layout_version": "emerald"
@@ -5919,8 +5919,8 @@
     {
       "id": "LAYOUT_CARPET_TRAINING",
       "name": "CarpetTraining_Layout",
-      "width": 30,
-      "height": 30,
+      "width": 40,
+      "height": 16,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_RG_Building",
@@ -6530,7 +6530,7 @@
     {
       "id": "LAYOUT_LAVENDER_TOWN",
       "name": "LavenderTown_Layout",
-      "width": 24,
+      "width": 34,
       "height": 20,
       "border_width": 2,
       "border_height": 2,

@@ -1267,7 +1267,6 @@ const u16 gItemIconPalette_ChinaDress[] = INCBIN_U16("graphics/items/icon_palett
 const u32 gItemIcon_NurseOutfit[] = INCBIN_U32("graphics/items/icons/nurse_outfit.4bpp.smol");
 const u16 gItemIconPalette_NurseOutfit[] = INCBIN_U16("graphics/items/icon_palettes/nurse_outfit.gbapal");
 
-const u32 gItemIcon_Sand[] = INCBIN_U32("graphics/items/icons/sand.4bpp.smol");
 const u32 gItemIcon_GymSuit[] = INCBIN_U32("graphics/items/icons/gym_suit.4bpp.smol");
 const u16 gItemIconPalette_GymSuit[] = INCBIN_U16("graphics/items/icon_palettes/gym_suit.gbapal");
 
@@ -1296,6 +1295,47 @@ const u32 gItemIcon_MaidUniform[] = INCBIN_U32("graphics/items/icons/maid_unifor
 const u16 gItemIconPalette_MaidUniform[] = INCBIN_U16("graphics/items/icon_palettes/maid_uniform.gbapal");
 
 // Alternate type-boosting items
+
+const u32 gItemIcon_Charcoal[] = INCBIN_U32("graphics/items/icons/charcoal.4bpp.smol");
+const u16 gItemIconPalette_Charcoal[] = INCBIN_U16("graphics/items/icon_palettes/charcoal.gbapal");
+
+const u32 gItemIcon_MysticWater[] = INCBIN_U32("graphics/items/icons/mystic_water.4bpp.smol");
+const u16 gItemIconPalette_MysticWater[] = INCBIN_U16("graphics/items/icon_palettes/mystic_water.gbapal");
+
+const u32 gItemIcon_Magnet[] = INCBIN_U32("graphics/items/icons/magnet.4bpp.smol");
+const u16 gItemIconPalette_Magnet[] = INCBIN_U16("graphics/items/icon_palettes/magnet.gbapal");
+
+const u32 gItemIcon_MiracleSeed[] = INCBIN_U32("graphics/items/icons/miracle_seed.4bpp.smol");
+const u16 gItemIconPalette_MiracleSeed[] = INCBIN_U16("graphics/items/icon_palettes/miracle_seed.gbapal");
+
+const u32 gItemIcon_NeverMeltIce[] = INCBIN_U32("graphics/items/icons/never_melt_ice.4bpp.smol");
+const u16 gItemIconPalette_NeverMeltIce[] = INCBIN_U16("graphics/items/icon_palettes/never_melt_ice.gbapal");
+
+const u32 gItemIcon_BlackBelt[] = INCBIN_U32("graphics/items/icons/black_belt.4bpp.smol");
+
+const u32 gItemIcon_PoisonBarb[] = INCBIN_U32("graphics/items/icons/poison_barb.4bpp.smol");
+const u16 gItemIconPalette_PoisonBarb[] = INCBIN_U16("graphics/items/icon_palettes/poison_barb.gbapal");
+
+const u32 gItemIcon_Sand[] = INCBIN_U32("graphics/items/icons/sand.4bpp.smol");
+const u16 gItemIconPalette_SoftSand[] = INCBIN_U16("graphics/items/icon_palettes/soft_sand.gbapal");
+
+const u32 gItemIcon_SharpBeak[] = INCBIN_U32("graphics/items/icons/sharp_beak.4bpp.smol");
+const u16 gItemIconPalette_SharpBeak[] = INCBIN_U16("graphics/items/icon_palettes/sharp_beak.gbapal");
+
+const u32 gItemIcon_TwistedSpoon[] = INCBIN_U32("graphics/items/icons/twisted_spoon.4bpp.smol");
+const u16 gItemIconPalette_TwistedSpoon[] = INCBIN_U16("graphics/items/icon_palettes/twisted_spoon.gbapal");
+
+const u32 gItemIcon_SpellTag[] = INCBIN_U32("graphics/items/icons/spell_tag.4bpp.smol");
+const u16 gItemIconPalette_SpellTag[] = INCBIN_U16("graphics/items/icon_palettes/spell_tag.gbapal");
+
+const u32 gItemIcon_BeastClaw[] = INCBIN_U32("graphics/items/icons/beast_claw.4bpp.smol");
+const u16 gItemIconPalette_BeastClaw[] = INCBIN_U16("graphics/items/icon_palettes/beast_claw.gbapal");
+
+const u32 gItemIcon_LoveLetter[] = INCBIN_U32("graphics/items/icons/love_letter.4bpp.smol");
+const u16 gItemIconPalette_LoveLetter[] = INCBIN_U16("graphics/items/icon_palettes/love_letter.gbapal");
+
+const u32 gItemIcon_QuestionArcs[] = INCBIN_U32("graphics/items/icons/question_arcs.4bpp.smol");
+const u16 gItemIconPalette_QuestionArcs[] = INCBIN_U16("graphics/items/icon_palettes/question_arcs.gbapal");
 
 const u32 gItemIcon_SharpSword[] = INCBIN_U32("graphics/items/icons/sharp_sword.4bpp.smol");
 const u16 gItemIconPalette_SharpSword[] = INCBIN_U16("graphics/items/icon_palettes/sharp_sword.gbapal");

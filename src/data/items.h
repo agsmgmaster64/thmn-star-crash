@@ -6357,6 +6357,296 @@ const struct ItemInfo gItemsInfo[] =
 
 // Alternate type-boosting items
 
+    [ITEM_QUESTION_ARCS] =
+    {
+        .name = ITEM_NAME("Question Arcs"),
+        .pluralName = ITEM_PLURAL_NAME("Question Arcs"),
+        .price = TYPE_BOOSTING_PRICE,
+        .holdEffect = HOLD_EFFECT_TYPE_POWER,
+        .holdEffectParam = TYPE_BOOST_PARAM,
+        .description = COMPOUND_STRING(
+            "A hold item that\n"
+            "raises the power of\n"
+            "Fire-type moves."),
+        .pocket = POCKET_BATTLE_ITEMS,
+        .sortType = ITEM_TYPE_TYPE_BOOST_HELD_ITEM,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .secondaryId = TYPE_ILLUSION,
+        .flingPower = 30,
+        .iconPic = gItemIcon_QuestionArcs,
+        .iconPalette = gItemIconPalette_QuestionArcs,
+    },
+
+    [ITEM_CHARCOAL] =
+    {
+        .name = ITEM_NAME("Charcoal"),
+        .price = TYPE_BOOSTING_PRICE,
+        .holdEffect = HOLD_EFFECT_TYPE_POWER,
+        .holdEffectParam = TYPE_BOOST_PARAM,
+        .description = COMPOUND_STRING(
+            "A hold item that\n"
+            "raises the power of\n"
+            "Fire-type moves."),
+        .pocket = POCKET_BATTLE_ITEMS,
+        .sortType = ITEM_TYPE_TYPE_BOOST_HELD_ITEM,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .secondaryId = TYPE_FIRE,
+        .flingPower = 30,
+        .iconPic = gItemIcon_Charcoal,
+        .iconPalette = gItemIconPalette_Charcoal,
+    },
+
+    [ITEM_MYSTIC_WATER] =
+    {
+        .name = ITEM_NAME("Mystic Water"),
+        .price = TYPE_BOOSTING_PRICE,
+        .holdEffect = HOLD_EFFECT_TYPE_POWER,
+        .holdEffectParam = TYPE_BOOST_PARAM,
+        .description = COMPOUND_STRING(
+            "A hold item that\n"
+            "raises the power of\n"
+            "Water-type moves."),
+        .pocket = POCKET_BATTLE_ITEMS,
+        .sortType = ITEM_TYPE_TYPE_BOOST_HELD_ITEM,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .secondaryId = TYPE_WATER,
+        .flingPower = 30,
+        .iconPic = gItemIcon_MysticWater,
+        .iconPalette = gItemIconPalette_MysticWater,
+    },
+
+    [ITEM_MAGNET] =
+    {
+        .name = ITEM_NAME("Magnet"),
+        .price = TYPE_BOOSTING_PRICE,
+        .holdEffect = HOLD_EFFECT_TYPE_POWER,
+        .holdEffectParam = TYPE_BOOST_PARAM,
+        .description = COMPOUND_STRING(
+            "A hold item that\n"
+            "boosts Electric-\n"
+            "type moves."),
+        .pocket = POCKET_BATTLE_ITEMS,
+        .sortType = ITEM_TYPE_TYPE_BOOST_HELD_ITEM,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .secondaryId = TYPE_ELECTRIC,
+        .flingPower = 30,
+        .iconPic = gItemIcon_Magnet,
+        .iconPalette = gItemIconPalette_Magnet,
+    },
+
+    [ITEM_MIRACLE_SEED] =
+    {
+        .name = ITEM_NAME("Miracle Seed"),
+        .price = TYPE_BOOSTING_PRICE,
+        .holdEffect = HOLD_EFFECT_TYPE_POWER,
+        .holdEffectParam = TYPE_BOOST_PARAM,
+        .description = sRoseIncenseDesc,
+        .pocket = POCKET_BATTLE_ITEMS,
+        .sortType = ITEM_TYPE_TYPE_BOOST_HELD_ITEM,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .secondaryId = TYPE_NATURE,
+        .flingPower = 30,
+        .iconPic = gItemIcon_MiracleSeed,
+        .iconPalette = gItemIconPalette_MiracleSeed,
+    },
+
+    [ITEM_NEVER_MELT_ICE] =
+    {
+        .name = ITEM_NAME("Never-Melt Ice"),
+        .price = TYPE_BOOSTING_PRICE,
+        .holdEffect = HOLD_EFFECT_TYPE_POWER,
+        .holdEffectParam = TYPE_BOOST_PARAM,
+        .description = COMPOUND_STRING(
+            "A hold item that\n"
+            "raises the power of\n"
+            "Ice-type moves."),
+        .pocket = POCKET_BATTLE_ITEMS,
+        .sortType = ITEM_TYPE_TYPE_BOOST_HELD_ITEM,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .secondaryId = TYPE_ICE,
+        .flingPower = 30,
+        .iconPic = gItemIcon_NeverMeltIce,
+        .iconPalette = gItemIconPalette_NeverMeltIce,
+    },
+
+    [ITEM_BLACK_BELT] =
+    {
+        .name = ITEM_NAME("Black Belt"),
+        .price = TYPE_BOOSTING_PRICE,
+        .holdEffect = HOLD_EFFECT_TYPE_POWER,
+        .holdEffectParam = TYPE_BOOST_PARAM,
+        .description = COMPOUND_STRING(
+            "A hold item that\n"
+            "boosts Fighting-\n"
+            "type moves."),
+        .pocket = POCKET_BATTLE_ITEMS,
+        .sortType = ITEM_TYPE_TYPE_BOOST_HELD_ITEM,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .secondaryId = TYPE_DREAM,
+        .flingPower = 30,
+        .iconPic = gItemIcon_BlackBelt,
+        .iconPalette = gItemIconPalette_BlackTypeEnhancingItem,
+    },
+
+    [ITEM_POISON_BARB] =
+    {
+        .name = ITEM_NAME("Poison Barb"),
+        .price = TYPE_BOOSTING_PRICE,
+        .holdEffect = HOLD_EFFECT_TYPE_POWER,
+        .holdEffectParam = TYPE_BOOST_PARAM,
+        .description = COMPOUND_STRING(
+            "A hold item that\n"
+            "raises the power of\n"
+            "Miasma-type moves."),
+        .pocket = POCKET_BATTLE_ITEMS,
+        .sortType = ITEM_TYPE_TYPE_BOOST_HELD_ITEM,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .secondaryId = TYPE_MIASMA,
+        .flingPower = 70,
+        .iconPic = gItemIcon_PoisonBarb,
+        .iconPalette = gItemIconPalette_PoisonBarb,
+    },
+
+    [ITEM_SOFT_SAND] =
+    {
+        .name = ITEM_NAME("Soft Sand"),
+        .pluralName = ITEM_PLURAL_NAME("Soft Sand"),
+        .price = TYPE_BOOSTING_PRICE,
+        .holdEffect = HOLD_EFFECT_TYPE_POWER,
+        .holdEffectParam = TYPE_BOOST_PARAM,
+        .description = COMPOUND_STRING(
+            "A hold item that\n"
+            "raises the power of\n"
+            "Earth-type moves."),
+        .pocket = POCKET_BATTLE_ITEMS,
+        .sortType = ITEM_TYPE_TYPE_BOOST_HELD_ITEM,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .secondaryId = TYPE_EARTH,
+        .flingPower = 10,
+        .iconPic = gItemIcon_Sand,
+        .iconPalette = gItemIconPalette_SoftSand,
+    },
+
+    [ITEM_SHARP_BEAK] =
+    {
+        .name = ITEM_NAME("Sharp Beak"),
+        .price = TYPE_BOOSTING_PRICE,
+        .holdEffect = HOLD_EFFECT_TYPE_POWER,
+        .holdEffectParam = TYPE_BOOST_PARAM,
+        .description = COMPOUND_STRING(
+            "A hold item that\n"
+            "raises the power of\n"
+            "Flying-type moves."),
+        .pocket = POCKET_BATTLE_ITEMS,
+        .sortType = ITEM_TYPE_TYPE_BOOST_HELD_ITEM,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .secondaryId = TYPE_FLYING,
+        .flingPower = 50,
+        .iconPic = gItemIcon_SharpBeak,
+        .iconPalette = gItemIconPalette_SharpBeak,
+    },
+
+    [ITEM_TWISTED_SPOON] =
+    {
+        .name = ITEM_NAME("Twisted Spoon"),
+        .price = TYPE_BOOSTING_PRICE,
+        .holdEffect = HOLD_EFFECT_TYPE_POWER,
+        .holdEffectParam = TYPE_BOOST_PARAM,
+        .description = sOddIncenseDesc,
+        .pocket = POCKET_BATTLE_ITEMS,
+        .sortType = ITEM_TYPE_TYPE_BOOST_HELD_ITEM,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .secondaryId = TYPE_REASON,
+        .flingPower = 30,
+        .iconPic = gItemIcon_TwistedSpoon,
+        .iconPalette = gItemIconPalette_TwistedSpoon,
+    },
+
+    [ITEM_LOVE_LETTER] =
+    {
+        .name = ITEM_NAME("Love Letter"),
+        .price = TYPE_BOOSTING_PRICE,
+        .holdEffect = HOLD_EFFECT_TYPE_POWER,
+        .holdEffectParam = TYPE_BOOST_PARAM,
+        .description = sOddIncenseDesc,
+        .pocket = POCKET_BATTLE_ITEMS,
+        .sortType = ITEM_TYPE_TYPE_BOOST_HELD_ITEM,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .secondaryId = TYPE_HEART,
+        .flingPower = 30,
+        .iconPic = gItemIcon_LoveLetter,
+        .iconPalette = gItemIconPalette_LoveLetter,
+    },
+
+    [ITEM_BEAST_CLAW] =
+    {
+        .name = ITEM_NAME("Beast Claw"),
+        .price = TYPE_BOOSTING_PRICE,
+        .holdEffect = HOLD_EFFECT_TYPE_POWER,
+        .holdEffectParam = TYPE_BOOST_PARAM,
+        .description = sOddIncenseDesc,
+        .pocket = POCKET_BATTLE_ITEMS,
+        .sortType = ITEM_TYPE_TYPE_BOOST_HELD_ITEM,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .secondaryId = TYPE_BEAST,
+        .flingPower = 30,
+        .iconPic = gItemIcon_BeastClaw,
+        .iconPalette = gItemIconPalette_BeastClaw,
+    },
+
+    [ITEM_SPELL_TAG] =
+    {
+        .name = ITEM_NAME("Spell Tag"),
+        .price = TYPE_BOOSTING_PRICE,
+        .holdEffect = HOLD_EFFECT_TYPE_POWER,
+        .holdEffectParam = TYPE_BOOST_PARAM,
+        .description = COMPOUND_STRING(
+            "A hold item that\n"
+            "raises the power of\n"
+            "Ghost-type moves."),
+        .pocket = POCKET_BATTLE_ITEMS,
+        .sortType = ITEM_TYPE_TYPE_BOOST_HELD_ITEM,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .secondaryId = TYPE_GHOST,
+        .flingPower = 30,
+        .iconPic = gItemIcon_SpellTag,
+        .iconPalette = gItemIconPalette_SpellTag,
+    },
+
+    [ITEM_SACRED_CHARM] =
+    {
+        .name = ITEM_NAME("Sarced Charm"),
+        .price = TYPE_BOOSTING_PRICE,
+        .holdEffect = HOLD_EFFECT_TYPE_POWER,
+        .holdEffectParam = TYPE_BOOST_PARAM,
+        .description = COMPOUND_STRING(
+            "A hold item that\n"
+            "raises the power of\n"
+            "Ghost-type moves."),
+        .pocket = POCKET_BATTLE_ITEMS,
+        .sortType = ITEM_TYPE_TYPE_BOOST_HELD_ITEM,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .secondaryId = TYPE_FAITH,
+        .flingPower = 30,
+        .iconPic = gItemIcon_SpellTag,
+        .iconPalette = gItemIconPalette_SpellTag,
+    },
+
     [ITEM_SHARP_SWORD] =
     {
         .name = ITEM_NAME("Sharp Sword"),

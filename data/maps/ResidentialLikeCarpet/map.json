@@ -16,7 +16,7 @@
   "connections": [
     {
       "map": "MAP_HOME_LIKE_CARPET",
-      "offset": -20,
+      "offset": -24,
       "direction": "left"
     }
   ],
