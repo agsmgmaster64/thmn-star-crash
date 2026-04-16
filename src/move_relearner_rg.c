@@ -593,10 +593,7 @@ static void DoMoveRelearnerMain(void)
         break;
     case MENU_STATE_FADE_AND_RETURN:
         BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 16, RGB_BLACK);
-        if (gRelearnMode == RELEARN_MODE_PARTY_MENU)
-            sMoveRelearnerStruct->state = MENU_STATE_RETURN_TO_PARTY_MENU;
-        else
-            sMoveRelearnerStruct->state = MENU_STATE_RETURN_TO_FIELD;
+        sMoveRelearnerStruct->state = MENU_STATE_RETURN_TO_FIELD;
         break;
     case MENU_STATE_RETURN_TO_FIELD:
         if (!gPaletteFade.active)
