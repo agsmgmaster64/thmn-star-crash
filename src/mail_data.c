@@ -78,7 +78,6 @@ u8 GiveMailToMonByItemId(struct Pokemon *mon, enum Item itemId)
 
 u8 GiveMailToMon(struct Pokemon *mon, struct Mail *mail)
 {
-    u8 heldItem[2];
     enum Item itemId = mail->itemId;
     u8 mailId = GiveMailToMonByItemId(mon, itemId);
 
@@ -86,14 +85,6 @@ u8 GiveMailToMon(struct Pokemon *mon, struct Mail *mail)
         return MAIL_NONE;
 
     gSaveBlock1Ptr->mail[mailId] = *mail;
-
-    SetMonData(mon, MON_DATA_MAIL, &mailId);
-
-    heldItem[0] = itemId;
-    heldItem[1] = itemId >> 8;
-
-    SetMonData(mon, MON_DATA_HELD_ITEM, heldItem);
-
     return mailId;
 }
 
