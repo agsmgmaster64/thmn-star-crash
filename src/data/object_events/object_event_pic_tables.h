@@ -1500,6 +1500,10 @@ static const struct SpriteFrameImage sPicTable_TokaiTeio[] = {
     overworld_ascending_frames(gObjectEventPic_TokaiTeio, 2, 4),
 };
 
+static const struct SpriteFrameImage sPicTable_NiceNature[] = {
+    overworld_ascending_frames(gObjectEventPic_NiceNature, 2, 4),
+};
+
 static const struct SpriteFrameImage sPicTable_ApricornTree[] = {
     overworld_frame(gObjectEventPic_ApricornTree, 2, 2, 0),
 };

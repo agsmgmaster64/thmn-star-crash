@@ -295,4 +295,52 @@ const struct Outfit gOutfits[OUTFIT_COUNT] =
         .iconsRM = { sRegionMapPlayerIcon_GigiGfx, sRegionMapPlayerIcon_GigiGfx },
         .iconsFP = sFrontierPassPlayerIcons_RSBrendanMay_Gfx,
     },
+    [OUTFIT_FRLG] = {
+        .isHidden = FALSE,
+        .prices = { 200, 200 },
+        .name = COMPOUND_STRING("Fire Red"),
+        .desc = COMPOUND_STRING("fire"),
+        .trainerPics = {
+            [MALE]   = TRAINER_PIC_RED,
+            [FEMALE] = TRAINER_PIC_LEAF,
+        },
+        .mugshotIds = {
+            [MALE] =   MUGSHOT_MARIBEL,
+            [FEMALE] = MUGSHOT_RENKO,
+        },
+        .avatarGfxIds = {
+           [MALE] = {
+               [PLAYER_AVATAR_STATE_NORMAL] =     OBJ_EVENT_GFX_RED_NORMAL,
+               [PLAYER_AVATAR_STATE_BIKE] =       OBJ_EVENT_GFX_RED_BIKE,
+               [PLAYER_AVATAR_STATE_SURFING] =    OBJ_EVENT_GFX_MARIBEL_SURFING,
+               [PLAYER_AVATAR_STATE_UNDERWATER] = OBJ_EVENT_GFX_MARIBEL_UNDERWATER
+           },
+           [FEMALE] = {
+               [PLAYER_AVATAR_STATE_NORMAL] =     OBJ_EVENT_GFX_GREEN_NORMAL,
+               [PLAYER_AVATAR_STATE_BIKE] =       OBJ_EVENT_GFX_GREEN_BIKE,
+               [PLAYER_AVATAR_STATE_SURFING] =    OBJ_EVENT_GFX_GREEN_SURF,
+               [PLAYER_AVATAR_STATE_UNDERWATER] = OBJ_EVENT_GFX_RENKO_UNDERWATER
+           },
+        },
+        .animGfxIds = {
+            [MALE] = {
+                [PLAYER_AVATAR_GFX_FIELD_MOVE] = OBJ_EVENT_GFX_RED_FIELD_MOVE,
+                [PLAYER_AVATAR_GFX_FISHING] =    OBJ_EVENT_GFX_RED_FISH,
+                [PLAYER_AVATAR_GFX_WATERING] =   OBJ_EVENT_GFX_MARIBEL_WATERING,
+                [PLAYER_AVATAR_GFX_DECORATING] = OBJ_EVENT_GFX_MARIBEL_DECORATING,
+                [PLAYER_AVATAR_GFX_VSSEEKER] =   OBJ_EVENT_GFX_RED_VS_SEEKER,
+                [PLAYER_AVATAR_GFX_VSSEEKER_BIKE] = OBJ_EVENT_GFX_RED_VS_SEEKER_BIKE
+            },
+            [FEMALE] = {
+                [PLAYER_AVATAR_GFX_FIELD_MOVE] = OBJ_EVENT_GFX_GREEN_FIELD_MOVE,
+                [PLAYER_AVATAR_GFX_FISHING] =    OBJ_EVENT_GFX_GREEN_FISH,
+                [PLAYER_AVATAR_GFX_WATERING] =   OBJ_EVENT_GFX_RENKO_WATERING,
+                [PLAYER_AVATAR_GFX_DECORATING] = OBJ_EVENT_GFX_RENKO_DECORATING,
+                [PLAYER_AVATAR_GFX_VSSEEKER] =   OBJ_EVENT_GFX_GREEN_VS_SEEKER,
+                [PLAYER_AVATAR_GFX_VSSEEKER_BIKE] = OBJ_EVENT_GFX_GREEN_VS_SEEKER_BIKE
+            },
+        },
+        .iconsRM = { sRegionMapPlayerIcon_MaribelGfx, sRegionMapPlayerIcon_RenkoGfx },
+        .iconsFP = sFrontierPassPlayerIcons_RSBrendanMay_Gfx,
+    },
 };

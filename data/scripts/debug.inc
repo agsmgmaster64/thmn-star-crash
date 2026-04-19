@@ -373,6 +373,7 @@ Debug_EventScript_Script_6_Mart:
 	.2byte OUTFIT_YOUNG_START
 	.2byte OUTFIT_ALTERED_YOUTH
 	.2byte OUTFIT_GIGI_MURIN
+	.2byte OUTFIT_FRLG
 	.2byte OUTFIT_NONE
 
 Debug_EventScript_Script_7::
