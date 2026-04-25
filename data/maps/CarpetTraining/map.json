@@ -16,32 +16,34 @@
   "connections": null,
   "object_events": [
     {
+      "local_id": "LOCALID_MANSION_TEIO",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_TOKAI_TEIO",
       "x": 18,
       "y": 11,
       "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_WALK_LEFT_AND_RIGHT",
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
-      "flag": "0"
+      "flag": "FLAG_TEMP_1"
     },
     {
+      "local_id": "LOCALID_MANSION_NATURE",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_NICE_NATURE",
-      "x": 18,
-      "y": 12,
+      "x": 17,
+      "y": 11,
       "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_WALK_RIGHT_AND_LEFT",
+      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
-      "flag": "0"
+      "script": "CarpetTraining_Script_Nature",
+      "flag": "FLAG_TEMP_2"
     }
   ],
   "warp_events": [
@@ -49,8 +51,8 @@
       "x": 19,
       "y": 14,
       "elevation": 0,
-      "dest_map": "MAP_HOME_LIKE_CARPET",
-      "dest_warp_id": "2"
+      "dest_map": "MAP_APARTMENT_LIKE_CARPET",
+      "dest_warp_id": "0"
     },
     {
       "x": 12,

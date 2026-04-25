@@ -8624,36 +8624,8 @@ gBattleAnimMove_HoldBack::
 	blendoff
 	end
 
-gBattleAnimMove_Infestation::
-	monbg ANIM_DEF_PARTNER
-	splitbgprio ANIM_TARGET
-	createvisualtask AnimTask_BlendBattleAnimPal, 10, F_PAL_TARGET, 2, 0, 9, RGB(0, 25, 28)
-	createvisualtask AnimTask_ShakeMon, 2, ANIM_TARGET, 3, 0, 79, 1
-	loopsewithpan SE_M_CHARGE, SOUND_PAN_ATTACKER, 0, 79
-	call InfestationVortex
-	call InfestationVortex
-	call InfestationVortex
-	call InfestationVortex
-	call InfestationVortex
-	waitforvisualfinish
-	createvisualtask AnimTask_BlendBattleAnimPal, 10, F_PAL_TARGET, 2, 9, 0, RGB(0, 25, 28)
-	waitforvisualfinish
-	clearmonbg ANIM_DEF_PARTNER
+gBattleAnimMove_AlluringSpin::
 	end
-InfestationVortex:
-	createsprite gInfestationBubbleTemplate, ANIM_TARGET, 2, 0, 28, 528, 30, 13, 50, 1
-	delay 1
-	createsprite gInfestationBubbleTemplate, ANIM_TARGET, 2, 0, 32, 480, 20, 16, -46, 1
-	delay 1
-	createsprite gInfestationBubbleTemplate, ANIM_TARGET, 2, 0, 33, 576, 20, 8, 42, 1
-	delay 1
-	createsprite gInfestationBubbleTemplate, ANIM_TARGET, 2, 0, 31, 400, 25, 11, -42, 1
-	delay 1
-	createsprite gInfestationBubbleTemplate, ANIM_TARGET, 2, 0, 28, 512, 25, 16, 46, 1
-	delay 1
-	createsprite gInfestationBubbleTemplate, ANIM_TARGET, 2, 0, 33, 464, 30, 15, -50, 1
-	delay 1
-	return
 
 gBattleAnimMove_PowerUpPunch::
 	monbg ANIM_TARGET
@@ -9788,55 +9760,35 @@ gBattleAnimMove_LaserFocus::
 	clearmonbg ANIM_ATTACKER
 	end
 
-gBattleAnimMove_GearUp::
-	createvisualtask AnimTask_BlendBattleAnimPal, 10, F_PAL_ATTACKER, 2, 0, 9, RGB(27, 28, 0)
-	createsprite gGearUpGearsTemplate, ANIM_ATTACKER, 2, 0, -24, 8, 140
-	playsewithpan SE_ROULETTE_BALL2, SOUND_PAN_ATTACKER
-	createsprite gSparkElectricitySpriteTemplate, ANIM_ATTACKER, 0, 32, 24, 190, 12, ANIM_ATTACKER, 1, 0
-	delay 0
-	createsprite gSparkElectricitySpriteTemplate, ANIM_ATTACKER, 0, 80, 24, 22, 12, ANIM_ATTACKER, 1, 0
-	createsprite gSparkElectricitySpriteTemplate, ANIM_ATTACKER, 0, 156, 24, 121, 13, ANIM_ATTACKER, 1, 1
-	delay 15
-	playsewithpan SE_ROULETTE_BALL2, SOUND_PAN_ATTACKER
-	createsprite gGearUpGearsTemplate, ANIM_ATTACKER, 2, 0, -24, 8, 140
-	createsprite gSparkElectricitySpriteTemplate, ANIM_ATTACKER, 0, 100, 24, 60, 10, ANIM_ATTACKER, 1, 0
-	createsprite gSparkElectricitySpriteTemplate, ANIM_ATTACKER, 0, 170, 24, 42, 11, ANIM_ATTACKER, 1, 1
-	delay 0
-	createsprite gSparkElectricitySpriteTemplate, ANIM_ATTACKER, 0, 238, 24, 165, 10, ANIM_ATTACKER, 1, 1
-	delay 15
-	playsewithpan SE_ROULETTE_BALL2, SOUND_PAN_ATTACKER
-	createsprite gGearUpGearsTemplate, ANIM_ATTACKER, 2, 0, -24, 8, 140
-	createsprite gSparkElectricitySpriteTemplate, ANIM_ATTACKER, 0, 32, 24, 190, 12, ANIM_ATTACKER, 1, 0
-	delay 0
-	createsprite gSparkElectricitySpriteTemplate, ANIM_ATTACKER, 0, 80, 24, 22, 12, ANIM_ATTACKER, 1, 0
-	createsprite gSparkElectricitySpriteTemplate, ANIM_ATTACKER, 0, 156, 24, 121, 13, ANIM_ATTACKER, 1, 1
-	delay 15
-	playsewithpan SE_ROULETTE_BALL2, SOUND_PAN_ATTACKER
-	call GearUpSparks
-	call GearUpSparks
-	call GearUpSparks
-	playsewithpan SE_ROULETTE_BALL2, SOUND_PAN_ATTACKER
-	createsprite gSparkElectricitySpriteTemplate, ANIM_ATTACKER, 0, 32, 24, 190, 12, ANIM_ATTACKER, 1, 0
-	delay 0
-	createsprite gSparkElectricitySpriteTemplate, ANIM_ATTACKER, 0, 80, 24, 22, 12, ANIM_ATTACKER, 1, 0
-	createsprite gSparkElectricitySpriteTemplate, ANIM_ATTACKER, 0, 156, 24, 121, 13, ANIM_ATTACKER, 1, 1
+gBattleAnimMove_MadHoney::
+	monbg ANIM_DEF_PARTNER
+	splitbgprio ANIM_TARGET
+	createvisualtask AnimTask_BlendBattleAnimPal, 10, F_PAL_TARGET, 2, 0, 9, RGB(0, 25, 28)
+	createvisualtask AnimTask_ShakeMon, 2, ANIM_TARGET, 3, 0, 79, 1
+	loopsewithpan SE_M_CHARGE, SOUND_PAN_ATTACKER, 0, 79
+	call InfestationVortex
+	call InfestationVortex
+	call InfestationVortex
+	call InfestationVortex
+	call InfestationVortex
 	waitforvisualfinish
-	createvisualtask AnimTask_BlendBattleAnimPal, 10, F_PAL_ATTACKER, 2, 9, 0, RGB(27, 28, 0)
+	createvisualtask AnimTask_BlendBattleAnimPal, 10, F_PAL_TARGET, 2, 9, 0, RGB(0, 25, 28)
 	waitforvisualfinish
+	clearmonbg ANIM_DEF_PARTNER
 	end
-GearUpSparks:
-	playsewithpan SE_ROULETTE_BALL2, SOUND_PAN_ATTACKER
-	createsprite gSparkElectricitySpriteTemplate, ANIM_ATTACKER, 0, 32, 24, 190, 12, ANIM_ATTACKER, 1, 0
-	delay 0
-	createsprite gSparkElectricitySpriteTemplate, ANIM_ATTACKER, 0, 80, 24, 22, 12, ANIM_ATTACKER, 1, 0
-	createsprite gSparkElectricitySpriteTemplate, ANIM_ATTACKER, 0, 156, 24, 121, 13, ANIM_ATTACKER, 1, 1
-	delay 15
-	playsewithpan SE_ROULETTE_BALL2, SOUND_PAN_ATTACKER
-	createsprite gSparkElectricitySpriteTemplate, ANIM_ATTACKER, 0, 100, 24, 60, 10, ANIM_ATTACKER, 1, 0
-	createsprite gSparkElectricitySpriteTemplate, ANIM_ATTACKER, 0, 170, 24, 42, 11, ANIM_ATTACKER, 1, 1
-	delay 0
-	createsprite gSparkElectricitySpriteTemplate, ANIM_ATTACKER, 0, 238, 24, 165, 10, ANIM_ATTACKER, 1, 1
-	delay 15
+InfestationVortex:
+	createsprite gInfestationBubbleTemplate, ANIM_TARGET, 2, 0, 28, 528, 30, 13, 50, 1
+	delay 1
+	createsprite gInfestationBubbleTemplate, ANIM_TARGET, 2, 0, 32, 480, 20, 16, -46, 1
+	delay 1
+	createsprite gInfestationBubbleTemplate, ANIM_TARGET, 2, 0, 33, 576, 20, 8, 42, 1
+	delay 1
+	createsprite gInfestationBubbleTemplate, ANIM_TARGET, 2, 0, 31, 400, 25, 11, -42, 1
+	delay 1
+	createsprite gInfestationBubbleTemplate, ANIM_TARGET, 2, 0, 28, 512, 25, 16, 46, 1
+	delay 1
+	createsprite gInfestationBubbleTemplate, ANIM_TARGET, 2, 0, 33, 464, 30, 15, -50, 1
+	delay 1
 	return
 
 gBattleAnimMove_ThroatChop::

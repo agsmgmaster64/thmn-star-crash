@@ -3451,7 +3451,7 @@ u32 AbilityBattleEffects(enum AbilityEffect caseID, enum BattlerId battler, enum
                 break;
             if (TryChangeBattleTerrain(battler, STATUS_FIELD_HOLY_TERRAIN))
             {
-                BattleScriptPushCursorAndCallback(BattleScript_HolySurgeActivates);
+                BattleScriptCall(BattleScript_HolySurgeActivates);
                 effect++;
             }
             break;
@@ -3645,6 +3645,15 @@ u32 AbilityBattleEffects(enum AbilityEffect caseID, enum BattlerId battler, enum
 
                 SET_STATCHANGER(stat, 1, FALSE);
                 BattleScriptCall(BattleScript_BattlerAbilityStatRaiseOnSwitchIn);
+                effect++;
+            }
+            break;
+        case ABILITY_HONEY_GATHER:
+            if (shouldAbilityTrigger
+             && GetMonData(GetBattlerMon(battler), MON_DATA_HELD_ITEM) == ITEM_NONE)
+            {
+                gLastUsedItem = ITEM_HONEY;
+                BattleScriptCall(BattleScript_HoneyGatherActivatesEntry);
                 effect++;
             }
             break;

@@ -846,6 +846,14 @@ const struct BattleMoveEffect gBattleMoveEffects[NUM_BATTLE_MOVE_EFFECTS] =
         .encourageEncore = TRUE,
     },
 
+    [EFFECT_HONEYBOILED] =
+    {
+        .battleScript = BattleScript_EffectHoneyboiled,
+        .battleTvScore = 1,
+        .battleFactoryStyle = FACTORY_STYLE_ENDURANCE,
+        .encourageEncore = TRUE,
+    },
+
     [EFFECT_FIRST_TURN_ONLY] =
     {
         .battleScript = BattleScript_EffectHit,

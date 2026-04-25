@@ -218,6 +218,61 @@ const struct SpeciesInfo gSpeciesInfoMiscellaneous[] =
         .teachableLearnset = sBlisseaTeachableLearnset,
     },
 
+    [SPECIES_BEESINEY] =
+    {
+        .baseHP        = 200,
+        .baseAttack    = 10,
+        .baseDefense   = 100,
+        .baseSpeed     = 85,
+        .baseSpAttack  = 10,
+        .baseSpDefense = 45,
+        .types = MON_TYPES(TYPE_NATURE),
+        .catchRate = 45,
+        .expYield = 608,
+        .evYield_HP = 3,
+        .genderRatio = MON_FEMALE,
+        .eggCycles = 20,
+        .friendship = STANDARD_FRIENDSHIP,
+        .growthRate = GROWTH_FAST,
+        .eggGroups = MON_EGG_GROUPS(EGG_GROUP_FAIRY),
+        .abilities = { ABILITY_HONEY_GATHER, ABILITY_NONE, ABILITY_NONE },
+        .sourceGame = SOURCE_OTHER,
+        .speciesName = _("Beesiney"),
+        .cryId = CRY_BASINEY,
+        .natDexNum = NATIONAL_DEX_BLISSEA,
+        .categoryName = _("Bulb"),
+        .height = 5,
+        .weight = 66,
+        .description = COMPOUND_STRING(
+            "By pruning the leaves on its head with\n"
+            "regularity, this Pokémon can be grown\n"
+            "into a fine plump shape. These bitter\n"
+            "leaves refresh those who eat them."),
+        .pokemonScale = 432,
+        .pokemonOffset = 13,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+        .frontPic = gMonFrontPic_Blissea,
+        .frontPicSize = MON_COORDS_SIZE(64, 64),
+        .frontPicYOffset = 12,
+        .frontAnimFrames = sAnims_GenericBlinkingAnim,
+        .frontAnimId = ANIM_H_JUMPS_V_STRETCH,
+        .enemyMonElevation = 7,
+        .backPic = gMonBackPic_Blissea,
+        .backPicSize = MON_COORDS_SIZE(64, 64),
+        .backPicYOffset = 0,
+        .backAnimId = BACK_ANIM_V_STRETCH,
+        .palette = gMonPalette_Blissea,
+        .shinyPalette = gMonShinyPalette_Blissea,
+        .iconSprite = gMonIcon_Blissea,
+        .iconPalIndex = 3,
+        SHADOW(0, 8, SHADOW_SIZE_L)
+        FOOTPRINT(Blissea)
+        .teachingType = TM_ILLITERATE,
+        .levelUpLearnset = sBeesineyLevelUpLearnset,
+        .teachableLearnset = sBeesineyTeachableLearnset,
+    },
+
 #ifdef __INTELLISENSE__
 };
 #endif

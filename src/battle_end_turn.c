@@ -498,6 +498,36 @@ static bool32 HandleEndTurnLeechSeed(enum BattlerId battler)
     return effect;
 }
 
+static bool32 HandleEndTurnHoneyChip(enum BattlerId battler)
+{
+    bool32 effect = FALSE;
+
+    gBattleStruct->eventState.endTurnBattler++;
+
+    if (gBattleMons[battler].volatiles.honeyChip
+     && IsBattlerPresent(battler))
+    {
+        if (gBattleMons[battler].volatiles.honeyChipTimer != 0)
+        {
+            gBattleMons[battler].volatiles.honeyChipTimer--;
+            if (gBattleMons[battler].volatiles.healBlock
+             || IsBattlerAtMaxHp(battler))
+                return effect;
+            SetHealAmount(battler, GetNonDynamaxMaxHP(battler) / 5);
+            BattleScriptCall(BattleScript_HoneyChipHeal);
+            effect = TRUE;
+        }
+        else
+        {
+            gBattleMons[battler].volatiles.honeyChip = FALSE;
+            BattleScriptCall(BattleScript_HoneyChipEnds);
+            effect = TRUE;
+        }
+    }
+
+    return effect;
+}
+
 static bool32 HandleEndTurnPoison(enum BattlerId battler)
 {
     bool32 effect = FALSE;
@@ -1531,6 +1561,7 @@ static bool32 (*const sEndTurnEffectHandlers[])(enum BattlerId battler) =
     [ENDTURN_AQUA_RING] = HandleEndTurnAquaRing,
     [ENDTURN_INGRAIN] = HandleEndTurnIngrain,
     [ENDTURN_LEECH_SEED] = HandleEndTurnLeechSeed,
+    [ENDTURN_HONEY_CHIP] = HandleEndTurnHoneyChip,
     [ENDTURN_POISON] = HandleEndTurnPoison,
     [ENDTURN_BURN] = HandleEndTurnBurn,
     [ENDTURN_FROSTBITE] = HandleEndTurnFrostbite,

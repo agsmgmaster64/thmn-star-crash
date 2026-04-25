@@ -13219,22 +13219,24 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .battleAnimScript = gBattleAnimMove_Incinerate,
     },
 
-    [MOVE_QUASH] =
+    [MOVE_HONEYBOILED] =
     {
-        .name = COMPOUND_STRING("Quash"),
+        .name = COMPOUND_STRING("Honeyboiled"),
         .description = COMPOUND_STRING(
-            "Suppresses the foe, making\n"
-            "it move last."),
-        .effect = EFFECT_QUASH,
+            "Recovers up to half the\n"
+            "user's maximum HP."),
+        .effect = EFFECT_HONEYBOILED,
         .power = 0,
-        .type = TYPE_DARK,
-        .accuracy = 100,
-        .pp = 15,
-        .target = TARGET_SELECTED,
+        .type = TYPE_NATURE,
+        .accuracy = 0,
+        .pp = 10,
+        .target = TARGET_USER,
         .priority = 0,
         .category = DAMAGE_CATEGORY_STATUS,
-        .zMove = { .effect = Z_EFFECT_SPD_UP_1 },
-        .metronomeBanned = TRUE,
+        .zMove = { .effect = Z_EFFECT_RESET_STATS },
+        .healingMove = TRUE,
+        .ignoresProtect = TRUE,
+        .mirrorMoveBanned = TRUE,
         .contestEffect = CONTEST_EFFECT_NEXT_APPEAL_EARLIER,
         .contestCategory = CONTEST_CATEGORY_SMART,
         .contestComboStarterId = 0,
@@ -15443,28 +15445,30 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .battleAnimScript = gBattleAnimMove_VenomDrench,
     },
 
-    [MOVE_POWDER] =
+    [MOVE_STOCKPILE] =
     {
-        .name = COMPOUND_STRING("Powder"),
+        .name = COMPOUND_STRING("Stockpile"),
         .description = COMPOUND_STRING(
-            "Damages the foe if it uses\n"
-            "a Fire-type move."),
-        .effect = EFFECT_POWDER,
+            "Charges up power for up to\n"
+            "3 turns."),
+        .effect = EFFECT_STOCKPILE,
         .power = 0,
-        .type = TYPE_HEART,
-        .accuracy = 100,
-        .pp = 20,
-        .target = TARGET_SELECTED,
-        .priority = 1,
+        .type = TYPE_ILLUSION,
+        .accuracy = 0,
+        .pp = B_UPDATED_MOVE_DATA >= GEN_4 ? 20 : 10,
+        .target = TARGET_USER,
+        .priority = 0,
         .category = DAMAGE_CATEGORY_STATUS,
-        .zMove = { .effect = Z_EFFECT_SPDEF_UP_2 },
-        .powderMove = TRUE,
-        .magicCoatAffected = TRUE,
-        .contestEffect = CONTEST_EFFECT_DONT_EXCITE_AUDIENCE, //CONTEST_EFFECT_QUICKLY_GROW_BORED
-        .contestCategory = CONTEST_CATEGORY_SMART,
-        .contestComboStarterId = 0,
+        .zMove = { .effect = Z_EFFECT_RECOVER_HP },
+        .snatchAffected = TRUE,
+        .ignoresProtect = TRUE,
+        .mirrorMoveBanned = TRUE,
+        .contestEffect = C_UPDATED_MOVE_EFFECTS >= GEN_6 ? CONTEST_EFFECT_IMPROVE_CONDITION_PREVENT_NERVOUSNESS : CONTEST_EFFECT_AVOID_STARTLE_ONCE,
+        .contestCategory = CONTEST_CATEGORY_TOUGH,
+        .contestComboStarterId = COMBO_STARTER_STOCKPILE,
         .contestComboMoves = {0},
         .battleAnimScript = gBattleAnimMove_Powder,
+        .validApprenticeMove = TRUE,
     },
 
     [MOVE_GEOMANCY] =
@@ -15747,7 +15751,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .contestCategory = CONTEST_CATEGORY_CUTE,
         .contestComboStarterId = 0,
         .contestComboMoves = {0},
-        .battleAnimScript = gBattleAnimMove_Infestation,
+        .battleAnimScript = gBattleAnimMove_AlluringSpin,
     },
 
     [MOVE_POWER_UP_PUNCH] =
@@ -16376,30 +16380,32 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .battleAnimScript = gBattleAnimMove_LaserFocus,
     },
 
-    [MOVE_GEAR_UP] =
+    [MOVE_MAD_HONEY] =
     {
-        .name = COMPOUND_STRING("Gear Up"),
+        .name = COMPOUND_STRING("Mad Honey"),
         .description = COMPOUND_STRING(
-            "Boosts the attacks of\n"
-            "those with Plus or Minus."),
-        .effect = EFFECT_GEAR_UP,
-        .power = 0,
-        .type = TYPE_STEEL,
-        .accuracy = 0,
-        .pp = 20,
-        .target = TARGET_USER,
+            "Traps the foe in a vortex\n"
+            "of fire for "BINDING_TURNS" turns."),
+        .effect = EFFECT_HIT,
+        .power = 20,
+        .type = TYPE_NATURE,
+        .accuracy = 100,
+        .pp = 10,
+        .target = TARGET_SELECTED,
         .priority = 0,
-        .category = DAMAGE_CATEGORY_STATUS,
-        .zMove = { .effect = Z_EFFECT_SPATK_UP_1 },
-        .snatchAffected = TRUE,
-        .ignoresProtect = TRUE,
-        .ignoresSubstitute = TRUE,
-        .mirrorMoveBanned = TRUE,
+        .category = DAMAGE_CATEGORY_PHYSICAL,
+        .additionalEffects = ADDITIONAL_EFFECTS({
+            .moveEffect = MOVE_EFFECT_WRAP,
+            .multistring.wrapped = B_MSG_WRAPPED_MAD_HONEY,
+        },
+        {
+            .moveEffect = MOVE_EFFECT_MAD_HONEY,
+        }),
         .contestEffect = CONTEST_EFFECT_IMPROVE_CONDITION_PREVENT_NERVOUSNESS,
         .contestCategory = CONTEST_CATEGORY_SMART,
         .contestComboStarterId = 0,
         .contestComboMoves = {0},
-        .battleAnimScript = gBattleAnimMove_GearUp,
+        .battleAnimScript = gBattleAnimMove_MadHoney,
     },
 
     [MOVE_THROAT_CHOP] =

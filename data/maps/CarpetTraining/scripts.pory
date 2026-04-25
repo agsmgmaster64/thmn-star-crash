@@ -1,1 +1,92 @@
 mapscripts CarpetTraining_MapScripts {}
+
+script CarpetTraining_Script_Nature {
+	lock
+	applymovement(LOCALID_MANSION_TEIO, moves(
+		walk_in_place_left * 3))
+	waitmovement(0)
+	msgbox(format("{SPEAKER NAME_TEIO}Hey Nature-san.\p"
+		"We should try and find some honey together here.\p"
+		"I heard there was a monster who happens to make the best honey out there."))
+	closemessage
+	applymovement(LOCALID_MANSION_NATURE, moves(
+		walk_in_place_right * 2))
+	waitmovement(0)
+	msgbox(format("{SPEAKER NAME_NICE_NATURE}A monster?\p"
+		"You sure that's safe to try and go get honey from such a thing?"))
+	closemessage
+	applymovement(LOCALID_MANSION_TEIO, moves(
+		walk_in_place_left * 2))
+	waitmovement(0)
+	msgbox(format("{SPEAKER NAME_TEIO}Relax, we're uma musume here.\p"
+		"We have the power to try and beat up the bee monster if things go bad.\p"
+		"Tokai Teio won't go down against a bee monster after all, if it means we get honey!"))
+	closemessage
+	applymovement(LOCALID_MANSION_NATURE, moves(
+		walk_in_place_up * 2))
+	waitmovement(0)
+	msgbox(format("{SPEAKER NAME_NICE_NATURE}You know, we could just ask McQueen to bring us honey if you really want some.\p"
+		"I'm sure she wouldn't mind us getting some, or at the very least, she would mind more if we went to get honey from there instead."))
+	closemessage
+	applymovement(LOCALID_MANSION_NATURE, moves(
+		walk_in_place_fast_right))
+	applymovement(LOCALID_MANSION_TEIO, moves(
+		walk_in_place_faster_left * 6))
+	waitmovement(0)
+	msgbox(format("{SPEAKER NAME_TEIO}Nature-san, you don't understand.\p"
+		"This isn't just about getting honey here, we're getting honey from the bee monster known as Beesiney!\p"
+		"You're not just gonna turn down trying to meet the mythical Beesiney, are you?"))
+	closemessage
+	applymovement(LOCALID_MANSION_NATURE, moves(
+		walk_in_place_right * 2))
+	waitmovement(0)
+	msgbox(format("{SPEAKER NAME_NICE_NATURE}Well, uhh\."))
+	closemessage
+	applymovement(LOCALID_MANSION_NATURE, moves(
+		walk_in_place_down * 2))
+	waitmovement(0)
+	msgbox(format("{SPEAKER NAME_NICE_NATURE}Hey, you seem to be eavesdropping us here, you mind if you help us out with this?"), MSGBOX_YESNO)
+	if (var(VAR_RESULT) == 0) {
+		msgbox(format("Well, too bad, you're too invested to not just help us out now!"))
+	} else {
+		msgbox(format("Great, we got someone else to help us out here!"))
+	}
+	closemessage
+	applymovement(LOCALID_MANSION_NATURE, moves(
+		walk_in_place_right * 2))
+	waitmovement(0)
+	msgbox(format("{SPEAKER NAME_NICE_NATURE}So I guess it's good for us to go see that monster and get its honey now, isn't it, Teio?"))
+	closemessage
+	applymovement(LOCALID_MANSION_NATURE, moves(
+		walk_in_place_fast_down))
+	applymovement(LOCALID_MANSION_TEIO, moves(
+		walk_in_place_faster_down * 6))
+	waitmovement(0)
+	msgbox(format("{SPEAKER NAME_TEIO}Nice, you won't regret us trying to get the honey then!\p"
+		"I'll let you even have a good chunk of your own as thanks for it!\p"
+		"We'll meet you outside, I know where the monster Beesiney is at!"))
+	closemessage
+	applymovement(LOCALID_MANSION_NATURE, moves(
+		walk_in_place_fast_right))
+	applymovement(LOCALID_MANSION_TEIO, moves(
+		walk_fast_right
+		walk_fast_down * 3))
+	waitmovement(0)
+	removeobject(LOCALID_MANSION_TEIO)
+	playse(SE_EXIT)
+	waitse
+	applymovement(LOCALID_MANSION_NATURE, moves(
+		walk_in_place_fast_down))
+	waitmovement(0)
+	msgbox(format("{SPEAKER NAME_NICE_NATURE}I hope you know how to try and do something against the monster here."))
+	closemessage
+	applymovement(LOCALID_MANSION_NATURE, moves(
+		walk_right * 2
+		walk_down * 3))
+	waitmovement(0)
+	removeobject(LOCALID_MANSION_NATURE)
+	playse(SE_EXIT)
+	waitse
+	release
+	end
+}

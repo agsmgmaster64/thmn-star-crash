@@ -34,6 +34,7 @@ enum SpeakerNames {
     SP_NAME_AXIS,
     SP_NAME_MCQUEEN,
     SP_NAME_TEIO,
+    SP_NAME_NICE_NATURE,
     SP_NAME_COUNT
 };
 

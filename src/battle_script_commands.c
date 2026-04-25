@@ -3207,6 +3207,21 @@ void SetMoveEffect(enum BattlerId battlerAtk, enum BattlerId effectBattler, enum
             }
         }
         break;
+    case MOVE_EFFECT_MAD_HONEY:
+        if (gBattleMons[battlerAtk].item == ITEM_HONEY)
+        {
+            gLastUsedItem = gBattleMons[battlerAtk].item;
+            if (IsMoveEffectBlockedByTarget(abilities[effectBattler]))
+            {
+                BattleScriptPush(battleScript);
+                gBattlescriptCurrInstr = BattleScript_FlingBlockedByShieldDust;
+                break;
+            }
+            BattleScriptPush(battleScript);
+            gBattlescriptCurrInstr = BattleScript_RemoveItem;
+            SetMoveEffect(battlerAtk, effectBattler, MOVE_EFFECT_TOXIC, gBattlescriptCurrInstr, NO_FLAGS);
+        }
+        break;
     case MOVE_EFFECT_FLING:
         if (CanFling(battlerAtk, abilities[battlerAtk]) || gBattleStruct->flungItem == FLUNG_ITEM_REMOVED)
         {
@@ -10383,11 +10398,8 @@ static void Cmd_pickup(void)
                 && species != SPECIES_EGG
                 && heldItem == ITEM_NONE)
             {
-                if ((lvlDivBy10 + 1 ) * 5 > Random() % 100)
-                {
-                    heldItem = ITEM_HONEY;
-                    SetMonData(&gParties[B_TRAINER_0][i], MON_DATA_HELD_ITEM, &heldItem);
-                }
+                heldItem = ITEM_HONEY;
+                SetMonData(&gParties[B_TRAINER_0][i], MON_DATA_HELD_ITEM, &heldItem);
             }
             else if (P_SHUCKLE_BERRY_JUICE == GEN_2
                 && species == SPECIES_ATTACK_UTSUHO
@@ -12209,6 +12221,40 @@ void BS_TryEarlyBirdHeal(void)
         gLastUsedAbility = ABILITY_EARLY_BIRD;
         RecordAbilityBattle(battler, gLastUsedAbility);
         gBattlerAbility = battler;
+    }
+    else
+    {
+        gBattlescriptCurrInstr = cmd->jumpInstr;
+    }
+}
+
+void BS_TryHoneyBoiledHeal(void)
+{
+    NATIVE_ARGS(u8 battler, const u8 *jumpInstr);
+    u32 battler = GetBattlerForBattleScript(cmd->battler);
+
+    if (!IsBattlerAtMaxHp(battler) && !gBattleMons[gBattlerAttacker].volatiles.healBlock)
+    {
+        SetHealAmount(battler, 35 * GetNonDynamaxMaxHP(battler) / 100);
+        gBattlescriptCurrInstr = cmd->nextInstr;
+    }
+    else
+    {
+        gBattlescriptCurrInstr = cmd->jumpInstr;
+    }
+}
+
+void BS_TryHoneyChipHeal(void)
+{
+    NATIVE_ARGS(u8 battler, const u8 *jumpInstr);
+    u32 battler = GetBattlerForBattleScript(cmd->battler);
+
+    if (!gBattleMons[battler].volatiles.honeyChip
+     && GetMonData(GetBattlerMon(battler), MON_DATA_HELD_ITEM) == ITEM_HONEY)
+    {
+        gBattleMons[battler].volatiles.honeyChip = TRUE;
+        gBattleMons[battler].volatiles.honeyChipTimer = B_HONEY_CHIP_TIMER;
+        gBattlescriptCurrInstr = cmd->nextInstr;
     }
     else
     {

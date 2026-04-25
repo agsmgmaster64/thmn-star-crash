@@ -477,6 +477,7 @@ NAME_PLAYER = 02
 NAME_UFO_TRADER = 05
 NAME_MCQUEEN = 1E
 NAME_TEIO = 1F
+NAME_NICE_NATURE = 20
 
 @ these are basically what include/constants/field_mugshots.h have
 @ but without the x_COUNT and x_NONE ones for strings

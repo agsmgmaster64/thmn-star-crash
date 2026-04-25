@@ -215,6 +215,7 @@
 #define B_WRAP_TURNS         7 // Max number of turns with Grip Claw
 #define B_SYRUP_BOMB_TIMER   3
 #define B_TORMENT_TIMER      3
+#define B_HONEY_CHIP_TIMER   5
 
 // Item settings
 #define B_CONFUSE_BERRIES_HEAL      GEN_LATEST // In Gens3-6, Figy and similar berries restore 1/8th of HP and trigger at half HP. In Gen7 they restore half HP, triggering at 25% HP. In Gen8 they heal 1/3rd of HP.

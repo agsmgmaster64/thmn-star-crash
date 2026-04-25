@@ -327,7 +327,9 @@ enum VolatileFlags
     F(VOLATILE_UNABLE_TO_USE_MOVE,          unableToUseMove,               (u32, 1)) \
     F(VOLATILE_ACTIVATE_DANCER,             activateDancer,                (u32, 1)) \
     F(VOLATILE_ACTIVATE_CONCERTO,           activateConcerto,              (u32, 1)) \
-    F(VOLATILE_ACTIVATE_WALL_MASTER,        activateWallMaster,            (u32, 1))
+    F(VOLATILE_ACTIVATE_WALL_MASTER,        activateWallMaster,            (u32, 1)) \
+    F(VOLATILE_HONEY_CHIP,                  honeyChip,                     (u32, 1), V_BATON_PASSABLE) \
+    F(VOLATILE_HONEY_CHIP_TIMER,            honeyChipTimer,                (u32, B_HONEY_CHIP_TIMER))
 
 
 /* Use within a macro to get the maximum allowed value for a volatile. Requires _typeMaxValue as input. */
@@ -583,6 +585,7 @@ enum __attribute__((packed)) MoveEffect
     MOVE_EFFECT_LIGHT_SCREEN,
     MOVE_EFFECT_SALT_CURE,
     MOVE_EFFECT_EERIE_SPELL,
+    MOVE_EFFECT_MAD_HONEY,
     MOVE_EFFECT_FLING, // If used without EFFECT_FLING, the move will be a regular damage move with fling as an additional effect without the failure and dmg modifier parts
 
     // Max move effects happen earlier in the execution chain.

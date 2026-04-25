@@ -898,7 +898,7 @@ static const struct LevelUpMove sMeowthAlolaLevelUpLearnset[] = {
 static const struct LevelUpMove sPersianAlolaLevelUpLearnset[] = {
     LEVEL_UP_MOVE( 0, MOVE_SWIFT),
     LEVEL_UP_MOVE( 1, MOVE_SWIFT),
-    LEVEL_UP_MOVE( 1, MOVE_QUASH),
+    LEVEL_UP_MOVE( 1, MOVE_HONEYBOILED),
     LEVEL_UP_MOVE( 1, MOVE_PLAY_ROUGH),
     LEVEL_UP_MOVE( 1, MOVE_SWITCHEROO),
     LEVEL_UP_MOVE( 1, MOVE_SCRATCH),
@@ -12590,7 +12590,7 @@ static const struct LevelUpMove sVivillonLevelUpLearnset[] = {
     LEVEL_UP_MOVE( 1, MOVE_STUN_SPORE),
     LEVEL_UP_MOVE( 1, MOVE_GUST),
     LEVEL_UP_MOVE( 1, MOVE_LIGHT_SCREEN),
-    LEVEL_UP_MOVE( 1, MOVE_POWDER),
+    LEVEL_UP_MOVE( 1, MOVE_STOCKPILE),
     LEVEL_UP_MOVE( 1, MOVE_SLEEP_POWDER),
     LEVEL_UP_MOVE(12, MOVE_STRUGGLE_BUG),
     LEVEL_UP_MOVE(17, MOVE_PSYBEAM),
@@ -12601,7 +12601,7 @@ static const struct LevelUpMove sVivillonLevelUpLearnset[] = {
     LEVEL_UP_MOVE(41, MOVE_SAFEGUARD),
     LEVEL_UP_MOVE(45, MOVE_QUIVER_DANCE),
     LEVEL_UP_MOVE(50, MOVE_HURRICANE),
-    LEVEL_UP_MOVE(55, MOVE_POWDER),
+    LEVEL_UP_MOVE(55, MOVE_STOCKPILE),
     LEVEL_UP_END
 };
 #endif //P_FAMILY_SCATTERBUG
@@ -14855,7 +14855,7 @@ static const struct LevelUpMove sOranguruLevelUpLearnset[] = {
     LEVEL_UP_MOVE( 1, MOVE_PSYSHOT),
     LEVEL_UP_MOVE( 4, MOVE_AFTER_YOU),
     LEVEL_UP_MOVE( 8, MOVE_TAUNT),
-    LEVEL_UP_MOVE(11, MOVE_QUASH),
+    LEVEL_UP_MOVE(11, MOVE_HONEYBOILED),
     LEVEL_UP_MOVE(15, MOVE_STORED_POWER),
     LEVEL_UP_MOVE(18, MOVE_PSYCH_UP),
     LEVEL_UP_MOVE(22, MOVE_FEINT_ATTACK),
@@ -15636,7 +15636,7 @@ static const struct LevelUpMove sNecrozmaLevelUpLearnset[] = {
 #if P_FAMILY_MAGEARNA
 static const struct LevelUpMove sMagearnaLevelUpLearnset[] = {
     LEVEL_UP_MOVE( 1, MOVE_CRAFTY_SHIELD),
-    LEVEL_UP_MOVE( 1, MOVE_GEAR_UP),
+    LEVEL_UP_MOVE( 1, MOVE_MAD_HONEY),
     LEVEL_UP_MOVE( 1, MOVE_SHIFT_GEAR),
     LEVEL_UP_MOVE( 1, MOVE_DRAWN_LINE),
     LEVEL_UP_MOVE( 1, MOVE_HELPING_HAND),
@@ -19612,7 +19612,7 @@ static const struct LevelUpMove sWalkingWakeLevelUpLearnset[] = {
 
 #if P_FAMILY_IRON_LEAVES
 static const struct LevelUpMove sIronLeavesLevelUpLearnset[] = {
-    LEVEL_UP_MOVE( 1, MOVE_QUASH),
+    LEVEL_UP_MOVE( 1, MOVE_HONEYBOILED),
     LEVEL_UP_MOVE( 1, MOVE_ELECTRIC_TERRAIN),
     LEVEL_UP_MOVE( 1, MOVE_LEER),
     LEVEL_UP_MOVE( 1, MOVE_QUICK_ATTACK),

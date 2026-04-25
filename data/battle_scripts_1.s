@@ -3441,6 +3441,22 @@ BattleScript_PresentHealTarget::
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_MoveEnd
 
+BattleScript_EffectHoneyboiled::
+	attackcanceler
+	tryhoneyboiledheal BS_TARGET, BattleScript_AlreadyAtFullHp
+	attackanimation
+	waitanimation
+	healthbarupdate BS_TARGET, PASSIVE_HP_UPDATE
+	datahpupdate BS_TARGET, PASSIVE_HP_UPDATE
+	printstring STRINGID_PKMNREGAINEDHEALTH
+	waitmessage B_WAIT_TIME_LONG
+	tryhoneychipheal BS_TARGET, BattleScript_MoveEnd
+	playanimation BS_TARGET, B_ANIM_HELD_ITEM_EFFECT
+	printstring STRINGID_TOOMUCHHONEY
+	waitmessage B_WAIT_TIME_LONG
+	removeitem BS_TARGET
+	goto BattleScript_MoveEnd
+
 BattleScript_AlreadyAtFullHp::
 	pause B_WAIT_TIME_SHORT
 	printstring STRINGID_PKMNHPFULL
@@ -5258,6 +5274,16 @@ BattleScript_AquaRingHeal::
 	printstring STRINGID_AQUARINGHEAL
 	goto BattleScript_TurnHeal
 
+BattleScript_HoneyChipHeal::
+	playanimation BS_ATTACKER, B_ANIM_SIMPLE_HEAL
+	printstring STRINGID_HONEYCHIPHEAL
+	goto BattleScript_TurnHeal
+
+BattleScript_HoneyChipEnds::
+	printstring STRINGID_HONEYCHIPENDS
+	waitmessage B_WAIT_TIME_LONG
+	return
+
 BattleScript_PrintMonIsRooted::
 	pause B_WAIT_TIME_SHORT
 	printstring STRINGID_PKMNANCHOREDITSELF
@@ -6223,6 +6249,14 @@ BattleScript_HarvestActivates::
 BattleScript_HarvestActivatesEnd:
 	return
 
+BattleScript_HoneyGatherActivatesEntry::
+	tryrecycleitem BattleScript_HoneyGatherActivatesEntryEnd
+	call BattleScript_AbilityPopUp
+	printstring STRINGID_HARVESTHONEY
+	waitmessage B_WAIT_TIME_LONG
+BattleScript_HoneyGatherActivatesEntryEnd:
+	return
+
 BattleScript_SolarPowerActivates::
 	call BattleScript_AbilityPopUp
 	healthbarupdate BS_ATTACKER, PASSIVE_HP_UPDATE
@@ -6587,7 +6621,7 @@ BattleScript_HolySurgeActivates::
 	waitmessage B_WAIT_TIME_LONG
 	playanimation BS_SCRIPTING, B_ANIM_RESTORE_BG
 	call BattleScript_ActivateTerrainEffects
-	end3
+	return
 
 BattleScript_BadDreamsActivates::
 	setbyte gBattlerTarget, 0

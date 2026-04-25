@@ -10570,10 +10570,10 @@ const struct SpeciesInfo gSpeciesInfoGen5[] =
         .levelUpLearnset = sCubchooLevelUpLearnset,
         .teachableLearnset = sCubchooTeachableLearnset,
         .eggMoveLearnset = sCubchooEggMoveLearnset,
-        .evolutions = EVOLUTION({EVO_LEVEL, 37, SPECIES_BEARTIC}),
+        .evolutions = EVOLUTION({EVO_LEVEL, 37, SPECIES_BEESINEY}),
     },
 
-    [SPECIES_BEARTIC] =
+    [SPECIES_BEESINEY] =
     {
         .baseHP        = 95,
         .baseAttack    = P_UPDATED_STATS >= GEN_7 ? 130 : 110,
