@@ -199,6 +199,7 @@ int ProcessPlayerFieldInput(struct FieldInput *input)
         IncrementGameStat(GAME_STAT_STEPS);
         IncrementRenewableHiddenItemStepCounter();
         IncrementBirthIslandRockStepCount();
+        DespawnAllOverworldWildEncounters(OWE_GENERATED, WILD_CHECK_REPEL);
         if (TryStartStepBasedScript(&position, metatileBehavior, playerDirection) == TRUE)
             return TRUE;
     }
@@ -474,8 +475,8 @@ static const u8 *GetInteractedObjectEventScript(struct MapPosition *position, u8
         script = GetTrainerHillTrainerScript();
     else if (PlayerHasFollowerNPC() && objectEventId == GetFollowerNPCObjectId())
         script = GetFollowerNPCScriptPointer();
-    else if (ShouldRunDefaultOWEScript(objectEventId))
-        script = InteractWithOverworldWildEncounter;
+    else if (IsOverworldWildEncounter(&gObjectEvents[objectEventId], OWE_ANY))
+        script = GetOverworlWildEncounterScript(objectEventId);
     else
         script = GetObjectEventScriptPointerByObjectEventId(objectEventId);
 
@@ -736,15 +737,6 @@ static const u8 *GetInteractedMetatileScript(struct MapPosition *position, u8 me
 
 static const u8 *GetInteractedWaterScript(struct MapPosition *position, u8 metatileBehavior, enum Direction direction)
 {
-    // Does this need a define for the surf elevation (1) check?
-    // Can be used in sElevationToSubpriority and other places too
-    u8 objectEventId = GetObjectEventIdByPosition(position->x, position->y, 1);
-    if (IsPlayerFacingSurfableFishableWater() == TRUE && ShouldRunDefaultOWEScript(objectEventId))
-    {
-        gSpecialVar_LastTalked = gObjectEvents[objectEventId].localId;
-        return InteractWithOverworldWildEncounter;
-    }
-
     if (MetatileBehavior_IsFastWater(metatileBehavior) == TRUE && !TestPlayerAvatarFlags(PLAYER_AVATAR_FLAG_SURFING))
         return EventScript_CurrentTooFast;
     if (CanUseSurfFromInteractedWater() && CheckFollowerNPCFlag(FOLLOWER_NPC_FLAG_CAN_SURF))

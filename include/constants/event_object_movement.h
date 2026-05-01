@@ -84,16 +84,16 @@
 #define MOVEMENT_TYPE_WALK_SLOWLY_IN_PLACE_LEFT        0x4F
 #define MOVEMENT_TYPE_WALK_SLOWLY_IN_PLACE_RIGHT       0x50
 #define MOVEMENT_TYPE_FOLLOW_PLAYER                    0x51
-#define MOVEMENT_TYPE_RAISE_HAND_AND_STOP              0x52
-#define MOVEMENT_TYPE_RAISE_HAND_AND_JUMP              0x53
-#define MOVEMENT_TYPE_RAISE_HAND_AND_SWIM              0x54
-#define MOVEMENT_TYPE_WANDER_AROUND_OWE                0x55
-#define MOVEMENT_TYPE_CHASE_PLAYER_OWE                 0x56
-#define MOVEMENT_TYPE_FLEE_PLAYER_OWE                  0x57
-#define MOVEMENT_TYPE_WATCH_PLAYER_OWE                 0x58
-#define MOVEMENT_TYPE_APPROACH_PLAYER_OWE              0x59
-#define MOVEMENT_TYPE_DESPAWN_OWE                      0x5A
-#define MOVEMENT_TYPE_WANDER_AROUND_SLOWER             0x5B
+#define MOVEMENT_TYPE_WANDER_AROUND_SLOWER             0x52
+#define MOVEMENT_TYPE_WANDER_AROUND_OWE                0x53
+#define MOVEMENT_TYPE_CHASE_PLAYER_OWE                 0x54
+#define MOVEMENT_TYPE_FLEE_PLAYER_OWE                  0x55
+#define MOVEMENT_TYPE_WATCH_PLAYER_OWE                 0x56
+#define MOVEMENT_TYPE_APPROACH_PLAYER_OWE              0x57
+#define MOVEMENT_TYPE_DESPAWN_OWE                      0x58
+#define MOVEMENT_TYPE_RAISE_HAND_AND_STOP              0x59
+#define MOVEMENT_TYPE_RAISE_HAND_AND_JUMP              0x5A
+#define MOVEMENT_TYPE_RAISE_HAND_AND_SWIM              0x5B
 #define NUM_MOVEMENT_TYPES                             0x5C
 
 #define MOVEMENT_ACTION_FACE_DOWN                       0x0
