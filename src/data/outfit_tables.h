@@ -7,23 +7,23 @@
 #include "constants/field_mugshots.h"
 #include "constants/outfits.h"
 
-static const u16 sRegionMapPlayerIcon_BrendanGfx[] = INCBIN_U16("graphics/pokenav/region_map/brendan_icon.4bpp");
+static const u16 sRegionMapPlayerIcon_BrendanGfx[] = INCGFX_U16("graphics/pokenav/region_map/brendan_icon.png", ".4bpp");
 
-static const u16 sRegionMapPlayerIcon_RSBrendanGfx[] = INCBIN_U16("graphics/pokenav/region_map/rs_brendan_icon.4bpp");
+static const u16 sRegionMapPlayerIcon_RSBrendanGfx[] = INCGFX_U16("graphics/pokenav/region_map/rs_brendan_icon.png", ".4bpp");
 
-static const u16 sRegionMapPlayerIcon_MayGfx[] = INCBIN_U16("graphics/pokenav/region_map/may_icon.4bpp");
+static const u16 sRegionMapPlayerIcon_MayGfx[] = INCGFX_U16("graphics/pokenav/region_map/may_icon.png", ".4bpp");
 
-static const u16 sRegionMapPlayerIcon_RSMayGfx[] = INCBIN_U16("graphics/pokenav/region_map/rs_may_icon.4bpp");
+static const u16 sRegionMapPlayerIcon_RSMayGfx[] = INCGFX_U16("graphics/pokenav/region_map/rs_may_icon.png", ".4bpp");
 
-static const u16 sRegionMapPlayerIcon_RenkoGfx[] = INCBIN_U16("graphics/pokenav/region_map/renko_icon.4bpp");
-static const u16 sRegionMapPlayerIcon_MaribelGfx[] = INCBIN_U16("graphics/pokenav/region_map/maribel_icon.4bpp");
-static const u16 sRegionMapPlayerIcon_GigiGfx[] = INCBIN_U16("graphics/pokenav/region_map/gigi_icon.4bpp");
+static const u16 sRegionMapPlayerIcon_RenkoGfx[] = INCGFX_U16("graphics/pokenav/region_map/renko_icon.png", ".4bpp");
+static const u16 sRegionMapPlayerIcon_MaribelGfx[] = INCGFX_U16("graphics/pokenav/region_map/maribel_icon.png", ".4bpp");
+static const u16 sRegionMapPlayerIcon_GigiGfx[] = INCGFX_U16("graphics/pokenav/region_map/gigi_icon.png", ".4bpp");
 
 //! TODO: Should the gfx here be seperated?
 
-static const u8 sFrontierPassPlayerIcons_BrendanMay_Gfx[] = INCBIN_U8("graphics/frontier_pass/map_heads.4bpp");
+static const u8 sFrontierPassPlayerIcons_BrendanMay_Gfx[] = INCGFX_U8("graphics/frontier_pass/map_heads.png", ".4bpp");
 
-static const u8 sFrontierPassPlayerIcons_RSBrendanMay_Gfx[] = INCBIN_U8("graphics/frontier_pass/rs_map_heads.4bpp");
+static const u8 sFrontierPassPlayerIcons_RSBrendanMay_Gfx[] = INCGFX_U8("graphics/frontier_pass/rs_map_heads.png", ".4bpp");
 
 #define REGION_MAP_GFX(m, f) { sRegionMapPlayerIcon_ ## m ## Gfx, sRegionMapPlayerIcon_ ## f ## Gfx }
 

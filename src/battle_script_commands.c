@@ -10926,7 +10926,7 @@ static void Cmd_handleballthrow(void)
     gBattlerTarget = GetCatchingBattler();
 
     if ((gBattleTypeFlags & BATTLE_TYPE_GHOST)
-     || FlagGet(B_FLAG_NO_CATCHING))
+     || FlagGet(WE_FLAG_NO_CATCHING))
     {
         BtlController_EmitBallThrowAnim(gBattlerAttacker, B_COMM_TO_CONTROLLER, BALL_MON_DODGE);
         MarkBattlerForControllerExec(gBattlerAttacker);

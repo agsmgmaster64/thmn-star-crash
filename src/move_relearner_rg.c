@@ -166,8 +166,8 @@ static void MoveRelearnerMenu_MoveCursorFunc(s32 itemIndex, bool8 onInit, struct
 static s8 MoveRelearner_YesNoMenuProcessInput(void);
 static void PrintTextOnWindow(u8 windowId, const u8 *str, u8 x, u8 y, s32 speed, s32 colorIdx);
 
-static const u16 sMoveRelearner_Pal[] = INCBIN_U16("graphics/learn_move/learn_move.gbapal");
-static const u32 sMoveRelearner_Gfx[] = INCBIN_U32("graphics/learn_move/learn_move.4bpp.smol");
+static const u16 sMoveRelearner_Pal[] = INCGFX_U16("graphics/learn_move/learn_move.png", ".gbapal");
+static const u32 sMoveRelearner_Gfx[] = INCGFX_U32("graphics/learn_move/learn_move.png", ".4bpp.smol");
 static const u32 sMoveRelearner_Tilemap[] = INCBIN_U32("graphics/learn_move/learn_move.bin.smolTM");
 
 static const struct BgTemplate sBgTemplates[2] = {

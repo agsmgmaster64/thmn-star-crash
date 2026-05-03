@@ -5225,7 +5225,7 @@ bool8 CheckIfCannotBeCaught(struct Pokemon *mon, u8 battlerId)
 {
     if (CheckBattleTypeGhost(mon, battlerId))
         return TRUE;
-    else if (FlagGet(B_FLAG_NO_CATCHING))
+    else if (FlagGet(WE_FLAG_NO_CATCHING))
         return TRUE;
 
     return FALSE;

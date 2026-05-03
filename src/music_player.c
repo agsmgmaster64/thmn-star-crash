@@ -45,9 +45,9 @@ static void Task_MP3PlayerWaitFadeIn(u8 taskId);
 static void Task_MP3PlayerMain(u8 taskId);
 
 
-static const u32 sMP3PlayerTiles[] = INCBIN_U32("graphics/music_player/tiles.4bpp.smol");
+static const u32 sMP3PlayerTiles[] = INCGFX_U32("graphics/music_player/tiles.png", ".4bpp.smol");
 static const u32 sMP3PlayerTilemap[] = INCBIN_U32("graphics/music_player/tilemap.bin.smolTM");
-static const u16 sMP3PlayerPalette[] = INCBIN_U16("graphics/music_player/palette.gbapal");
+static const u16 sMP3PlayerPalette[] = INCGFX_U16("graphics/music_player/palette.pal", ".gbapal");
 
 static const struct BgTemplate sMP3PlayerBgTemplates[] =
 {

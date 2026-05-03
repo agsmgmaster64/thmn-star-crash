@@ -2875,16 +2875,16 @@ static const struct SpriteTemplate sSpriteTemplate_MoveInfoWindow =
 #endif
 
 #if B_LAST_USED_BALL_BUTTON == R_BUTTON && B_LAST_USED_BALL_CYCLE == TRUE
-    static const u8 ALIGNED(4) sLastUsedBallStatusWindowGfx[] = INCBIN_U8("graphics/battle_interface/last_used_ball_status_r_cycle.4bpp");
+    static const u8 ALIGNED(4) sLastUsedBallStatusWindowGfx[] = INCGFX_U8("graphics/battle_interface/last_used_ball_status_r_cycle.png", ".4bpp");
 #elif B_LAST_USED_BALL_CYCLE == TRUE
-    static const u8 ALIGNED(4) sLastUsedBallStatusWindowGfx[] = INCBIN_U8("graphics/battle_interface/last_used_ball_status_l_cycle.4bpp");
+    static const u8 ALIGNED(4) sLastUsedBallStatusWindowGfx[] = INCGFX_U8("graphics/battle_interface/last_used_ball_status_l_cycle.png", ".4bpp");
 #elif B_LAST_USED_BALL_BUTTON == R_BUTTON
-    static const u8 ALIGNED(4) sLastUsedBallStatusWindowGfx[] = INCBIN_U8("graphics/battle_interface/last_used_ball_status_r.4bpp");
+    static const u8 ALIGNED(4) sLastUsedBallStatusWindowGfx[] = INCGFX_U8("graphics/battle_interface/last_used_ball_status_r.png", ".4bpp");
 #else
-    static const u8 ALIGNED(4) sLastUsedBallStatusWindowGfx[] = INCBIN_U8("graphics/battle_interface/last_used_ball_status_l.4bpp");
+    static const u8 ALIGNED(4) sLastUsedBallStatusWindowGfx[] = INCGFX_U8("graphics/battle_interface/last_used_ball_status_l.png", ".4bpp");
 #endif
 
-static const u8 ALIGNED(4) sStatusInfoWindowGfx[] = INCBIN_U8("graphics/battle_interface/status_info.4bpp");
+static const u8 ALIGNED(4) sStatusInfoWindowGfx[] = INCGFX_U8("graphics/battle_interface/status_info.png", ".4bpp");
 
 static const struct SpriteSheet sSpriteSheet_LastUsedBallWindow =
 {

@@ -319,18 +319,18 @@ static const struct WindowTemplate sMenuWindowTemplates[] =
     DUMMY_WIN_TEMPLATE
 };
 
-static const u32 sMenuTiles[]      = INCBIN_U32("graphics/ui_menus/battle_menu/tiles.4bpp.smol");
-static const u8 sStatDownArrow[]   = INCBIN_U8("graphics/ui_menus/battle_menu/stat_down_arrow.4bpp");
-static const u8 sStatUpArrow[]     = INCBIN_U8("graphics/ui_menus/battle_menu/stat_up_arrow.4bpp");
-static const u8 sCheck[]           = INCBIN_U8("graphics/ui_menus/battle_menu/check.4bpp");
-static const u8 sSelector2[]       = INCBIN_U8("graphics/ui_menus/battle_menu/selector_2.4bpp");
+static const u32 sMenuTiles[]      = INCGFX_U32("graphics/ui_menus/battle_menu/tiles.png", ".4bpp.smol");
+static const u8 sStatDownArrow[]   = INCGFX_U8("graphics/ui_menus/battle_menu/stat_down_arrow.png", ".4bpp");
+static const u8 sStatUpArrow[]     = INCGFX_U8("graphics/ui_menus/battle_menu/stat_up_arrow.png", ".4bpp");
+static const u8 sCheck[]           = INCGFX_U8("graphics/ui_menus/battle_menu/check.png", ".4bpp");
+static const u8 sSelector2[]       = INCGFX_U8("graphics/ui_menus/battle_menu/selector_2.png", ".4bpp");
 
 //Palettes
-static const u16 sMenuPalette[]        = INCBIN_U16("graphics/ui_menus/battle_menu/palette.gbapal");
-static const u16 sMenuPalette_Blue[]   = INCBIN_U16("graphics/ui_menus/battle_menu/palette_blue.gbapal");
-static const u16 sMenuPalette_Yellow[] = INCBIN_U16("graphics/ui_menus/battle_menu/palette_yellow.gbapal");
-static const u16 sMenuPalette_Green[]  = INCBIN_U16("graphics/ui_menus/battle_menu/palette_green.gbapal");
-static const u16 sMenuPalette_Red[]    = INCBIN_U16("graphics/ui_menus/battle_menu/palette_red.gbapal");
+static const u16 sMenuPalette[]        = INCGFX_U16("graphics/ui_menus/battle_menu/palette.pal", ".gbapal");
+static const u16 sMenuPalette_Blue[]   = INCGFX_U16("graphics/ui_menus/battle_menu/palette_blue.pal", ".gbapal");
+static const u16 sMenuPalette_Yellow[] = INCGFX_U16("graphics/ui_menus/battle_menu/palette_yellow.pal", ".gbapal");
+static const u16 sMenuPalette_Green[]  = INCGFX_U16("graphics/ui_menus/battle_menu/palette_green.pal", ".gbapal");
+static const u16 sMenuPalette_Red[]    = INCGFX_U16("graphics/ui_menus/battle_menu/palette_red.pal", ".gbapal");
 
 //Battler Tabs
 static const u32 sMenu_Tilemap_Singles_Battler_Status[]     = INCBIN_U32("graphics/ui_menus/battle_menu/titlemap_singles_battler_status.bin.smolTM");
@@ -1084,8 +1084,8 @@ static const u8 statorder[NUM_BATTLE_STATS] = {
 #define TAG_ICON_PARTY_PLAYER 4135
 #define TAG_ICON_PARTY_ENEMY  TAG_ICON_PARTY_PLAYER + PARTY_SIZE
 
-static const u32 gBattleFieldIconForest_Gfx[] = INCBIN_U32("graphics/ui_menus/battle_menu/fields/forest.4bpp.smol");
-static const u16 gBattleFieldIconForest_Pal[] = INCBIN_U16("graphics/ui_menus/battle_menu/fields/forest.gbapal");
+static const u32 gBattleFieldIconForest_Gfx[] = INCGFX_U32("graphics/ui_menus/battle_menu/fields/forest.png", ".4bpp.smol");
+static const u16 gBattleFieldIconForest_Pal[] = INCGFX_U16("graphics/ui_menus/battle_menu/fields/forest.png", ".gbapal");
 
 static const struct SpritePalette sBattleMenuFieldIconSpritePalette_Forest[] =
 {
@@ -1143,8 +1143,8 @@ static void SpriteCB_PartyMons(struct Sprite *sprite)
         sprite->invisible = FALSE;
 }
 
-static const u32 gBattleSelector_Gfx[] = INCBIN_U32("graphics/ui_menus/battle_menu/fields/selector.4bpp.smol");
-static const u16 gBattleSelector_Pal[] = INCBIN_U16("graphics/ui_menus/battle_menu/fields/selector.gbapal");
+static const u32 gBattleSelector_Gfx[] = INCGFX_U32("graphics/ui_menus/battle_menu/fields/selector.png", ".4bpp.smol");
+static const u16 gBattleSelector_Pal[] = INCGFX_U16("graphics/ui_menus/battle_menu/fields/selector.png", ".gbapal");
 
 static const struct SpritePalette sBattleMenuSelectorSpritePalette[] =
 {

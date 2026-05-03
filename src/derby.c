@@ -198,132 +198,132 @@ static const u8 sTestText[] = _("TEST");
 // BG Images/Tilemaps
 
 // Betting Slip
-static const u32 Derby_BG_Bet_Img[] = INCBIN_U32("graphics/derby/betslip_bg.4bpp.smol");
+static const u32 Derby_BG_Bet_Img[] = INCGFX_U32("graphics/derby/betslip_bg.png", ".4bpp.smol");
 static const u8 Derby_BG_Bet_Tilemap[] = INCBIN_U8("graphics/derby/betslip_bg.bin.smolTM");
-static const u16 Derby_BG_Bet_Pal[] = INCBIN_U16("graphics/derby/bet_bg.gbapal");
+static const u16 Derby_BG_Bet_Pal[] = INCGFX_U16("graphics/derby/bet_bg.pal", ".gbapal");
 
 // Betting Slip 2
-static const u32 Derby_BG_Bet_Img_2[] = INCBIN_U32("graphics/derby/betslip_bg_2.4bpp.smol");
+static const u32 Derby_BG_Bet_Img_2[] = INCGFX_U32("graphics/derby/betslip_bg_2.png", ".4bpp.smol");
 static const u8 Derby_BG_Bet_Tilemap_2[] = INCBIN_U8("graphics/derby/betslip_bg_2.bin.smolTM");
-static const u16 Derby_BG_Bet_Pal_2[] = INCBIN_U16("graphics/derby/bet_bg_2.gbapal");
+static const u16 Derby_BG_Bet_Pal_2[] = INCGFX_U16("graphics/derby/bet_bg_2.pal", ".gbapal");
 
 // Racetrack
-static const u32 Derby_Race_Img[] = INCBIN_U32("graphics/derby/race_bg.4bpp.smol");
+static const u32 Derby_Race_Img[] = INCGFX_U32("graphics/derby/race_bg.png", ".4bpp.smol");
 static const u8 Derby_Race_Tilemap[] = INCBIN_U8("graphics/derby/race_bg.bin.smolTM");
-static const u16 Derby_Race_Pal[] = INCBIN_U16("graphics/derby/racetrack_bg.gbapal");
+static const u16 Derby_Race_Pal[] = INCGFX_U16("graphics/derby/racetrack_bg.pal", ".gbapal");
 
 // Betting Menu Pokemon Sprites and Palettes
 
-static const u32 PonytaGFX[] = INCBIN_U32("graphics/pokemon/_add/th/aya/chibi/anim_front.4bpp.smol");
-static const u16 PonytaNormalPAL[] = INCBIN_U16("graphics/pokemon/_add/th/aya/chibi/normal.gbapal");
-static const u16 PonytaShinyPAL[] = INCBIN_U16("graphics/pokemon/_add/th/aya/chibi/shiny.gbapal");
+static const u32 PonytaGFX[] = INCGFX_U32("graphics/pokemon/_add/th/aya/chibi/anim_front.png", ".4bpp.smol");
+static const u16 PonytaNormalPAL[] = INCGFX_U16("graphics/pokemon/_add/th/aya/chibi/normal.pal", ".gbapal");
+static const u16 PonytaShinyPAL[] = INCGFX_U16("graphics/pokemon/_add/th/aya/chibi/shiny.pal", ".gbapal");
 
-static const u32 RapidashGFX[] = INCBIN_U32("graphics/pokemon/_add/th/aya/normal/anim_front.4bpp.smol");
-static const u16 RapidashNormalPAL[] = INCBIN_U16("graphics/pokemon/_add/th/aya/normal/normal.gbapal");
-static const u16 RapidashShinyPAL[] = INCBIN_U16("graphics/pokemon/_add/th/aya/normal/shiny.gbapal");
+static const u32 RapidashGFX[] = INCGFX_U32("graphics/pokemon/_add/th/aya/normal/anim_front.png", ".4bpp.smol");
+static const u16 RapidashNormalPAL[] = INCGFX_U16("graphics/pokemon/_add/th/aya/normal/normal.pal", ".gbapal");
+static const u16 RapidashShinyPAL[] = INCGFX_U16("graphics/pokemon/_add/th/aya/normal/shiny.pal", ".gbapal");
 
-static const u32 RattataGFX[] = INCBIN_U32("graphics/pokemon/_add/th/nazrin/chibi/anim_front.4bpp.smol");
-static const u16 RattataNormalPAL[] = INCBIN_U16("graphics/pokemon/_add/th/nazrin/chibi/normal.gbapal");
-static const u16 RattataShinyPAL[] = INCBIN_U16("graphics/pokemon/_add/th/nazrin/chibi/shiny.gbapal");
+static const u32 RattataGFX[] = INCGFX_U32("graphics/pokemon/_add/th/nazrin/chibi/anim_front.png", ".4bpp.smol");
+static const u16 RattataNormalPAL[] = INCGFX_U16("graphics/pokemon/_add/th/nazrin/chibi/normal.pal", ".gbapal");
+static const u16 RattataShinyPAL[] = INCGFX_U16("graphics/pokemon/_add/th/nazrin/chibi/shiny.pal", ".gbapal");
 
-static const u32 FeebasGFX[] = INCBIN_U32("graphics/pokemon/_add/th/wakasagihime/chibi/anim_front.4bpp.smol");
-static const u16 FeebasNormalPAL[] = INCBIN_U16("graphics/pokemon/_add/th/wakasagihime/chibi/normal.gbapal");
-static const u16 FeebasShinyPAL[] = INCBIN_U16("graphics/pokemon/_add/th/wakasagihime/chibi/shiny.gbapal");
+static const u32 FeebasGFX[] = INCGFX_U32("graphics/pokemon/_add/th/wakasagihime/chibi/anim_front.png", ".4bpp.smol");
+static const u16 FeebasNormalPAL[] = INCGFX_U16("graphics/pokemon/_add/th/wakasagihime/chibi/normal.pal", ".gbapal");
+static const u16 FeebasShinyPAL[] = INCGFX_U16("graphics/pokemon/_add/th/wakasagihime/chibi/shiny.pal", ".gbapal");
 
-static const u32 GremGFX[] = INCBIN_U32("graphics/pokemon/_add/etc/grem/anim_front.4bpp.smol");
-static const u16 GremNormalPAL[] = INCBIN_U16("graphics/pokemon/_add/etc/grem/normal.gbapal");
-static const u16 GremShinyPAL[] = INCBIN_U16("graphics/pokemon/_add/etc/grem/shiny.gbapal");
+static const u32 GremGFX[] = INCGFX_U32("graphics/pokemon/_add/etc/grem/anim_front.png", ".4bpp.smol");
+static const u16 GremNormalPAL[] = INCGFX_U16("graphics/pokemon/_add/etc/grem/normal.pal", ".gbapal");
+static const u16 GremShinyPAL[] = INCGFX_U16("graphics/pokemon/_add/etc/grem/shiny.pal", ".gbapal");
 
 // Betting Menu Text
 
 // Pokemon Names
 
-static const u32 Name_PonytaGFX[] = INCBIN_U32("graphics/derby/species_name/name-ponyta.4bpp.smol");
-static const u32 Name_RapidashGFX[] = INCBIN_U32("graphics/derby/species_name/name-rapidash.4bpp.smol");
-static const u32 Name_RattataGFX[] = INCBIN_U32("graphics/derby/species_name/name-rattata.4bpp.smol");
-static const u32 Name_FeebasGFX[] = INCBIN_U32("graphics/derby/species_name/name-feebas.4bpp.smol");
-static const u32 Name_GremGFX[] = INCBIN_U32("graphics/derby/species_name/name-grem.4bpp.smol");
+static const u32 Name_PonytaGFX[] = INCGFX_U32("graphics/derby/species_name/name-ponyta.png", ".4bpp.smol");
+static const u32 Name_RapidashGFX[] = INCGFX_U32("graphics/derby/species_name/name-rapidash.png", ".4bpp.smol");
+static const u32 Name_RattataGFX[] = INCGFX_U32("graphics/derby/species_name/name-rattata.png", ".4bpp.smol");
+static const u32 Name_FeebasGFX[] = INCGFX_U32("graphics/derby/species_name/name-feebas.png", ".4bpp.smol");
+static const u32 Name_GremGFX[] = INCGFX_U32("graphics/derby/species_name/name-grem.png", ".4bpp.smol");
 
-static const u16 TextPAL[] = INCBIN_U16("graphics/derby/bet_text.gbapal");
+static const u16 TextPAL[] = INCGFX_U16("graphics/derby/bet_text.pal", ".gbapal");
 
 // Conditions
 
-static const u32 Condition_1_GFX[] = INCBIN_U32("graphics/derby/condition/condition-1.4bpp.smol");
-static const u32 Condition_2_GFX[] = INCBIN_U32("graphics/derby/condition/condition-2.4bpp.smol");
-static const u32 Condition_3_GFX[] = INCBIN_U32("graphics/derby/condition/condition-3.4bpp.smol");
-static const u32 Condition_4_GFX[] = INCBIN_U32("graphics/derby/condition/condition-4.4bpp.smol");
-static const u32 Condition_5_GFX[] = INCBIN_U32("graphics/derby/condition/condition-5.4bpp.smol");
+static const u32 Condition_1_GFX[] = INCGFX_U32("graphics/derby/condition/condition-1.png", ".4bpp.smol");
+static const u32 Condition_2_GFX[] = INCGFX_U32("graphics/derby/condition/condition-2.png", ".4bpp.smol");
+static const u32 Condition_3_GFX[] = INCGFX_U32("graphics/derby/condition/condition-3.png", ".4bpp.smol");
+static const u32 Condition_4_GFX[] = INCGFX_U32("graphics/derby/condition/condition-4.png", ".4bpp.smol");
+static const u32 Condition_5_GFX[] = INCGFX_U32("graphics/derby/condition/condition-5.png", ".4bpp.smol");
 
-static const u16 ConditionPAL[] = INCBIN_U16("graphics/derby/condition.gbapal");
+static const u16 ConditionPAL[] = INCGFX_U16("graphics/derby/condition.pal", ".gbapal");
 
 // Payout
 
-static const u32 Payout_1_GFX[] = INCBIN_U32("graphics/derby/payout/payout-1.4bpp.smol");
-static const u32 Payout_2_GFX[] = INCBIN_U32("graphics/derby/payout/payout-2.4bpp.smol");
-static const u32 Payout_3_GFX[] = INCBIN_U32("graphics/derby/payout/payout-3.4bpp.smol");
-static const u32 Payout_4_GFX[] = INCBIN_U32("graphics/derby/payout/payout-4.4bpp.smol");
-static const u32 Payout_5_GFX[] = INCBIN_U32("graphics/derby/payout/payout-5.4bpp.smol");
-static const u32 Payout_6_GFX[] = INCBIN_U32("graphics/derby/payout/payout-6.4bpp.smol");
-static const u32 Payout_7_GFX[] = INCBIN_U32("graphics/derby/payout/payout-7.4bpp.smol");
+static const u32 Payout_1_GFX[] = INCGFX_U32("graphics/derby/payout/payout-1.png", ".4bpp.smol");
+static const u32 Payout_2_GFX[] = INCGFX_U32("graphics/derby/payout/payout-2.png", ".4bpp.smol");
+static const u32 Payout_3_GFX[] = INCGFX_U32("graphics/derby/payout/payout-3.png", ".4bpp.smol");
+static const u32 Payout_4_GFX[] = INCGFX_U32("graphics/derby/payout/payout-4.png", ".4bpp.smol");
+static const u32 Payout_5_GFX[] = INCGFX_U32("graphics/derby/payout/payout-5.png", ".4bpp.smol");
+static const u32 Payout_6_GFX[] = INCGFX_U32("graphics/derby/payout/payout-6.png", ".4bpp.smol");
+static const u32 Payout_7_GFX[] = INCGFX_U32("graphics/derby/payout/payout-7.png", ".4bpp.smol");
 
 // UI
 
-static const u32 UI_1_GFX[] = INCBIN_U32("graphics/derby/pokemon_ui/ui-1.4bpp.smol");
-static const u32 UI_2_GFX[] = INCBIN_U32("graphics/derby/pokemon_ui/ui-2.4bpp.smol");
-static const u32 UI_3_GFX[] = INCBIN_U32("graphics/derby/pokemon_ui/ui-3.4bpp.smol");
-static const u32 UI_4_GFX[] = INCBIN_U32("graphics/derby/pokemon_ui/ui-4.4bpp.smol");
-static const u32 UI_5_GFX[] = INCBIN_U32("graphics/derby/pokemon_ui/ui-5.4bpp.smol");
-static const u32 UI_6_GFX[] = INCBIN_U32("graphics/derby/pokemon_ui/ui-6.4bpp.smol");
+static const u32 UI_1_GFX[] = INCGFX_U32("graphics/derby/pokemon_ui/ui-1.png", ".4bpp.smol");
+static const u32 UI_2_GFX[] = INCGFX_U32("graphics/derby/pokemon_ui/ui-2.png", ".4bpp.smol");
+static const u32 UI_3_GFX[] = INCGFX_U32("graphics/derby/pokemon_ui/ui-3.png", ".4bpp.smol");
+static const u32 UI_4_GFX[] = INCGFX_U32("graphics/derby/pokemon_ui/ui-4.png", ".4bpp.smol");
+static const u32 UI_5_GFX[] = INCGFX_U32("graphics/derby/pokemon_ui/ui-5.png", ".4bpp.smol");
+static const u32 UI_6_GFX[] = INCGFX_U32("graphics/derby/pokemon_ui/ui-6.png", ".4bpp.smol");
 
-static const u16 BetMenuUIPAL[] = INCBIN_U16("graphics/derby/betmenu_interface.gbapal");
+static const u16 BetMenuUIPAL[] = INCGFX_U16("graphics/derby/betmenu_interface.pal", ".gbapal");
 
 // Arrows
 
-static const u32 Arrow_1_GFX[] = INCBIN_U32("graphics/derby/arrow-1.4bpp.smol");
-static const u32 Arrow_2_GFX[] = INCBIN_U32("graphics/derby/arrow-2.4bpp.smol");
+static const u32 Arrow_1_GFX[] = INCGFX_U32("graphics/derby/arrow-1.png", ".4bpp.smol");
+static const u32 Arrow_2_GFX[] = INCGFX_U32("graphics/derby/arrow-2.png", ".4bpp.smol");
 
 // Credit Icon
 
-static const u32 Credit_Icon_GFX[] = INCBIN_U32("graphics/derby/credit.4bpp.smol");
-static const u32 Credit_Red_Icon_GFX[] = INCBIN_U32("graphics/derby/creditred.4bpp.smol");
-static const u16 Credit_Icon_PAL[] = INCBIN_U16("graphics/derby/credit.gbapal");
+static const u32 Credit_Icon_GFX[] = INCGFX_U32("graphics/derby/credit.png", ".4bpp.smol");
+static const u32 Credit_Red_Icon_GFX[] = INCGFX_U32("graphics/derby/creditred.png", ".4bpp.smol");
+static const u16 Credit_Icon_PAL[] = INCGFX_U16("graphics/derby/credit.pal", ".gbapal");
 
 // Numbers
 
-static const u32 Digits_Gfx[] = INCBIN_U32("graphics/derby/digits.4bpp.smol");
-static const u32 Digits_2_Gfx[] = INCBIN_U32("graphics/derby/digits_2.4bpp.smol");
-static const u16 Digits_Pal[] = INCBIN_U16("graphics/derby/digits.gbapal");
+static const u32 Digits_Gfx[] = INCGFX_U32("graphics/derby/digits.png", ".4bpp.smol");
+static const u32 Digits_2_Gfx[] = INCGFX_U32("graphics/derby/digits_2.png", ".4bpp.smol");
+static const u16 Digits_Pal[] = INCGFX_U16("graphics/derby/digits.pal", ".gbapal");
 
 // P 10
 
-static const u32 P10_GFX[] = INCBIN_U32("graphics/derby/10p.4bpp.smol");
+static const u32 P10_GFX[] = INCGFX_U32("graphics/derby/10p.png", ".4bpp.smol");
 
 // Pokemon OW Sprites
 
-static const u32 Feebas_OW_GFX[] = INCBIN_U32("graphics/derby/feebas_ow.4bpp.smol");
-static const u32 Ponyta_OW_GFX[] = INCBIN_U32("graphics/derby/ponyta_ow.4bpp.smol");
-static const u32 Rattata_OW_GFX[] = INCBIN_U32("graphics/derby/rattata_ow.4bpp.smol");
-static const u32 Rapidash_OW_GFX[] = INCBIN_U32("graphics/derby/rapidash_ow.4bpp.smol");
-static const u32 Grem_OW_GFX[] = INCBIN_U32("graphics/derby/grem_ow.4bpp.smol");
+static const u32 Feebas_OW_GFX[] = INCGFX_U32("graphics/derby/feebas_ow.png", ".4bpp.smol");
+static const u32 Ponyta_OW_GFX[] = INCGFX_U32("graphics/derby/ponyta_ow.png", ".4bpp.smol");
+static const u32 Rattata_OW_GFX[] = INCGFX_U32("graphics/derby/rattata_ow.png", ".4bpp.smol");
+static const u32 Rapidash_OW_GFX[] = INCGFX_U32("graphics/derby/rapidash_ow.png", ".4bpp.smol");
+static const u32 Grem_OW_GFX[] = INCGFX_U32("graphics/derby/grem_ow.png", ".4bpp.smol");
 
 // Cursor
 
-static const u32 Cursor_GFX[] = INCBIN_U32("graphics/derby/selection.4bpp.smol");
-static const u16 Cursor_PAL[] = INCBIN_U16("graphics/derby/selection.gbapal");
+static const u32 Cursor_GFX[] = INCGFX_U32("graphics/derby/selection.png", ".4bpp.smol");
+static const u16 Cursor_PAL[] = INCGFX_U16("graphics/derby/selection.pal", ".gbapal");
 
 // Countdown
 
-static const u32 Countdown_3_GFX[] = INCBIN_U32("graphics/derby/countdown/countdown-3.4bpp.smol");
-static const u32 Countdown_2_GFX[] = INCBIN_U32("graphics/derby/countdown/countdown-2.4bpp.smol");
-static const u32 Countdown_1_GFX[] = INCBIN_U32("graphics/derby/countdown/countdown-1.4bpp.smol");
-static const u32 Go_GFX[] = INCBIN_U32("graphics/derby/countdown/go.4bpp.smol");
+static const u32 Countdown_3_GFX[] = INCGFX_U32("graphics/derby/countdown/countdown-3.png", ".4bpp.smol");
+static const u32 Countdown_2_GFX[] = INCGFX_U32("graphics/derby/countdown/countdown-2.png", ".4bpp.smol");
+static const u32 Countdown_1_GFX[] = INCGFX_U32("graphics/derby/countdown/countdown-1.png", ".4bpp.smol");
+static const u32 Go_GFX[] = INCGFX_U32("graphics/derby/countdown/go.png", ".4bpp.smol");
 
-static const u16 Countdown_PAL[] = INCBIN_U16("graphics/derby/countdown/countdown.gbapal");
+static const u16 Countdown_PAL[] = INCGFX_U16("graphics/derby/countdown/countdown.pal", ".gbapal");
 
 // Clefairy
 
-static const u32 Clef_GFX[] = INCBIN_U32("graphics/derby/clef.4bpp.smol");
-static const u16 Clef_PAL[] = INCBIN_U16("graphics/derby/clef.gbapal");
+static const u32 Clef_GFX[] = INCGFX_U32("graphics/derby/clef.png", ".4bpp.smol");
+static const u16 Clef_PAL[] = INCGFX_U16("graphics/derby/clef.pal", ".gbapal");
 
 #define DERBY_BG_BASE 1
 #define DERBY_MENUS 0
@@ -1868,7 +1868,6 @@ void GetNewDerby(void)
     u8 conditions[DERBY_RACER_COUNT];
     u8 derbySpecies[DERBY_RACER_COUNT];
     u8 derbyShiny[DERBY_RACER_COUNT];
-    u16 racerVar;
     int condition4Index;
     int condition3Index;
     int condition2Index;
@@ -1937,9 +1936,7 @@ void GetNewDerby(void)
 
 void InitiateRacers(void)
 {
-    u32 number;
     u32 i;
-    u16 racerVar;
 
     // Generate all racers with low stars by default
     for (i = DERBY_RACER_1; i < DERBY_RACER_COUNT; i++)
@@ -2341,7 +2338,6 @@ static void SetNicknames(void)
     u8 previousNames[MAX_NAMES] = {0};  // Array to track taken nicknames (0 = available, 1 = taken)
     u8 names[DERBY_RACER_COUNT];
     u32 i;
-    u16 racerNicknameVar;
 
     for (i = DERBY_RACER_1; i < DERBY_RACER_COUNT; i++)
     {

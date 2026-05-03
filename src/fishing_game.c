@@ -88,23 +88,23 @@ static bool32 TreasureIsInsideBar(u8 taskId);
 static void CB2_FishingBattleTransition(void);
 static void CB2_FishingBattleStart(void);
 
-static const u16 gFishingGameBG_Pal[] = INCBIN_U16("graphics/fishing_game/fishing_bg_tiles.gbapal");
+static const u16 gFishingGameBG_Pal[] = INCGFX_U16("graphics/fishing_game/fishing_bg_tiles.png", ".gbapal");
 static const u32 gFishingGameBG_Tilemap[] = INCBIN_U32("graphics/fishing_game/fishing_bg_tiles.bin.smolTM");
 static const u32 gScoreBG_Tilemap[] = INCBIN_U32("graphics/fishing_game/score_bg_tilemap.bin.smolTM");
-static const u32 gFishingGameBG_Gfx[] = INCBIN_U32("graphics/fishing_game/fishing_bg_tiles.4bpp.smol");
-static const u32 gFishingBar_Gfx[] = INCBIN_U32("graphics/fishing_game/fishing_bar.4bpp.smol");
-static const u32 gFishingBarRight_Gfx[] = INCBIN_U32("graphics/fishing_game/fishing_bar_right.4bpp.smol");
-static const u16 sFishingBar_Pal[] = INCBIN_U16("graphics/fishing_game/fishing_bar.gbapal");
-static const u32 gScoreMeter_Gfx[] = INCBIN_U32("graphics/fishing_game/score_meter.4bpp.smol");
-static const u32 gPerfect_Gfx[] = INCBIN_U32("graphics/fishing_game/perfect.4bpp.smol");
-static const u32 gQuestionMark_Gfx[] = INCBIN_U32("graphics/fishing_game/question_mark.4bpp.smol");
-static const u32 gVagueFish_Gfx[] = INCBIN_U32("graphics/fishing_game/vague_fish.4bpp.smol");
-static const u32 gTreasure_Gfx[] = INCBIN_U32("graphics/fishing_game/treasure.4bpp");
-static const u32 gFishingGameOWBG_Gfx[] = INCBIN_U32("graphics/fishing_game/fishing_bg_ow_tiles.4bpp.smol");
-static const u16 gFishingGameOWBG_Pal[] = INCBIN_U16("graphics/fishing_game/fishing_bg_ow_tiles.gbapal");
+static const u32 gFishingGameBG_Gfx[] = INCGFX_U32("graphics/fishing_game/fishing_bg_tiles.png", ".4bpp.smol");
+static const u32 gFishingBar_Gfx[] = INCGFX_U32("graphics/fishing_game/fishing_bar.png", ".4bpp.smol");
+static const u32 gFishingBarRight_Gfx[] = INCGFX_U32("graphics/fishing_game/fishing_bar_right.png", ".4bpp.smol");
+static const u16 sFishingBar_Pal[] = INCGFX_U16("graphics/fishing_game/fishing_bar.png", ".gbapal");
+static const u32 gScoreMeter_Gfx[] = INCGFX_U32("graphics/fishing_game/score_meter.png", ".4bpp.smol");
+static const u32 gPerfect_Gfx[] = INCGFX_U32("graphics/fishing_game/perfect.png", ".4bpp.smol");
+static const u32 gQuestionMark_Gfx[] = INCGFX_U32("graphics/fishing_game/question_mark.png", ".4bpp.smol");
+static const u32 gVagueFish_Gfx[] = INCGFX_U32("graphics/fishing_game/vague_fish.png", ".4bpp.smol");
+static const u32 gTreasure_Gfx[] = INCGFX_U32("graphics/fishing_game/treasure.png", ".4bpp");
+static const u32 gFishingGameOWBG_Gfx[] = INCGFX_U32("graphics/fishing_game/fishing_bg_ow_tiles.png", ".4bpp.smol");
+static const u16 gFishingGameOWBG_Pal[] = INCGFX_U16("graphics/fishing_game/fishing_bg_ow_tiles.png", ".gbapal");
 static const u32 gFishingGameOWBG_Tilemap[] = INCBIN_U32("graphics/fishing_game/fishing_bg_ow_tiles.bin.smolTM");
 static const u32 gFishingGameOWBGEnd_Tilemap[] = INCBIN_U32("graphics/fishing_game/fishing_bg_ow_end.bin.smolTM");
-static const u32 gScoreMeterOWBehind_Gfx[] = INCBIN_U32("graphics/fishing_game/score_meter_ow_behind.4bpp.smol");
+static const u32 gScoreMeterOWBehind_Gfx[] = INCGFX_U32("graphics/fishing_game/score_meter_ow_behind.png", ".4bpp.smol");
 
 static const u16 gBarColors[] =
 {
