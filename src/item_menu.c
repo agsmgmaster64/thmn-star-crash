@@ -517,9 +517,9 @@ static const struct ScrollArrowsTemplate sBagScrollArrowsTemplate = {
 
 static const u16 sItemListTilemap[BAG_LIST_TILES_WIDTH * BAG_LIST_TILES_HEIGHT] = INCBIN_U16("graphics/bag/list.bin");
 
-static const u8 sRegisteredSelect_Gfx[] = INCBIN_U8("graphics/bag/select_button.4bpp");
-static const u8 sRegisteredLButton_Gfx[] = INCBIN_U8("graphics/bag/l_button.4bpp");
-static const u8 sRegisteredRButton_Gfx[] = INCBIN_U8("graphics/bag/r_button.4bpp");
+static const u8 sRegisteredSelect_Gfx[] = INCGFX_U8("graphics/bag/select_button.png", ".4bpp");
+static const u8 sRegisteredLButton_Gfx[] = INCGFX_U8("graphics/bag/l_button.png", ".4bpp");
+static const u8 sRegisteredRButton_Gfx[] = INCGFX_U8("graphics/bag/r_button.png", ".4bpp");
 
 enum {
     COLORID_NORMAL,

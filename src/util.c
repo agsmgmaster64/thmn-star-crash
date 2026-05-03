@@ -74,18 +74,7 @@ static const u16 sCrc16Table[] =
     0x7BC7, 0x6A4E, 0x58D5, 0x495C, 0x3DE3, 0x2C6A, 0x1EF1, 0x0F78,
 };
 
-static const u16 sHueShiftNormalRange = 40;
-static const u16 sHueShiftShinyRange = 30;
-static const s8 sHueShiftSpeciesLimit[NUM_SPECIES] =
-{
-    [SPECIES_CHIBI_YOUMU] = -1,
-    [SPECIES_NORMAL_YOUMU] = -1,
-    [SPECIES_DEFENSE_YOUMU] = -1,
-    [SPECIES_SPEED_YOUMU] = -1,
-};
-
-
-const u8 gMiscBlank_Gfx[] = INCBIN_U8("graphics/interface/blank.4bpp");
+const u8 gMiscBlank_Gfx[] = INCGFX_U8("graphics/interface/blank.png", ".4bpp");
 
 u8 CreateInvisibleSpriteWithCallback(void (*callback)(struct Sprite *))
 {
