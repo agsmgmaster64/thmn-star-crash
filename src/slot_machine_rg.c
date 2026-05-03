@@ -412,7 +412,7 @@ static const u16 sReelIcons_Pal[][16] =
     INCGFX_U16("graphics/slot_machine/firered/reel_icon_wriggle.pal", ".gbapal"),
     INCGFX_U16("graphics/slot_machine/firered/reel_icon_rumia.pal", ".gbapal"),
 };
-static const u32 sReelIcons_Tiles[]   = INCGFX_U32("graphics/slot_machine/firered/reel_icons.png", ".4bpp.smol");
+static const u32 sReelIcons_Tiles[]   = INCGFX_U32("graphics/slot_machine/firered/reel_icons.4bpp", ".smol");
 static const u16 sClefairy_Pal[]      = INCGFX_U16("graphics/slot_machine/firered/clefairy.png", ".gbapal");
 static const u32 sClefairy_Tiles[]    = INCGFX_U32("graphics/slot_machine/firered/clefairy.png", ".4bpp.smol");
 static const u16 sDigits_Pal[]        = INCGFX_U16("graphics/slot_machine/firered/digits.png", ".gbapal");

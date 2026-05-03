@@ -439,10 +439,10 @@ static const u8 sButtons_Gfx[][4 * TILE_SIZE_4BPP] = {
 };
 
 #if BW_SUMMARY_BW_TYPE_ICONS == TRUE
-static const u32 sMoveTypes_Gfx_BW[]                        = INCBIN_U32("graphics/types_bw/move_types_bw.4bpp.smol");
+static const u32 sMoveTypes_Gfx_BW[]                        = INCGFX_U32("graphics/types_bw/move_types_bw.4bpp", ".smol");
 static const u16 sMoveTypes_Pal_BW[]                        = INCBIN_U16("graphics/types_bw/move_types_bw.gbapal");
 #endif
-static const u32 sTeraTypes_Gfx[]                           = INCBIN_U32("graphics/types_bw/tera/tera_types_bw.4bpp.smol");
+static const u32 sTeraTypes_Gfx[]                           = INCGFX_U32("graphics/types_bw/tera/tera_types_bw.4bpp", ".smol");
 static const u32 sSummaryMoveSelect_Gfx_BW[]                = INCGFX_U32("graphics/summary_screen/bw/move_select.png", ".4bpp.smol");
 static const u16 sSummaryMoveSelect_Pal_BW[]                = INCGFX_U16("graphics/summary_screen/bw/move_select.pal", ".gbapal");
 static const u16 sMarkings_Pal_BW[]                         = INCGFX_U16("graphics/summary_screen/bw/markings.pal", ".gbapal");
