@@ -499,23 +499,23 @@ const u8 gTrainerBackPic_Wally[] = INCGFX_U8("graphics/trainers/back_pics/wally.
 const u8 gTrainerBackPic_Steven[] = INCGFX_U8("graphics/trainers/back_pics/steven.png", ".4bpp");
 const u8 gTrainerBackPic_Pokedude[] = INCGFX_U8("graphics/trainers/back_pics/pokedude.png", ".4bpp");
 const u8 gTrainerBackPic_OldMan[] = INCGFX_U8("graphics/trainers/back_pics/old_man.png", ".4bpp");
-const u8 gTrainerBackPic_Gigi[] = INCBIN_U8("graphics/trainers/back_pics/renko_young.png", ".4bpp");
-const u8 gTrainerBackPic_Kronii[] = INCBIN_U8("graphics/trainers/back_pics/maribel_young.png", ".4bpp");
-const u8 gTrainerBackPic_Renko[] = INCBIN_U8("graphics/trainers/back_pics/renko.png", ".4bpp");
-const u8 gTrainerBackPic_Maribel[] = INCBIN_U8("graphics/trainers/back_pics/maribel.png", ".4bpp");
-const u8 gTrainerBackPic_RenkoYoung[] = INCBIN_U8("graphics/trainers/back_pics/renko_young.png", ".4bpp");
-const u8 gTrainerBackPic_MaribelYoung[] = INCBIN_U8("graphics/trainers/back_pics/maribel_young.png", ".4bpp");
+const u8 gTrainerBackPic_Gigi[] = INCGFX_U8("graphics/trainers/back_pics/renko_young.png", ".4bpp");
+const u8 gTrainerBackPic_Kronii[] = INCGFX_U8("graphics/trainers/back_pics/maribel_young.png", ".4bpp");
+const u8 gTrainerBackPic_Renko[] = INCGFX_U8("graphics/trainers/back_pics/renko.png", ".4bpp");
+const u8 gTrainerBackPic_Maribel[] = INCGFX_U8("graphics/trainers/back_pics/maribel.png", ".4bpp");
+const u8 gTrainerBackPic_RenkoYoung[] = INCGFX_U8("graphics/trainers/back_pics/renko_young.png", ".4bpp");
+const u8 gTrainerBackPic_MaribelYoung[] = INCGFX_U8("graphics/trainers/back_pics/maribel_young.png", ".4bpp");
 
 const u16 gTrainerBackPicPalette_Red[] = INCGFX_U16("graphics/trainers/back_pics/red.png", ".gbapal");
 const u16 gTrainerBackPicPalette_Leaf[] = INCGFX_U16("graphics/trainers/back_pics/leaf.png", ".gbapal");
 const u16 gTrainerBackPicPalette_Pokedude[] = INCGFX_U16("graphics/trainers/back_pics/pokedude.png", ".gbapal");
 const u16 gTrainerBackPicPalette_OldMan[] = INCGFX_U16("graphics/trainers/back_pics/old_man.png", ".gbapal");
-const u16 gTrainerBackPicPalette_Renko[] = INCBIN_U16("graphics/trainers/back_pics/renko.png", ".gbapal");
-const u16 gTrainerBackPicPalette_Maribel[] = INCBIN_U16("graphics/trainers/back_pics/maribel.png", ".gbapal");
-const u16 gTrainerBackPicPalette_RenkoYoung[] = INCBIN_U16("graphics/trainers/back_pics/renko_young.png", ".gbapal");
-const u16 gTrainerBackPicPalette_MaribelYoung[] = INCBIN_U16("graphics/trainers/back_pics/maribel_young.png", ".gbapal");
-const u16 gTrainerBackPicPalette_Gigi[] = INCBIN_U16("graphics/trainers/back_pics/renko_young.png", ".gbapal");
-const u16 gTrainerBackPicPalette_Kronii[] = INCBIN_U16("graphics/trainers/back_pics/maribel_young.png", ".gbapal");
+const u16 gTrainerBackPicPalette_Renko[] = INCGFX_U16("graphics/trainers/back_pics/renko.png", ".gbapal");
+const u16 gTrainerBackPicPalette_Maribel[] = INCGFX_U16("graphics/trainers/back_pics/maribel.png", ".gbapal");
+const u16 gTrainerBackPicPalette_RenkoYoung[] = INCGFX_U16("graphics/trainers/back_pics/renko_young.png", ".gbapal");
+const u16 gTrainerBackPicPalette_MaribelYoung[] = INCGFX_U16("graphics/trainers/back_pics/maribel_young.png", ".gbapal");
+const u16 gTrainerBackPicPalette_Gigi[] = INCGFX_U16("graphics/trainers/back_pics/renko_young.png", ".gbapal");
+const u16 gTrainerBackPicPalette_Kronii[] = INCGFX_U16("graphics/trainers/back_pics/maribel_young.png", ".gbapal");
 
 
 
