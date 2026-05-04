@@ -2376,7 +2376,7 @@ static void Controller_WaitToTransitionStatusMenu(enum BattlerId battler)
 {
     if (!gPaletteFade.active)
     {
-        FreeAllWindowBuffers();
+        CloseMainBattleScreen();
         UI_Battle_Menu_Init(ReshowBattleScreenAfterMenu);
         gBattlerControllerFuncs[battler] = Controller_WaitForDebug;
     }

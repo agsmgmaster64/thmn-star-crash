@@ -210,6 +210,7 @@ enum battler_TabIds
 enum field_TabsIds
 {
     TAB_PARTY,
+    TAB_PARTY_PARTNER,
     TAB_FIELD,
     TAB_PLAYER_SIDE,
     TAB_ENEMY_SIDE,
@@ -258,6 +259,7 @@ static void Menu_FadeAndBail(void);
 static bool8 Menu_LoadGraphics(void);
 static void Menu_InitWindows(void);
 static void PrintPartyTab(void);
+static void PrintPartyPartnerTab(void);
 static void PrintFieldTab(void);
 static void PrintSideTab(u8 side);
 static void PrintStatsTab(void);
@@ -268,7 +270,7 @@ static void Task_MenuMain(u8 taskId);
 static void PrintMoveInfo(u16 move, u8 x, u8 y, u8 moveIdx);
 
 static u8 ShowSpeciesIcon(u8 num);
-static u8 ShowSpeciesIconParty(u8 num, bool8 isEnemyParty, u8 x, u8 y);
+static u8 ShowSpeciesIconParty(u8 num, u8 whichParty, u8 x, u8 y);
 static void FreeEveryMonIconSprite(void);
 static void FreeSpeciesIconSprite(u8 battler);
 static void SetUIBattler(void);
@@ -943,6 +945,7 @@ void LoadTilemapFromMode(void)
     {
         switch(sMenuDataPtr->fieldTabId)
         {
+        case TAB_PARTY_PARTNER:
         case TAB_PARTY:
             if (sMenuDataPtr->isDoubleBattle)
                 DecompressDataWithHeaderWram(sMenu_Tilemap_Doubles_Party_Info, sBg1TilemapBuffer);
@@ -1137,7 +1140,7 @@ static void SpriteCB_Selector(struct Sprite *sprite)
 
 static void SpriteCB_PartyMons(struct Sprite *sprite)
 {
-    if (sMenuDataPtr->modeId != MODE_FIELD || sMenuDataPtr->fieldTabId != TAB_PARTY)
+    if (sMenuDataPtr->modeId != MODE_FIELD || (sMenuDataPtr->fieldTabId != TAB_PARTY && sMenuDataPtr->fieldTabId != TAB_PARTY_PARTNER))
         sprite->invisible = TRUE;
     else
         sprite->invisible = FALSE;
@@ -2531,13 +2534,69 @@ static void PrintPartyTab(void)
         //Player Mon Icons
         for (i = 0; i < NUM_PARTY_ICONS_SHOWN; i++)
         {
-            ShowSpeciesIconParty(i, FALSE, PARTY_POKEMON_ICON_X + ((i % 3) * PARTY_POKEMON_SPACE_X), PARTY_POKEMON_ICON_Y + ((i / 3) * PARTY_POKEMON_SPACE_Y));
+            ShowSpeciesIconParty(i, B_TRAINER_0, PARTY_POKEMON_ICON_X + ((i % 3) * PARTY_POKEMON_SPACE_X), PARTY_POKEMON_ICON_Y + ((i / 3) * PARTY_POKEMON_SPACE_Y));
         }
 
         //Enemy Mon Icons
         for (i = 0; i < NUM_PARTY_ICONS_SHOWN; i++)
         {
-            ShowSpeciesIconParty(i, TRUE, PARTY_POKEMON_ICON_X + ((i % 3) * PARTY_POKEMON_SPACE_X), PARTY_POKEMON_ICON_Y_2 + ((i / 3)  * PARTY_POKEMON_SPACE_Y));
+            ShowSpeciesIconParty(i, B_TRAINER_1, PARTY_POKEMON_ICON_X + ((i % 3) * PARTY_POKEMON_SPACE_X), PARTY_POKEMON_ICON_Y_2 + ((i / 3)  * PARTY_POKEMON_SPACE_Y));
+        }
+
+        sMenuDataPtr->partyIconsCreated = TRUE;
+    }
+
+    //Selector
+    if (sMenuDataPtr->partySelectorMode)
+    {
+        x = 9 + ((partyIndex % 3) * 7); //PARTY_POKEMON_ICON_X / 8
+
+        if(partyIndex >= 6)
+        {
+            u8 enemyIndex = partyIndex - 6;
+            y = 13 + ((enemyIndex / 3) * 3); //PARTY_POKEMON_ICON_Y / 8
+        }
+        else
+            y = 3 + ((partyIndex / 3) * 3); //PARTY_POKEMON_ICON_Y / 8
+        
+        BlitBitmapToWindow(windowId, sSelector2, (x * 8), (y * 8), 40, 24);
+    }
+    
+    PutWindowTilemap(windowId);
+    CopyWindowToVram(windowId, 3);
+}
+
+static void PrintPartyPartnerTab(void)
+{
+    u8 i;
+    u8 x, y;
+    u8 windowId = WINDOW_1;
+    u8 partyIndex = sMenuDataPtr->partyMenuSelectorID_X + (sMenuDataPtr->partyMenuSelectorID_Y * 3);
+
+    FillWindowPixelBuffer(windowId, PIXEL_FILL(TEXT_COLOR_TRANSPARENT));
+
+    //Title
+    x  = 9;
+    y  = 0;
+    AddTextPrinterParameterized4(windowId, FONT_SMALL, (x * 8), (y * 8), 0, 0, sMenuWindowFontColors[FONT_WHITE], 0xFF, sText_Title_Field_Party);
+    x  = 15;
+    if (sMenuDataPtr->partySelectorMode)
+        AddTextPrinterParameterized4(windowId, FONT_SMALL, (x * 8), (y * 8), 0, 0, sMenuWindowFontColors[FONT_WHITE], 0xFF, sText_Title_PartyInfo);
+    else
+        AddTextPrinterParameterized4(windowId, FONT_SMALL, (x * 8), (y * 8), 0, 0, sMenuWindowFontColors[FONT_WHITE], 0xFF, sText_Title_PartyInfoSelect);
+
+    if (!sMenuDataPtr->partyIconsCreated)
+    {
+        //Partner Mon Icons
+        for (i = 0; i < NUM_PARTY_ICONS_SHOWN; i++)
+        {
+            ShowSpeciesIconParty(i, B_TRAINER_2, PARTY_POKEMON_ICON_X + ((i % 3) * PARTY_POKEMON_SPACE_X), PARTY_POKEMON_ICON_Y + ((i / 3) * PARTY_POKEMON_SPACE_Y));
+        }
+
+        //Enemy Partner Mon Icons
+        for (i = 0; i < NUM_PARTY_ICONS_SHOWN; i++)
+        {
+            ShowSpeciesIconParty(i, B_TRAINER_3, PARTY_POKEMON_ICON_X + ((i % 3) * PARTY_POKEMON_SPACE_X), PARTY_POKEMON_ICON_Y_2 + ((i / 3)  * PARTY_POKEMON_SPACE_Y));
         }
 
         sMenuDataPtr->partyIconsCreated = TRUE;
@@ -3353,28 +3412,26 @@ static void FreeSpeciesIconSprite(u8 battler)
     }
 }
 
-static u8 ShowSpeciesIconParty(u8 num, bool8 isEnemyParty, u8 x, u8 y)
+static u8 ShowSpeciesIconParty(u8 num, u8 whichParty, u8 x, u8 y)
 {
     struct Pokemon *party = NULL;
 	u16 species;
     u32 personality;
     u8 spriteId;
 
-    if(isEnemyParty)
-        party = gEnemyParty;
-    else
-        party = gPlayerParty;
+    party = gParties[whichParty];
 
     species     = GetMonData(&party[num], MON_DATA_SPECIES, NULL);
     personality = GetMonData(&party[num], MON_DATA_PERSONALITY, NULL);
 
-	LoadMonIconPalette(species);
-
-    if(species == SPECIES_NONE)
+    if (species == SPECIES_NONE)
         return 0;
 
-    if(isEnemyParty){
-        if(sMenuDataPtr->spriteIds[SPRITE_ARR_ID_MON_ICON_1_PARTY_ENEMY + num] != SPRITE_NONE) //Already created
+	LoadMonIconPalette(species);
+
+    if (whichParty == B_TRAINER_1 || whichParty == B_TRAINER_3)
+    {
+        if (sMenuDataPtr->spriteIds[SPRITE_ARR_ID_MON_ICON_1_PARTY_ENEMY + num] != SPRITE_NONE) //Already created
             return sMenuDataPtr->spriteIds[SPRITE_ARR_ID_MON_ICON_1_PARTY_ENEMY + num];
         
         sMenuDataPtr->spriteIds[SPRITE_ARR_ID_MON_ICON_1_PARTY_ENEMY + num] = CreateMonIcon(species, SpriteCB_PartyMons, x, y, 0, personality);
@@ -3382,8 +3439,9 @@ static u8 ShowSpeciesIconParty(u8 num, bool8 isEnemyParty, u8 x, u8 y)
         gSprites[sMenuDataPtr->spriteIds[SPRITE_ARR_ID_MON_ICON_1_PARTY_ENEMY] + num].invisible = FALSE;
         spriteId = sMenuDataPtr->spriteIds[SPRITE_ARR_ID_MON_ICON_1_PARTY_ENEMY + num];
     }
-    else{
-        if(sMenuDataPtr->spriteIds[SPRITE_ARR_ID_MON_ICON_1_PARTY_PLAYER + num] != SPRITE_NONE) //Already created
+    else
+    {
+        if (sMenuDataPtr->spriteIds[SPRITE_ARR_ID_MON_ICON_1_PARTY_PLAYER + num] != SPRITE_NONE) //Already created
             return sMenuDataPtr->spriteIds[SPRITE_ARR_ID_MON_ICON_1_PARTY_PLAYER + num];
         
         sMenuDataPtr->spriteIds[SPRITE_ARR_ID_MON_ICON_1_PARTY_PLAYER + num] = CreateMonIcon(species, SpriteCB_PartyMons, x, y, 0, personality);
@@ -3406,6 +3464,7 @@ static const u8 tabColors[NUM_TABS] =
 static const u8 tabColorsField [NUM_FIELD_TABS + 2] =
 {
     [TAB_PARTY]             = MENU_COLOR_YELLOW,
+    [TAB_PARTY_PARTNER]     = MENU_COLOR_YELLOW,
     [TAB_FIELD]             = MENU_COLOR_GREEN,
     [TAB_PLAYER_SIDE]       = MENU_COLOR_RED,
     [TAB_ENEMY_SIDE]        = MENU_COLOR_YELLOW,
@@ -3513,6 +3572,9 @@ static void PrintPage(void)
         case TAB_PARTY:
             PrintPartyTab();
             break;
+        case TAB_PARTY_PARTNER:
+            PrintPartyPartnerTab();
+            break;
         case TAB_FIELD:
             PrintFieldTab();
             break;
@@ -3537,15 +3599,30 @@ static void TransitionToSummaryScreen(u8 taskId)
         bool8 isEnemyMon = sMenuDataPtr->isEnemyMon;
         bool8 currMonId = sMenuDataPtr->currMonId;
         bool8 partyCount = sMenuDataPtr->partyCount;
+        u32 whichParty = B_TRAINER_0;
+        u32 summaryMode = SUMMARY_MODE_LOCK_MOVES;
+
+        if (!isEnemyMon)
+        {
+            if (sMenuDataPtr->fieldTabId == TAB_PARTY_PARTNER)
+                whichParty = B_TRAINER_2;
+            else
+                whichParty = B_TRAINER_0;
+        }
+        else
+        {
+            summaryMode = SUMMARY_MODE_LOCK_ENEMY;
+            if (sMenuDataPtr->fieldTabId == TAB_PARTY_PARTNER)
+                whichParty = B_TRAINER_3;
+            else
+                whichParty = B_TRAINER_1;
+        }
 
         FreeAllWindowBuffers();
         DestroyTask(taskId);
         sTempSavedCallback = sMenuDataPtr->savedCallback;
         Menu_FreeResources();
-        if (!isEnemyMon)
-            ShowPokemonSummaryScreen_BW(SUMMARY_MODE_LOCK_MOVES, gPlayerParty, currMonId, partyCount, CB2_SetUpReshowBattleMenuAfterSummaryScreen);
-        else
-            ShowPokemonSummaryScreen_BW(SUMMARY_MODE_LOCK_ENEMY, gEnemyParty,  currMonId, partyCount, CB2_SetUpReshowBattleMenuAfterSummaryScreen);
+        ShowPokemonSummaryScreen_BW(summaryMode, gParties[whichParty], currMonId, partyCount, CB2_SetUpReshowBattleMenuAfterSummaryScreen);
     }
 }
 
@@ -3554,6 +3631,7 @@ static void StartSummaryScreen(u8 taskId)
     u8 currMonId = sMenuDataPtr->partyMenuSelectorID_X + (sMenuDataPtr->partyMenuSelectorID_Y * PARTY_TAB_NUM_MONS_X);
     u16 species;
     u8 partyCount;
+    u8 whichParty = B_TRAINER_0;
     bool8 isEnemyMon = FALSE;
 
     //Save State
@@ -3564,18 +3642,23 @@ static void StartSummaryScreen(u8 taskId)
     //Check if the mon is from the enemy party or the player party
     if (currMonId < PARTY_SIZE)
     {
-        //Player Party
-        species = GetMonData(&gPlayerParty[currMonId], MON_DATA_SPECIES, NULL);
-        partyCount = gPlayerPartyCount - 1;
+        if (sMenuDataPtr->fieldTabId == TAB_PARTY_PARTNER)
+            whichParty = B_TRAINER_2;
+        else
+            whichParty = B_TRAINER_0;
     }
     else
     {
-        //Enemy Party
-        species = GetMonData(&gEnemyParty[currMonId - PARTY_SIZE], MON_DATA_SPECIES, NULL);
-        partyCount = CalculateEnemyPartyCount() - 1;
+        if (sMenuDataPtr->fieldTabId == TAB_PARTY_PARTNER)
+            whichParty = B_TRAINER_3;
+        else
+            whichParty = B_TRAINER_1;
         currMonId = currMonId - PARTY_SIZE;
         isEnemyMon = TRUE;
     }
+
+    species = GetMonData(&gParties[whichParty][currMonId], MON_DATA_SPECIES, NULL);
+    partyCount = gPartiesCount[whichParty] - 1;
 
     if (PARTY_MENU_SUMMARY_LOCK_MONS)
         partyCount = 0; //To remove being able to change mons in the summary screen
@@ -3651,13 +3734,18 @@ static void Task_MenuMain(u8 taskId)
 {
     if (JOY_NEW(B_BUTTON))
     {
-        if (sMenuDataPtr->modeId == MODE_FIELD && sMenuDataPtr->fieldTabId == TAB_PARTY && sMenuDataPtr->partySelectorMode)
+        if (sMenuDataPtr->modeId == MODE_FIELD
+         && (sMenuDataPtr->fieldTabId == TAB_PARTY || sMenuDataPtr->fieldTabId == TAB_PARTY_PARTNER)
+         && sMenuDataPtr->partySelectorMode)
         {
             sMenuDataPtr->partySelectorMode = FALSE;
             sMenuDataPtr->partyMenuSelectorID_X = 0;
             sMenuDataPtr->partyMenuSelectorID_Y = 0;
 
-            PrintPartyTab();
+            if (sMenuDataPtr->fieldTabId == TAB_PARTY)
+                PrintPartyTab();
+            else
+                PrintPartyPartnerTab();
         }
         else
         {
@@ -3703,6 +3791,17 @@ static void Task_MenuMain(u8 taskId)
                     StartSummaryScreen(taskId);
                 }
                 break;
+            case TAB_PARTY_PARTNER:
+                if (!sMenuDataPtr->partySelectorMode)
+                {
+                    sMenuDataPtr->partySelectorMode = TRUE;
+                    PrintPartyPartnerTab();
+                }
+                else
+                {
+                    StartSummaryScreen(taskId);
+                }
+                break;
             case TAB_FIELD:
                 sMenuDataPtr->currentFieldInfo = (sMenuDataPtr->currentFieldInfo + 1) % sMenuDataPtr->numFields;
                 PrintFieldTab();
@@ -3725,13 +3824,19 @@ static void Task_MenuMain(u8 taskId)
     }
     else if (JOY_NEW(DPAD_DOWN))
     {
-        if (sMenuDataPtr->modeId == MODE_FIELD && sMenuDataPtr->fieldTabId == TAB_PARTY && sMenuDataPtr->partySelectorMode)
+        if (sMenuDataPtr->modeId == MODE_FIELD
+         && (sMenuDataPtr->fieldTabId == TAB_PARTY || sMenuDataPtr->fieldTabId == TAB_PARTY_PARTNER)
+         && sMenuDataPtr->partySelectorMode)
         {
-            if ((sMenuDataPtr->partyMenuSelectorID_Y) < PARTY_TAB_NUM_MONS_Y - 1)
+            if (sMenuDataPtr->partyMenuSelectorID_Y < PARTY_TAB_NUM_MONS_Y - 1)
                 sMenuDataPtr->partyMenuSelectorID_Y++;
             else
                 sMenuDataPtr->partyMenuSelectorID_Y = 0;
-            PrintPartyTab();
+
+            if (sMenuDataPtr->fieldTabId == TAB_PARTY)
+                PrintPartyTab();
+            else
+                PrintPartyPartnerTab();
         }
         else
         {
@@ -3755,13 +3860,19 @@ static void Task_MenuMain(u8 taskId)
     }
     else if (JOY_NEW(DPAD_UP))
     {
-        if (sMenuDataPtr->modeId == MODE_FIELD && sMenuDataPtr->fieldTabId == TAB_PARTY && sMenuDataPtr->partySelectorMode)
+        if (sMenuDataPtr->modeId == MODE_FIELD
+         && (sMenuDataPtr->fieldTabId == TAB_PARTY || sMenuDataPtr->fieldTabId == TAB_PARTY_PARTNER)
+         && sMenuDataPtr->partySelectorMode)
         {
-            if(sMenuDataPtr->partyMenuSelectorID_Y != 0)
+            if (sMenuDataPtr->partyMenuSelectorID_Y != 0)
                 sMenuDataPtr->partyMenuSelectorID_Y--;
             else
                 sMenuDataPtr->partyMenuSelectorID_Y = PARTY_TAB_NUM_MONS_Y - 1;
-            PrintPartyTab();
+
+            if (sMenuDataPtr->fieldTabId == TAB_PARTY)
+                PrintPartyTab();
+            else
+                PrintPartyPartnerTab();
         }
         else
         {
@@ -3788,13 +3899,19 @@ static void Task_MenuMain(u8 taskId)
         switch (sMenuDataPtr->modeId)
         {
         case MODE_FIELD:
-            if (sMenuDataPtr->fieldTabId == TAB_PARTY && sMenuDataPtr->partySelectorMode)
+            if ((sMenuDataPtr->fieldTabId == TAB_PARTY
+             || sMenuDataPtr->fieldTabId == TAB_PARTY_PARTNER)
+             && sMenuDataPtr->partySelectorMode)
             {
                 if (sMenuDataPtr->partyMenuSelectorID_X != 0)
                     sMenuDataPtr->partyMenuSelectorID_X--;
                 else
                     sMenuDataPtr->partyMenuSelectorID_X = PARTY_TAB_NUM_MONS_X - 1;
-                PrintPartyTab();
+
+                if (sMenuDataPtr->fieldTabId == TAB_PARTY)
+                    PrintPartyTab();
+                else
+                    PrintPartyPartnerTab();
             }
             else
             {
@@ -3820,13 +3937,19 @@ static void Task_MenuMain(u8 taskId)
         switch(sMenuDataPtr->modeId)
         {
         case MODE_FIELD:
-            if (sMenuDataPtr->fieldTabId == TAB_PARTY && sMenuDataPtr->partySelectorMode)
+            if ((sMenuDataPtr->fieldTabId == TAB_PARTY
+             || sMenuDataPtr->fieldTabId == TAB_PARTY_PARTNER)
+             && sMenuDataPtr->partySelectorMode)
             {
                 if(sMenuDataPtr->partyMenuSelectorID_X < PARTY_TAB_NUM_MONS_X - 1)
                     sMenuDataPtr->partyMenuSelectorID_X++;
                 else
                     sMenuDataPtr->partyMenuSelectorID_X = 0;
-                PrintPartyTab();
+
+                if (sMenuDataPtr->fieldTabId == TAB_PARTY)
+                    PrintPartyTab();
+                else
+                    PrintPartyPartnerTab();
             }
             else
             {
