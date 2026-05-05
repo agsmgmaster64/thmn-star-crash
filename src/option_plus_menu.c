@@ -2211,9 +2211,9 @@ static int ProcessInput_MusicVolume(int selection)
 
     gSaveBlock2Ptr->optionsVolumeBGM = selection;
 
-    if (refreshMus || selection == 0)
+    if (refreshMus || selection == 10)
         FadeOutAndPlayNewMapMusic(GetCurrentMapMusic(), 1);
-    m4aMPlayVolumeControl(&gMPlayInfo_BGM, TRACKS_ALL, (256 * selection / 10));
+    m4aMPlayVolumeControl(&gMPlayInfo_BGM, TRACKS_ALL, (256 * (10 - selection) / 10));
 
     return selection;
 }
@@ -2414,6 +2414,8 @@ static void DrawChoices_MusicVolume(int selection, int y) //HP and EXP
 {
     bool8 active = CheckConditions(MENUITEM_MISC_MUSIC_VOLUME);
 
+    selection = 10 - selection;
+
     if (selection == 0)
         DrawOptionMenuChoice(sText_ZeroPercent, 104, y, 1, active);
     else if (selection < 10)
@@ -2429,6 +2431,8 @@ static void DrawChoices_MusicVolume(int selection, int y) //HP and EXP
 static void DrawChoices_SFXVolume(int selection, int y) //HP and EXP
 {
     bool8 active = CheckConditions(MENUITEM_MISC_SFX_VOLUME);
+
+    selection = 10 - selection;
 
     if (selection == 0)
     {
@@ -2449,6 +2453,8 @@ static void DrawChoices_SFXVolume(int selection, int y) //HP and EXP
 static void DrawChoices_CriesVolume(int selection, int y) //HP and EXP
 {
     bool8 active = CheckConditions(MENUITEM_MISC_CRIES_VOLUME);
+
+    selection = 10 - selection;
 
     if (selection == 0)
     {

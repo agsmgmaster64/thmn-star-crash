@@ -125,9 +125,9 @@ static void SetDefaultOptions(void)
     gSaveBlock2Ptr->optionsMonAnimations = OPTIONS_GENERAL_OFF;
     gSaveBlock2Ptr->optionsShowTypes = OPTIONS_GENERAL_ON;
     gSaveBlock2Ptr->optionsEffectiveness = OPTIONS_GENERAL_ON;
-    gSaveBlock2Ptr->optionsVolumeBGM = 10;
-    gSaveBlock2Ptr->optionsVolumeSFX = 10;
-    gSaveBlock2Ptr->optionsVolumeCries = 10;
+    gSaveBlock2Ptr->optionsVolumeBGM = 0;
+    gSaveBlock2Ptr->optionsVolumeSFX = 0;
+    gSaveBlock2Ptr->optionsVolumeCries = 0;
     gSaveBlock2Ptr->optionsRButtonMode = OPTIONS_R_BUTTON_MODE_NONE;
     gSaveBlock2Ptr->optionsLButtonMode = OPTIONS_L_BUTTON_MODE_NONE;
     gSaveBlock2Ptr->optionsOwSpeed = OPTIONS_OVERWORLD_SPEED_1X;
