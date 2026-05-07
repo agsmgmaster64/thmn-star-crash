@@ -4478,17 +4478,48 @@ u32 AbilityBattleEffects(enum AbilityEffect caseID, enum BattlerId battler, enum
              && !(gBattleStruct->moveResultFlags[gBattlerTarget] & MOVE_RESULT_MISSED)
              && IsSoundMove(gCurrentMove))
             {
+                struct BattleCalcValues cv = {
+                    .battlerAtk = gBattlerTarget,
+                    .battlerDef = gBattlerAttacker,
+                    .move = MOVE_NONE,
+                };
+
+                cv.abilities[gBattlerAttacker] = ability;
+                cv.abilities[gBattlerTarget] = GetBattlerAbility(gBattlerTarget);
+                cv.holdEffects[gBattlerAttacker] = GetBattlerHoldEffect(gBattlerAttacker);
+                cv.holdEffects[gBattlerTarget] = GetBattlerHoldEffect(gBattlerTarget);
+
+                struct StatChange st = {
+                    .onlyChecking = TRUE,
+                };
+
+                struct StatStages change = {
+                    .stat = STAT_ATK,
+                    .stage = -1,
+                };
+
+                st.statStageQueue = &change;
+                st.statStageAmount = 1;
+
                 if (gBattleMons[gBattlerTarget].attack < gBattleMons[gBattlerTarget].spAttack)
                 {
-                    if (CompareStat(gBattlerTarget, STAT_SPATK, MIN_STAT_STAGE, CMP_GREATER_THAN, gLastUsedAbility) || GetBattlerAbility(gBattlerTarget) == ABILITY_MIRROR_ARMOR)
+                    change.stat = STAT_SPATK;
+                    if (TryStatChange(&cv, &st) == STAT_CHANGE_WORKED || cv.abilities[gBattlerTarget] == ABILITY_MIRROR_ARMOR)
                     {
+                        gEffectBattler = gBattlerAbility = gBattlerAttacker;
+                        SetStatChange(gBattlerTarget, STAT_SPATK, -1);
+                        BattleScriptCall(BattleScript_AbilityStatChange);
                         effect++;
                     }
                 }
                 else
                 {
-                    if (CompareStat(gBattlerTarget, STAT_ATK, MIN_STAT_STAGE, CMP_GREATER_THAN, gLastUsedAbility) || GetBattlerAbility(gBattlerTarget) == ABILITY_MIRROR_ARMOR)
+                    change.stat = STAT_ATK;
+                    if (TryStatChange(&cv, &st) == STAT_CHANGE_WORKED || cv.abilities[gBattlerTarget] == ABILITY_MIRROR_ARMOR)
                     {
+                        gEffectBattler = gBattlerAbility = gBattlerAttacker;
+                        SetStatChange(gBattlerTarget, STAT_ATK, -1);
+                        BattleScriptCall(BattleScript_AbilityStatChange);
                         effect++;
                     }
                 }

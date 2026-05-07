@@ -6028,7 +6028,7 @@ void HealBoxPokemon(struct BoxPokemon *boxMon)
 enum PokemonCry GetCryIdBySpecies(enum Species species)
 {
     species = SanitizeSpeciesId(species);
-    if (P_CRIES_ENABLED == FALSE || gSpeciesInfo[species].cryId >= CRY_COUNT || gSaveBlock2Ptr->optionsVolumeCries == 0 || gTestRunnerHeadless)
+    if (P_CRIES_ENABLED == FALSE || gSpeciesInfo[species].cryId >= CRY_COUNT || gSaveBlock2Ptr->optionsVolumeCries == 10 || gTestRunnerHeadless)
         return CRY_NONE;
     return gSpeciesInfo[species].cryId;
 }

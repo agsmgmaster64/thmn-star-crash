@@ -4336,7 +4336,8 @@ static enum MoveResult StatChangeSubstitute(struct BattleCalcValues *cv)
 
 static enum MoveResult StatChangeCanAnyChange(struct BattleCalcValues *cv)
 {
-    if (GetMoveEffect(cv->move) == EFFECT_ACUPRESSURE)
+    if (GetMoveEffect(cv->move) == EFFECT_ACUPRESSURE
+     || GetMoveEffect(cv->move) == EFFECT_MOOD_SWING)
         return MOVE_RESULT_CONTINUE;
 
     struct StatChange st = {
@@ -4442,6 +4443,34 @@ static enum MoveResult StatChangeBeforeChange(struct BattleCalcValues *cv)
 
             gBattleStruct->moveResultFlags[cv->battlerDef] = MOVE_RESULT_ATTEMPT_STAT_CHANGE;
             SetStatChange(cv->battlerDef, statId, 2);
+            BattleScriptCall(BattleScript_PlayMoveAnim);
+            return MOVE_RESULT_RUN_SCRIPT_INCREMENT;
+        }
+        else
+        {
+            gBattlescriptCurrInstr = BattleScript_StatChangeFailed;
+            return MOVE_RESULT_FAILURE;
+        }
+        break;
+    }
+    case EFFECT_MOOD_SWING:
+    {
+        u32 bits = 0;
+        for (enum Stat stat = STAT_ATK; stat < NUM_BATTLE_STATS; stat++)
+        {
+            if (CompareStat(cv->battlerDef, stat, MAX_STAT_STAGE, CMP_LESS_THAN, cv->abilities[cv->battlerDef]))
+                bits |= 1u << stat;
+        }
+        if (bits)
+        {
+            enum Stat statId;
+            do
+            {
+                statId = (Random() % (NUM_BATTLE_STATS - 1)) + 1;
+            } while (!(bits & (1u << statId)));
+
+            gBattleStruct->moveResultFlags[cv->battlerDef] = MOVE_RESULT_ATTEMPT_STAT_CHANGE;
+            SetStatChange(cv->battlerDef, statId, 1);
             BattleScriptCall(BattleScript_PlayMoveAnim);
             return MOVE_RESULT_RUN_SCRIPT_INCREMENT;
         }

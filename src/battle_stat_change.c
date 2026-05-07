@@ -12,6 +12,7 @@
 
 // Stat change
 static enum StatChangeResult CanDecreaseStat(struct BattleCalcValues *cv, struct StatChange *st);
+static enum StatChangeResult CanIncreaseStat(struct BattleCalcValues *cv, struct StatChange *st);
 static enum StatChangeResult DecreaseStat(struct BattleCalcValues *cv, struct StatChange *st);
 static enum StatChangeResult IncreaseStat(struct BattleCalcValues *cv, struct StatChange *st);
 static void StatChanged(struct BattleCalcValues *cv, struct StatChange *st, bool32 isMaxStage);
@@ -25,11 +26,14 @@ static bool32 IsClearAmuletBlocked(struct BattleCalcValues *cv, struct StatChang
 static bool32 IsIntimidateBlocked(struct BattleCalcValues *cv, struct StatChange *st);
 static bool32 IsAbilityBlocked(struct BattleCalcValues *cv, struct StatChange *st);
 static bool32 IsMirrorArmorReflected(struct BattleCalcValues *cv, struct StatChange *st);
+static bool32 IsHolyTerrainBlocked(struct BattleCalcValues *cv, struct StatChange *st);
+static bool32 IsStasisGazeBlocked(struct BattleCalcValues *cv, struct StatChange *st);
 
 // Utitily
 static void AdjustStatStage(struct BattleCalcValues *cv, struct StatChange *st);
 static bool32 CanAbilityPreventStatLoss(enum Ability ability);
 static bool32 AbilityPreventsSpecificStatDrop(u32 ability, u32 stat);
+static bool32 CanAbilityBypassHolyTerrain(enum Ability ability);
 static u32 GetNumPositiveStats(struct StatChange *st);
 static u32 GetNumNegativeStats(struct StatChange *st);
 static void SetAdditionalEffectsOnStatChange(struct BattleCalcValues *cv, struct StatChange *st);
@@ -114,7 +118,7 @@ static bool32 CheckSpecificMoveCondition(struct BattleCalcValues *cv, struct Sta
         break;
     case EFFECT_ROTOTILLER:
         if (!IsBattlerGrounded(cv->battlerDef, cv->abilities[cv->battlerDef], cv->holdEffects[cv->battlerDef])
-         || !IS_BATTLER_OF_TYPE(cv->battlerDef, TYPE_GRASS))
+         || !IS_BATTLER_OF_TYPE(cv->battlerDef, TYPE_NATURE))
         {
             if (!st->onlyChecking)
             {
@@ -125,7 +129,7 @@ static bool32 CheckSpecificMoveCondition(struct BattleCalcValues *cv, struct Sta
         }
         break;
     case EFFECT_FLOWER_SHIELD:
-        if (!IS_BATTLER_OF_TYPE(cv->battlerDef, TYPE_GRASS))
+        if (!IS_BATTLER_OF_TYPE(cv->battlerDef, TYPE_NATURE))
         {
             if (!st->onlyChecking)
             {
@@ -231,6 +235,9 @@ bool32 CanAnyStatChange(struct BattleCalcValues *cv, struct StatChange *st)
             if (st->stage < 0 && CanDecreaseStat(cv, st) == STAT_CHANGE_DIDNT_WORK)
                 continue;
 
+            if (st->stage > 0 && CanIncreaseStat(cv, st) == STAT_CHANGE_DIDNT_WORK)
+                continue;
+
             canAnyStatChange = TRUE;
         }
     }
@@ -278,10 +285,21 @@ enum StatChangeResult TryStatChange(struct BattleCalcValues *cv, struct StatChan
                 break;
             }
         }
-        else if (IncreaseStat(cv, st) == STAT_CHANGE_WORKED)
+        else
         {
-            result = STAT_CHANGE_WORKED;
-            break;
+            if (CanIncreaseStat(cv, st) == STAT_CHANGE_DIDNT_WORK)
+            {
+                if (st->silentFailure)
+                    continue;
+                result = STAT_CHANGE_BLOCKED_BY_TARGET;
+                break;
+            }
+
+            if (IncreaseStat(cv, st) == STAT_CHANGE_WORKED)
+            {
+                result = STAT_CHANGE_WORKED;
+                break;
+            }
         }
     }
 
@@ -303,9 +321,13 @@ enum StatChangeResult TrySingleStatChange(struct BattleCalcValues *cv, struct St
         if (DecreaseStat(cv, st) == STAT_CHANGE_WORKED)
             return STAT_CHANGE_WORKED;
     }
-    else if (IncreaseStat(cv, st) == STAT_CHANGE_WORKED)
+    else
     {
-        return STAT_CHANGE_WORKED;
+        if (CanIncreaseStat(cv, st) == STAT_CHANGE_DIDNT_WORK)
+            return STAT_CHANGE_DIDNT_WORK;
+
+        if (IncreaseStat(cv, st) == STAT_CHANGE_WORKED)
+            return STAT_CHANGE_WORKED;
     }
 
     return STAT_CHANGE_DIDNT_WORK;
@@ -319,6 +341,14 @@ static enum StatChangeResult CanDecreaseStat(struct BattleCalcValues *cv, struct
      || IsIntimidateBlocked(cv, st)
      || IsAbilityBlocked(cv, st)
      || IsMirrorArmorReflected(cv, st))
+        return STAT_CHANGE_DIDNT_WORK;
+    return STAT_CHANGE_WORKED;
+}
+
+static enum StatChangeResult CanIncreaseStat(struct BattleCalcValues *cv, struct StatChange *st)
+{
+    if (IsHolyTerrainBlocked(cv, st)
+     || IsStasisGazeBlocked(cv, st))
         return STAT_CHANGE_DIDNT_WORK;
     return STAT_CHANGE_WORKED;
 }
@@ -656,7 +686,7 @@ static bool32 IsIntimidateBlocked(struct BattleCalcValues *cv, struct StatChange
         PREPARE_STAT_BUFFER(gBattleTextBuff1, st->stat);
         st->script = BattleScript_AbilityNoSpecificStatLoss;
         break;
-    case ABILITY_GUARD_DOG:
+    case ABILITY_GATE_KEEPER:
         SetStatChange2(cv->battlerDef, st->stat, -1 * st->stage);
         st->script = BattleScript_DefiantActivates;
         gEffectBattler = cv->battlerDef;
@@ -706,6 +736,44 @@ static bool32 IsAbilityBlocked(struct BattleCalcValues *cv, struct StatChange *s
         gBattlerAbility = cv->battlerDef;
         gLastUsedAbility = cv->abilities[cv->battlerDef];
         RecordAbilityBattle(cv->battlerDef, gLastUsedAbility);
+    }
+
+    return TRUE;
+}
+
+static bool32 IsHolyTerrainBlocked(struct BattleCalcValues *cv, struct StatChange *st)
+{
+    u32 holyTerrainAffected = IsHolyTerrainAffected(cv->battlerDef, cv->abilities[cv->battlerDef], cv->holdEffects[cv->battlerDef], gFieldStatuses);
+    if (!holyTerrainAffected)
+        return FALSE;
+
+    if (CanAbilityBypassHolyTerrain(cv->abilities[cv->battlerDef]))
+        return FALSE;
+
+    if (!st->onlyChecking)
+    {
+        st->script = BattleScript_HolyTerrainPrevents;
+        gBattleScripting.battler = cv->battlerDef;
+        MarkStatsAsDone(st, NUM_BATTLE_STATS);
+    }
+
+    return TRUE;
+}
+
+static bool32 IsStasisGazeBlocked(struct BattleCalcValues *cv, struct StatChange *st)
+{\
+    u32 stasisGazeBattler = IsAbilityOnOpposingSide(cv->battlerDef, ABILITY_STASIS_GAZE);
+    if (!stasisGazeBattler)
+        return FALSE;
+
+    if (!st->onlyChecking)
+    {
+        st->script = BattleScript_AbilityNoStatGain;
+        gBattleScripting.battler = cv->battlerDef;
+        gBattlerAbility = stasisGazeBattler - 1;
+        gLastUsedAbility = ABILITY_STASIS_GAZE;
+        MarkStatsAsDone(st, NUM_BATTLE_STATS);
+        RecordAbilityBattle(gBattlerAbility, ABILITY_STASIS_GAZE);
     }
 
     return TRUE;
@@ -795,9 +863,9 @@ static bool32 CanAbilityPreventStatLoss(enum Ability ability)
 {
     switch (ability)
     {
-    case ABILITY_CLEAR_BODY:
+    case ABILITY_HAKUREI_MIKO:
+    case ABILITY_MAGIC_BARRIER:
     case ABILITY_FULL_METAL_BODY:
-    case ABILITY_WHITE_SMOKE:
         return TRUE;
     default:
         return FALSE;
@@ -808,16 +876,24 @@ static bool32 AbilityPreventsSpecificStatDrop(u32 ability, u32 stat)
 {
     switch (ability)
     {
-    case ABILITY_ILLUMINATE:
-        if (B_ILLUMINATE_EFFECT < GEN_9)
-            return FALSE;
     case ABILITY_KEEN_EYE:
     case ABILITY_MINDS_EYE:
         return stat == STAT_ACC;
-    case ABILITY_HYPER_CUTTER:
+    case ABILITY_HIGH_STRENGTH:
         return stat == STAT_ATK;
     case ABILITY_BIG_PECKS:
         return stat == STAT_DEF;
+    default:
+        return FALSE;
+    }
+}
+
+static bool32 CanAbilityBypassHolyTerrain(enum Ability ability)
+{
+    switch (ability)
+    {
+    case ABILITY_HAKUREI_MIKO:
+        return TRUE;
     default:
         return FALSE;
     }
@@ -1018,6 +1094,9 @@ bool32 CanStatChange(struct BattleCalcValues *cv, struct StatChange *st)
     else
     {
         if (CompareStat(cv->battlerDef, st->stat, MAX_STAT_STAGE, CMP_EQUAL, ABILITY_NONE))
+            return FALSE;
+
+        if (st->stage > 0 && CanIncreaseStat(cv, st) == STAT_CHANGE_DIDNT_WORK)
             return FALSE;
     }
 
