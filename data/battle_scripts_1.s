@@ -73,12 +73,12 @@ BattleScript_TeraFormChange::
 
 BattleScript_EffectStatChange::
 	attackcanceler
-    tryanystatchange
+	trymovestatchanges
 	goto BattleScript_MoveEnd
 
 BattleScript_EffectStatChangeHalfHp::
 	attackcanceler
-    tryanystatchange
+	trymovestatchanges
 	healthbarupdate BS_ATTACKER, PASSIVE_HP_UPDATE
 	datahpupdate BS_ATTACKER, PASSIVE_HP_UPDATE
 	goto BattleScript_MoveEnd
@@ -109,13 +109,13 @@ BattleScript_PlayTidyUp::
 
 BattleScript_EffectDefog::
 	attackcanceler
-    tryanystatchange
+	trymovestatchanges
 	trydefog TRUE, NULL
 	goto BattleScript_MoveEnd
 
 BattleScript_EffectMemento::
 	attackcanceler
-    tryanystatchange
+	trymovestatchanges
     tryfaintmon BS_ATTACKER
 	goto BattleScript_MoveEnd
 
@@ -135,12 +135,12 @@ BattleScript_TakeHeart::
 
 BattleScript_ToxicThread::
 	seteffectprimary BS_ATTACKER, BS_SCRIPTING, MOVE_EFFECT_POISON
-    tryanystatchange
+	trymovestatchanges
 	goto BattleScript_MoveEnd
 
 BattleScript_SwaggerConfusion::
 	seteffectprimary BS_ATTACKER, BS_TARGET, MOVE_EFFECT_CONFUSION
-    tryanystatchange
+	trymovestatchanges
 	goto BattleScript_MoveEnd
 
 BattleScript_NoRetreatMessage::
@@ -151,18 +151,18 @@ BattleScript_NoRetreatMessage::
 BattleScript_AutotomizeMessage::
 	printstring STRINGID_BECAMENIMBLE
 	waitmessage B_WAIT_TIME_LONG
-    tryanystatchange
+	trymovestatchanges
 	goto BattleScript_MoveEnd
 
 BattleScript_TarShotMessage::
 	printstring STRINGID_PKMNBECAMEWEAKERTOFIRE
 	waitmessage B_WAIT_TIME_LONG
-    tryanystatchange
+	trymovestatchanges
 	goto BattleScript_MoveEnd
 
 BattleScript_AbilityStatChange::
 	call BattleScript_AbilityPopUp
-	trynonmovestatchange BS_EFFECT_BATTLER, STAT_CHANGE_IGNORE_SELF
+	trystatchanges BS_EFFECT_BATTLER, STAT_CHANGE_IGNORE_SELF
 	return
 
 BattleScript_DefiantActivates::
@@ -177,7 +177,7 @@ BattleScript_AdrenalineOrbActivates::
 	return
 
 BattleScript_MoveEffectStatChange::
-	trynonmovestatchange BS_ATTACKER, STAT_CHANGE_SILENT_FAILURE | STAT_CHANGE_IGNORE_SELF
+	trystatchanges BS_ATTACKER, STAT_CHANGE_SILENT_FAILURE | STAT_CHANGE_IGNORE_SELF
 	return
 
 BattleScript_ItemStatChange::
@@ -1793,7 +1793,7 @@ BattleScript_EffectConfuse::
 	jumpifsubstituteblocks BattleScript_ButItFailed
 	jumpifvolatile BS_TARGET, VOLATILE_CONFUSION, BattleScript_AlreadyConfused
 	jumpifterrainaffected BS_TARGET, STATUS_FIELD_MISTY_TERRAIN, BattleScript_MistyTerrainPrevents
-	accuracycheck BattleScript_ButItFailed
+	accuracycheck BattleScript_MoveMissedPause
 	jumpifsafeguard BattleScript_SafeguardProtected
 	attackanimation
 	waitanimation
@@ -1974,7 +1974,7 @@ BattleScript_EffectHappyHour::
 BattleScript_EffectDisable::
 	attackcanceler
 	jumpifability BS_TARGET_SIDE, ABILITY_AROMA_VEIL, BattleScript_AromaVeilProtects
-	accuracycheck BattleScript_ButItFailed
+	accuracycheck BattleScript_MoveMissedPause
 	disablelastusedattack BattleScript_ButItFailed
 	attackanimation
 	waitanimation
@@ -2018,7 +2018,7 @@ BattleScript_EffectConversion2::
 BattleScript_EffectLockOn::
 	attackcanceler
 	jumpifsubstituteblocks BattleScript_ButItFailed
-	accuracycheck BattleScript_ButItFailed
+	accuracycheck BattleScript_MoveMissedPause
 	setalwayshitflag
 	attackanimation
 	waitanimation
@@ -2073,7 +2073,7 @@ BattleScript_MoveEffectEerieSpell::
 
 BattleScript_EffectSpite::
 	attackcanceler
-	accuracycheck BattleScript_ButItFailed
+	accuracycheck BattleScript_MoveMissedPause
 	tryspiteppreduce BattleScript_ButItFailed
 	attackanimation
 	waitanimation
@@ -2158,7 +2158,7 @@ BattleScript_EffectCurse::
 	goto BattleScript_MoveEnd
 
 BattleScript_CurseStatChange:
-    tryanystatchange
+	trymovestatchanges
 	goto BattleScript_MoveEnd
 
 BattleScript_EffectProtect::
@@ -2182,7 +2182,7 @@ BattleScript_EffectSpikes::
 
 BattleScript_EffectForesight::
 	attackcanceler
-	accuracycheck BattleScript_ButItFailed
+	accuracycheck BattleScript_MoveMissedPause
 	jumpifgenconfiglowerthan CONFIG_B_FORESIGHT_FAIL, GEN_3, BattleScript_ForesightFailCheck
 	jumpifgenconfiglowerthan CONFIG_B_FORESIGHT_FAIL, GEN_5, BattleScript_ForesightSet
 BattleScript_ForesightFailCheck:
@@ -2237,7 +2237,7 @@ BattleScript_TryDestinyKnotAttacker:
 
 BattleScript_EffectAttract::
 	attackcanceler
-	accuracycheck BattleScript_ButItFailed
+	accuracycheck BattleScript_MoveMissedPause
 	jumpifability BS_TARGET_SIDE, ABILITY_AROMA_VEIL, BattleScript_AromaVeilProtects
 	tryinfatuating BattleScript_ButItFailed
 	attackanimation
@@ -2486,7 +2486,7 @@ BattleScript_EffectSwallow::
 
 BattleScript_EffectTorment::
 	attackcanceler
-	accuracycheck BattleScript_ButItFailed
+	accuracycheck BattleScript_MoveMissedPause
 	jumpifability BS_TARGET_SIDE, ABILITY_AROMA_VEIL, BattleScript_AromaVeilProtects
 	settorment BattleScript_ButItFailed
 	attackanimation
@@ -2498,7 +2498,7 @@ BattleScript_EffectTorment::
 BattleScript_EffectNonVolatileStatus::
 	attackcanceler
 	trynonvolatilestatus
-	accuracycheck BattleScript_ButItFailed
+	accuracycheck BattleScript_MoveMissedPause
 	attackanimation
 	waitanimation
 	setnonvolatilestatus TRIGGER_ON_MOVE
@@ -2538,7 +2538,7 @@ BattleScript_EffectFollowMe::
 BattleScript_EffectTaunt::
 	attackcanceler
 	jumpifability BS_TARGET_SIDE, ABILITY_AROMA_VEIL, BattleScript_AromaVeilProtects
-	accuracycheck BattleScript_ButItFailed
+	accuracycheck BattleScript_MoveMissedPause
 	settaunt BattleScript_ButItFailed
 	attackanimation
 	waitanimation
@@ -2558,7 +2558,7 @@ BattleScript_EffectHelpingHand::
 BattleScript_EffectTrick::
 	attackcanceler
 	jumpifsubstituteblocks BattleScript_ButItFailed
-	accuracycheck BattleScript_ButItFailed
+	accuracycheck BattleScript_MoveMissedPause
 	tryswapitems BattleScript_ButItFailed
 	attackanimation
 	waitanimation
@@ -3594,7 +3594,7 @@ BattleScript_GulpMissileGulping::
 	tryfaintmon BS_ATTACKER
 	jumpiffainted BS_ATTACKER, TRUE, BattleScript_GulpMissileNoSecondEffectGulping
 BattleScript_GulpMissileNoDmgGulping:
-	trynonmovestatchange  BS_TARGET, STAT_CHANGE_NO_FLAGS
+	trystatchanges BS_TARGET, STAT_CHANGE_NO_FLAGS
 BattleScript_GulpMissileNoSecondEffectGulping:
 	return
 
@@ -4778,7 +4778,7 @@ BattleScript_ActivateWeatherAbilities_Loop:
 
 BattleScript_IntimidateActivates::
 	call BattleScript_AbilityPopUp
-	trynonmovestatchange BS_EFFECT_BATTLER, STAT_CHANGE_INTIMIDATE
+	trystatchanges BS_EFFECT_BATTLER, STAT_CHANGE_INTIMIDATE
 	destroyabilitypopup
 	return
 
@@ -4789,7 +4789,7 @@ BattleScript_IntimidateWontDecrease:
 BattleScript_SupersweetSyrupActivates::
 	call BattleScript_AbilityPopUp
 	printstring STRINGID_SUPERSWEETAROMAWAFTS
-	trynonmovestatchange BS_ATTACKER, STAT_CHANGE_NO_FLAGS
+	trystatchanges BS_ATTACKER, STAT_CHANGE_NO_FLAGS
 	destroyabilitypopup
 	return
 
@@ -5187,21 +5187,16 @@ BattleScript_ActivateAsOne::
 	waitmessage B_WAIT_TIME_LONG
 	return
 
-BattleScript_FriskMsgWithPopup::
-	copybyte gBattlerAbility, gBattlerAttacker
-	call BattleScript_AbilityPopUp
 BattleScript_FriskMsg::
 	printstring STRINGID_FRISKACTIVATES
 	waitmessage B_WAIT_TIME_LONG
+	addbyte sBATTLER, 1
 	return
 
 BattleScript_FriskActivates::
-	saveattacker
-	savetarget
-	copybyte gBattlerAttacker, sBATTLER
+	call BattleScript_AbilityPopUp
+	setbyte sBATTLER, 0
 	tryfriskmessage
-	restoreattacker
-	restoretarget
 	return
 
 BattleScript_ImposterActivates::
@@ -5245,7 +5240,7 @@ BattleScript_SpikyShieldRet::
 	return
 
 BattleScript_KingsShieldEffect::
-	trynonmovestatchange BS_TARGET, STAT_CHANGE_NO_FLAGS
+	trystatchanges BS_TARGET, STAT_CHANGE_NO_FLAGS
 	return
 
 BattleScript_BanefulBunkerEffect::
@@ -5289,12 +5284,6 @@ BattleScript_SynchronizeActivates::
 	waitstate
 	call BattleScript_AbilityPopUp
 	setnonvolatilestatus TRIGGER_ON_ABILITY
-	return
-
-BattleScript_NoItemSteal::
-	call BattleScript_AbilityPopUpTarget
-	printstring STRINGID_PKMNSXMADEYINEFFECTIVE
-	waitmessage B_WAIT_TIME_LONG
 	return
 
 BattleScript_AbilityCuredStatus::

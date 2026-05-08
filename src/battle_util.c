@@ -3173,6 +3173,20 @@ u32 AbilityBattleEffects(enum AbilityEffect caseID, enum BattlerId battler, enum
         case ABILITY_FRISK:
             if (shouldAbilityTrigger)
             {
+                enum BattlerId battlerDef = B_BATTLER_0;
+
+                for (battlerDef = B_BATTLER_0; battlerDef < gBattlersCount; battlerDef++)
+                {
+                    if (IsBattlerAlly(battler, battlerDef) || !IsBattlerAlive(battlerDef))
+                        continue;
+                    if (gBattleMons[battlerDef].item != ITEM_NONE)
+                        break;
+                }
+
+                if (battlerDef == gBattlersCount)
+                    break; // no item found
+
+                gBattlerAbility = gEffectBattler = battler;
                 BattleScriptCall(BattleScript_FriskActivates);
                 effect++;
             }
@@ -3264,7 +3278,7 @@ u32 AbilityBattleEffects(enum AbilityEffect caseID, enum BattlerId battler, enum
                 BattleScriptCall(BattleScript_WeatherAbilityActivates);
                 effect++;
             }
-            else if (gBattleWeather & B_WEATHER_PRIMAL_ANY && HasWeatherEffect())
+            else if (GetWeather() & B_WEATHER_PRIMAL_ANY)
             {
                 BattleScriptCall(BattleScript_BlockedByPrimalWeather);
                 effect++;
@@ -3278,7 +3292,7 @@ u32 AbilityBattleEffects(enum AbilityEffect caseID, enum BattlerId battler, enum
                 BattleScriptCall(BattleScript_WeatherAbilityActivates);
                 effect++;
             }
-            else if (gBattleWeather & B_WEATHER_PRIMAL_ANY && HasWeatherEffect())
+            else if (GetWeather() & B_WEATHER_PRIMAL_ANY)
             {
                 BattleScriptCall(BattleScript_BlockedByPrimalWeather);
                 effect++;
@@ -3292,7 +3306,7 @@ u32 AbilityBattleEffects(enum AbilityEffect caseID, enum BattlerId battler, enum
                 BattleScriptCall(BattleScript_WeatherAbilityActivates);
                 effect++;
             }
-            else if (gBattleWeather & B_WEATHER_PRIMAL_ANY && HasWeatherEffect())
+            else if (GetWeather() & B_WEATHER_PRIMAL_ANY)
             {
                 BattleScriptCall(BattleScript_BlockedByPrimalWeather);
                 effect++;
@@ -3308,7 +3322,7 @@ u32 AbilityBattleEffects(enum AbilityEffect caseID, enum BattlerId battler, enum
                     BattleScriptCall(BattleScript_WeatherAbilityActivates);
                     effect++;
                 }
-                else if (gBattleWeather & B_WEATHER_PRIMAL_ANY && HasWeatherEffect())
+                else if (GetWeather() & B_WEATHER_PRIMAL_ANY)
                 {
                     BattleScriptCall(BattleScript_BlockedByPrimalWeather);
                     effect++;
@@ -4891,7 +4905,7 @@ u32 AbilityBattleEffects(enum AbilityEffect caseID, enum BattlerId battler, enum
         }
         case ABILITY_PROTOSYNTHESIS:
             if (!gBattleMons[battler].volatiles.weatherAbilityDone
-             && (gBattleWeather & B_WEATHER_SUN) && HasWeatherEffect()
+             && (GetWeather() & B_WEATHER_SUN)
              && !gBattleMons[battler].volatiles.transformed
              && !gBattleMons[battler].volatiles.boosterEnergyActivated)
             {
@@ -7237,7 +7251,7 @@ static inline u32 CalcDefenseStat(struct DamageContext *ctx)
     case ABILITY_PROTOSYNTHESIS:
         {
             enum Stat defHighestStat = GetParadoxBoostedStatId(battlerDef);
-            if (((ctx->weather & B_WEATHER_SUN && HasWeatherEffect()) || gBattleMons[battlerDef].volatiles.boosterEnergyActivated)
+            if (((ctx->weather & B_WEATHER_SUN) || gBattleMons[battlerDef].volatiles.boosterEnergyActivated)
              && ((IsBattleMovePhysical(move) && defHighestStat == STAT_DEF) || (IsBattleMoveSpecial(move) && defHighestStat == STAT_SPDEF))
              && !(gBattleMons[battlerDef].volatiles.transformed))
                 modifier = uq4_12_multiply(modifier, UQ_4_12(1.3));
@@ -10384,6 +10398,7 @@ bool32 CanMoveSkipAccuracyCalc(enum BattlerId battlerAtk, enum BattlerId battler
 {
     bool32 effect = FALSE;
     enum Ability ability = ABILITY_NONE;
+    enum BattlerId abilityBattler = battlerAtk;
     enum BattleMoveEffects moveEffect = GetMoveEffect(move);
 
     if (gBattleMons[battlerAtk].volatiles.battlerWithSureHit == battlerDef + 1
@@ -10398,11 +10413,13 @@ bool32 CanMoveSkipAccuracyCalc(enum BattlerId battlerAtk, enum BattlerId battler
     {
         effect = TRUE;
         ability = ABILITY_NO_GUARD;
+        abilityBattler = battlerAtk;
     }
     else if (abilityDef == ABILITY_NO_GUARD && !IsSkyDropInvolved(battlerDef, moveEffect))
     {
         effect = TRUE;
         ability = ABILITY_NO_GUARD;
+        abilityBattler = battlerDef;
     }
     // If the target is under the effects of Telekinesis, and the move isn't a OH-KO move, move hits.
     else if (gBattleMons[battlerDef].volatiles.telekinesis
@@ -10442,7 +10459,7 @@ bool32 CanMoveSkipAccuracyCalc(enum BattlerId battlerAtk, enum BattlerId battler
     }
 
     if (ability != ABILITY_NONE && option == RUN_SCRIPT)
-        RecordAbilityBattle(battlerAtk, ABILITY_NO_GUARD);
+        RecordAbilityBattle(abilityBattler, ability);
 
     return effect;
 }
@@ -11037,6 +11054,13 @@ void SetOrClearRageVolatile(void)
 }
 
 enum BattlerId GetTargetBySlot(enum BattlerId battlerAtk, enum BattlerId battlerDef)
+{
+    if (IsDoubleBattle())
+        return GetTargetFromSlotId(battlerAtk, battlerDef);
+    return battlerDef;
+}
+
+enum BattlerId GetTargetFromSlotId(enum BattlerId battlerAtk, enum BattlerId battlerDef)
 {
     switch (battlerDef)
     {
