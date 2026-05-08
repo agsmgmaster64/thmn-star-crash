@@ -2051,7 +2051,7 @@ BattleScript_EffectAegisMerge::
 	waitanimation
 	printstring STRINGID_PKMNPLANTEDROOTS
 	waitmessage B_WAIT_TIME_LONG
-    tryanystatchange
+    trymovestatchanges
 	goto BattleScript_MoveEnd
 
 BattleScript_EffectDestinyBond::

@@ -1,3 +1,6 @@
+So uhh, in case you may or may not stumble into this, and in case for whatever reason, I'm not maintaining this anymore, you have full permission to use this as a base, provided you credit everyone involved in this repo here.
+This list may be incomplete as well, so be warned.
+
 # World Link Deluxe Credits
 
 - **Aichiya Sanae**: Making the original Touhoumon World Link and the original binary base for World Link Deluxe
@@ -29,12 +32,13 @@
 - **KryptonLion**: Making some item icons for a few items
 - **Frander04**: Making the GBA-styled Hisui Pokeball battle sprites
 - **Kiy, usigusom , (), 黒インク**: Making the binary version of the DS-styled Party Screen which I tweaked the decomp version to more closely resemble
-- **ipatix**: Making the improved music engine used for this project
+- **ipatix**: Making the improved music engine used for this project (not implemented currently)
 - **tustin**: Making the name box branch used in this project
 - **mudskip**: Making the new shop UI used in this project along with the mugshot/portrait feature
 - **Horo**: Making the base of the type icons used in this project
 - **Hecatia666**: Making some commissioned sprites used in this project
 - **PurrfectDoodle**: Making more commissioned sprites used in this project
+- **Skatefilter5, Ekat99, TheDeadHeroAlistair, FankingOmega5, ShinyDragonHunter**: Making various tiles used in this project
 
 - **haven**: Making Hex Maniac Advance, which was used for porting from the binary version, as well as helping out with the process
 

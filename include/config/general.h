@@ -81,7 +81,7 @@
 
 #define TOUHOUMON_VERSION WORLD_LINK_DELUXE
 
-#define NIGHT_OF_DOOM TRUE
+#define NIGHT_OF_DOOM TRUE // I will hopefully return soon
 #define TO_THE_MOON   FALSE
 
 #define HOLOLIVE    TRUE
