@@ -86,7 +86,7 @@ static bool32 IsSpeciesBannedByRandomSpeciesOptions(enum Species species, const 
         return TRUE;
     if (options->banSubLegendary && speciesInfo->isSubLegendary)
         return TRUE;
-    if (options->banUltraBeast && speciesInfo->isUltraBeast)
+    if (options->banUltraBeast && speciesInfo->isSpawn)
         return TRUE;
     if (options->banParadox && speciesInfo->isParadox)
         return TRUE;
@@ -136,7 +136,7 @@ static bool32 IsRandomSpeciesFormTableException(enum Species species)
 {
     switch (GET_BASE_SPECIES_ID(species))
     {
-    case SPECIES_ROTOM:
+    //case SPECIES_ROTOM:
     case SPECIES_ORICORIO:
     case SPECIES_TORNADUS:
     case SPECIES_THUNDURUS:
