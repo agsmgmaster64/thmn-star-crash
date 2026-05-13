@@ -389,7 +389,7 @@ void BattleArena_AddSkillPoints(enum BattlerId battler)
         }
         else if (IsBattlerUnaffectedByMove(gBattlerTarget))
         {
-            if (!(gBattleStruct->moveResultFlags[gBattlerTarget] & MOVE_RESULT_MISSED) || gBattleCommunication[MISS_TYPE] != B_MSG_PROTECTED)
+            if (!(gBattleStruct->moveResultFlags[gBattlerTarget] & MOVE_RESULT_MISSED))
                 skillPoints[battler] -= 2;
         }
         else if ((gBattleStruct->moveResultFlags[gBattlerTarget] & (MOVE_RESULT_SUPER_EFFECTIVE | MOVE_RESULT_EXTREMELY_EFFECTIVE)) && (gBattleStruct->moveResultFlags[gBattlerTarget] & (MOVE_RESULT_NOT_VERY_EFFECTIVE | MOVE_RESULT_MOSTLY_INEFFECTIVE)))

@@ -468,10 +468,11 @@ enum TypeSideHazard
 #define MOVE_RESULT_STAT_CHANGE_PREVENTED  (1 << 13)
 #define MOVE_RESULT_MIRROR_ARMOR_PENDING   (1 << 14)
 #define MOVE_RESULT_STAT_CHANGED           (1 << 15)
-#define MOVE_RESULT_EXTREMELY_EFFECTIVE    (1 << 16)
-#define MOVE_RESULT_MOSTLY_INEFFECTIVE     (1 << 17)
-#define MOVE_RESULT_AVOIDED_ATTACK         (MOVE_RESULT_MISSED | MOVE_RESULT_FAILED)
-#define MOVE_RESULT_NO_EFFECT              (MOVE_RESULT_MISSED | MOVE_RESULT_FAILED | MOVE_RESULT_DOESNT_AFFECT_FOE)
+#define MOVE_RESULT_PROTECTED              (1 << 16)
+#define MOVE_RESULT_EXTREMELY_EFFECTIVE    (1 << 17)
+#define MOVE_RESULT_MOSTLY_INEFFECTIVE     (1 << 18)
+#define MOVE_RESULT_AVOIDED_ATTACK         (MOVE_RESULT_MISSED | MOVE_RESULT_FAILED | MOVE_RESULT_PROTECTED)
+#define MOVE_RESULT_NO_EFFECT              (MOVE_RESULT_MISSED | MOVE_RESULT_FAILED | MOVE_RESULT_PROTECTED | MOVE_RESULT_DOESNT_AFFECT_FOE)
 
 enum BattleWeather
 {
@@ -563,6 +564,9 @@ enum __attribute__((packed)) MoveEffect
     MOVE_EFFECT_EERIE_SPELL,
     MOVE_EFFECT_MAD_HONEY,
     MOVE_EFFECT_FLING, // If used without EFFECT_FLING, the move will be a regular damage move with fling as an additional effect without the failure and dmg modifier parts
+    MOVE_EFFECT_RAINBOW,
+    MOVE_EFFECT_SEA_OF_FIRE,
+    MOVE_EFFECT_SWAMP,
 
     // Max move effects happen earlier in the execution chain.
     // For example stealth rock from G-Max Stonesurge is set up before abilities but from Stone Axe after.
