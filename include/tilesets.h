@@ -26,7 +26,6 @@ extern const struct Tileset gTileset_Mossdeep;
 extern const struct Tileset gTileset_Sootopolis;
 extern const struct Tileset gTileset_EverGrande;
 extern const struct Tileset gTileset_Pacifidlog;
-extern const struct Tileset gTileset_PetalburgGym;
 extern const struct Tileset gTileset_PokemonCenter;
 extern const struct Tileset gTileset_InsideShip;
 extern const struct Tileset gTileset_Fallarbor;

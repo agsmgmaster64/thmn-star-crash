@@ -802,10 +802,10 @@ static bool32 IsHolyTerrainBlocked(struct BattleCalcValues *cv, struct StatChang
 }
 
 static bool32 IsStasisGazeBlocked(struct BattleCalcValues *cv, struct StatChange *st)
-{\
+{
     u32 stasisGazeBattler = StatChange_IsStasisGazeBlocked(cv);
 
-    if (flowerVeilBattler == MAX_BATTLERS_COUNT)
+    if (stasisGazeBattler == MAX_BATTLERS_COUNT)
         return FALSE;
 
     if (!st->onlyChecking)

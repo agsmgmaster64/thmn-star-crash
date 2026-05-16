@@ -842,6 +842,12 @@ void MauvilleGymDeactivatePuzzle(void)
 
 static const bool8 sSlidingDoorNextFrameDelay[] = {0, 1, 1, 1, 1};
 
+#define METATILE_PetalburgGym_SlidingDoor_Frame0  0x218
+#define METATILE_PetalburgGym_SlidingDoor_Frame1  0x219
+#define METATILE_PetalburgGym_SlidingDoor_Frame2  0x21A
+#define METATILE_PetalburgGym_SlidingDoor_Frame3  0x21B
+#define METATILE_PetalburgGym_SlidingDoor_Frame4  0x21C
+
 static const u16 sPetalburgGymSlidingDoorMetatiles[] = {
     METATILE_PetalburgGym_SlidingDoor_Frame0,
     METATILE_PetalburgGym_SlidingDoor_Frame1,

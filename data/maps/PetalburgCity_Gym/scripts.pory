@@ -51,26 +51,10 @@ PetalburgCity_Gym_OnLoad:
 @ NOTE: Strength and OHKO rooms are misleading. Both are more accurately Critical-Hit
 PetalburgCity_Gym_EventScript_OpenUnlockedDoors::
 	setvar VAR_0x8005, 1
-	call PetalburgCity_Gym_EventScript_OpenGymEntranceDoors
-	call_if_defeated TRAINER_RANDALL, PetalburgCity_Gym_EventScript_OpenSpeedRoomDoors
-	call_if_defeated TRAINER_MARY, PetalburgCity_Gym_EventScript_OpenAccuracyRoomDoors
-	call_if_defeated TRAINER_PARKER, PetalburgCity_Gym_EventScript_OpenConfusionRoomDoors
-	call_if_defeated TRAINER_ALEXIA, PetalburgCity_Gym_EventScript_OpenDefenseRoomDoors
-	call_if_defeated TRAINER_GEORGE, PetalburgCity_Gym_EventScript_OpenRecoveryRoomDoors
-	call_if_defeated TRAINER_JODY, PetalburgCity_Gym_EventScript_OpenStrengthRoomDoors
-	call_if_defeated TRAINER_BERKE, PetalburgCity_Gym_EventScript_OpenOHKORoomDoors
 	end
 
 PetalburgCity_Gym_EventScript_UnlockAllDoors::
 	setvar VAR_0x8005, 1
-	call PetalburgCity_Gym_EventScript_OpenGymEntranceDoors
-	call PetalburgCity_Gym_EventScript_OpenSpeedRoomDoors
-	call PetalburgCity_Gym_EventScript_OpenAccuracyRoomDoors
-	call PetalburgCity_Gym_EventScript_OpenConfusionRoomDoors
-	call PetalburgCity_Gym_EventScript_OpenDefenseRoomDoors
-	call PetalburgCity_Gym_EventScript_OpenRecoveryRoomDoors
-	call PetalburgCity_Gym_EventScript_OpenStrengthRoomDoors
-	call PetalburgCity_Gym_EventScript_OpenOHKORoomDoors
 	return
 
 PetalburgCity_Gym_OnTransition:
@@ -698,8 +682,6 @@ PetalburgCity_Gym_EventScript_Randall::
 
 PetalburgCity_Gym_EventScript_SlideOpenSpeedRoomDoors::
 	setvar VAR_0x8005, 0
-	call PetalburgCity_Gym_EventScript_OpenSpeedRoomDoors
-	special DrawWholeMapView
 	release
 	end
 
@@ -715,8 +697,6 @@ PetalburgCity_Gym_EventScript_Parker::
 
 PetalburgCity_Gym_EventScript_SlideOpenConfusionRoomDoors::
 	setvar VAR_0x8005, 0
-	call PetalburgCity_Gym_EventScript_OpenConfusionRoomDoors
-	special DrawWholeMapView
 	release
 	end
 
@@ -732,8 +712,6 @@ PetalburgCity_Gym_EventScript_George::
 
 PetalburgCity_Gym_EventScript_SlideOpenRecoveryRoomDoors::
 	setvar VAR_0x8005, 0
-	call PetalburgCity_Gym_EventScript_OpenRecoveryRoomDoors
-	special DrawWholeMapView
 	release
 	end
 
@@ -749,8 +727,6 @@ PetalburgCity_Gym_EventScript_Berke::
 
 PetalburgCity_Gym_EventScript_SlideOpenOHKORoomDoors::
 	setvar VAR_0x8005, 0
-	call PetalburgCity_Gym_EventScript_OpenOHKORoomDoors
-	special DrawWholeMapView
 	release
 	end
 
@@ -766,8 +742,6 @@ PetalburgCity_Gym_EventScript_Mary::
 
 PetalburgCity_Gym_EventScript_SlideOpenAccuracyRoomDoors::
 	setvar VAR_0x8005, 0
-	call PetalburgCity_Gym_EventScript_OpenAccuracyRoomDoors
-	special DrawWholeMapView
 	release
 	end
 
@@ -783,8 +757,6 @@ PetalburgCity_Gym_EventScript_Alexia::
 
 PetalburgCity_Gym_EventScript_SlideOpenDefenseRoomDoors::
 	setvar VAR_0x8005, 0
-	call PetalburgCity_Gym_EventScript_OpenDefenseRoomDoors
-	special DrawWholeMapView
 	release
 	end
 
@@ -800,129 +772,12 @@ PetalburgCity_Gym_EventScript_Jody::
 
 PetalburgCity_Gym_EventScript_SlideOpenStrengthRoomDoors::
 	setvar VAR_0x8005, 0
-	call PetalburgCity_Gym_EventScript_OpenStrengthRoomDoors
-	special DrawWholeMapView
 	release
 	end
 
 PetalburgCity_Gym_EventScript_JodyPostBadge::
 	msgbox PetalburgCity_Gym_Text_JodyPostBadge, MSGBOX_NPC
 	end
-
-@ VAR_0x8004 below is the room number
-@ VAR_0x8005 below is 0 when the door should be slid open and 1 when it should be unlocked immediately
-PetalburgCity_Gym_EventScript_OpenGymEntranceDoors::
-	setvar VAR_0x8004, 1
-	call_if_eq VAR_0x8005, 0, PetalburgCity_Gym_EventScript_SlideOpenRoomDoors
-	call_if_eq VAR_0x8005, 1, PetalburgCity_Gym_EventScript_UnlockRoomDoors
-	call PetalburgCity_Gym_EventScript_SetEntranceRoomDoorMetatiles
-	return
-
-PetalburgCity_Gym_EventScript_OpenSpeedRoomDoors::
-	setvar VAR_0x8004, 2
-	call_if_eq VAR_0x8005, 0, PetalburgCity_Gym_EventScript_SlideOpenRoomDoors
-	call_if_eq VAR_0x8005, 1, PetalburgCity_Gym_EventScript_UnlockRoomDoors
-	call PetalburgCity_Gym_EventScript_SetSpeedRoomDoorMetatiles
-	return
-
-PetalburgCity_Gym_EventScript_OpenAccuracyRoomDoors::
-	setvar VAR_0x8004, 3
-	call_if_eq VAR_0x8005, 0, PetalburgCity_Gym_EventScript_SlideOpenRoomDoors
-	call_if_eq VAR_0x8005, 1, PetalburgCity_Gym_EventScript_UnlockRoomDoors
-	call PetalburgCity_Gym_EventScript_SetAccuracyRoomDoorMetatiles
-	return
-
-PetalburgCity_Gym_EventScript_OpenConfusionRoomDoors::
-	setvar VAR_0x8004, 4
-	call_if_eq VAR_0x8005, 0, PetalburgCity_Gym_EventScript_SlideOpenRoomDoors
-	call_if_eq VAR_0x8005, 1, PetalburgCity_Gym_EventScript_UnlockRoomDoors
-	call PetalburgCity_Gym_EventScript_SetConfusionRoomDoorMetatiles
-	return
-
-PetalburgCity_Gym_EventScript_OpenDefenseRoomDoors::
-	setvar VAR_0x8004, 5
-	call_if_eq VAR_0x8005, 0, PetalburgCity_Gym_EventScript_SlideOpenRoomDoors
-	call_if_eq VAR_0x8005, 1, PetalburgCity_Gym_EventScript_UnlockRoomDoors
-	call PetalburgCity_Gym_EventScript_SetDefenseRoomDoorMetatiles
-	return
-
-PetalburgCity_Gym_EventScript_OpenRecoveryRoomDoors::
-	setvar VAR_0x8004, 6
-	call_if_eq VAR_0x8005, 0, PetalburgCity_Gym_EventScript_SlideOpenRoomDoors
-	call_if_eq VAR_0x8005, 1, PetalburgCity_Gym_EventScript_UnlockRoomDoors
-	call PetalburgCity_Gym_EventScript_SetRecoveryRoomDoorMetatiles
-	return
-
-PetalburgCity_Gym_EventScript_OpenStrengthRoomDoors::
-	setvar VAR_0x8004, 7
-	call_if_eq VAR_0x8005, 0, PetalburgCity_Gym_EventScript_SlideOpenRoomDoors
-	call_if_eq VAR_0x8005, 1, PetalburgCity_Gym_EventScript_UnlockRoomDoors
-	call PetalburgCity_Gym_EventScript_SetStrengthRoomDoorMetatiles
-	return
-
-PetalburgCity_Gym_EventScript_OpenOHKORoomDoors::
-	setvar VAR_0x8004, 8
-	call_if_eq VAR_0x8005, 0, PetalburgCity_Gym_EventScript_SlideOpenRoomDoors
-	call_if_eq VAR_0x8005, 1, PetalburgCity_Gym_EventScript_UnlockRoomDoors
-	call PetalburgCity_Gym_EventScript_SetOHKORoomDoorMetatiles
-	return
-
-PetalburgCity_Gym_EventScript_SetEntranceRoomDoorMetatiles::
-	setmetatile 6, 85, METATILE_PetalburgGym_RoomEntrance_Left, FALSE
-	setmetatile 7, 85, METATILE_PetalburgGym_RoomEntrance_Right, FALSE
-	setmetatile 1, 98, METATILE_PetalburgGym_RoomEntrance_Left, FALSE
-	setmetatile 2, 98, METATILE_PetalburgGym_RoomEntrance_Right, FALSE
-	return
-
-PetalburgCity_Gym_EventScript_SetSpeedRoomDoorMetatiles::
-	setmetatile 6, 46, METATILE_PetalburgGym_RoomEntrance_Left, FALSE
-	setmetatile 7, 46, METATILE_PetalburgGym_RoomEntrance_Right, FALSE
-	setmetatile 1, 59, METATILE_PetalburgGym_RoomEntrance_Left, FALSE
-	setmetatile 2, 59, METATILE_PetalburgGym_RoomEntrance_Right, FALSE
-	return
-
-PetalburgCity_Gym_EventScript_SetAccuracyRoomDoorMetatiles::
-	setmetatile 6, 59, METATILE_PetalburgGym_RoomEntrance_Left, FALSE
-	setmetatile 7, 59, METATILE_PetalburgGym_RoomEntrance_Right, FALSE
-	setmetatile 1, 72, METATILE_PetalburgGym_RoomEntrance_Left, FALSE
-	setmetatile 2, 72, METATILE_PetalburgGym_RoomEntrance_Right, FALSE
-	return
-
-PetalburgCity_Gym_EventScript_SetConfusionRoomDoorMetatiles::
-	setmetatile 1, 20, METATILE_PetalburgGym_RoomEntrance_Left, FALSE
-	setmetatile 2, 20, METATILE_PetalburgGym_RoomEntrance_Right, FALSE
-	return
-
-PetalburgCity_Gym_EventScript_SetDefenseRoomDoorMetatiles::
-	setmetatile 6, 20, METATILE_PetalburgGym_RoomEntrance_Left, FALSE
-	setmetatile 7, 20, METATILE_PetalburgGym_RoomEntrance_Right, FALSE
-	setmetatile 1, 33, METATILE_PetalburgGym_RoomEntrance_Left, FALSE
-	setmetatile 2, 33, METATILE_PetalburgGym_RoomEntrance_Right, FALSE
-	return
-
-PetalburgCity_Gym_EventScript_SetRecoveryRoomDoorMetatiles::
-	setmetatile 6, 33, METATILE_PetalburgGym_RoomEntrance_Left, FALSE
-	setmetatile 7, 33, METATILE_PetalburgGym_RoomEntrance_Right, FALSE
-	return
-
-PetalburgCity_Gym_EventScript_SetStrengthRoomDoorMetatiles::
-	setmetatile 1, 7, METATILE_PetalburgGym_RoomEntrance_Left, FALSE
-	setmetatile 2, 7, METATILE_PetalburgGym_RoomEntrance_Right, FALSE
-	return
-
-PetalburgCity_Gym_EventScript_SetOHKORoomDoorMetatiles::
-	setmetatile 6, 7, METATILE_PetalburgGym_RoomEntrance_Left, FALSE
-	setmetatile 7, 7, METATILE_PetalburgGym_RoomEntrance_Right, FALSE
-	return
-
-PetalburgCity_Gym_EventScript_SlideOpenRoomDoors::
-	special PetalburgGymSlideOpenRoomDoors
-	waitstate
-	return
-
-PetalburgCity_Gym_EventScript_UnlockRoomDoors::
-	special PetalburgGymUnlockRoomDoors
-	return
 
 PetalburgCity_Gym_EventScript_GymGuide::
 	lock

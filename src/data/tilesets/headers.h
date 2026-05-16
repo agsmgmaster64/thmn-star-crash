@@ -490,17 +490,6 @@ const struct Tileset gTileset_Underwater =
     .callback = InitTilesetAnim_Underwater,
 };
 
-const struct Tileset gTileset_PetalburgGym =
-{
-    .isCompressed = TRUE,
-    .isSecondary = TRUE,
-    .tiles = gTilesetTiles_PetalburgGym,
-    .palettes = gTilesetPalettes_PetalburgGym,
-    .metatiles = gMetatiles_PetalburgGym,
-    .metatileAttributes = gMetatileAttributes_PetalburgGym,
-    .callback = NULL,
-};
-
 const struct Tileset gTileset_SootopolisGym =
 {
     .isCompressed = TRUE,
