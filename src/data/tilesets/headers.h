@@ -1909,3 +1909,25 @@ const struct Tileset gTileset_FancyInside =
     .metatileAttributes = gMetatileAttributes_FancyInside,
     .callback = NULL,
 };
+
+const struct Tileset gTileset_Shop2 =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_Shop2,
+    .palettes = gTilesetPalettes_Shop2,
+    .metatiles = gMetatiles_Shop2,
+    .metatileAttributes = gMetatileAttributes_Shop2,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_Center2 =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_Center2,
+    .palettes = gTilesetPalettes_Center2,
+    .metatiles = gMetatiles_Center2,
+    .metatileAttributes = gMetatileAttributes_Center2,
+    .callback = NULL,
+};

@@ -5854,12 +5854,12 @@
     {
       "id": "LAYOUT_CARPET_CENTER",
       "name": "CarpetCenter_Layout",
-      "width": 15,
-      "height": 10,
+      "width": 19,
+      "height": 15,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_RG_Building",
-      "secondary_tileset": "gTileset_RG_PokemonCenter",
+      "secondary_tileset": "gTileset_Center2",
       "border_filepath": "data/layouts/CarpetCenter/border.bin",
       "blockdata_filepath": "data/layouts/CarpetCenter/map.bin",
       "layout_version": "emerald"
@@ -5867,12 +5867,12 @@
     {
       "id": "LAYOUT_CARPET_MART",
       "name": "CarpetMart_Layout",
-      "width": 11,
-      "height": 9,
+      "width": 12,
+      "height": 11,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_RG_Building",
-      "secondary_tileset": "gTileset_RG_Mart",
+      "secondary_tileset": "gTileset_Shop2",
       "border_filepath": "data/layouts/CarpetMart/border.bin",
       "blockdata_filepath": "data/layouts/CarpetMart/map.bin",
       "layout_version": "emerald"

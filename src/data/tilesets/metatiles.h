@@ -507,3 +507,9 @@ const u32 gMetatileAttributes_Swamp[] = INCBIN_U32("data/tilesets/secondary/swam
 
 const u16 gMetatiles_FancyInside[] = INCBIN_U16("data/tilesets/secondary/fancy_inside/metatiles.bin");
 const u32 gMetatileAttributes_FancyInside[] = INCBIN_U32("data/tilesets/secondary/fancy_inside/metatile_attributes.bin");
+
+const u16 gMetatiles_Shop2[] = INCBIN_U16("data/tilesets/secondary/shop_2/metatiles.bin");
+const u32 gMetatileAttributes_Shop2[] = INCBIN_U32("data/tilesets/secondary/shop_2/metatile_attributes.bin");
+
+const u16 gMetatiles_Center2[] = INCBIN_U16("data/tilesets/secondary/center_2/metatiles.bin");
+const u32 gMetatileAttributes_Center2[] = INCBIN_U32("data/tilesets/secondary/center_2/metatile_attributes.bin");

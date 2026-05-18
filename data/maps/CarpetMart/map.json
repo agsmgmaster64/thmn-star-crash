@@ -19,7 +19,7 @@
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_MART_EMPLOYEE",
       "x": 2,
-      "y": 3,
+      "y": 7,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
       "movement_range_x": 0,
@@ -32,8 +32,8 @@
   ],
   "warp_events": [
     {
-      "x": 4,
-      "y": 7,
+      "x": 9,
+      "y": 9,
       "elevation": 0,
       "dest_map": "MAP_HOME_LIKE_CARPET",
       "dest_warp_id": "1"
