@@ -27,6 +27,9 @@
 #include "constants/moves.h"
 #include "config/save.h"
 #include "config/dexnav.h"
+#include "config/banking.h"
+#include "banking_system.h"
+
 
 // Prevent cross-jump optimization.
 #define BLOCK_CROSS_JUMP asm("");
@@ -306,7 +309,6 @@ struct SaveBlock3
     u16 outfits[NUM_OUTFIT_OWNED_BYTES];
     u8 questData[QUEST_FLAGS_COUNT * QUEST_STATES];
     u8 subQuests[SUB_FLAGS_COUNT];
-    u32 bankMoney;
     struct DerbyRacers derbyRacers[6]; // DERBY_RACER_COUNT
 #if FLAPPY_STORE_HIGH_SCORE == TRUE
     u16 flappyHighScore;
@@ -314,7 +316,10 @@ struct SaveBlock3
 #if APRICORN_TREE_COUNT > 0
     u8 apricornTrees[NUM_APRICORN_TREE_BYTES];
 #endif
-};
+#if SAVINGS_ENABLED
+    struct Banking banking;
+#endif
+}; /* max size 1624 bytes */
 
 extern struct SaveBlock3 *gSaveBlock3Ptr;
 

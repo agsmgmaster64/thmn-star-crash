@@ -14,6 +14,7 @@
 #include "battle_stat_change.h"
 #include "battle_move_resolution.h"
 #include "item.h"
+#include "banking_system.h"
 #include "util.h"
 #include "pokemon.h"
 #include "random.h"
@@ -5987,7 +5988,7 @@ static void Cmd_getmoneyreward(void)
     CMD_ARGS(const u8 *noMoneyPtr, const u8 *savingMoneyPtr);
 
     u32 moneyReward;
-    u32 savedBankMoney = 0;
+    u32 deposit = 0;
 
     if (gBattleOutcome == B_OUTCOME_WON)
     {
@@ -6005,10 +6006,12 @@ static void Cmd_getmoneyreward(void)
             if (gBattleTypeFlags & BATTLE_TYPE_TWO_OPPONENTS)
                 moneyReward += GetTrainerMoneyToGive(TRAINER_BATTLE_PARAM.opponentB);
 
-            if (FALSE)
+            if (IsSavingMoney())
             {
-                savedBankMoney = moneyReward / 4;
-                keptMoney = moneyReward - savedBankMoney;
+                deposit = CalcAmountToDeposit(moneyReward);
+                keptMoney = moneyReward - deposit;
+                TriggerBankingPurchase(deposit);
+                DepositAndTrackMoney(deposit);
                 AddMoney(&gSaveBlock1Ptr->money, keptMoney);
             }
             else
@@ -6025,9 +6028,9 @@ static void Cmd_getmoneyreward(void)
     PREPARE_WORD_NUMBER_BUFFER(gBattleTextBuff1, 5, moneyReward);
     if (moneyReward)
     {
-        if (FALSE)
+        if (IsSavingMoney())
         {
-            PREPARE_WORD_NUMBER_BUFFER(gBattleTextBuff2, 5, savedBankMoney);
+            PREPARE_WORD_NUMBER_BUFFER(gBattleTextBuff2, 5, deposit);
             gBattlescriptCurrInstr = cmd->savingMoneyPtr;
         }
         else
@@ -14145,4 +14148,3 @@ void BS_RestoreStatChangeQueue(void)
     ClearOtherStatChangeValues(gBattlerAttacker);
     gBattlescriptCurrInstr = cmd->nextInstr;
 }
-

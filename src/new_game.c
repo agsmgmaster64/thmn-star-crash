@@ -1,4 +1,5 @@
 #include "global.h"
+#include "banking_system.h"
 #include "new_game.h"
 #include "derby.h"
 #include "random.h"
@@ -233,6 +234,7 @@ void NewGameInitData(void)
     ClearSecretBases();
     ClearBerryTrees();
     SetMoney(&gSaveBlock1Ptr->money, 3000);
+    NewGameInitBanking();
     SetCoins(0);
     GetNewDerby();
     ResetLinkContestBoolean();
