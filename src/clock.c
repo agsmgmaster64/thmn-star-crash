@@ -1,6 +1,5 @@
 #include "global.h"
 #include "berry.h"
-#include "bank_money.h"
 #include "clock.h"
 #include "dewford_trend.h"
 #include "event_data.h"
@@ -65,7 +64,6 @@ static void UpdatePerDay(struct Time *localTime)
         SetShoalItemFlag(daysSince);
         SetRandomLotteryNumber(daysSince);
         DailyResetApricornTrees();
-        ApplyBankMoneyInterest(daysSince);
         *days = localTime->days;
     }
 }

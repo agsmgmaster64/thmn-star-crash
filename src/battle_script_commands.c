@@ -28,7 +28,6 @@
 #include "main.h"
 #include "palette.h"
 #include "money.h"
-#include "bank_money.h"
 #include "malloc.h"
 #include "bg.h"
 #include "string_util.h"
@@ -6006,12 +6005,11 @@ static void Cmd_getmoneyreward(void)
             if (gBattleTypeFlags & BATTLE_TYPE_TWO_OPPONENTS)
                 moneyReward += GetTrainerMoneyToGive(TRAINER_BATTLE_PARAM.opponentB);
 
-            if (IsSavingMoney())
+            if (FALSE)
             {
                 savedBankMoney = moneyReward / 4;
                 keptMoney = moneyReward - savedBankMoney;
                 AddMoney(&gSaveBlock1Ptr->money, keptMoney);
-                AddBankMoney(savedBankMoney);
             }
             else
             {
@@ -6027,7 +6025,7 @@ static void Cmd_getmoneyreward(void)
     PREPARE_WORD_NUMBER_BUFFER(gBattleTextBuff1, 5, moneyReward);
     if (moneyReward)
     {
-        if (IsSavingMoney())
+        if (FALSE)
         {
             PREPARE_WORD_NUMBER_BUFFER(gBattleTextBuff2, 5, savedBankMoney);
             gBattlescriptCurrInstr = cmd->savingMoneyPtr;
