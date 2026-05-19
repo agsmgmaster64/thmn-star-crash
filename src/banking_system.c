@@ -124,8 +124,8 @@ static const struct UniquePurchaseItem sUniquePurchaseTable[] = {
     {ITEM_SUPER_POTION,  900,   1,  600},
     {ITEM_REPEL,         4000,  1,  270},
     {ITEM_SUPER_POTION,  7000,  1,  600},
-    {ITEM_SILK_SCARF,    10000, 1,  100},
-    {ITEM_MOON_STONE,    15000, 1, 3000},
+    {ITEM_BRIDAL_GOWN,   10000, 1,  100},
+    {ITEM_JUST_HEART,    15000, 1, 3000},
     {ITEM_HYPER_POTION,  19000, 1,  900},
     {ITEM_CHOICE_SCARF,  30000, 1,  200},
     {ITEM_MUSCLE_BAND,   40000, 1,  200},
@@ -687,7 +687,7 @@ u32 PurchaseRepeatItem(void)
     return sRepeatPurchaseTable[idx].price;
 }
 
-u32 PurchaseUniqueItem()
+u32 PurchaseUniqueItem(void)
 {
     struct Banking* banking = GetBankingPtr();
     u32 idx = banking->lastBought;

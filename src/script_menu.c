@@ -1350,14 +1350,14 @@ u32 CreateNumericInputWindow(s16 x, s16 y, u8 width, u8 numDigits, const u8* tem
     return windowId;
 }
 
-void SetNumericInputDefault(u16 min, u16 max, u16 initial)
+void SetNumericInputDefault(u32 min, u32 max, u32 initial)
 {
     gNumericInput = (struct NumericInput){min, max, initial, 0};
 }
 
 void PrintNumericInputAmount(u8 windowId, const u8* templString)
 {
-    ConvertIntToDecimalStringN(gStringVar2, gNumericInput.value, STR_CONV_MODE_LEFT_ALIGN, Util_CountDigits(gNumericInput.value));
+    ConvertIntToDecimalStringN(gStringVar2, gNumericInput.value, STR_CONV_MODE_LEADING_ZEROS, Util_CountDigits(gNumericInput.max));
 
     gStringVar3[0] = EOS;
 
@@ -1388,7 +1388,7 @@ bool32 HandleNumericInput(void)
 {
     u32 original = gNumericInput.value;
     u16 keypress = JOY_REPEAT(DPAD_ANY);
-    u32 maxDigits = Util_CountDigits(gNumericInput.value);
+    u32 maxDigits = Util_CountDigits(gNumericInput.max);
 
     if (keypress & DPAD_LEFT || keypress & DPAD_RIGHT)
     {

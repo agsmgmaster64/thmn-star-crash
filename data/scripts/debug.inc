@@ -202,7 +202,6 @@ Debug_EventScript_Script_1::
 	msgbox Debug_EventScript_Script_1_TestMessage, MSGBOX_DEFAULT
 	closemessage
 	coinmart Debug_EventScript_Script_1_Mart
-	movetutorpointmart Debug_EventScript_Script_1_Mart2
 	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
 	releaseall
 	end
@@ -234,12 +233,6 @@ Debug_EventScript_Script_1_Mart:
 	.2byte ITEM_TECH_HEART
 	.2byte ITEM_HELPER_HEART
 	.2byte ITEM_JUST_HEART
-	.2byte ITEM_NONE
-
-	.align 2
-Debug_EventScript_Script_1_Mart2:
-	.2byte MOVE_SURF
-	.2byte MOVE_STRENGTH
 	.2byte ITEM_NONE
 
 Debug_EventScript_Script_2::
@@ -375,14 +368,68 @@ Debug_EventScript_Script_6_Mart:
 	.2byte OUTFIT_NONE
 
 Debug_EventScript_Script_7::
-	lockall
-	choose_mons
-	multi_2_vs_1 TRAINER_JOEY, Debug_EventScript_Script_5_Text_SkittySoMuchCuterThanImagined, PARTNER_STEVEN
-	release
+	showbankbalancebox 0, 0
+	goto_if_unset FLAG_BANK_SAVE_MONEY, BankTest_TrySaveMoney
+	msgbox Debug_BankTest_UnsaveMoney1, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, BankTest_TryTransaction
+	clearflag FLAG_BANK_SAVE_MONEY
+	msgbox Debug_BankTest_UnsaveMoney2
+	goto BankTest_TryTransaction
+
+BankTest_TrySaveMoney::
+	msgbox Debug_BankTest_SaveMoney1, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, BankTest_TryTransaction
+	setflag FLAG_BANK_SAVE_MONEY
+	msgbox Debug_BankTest_SaveMoney2
+BankTest_TryTransaction::
+	msgbox Debug_BankTest_DepositText1, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, YES, BankTest_Deposit
+	msgbox Debug_BankTest_WithdrawText1, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, YES, BankTest_Withdraw
+	hidebankbalancebox
+	releaseall
 	end
 
+BankTest_Deposit::
+	hidebankbalancebox
+	starttransaction 0
+	waitstate
+	goto BankTest_Updated
+
+BankTest_Withdraw::
+	hidebankbalancebox
+	starttransaction 1
+	waitstate
+BankTest_Updated::
+	showbankbalancebox 0, 0
+	msgbox Debug_BankTest_UpdatedText1
+	hidebankbalancebox
+	releaseall
+	end
+
+Debug_BankTest_SaveMoney1::
+	.string "Save money?$"
+
+Debug_BankTest_SaveMoney2::
+	.string "Money is saved.$"
+
+Debug_BankTest_UnsaveMoney1::
+	.string "Unsave money?$"
+
+Debug_BankTest_UnsaveMoney2::
+	.string "Money is unsaved.$"
+
+Debug_BankTest_DepositText1::
+	.string "Deposit?$"
+
+Debug_BankTest_WithdrawText1::
+	.string "Withdraw?$"
+
+Debug_BankTest_UpdatedText1::
+	.string "Updated.$"
+
 Debug_EventScript_Script_8::
-	release
+	releaseall
 	end
 
 Debug_CheckSaveBlock::
