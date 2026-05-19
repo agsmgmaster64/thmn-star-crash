@@ -18,14 +18,14 @@
 gSpecials::
 .endif
 	def_special HealPlayerParty
-	def_special StartBlackJack
-	def_special StartGacha
-	def_special StartBlockStacker
-	def_special StartDerby
+	def_special StartBlackJack, waitstate=1
+	def_special StartGacha, waitstate=1
+	def_special StartBlockStacker, waitstate=1
+	def_special StartDerby, waitstate=1
 	def_special GetNewDerby
-	def_special StartSnake
-	def_special StartFlappyBird
-	def_special Special_ViewVoltorbFlip
+	def_special StartSnake, waitstate=1
+	def_special StartFlappyBird, waitstate=1
+	def_special Special_ViewVoltorbFlip, waitstate=1
 	def_special SetCableClubWarp
 	def_special DoCableClubWarp, waitstate=1
 	def_special ReturnFromLinkRoom, waitstate=1
@@ -551,7 +551,7 @@ gSpecials::
 	def_special PokevialGetDose
 	def_special PokevialGetSize
 	def_special PokevialRefill
-	def_special StartScriptedGhostBattle
+	def_special StartScriptedGhostBattle, waitstate=1
 	def_special GetNumberSprayStrength
 	def_special GetSprayId
 	def_special GetLastUsedSprayType
@@ -559,7 +559,7 @@ gSpecials::
 	def_special VsSeekerResetObjectMovementAfterChargeComplete
 	def_special VsSeekerFreezeObjectsAfterChargeComplete
 	def_special PlayerHasMulch
-	def_special Bag_ChooseMulch
+	def_special Bag_ChooseMulch, waitstate=1
 	def_special ObjectEventInteractionApplyMulch
 	def_special ObjectEventInteractionPullBerryWeed
 	def_special ObjectEventInteractionClearBerryPests
@@ -571,8 +571,8 @@ gSpecials::
 	def_special Script_GetChosenMonOffensiveIVs
 	def_special Script_GetChosenMonDefensiveIVs
 	def_special UseBlankMessageToCancelPokemonPic
-	def_special StartBerryCrushSolo
-	def_special EnterCode
+	def_special StartBerryCrushSolo, waitstate=1
+	def_special EnterCode, waitstate=1
 	def_special GetCodeFeedback
 	def_special SetFlipSwitchOnMetatiles
 	def_special SetHiddenNature
@@ -587,7 +587,7 @@ gSpecials::
 	def_special SetFlavorTextFlagFromSpecialVars
 	def_special DisableMsgBoxWalkaway
 	def_special SetWalkingIntoSignVars
-	def_special StartOldManTutorialBattle
+	def_special StartOldManTutorialBattle, waitstate=1
 	def_special DaisyMassageServices
 	def_special GetLeadMonFriendship
 	def_special OpenMuseumFossilPic
@@ -602,14 +602,14 @@ gSpecials::
 	def_special GetNumLevelsGainedForRoute5DaycareMon
 	def_special TakePokemonFromRoute5Daycare
 	def_special GetCostToWithdrawRoute5DaycareMon
-	def_special DrawSeagallopDestinationMenu
+	def_special DrawSeagallopDestinationMenu, waitstate=1
 	def_special GetSelectedSeagallopDestination
 	def_special GetSeagallopNumber
-	def_special DoSeagallopFerryScene
+	def_special DoSeagallopFerryScene, waitstate=1
 	def_special IsPlayerLeftOfVermilionSailor
 	def_special SetVermilionTrashCans
-	def_special DoSSAnneDepartureCutscene
-	def_special StartMarowakBattle
+	def_special DoSSAnneDepartureCutscene, waitstate=1
+	def_special StartMarowakBattle, waitstate=1
 	def_special DoesPlayerPartyContainSpecies
 	def_special GetMagikarpSizeRecordInfo
 	def_special CompareMagikarpSize
@@ -617,7 +617,7 @@ gSpecials::
 	def_special CompareHeracrossSize
 	def_special GetRandomSlotMachineId
 	def_special HasAllKantoMons
-	def_special AnimateElevator
+	def_special AnimateElevator, waitstate=1
 	def_special InitElevatorFloorSelectMenuPos
 	def_special CloseElevatorCurrentFloorWindow
 	def_special DrawElevatorCurrentFloorWindow
@@ -636,7 +636,7 @@ gSpecials::
 	def_special IsPlayerNotInTrainerTowerLobby
 	def_special BrailleCursorToggle
 	def_special EnterHallOfFame
-	def_special CB2_StartCreditsSequence
+	def_special CB2_StartCreditsSequence, waitstate=1
 	def_special DoPokemonLeagueLightingEffect
 	def_special GetStarterPokemon
 	def_special SetIcefallCaveCrackedIceMetatiles

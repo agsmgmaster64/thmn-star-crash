@@ -64,7 +64,6 @@ BerryTree_EventScript_ChooseMulchToUse::
 	fadescreen FADE_TO_BLACK
 	closemessage
 	special Bag_ChooseMulch
-	waitstate
 	goto_if_eq VAR_ITEM_ID, 0, BerryTree_EventScript_CancelPlanting
 	removeitem VAR_ITEM_ID
 	call BerryTree_EventScript_UseMulch

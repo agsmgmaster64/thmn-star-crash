@@ -78,7 +78,6 @@ IndigoPlateau_Exterior_EventScript_Credits::
 	removeobject LOCALID_CREDITS_RIVAL
 	removeobject LOCALID_CREDITS_PROF_OAK
 	special CB2_StartCreditsSequence
-	waitstate
 	releaseall
 	end
 

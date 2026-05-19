@@ -1597,8 +1597,23 @@ static u8 ModifyBreedingScoreForOvalCharm(u8 score)
 void PutMonInRoute5Daycare(void)
 {
 #if IS_FRLG
-    u8 monIdx = GetCursorSelectionMonId();
-    StorePokemonInDaycare(&gParties[B_TRAINER_0][monIdx], &gSaveBlock1Ptr->route5DayCareMon);
+    struct Pokemon *mon;
+    if (gSpecialVar_0x8004 == PC_MON_CHOSEN)
+    {
+        mon = Alloc(sizeof(struct Pokemon));
+        RemoveSelectedPcMon(mon);
+    }
+    else
+    {
+        if (gSaveBlock3Ptr->followerIndex == gSpecialVar_0x8004)
+            gSaveBlock3Ptr->followerIndex = OW_FOLLOWER_NOT_SET;
+        else if (gSaveBlock3Ptr->followerIndex < PARTY_SIZE && gSpecialVar_0x8004 < gSaveBlock3Ptr->followerIndex)
+            gSaveBlock3Ptr->followerIndex--;
+        mon = &gParties[B_TRAINER_0][gSpecialVar_0x8004];
+    }
+    StorePokemonInDaycare(mon, &gSaveBlock1Ptr->route5DayCareMon);
+    if (gSpecialVar_0x8004 == PC_MON_CHOSEN)
+        Free(mon);
 #endif
 }
 

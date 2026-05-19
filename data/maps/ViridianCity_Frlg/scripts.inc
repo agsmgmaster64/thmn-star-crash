@@ -135,7 +135,6 @@ ViridianCity_EventScript_WatchToLearnBasics::
 ViridianCity_EventScript_TutorialUnused::
 	msgbox ViridianCity_Text_ThatWasEducationalTakeThis
 	special StartOldManTutorialBattle
-	waitstate
 	release
 	end
 
@@ -223,7 +222,6 @@ ViridianCity_EventScript_DoTutorialBattle::
 	msgbox ViridianCity_Text_ShowYouHowToCatchMons
 	closemessage
 	special StartOldManTutorialBattle
-	waitstate
 	lock
 	faceplayer
 	msgbox ViridianCity_Text_ThatWasEducationalTakeThis

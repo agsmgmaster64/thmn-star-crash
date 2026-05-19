@@ -28,15 +28,13 @@ Route12_FishingHouse_EventScript_NoRoomForSuperRod::
 	end
 
 Route12_FishingHouse_EventScript_CheckMagikarpRecord::
-	setvar VAR_0x8004, SPECIES_GOLIATH
+	setvar VAR_0x8004, SPECIES_CHIBI_HINA
 	specialvar VAR_RESULT, DoesPlayerPartyContainSpecies
 	goto_if_eq VAR_RESULT, FALSE, Route12_FishingHouse_EventScript_NoMagikarpInParty
 	special GetMagikarpSizeRecordInfo
 	msgbox Route12_FishingHouse_Text_OhMagikarpAllowMeToSee
 	special ChoosePartyMon
-	waitstate
-	copyvar VAR_RESULT, VAR_0x8004
-	goto_if_ge VAR_RESULT, PARTY_SIZE, Route12_FishingHouse_EventScript_CancelShowMon
+	goto_if_eq VAR_0x8004, PARTY_NOTHING_CHOSEN, Route12_FishingHouse_EventScript_CancelShowMon
 	special CompareMagikarpSize
 	goto_if_eq VAR_RESULT, 1, Route12_FishingHouse_EventScript_NotMagikarp
 	goto_if_eq VAR_RESULT, 2, Route12_FishingHouse_EventScript_NotRecordMagikarp

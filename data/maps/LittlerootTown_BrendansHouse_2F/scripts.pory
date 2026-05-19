@@ -28,7 +28,6 @@ script LittlerootTown_BrendansHouse_2F_EventScript_WallClock {
 		"Better set it and start it!"))
 	fadescreen(FADE_TO_BLACK)
 	special(StartWallClock)
-	waitstate
 	delay(30)
 	setvar(VAR_LITTLEROOT_INTRO_STATE, INTRO_STATE_CHECK_DOWNSTAIRS)
 	setflag(FLAG_SET_WALL_CLOCK)
@@ -63,7 +62,6 @@ LittlerootTown_BrendansHouse_2F_EventScript_PC::
 	playse SE_PC_ON
 	msgbox gText_PlayerHouseBootPC, MSGBOX_DEFAULT
 	special BedroomPC
-	waitstate
 	releaseall
 	end
 

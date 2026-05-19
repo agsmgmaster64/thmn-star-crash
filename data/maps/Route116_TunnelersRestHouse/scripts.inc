@@ -258,7 +258,6 @@ Route116_TunnelersRestHouse_UFOTrader_PrepareMultichoiceStat::
 Route116_TunnelersRestHouse_EventScript_UFOTraderWorsenIV::
 	msgbox Route116_TunnelersRestHouse_Text_UFOTraderSeePuppet
 	special ChoosePartyMon
-	waitstate
 	compare VAR_0x8004, PARTY_NOTHING_CHOSEN
 	goto_if_eq Route116_TunnelersRestHouse_EventScript_UFOTraderWorsenIV_2
 	special IsSelectedMonEgg
@@ -688,7 +687,6 @@ Route116_TunnelersRestHouse_EventScript_UFOTraderEvoHeart_53:
 Route116_TunnelersRestHouse_EventScript_UFOTraderPerfect1IV::
 	msgbox Route116_TunnelersRestHouse_Text_UFOTraderSeePuppet
 	special ChoosePartyMon
-	waitstate
 	compare VAR_0x8004, PARTY_NOTHING_CHOSEN
 	goto_if_eq Route116_TunnelersRestHouse_EventScript_UFOTraderPerfect1IV_2
 	special IsSelectedMonEgg
@@ -949,8 +947,7 @@ Route116_TunnelersRestHouse_EventScript_UFOTraderTutor_4:
 	compare VAR_RESULT, YES
 	goto_if_ne Route116_TunnelersRestHouse_EventScript_UFOTraderTutor_9
 	msgbox Route116_TunnelersRestHouse_Text_UFOTraderSeePuppet
-	special ChooseMonForMoveRelearner
-	waitstate
+	chooseboxmon SELECT_PC_MON_MOVE_RELEARNER
 	compare VAR_0x8004, PARTY_NOTHING_CHOSEN
 	goto_if_eq Route116_TunnelersRestHouse_EventScript_UFOTraderTutor_12
 	special IsSelectedMonEgg
@@ -959,8 +956,7 @@ Route116_TunnelersRestHouse_EventScript_UFOTraderTutor_4:
 	compare VAR_0x8005, 0
 	goto_if_eq Route116_TunnelersRestHouse_EventScript_UFOTraderTutor_18
 	special TeachMoveRelearnerMove
-	waitstate
-	compare VAR_0x8004, 0
+	compare VAR_RESULT, 0
 	goto_if_eq Route116_TunnelersRestHouse_EventScript_UFOTraderTutor_21
 	msgbox Route116_TunnelersRestHouse_EventScript_UFOTraderTutor_Text_7
 	removeitem ITEM_BLUE_UFO
@@ -1000,7 +996,6 @@ Route116_TunnelersRestHouse_EventScript_UFOTraderTutor_21:
 Route116_TunnelersRestHouse_EventScript_UFOTraderPerfectAllIV::
 	msgbox Route116_TunnelersRestHouse_Text_UFOTraderSeePuppet
 	special ChoosePartyMon
-	waitstate
 	compare VAR_0x8004, PARTY_NOTHING_CHOSEN
 	goto_if_eq Route116_TunnelersRestHouse_EventScript_UFOTraderPerfectAllIV_2
 	special IsSelectedMonEgg

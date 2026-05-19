@@ -12,7 +12,6 @@ In that object's event script, add the following:
 ```diff
 EventScript_CodeEntry::
     special EnterCode
-    waitstate
     special GetCodeFeedback
     end
 ```
@@ -90,7 +89,6 @@ Let's go back to our event script.
 ```
 EventScript_CodeEntry::
     special EnterCode
-    waitstate
     special GetCodeFeedback
     end
 ```
@@ -104,7 +102,6 @@ EventScript_CodeEntry::
 +   compare VAR_RESULT, 0
 +   goto_if_eq CodeExit
     special EnterCode
-    waitstate
     special GetCodeFeedback
     end
 
@@ -125,7 +122,6 @@ EventScript_CodeEntry::
 	compare VAR_RESULT, 0
 	goto_if_eq CodeExit
     special EnterCode
-    waitstate
     special GetCodeFeedback
 +   goto_if_eq VAR_RESULT, 0, CodeFailed
 +   goto_if_eq VAR_RESULT, 1, CodeSampleCode
@@ -180,7 +176,6 @@ EventScript_CodeEntry::
     compare VAR_RESULT, 0
     goto_if_eq CodeExit
     special EnterCode
-    waitstate
     special GetCodeFeedback
     goto_if_eq VAR_RESULT, 0, CodeFailed
     goto_if_eq VAR_RESULT, 1, CodeSampleCode
@@ -271,7 +266,6 @@ EventScript_CodeEntry::
 	compare VAR_RESULT, 0
 	goto_if_eq CodeExit
     special EnterCode
-    waitstate
     special GetCodeFeedback
     goto_if_eq VAR_RESULT, 0, CodeFailed
     goto_if_eq VAR_RESULT, 1, MysteryGift_EventScript_Celebi

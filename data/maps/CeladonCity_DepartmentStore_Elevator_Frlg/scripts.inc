@@ -110,6 +110,5 @@ CeladonCity_DepartmentStore_Elevator_EventScript_MoveElevator::
 	closemessage
 	waitse
 	special AnimateElevator
-	waitstate
 	setflag FLAG_TEMP_2
 	return

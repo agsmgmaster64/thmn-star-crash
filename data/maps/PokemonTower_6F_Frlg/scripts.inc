@@ -7,7 +7,6 @@ PokemonTower_6F_EventScript_MarowakGhost::
 	msgbox PokemonTower_6F_Text_BeGoneIntruders
 	setwildbattle SPECIES_GOLIATH, 30
 	special StartMarowakBattle
-	waitstate
 	goto_if_eq VAR_RESULT, FALSE, PokemonTower_6F_EventScript_DefeatedMarowakGhost  @ VAR_RESULT set by CB2_EndMarowakBattle
 	applymovement LOCALID_PLAYER, PokemonTower_6F_Movement_ForcePlayerUp
 	waitmovement 0

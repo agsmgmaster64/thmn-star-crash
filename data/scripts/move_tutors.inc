@@ -168,7 +168,6 @@ MoveTutor_EventScript_OpenPartyMenu::
 
 MoveTutor_EventScript_OpenBox::
 	chooseboxmon SELECT_PC_MON_MOVE_TUTOR
-	waitstate
 	lock
 	faceplayer
 	return

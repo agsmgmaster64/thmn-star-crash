@@ -68,7 +68,6 @@ MauvilleCity_GameCorner_EventScript_Blackjack::
 	goto_if_eq VAR_RESULT, NO, MauvilleCity_GameCorner_CancelBJ
 	playbgm MUS_GAME_CORNER, FALSE
 	special StartBlackJack
-	waitstate
 	savebgm MUS_DUMMY
 	fadedefaultbgm
 	releaseall
@@ -83,7 +82,6 @@ MauvilleCity_GameCorner_EventScript_Derby::
 	goto_if_eq VAR_RESULT, NO, MauvilleCity_GameCorner_CancelBJ
 	playbgm MUS_ZGS_PEWTER, FALSE
 	special StartDerby
-	waitstate
 	savebgm MUS_DUMMY
 	fadedefaultbgm
 MauvilleCity_GameCorner_EventScript_CheckWinnings::
@@ -122,7 +120,6 @@ MauvilleCity_GameCorner_EventScript_Snake::
 	hidecoinsbox 0, 5
 	playbgm MUS_NONE, FALSE
 	special StartSnake
-	waitstate
 	savebgm MUS_DUMMY
 	fadedefaultbgm
 	goto MauvilleCity_GameCorner_EventScript_CheckWinnings
@@ -144,7 +141,6 @@ MauvilleCity_GameCorner_EventScript_FlappyBird::
 	hidecoinsbox 0, 5
 	playbgm MUS_NONE, FALSE
 	special StartFlappyBird
-	waitstate
 	savebgm MUS_DUMMY
 	fadedefaultbgm
 	goto MauvilleCity_GameCorner_EventScript_CheckWinnings
@@ -166,7 +162,6 @@ MauvilleCity_GameCorner_EventScript_BlockStacker::
 	hidecoinsbox 0, 5
 	playbgm MUS_CASINO_PLUS_1, FALSE
 	special StartBlockStacker
-    waitstate
 	savebgm MUS_DUMMY
 	fadedefaultbgm
 	goto MauvilleCity_GameCorner_EventScript_CheckWinnings
@@ -322,7 +317,6 @@ MauvilleCity_GameCorner_EventScript_VoltorbFlip::
 	playbgm MUS_HGSS_CASINO, FALSE
 	setvar GAME_CORNER_VAR_WINNINGS, 0
 	special Special_ViewVoltorbFlip
-	waitstate
 	goto_if_eq VAR_RESULT, 0, VF_Come_Again
 	goto_if_eq VAR_RESULT, 1, VF_Go_On
 	releaseall
@@ -347,7 +341,6 @@ VF_Go_On::
 VF_Loop::
 	hidecoinsbox 0, 5
 	special Special_ViewVoltorbFlip
-	waitstate
 	goto_if_eq VAR_RESULT, 0, VF_Come_Again
 	goto_if_eq VAR_RESULT, 1, VF_Go_On
 	releaseall
@@ -380,7 +373,6 @@ MauvilleCity_GameCorner_EventScript_Gacha_Basic::
 MauvilleCity_GameCorner_EventScript_GachaCommon::
 	playbgm MUS_ZGS_CINNABAR, FALSE
 	special StartGacha
-	waitstate
 	savebgm MUS_DUMMY
 	fadedefaultbgm
 	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PARTY, MauvilleCity_GameCorner_EventScript_RecieveGachaMonParty

@@ -19,7 +19,6 @@ SSAnne_Exterior_ExitSSAnne::
 	fadenewbgm MUS_ZGS_SURF
 	delay 50
 	special DoSSAnneDepartureCutscene
-	waitstate
 	removeobject LOCALID_SS_ANNE
 	applymovement LOCALID_PLAYER, SSAnne_Exterior_Movement_Exit
 	waitmovement 0

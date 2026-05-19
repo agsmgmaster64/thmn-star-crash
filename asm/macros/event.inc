@@ -3212,7 +3212,6 @@
 	msgbox \wantTradeMsg, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, \declineTradeJump
 	chooseboxmon SELECT_PC_MON_TRADE
-	waitstate
 	goto_if_eq VAR_0x8004, PARTY_NOTHING_CHOSEN, \declineTradeJump
 	specialvar VAR_0x800B, GetTradeSpecies
 	goto_if_ne VAR_0x800B, VAR_0x8009, \wrongMonJump
@@ -3245,6 +3244,7 @@
 	.macro chooseboxmon selectionType=SELECT_PC_MON_NORMAL
 	callnative ChooseBoxMon
 	.byte \selectionType
+	waitstate
 	.endm
 
 	@ picks the first mon in party matching the given selectionType (enum PcMonSelectionType)

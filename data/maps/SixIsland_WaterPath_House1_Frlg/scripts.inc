@@ -4,13 +4,12 @@ SixIsland_WaterPath_House1_Frlg_MapScripts::
 SixIsland_WaterPath_House1_EventScript_Beauty::
 	lock
 	faceplayer
-	setvar VAR_0x8004, SPECIES_GOLIATH
+	setvar VAR_0x8004, SPECIES_PORYGON
 	specialvar VAR_RESULT, DoesPlayerPartyContainSpecies
 	goto_if_eq VAR_RESULT, FALSE, SixIsland_WaterPath_House1_EventScript_NoHeracrossInParty
 	special GetHeracrossSizeRecordInfo
 	msgbox SixIsland_WaterPath_House1_Text_MayIMeasureHeracross
 	special ChoosePartyMon
-	waitstate
 	copyvar VAR_RESULT, VAR_0x8004
 	goto_if_ge VAR_RESULT, PARTY_SIZE, SixIsland_WaterPath_House1_EventScript_DontShowMon
 	special CompareHeracrossSize

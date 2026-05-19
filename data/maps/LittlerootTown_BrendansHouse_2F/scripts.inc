@@ -27,7 +27,6 @@ LittlerootTown_BrendansHouse_2F_EventScript_WallClock_1:
 	msgbox LittlerootTown_BrendansHouse_2F_EventScript_WallClock_Text_0
 	fadescreen FADE_TO_BLACK
 	special StartWallClock
-	waitstate
 	delay 30
 	setvar VAR_LITTLEROOT_INTRO_STATE, 6
 	setflag FLAG_SET_WALL_CLOCK

@@ -104,7 +104,6 @@ EventScript_SetSail::
 	delay 20
 	fadescreen FADE_TO_BLACK
 	special DoSeagallopFerryScene
-	waitstate
 	end
 
 EventScript_CancelSail::
@@ -128,7 +127,6 @@ VermilionCity_Movement_WalkUp::
 EventScript_SeviiDestinationsPage1::
 	setvar VAR_0x8005, 0
 	special DrawSeagallopDestinationMenu
-	waitstate
 	specialvar VAR_0x8006, GetSelectedSeagallopDestination
 	switch VAR_0x8006
 	case SEAGALLOP_VERMILION_CITY, EventScript_SailToVermilionCity
@@ -143,7 +141,6 @@ EventScript_SeviiDestinationsPage1::
 EventScript_SeviiDestinationsPage2::
 	setvar VAR_0x8005, 1
 	special DrawSeagallopDestinationMenu
-	waitstate
 	specialvar VAR_0x8006, GetSelectedSeagallopDestination
 	switch VAR_0x8006
 	case SEAGALLOP_FOUR_ISLAND,  EventScript_SailToFourIsland
