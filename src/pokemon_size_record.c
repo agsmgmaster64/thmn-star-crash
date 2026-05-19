@@ -7,6 +7,7 @@
 #include "pokemon_storage_system.h"
 #include "string_util.h"
 #include "text.h"
+#include "constants/party_menu.h"
 #include "constants/pokemon_size_record.h"
 
 #define DEFAULT_MAX_SIZE 0x8000 // was 0x8100 in Ruby/Sapphire
@@ -119,7 +120,7 @@ static u8* ReturnHeightStringNoWhitespace(u32 size)
 
 static u8 CompareMonSize(enum Species species, u16 *sizeRecord)
 {
-    if (gSpecialVar_Result == 0xFF)
+    if (gSpecialVar_Result == PARTY_NOTHING_CHOSEN)
     {
         return POKEMON_NONE;
     }
@@ -177,14 +178,14 @@ void GetSeedotSizeRecordInfo(void)
 {
     u16 *sizeRecord = GetVarPointer(VAR_SEEDOT_SIZE_RECORD);
 
-    GetMonSizeRecordInfo(SPECIES_ATTACK_MIKO, sizeRecord);
+    GetMonSizeRecordInfo(SPECIES_CHIBI_SHIZUHA, sizeRecord);
 }
 
 void CompareSeedotSize(void)
 {
     u16 *sizeRecord = GetVarPointer(VAR_SEEDOT_SIZE_RECORD);
 
-    gSpecialVar_Result = CompareMonSize(SPECIES_ATTACK_MIKO, sizeRecord);
+    gSpecialVar_Result = CompareMonSize(SPECIES_CHIBI_SHIZUHA, sizeRecord);
 }
 
 void InitLotadSizeRecord(void)
@@ -196,14 +197,14 @@ void GetLotadSizeRecordInfo(void)
 {
     u16 *sizeRecord = GetVarPointer(VAR_LOTAD_SIZE_RECORD);
 
-    GetMonSizeRecordInfo(SPECIES_PLACEHOLD_FUTO, sizeRecord);
+    GetMonSizeRecordInfo(SPECIES_CHIBI_MINORIKO, sizeRecord);
 }
 
 void CompareLotadSize(void)
 {
     u16 *sizeRecord = GetVarPointer(VAR_LOTAD_SIZE_RECORD);
 
-    gSpecialVar_Result = CompareMonSize(SPECIES_PLACEHOLD_FUTO, sizeRecord);
+    gSpecialVar_Result = CompareMonSize(SPECIES_CHIBI_MINORIKO, sizeRecord);
 }
 
 void InitHeracrossSizeRecord(void)

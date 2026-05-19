@@ -29,6 +29,7 @@ sound/voicegroups/*.bin
 sound/songs/*.bin
 sound/songs/midi/*.s
 tools/agbcc
+tools/compresSmol/
 *.map
 *.bat
 *.dump
