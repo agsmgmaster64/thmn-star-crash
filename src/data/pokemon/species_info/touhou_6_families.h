@@ -55,6 +55,15 @@ const struct SpeciesInfo gSpeciesInfoTouhou6[] =
         .iconPalIndex = 1,
         SHADOW(-1, 12, SHADOW_SIZE_M)
         FOOTPRINT(CReimu)
+        OVERWORLD(
+            sPicTable_CReimu,
+            SIZE_32x32,
+            SHADOW_SIZE_M,
+            TRACKS_FOOT,
+            sAnimTable_Following,
+            gOverworldPalette_CReimu,
+            gShinyOverworldPalette_CReimu
+        )
         .levelUpLearnset = sCReimuLevelUpLearnset,
         .teachableLearnset = sCReimuTeachableLearnset,
         .eggMoveLearnset = sCReimuEggMoveLearnset,
@@ -116,6 +125,15 @@ const struct SpeciesInfo gSpeciesInfoTouhou6[] =
         .iconPalIndex = 1,
         SHADOW(3, 13, SHADOW_SIZE_L)
         FOOTPRINT(Reimu)
+        OVERWORLD(
+            sPicTable_Reimu,
+            SIZE_32x32,
+            SHADOW_SIZE_M,
+            TRACKS_FOOT,
+            sAnimTable_Following,
+            gOverworldPalette_Reimu,
+            gShinyOverworldPalette_Reimu
+        )
         .levelUpLearnset = sReimuLevelUpLearnset,
         .teachableLearnset = sReimuTeachableLearnset,
     },
@@ -170,6 +188,15 @@ const struct SpeciesInfo gSpeciesInfoTouhou6[] =
         .iconSprite = gMonIcon_AReimu,
         .iconPalIndex = 1,
         FOOTPRINT(AReimu)
+        OVERWORLD(
+            sPicTable_AReimu,
+            SIZE_32x32,
+            SHADOW_SIZE_M,
+            TRACKS_FOOT,
+            sAnimTable_Following,
+            gOverworldPalette_AReimu,
+            gShinyOverworldPalette_AReimu
+        )
         .levelUpLearnset = sAReimuLevelUpLearnset,
         .teachableLearnset = sAReimuTeachableLearnset,
     },
@@ -224,6 +251,15 @@ const struct SpeciesInfo gSpeciesInfoTouhou6[] =
         .iconSprite = gMonIcon_DReimu,
         .iconPalIndex = 1,
         FOOTPRINT(DReimu)
+        OVERWORLD(
+            sPicTable_DReimu,
+            SIZE_32x32,
+            SHADOW_SIZE_M,
+            TRACKS_FOOT,
+            sAnimTable_Following,
+            gOverworldPalette_DReimu,
+            gShinyOverworldPalette_DReimu
+        )
         .levelUpLearnset = sDReimuLevelUpLearnset,
         .teachableLearnset = sDReimuTeachableLearnset,
     },
@@ -277,6 +313,15 @@ const struct SpeciesInfo gSpeciesInfoTouhou6[] =
         .iconSprite = gMonIcon_CMarisa,
         .iconPalIndex = 1,
         FOOTPRINT(CMarisa)
+        OVERWORLD(
+            sPicTable_CMarisa,
+            SIZE_32x32,
+            SHADOW_SIZE_M,
+            TRACKS_FOOT,
+            sAnimTable_Following_Asym,
+            gOverworldPalette_CMarisa,
+            gShinyOverworldPalette_CMarisa
+        )
         .levelUpLearnset = sCMarisaLevelUpLearnset,
         .teachableLearnset = sCMarisaTeachableLearnset,
         .eggMoveLearnset = sCMarisaEggMoveLearnset,
@@ -336,6 +381,15 @@ const struct SpeciesInfo gSpeciesInfoTouhou6[] =
         .iconSprite = gMonIcon_Marisa,
         .iconPalIndex = 1,
         FOOTPRINT(Marisa)
+        OVERWORLD(
+            sPicTable_Marisa,
+            SIZE_32x32,
+            SHADOW_SIZE_M,
+            TRACKS_FOOT,
+            sAnimTable_Following_Asym,
+            gOverworldPalette_Marisa,
+            gShinyOverworldPalette_Marisa
+        )
         .levelUpLearnset = sMarisaLevelUpLearnset,
         .teachableLearnset = sMarisaTeachableLearnset,
     },
@@ -389,6 +443,15 @@ const struct SpeciesInfo gSpeciesInfoTouhou6[] =
         .iconSprite = gMonIcon_AMarisa,
         .iconPalIndex = 1,
         FOOTPRINT(AMarisa)
+        OVERWORLD(
+            sPicTable_AMarisa,
+            SIZE_32x32,
+            SHADOW_SIZE_M,
+            TRACKS_FOOT,
+            sAnimTable_Following_Asym,
+            gOverworldPalette_AMarisa,
+            gShinyOverworldPalette_AMarisa
+        )
         .levelUpLearnset = sAMarisaLevelUpLearnset,
         .teachableLearnset = sAMarisaTeachableLearnset,
     },
@@ -442,6 +505,15 @@ const struct SpeciesInfo gSpeciesInfoTouhou6[] =
         .iconSprite = gMonIcon_SMarisa,
         .iconPalIndex = 1,
         FOOTPRINT(SMarisa)
+        OVERWORLD(
+            sPicTable_SMarisa,
+            SIZE_32x32,
+            SHADOW_SIZE_M,
+            TRACKS_FOOT,
+            sAnimTable_Following_Asym,
+            gOverworldPalette_SMarisa,
+            gShinyOverworldPalette_SMarisa
+        )
         .levelUpLearnset = sSMarisaLevelUpLearnset,
         .teachableLearnset = sSMarisaTeachableLearnset,
     },

@@ -316,12 +316,12 @@ const struct SpeciesInfo gSpeciesInfoTouhou10[] =
         .frontPicSize = MON_COORDS_SIZE(64, 64),
         .frontPicYOffset = 0,
         .frontAnimFrames = sAnims_GenericBlinkingAnim,
-        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
+        .frontAnimId = ANIM_H_SPRING_SLOW,
         .enemyMonElevation = 4,
         .backPic = gMonBackPic_ShizuhaSannian,
         .backPicSize = MON_COORDS_SIZE(64, 64),
         .backPicYOffset = 0,
-        .backAnimId = BACK_ANIM_NONE,
+        .backAnimId = BACK_ANIM_H_SLIDE,
         .palette = gMonPalette_ShizuhaSannian,
         .shinyPalette = gMonShinyPalette_ShizuhaSannian,
         .iconSprite = gMonIcon_ShizuhaSannian,
@@ -1629,6 +1629,15 @@ const struct SpeciesInfo gSpeciesInfoTouhou10[] =
         .iconSprite = gMonIcon_CSanae,
         .iconPalIndex = 0,
         FOOTPRINT(CSanae)
+        OVERWORLD(
+            sPicTable_CSanae,
+            SIZE_32x32,
+            SHADOW_SIZE_M,
+            TRACKS_FOOT,
+            sAnimTable_Following_Asym,
+            gOverworldPalette_CSanae,
+            gShinyOverworldPalette_CSanae
+        )
         .levelUpLearnset = sCSanaeLevelUpLearnset,
         .teachableLearnset = sCSanaeTeachableLearnset,
         .eggMoveLearnset = sCSanaeEggMoveLearnset,
@@ -1688,6 +1697,15 @@ const struct SpeciesInfo gSpeciesInfoTouhou10[] =
         .iconSprite = gMonIcon_Sanae,
         .iconPalIndex = 0,
         FOOTPRINT(Sanae)
+        OVERWORLD(
+            sPicTable_Sanae,
+            SIZE_32x32,
+            SHADOW_SIZE_M,
+            TRACKS_FOOT,
+            sAnimTable_Following_Asym,
+            gOverworldPalette_Sanae,
+            gShinyOverworldPalette_Sanae
+        )
         .levelUpLearnset = sSanaeLevelUpLearnset,
         .teachableLearnset = sSanaeTeachableLearnset,
     },
@@ -1741,6 +1759,15 @@ const struct SpeciesInfo gSpeciesInfoTouhou10[] =
         .iconSprite = gMonIcon_ASanae,
         .iconPalIndex = 0,
         FOOTPRINT(ASanae)
+        OVERWORLD(
+            sPicTable_ASanae,
+            SIZE_32x32,
+            SHADOW_SIZE_M,
+            TRACKS_FOOT,
+            sAnimTable_Following_Asym,
+            gOverworldPalette_ASanae,
+            gShinyOverworldPalette_ASanae
+        )
         .levelUpLearnset = sASanaeLevelUpLearnset,
         .teachableLearnset = sASanaeTeachableLearnset,
     },
@@ -1795,6 +1822,15 @@ const struct SpeciesInfo gSpeciesInfoTouhou10[] =
         .iconSprite = gMonIcon_TSanae,
         .iconPalIndex = 0,
         FOOTPRINT(TSanae)
+        OVERWORLD(
+            sPicTable_TSanae,
+            SIZE_32x32,
+            SHADOW_SIZE_M,
+            TRACKS_FOOT,
+            sAnimTable_Following_Asym,
+            gOverworldPalette_TSanae,
+            gShinyOverworldPalette_TSanae
+        )
         .levelUpLearnset = sTSanaeLevelUpLearnset,
         .teachableLearnset = sTSanaeTeachableLearnset,
     },

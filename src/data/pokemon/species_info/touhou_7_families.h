@@ -738,6 +738,15 @@ const struct SpeciesInfo gSpeciesInfoTouhou7[] =
         .iconSprite = gMonIcon_CAlice,
         .iconPalIndex = 1,
         FOOTPRINT(CAlice)
+        OVERWORLD(
+            sPicTable_CAlice,
+            SIZE_32x32,
+            SHADOW_SIZE_M,
+            TRACKS_FOOT,
+            sAnimTable_Following,
+            gOverworldPalette_CAlice,
+            gShinyOverworldPalette_CAlice
+        )
         .levelUpLearnset = sCAliceLevelUpLearnset,
         .teachableLearnset = sCAliceTeachableLearnset,
         .eggMoveLearnset = sCAliceEggMoveLearnset,
@@ -800,6 +809,15 @@ const struct SpeciesInfo gSpeciesInfoTouhou7[] =
         .iconSprite = gMonIcon_Alice,
         .iconPalIndex = 1,
         FOOTPRINT(Alice)
+        OVERWORLD(
+            sPicTable_Alice,
+            SIZE_32x32,
+            SHADOW_SIZE_M,
+            TRACKS_FOOT,
+            sAnimTable_Following,
+            gOverworldPalette_Alice,
+            gShinyOverworldPalette_Alice
+        )
         .levelUpLearnset = sAliceLevelUpLearnset,
         .teachableLearnset = sAliceTeachableLearnset,
     },
@@ -853,6 +871,15 @@ const struct SpeciesInfo gSpeciesInfoTouhou7[] =
         .iconSprite = gMonIcon_AAlice,
         .iconPalIndex = 1,
         FOOTPRINT(AAlice)
+        OVERWORLD(
+            sPicTable_AAlice,
+            SIZE_32x32,
+            SHADOW_SIZE_M,
+            TRACKS_FOOT,
+            sAnimTable_Following,
+            gOverworldPalette_AAlice,
+            gShinyOverworldPalette_AAlice
+        )
         .levelUpLearnset = sAAliceLevelUpLearnset,
         .teachableLearnset = sAAliceTeachableLearnset,
     },
@@ -907,6 +934,15 @@ const struct SpeciesInfo gSpeciesInfoTouhou7[] =
         .iconSprite = gMonIcon_TAlice,
         .iconPalIndex = 1,
         FOOTPRINT(TAlice)
+        OVERWORLD(
+            sPicTable_TAlice,
+            SIZE_32x32,
+            SHADOW_SIZE_M,
+            TRACKS_FOOT,
+            sAnimTable_Following,
+            gOverworldPalette_TAlice,
+            gShinyOverworldPalette_TAlice
+        )
         .levelUpLearnset = sTAliceLevelUpLearnset,
         .teachableLearnset = sTAliceTeachableLearnset,
     },

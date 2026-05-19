@@ -6729,6 +6729,32 @@ static const struct SpriteFrameImage sPicTable_Pecharunt[] = {
 };
 #endif //P_FAMILY_PECHARUNT
 
+static const struct SpriteFrameImage sPicTable_CReimu[] = {
+    overworld_ascending_frames(gObjectEventPic_CReimu, 4, 4),
+};
+static const struct SpriteFrameImage sPicTable_Reimu[] = {
+    overworld_ascending_frames(gObjectEventPic_Reimu, 4, 4),
+};
+static const struct SpriteFrameImage sPicTable_AReimu[] = {
+    overworld_ascending_frames(gObjectEventPic_AReimu, 4, 4),
+};
+static const struct SpriteFrameImage sPicTable_DReimu[] = {
+    overworld_ascending_frames(gObjectEventPic_DReimu, 4, 4),
+};
+
+static const struct SpriteFrameImage sPicTable_CMarisa[] = {
+    overworld_ascending_frames(gObjectEventPic_CMarisa, 4, 4),
+};
+static const struct SpriteFrameImage sPicTable_Marisa[] = {
+    overworld_ascending_frames(gObjectEventPic_Marisa, 4, 4),
+};
+static const struct SpriteFrameImage sPicTable_AMarisa[] = {
+    overworld_ascending_frames(gObjectEventPic_AMarisa, 4, 4),
+};
+static const struct SpriteFrameImage sPicTable_SMarisa[] = {
+    overworld_ascending_frames(gObjectEventPic_SMarisa, 4, 4),
+};
+
 static const struct SpriteFrameImage sPicTable_CDaiyousei[] = {
     overworld_ascending_frames(gObjectEventPic_CDaiyousei, 4, 4),
 };
@@ -6753,6 +6779,19 @@ static const struct SpriteFrameImage sPicTable_SCirno[] = {
 };
 static const struct SpriteFrameImage sPicTable_TCirno[] = {
     overworld_ascending_frames(gObjectEventPic_TCirno, 4, 4),
+};
+
+static const struct SpriteFrameImage sPicTable_CAlice[] = {
+    overworld_ascending_frames(gObjectEventPic_CAlice, 4, 4),
+};
+static const struct SpriteFrameImage sPicTable_Alice[] = {
+    overworld_ascending_frames(gObjectEventPic_Alice, 4, 4),
+};
+static const struct SpriteFrameImage sPicTable_AAlice[] = {
+    overworld_ascending_frames(gObjectEventPic_AAlice, 4, 4),
+};
+static const struct SpriteFrameImage sPicTable_TAlice[] = {
+    overworld_ascending_frames(gObjectEventPic_TAlice, 4, 4),
 };
 
 static const struct SpriteFrameImage sPicTable_CLilyWhite[] = {
@@ -6845,6 +6884,19 @@ static const struct SpriteFrameImage sPicTable_Momiji[] = {
 };
 static const struct SpriteFrameImage sPicTable_DMomiji[] = {
     overworld_ascending_frames(gObjectEventPic_DMomiji, 4, 4),
+};
+
+static const struct SpriteFrameImage sPicTable_CSanae[] = {
+    overworld_ascending_frames(gObjectEventPic_CSanae, 4, 4),
+};
+static const struct SpriteFrameImage sPicTable_Sanae[] = {
+    overworld_ascending_frames(gObjectEventPic_Sanae, 4, 4),
+};
+static const struct SpriteFrameImage sPicTable_ASanae[] = {
+    overworld_ascending_frames(gObjectEventPic_ASanae, 4, 4),
+};
+static const struct SpriteFrameImage sPicTable_TSanae[] = {
+    overworld_ascending_frames(gObjectEventPic_TSanae, 4, 4),
 };
 
 static const struct SpriteFrameImage sPicTable_CHina[] = {
