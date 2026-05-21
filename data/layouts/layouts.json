@@ -10455,12 +10455,12 @@
     {
       "id": "LAYOUT_CARPET_MANSION_ROOM1",
       "name": "CarpetMansionRoom1_Layout",
-      "width": 18,
-      "height": 25,
+      "width": 37,
+      "height": 31,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_RG_Building",
-      "secondary_tileset": "gTileset_FancyInside",
+      "secondary_tileset": "gTileset_BankCasino",
       "border_filepath": "data/layouts/CarpetMansionRoom1/border.bin",
       "blockdata_filepath": "data/layouts/CarpetMansionRoom1/map.bin"
     }

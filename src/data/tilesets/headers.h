@@ -1931,3 +1931,14 @@ const struct Tileset gTileset_Center2 =
     .metatileAttributes = gMetatileAttributes_Center2,
     .callback = NULL,
 };
+
+const struct Tileset gTileset_BankCasino =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_BankCasino,
+    .palettes = gTilesetPalettes_BankCasino,
+    .metatiles = gMetatiles_BankCasino,
+    .metatileAttributes = gMetatileAttributes_BankCasino,
+    .callback = NULL,
+};

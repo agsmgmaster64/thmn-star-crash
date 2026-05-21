@@ -6,14 +6,12 @@ Route116_TunnelersRestHouse_EventScript_GigiFunEvent::
 
 Route116_TunnelersRestHouse_EventScript_NueBogosBinted::
 	lock
-	bankwithdrawmoney
 	release
 	end
 
 
 Route116_TunnelersRestHouse_EventScript_InaFunEvent::
 	lock
-	bankdepositmoney
 	release
 	end
 
