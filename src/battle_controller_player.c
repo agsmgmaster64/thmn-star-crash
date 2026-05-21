@@ -2368,7 +2368,6 @@ static void Controller_WaitForDebug(enum BattlerId battler)
 {
     if (gMain.callback2 == BattleMainCB2 && !gPaletteFade.active)
     {
-        CloseMainBattleScreen();
         BtlController_Complete(battler);
     }
 }
