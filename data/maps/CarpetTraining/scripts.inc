@@ -8,11 +8,6 @@ CarpetTraining_EventScript_NoCoinCasePlay::
 	end
 
 
-CarpetTraining_EventScript_NoWin::
-	releaseall
-	end
-
-
 CarpetTraining_EventScript_CancelGame::
 	hidecoinsbox 0, 5
 	closemessage
@@ -23,7 +18,6 @@ CarpetTraining_EventScript_CancelGame::
 CarpetTraining_EventScript_CheckWinnings::
 	compare GAME_CORNER_VAR_WINNINGS, 0
 	goto_if_eq CarpetTraining_EventScript_CheckWinnings_2
-CarpetTraining_EventScript_CheckWinnings_1:
 	showcoinsbox 1, 1
 	buffernumberstring STR_VAR_1, GAME_CORNER_VAR_WINNINGS
 	msgbox CarpetTraining_Text_WinCoins
@@ -39,8 +33,8 @@ CarpetTraining_EventScript_CheckWinnings_1:
 	end
 
 CarpetTraining_EventScript_CheckWinnings_2:
-	goto CarpetTraining_EventScript_NoWin
-	goto CarpetTraining_EventScript_CheckWinnings_1
+	releaseall
+	end
 
 
 CarpetTraining_EventScript_Pachinko::
@@ -312,7 +306,7 @@ CarpetTraining_EventScript_VoltorbFlip_11:
 CarpetTraining_EventScript_VoltorbFlipGoAgain::
 	showcoinsbox 1, 1
 	buffernumberstring STR_VAR_1, GAME_CORNER_VAR_WINNINGS
-	msgbox MauvilleCity_GameCorner_Text_VF_Keep_Going, MSGBOX_YESNO
+	msgbox CarpetTraining_Text_WinCoinsVoltorbFlip, MSGBOX_YESNO
 	closemessage
 	compare VAR_RESULT, NO
 	goto_if_eq CarpetTraining_EventScript_VoltorbFlipGoAgain_2
@@ -358,271 +352,161 @@ CarpetTraining_EventScript_VolorbFlipNotEnough::
 	end
 
 
-CarpetTraining_EventScript_SlotMachine0::
-	lockall
+CarpetTraining_EventScript_SlotMachineCommon::
 	checkitem ITEM_COIN_CASE
 	compare VAR_RESULT, 0
-	goto_if_eq CarpetTraining_EventScript_SlotMachine0_2
-CarpetTraining_EventScript_SlotMachine0_1:
-	setvar VAR_0x8004, 0
-	specialvar VAR_RESULT, GetSlotMachineId
+	goto_if_eq CarpetTraining_EventScript_SlotMachineCommon_2
+CarpetTraining_EventScript_SlotMachineCommon_1:
+	specialvar VAR_RESULT, GetRandomSlotMachineId
 	playslotmachine_rg VAR_RESULT
 	releaseall
 	end
 
-CarpetTraining_EventScript_SlotMachine0_2:
+CarpetTraining_EventScript_SlotMachineCommon_2:
 	goto CarpetTraining_EventScript_NoCoinCasePlay
-	goto CarpetTraining_EventScript_SlotMachine0_1
+	goto CarpetTraining_EventScript_SlotMachineCommon_1
+
+
+CarpetTraining_EventScript_SlotMachine0::
+	lockall
+	setvar VAR_0x8004, 0
+	goto CarpetTraining_EventScript_SlotMachineCommon
+	return
 
 
 CarpetTraining_EventScript_SlotMachine1::
 	lockall
-	checkitem ITEM_COIN_CASE
-	compare VAR_RESULT, 0
-	goto_if_eq CarpetTraining_EventScript_SlotMachine1_2
-CarpetTraining_EventScript_SlotMachine1_1:
 	setvar VAR_0x8004, 1
-	specialvar VAR_RESULT, GetSlotMachineId
-	playslotmachine_rg VAR_RESULT
-	releaseall
-	end
-
-CarpetTraining_EventScript_SlotMachine1_2:
-	goto CarpetTraining_EventScript_NoCoinCasePlay
-	goto CarpetTraining_EventScript_SlotMachine1_1
+	goto CarpetTraining_EventScript_SlotMachineCommon
+	return
 
 
 CarpetTraining_EventScript_SlotMachine2::
 	lockall
-	checkitem ITEM_COIN_CASE
-	compare VAR_RESULT, 0
-	goto_if_eq CarpetTraining_EventScript_SlotMachine2_2
-CarpetTraining_EventScript_SlotMachine2_1:
 	setvar VAR_0x8004, 2
-	specialvar VAR_RESULT, GetSlotMachineId
-	playslotmachine_rg VAR_RESULT
-	releaseall
-	end
-
-CarpetTraining_EventScript_SlotMachine2_2:
-	goto CarpetTraining_EventScript_NoCoinCasePlay
-	goto CarpetTraining_EventScript_SlotMachine2_1
+	goto CarpetTraining_EventScript_SlotMachineCommon
+	return
 
 
 CarpetTraining_EventScript_SlotMachine3::
 	lockall
-	checkitem ITEM_COIN_CASE
-	compare VAR_RESULT, 0
-	goto_if_eq CarpetTraining_EventScript_SlotMachine3_2
-CarpetTraining_EventScript_SlotMachine3_1:
 	setvar VAR_0x8004, 3
-	specialvar VAR_RESULT, GetSlotMachineId
-	playslotmachine_rg VAR_RESULT
-	releaseall
-	end
-
-CarpetTraining_EventScript_SlotMachine3_2:
-	goto CarpetTraining_EventScript_NoCoinCasePlay
-	goto CarpetTraining_EventScript_SlotMachine3_1
+	goto CarpetTraining_EventScript_SlotMachineCommon
+	return
 
 
 CarpetTraining_EventScript_SlotMachine4::
 	lockall
-	checkitem ITEM_COIN_CASE
-	compare VAR_RESULT, 0
-	goto_if_eq CarpetTraining_EventScript_SlotMachine4_2
-CarpetTraining_EventScript_SlotMachine4_1:
 	setvar VAR_0x8004, 4
-	specialvar VAR_RESULT, GetSlotMachineId
-	playslotmachine_rg VAR_RESULT
-	releaseall
-	end
-
-CarpetTraining_EventScript_SlotMachine4_2:
-	goto CarpetTraining_EventScript_NoCoinCasePlay
-	goto CarpetTraining_EventScript_SlotMachine4_1
+	goto CarpetTraining_EventScript_SlotMachineCommon
+	return
 
 
 CarpetTraining_EventScript_SlotMachine5::
 	lockall
-	checkitem ITEM_COIN_CASE
-	compare VAR_RESULT, 0
-	goto_if_eq CarpetTraining_EventScript_SlotMachine5_2
-CarpetTraining_EventScript_SlotMachine5_1:
 	setvar VAR_0x8004, 5
-	specialvar VAR_RESULT, GetSlotMachineId
-	playslotmachine_rg VAR_RESULT
-	releaseall
-	end
-
-CarpetTraining_EventScript_SlotMachine5_2:
-	goto CarpetTraining_EventScript_NoCoinCasePlay
-	goto CarpetTraining_EventScript_SlotMachine5_1
+	goto CarpetTraining_EventScript_SlotMachineCommon
+	return
 
 
 CarpetTraining_EventScript_SlotMachine6::
 	lockall
-	checkitem ITEM_COIN_CASE
-	compare VAR_RESULT, 0
-	goto_if_eq CarpetTraining_EventScript_SlotMachine6_2
-CarpetTraining_EventScript_SlotMachine6_1:
 	setvar VAR_0x8004, 6
-	specialvar VAR_RESULT, GetSlotMachineId
-	playslotmachine_rg VAR_RESULT
-	releaseall
-	end
-
-CarpetTraining_EventScript_SlotMachine6_2:
-	goto CarpetTraining_EventScript_NoCoinCasePlay
-	goto CarpetTraining_EventScript_SlotMachine6_1
+	goto CarpetTraining_EventScript_SlotMachineCommon
+	return
 
 
 CarpetTraining_EventScript_SlotMachine7::
 	lockall
-	checkitem ITEM_COIN_CASE
-	compare VAR_RESULT, 0
-	goto_if_eq CarpetTraining_EventScript_SlotMachine7_2
-CarpetTraining_EventScript_SlotMachine7_1:
 	setvar VAR_0x8004, 7
-	specialvar VAR_RESULT, GetSlotMachineId
-	playslotmachine_rg VAR_RESULT
-	releaseall
-	end
-
-CarpetTraining_EventScript_SlotMachine7_2:
-	goto CarpetTraining_EventScript_NoCoinCasePlay
-	goto CarpetTraining_EventScript_SlotMachine7_1
+	goto CarpetTraining_EventScript_SlotMachineCommon
+	return
 
 
 CarpetTraining_EventScript_SlotMachine8::
 	lockall
-	checkitem ITEM_COIN_CASE
-	compare VAR_RESULT, 0
-	goto_if_eq CarpetTraining_EventScript_SlotMachine8_2
-CarpetTraining_EventScript_SlotMachine8_1:
 	setvar VAR_0x8004, 8
-	specialvar VAR_RESULT, GetSlotMachineId
-	playslotmachine_rg VAR_RESULT
-	releaseall
-	end
-
-CarpetTraining_EventScript_SlotMachine8_2:
-	goto CarpetTraining_EventScript_NoCoinCasePlay
-	goto CarpetTraining_EventScript_SlotMachine8_1
+	goto CarpetTraining_EventScript_SlotMachineCommon
+	return
 
 
 CarpetTraining_EventScript_SlotMachine9::
 	lockall
-	checkitem ITEM_COIN_CASE
-	compare VAR_RESULT, 0
-	goto_if_eq CarpetTraining_EventScript_SlotMachine9_2
-CarpetTraining_EventScript_SlotMachine9_1:
 	setvar VAR_0x8004, 9
-	specialvar VAR_RESULT, GetSlotMachineId
-	playslotmachine_rg VAR_RESULT
-	releaseall
-	end
-
-CarpetTraining_EventScript_SlotMachine9_2:
-	goto CarpetTraining_EventScript_NoCoinCasePlay
-	goto CarpetTraining_EventScript_SlotMachine9_1
+	goto CarpetTraining_EventScript_SlotMachineCommon
+	return
 
 
 CarpetTraining_EventScript_Gacha_Basic::
 	lockall
-	checkitem ITEM_COIN_CASE
-	compare VAR_RESULT, 0
-	goto_if_eq CarpetTraining_EventScript_Gacha_Basic_2
-CarpetTraining_EventScript_Gacha_Basic_1:
 	setvar VAR_0x8004, 1
-	call CarpetTraining_EventScript_GachaCommon
-	releaseall
-	end
-
-CarpetTraining_EventScript_Gacha_Basic_2:
-	goto CarpetTraining_EventScript_NoCoinCasePlay
-	goto CarpetTraining_EventScript_Gacha_Basic_1
+	goto CarpetTraining_EventScript_GachaCommon
+	return
 
 
 CarpetTraining_EventScript_Gacha_Great::
 	lockall
-	checkitem ITEM_COIN_CASE
-	compare VAR_RESULT, 0
-	goto_if_eq CarpetTraining_EventScript_Gacha_Great_2
-CarpetTraining_EventScript_Gacha_Great_1:
 	setvar VAR_0x8004, 2
-	call CarpetTraining_EventScript_GachaCommon
-	releaseall
-	end
-
-CarpetTraining_EventScript_Gacha_Great_2:
-	goto CarpetTraining_EventScript_NoCoinCasePlay
-	goto CarpetTraining_EventScript_Gacha_Great_1
+	goto CarpetTraining_EventScript_GachaCommon
+	return
 
 
 CarpetTraining_EventScript_Gacha_Ultra::
 	lockall
-	checkitem ITEM_COIN_CASE
-	compare VAR_RESULT, 0
-	goto_if_eq CarpetTraining_EventScript_Gacha_Ultra_2
-CarpetTraining_EventScript_Gacha_Ultra_1:
 	setvar VAR_0x8004, 3
-	call CarpetTraining_EventScript_GachaCommon
-	releaseall
-	end
-
-CarpetTraining_EventScript_Gacha_Ultra_2:
-	goto CarpetTraining_EventScript_NoCoinCasePlay
-	goto CarpetTraining_EventScript_Gacha_Ultra_1
+	goto CarpetTraining_EventScript_GachaCommon
+	return
 
 
 CarpetTraining_EventScript_Gacha_Master::
 	lockall
-	checkitem ITEM_COIN_CASE
-	compare VAR_RESULT, 0
-	goto_if_eq CarpetTraining_EventScript_Gacha_Master_2
-CarpetTraining_EventScript_Gacha_Master_1:
 	setvar VAR_0x8004, 4
-	call CarpetTraining_EventScript_GachaCommon
-	releaseall
-	end
-
-CarpetTraining_EventScript_Gacha_Master_2:
-	goto CarpetTraining_EventScript_NoCoinCasePlay
-	goto CarpetTraining_EventScript_Gacha_Master_1
+	goto CarpetTraining_EventScript_GachaCommon
+	return
 
 
 CarpetTraining_EventScript_GachaCommon::
+	checkitem ITEM_COIN_CASE
+	compare VAR_RESULT, 0
+	goto_if_eq CarpetTraining_EventScript_GachaCommon_2
+CarpetTraining_EventScript_GachaCommon_1:
 	special StartGacha
 	compare VAR_RESULT, MON_GIVEN_TO_PARTY
-	goto_if_eq CarpetTraining_EventScript_GachaCommon_2
-	compare VAR_RESULT, MON_GIVEN_TO_PC
 	goto_if_eq CarpetTraining_EventScript_GachaCommon_5
-	return
+	compare VAR_RESULT, MON_GIVEN_TO_PC
+	goto_if_eq CarpetTraining_EventScript_GachaCommon_8
+	releaseall
+	end
 
 CarpetTraining_EventScript_GachaCommon_2:
-	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
-	compare VAR_RESULT, YES
-	goto_if_eq CarpetTraining_EventScript_GachaCommon_8
-CarpetTraining_EventScript_GachaCommon_7:
-	return
+	goto CarpetTraining_EventScript_NoCoinCasePlay
+	goto CarpetTraining_EventScript_GachaCommon_1
 
 CarpetTraining_EventScript_GachaCommon_5:
 	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
 	compare VAR_RESULT, YES
 	goto_if_eq CarpetTraining_EventScript_GachaCommon_11
 CarpetTraining_EventScript_GachaCommon_10:
-	call Common_EventScript_TransferredToPC
-	return
+	releaseall
+	end
 
 CarpetTraining_EventScript_GachaCommon_8:
-	call Common_EventScript_GetGiftMonPartySlot
-	call Common_EventScript_NameReceivedPartyMon
-	goto CarpetTraining_EventScript_GachaCommon_7
+	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	goto_if_eq CarpetTraining_EventScript_GachaCommon_14
+CarpetTraining_EventScript_GachaCommon_13:
+	call Common_EventScript_TransferredToPC
+	releaseall
+	end
 
 CarpetTraining_EventScript_GachaCommon_11:
-	call Common_EventScript_NameReceivedBoxMon
+	call Common_EventScript_GetGiftMonPartySlot
+	call Common_EventScript_NameReceivedPartyMon
 	goto CarpetTraining_EventScript_GachaCommon_10
+
+CarpetTraining_EventScript_GachaCommon_14:
+	call Common_EventScript_NameReceivedBoxMon
+	goto CarpetTraining_EventScript_GachaCommon_13
 
 
 CarpetTraining_EventScript_ATM::
@@ -786,6 +670,46 @@ CarpetTraining_EventScript_ATMCoins_21:
 	goto CarpetTraining_EventScript_ATMCoins_7
 
 
+CarpetTraining_EventScript_Clerk1::
+	lock
+	faceplayer
+	message gText_HowMayIServeYou
+	waitmessage
+	coinmart CarpetTraining_Coinmart_1
+	msgbox gText_PleaseComeAgain
+	release
+	end
+
+
+CarpetTraining_EventScript_Clerk2::
+	lock
+	faceplayer
+	message gText_HowMayIServeYou
+	waitmessage
+	coinmart CarpetTraining_Coinmart_2
+	msgbox gText_PleaseComeAgain
+	release
+	end
+
+
+	.align 2
+CarpetTraining_Coinmart_1:
+	.2byte ITEM_LAVA_COOKIE
+	.2byte ITEM_MOOMOO_MILK
+	.2byte ITEM_RARE_CANDY
+	.2byte ITEM_LEMONADE
+	.2byte ITEM_BERRY_JUICE
+	.2byte ITEM_NONE
+
+	.align 2
+CarpetTraining_Coinmart_2:
+	.2byte ITEM_LAVA_COOKIE
+	.2byte ITEM_MOOMOO_MILK
+	.2byte ITEM_RARE_CANDY
+	.2byte ITEM_LEMONADE
+	.2byte ITEM_BERRY_JUICE
+	.2byte ITEM_NONE
+
 CarpetTraining_Text_ATMStart::
 	.string "Welcome to the ATM.\n"
 	.string "What would you like to do?$"
@@ -844,6 +768,10 @@ CarpetTraining_Text_NoCoinCasePlay::
 CarpetTraining_Text_WinCoins::
 	.string "You won\n"
 	.string "{STR_VAR_1} Coins!$"
+
+CarpetTraining_Text_WinCoinsVoltorbFlip::
+	.string "You've made {STR_VAR_1} Coins.\n"
+	.string "Keep going?$"
 
 CarpetTraining_Text_Pachinko::
 	.string "A Dropspin Machine!\n"
