@@ -155,7 +155,8 @@
     "CarpetMart",
     "CarpetPort",
     "CarpetTraining",
-    "CarpetMansionRoom1"
+    "CarpetMansionRoom1",
+    "CarpetMansion"
   ],
   "gMapGroup_IndoorOldale": [
     "OldaleTown_House1",

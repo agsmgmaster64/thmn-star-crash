@@ -1,92 +1,678 @@
+
+const MULTI_CHECK_SAVINGS = 0
+const MULTI_PURCHASE_COINS = 1
+const MULTI_ATM_CANCEL = 2
+
+const MULTI_SAVINGS_DEPOSIT = 0
+const MULTI_SAVINGS_WITHDRAW = 1
+
 mapscripts CarpetTraining_MapScripts {}
 
-script CarpetTraining_Script_Nature {
-	lock
-	applymovement(LOCALID_MANSION_TEIO, moves(
-		walk_in_place_left * 3))
-	waitmovement(0)
-	msgbox(format("{SPEAKER NAME_TEIO}Hey Nature-san.\p"
-		"We should try and find some honey together here.\p"
-		"I heard there was a monster who happens to make the best honey out there."))
+script CarpetTraining_EventScript_NoCoinCasePlay {
+	msgbox(CarpetTraining_Text_NoCoinCasePlay)
+	releaseall
+	end
+}
+
+script CarpetTraining_EventScript_CancelGame {
+	hidecoinsbox(0, 5)
 	closemessage
-	applymovement(LOCALID_MANSION_NATURE, moves(
-		walk_in_place_right * 2))
-	waitmovement(0)
-	msgbox(format("{SPEAKER NAME_NICE_NATURE}A monster?\p"
-		"You sure that's safe to try and go get honey from such a thing?"))
+	releaseall
+	end
+}
+
+script CarpetTraining_EventScript_CheckWinnings {
+	if (var(GAME_CORNER_VAR_WINNINGS) == 0) {
+		releaseall
+		end
+	}
+	showcoinsbox(1, 1)
+	buffernumberstring(STR_VAR_1, GAME_CORNER_VAR_WINNINGS)
+	msgbox(CarpetTraining_Text_WinCoins)
+	waitmessage
+	addcoins(GAME_CORNER_VAR_WINNINGS)
+	setvar(GAME_CORNER_VAR_WINNINGS, 0)
+	updatecoinsbox(1, 1)
+	playse(SE_SHOP)
+	delay(40)
+	hidecoinsbox(0, 5)
 	closemessage
-	applymovement(LOCALID_MANSION_TEIO, moves(
-		walk_in_place_left * 2))
-	waitmovement(0)
-	msgbox(format("{SPEAKER NAME_TEIO}Relax, we're uma musume here.\p"
-		"We have the power to try and beat up the bee monster if things go bad.\p"
-		"Tokai Teio won't go down against a bee monster after all, if it means we get honey!"))
+	releaseall
+	end
+}
+
+script CarpetTraining_EventScript_Pachinko {
+	lockall
+	if (!checkitem(ITEM_COIN_CASE)) {
+		goto(CarpetTraining_EventScript_NoCoinCasePlay)
+	}
+	msgbox(CarpetTraining_Text_Pachinko, MSGBOX_YESNO)
 	closemessage
-	applymovement(LOCALID_MANSION_NATURE, moves(
-		walk_in_place_up * 2))
-	waitmovement(0)
-	msgbox(format("{SPEAKER NAME_NICE_NATURE}You know, we could just ask McQueen to bring us honey if you really want some.\p"
-		"I'm sure she wouldn't mind us getting some, or at the very least, she would mind more if we went to get honey from there instead."))
+	if (var(VAR_RESULT) == NO) {
+		goto(CarpetTraining_EventScript_CancelGame)
+	}
+	playbgm(MUS_ZGS_DARK_BLOW_HOLE, FALSE)
+	callnative(PlayPachinko)
+    waitstate
+	savebgm(MUS_DUMMY)
+	fadedefaultbgm
+	releaseall
+	end
+}
+
+ script CarpetTraining_EventScript_PinballSeel {
+	lockall
+	if (!checkitem(ITEM_COIN_CASE)) {
+		goto(CarpetTraining_EventScript_NoCoinCasePlay)
+	}
+	checkcoins(VAR_TEMP_2)
+	if (var(VAR_TEMP_2) < 25) {
+		goto(CarpetTraining_EventScript_PinballNotEnough)
+	}
+	showcoinsbox(1, 1)
+	msgbox(CarpetTraining_Text_Pinball, MSGBOX_YESNO)
 	closemessage
-	applymovement(LOCALID_MANSION_NATURE, moves(
-		walk_in_place_fast_right))
-	applymovement(LOCALID_MANSION_TEIO, moves(
-		walk_in_place_faster_left * 6))
-	waitmovement(0)
-	msgbox(format("{SPEAKER NAME_TEIO}Nature-san, you don't understand.\p"
-		"This isn't just about getting honey here, we're getting honey from the bee monster known as Beesiney!\p"
-		"You're not just gonna turn down trying to meet the mythical Beesiney, are you?"))
+	if (var(VAR_RESULT) == NO) {
+		goto(CarpetTraining_EventScript_CancelGame)
+	}
+	removecoins(25)
+	updatecoinsbox(1, 1)
+	playse(SE_SHOP)
+	delay(40)
+	hidecoinsbox(0, 5)
+	playbgm(MUS_CASINO_PLUS_9, FALSE)
+	callnative(PlaySeelPinballGame)
+    waitstate 
+	savebgm(MUS_DUMMY)
+	fadedefaultbgm
+	goto(CarpetTraining_EventScript_CheckWinnings)
+}
+
+script CarpetTraining_EventScript_PinballNotEnough {
+	msgbox(CarpetTraining_Text_PinballNotEnough)
+	releaseall
+	end
+}
+
+script CarpetTraining_EventScript_Snake {
+	lockall
+	if (!checkitem(ITEM_COIN_CASE)) {
+		goto(CarpetTraining_EventScript_NoCoinCasePlay)
+	}
+	checkcoins(VAR_TEMP_2)
+	if (var(VAR_TEMP_2) < 25) {
+		goto(CarpetTraining_EventScript_SnakeNotEnough)
+	}
+	showcoinsbox(1, 1)
+	msgbox(CarpetTraining_Text_Snake, MSGBOX_YESNO)
 	closemessage
-	applymovement(LOCALID_MANSION_NATURE, moves(
-		walk_in_place_right * 2))
-	waitmovement(0)
-	msgbox(format("{SPEAKER NAME_NICE_NATURE}Well, uhh\."))
+	if (var(VAR_RESULT) == NO) {
+		goto(CarpetTraining_EventScript_CancelGame)
+	}
+	removecoins(25)
+	updatecoinsbox(1, 1)
+	playse(SE_SHOP)
+	delay(40)
+	hidecoinsbox(0, 5)
+	playbgm(MUS_NONE, FALSE)
+	special(StartSnake)
+	savebgm(MUS_DUMMY)
+	fadedefaultbgm
+	goto(CarpetTraining_EventScript_CheckWinnings)
+}
+
+script CarpetTraining_EventScript_SnakeNotEnough {
+	msgbox(CarpetTraining_Text_SnakeNotEnough)
+	releaseall
+	end
+}
+
+script CarpetTraining_EventScript_FlappyBird {
+	lockall
+	if (!checkitem(ITEM_COIN_CASE)) {
+		goto(CarpetTraining_EventScript_NoCoinCasePlay)
+	}
+	checkcoins(VAR_TEMP_2)
+	if (var(VAR_TEMP_2) < 25) {
+		goto(CarpetTraining_EventScript_FlappyBirdNotEnough)
+	}
+	showcoinsbox(1, 1)
+	msgbox(CarpetTraining_Text_Bird, MSGBOX_YESNO)
 	closemessage
-	applymovement(LOCALID_MANSION_NATURE, moves(
-		walk_in_place_down * 2))
-	waitmovement(0)
-	msgbox(format("{SPEAKER NAME_NICE_NATURE}Hey, you seem to be eavesdropping us here, you mind if you help us out with this?"), MSGBOX_YESNO)
-	if (var(VAR_RESULT) == 0) {
-		msgbox(format("Well, too bad, you're too invested to not just help us out now!"))
-	} else {
-		msgbox(format("Great, we got someone else to help us out here!"))
+	if (var(VAR_RESULT) == NO) {
+		goto(CarpetTraining_EventScript_CancelGame)
+	}
+	removecoins(25)
+	updatecoinsbox(1, 1)
+	playse(SE_SHOP)
+	delay(40)
+	hidecoinsbox(0, 5)
+	playbgm(MUS_NONE, FALSE)
+	special(StartFlappyBird)
+	savebgm(MUS_DUMMY)
+	fadedefaultbgm
+	goto(CarpetTraining_EventScript_CheckWinnings)
+}
+
+script CarpetTraining_EventScript_FlappyBirdNotEnough {
+	msgbox(CarpetTraining_Text_BirdNotEnough)
+	releaseall
+	end
+}
+
+script CarpetTraining_EventScript_BlockStacker {
+	lockall
+	if (!checkitem(ITEM_COIN_CASE)) {
+		goto(CarpetTraining_EventScript_NoCoinCasePlay)
+	}
+	checkcoins(VAR_TEMP_2)
+	if (var(VAR_TEMP_2) < 25) {
+		goto(CarpetTraining_EventScript_BlockStackerNotEnough)
+	}
+	showcoinsbox(1, 1)
+	msgbox(CarpetTraining_Text_Block, MSGBOX_YESNO)
+	closemessage
+	if (var(VAR_RESULT) == NO) {
+		goto(CarpetTraining_EventScript_CancelGame)
+	}
+	removecoins(25)
+	updatecoinsbox(1, 1)
+	playse(SE_SHOP)
+	delay(40)
+	hidecoinsbox(0, 5)
+	playbgm(MUS_CASINO_PLUS_1, FALSE)
+	special(StartBlockStacker)
+	savebgm(MUS_DUMMY)
+	fadedefaultbgm
+	goto(CarpetTraining_EventScript_CheckWinnings)
+}
+
+script CarpetTraining_EventScript_BlockStackerNotEnough {
+	msgbox(CarpetTraining_Text_BlockNotEnough)
+	releaseall
+	end
+}
+
+script CarpetTraining_EventScript_VoltorbFlip {
+	lockall
+	if (!checkitem(ITEM_COIN_CASE)) {
+		goto(CarpetTraining_EventScript_NoCoinCasePlay)
+	}
+	checkcoins(VAR_TEMP_2)
+	if (var(VAR_TEMP_2) < 50) {
+		goto(CarpetTraining_EventScript_VolorbFlipNotEnough)
+	}
+	msgbox(CarpetTraining_Text_VoltorbFlip, MSGBOX_YESNO)
+	closemessage
+	if (var(VAR_RESULT) == NO) {
+		goto(CarpetTraining_EventScript_CancelGame)
+	}
+	removecoins(50)
+	updatecoinsbox(1, 1)
+	playse(SE_SHOP)
+	delay(40)
+	playbgm(MUS_HGSS_CASINO, FALSE)
+	setvar(GAME_CORNER_VAR_WINNINGS, 0)
+	special(Special_ViewVoltorbFlip)
+	if (var(VAR_RESULT) == 1) {
+		goto(CarpetTraining_EventScript_VoltorbFlipGoAgain)
+	}
+	savebgm(MUS_DUMMY)
+	fadedefaultbgm
+	msgbox(VF_Come_Again_Text)
+	setvar(GAME_CORNER_VAR_WINNINGS, 0)
+	releaseall
+	end
+}
+
+script CarpetTraining_EventScript_VoltorbFlipGoAgain {
+	showcoinsbox(1, 1)
+	buffernumberstring(STR_VAR_1, GAME_CORNER_VAR_WINNINGS)
+	msgbox(CarpetTraining_Text_WinCoinsVoltorbFlip, MSGBOX_YESNO)
+	closemessage
+	if (var(VAR_RESULT) == NO) {
+		goto(CarpetTraining_EventScript_VoltorbFlipGetWinnings)
+	}
+	hidecoinsbox(0, 5)
+	special(Special_ViewVoltorbFlip)
+	if (var(VAR_RESULT) == TRUE) {
+		goto(CarpetTraining_EventScript_VoltorbFlipGoAgain)
+	}
+	savebgm(MUS_DUMMY)
+	fadedefaultbgm
+	msgbox(VF_Come_Again_Text)
+	setvar(GAME_CORNER_VAR_WINNINGS, 0)
+	releaseall
+	end
+}
+
+script CarpetTraining_EventScript_VoltorbFlipGetWinnings {
+	addcoins(GAME_CORNER_VAR_WINNINGS)
+	setvar(GAME_CORNER_VAR_WINNINGS, 0)
+	setvar(FLIP_VAR_LEVEL, 0)
+	updatecoinsbox(1, 1)
+	playse(SE_SHOP)
+	savebgm(MUS_DUMMY)
+	fadedefaultbgm
+	delay(40)
+	hidecoinsbox(0, 5)
+	releaseall
+	end
+}
+
+script CarpetTraining_EventScript_VolorbFlipNotEnough {
+	msgbox(CarpetTraining_Text_FlipNotEnough)
+	releaseall
+	end
+}
+
+script CarpetTraining_EventScript_SlotMachineCommon {
+	if (!checkitem(ITEM_COIN_CASE)) {
+		goto(CarpetTraining_EventScript_NoCoinCasePlay)
+	}
+	specialvar(VAR_RESULT, GetRandomSlotMachineId)
+	playslotmachine_rg(VAR_RESULT)
+	releaseall
+	end
+}
+
+script CarpetTraining_EventScript_SlotMachine0 {
+	lockall
+	setvar(VAR_0x8004, 0)
+	goto(CarpetTraining_EventScript_SlotMachineCommon)
+}
+
+script CarpetTraining_EventScript_SlotMachine1 {
+	lockall
+	setvar(VAR_0x8004, 1)
+	goto(CarpetTraining_EventScript_SlotMachineCommon)
+}
+
+script CarpetTraining_EventScript_SlotMachine2 {
+	lockall
+	setvar(VAR_0x8004, 2)
+	goto(CarpetTraining_EventScript_SlotMachineCommon)
+}
+
+script CarpetTraining_EventScript_SlotMachine3 {
+	lockall
+	setvar(VAR_0x8004, 3)
+	goto(CarpetTraining_EventScript_SlotMachineCommon)
+}
+
+script CarpetTraining_EventScript_SlotMachine4 {
+	lockall
+	setvar(VAR_0x8004, 4)
+	goto(CarpetTraining_EventScript_SlotMachineCommon)
+}
+
+script CarpetTraining_EventScript_SlotMachine5 {
+	lockall
+	setvar(VAR_0x8004, 5)
+	goto(CarpetTraining_EventScript_SlotMachineCommon)
+}
+
+script CarpetTraining_EventScript_SlotMachine6 {
+	lockall
+	setvar(VAR_0x8004, 6)
+	goto(CarpetTraining_EventScript_SlotMachineCommon)
+}
+
+script CarpetTraining_EventScript_SlotMachine7 {
+	lockall
+	setvar(VAR_0x8004, 7)
+	goto(CarpetTraining_EventScript_SlotMachineCommon)
+}
+
+script CarpetTraining_EventScript_SlotMachine8 {
+	lockall
+	setvar(VAR_0x8004, 8)
+	goto(CarpetTraining_EventScript_SlotMachineCommon)
+}
+
+script CarpetTraining_EventScript_SlotMachine9 {
+	lockall
+	setvar(VAR_0x8004, 9)
+	goto(CarpetTraining_EventScript_SlotMachineCommon)
+}
+
+script CarpetTraining_EventScript_Gacha_Basic {
+	lockall
+	setvar(VAR_0x8004, 1)
+	goto(CarpetTraining_EventScript_GachaCommon)
+}
+
+script CarpetTraining_EventScript_Gacha_Great {
+	lockall
+	setvar(VAR_0x8004, 2)
+	goto(CarpetTraining_EventScript_GachaCommon)
+}
+
+script CarpetTraining_EventScript_Gacha_Ultra {
+	lockall
+	setvar(VAR_0x8004, 3)
+	goto(CarpetTraining_EventScript_GachaCommon)
+}
+
+script CarpetTraining_EventScript_Gacha_Master {
+	lockall
+	setvar(VAR_0x8004, 4)
+	goto(CarpetTraining_EventScript_GachaCommon)
+}
+
+script CarpetTraining_EventScript_GachaCommon {
+	if (!checkitem(ITEM_COIN_CASE)) {
+		goto(CarpetTraining_EventScript_NoCoinCasePlay)
+	}
+	special(StartGacha)
+	if (var(VAR_RESULT) == MON_GIVEN_TO_PARTY) {
+		msgbox(gText_NicknameThisPokemon, MSGBOX_YESNO)
+		if (var(VAR_RESULT) == YES) {
+			call(Common_EventScript_GetGiftMonPartySlot)
+			call(Common_EventScript_NameReceivedPartyMon)
+		}
+		releaseall
+		end
+	}
+	if (var(VAR_RESULT) == MON_GIVEN_TO_PC) {
+		msgbox(gText_NicknameThisPokemon, MSGBOX_YESNO)
+		if (var(VAR_RESULT) == YES) {
+			call(Common_EventScript_NameReceivedBoxMon)
+		}
+		call(Common_EventScript_TransferredToPC)
+		releaseall
+		end
+	}
+	releaseall
+	end
+}
+
+script CarpetTraining_EventScript_ATM {
+	lockall
+    message(CarpetTraining_Text_ATMStart)
+    waitmessage
+	while {
+		dynmultipush(CarpetTraining_Text_ATMCheckSavings, MULTI_CHECK_SAVINGS)
+		if (checkitem(ITEM_COIN_CASE)) {
+			dynmultipush(CarpetTraining_Text_ATMPurchaseCoins, MULTI_PURCHASE_COINS)
+		}
+		dynmultipush(CarpetTraining_Text_ATMCancel, MULTI_ATM_CANCEL)
+		dynmultistack(0, 0, FALSE, 3, FALSE, MULTI_CHECK_SAVINGS, NULL)
+        if (var(VAR_RESULT) > MULTI_PURCHASE_COINS) {
+            break
+        }
+        switch (var(VAR_RESULT)) {
+            case MULTI_CHECK_SAVINGS:
+				call(CarpetTraining_EventScript_ATMSavings)
+            case MULTI_PURCHASE_COINS:
+				call(CarpetTraining_EventScript_ATMCoins)
+        }
+		message(CarpetTraining_Text_ATMLoop)
+		waitmessage
 	}
 	closemessage
-	applymovement(LOCALID_MANSION_NATURE, moves(
-		walk_in_place_right * 2))
-	waitmovement(0)
-	msgbox(format("{SPEAKER NAME_NICE_NATURE}So I guess it's good for us to go see that monster and get its honey now, isn't it, Teio?"))
+	releaseall
+	end
+}
+
+script CarpetTraining_EventScript_ATMSavings {
+	message(CarpetTraining_Text_ATMSavings)
+	waitmessage
+	showbankbalancebox(0, 0)
+	while {
+		dynmultipush(CarpetTraining_Text_ATMDeposit, MULTI_SAVINGS_DEPOSIT)
+		dynmultipush(CarpetTraining_Text_ATMWithdraw, MULTI_SAVINGS_WITHDRAW)
+		dynmultipush(CarpetTraining_Text_ATMCancel, MULTI_ATM_CANCEL)
+		dynmultistack(20, 0, FALSE, 3, FALSE, MULTI_SAVINGS_DEPOSIT, NULL)
+        if (var(VAR_RESULT) > MULTI_SAVINGS_WITHDRAW) {
+            break
+        }
+		switch (var(VAR_RESULT)) {
+			case MULTI_SAVINGS_DEPOSIT:
+				hidebankbalancebox
+				message(CarpetTraining_Text_ATMTryDeposit)
+				waitmessage
+				starttransaction(0)
+			case MULTI_SAVINGS_WITHDRAW:
+				hidebankbalancebox
+				message(CarpetTraining_Text_ATMTryWithdraw)
+				waitmessage
+				starttransaction(1)
+		}
+		playse(SE_SHOP)
+		showbankbalancebox(0, 0)
+		waitse
+		msgbox(CarpetTraining_Text_ATMSavingsUpdated)
+		message(CarpetTraining_Text_ATMSavings)
+		waitmessage
+	}
+	hidebankbalancebox
+	return
+}
+
+script CarpetTraining_EventScript_ATMCoins {
+	message(CarpetTraining_Text_ATMTryPurchaseCoins)
+	waitmessage
+	showmoneybox(0, 0)
+	showcoinsbox(1, 6)
+	while {
+		multichoicedefault(15, 0, MULTI_GAME_CORNER_COINS, 0, FALSE)
+		if (var(VAR_RESULT) > 1) {
+			break
+		}
+		switch(var(VAR_RESULT)) {
+			case 0:
+				checkcoins(VAR_TEMP_1)
+				if (var(VAR_TEMP_1) >= value(9950)) {
+					msgbox(CarpetTraining_Text_ATMTooManyCoins)
+					break
+				}
+				if (!checkmoney(1000)) {
+					msgbox(CarpetTraining_Text_ATMNotEnoughMoney)
+					break
+				}
+				addcoins(50)
+				removemoney(1000)
+				updatemoneybox
+				updatecoinsbox(1, 6)
+				playse(SE_SHOP)
+				msgbox(CarpetTraining_Text_ATMGetCoins)
+			case 1:
+				checkcoins(VAR_TEMP_1)
+				if (var(VAR_TEMP_1) >= value(9500)) {
+					msgbox(CarpetTraining_Text_ATMTooManyCoins)
+					break
+				}
+				if (!checkmoney(10000)) {
+					msgbox(CarpetTraining_Text_ATMNotEnoughMoney)
+					break
+				}
+				addcoins(500)
+				removemoney(10000)
+				updatemoneybox
+				updatecoinsbox(1, 6)
+				playse(SE_SHOP)
+				msgbox(CarpetTraining_Text_ATMGetCoins)
+		}
+		message(CarpetTraining_Text_ATMTryPurchaseCoins)
+		waitmessage
+	}
 	closemessage
-	applymovement(LOCALID_MANSION_NATURE, moves(
-		walk_in_place_fast_down))
-	applymovement(LOCALID_MANSION_TEIO, moves(
-		walk_in_place_faster_down * 6))
-	waitmovement(0)
-	msgbox(format("{SPEAKER NAME_TEIO}Nice, you won't regret us trying to get the honey then!\p"
-		"I'll let you even have a good chunk of your own as thanks for it!\p"
-		"We'll meet you outside, I know where the monster Beesiney is at!"))
-	closemessage
-	applymovement(LOCALID_MANSION_NATURE, moves(
-		walk_in_place_fast_right))
-	applymovement(LOCALID_MANSION_TEIO, moves(
-		walk_fast_right
-		walk_fast_down * 3))
-	waitmovement(0)
-	removeobject(LOCALID_MANSION_TEIO)
-	playse(SE_EXIT)
-	waitse
-	applymovement(LOCALID_MANSION_NATURE, moves(
-		walk_in_place_fast_down))
-	waitmovement(0)
-	msgbox(format("{SPEAKER NAME_NICE_NATURE}I hope you know how to try and do something against the monster here."))
-	closemessage
-	applymovement(LOCALID_MANSION_NATURE, moves(
-		walk_right * 2
-		walk_down * 3))
-	waitmovement(0)
-	removeobject(LOCALID_MANSION_NATURE)
-	playse(SE_EXIT)
-	waitse
+	hidemoneybox
+	hidecoinsbox(0, 5)
+	return
+}
+
+script CarpetTraining_EventScript_Clerk1 {
+	lock
+	faceplayer
+	message(gText_HowMayIServeYou)
+	waitmessage
+	coinmart(CarpetTraining_Coinmart_1)
+	msgbox(gText_PleaseComeAgain)
 	release
 	end
+}
+
+script CarpetTraining_EventScript_Clerk2 {
+	lock
+	faceplayer
+	message(gText_HowMayIServeYou)
+	waitmessage
+	coinmart(CarpetTraining_Coinmart_2)
+	msgbox(gText_PleaseComeAgain)
+	release
+	end
+}
+
+mart CarpetTraining_Coinmart_1 {
+	ITEM_LAVA_COOKIE
+	ITEM_MOOMOO_MILK
+	ITEM_RARE_CANDY
+	ITEM_LEMONADE
+	ITEM_BERRY_JUICE
+}
+
+mart CarpetTraining_Coinmart_2 {
+	ITEM_LAVA_COOKIE
+	ITEM_MOOMOO_MILK
+	ITEM_RARE_CANDY
+	ITEM_LEMONADE
+	ITEM_BERRY_JUICE
+}
+
+text CarpetTraining_Text_ATMStart {
+	"Welcome to the ATM.\n"
+	"What would you like to do?"
+}
+
+text CarpetTraining_Text_ATMLoop {
+	"What else would you like to\n"
+	"do?"
+}
+
+text CarpetTraining_Text_ATMTryDeposit {
+	"How much will you deposit?"
+}
+
+text CarpetTraining_Text_ATMTryWithdraw {
+	"How much will you withdraw?"
+}
+
+text CarpetTraining_Text_ATMSavingsUpdated {
+	"Your savings have been updated\n"
+	"now."
+}
+
+text CarpetTraining_Text_ATMSavings {
+	"Here are your savings.\n"
+	"What would you like to do?"
+}
+
+text CarpetTraining_Text_ATMPurchaseCoins {
+	"Purchase Coins"
+}
+
+text CarpetTraining_Text_ATMCheckSavings {
+	"Check Savings"
+}
+
+text CarpetTraining_Text_ATMDeposit {
+	"Deposit"
+}
+
+text CarpetTraining_Text_ATMWithdraw {
+	"Withdraw"
+}
+
+text CarpetTraining_Text_ATMCancel {
+	"Cancel"
+}
+
+text CarpetTraining_Text_ATMTryPurchaseCoins {
+	"How many Coins would you like\n"
+	"to purchase?"
+}
+
+text CarpetTraining_Text_ATMGetCoins {
+	"Here are your Coins, then."
+}
+
+text CarpetTraining_Text_ATMTooManyCoins {
+	"Your Coin Case is full…"
+}
+
+text CarpetTraining_Text_ATMNotEnoughMoney {
+	"You don't have enough money\n"
+	"for the conversion…"
+}
+
+text CarpetTraining_Text_NoCoinCasePlay {
+	"You can't play if you don't have\n"
+	"a Coin Case."
+}
+
+text CarpetTraining_Text_WinCoins {
+	"You won\n"
+	"{STR_VAR_1} Coins!"
+}
+
+text CarpetTraining_Text_WinCoinsVoltorbFlip {
+	"You've made {STR_VAR_1} Coins.\n"
+	"Keep going?"
+}
+
+text CarpetTraining_Text_Pachinko {
+	"A Dropspin Machine!\n"
+	"It's 3 Coins per Ball."
+}
+
+text CarpetTraining_Text_Pinball {
+	"It's a Pinball Machine!\n"
+	"It costs 25 Coins to play."
+}
+
+text CarpetTraining_Text_Snake {
+	"It's Snake Game!\p"
+	"It costs 25 Coins to play."
+}
+
+text CarpetTraining_Text_Bird {
+	"It's Fairy Flap!\p"
+	"It costs 25 Coins to play."
+}
+
+text CarpetTraining_Text_Block {
+	"It's Block Builder!\p"
+	"It costs 25 Coins to play."
+}
+
+text CarpetTraining_Text_VoltorbFlip {
+	"It's Voltorb Flip!\p"
+	"It costs 50 Coins to play."
+}
+
+text CarpetTraining_Text_PinballNotEnough {
+	"It's a Pinball Machine!\p"
+	"You don't have enough Coins…"
+}
+
+text CarpetTraining_Text_SnakeNotEnough {
+	"It's Snake Game!\p"
+	"You don't have enough Coins…"
+}
+
+text CarpetTraining_Text_BirdNotEnough {
+	"It's Fairy Flap!\p"
+	"You don't have enough Coins…"
+}
+
+text CarpetTraining_Text_BlockNotEnough {
+	"It's Block Builder!\p"
+	"You don't have enough Coins…"
+}
+
+text CarpetTraining_Text_FlipNotEnough {
+	"It's Voltorb Flip!\p"
+	"You don't have enough Coins…"
 }

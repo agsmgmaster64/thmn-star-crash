@@ -3452,6 +3452,7 @@
 	.macro starttransaction mode:req
 	callnative Script_StartTransactionTask
 	.byte \mode
+	waitstate
 	.endm
 
 	@ Copies the current Bank Balance into STR_VAR_2

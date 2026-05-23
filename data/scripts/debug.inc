@@ -393,13 +393,11 @@ BankTest_TryTransaction::
 BankTest_Deposit::
 	hidebankbalancebox
 	starttransaction 0
-	waitstate
 	goto BankTest_Updated
 
 BankTest_Withdraw::
 	hidebankbalancebox
 	starttransaction 1
-	waitstate
 BankTest_Updated::
 	showbankbalancebox 0, 0
 	msgbox Debug_BankTest_UpdatedText1

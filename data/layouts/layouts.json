@@ -5919,12 +5919,12 @@
     {
       "id": "LAYOUT_CARPET_TRAINING",
       "name": "CarpetTraining_Layout",
-      "width": 40,
-      "height": 16,
+      "width": 21,
+      "height": 15,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_RG_Building",
-      "secondary_tileset": "gTileset_FancyInside",
+      "secondary_tileset": "gTileset_BankCasino",
       "border_filepath": "data/layouts/CarpetTraining/border.bin",
       "blockdata_filepath": "data/layouts/CarpetTraining/map.bin",
       "layout_version": "emerald"
@@ -10455,14 +10455,26 @@
     {
       "id": "LAYOUT_CARPET_MANSION_ROOM1",
       "name": "CarpetMansionRoom1_Layout",
-      "width": 37,
-      "height": 31,
+      "width": 23,
+      "height": 15,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_RG_Building",
       "secondary_tileset": "gTileset_BankCasino",
       "border_filepath": "data/layouts/CarpetMansionRoom1/border.bin",
       "blockdata_filepath": "data/layouts/CarpetMansionRoom1/map.bin"
+    },
+    {
+      "id": "LAYOUT_CARPET_MANSION",
+      "name": "CarpetMansion_Layout",
+      "width": 37,
+      "height": 16,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_RG_Building",
+      "secondary_tileset": "gTileset_FancyInside",
+      "border_filepath": "data/layouts/CarpetMansion/border.bin",
+      "blockdata_filepath": "data/layouts/CarpetMansion/map.bin"
     }
   ]
 }

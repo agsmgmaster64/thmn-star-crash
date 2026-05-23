@@ -1800,3 +1800,6 @@ EventScript_PalletTown_PlayersHouse_2F_TurnOnPC::
 
 	.include "data/maps/CarpetMansionRoom1/scripts.inc"
 	.include "data/maps/CarpetMansionRoom1/text.inc"
+
+	.include "data/maps/CarpetMansion/scripts.inc"
+	.include "data/maps/CarpetMansion/text.inc"

@@ -2,206 +2,889 @@ CarpetTraining_MapScripts::
 	.byte 0
 
 
-CarpetTraining_Script_Nature::
-	lock
-	applymovement LOCALID_MANSION_TEIO, CarpetTraining_Script_Nature_Movement_0
-	waitmovement 0
-	msgbox CarpetTraining_Script_Nature_Text_0
-	closemessage
-	applymovement LOCALID_MANSION_NATURE, CarpetTraining_Script_Nature_Movement_1
-	waitmovement 0
-	msgbox CarpetTraining_Script_Nature_Text_1
-	closemessage
-	applymovement LOCALID_MANSION_TEIO, CarpetTraining_Script_Nature_Movement_2
-	waitmovement 0
-	msgbox CarpetTraining_Script_Nature_Text_2
-	closemessage
-	applymovement LOCALID_MANSION_NATURE, CarpetTraining_Script_Nature_Movement_3
-	waitmovement 0
-	msgbox CarpetTraining_Script_Nature_Text_3
-	closemessage
-	applymovement LOCALID_MANSION_NATURE, CarpetTraining_Script_Nature_Movement_4
-	applymovement LOCALID_MANSION_TEIO, CarpetTraining_Script_Nature_Movement_5
-	waitmovement 0
-	msgbox CarpetTraining_Script_Nature_Text_4
-	closemessage
-	applymovement LOCALID_MANSION_NATURE, CarpetTraining_Script_Nature_Movement_1
-	waitmovement 0
-	msgbox CarpetTraining_Script_Nature_Text_5
-	closemessage
-	applymovement LOCALID_MANSION_NATURE, CarpetTraining_Script_Nature_Movement_6
-	waitmovement 0
-	msgbox CarpetTraining_Script_Nature_Text_6, MSGBOX_YESNO
-	compare VAR_RESULT, 0
-	goto_if_eq CarpetTraining_Script_Nature_2
-	msgbox CarpetTraining_Script_Nature_Text_8
-CarpetTraining_Script_Nature_1:
-	closemessage
-	applymovement LOCALID_MANSION_NATURE, CarpetTraining_Script_Nature_Movement_1
-	waitmovement 0
-	msgbox CarpetTraining_Script_Nature_Text_9
-	closemessage
-	applymovement LOCALID_MANSION_NATURE, CarpetTraining_Script_Nature_Movement_7
-	applymovement LOCALID_MANSION_TEIO, CarpetTraining_Script_Nature_Movement_8
-	waitmovement 0
-	msgbox CarpetTraining_Script_Nature_Text_10
-	closemessage
-	applymovement LOCALID_MANSION_NATURE, CarpetTraining_Script_Nature_Movement_4
-	applymovement LOCALID_MANSION_TEIO, CarpetTraining_Script_Nature_Movement_9
-	waitmovement 0
-	removeobject LOCALID_MANSION_TEIO
-	playse SE_EXIT
-	waitse
-	applymovement LOCALID_MANSION_NATURE, CarpetTraining_Script_Nature_Movement_7
-	waitmovement 0
-	msgbox CarpetTraining_Script_Nature_Text_11
-	closemessage
-	applymovement LOCALID_MANSION_NATURE, CarpetTraining_Script_Nature_Movement_10
-	waitmovement 0
-	removeobject LOCALID_MANSION_NATURE
-	playse SE_EXIT
-	waitse
-	release
+CarpetTraining_EventScript_NoCoinCasePlay::
+	msgbox CarpetTraining_Text_NoCoinCasePlay
+	releaseall
 	end
 
-CarpetTraining_Script_Nature_2:
-	msgbox CarpetTraining_Script_Nature_Text_7
-	goto CarpetTraining_Script_Nature_1
+
+CarpetTraining_EventScript_NoWin::
+	releaseall
+	end
 
 
-CarpetTraining_Script_Nature_Movement_0:
-	walk_in_place_left
-	walk_in_place_left
-	walk_in_place_left
-	step_end
+CarpetTraining_EventScript_CancelGame::
+	hidecoinsbox 0, 5
+	closemessage
+	releaseall
+	end
 
-CarpetTraining_Script_Nature_Movement_1:
-	walk_in_place_right
-	walk_in_place_right
-	step_end
 
-CarpetTraining_Script_Nature_Movement_2:
-	walk_in_place_left
-	walk_in_place_left
-	step_end
+CarpetTraining_EventScript_CheckWinnings::
+	compare GAME_CORNER_VAR_WINNINGS, 0
+	goto_if_eq CarpetTraining_EventScript_CheckWinnings_2
+CarpetTraining_EventScript_CheckWinnings_1:
+	showcoinsbox 1, 1
+	buffernumberstring STR_VAR_1, GAME_CORNER_VAR_WINNINGS
+	msgbox CarpetTraining_Text_WinCoins
+	waitmessage
+	addcoins GAME_CORNER_VAR_WINNINGS
+	setvar GAME_CORNER_VAR_WINNINGS, 0
+	updatecoinsbox 1, 1
+	playse SE_SHOP
+	delay 40
+	hidecoinsbox 0, 5
+	closemessage
+	releaseall
+	end
 
-CarpetTraining_Script_Nature_Movement_3:
-	walk_in_place_up
-	walk_in_place_up
-	step_end
+CarpetTraining_EventScript_CheckWinnings_2:
+	goto CarpetTraining_EventScript_NoWin
+	goto CarpetTraining_EventScript_CheckWinnings_1
 
-CarpetTraining_Script_Nature_Movement_4:
-	walk_in_place_fast_right
-	step_end
 
-CarpetTraining_Script_Nature_Movement_5:
-	walk_in_place_faster_left
-	walk_in_place_faster_left
-	walk_in_place_faster_left
-	walk_in_place_faster_left
-	walk_in_place_faster_left
-	walk_in_place_faster_left
-	step_end
+CarpetTraining_EventScript_Pachinko::
+	lockall
+	checkitem ITEM_COIN_CASE
+	compare VAR_RESULT, 0
+	goto_if_eq CarpetTraining_EventScript_Pachinko_2
+CarpetTraining_EventScript_Pachinko_1:
+	msgbox CarpetTraining_Text_Pachinko, MSGBOX_YESNO
+	closemessage
+	compare VAR_RESULT, NO
+	goto_if_eq CarpetTraining_EventScript_Pachinko_5
+CarpetTraining_EventScript_Pachinko_4:
+	playbgm MUS_ZGS_DARK_BLOW_HOLE, FALSE
+	callnative PlayPachinko
+	waitstate
+	savebgm MUS_DUMMY
+	fadedefaultbgm
+	releaseall
+	end
 
-CarpetTraining_Script_Nature_Movement_6:
-	walk_in_place_down
-	walk_in_place_down
-	step_end
+CarpetTraining_EventScript_Pachinko_2:
+	goto CarpetTraining_EventScript_NoCoinCasePlay
+	goto CarpetTraining_EventScript_Pachinko_1
 
-CarpetTraining_Script_Nature_Movement_7:
-	walk_in_place_fast_down
-	step_end
+CarpetTraining_EventScript_Pachinko_5:
+	goto CarpetTraining_EventScript_CancelGame
+	goto CarpetTraining_EventScript_Pachinko_4
 
-CarpetTraining_Script_Nature_Movement_8:
-	walk_in_place_faster_down
-	walk_in_place_faster_down
-	walk_in_place_faster_down
-	walk_in_place_faster_down
-	walk_in_place_faster_down
-	walk_in_place_faster_down
-	step_end
 
-CarpetTraining_Script_Nature_Movement_9:
-	walk_fast_right
-	walk_fast_down
-	walk_fast_down
-	walk_fast_down
-	step_end
+CarpetTraining_EventScript_PinballSeel::
+	lockall
+	checkitem ITEM_COIN_CASE
+	compare VAR_RESULT, 0
+	goto_if_eq CarpetTraining_EventScript_PinballSeel_2
+CarpetTraining_EventScript_PinballSeel_1:
+	checkcoins VAR_TEMP_2
+	compare VAR_TEMP_2, 25
+	goto_if_lt CarpetTraining_EventScript_PinballSeel_5
+CarpetTraining_EventScript_PinballSeel_4:
+	showcoinsbox 1, 1
+	msgbox CarpetTraining_Text_Pinball, MSGBOX_YESNO
+	closemessage
+	compare VAR_RESULT, NO
+	goto_if_eq CarpetTraining_EventScript_PinballSeel_8
+CarpetTraining_EventScript_PinballSeel_7:
+	removecoins 25
+	updatecoinsbox 1, 1
+	playse SE_SHOP
+	delay 40
+	hidecoinsbox 0, 5
+	playbgm MUS_CASINO_PLUS_9, FALSE
+	callnative PlaySeelPinballGame
+	waitstate
+	savebgm MUS_DUMMY
+	fadedefaultbgm
+	goto CarpetTraining_EventScript_CheckWinnings
+	return
 
-CarpetTraining_Script_Nature_Movement_10:
-	walk_right
-	walk_right
-	walk_down
-	walk_down
-	walk_down
-	step_end
+CarpetTraining_EventScript_PinballSeel_2:
+	goto CarpetTraining_EventScript_NoCoinCasePlay
+	goto CarpetTraining_EventScript_PinballSeel_1
 
-CarpetTraining_Script_Nature_Text_0:
-	.string "{SPEAKER NAME_TEIO}Hey Nature-san.\p"
-	.string "We should try and find some honey\n"
-	.string "together here.\p"
-	.string "I heard there was a monster who\n"
-	.string "happens to make the best honey out\l"
-	.string "there.$"
+CarpetTraining_EventScript_PinballSeel_5:
+	goto CarpetTraining_EventScript_PinballNotEnough
+	goto CarpetTraining_EventScript_PinballSeel_4
 
-CarpetTraining_Script_Nature_Text_1:
-	.string "{SPEAKER NAME_NICE_NATURE}A monster?\p"
-	.string "You sure that's safe to try and go get\n"
-	.string "honey from such a thing?$"
+CarpetTraining_EventScript_PinballSeel_8:
+	goto CarpetTraining_EventScript_CancelGame
+	goto CarpetTraining_EventScript_PinballSeel_7
 
-CarpetTraining_Script_Nature_Text_2:
-	.string "{SPEAKER NAME_TEIO}Relax, we're uma musume here.\p"
-	.string "We have the power to try and beat up\n"
-	.string "the bee monster if things go bad.\p"
-	.string "Tokai Teio won't go down against a bee\n"
-	.string "monster after all, if it means we get\l"
-	.string "honey!$"
 
-CarpetTraining_Script_Nature_Text_3:
-	.string "{SPEAKER NAME_NICE_NATURE}You know, we could just ask McQueen to\n"
-	.string "bring us honey if you really want some.\p"
-	.string "I'm sure she wouldn't mind us getting\n"
-	.string "some, or at the very least, she would\l"
-	.string "mind more if we went to get honey from\l"
-	.string "there instead.$"
+CarpetTraining_EventScript_PinballNotEnough::
+	msgbox CarpetTraining_Text_PinballNotEnough
+	releaseall
+	end
 
-CarpetTraining_Script_Nature_Text_4:
-	.string "{SPEAKER NAME_TEIO}Nature-san, you don't understand.\p"
-	.string "This isn't just about getting honey\n"
-	.string "here, we're getting honey from the bee\l"
-	.string "monster known as Beesiney!\p"
-	.string "You're not just gonna turn down trying\n"
-	.string "to meet the mythical Beesiney, are you?$"
 
-CarpetTraining_Script_Nature_Text_5:
-	.string "{SPEAKER NAME_NICE_NATURE}Well, uhh…$"
+CarpetTraining_EventScript_Snake::
+	lockall
+	checkitem ITEM_COIN_CASE
+	compare VAR_RESULT, 0
+	goto_if_eq CarpetTraining_EventScript_Snake_2
+CarpetTraining_EventScript_Snake_1:
+	checkcoins VAR_TEMP_2
+	compare VAR_TEMP_2, 25
+	goto_if_lt CarpetTraining_EventScript_Snake_5
+CarpetTraining_EventScript_Snake_4:
+	showcoinsbox 1, 1
+	msgbox CarpetTraining_Text_Snake, MSGBOX_YESNO
+	closemessage
+	compare VAR_RESULT, NO
+	goto_if_eq CarpetTraining_EventScript_Snake_8
+CarpetTraining_EventScript_Snake_7:
+	removecoins 25
+	updatecoinsbox 1, 1
+	playse SE_SHOP
+	delay 40
+	hidecoinsbox 0, 5
+	playbgm MUS_NONE, FALSE
+	special StartSnake
+	savebgm MUS_DUMMY
+	fadedefaultbgm
+	goto CarpetTraining_EventScript_CheckWinnings
+	return
 
-CarpetTraining_Script_Nature_Text_6:
-	.string "{SPEAKER NAME_NICE_NATURE}Hey, you seem to be eavesdropping us\n"
-	.string "here, you mind if you help us out with\l"
-	.string "this?$"
+CarpetTraining_EventScript_Snake_2:
+	goto CarpetTraining_EventScript_NoCoinCasePlay
+	goto CarpetTraining_EventScript_Snake_1
 
-CarpetTraining_Script_Nature_Text_7:
-	.string "Well, too bad, you're too invested to\n"
-	.string "not just help us out now!$"
+CarpetTraining_EventScript_Snake_5:
+	goto CarpetTraining_EventScript_SnakeNotEnough
+	goto CarpetTraining_EventScript_Snake_4
 
-CarpetTraining_Script_Nature_Text_8:
-	.string "Great, we got someone else to help us\n"
-	.string "out here!$"
+CarpetTraining_EventScript_Snake_8:
+	goto CarpetTraining_EventScript_CancelGame
+	goto CarpetTraining_EventScript_Snake_7
 
-CarpetTraining_Script_Nature_Text_9:
-	.string "{SPEAKER NAME_NICE_NATURE}So I guess it's good for us to go see\n"
-	.string "that monster and get its honey now,\l"
-	.string "isn't it, Teio?$"
 
-CarpetTraining_Script_Nature_Text_10:
-	.string "{SPEAKER NAME_TEIO}Nice, you won't regret us trying to get\n"
-	.string "the honey then!\p"
-	.string "I'll let you even have a good chunk of\n"
-	.string "your own as thanks for it!\p"
-	.string "We'll meet you outside, I know where the\n"
-	.string "monster Beesiney is at!$"
+CarpetTraining_EventScript_SnakeNotEnough::
+	msgbox CarpetTraining_Text_SnakeNotEnough
+	releaseall
+	end
 
-CarpetTraining_Script_Nature_Text_11:
-	.string "{SPEAKER NAME_NICE_NATURE}I hope you know how to try and do\n"
-	.string "something against the monster here.$"
+
+CarpetTraining_EventScript_FlappyBird::
+	lockall
+	checkitem ITEM_COIN_CASE
+	compare VAR_RESULT, 0
+	goto_if_eq CarpetTraining_EventScript_FlappyBird_2
+CarpetTraining_EventScript_FlappyBird_1:
+	checkcoins VAR_TEMP_2
+	compare VAR_TEMP_2, 25
+	goto_if_lt CarpetTraining_EventScript_FlappyBird_5
+CarpetTraining_EventScript_FlappyBird_4:
+	showcoinsbox 1, 1
+	msgbox CarpetTraining_Text_Bird, MSGBOX_YESNO
+	closemessage
+	compare VAR_RESULT, NO
+	goto_if_eq CarpetTraining_EventScript_FlappyBird_8
+CarpetTraining_EventScript_FlappyBird_7:
+	removecoins 25
+	updatecoinsbox 1, 1
+	playse SE_SHOP
+	delay 40
+	hidecoinsbox 0, 5
+	playbgm MUS_NONE, FALSE
+	special StartFlappyBird
+	savebgm MUS_DUMMY
+	fadedefaultbgm
+	goto CarpetTraining_EventScript_CheckWinnings
+	return
+
+CarpetTraining_EventScript_FlappyBird_2:
+	goto CarpetTraining_EventScript_NoCoinCasePlay
+	goto CarpetTraining_EventScript_FlappyBird_1
+
+CarpetTraining_EventScript_FlappyBird_5:
+	goto CarpetTraining_EventScript_FlappyBirdNotEnough
+	goto CarpetTraining_EventScript_FlappyBird_4
+
+CarpetTraining_EventScript_FlappyBird_8:
+	goto CarpetTraining_EventScript_CancelGame
+	goto CarpetTraining_EventScript_FlappyBird_7
+
+
+CarpetTraining_EventScript_FlappyBirdNotEnough::
+	msgbox CarpetTraining_Text_BirdNotEnough
+	releaseall
+	end
+
+
+CarpetTraining_EventScript_BlockStacker::
+	lockall
+	checkitem ITEM_COIN_CASE
+	compare VAR_RESULT, 0
+	goto_if_eq CarpetTraining_EventScript_BlockStacker_2
+CarpetTraining_EventScript_BlockStacker_1:
+	checkcoins VAR_TEMP_2
+	compare VAR_TEMP_2, 25
+	goto_if_lt CarpetTraining_EventScript_BlockStacker_5
+CarpetTraining_EventScript_BlockStacker_4:
+	showcoinsbox 1, 1
+	msgbox CarpetTraining_Text_Block, MSGBOX_YESNO
+	closemessage
+	compare VAR_RESULT, NO
+	goto_if_eq CarpetTraining_EventScript_BlockStacker_8
+CarpetTraining_EventScript_BlockStacker_7:
+	removecoins 25
+	updatecoinsbox 1, 1
+	playse SE_SHOP
+	delay 40
+	hidecoinsbox 0, 5
+	playbgm MUS_CASINO_PLUS_1, FALSE
+	special StartBlockStacker
+	savebgm MUS_DUMMY
+	fadedefaultbgm
+	goto CarpetTraining_EventScript_CheckWinnings
+	return
+
+CarpetTraining_EventScript_BlockStacker_2:
+	goto CarpetTraining_EventScript_NoCoinCasePlay
+	goto CarpetTraining_EventScript_BlockStacker_1
+
+CarpetTraining_EventScript_BlockStacker_5:
+	goto CarpetTraining_EventScript_BlockStackerNotEnough
+	goto CarpetTraining_EventScript_BlockStacker_4
+
+CarpetTraining_EventScript_BlockStacker_8:
+	goto CarpetTraining_EventScript_CancelGame
+	goto CarpetTraining_EventScript_BlockStacker_7
+
+
+CarpetTraining_EventScript_BlockStackerNotEnough::
+	msgbox CarpetTraining_Text_BlockNotEnough
+	releaseall
+	end
+
+
+CarpetTraining_EventScript_VoltorbFlip::
+	lockall
+	checkitem ITEM_COIN_CASE
+	compare VAR_RESULT, 0
+	goto_if_eq CarpetTraining_EventScript_VoltorbFlip_2
+CarpetTraining_EventScript_VoltorbFlip_1:
+	checkcoins VAR_TEMP_2
+	compare VAR_TEMP_2, 50
+	goto_if_lt CarpetTraining_EventScript_VoltorbFlip_5
+CarpetTraining_EventScript_VoltorbFlip_4:
+	msgbox CarpetTraining_Text_VoltorbFlip, MSGBOX_YESNO
+	closemessage
+	compare VAR_RESULT, NO
+	goto_if_eq CarpetTraining_EventScript_VoltorbFlip_8
+CarpetTraining_EventScript_VoltorbFlip_7:
+	removecoins 50
+	updatecoinsbox 1, 1
+	playse SE_SHOP
+	delay 40
+	playbgm MUS_HGSS_CASINO, FALSE
+	setvar GAME_CORNER_VAR_WINNINGS, 0
+	special Special_ViewVoltorbFlip
+	compare VAR_RESULT, 1
+	goto_if_eq CarpetTraining_EventScript_VoltorbFlip_11
+CarpetTraining_EventScript_VoltorbFlip_10:
+	savebgm MUS_DUMMY
+	fadedefaultbgm
+	msgbox VF_Come_Again_Text
+	setvar GAME_CORNER_VAR_WINNINGS, 0
+	releaseall
+	end
+
+CarpetTraining_EventScript_VoltorbFlip_2:
+	goto CarpetTraining_EventScript_NoCoinCasePlay
+	goto CarpetTraining_EventScript_VoltorbFlip_1
+
+CarpetTraining_EventScript_VoltorbFlip_5:
+	goto CarpetTraining_EventScript_VolorbFlipNotEnough
+	goto CarpetTraining_EventScript_VoltorbFlip_4
+
+CarpetTraining_EventScript_VoltorbFlip_8:
+	goto CarpetTraining_EventScript_CancelGame
+	goto CarpetTraining_EventScript_VoltorbFlip_7
+
+CarpetTraining_EventScript_VoltorbFlip_11:
+	goto CarpetTraining_EventScript_VoltorbFlipGoAgain
+	goto CarpetTraining_EventScript_VoltorbFlip_10
+
+
+CarpetTraining_EventScript_VoltorbFlipGoAgain::
+	showcoinsbox 1, 1
+	buffernumberstring STR_VAR_1, GAME_CORNER_VAR_WINNINGS
+	msgbox MauvilleCity_GameCorner_Text_VF_Keep_Going, MSGBOX_YESNO
+	closemessage
+	compare VAR_RESULT, NO
+	goto_if_eq CarpetTraining_EventScript_VoltorbFlipGoAgain_2
+CarpetTraining_EventScript_VoltorbFlipGoAgain_1:
+	hidecoinsbox 0, 5
+	special Special_ViewVoltorbFlip
+	compare VAR_RESULT, TRUE
+	goto_if_eq CarpetTraining_EventScript_VoltorbFlipGoAgain_5
+CarpetTraining_EventScript_VoltorbFlipGoAgain_4:
+	savebgm MUS_DUMMY
+	fadedefaultbgm
+	msgbox VF_Come_Again_Text
+	setvar GAME_CORNER_VAR_WINNINGS, 0
+	releaseall
+	end
+
+CarpetTraining_EventScript_VoltorbFlipGoAgain_2:
+	goto CarpetTraining_EventScript_VoltorbFlipGetWinnings
+	goto CarpetTraining_EventScript_VoltorbFlipGoAgain_1
+
+CarpetTraining_EventScript_VoltorbFlipGoAgain_5:
+	goto CarpetTraining_EventScript_VoltorbFlipGoAgain
+	goto CarpetTraining_EventScript_VoltorbFlipGoAgain_4
+
+
+CarpetTraining_EventScript_VoltorbFlipGetWinnings::
+	addcoins GAME_CORNER_VAR_WINNINGS
+	setvar GAME_CORNER_VAR_WINNINGS, 0
+	setvar FLIP_VAR_LEVEL, 0
+	updatecoinsbox 1, 1
+	playse SE_SHOP
+	savebgm MUS_DUMMY
+	fadedefaultbgm
+	delay 40
+	hidecoinsbox 0, 5
+	releaseall
+	end
+
+
+CarpetTraining_EventScript_VolorbFlipNotEnough::
+	msgbox CarpetTraining_Text_FlipNotEnough
+	releaseall
+	end
+
+
+CarpetTraining_EventScript_SlotMachine0::
+	lockall
+	checkitem ITEM_COIN_CASE
+	compare VAR_RESULT, 0
+	goto_if_eq CarpetTraining_EventScript_SlotMachine0_2
+CarpetTraining_EventScript_SlotMachine0_1:
+	setvar VAR_0x8004, 0
+	specialvar VAR_RESULT, GetSlotMachineId
+	playslotmachine_rg VAR_RESULT
+	releaseall
+	end
+
+CarpetTraining_EventScript_SlotMachine0_2:
+	goto CarpetTraining_EventScript_NoCoinCasePlay
+	goto CarpetTraining_EventScript_SlotMachine0_1
+
+
+CarpetTraining_EventScript_SlotMachine1::
+	lockall
+	checkitem ITEM_COIN_CASE
+	compare VAR_RESULT, 0
+	goto_if_eq CarpetTraining_EventScript_SlotMachine1_2
+CarpetTraining_EventScript_SlotMachine1_1:
+	setvar VAR_0x8004, 1
+	specialvar VAR_RESULT, GetSlotMachineId
+	playslotmachine_rg VAR_RESULT
+	releaseall
+	end
+
+CarpetTraining_EventScript_SlotMachine1_2:
+	goto CarpetTraining_EventScript_NoCoinCasePlay
+	goto CarpetTraining_EventScript_SlotMachine1_1
+
+
+CarpetTraining_EventScript_SlotMachine2::
+	lockall
+	checkitem ITEM_COIN_CASE
+	compare VAR_RESULT, 0
+	goto_if_eq CarpetTraining_EventScript_SlotMachine2_2
+CarpetTraining_EventScript_SlotMachine2_1:
+	setvar VAR_0x8004, 2
+	specialvar VAR_RESULT, GetSlotMachineId
+	playslotmachine_rg VAR_RESULT
+	releaseall
+	end
+
+CarpetTraining_EventScript_SlotMachine2_2:
+	goto CarpetTraining_EventScript_NoCoinCasePlay
+	goto CarpetTraining_EventScript_SlotMachine2_1
+
+
+CarpetTraining_EventScript_SlotMachine3::
+	lockall
+	checkitem ITEM_COIN_CASE
+	compare VAR_RESULT, 0
+	goto_if_eq CarpetTraining_EventScript_SlotMachine3_2
+CarpetTraining_EventScript_SlotMachine3_1:
+	setvar VAR_0x8004, 3
+	specialvar VAR_RESULT, GetSlotMachineId
+	playslotmachine_rg VAR_RESULT
+	releaseall
+	end
+
+CarpetTraining_EventScript_SlotMachine3_2:
+	goto CarpetTraining_EventScript_NoCoinCasePlay
+	goto CarpetTraining_EventScript_SlotMachine3_1
+
+
+CarpetTraining_EventScript_SlotMachine4::
+	lockall
+	checkitem ITEM_COIN_CASE
+	compare VAR_RESULT, 0
+	goto_if_eq CarpetTraining_EventScript_SlotMachine4_2
+CarpetTraining_EventScript_SlotMachine4_1:
+	setvar VAR_0x8004, 4
+	specialvar VAR_RESULT, GetSlotMachineId
+	playslotmachine_rg VAR_RESULT
+	releaseall
+	end
+
+CarpetTraining_EventScript_SlotMachine4_2:
+	goto CarpetTraining_EventScript_NoCoinCasePlay
+	goto CarpetTraining_EventScript_SlotMachine4_1
+
+
+CarpetTraining_EventScript_SlotMachine5::
+	lockall
+	checkitem ITEM_COIN_CASE
+	compare VAR_RESULT, 0
+	goto_if_eq CarpetTraining_EventScript_SlotMachine5_2
+CarpetTraining_EventScript_SlotMachine5_1:
+	setvar VAR_0x8004, 5
+	specialvar VAR_RESULT, GetSlotMachineId
+	playslotmachine_rg VAR_RESULT
+	releaseall
+	end
+
+CarpetTraining_EventScript_SlotMachine5_2:
+	goto CarpetTraining_EventScript_NoCoinCasePlay
+	goto CarpetTraining_EventScript_SlotMachine5_1
+
+
+CarpetTraining_EventScript_SlotMachine6::
+	lockall
+	checkitem ITEM_COIN_CASE
+	compare VAR_RESULT, 0
+	goto_if_eq CarpetTraining_EventScript_SlotMachine6_2
+CarpetTraining_EventScript_SlotMachine6_1:
+	setvar VAR_0x8004, 6
+	specialvar VAR_RESULT, GetSlotMachineId
+	playslotmachine_rg VAR_RESULT
+	releaseall
+	end
+
+CarpetTraining_EventScript_SlotMachine6_2:
+	goto CarpetTraining_EventScript_NoCoinCasePlay
+	goto CarpetTraining_EventScript_SlotMachine6_1
+
+
+CarpetTraining_EventScript_SlotMachine7::
+	lockall
+	checkitem ITEM_COIN_CASE
+	compare VAR_RESULT, 0
+	goto_if_eq CarpetTraining_EventScript_SlotMachine7_2
+CarpetTraining_EventScript_SlotMachine7_1:
+	setvar VAR_0x8004, 7
+	specialvar VAR_RESULT, GetSlotMachineId
+	playslotmachine_rg VAR_RESULT
+	releaseall
+	end
+
+CarpetTraining_EventScript_SlotMachine7_2:
+	goto CarpetTraining_EventScript_NoCoinCasePlay
+	goto CarpetTraining_EventScript_SlotMachine7_1
+
+
+CarpetTraining_EventScript_SlotMachine8::
+	lockall
+	checkitem ITEM_COIN_CASE
+	compare VAR_RESULT, 0
+	goto_if_eq CarpetTraining_EventScript_SlotMachine8_2
+CarpetTraining_EventScript_SlotMachine8_1:
+	setvar VAR_0x8004, 8
+	specialvar VAR_RESULT, GetSlotMachineId
+	playslotmachine_rg VAR_RESULT
+	releaseall
+	end
+
+CarpetTraining_EventScript_SlotMachine8_2:
+	goto CarpetTraining_EventScript_NoCoinCasePlay
+	goto CarpetTraining_EventScript_SlotMachine8_1
+
+
+CarpetTraining_EventScript_SlotMachine9::
+	lockall
+	checkitem ITEM_COIN_CASE
+	compare VAR_RESULT, 0
+	goto_if_eq CarpetTraining_EventScript_SlotMachine9_2
+CarpetTraining_EventScript_SlotMachine9_1:
+	setvar VAR_0x8004, 9
+	specialvar VAR_RESULT, GetSlotMachineId
+	playslotmachine_rg VAR_RESULT
+	releaseall
+	end
+
+CarpetTraining_EventScript_SlotMachine9_2:
+	goto CarpetTraining_EventScript_NoCoinCasePlay
+	goto CarpetTraining_EventScript_SlotMachine9_1
+
+
+CarpetTraining_EventScript_Gacha_Basic::
+	lockall
+	checkitem ITEM_COIN_CASE
+	compare VAR_RESULT, 0
+	goto_if_eq CarpetTraining_EventScript_Gacha_Basic_2
+CarpetTraining_EventScript_Gacha_Basic_1:
+	setvar VAR_0x8004, 1
+	call CarpetTraining_EventScript_GachaCommon
+	releaseall
+	end
+
+CarpetTraining_EventScript_Gacha_Basic_2:
+	goto CarpetTraining_EventScript_NoCoinCasePlay
+	goto CarpetTraining_EventScript_Gacha_Basic_1
+
+
+CarpetTraining_EventScript_Gacha_Great::
+	lockall
+	checkitem ITEM_COIN_CASE
+	compare VAR_RESULT, 0
+	goto_if_eq CarpetTraining_EventScript_Gacha_Great_2
+CarpetTraining_EventScript_Gacha_Great_1:
+	setvar VAR_0x8004, 2
+	call CarpetTraining_EventScript_GachaCommon
+	releaseall
+	end
+
+CarpetTraining_EventScript_Gacha_Great_2:
+	goto CarpetTraining_EventScript_NoCoinCasePlay
+	goto CarpetTraining_EventScript_Gacha_Great_1
+
+
+CarpetTraining_EventScript_Gacha_Ultra::
+	lockall
+	checkitem ITEM_COIN_CASE
+	compare VAR_RESULT, 0
+	goto_if_eq CarpetTraining_EventScript_Gacha_Ultra_2
+CarpetTraining_EventScript_Gacha_Ultra_1:
+	setvar VAR_0x8004, 3
+	call CarpetTraining_EventScript_GachaCommon
+	releaseall
+	end
+
+CarpetTraining_EventScript_Gacha_Ultra_2:
+	goto CarpetTraining_EventScript_NoCoinCasePlay
+	goto CarpetTraining_EventScript_Gacha_Ultra_1
+
+
+CarpetTraining_EventScript_Gacha_Master::
+	lockall
+	checkitem ITEM_COIN_CASE
+	compare VAR_RESULT, 0
+	goto_if_eq CarpetTraining_EventScript_Gacha_Master_2
+CarpetTraining_EventScript_Gacha_Master_1:
+	setvar VAR_0x8004, 4
+	call CarpetTraining_EventScript_GachaCommon
+	releaseall
+	end
+
+CarpetTraining_EventScript_Gacha_Master_2:
+	goto CarpetTraining_EventScript_NoCoinCasePlay
+	goto CarpetTraining_EventScript_Gacha_Master_1
+
+
+CarpetTraining_EventScript_GachaCommon::
+	special StartGacha
+	compare VAR_RESULT, MON_GIVEN_TO_PARTY
+	goto_if_eq CarpetTraining_EventScript_GachaCommon_2
+	compare VAR_RESULT, MON_GIVEN_TO_PC
+	goto_if_eq CarpetTraining_EventScript_GachaCommon_5
+	return
+
+CarpetTraining_EventScript_GachaCommon_2:
+	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	goto_if_eq CarpetTraining_EventScript_GachaCommon_8
+CarpetTraining_EventScript_GachaCommon_7:
+	return
+
+CarpetTraining_EventScript_GachaCommon_5:
+	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	goto_if_eq CarpetTraining_EventScript_GachaCommon_11
+CarpetTraining_EventScript_GachaCommon_10:
+	call Common_EventScript_TransferredToPC
+	return
+
+CarpetTraining_EventScript_GachaCommon_8:
+	call Common_EventScript_GetGiftMonPartySlot
+	call Common_EventScript_NameReceivedPartyMon
+	goto CarpetTraining_EventScript_GachaCommon_7
+
+CarpetTraining_EventScript_GachaCommon_11:
+	call Common_EventScript_NameReceivedBoxMon
+	goto CarpetTraining_EventScript_GachaCommon_10
+
+
+CarpetTraining_EventScript_ATM::
+	lockall
+	message CarpetTraining_Text_ATMStart
+	waitmessage
+CarpetTraining_EventScript_ATM_2:
+	dynmultipush CarpetTraining_Text_ATMCheckSavings, 0
+	checkitem ITEM_COIN_CASE
+	compare VAR_RESULT, 0
+	goto_if_ne CarpetTraining_EventScript_ATM_5
+CarpetTraining_EventScript_ATM_4:
+	dynmultipush CarpetTraining_Text_ATMCancel, 2
+	dynmultistack 0, 0, FALSE, 3, FALSE, 0, NULL
+	compare VAR_RESULT, 1
+	goto_if_gt CarpetTraining_EventScript_ATM_8
+	switch VAR_RESULT
+	case 0, CarpetTraining_EventScript_ATM_12
+	case 1, CarpetTraining_EventScript_ATM_13
+CarpetTraining_EventScript_ATM_10:
+	message CarpetTraining_Text_ATMLoop
+	waitmessage
+	goto CarpetTraining_EventScript_ATM_2
+
+CarpetTraining_EventScript_ATM_1:
+	closemessage
+	releaseall
+	end
+
+CarpetTraining_EventScript_ATM_5:
+	dynmultipush CarpetTraining_Text_ATMPurchaseCoins, 1
+	goto CarpetTraining_EventScript_ATM_4
+
+CarpetTraining_EventScript_ATM_8:
+	goto CarpetTraining_EventScript_ATM_1
+
+CarpetTraining_EventScript_ATM_12:
+	call CarpetTraining_EventScript_ATMSavings
+	goto CarpetTraining_EventScript_ATM_10
+
+CarpetTraining_EventScript_ATM_13:
+	call CarpetTraining_EventScript_ATMCoins
+	goto CarpetTraining_EventScript_ATM_10
+
+
+CarpetTraining_EventScript_ATMSavings::
+	message CarpetTraining_Text_ATMSavings
+	waitmessage
+	showbankbalancebox 0, 0
+CarpetTraining_EventScript_ATMSavings_2:
+	dynmultipush CarpetTraining_Text_ATMDeposit, 0
+	dynmultipush CarpetTraining_Text_ATMWithdraw, 1
+	dynmultipush CarpetTraining_Text_ATMCancel, 2
+	dynmultistack 20, 0, FALSE, 3, FALSE, 0, NULL
+	compare VAR_RESULT, 1
+	goto_if_gt CarpetTraining_EventScript_ATMSavings_5
+	switch VAR_RESULT
+	case 0, CarpetTraining_EventScript_ATMSavings_9
+	case 1, CarpetTraining_EventScript_ATMSavings_10
+CarpetTraining_EventScript_ATMSavings_7:
+	playse SE_SHOP
+	showbankbalancebox 0, 0
+	waitse
+	msgbox CarpetTraining_Text_ATMSavingsUpdated
+	message CarpetTraining_Text_ATMSavings
+	waitmessage
+	goto CarpetTraining_EventScript_ATMSavings_2
+
+CarpetTraining_EventScript_ATMSavings_1:
+	hidebankbalancebox
+	return
+
+CarpetTraining_EventScript_ATMSavings_5:
+	goto CarpetTraining_EventScript_ATMSavings_1
+
+CarpetTraining_EventScript_ATMSavings_9:
+	hidebankbalancebox
+	message CarpetTraining_Text_ATMTryDeposit
+	waitmessage
+	starttransaction 0
+	goto CarpetTraining_EventScript_ATMSavings_7
+
+CarpetTraining_EventScript_ATMSavings_10:
+	hidebankbalancebox
+	message CarpetTraining_Text_ATMTryWithdraw
+	waitmessage
+	starttransaction 1
+	goto CarpetTraining_EventScript_ATMSavings_7
+
+
+CarpetTraining_EventScript_ATMCoins::
+	message CarpetTraining_Text_ATMTryPurchaseCoins
+	waitmessage
+	showmoneybox 0, 0
+	showcoinsbox 1, 6
+CarpetTraining_EventScript_ATMCoins_2:
+	multichoicedefault 15, 0, MULTI_GAME_CORNER_COINS, 0, FALSE
+	compare VAR_RESULT, 1
+	goto_if_gt CarpetTraining_EventScript_ATMCoins_5
+	switch VAR_RESULT
+	case 0, CarpetTraining_EventScript_ATMCoins_9
+	case 1, CarpetTraining_EventScript_ATMCoins_10
+CarpetTraining_EventScript_ATMCoins_7:
+	message CarpetTraining_Text_ATMTryPurchaseCoins
+	waitmessage
+	goto CarpetTraining_EventScript_ATMCoins_2
+
+CarpetTraining_EventScript_ATMCoins_1:
+	closemessage
+	hidemoneybox
+	hidecoinsbox 0, 5
+	return
+
+CarpetTraining_EventScript_ATMCoins_5:
+	goto CarpetTraining_EventScript_ATMCoins_1
+
+CarpetTraining_EventScript_ATMCoins_9:
+	checkcoins VAR_TEMP_1
+	compare_var_to_value VAR_TEMP_1, 9950
+	goto_if_ge CarpetTraining_EventScript_ATMCoins_12
+	checkmoney 1000
+	compare VAR_RESULT, 0
+	goto_if_eq CarpetTraining_EventScript_ATMCoins_18
+	addcoins 50
+	removemoney 1000
+	updatemoneybox
+	updatecoinsbox 1, 6
+	playse SE_SHOP
+	msgbox CarpetTraining_Text_ATMGetCoins
+	goto CarpetTraining_EventScript_ATMCoins_7
+
+CarpetTraining_EventScript_ATMCoins_10:
+	checkcoins VAR_TEMP_1
+	compare_var_to_value VAR_TEMP_1, 9500
+	goto_if_ge CarpetTraining_EventScript_ATMCoins_15
+	checkmoney 10000
+	compare VAR_RESULT, 0
+	goto_if_eq CarpetTraining_EventScript_ATMCoins_21
+	addcoins 500
+	removemoney 10000
+	updatemoneybox
+	updatecoinsbox 1, 6
+	playse SE_SHOP
+	msgbox CarpetTraining_Text_ATMGetCoins
+	goto CarpetTraining_EventScript_ATMCoins_7
+
+CarpetTraining_EventScript_ATMCoins_12:
+	msgbox CarpetTraining_Text_ATMTooManyCoins
+	goto CarpetTraining_EventScript_ATMCoins_7
+
+CarpetTraining_EventScript_ATMCoins_15:
+	msgbox CarpetTraining_Text_ATMTooManyCoins
+	goto CarpetTraining_EventScript_ATMCoins_7
+
+CarpetTraining_EventScript_ATMCoins_18:
+	msgbox CarpetTraining_Text_ATMNotEnoughMoney
+	goto CarpetTraining_EventScript_ATMCoins_7
+
+CarpetTraining_EventScript_ATMCoins_21:
+	msgbox CarpetTraining_Text_ATMNotEnoughMoney
+	goto CarpetTraining_EventScript_ATMCoins_7
+
+
+CarpetTraining_Text_ATMStart::
+	.string "Welcome to the ATM.\n"
+	.string "What would you like to do?$"
+
+CarpetTraining_Text_ATMLoop::
+	.string "What else would you like to\n"
+	.string "do?$"
+
+CarpetTraining_Text_ATMTryDeposit::
+	.string "How much will you deposit?$"
+
+CarpetTraining_Text_ATMTryWithdraw::
+	.string "How much will you withdraw?$"
+
+CarpetTraining_Text_ATMSavingsUpdated::
+	.string "Your savings have been updated\n"
+	.string "now.$"
+
+CarpetTraining_Text_ATMSavings::
+	.string "Here are your savings.\n"
+	.string "What would you like to do?$"
+
+CarpetTraining_Text_ATMPurchaseCoins::
+	.string "Purchase Coins$"
+
+CarpetTraining_Text_ATMCheckSavings::
+	.string "Check Savings$"
+
+CarpetTraining_Text_ATMDeposit::
+	.string "Deposit$"
+
+CarpetTraining_Text_ATMWithdraw::
+	.string "Withdraw$"
+
+CarpetTraining_Text_ATMCancel::
+	.string "Cancel$"
+
+CarpetTraining_Text_ATMTryPurchaseCoins::
+	.string "How many Coins would you like\n"
+	.string "to purchase?$"
+
+CarpetTraining_Text_ATMGetCoins::
+	.string "Here are your Coins, then.$"
+
+CarpetTraining_Text_ATMTooManyCoins::
+	.string "Your Coin Case is full…$"
+
+CarpetTraining_Text_ATMNotEnoughMoney::
+	.string "You don't have enough money\n"
+	.string "for the conversion…$"
+
+CarpetTraining_Text_NoCoinCasePlay::
+	.string "You can't play if you don't have\n"
+	.string "a Coin Case.$"
+
+CarpetTraining_Text_WinCoins::
+	.string "You won\n"
+	.string "{STR_VAR_1} Coins!$"
+
+CarpetTraining_Text_Pachinko::
+	.string "A Dropspin Machine!\n"
+	.string "It's 3 Coins per Ball.$"
+
+CarpetTraining_Text_Pinball::
+	.string "It's a Pinball Machine!\n"
+	.string "It costs 25 Coins to play.$"
+
+CarpetTraining_Text_Snake::
+	.string "It's Snake Game!\p"
+	.string "It costs 25 Coins to play.$"
+
+CarpetTraining_Text_Bird::
+	.string "It's Fairy Flap!\p"
+	.string "It costs 25 Coins to play.$"
+
+CarpetTraining_Text_Block::
+	.string "It's Block Builder!\p"
+	.string "It costs 25 Coins to play.$"
+
+CarpetTraining_Text_VoltorbFlip::
+	.string "It's Voltorb Flip!\p"
+	.string "It costs 50 Coins to play.$"
+
+CarpetTraining_Text_PinballNotEnough::
+	.string "It's a Pinball Machine!\p"
+	.string "You don't have enough Coins…$"
+
+CarpetTraining_Text_SnakeNotEnough::
+	.string "It's Snake Game!\p"
+	.string "You don't have enough Coins…$"
+
+CarpetTraining_Text_BirdNotEnough::
+	.string "It's Fairy Flap!\p"
+	.string "You don't have enough Coins…$"
+
+CarpetTraining_Text_BlockNotEnough::
+	.string "It's Block Builder!\p"
+	.string "You don't have enough Coins…$"
+
+CarpetTraining_Text_FlipNotEnough::
+	.string "It's Voltorb Flip!\p"
+	.string "You don't have enough Coins…$"
