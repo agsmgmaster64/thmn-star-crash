@@ -1,7 +1,7 @@
-#ifndef GUARD_BLACKJACK_H
-#define GUARD_BLACKJACK_H
+#ifndef GUARD_DERBY_H
+#define GUARD_DERBY_H
 
 void StartDerby(void);
 void GetNewDerby(void);
 
-#endif // GUARD_BLACKJACK_H
+#endif // GUARD_DERBY_H

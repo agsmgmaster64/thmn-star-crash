@@ -365,7 +365,7 @@ MauvilleCity_GameCorner_EventScript_Gacha_Basic::
 	lockall
 	checkitem ITEM_COIN_CASE
 	goto_if_eq VAR_RESULT, FALSE, MauvilleCity_GameCorner_EventScript_NoCoinCase
-	setvar VAR_0x8004, 1
+	setvar VAR_0x8004, GACHA_BASIC
 	call MauvilleCity_GameCorner_EventScript_GachaCommon
 	releaseall
 	end
@@ -399,7 +399,7 @@ MauvilleCity_GameCorner_EventScript_Gacha_Great::
 	lockall
 	checkitem ITEM_COIN_CASE
 	goto_if_eq VAR_RESULT, FALSE, MauvilleCity_GameCorner_EventScript_NoCoinCase
-	setvar VAR_0x8004, 2
+	setvar VAR_0x8004, GACHA_GREAT
 	call MauvilleCity_GameCorner_EventScript_GachaCommon
 	releaseall
 	end
@@ -408,7 +408,7 @@ MauvilleCity_GameCorner_EventScript_Gacha_Ultra::
 	lockall
 	checkitem ITEM_COIN_CASE
 	goto_if_eq VAR_RESULT, FALSE, MauvilleCity_GameCorner_EventScript_NoCoinCase
-	setvar VAR_0x8004, 3
+	setvar VAR_0x8004, GACHA_ULTRA
 	call MauvilleCity_GameCorner_EventScript_GachaCommon
 	releaseall
 	end
@@ -417,7 +417,7 @@ MauvilleCity_GameCorner_EventScript_Gacha_Master::
 	lockall
 	checkitem ITEM_COIN_CASE
 	goto_if_eq VAR_RESULT, FALSE, MauvilleCity_GameCorner_EventScript_NoCoinCase
-	setvar VAR_0x8004, 4
+	setvar VAR_0x8004, GACHA_MASTER
 	call MauvilleCity_GameCorner_EventScript_GachaCommon
 	releaseall
 	end

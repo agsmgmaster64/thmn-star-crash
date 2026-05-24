@@ -276,87 +276,15 @@ script CarpetTraining_EventScript_SlotMachineCommon {
 	end
 }
 
-script CarpetTraining_EventScript_SlotMachine0 {
-	lockall
-	setvar(VAR_0x8004, 0)
-	goto(CarpetTraining_EventScript_SlotMachineCommon)
-}
-
-script CarpetTraining_EventScript_SlotMachine1 {
-	lockall
-	setvar(VAR_0x8004, 1)
-	goto(CarpetTraining_EventScript_SlotMachineCommon)
-}
-
-script CarpetTraining_EventScript_SlotMachine2 {
-	lockall
-	setvar(VAR_0x8004, 2)
-	goto(CarpetTraining_EventScript_SlotMachineCommon)
-}
-
-script CarpetTraining_EventScript_SlotMachine3 {
-	lockall
-	setvar(VAR_0x8004, 3)
-	goto(CarpetTraining_EventScript_SlotMachineCommon)
-}
-
-script CarpetTraining_EventScript_SlotMachine4 {
-	lockall
-	setvar(VAR_0x8004, 4)
-	goto(CarpetTraining_EventScript_SlotMachineCommon)
-}
-
-script CarpetTraining_EventScript_SlotMachine5 {
-	lockall
-	setvar(VAR_0x8004, 5)
-	goto(CarpetTraining_EventScript_SlotMachineCommon)
-}
-
-script CarpetTraining_EventScript_SlotMachine6 {
-	lockall
-	setvar(VAR_0x8004, 6)
-	goto(CarpetTraining_EventScript_SlotMachineCommon)
-}
-
-script CarpetTraining_EventScript_SlotMachine7 {
-	lockall
-	setvar(VAR_0x8004, 7)
-	goto(CarpetTraining_EventScript_SlotMachineCommon)
-}
-
-script CarpetTraining_EventScript_SlotMachine8 {
-	lockall
-	setvar(VAR_0x8004, 8)
-	goto(CarpetTraining_EventScript_SlotMachineCommon)
-}
-
-script CarpetTraining_EventScript_SlotMachine9 {
-	lockall
-	setvar(VAR_0x8004, 9)
-	goto(CarpetTraining_EventScript_SlotMachineCommon)
-}
-
 script CarpetTraining_EventScript_Gacha_Basic {
 	lockall
-	setvar(VAR_0x8004, 1)
+	setvar(VAR_0x8004, GACHA_BASIC)
 	goto(CarpetTraining_EventScript_GachaCommon)
 }
 
 script CarpetTraining_EventScript_Gacha_Great {
 	lockall
-	setvar(VAR_0x8004, 2)
-	goto(CarpetTraining_EventScript_GachaCommon)
-}
-
-script CarpetTraining_EventScript_Gacha_Ultra {
-	lockall
-	setvar(VAR_0x8004, 3)
-	goto(CarpetTraining_EventScript_GachaCommon)
-}
-
-script CarpetTraining_EventScript_Gacha_Master {
-	lockall
-	setvar(VAR_0x8004, 4)
+	setvar(VAR_0x8004, GACHA_GREAT)
 	goto(CarpetTraining_EventScript_GachaCommon)
 }
 
