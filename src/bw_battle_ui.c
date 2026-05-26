@@ -54,8 +54,8 @@ static void BattleUI_SetCursorBattler(enum BattlerId);
 static u32 BattleUI_GetCursorBattler(void);
 
 static void BattleUI_DisplayMoveBoxGraphics(enum BattlerId, u32);
-static void BattleUI_DisplayNormalMoveBox(enum BattlerId, struct ChooseMoveStruct *);
-static void BattleUI_DisplayZMoveBox(enum BattlerId, struct ChooseMoveStruct *);
+static void BattleUI_DisplayNormalMoveBox(u32, enum BattlerId, struct ChooseMoveStruct *);
+static void BattleUI_DisplayZMoveBox(u32, enum BattlerId, struct ChooseMoveStruct *);
 
 static void BattleUI_UpdateHealthboxLvlText(u32, struct Pokemon *);
 static void BattleUI_UpdateHealthboxNickText(u32, struct Pokemon *);
@@ -293,7 +293,7 @@ enum BWBattleUICursorMode BattleUI_GetCursorMode(void)
     return (gSprites[BattleUI_GetCursorSpriteId()].sCursorMode & 0xFF);
 }
 
-void BattleUI_DisplayMoveBox(enum BattlerId battler)
+void BattleUI_DisplayMoveBox(u32 effectiveness, enum BattlerId battler)
 {
     u32 *tilemap = malloc_and_decompress(BattleUI_GetTextboxTilemap(), NULL);
     CopyRectToBgTilemapBufferRect(0, tilemap,
@@ -309,13 +309,13 @@ void BattleUI_DisplayMoveBox(enum BattlerId battler)
 
     if (hasZMove)
     {
-        BattleUI_DisplayZMoveBox(battler, moveInfo);
+        BattleUI_DisplayZMoveBox(effectiveness, battler, moveInfo);
         BattleUI_SetCursorMode(BUI_CURSOR_MODE_Z_MOVE);
     }
     else
     {
         gNumberOfMovesToChoose = 0;
-        BattleUI_DisplayNormalMoveBox(battler, moveInfo);
+        BattleUI_DisplayNormalMoveBox(effectiveness, battler, moveInfo);
         BattleUI_SetCursorMode(BUI_CURSOR_MODE_MOVES);
     }
 
@@ -1060,7 +1060,7 @@ static void BattleUI_DisplayMoveBoxGraphics(enum BattlerId battler, u32 windowId
         TILE_TO_PIXELS(14), TILE_TO_PIXELS(3));
 }
 
-static void BattleUI_DisplayNormalMoveBox(enum BattlerId battler, struct ChooseMoveStruct *moveInfo)
+static void BattleUI_DisplayNormalMoveBox(u32 effectiveness, enum BattlerId battler, struct ChooseMoveStruct *moveInfo)
 {
     gBattleStruct->zmove.viewing = FALSE;
     bool32 hasDynamax = (IsGimmickSelected(battler, GIMMICK_DYNAMAX) || GetActiveGimmick(battler) == GIMMICK_DYNAMAX);
@@ -1084,7 +1084,7 @@ static void BattleUI_DisplayNormalMoveBox(enum BattlerId battler, struct ChooseM
             StringCopy(gDisplayedStringBattle, GetMoveName(moveId));
             if (B_SHOW_EFFECTIVENESS)
             {
-                StringAppend(gDisplayedStringBattle, BattleUI_GetTypeEffectivenessSymbol(battler, moveId));
+                StringAppend(gDisplayedStringBattle, BattleUI_GetTypeEffectivenessSymbol(effectiveness));
             }
 
             u32 x = TILE_TO_PIXELS(1);
@@ -1132,7 +1132,7 @@ static void BattleUI_DisplayNormalMoveBox(enum BattlerId battler, struct ChooseM
     CopyWindowRectToVram(B_WIN_MOVE_NAME_1, COPYWIN_GFX, 0, 0, 14, 3);
 }
 
-static void BattleUI_DisplayZMoveBox(enum BattlerId battler, struct ChooseMoveStruct *moveInfo)
+static void BattleUI_DisplayZMoveBox(u32 effectiveness, enum BattlerId battler, struct ChooseMoveStruct *moveInfo)
 {
     u32 windowId = B_WIN_MOVE_NAME_1;
     u32 move = moveInfo->moves[gMoveSelectionCursor[battler]];
@@ -1164,7 +1164,7 @@ static void BattleUI_DisplayZMoveBox(enum BattlerId battler, struct ChooseMoveSt
 
     if (B_SHOW_EFFECTIVENESS && !isStatusMove)
     {
-        StringAppend(gDisplayedStringBattle, BattleUI_GetTypeEffectivenessSymbol(battler, zMove));
+        StringAppend(gDisplayedStringBattle, BattleUI_GetTypeEffectivenessSymbol(effectiveness));
     }
 
     u32 x = GetStringCenterAlignXOffset(FONT_SMALL, gDisplayedStringBattle, TILE_TO_PIXELS(28));
@@ -1315,8 +1315,7 @@ static void BattleUI_UpdateHealthboxLvlText(u32 spriteId, struct Pokemon *mon)
 
     GetMonData(mon, MON_DATA_NICKNAME, gDisplayedStringBattle);
     StringGet_Nickname(gDisplayedStringBattle);
-    if (((species == SPECIES_NIDORAN_F || species == SPECIES_NIDORAN_M) && !StringCompare(gDisplayedStringBattle, GetSpeciesName(species)))
-     || (GetBattlerSide(battler) == B_SIDE_OPPONENT && IsGhostBattleWithoutScope()))
+    if ((GetBattlerSide(battler) == B_SIDE_OPPONENT && IsGhostBattleWithoutScope()))
     {
         gender = 100;
     }
@@ -1325,10 +1324,10 @@ static void BattleUI_UpdateHealthboxLvlText(u32 spriteId, struct Pokemon *mon)
     switch (gender)
     {
     case MON_MALE:
-        StringCopy(gDisplayedStringBattle, COMPOUND_STRING("{COLOR 11}♂"));
+        StringCopy(gDisplayedStringBattle, COMPOUND_STRING("{YIN}"));
         break;
     case MON_FEMALE:
-        StringCopy(gDisplayedStringBattle, COMPOUND_STRING("{COLOR 10}♀"));
+        StringCopy(gDisplayedStringBattle, COMPOUND_STRING("{YANG}"));
         break;
     default:
         StringCopy(gDisplayedStringBattle, gText_EmptyString3);
@@ -1506,7 +1505,7 @@ static void BattleUI_PrintSafariBallText(u32 spriteId)
     s16 data1 = sprite1->data[1], data2 = sprite2->data[1];
     sprite1->data[1] = sprite1->oam.affineParam, sprite2->data[1] = SPRITE_NONE;
 
-    CopyItemNameHandlePlural(ITEM_SAFARI_BALL, gDisplayedStringBattle, gNumSafariBalls);
+    CopyItemNameHandlePlural(ITEM_SAFARI_ORB, gDisplayedStringBattle, gNumSafariBalls);
     BattleUI_AddSpriteTextPrinter(spriteId, FONT_OUTLINED_NARROW, TILE_TO_PIXELS(2), 0, BUI_TXTCLR_HBOX_SAFARI, gDisplayedStringBattle);
 
     sprite1->data[1] = data1, sprite2->data[1] = data2;

@@ -76,8 +76,8 @@ void BattleUI_SetCursorSpriteId(u32);
 void BattleUI_SetCursorMode(enum BWBattleUICursorMode);
 enum BWBattleUICursorMode BattleUI_GetCursorMode(void);
 
-void BattleUI_DisplayMoveBox(enum BattlerId);
-const u8 *BattleUI_GetTypeEffectivenessSymbol(enum BattlerId, enum Move); // needs to be defined in src/battle_controller_player.c
+void BattleUI_DisplayMoveBox(u32 effectiveness, enum BattlerId battler);
+const u8 *BattleUI_GetTypeEffectivenessSymbol(u32 effectiveness); // needs to be defined in src/battle_controller_player.c
 
 u32 BattleUI_LoadSpriteSheet(enum BWBattleUISpriteGraphicsType, u32);
 u32 BattleUI_LoadSpritePalette(enum BWBattleUISpritePaletteType, u32);
