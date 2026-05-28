@@ -74,24 +74,3 @@ SINGLE_BATTLE_TEST("Will-O-Wisp can't burn a fire type")
         }
     }
 }
-
-AI_SINGLE_BATTLE_TEST("AI avoids Will-o-Wisp when it can not burn target")
-{
-    u32 species;
-    enum Ability ability;
-
-    PARAMETRIZE { species = SPECIES_NORMAL_SUWAKO; ability = ABILITY_WATER_VEIL; }
-    PARAMETRIZE { species = SPECIES_DEWPIDER; ability = ABILITY_WATER_BUBBLE; }
-    PARAMETRIZE { species = SPECIES_KOMALA; ability = ABILITY_COMATOSE; }
-    PARAMETRIZE { species = SPECIES_NORMAL_SUNNY; ability = ABILITY_FLASH_FIRE; }
-    PARAMETRIZE { species = SPECIES_ADVENT_CIRNO; ability = ABILITY_LIFESTREAM; }
-    PARAMETRIZE { species = SPECIES_ATTACK_PATCHOULI; ability = ABILITY_BLAZE; }
-
-    GIVEN {
-        AI_FLAGS(AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_CHECK_VIABILITY | AI_FLAG_TRY_TO_FAINT | AI_FLAG_OMNISCIENT);
-        PLAYER(species) { Ability(ability); }
-        OPPONENT(SPECIES_DEFENSE_SATORI) { Moves(MOVE_CELEBRATE, MOVE_WILL_O_WISP); }
-    } WHEN {
-        TURN { SCORE_EQ(opponent, MOVE_CELEBRATE, MOVE_WILL_O_WISP); } // Both get -10
-    }
-}

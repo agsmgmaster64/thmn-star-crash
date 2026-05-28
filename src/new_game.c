@@ -1,5 +1,6 @@
 #include "global.h"
 #include "banking_system.h"
+#include "clock.h"
 #include "new_game.h"
 #include "derby.h"
 #include "random.h"
@@ -243,7 +244,7 @@ void NewGameInitData(void)
     ClearPlayerLinkBattleRecords();
     InitSeedotSizeRecord();
     InitLotadSizeRecord();
-    gPartiesCount[B_TRAINER_0] = 0;
+    gPartiesCount[B_TRAINER_PLAYER] = 0;
     ZeroPlayerPartyMons();
     ResetPokemonStorageSystem();
     DeactivateAllRoamers();
@@ -257,6 +258,7 @@ void NewGameInitData(void)
     ResetFanClub();
     ResetLotteryCorner();
     SetAllRenewableItemFlags();
+    UpdateDailySeed();
     WarpToTruck();
     if (IS_FRLG)
         RunScriptImmediately(EventScript_ResetAllMapFlagsFrlg);

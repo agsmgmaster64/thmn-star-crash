@@ -318,7 +318,7 @@ bool8 FldEff_CutGrass(void)
     u32 i, j, cutRange, tileCountFromPlayer;
     s32 x, y, lowerY;
     enum Ability userAbility;
-    userAbility = GetMonAbility(&gPlayerParty[GetCursorSelectionMonId()]);
+    userAbility = GetMonAbility(&gParties[B_TRAINER_PLAYER][GetCursorSelectionMonId()]);
     if (userAbility == ABILITY_HIGH_STRENGTH)
     {
         cutRange = CUT_HYPER_SIDE;
