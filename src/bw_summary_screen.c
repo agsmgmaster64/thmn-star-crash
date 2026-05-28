@@ -2639,9 +2639,6 @@ static void TryUpdateRelearnType(enum IncrDecrUpdateValues delta)
             break;
         }
 
-        if (!CheckRelearnerStateFlag(state))
-            continue;
-
         hasRelearnableMoves = HasAnyRelearnableMoves(state);
         if (hasRelearnableMoves != 0)
         {
@@ -2654,6 +2651,7 @@ static void TryUpdateRelearnType(enum IncrDecrUpdateValues delta)
     } while (zeroCounter <= MOVE_RELEARNER_COUNT && hasRelearnableMoves == 0);
 }
 
+/*
 static void UpdateMoveRelearnerState(bool32 goingDown)
 {
     s32 state;
@@ -2671,6 +2669,7 @@ static void UpdateMoveRelearnerState(bool32 goingDown)
     }
     UpdateRelearnPrompt();
 }
+*/
 
 static void ChangeSummaryPokemon(u8 taskId, s8 delta)
 {
@@ -4285,7 +4284,7 @@ static bool8 DoesMonOTMatchOwner(void)
     u32 trainerId;
     u8 gender;
 
-    if (sMonSummaryScreen->monList.mons == gParties[B_TRAINER_1])
+    if (sMonSummaryScreen->monList.mons == gParties[B_TRAINER_OPPONENT_A])
     {
         u8 multiID = GetMultiplayerId() ^ 1;
         trainerId = gLinkPlayers[multiID].trainerId & 0xFFFF;

@@ -2534,13 +2534,13 @@ static void PrintPartyTab(void)
         //Player Mon Icons
         for (i = 0; i < NUM_PARTY_ICONS_SHOWN; i++)
         {
-            ShowSpeciesIconParty(i, B_TRAINER_0, PARTY_POKEMON_ICON_X + ((i % 3) * PARTY_POKEMON_SPACE_X), PARTY_POKEMON_ICON_Y + ((i / 3) * PARTY_POKEMON_SPACE_Y));
+            ShowSpeciesIconParty(i, B_TRAINER_PLAYER, PARTY_POKEMON_ICON_X + ((i % 3) * PARTY_POKEMON_SPACE_X), PARTY_POKEMON_ICON_Y + ((i / 3) * PARTY_POKEMON_SPACE_Y));
         }
 
         //Enemy Mon Icons
         for (i = 0; i < NUM_PARTY_ICONS_SHOWN; i++)
         {
-            ShowSpeciesIconParty(i, B_TRAINER_1, PARTY_POKEMON_ICON_X + ((i % 3) * PARTY_POKEMON_SPACE_X), PARTY_POKEMON_ICON_Y_2 + ((i / 3)  * PARTY_POKEMON_SPACE_Y));
+            ShowSpeciesIconParty(i, B_TRAINER_OPPONENT_A, PARTY_POKEMON_ICON_X + ((i % 3) * PARTY_POKEMON_SPACE_X), PARTY_POKEMON_ICON_Y_2 + ((i / 3)  * PARTY_POKEMON_SPACE_Y));
         }
 
         sMenuDataPtr->partyIconsCreated = TRUE;
@@ -2590,13 +2590,13 @@ static void PrintPartyPartnerTab(void)
         //Partner Mon Icons
         for (i = 0; i < NUM_PARTY_ICONS_SHOWN; i++)
         {
-            ShowSpeciesIconParty(i, B_TRAINER_2, PARTY_POKEMON_ICON_X + ((i % 3) * PARTY_POKEMON_SPACE_X), PARTY_POKEMON_ICON_Y + ((i / 3) * PARTY_POKEMON_SPACE_Y));
+            ShowSpeciesIconParty(i, B_TRAINER_PARTNER, PARTY_POKEMON_ICON_X + ((i % 3) * PARTY_POKEMON_SPACE_X), PARTY_POKEMON_ICON_Y + ((i / 3) * PARTY_POKEMON_SPACE_Y));
         }
 
         //Enemy Partner Mon Icons
         for (i = 0; i < NUM_PARTY_ICONS_SHOWN; i++)
         {
-            ShowSpeciesIconParty(i, B_TRAINER_3, PARTY_POKEMON_ICON_X + ((i % 3) * PARTY_POKEMON_SPACE_X), PARTY_POKEMON_ICON_Y_2 + ((i / 3)  * PARTY_POKEMON_SPACE_Y));
+            ShowSpeciesIconParty(i, B_TRAINER_OPPONENT_B, PARTY_POKEMON_ICON_X + ((i % 3) * PARTY_POKEMON_SPACE_X), PARTY_POKEMON_ICON_Y_2 + ((i / 3)  * PARTY_POKEMON_SPACE_Y));
         }
 
         sMenuDataPtr->partyIconsCreated = TRUE;
@@ -3429,7 +3429,7 @@ static u8 ShowSpeciesIconParty(u8 num, u8 whichParty, u8 x, u8 y)
 
 	LoadMonIconPalette(species);
 
-    if (whichParty == B_TRAINER_1 || whichParty == B_TRAINER_3)
+    if (whichParty == B_TRAINER_OPPONENT_A || whichParty == B_TRAINER_OPPONENT_B)
     {
         if (sMenuDataPtr->spriteIds[SPRITE_ARR_ID_MON_ICON_1_PARTY_ENEMY + num] != SPRITE_NONE) //Already created
             return sMenuDataPtr->spriteIds[SPRITE_ARR_ID_MON_ICON_1_PARTY_ENEMY + num];
@@ -3599,23 +3599,23 @@ static void TransitionToSummaryScreen(u8 taskId)
         bool8 isEnemyMon = sMenuDataPtr->isEnemyMon;
         bool8 currMonId = sMenuDataPtr->currMonId;
         bool8 partyCount = sMenuDataPtr->partyCount;
-        u32 whichParty = B_TRAINER_0;
+        u32 whichParty = B_TRAINER_PLAYER;
         u32 summaryMode = SUMMARY_MODE_LOCK_MOVES;
 
         if (!isEnemyMon)
         {
             if (sMenuDataPtr->fieldTabId == TAB_PARTY_PARTNER)
-                whichParty = B_TRAINER_2;
+                whichParty = B_TRAINER_PARTNER;
             else
-                whichParty = B_TRAINER_0;
+                whichParty = B_TRAINER_PLAYER;
         }
         else
         {
             summaryMode = SUMMARY_MODE_LOCK_ENEMY;
             if (sMenuDataPtr->fieldTabId == TAB_PARTY_PARTNER)
-                whichParty = B_TRAINER_3;
+                whichParty = B_TRAINER_OPPONENT_B;
             else
-                whichParty = B_TRAINER_1;
+                whichParty = B_TRAINER_OPPONENT_A;
         }
 
         FreeAllWindowBuffers();
@@ -3631,7 +3631,7 @@ static void StartSummaryScreen(u8 taskId)
     u8 currMonId = sMenuDataPtr->partyMenuSelectorID_X + (sMenuDataPtr->partyMenuSelectorID_Y * PARTY_TAB_NUM_MONS_X);
     u16 species;
     u8 partyCount;
-    u8 whichParty = B_TRAINER_0;
+    u8 whichParty = B_TRAINER_PLAYER;
     bool8 isEnemyMon = FALSE;
 
     //Save State
@@ -3643,16 +3643,16 @@ static void StartSummaryScreen(u8 taskId)
     if (currMonId < PARTY_SIZE)
     {
         if (sMenuDataPtr->fieldTabId == TAB_PARTY_PARTNER)
-            whichParty = B_TRAINER_2;
+            whichParty = B_TRAINER_PARTNER;
         else
-            whichParty = B_TRAINER_0;
+            whichParty = B_TRAINER_PLAYER;
     }
     else
     {
         if (sMenuDataPtr->fieldTabId == TAB_PARTY_PARTNER)
-            whichParty = B_TRAINER_3;
+            whichParty = B_TRAINER_OPPONENT_B;
         else
-            whichParty = B_TRAINER_1;
+            whichParty = B_TRAINER_OPPONENT_A;
         currMonId = currMonId - PARTY_SIZE;
         isEnemyMon = TRUE;
     }
