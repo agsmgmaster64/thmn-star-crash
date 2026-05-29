@@ -428,6 +428,7 @@ extern const u8 Debug_ShowExpansionVersion[];
 extern const u8 Debug_EventScript_EWRAMCounters[];
 extern const u8 Debug_Follower_NPC_Event_Script[];
 extern const u8 Debug_Follower_NPC_Not_Enabled[];
+extern const u8 Debug_EventScript_Mining_Minigame[];
 extern const u8 Debug_EventScript_Steven_Multi[];
 extern const u8 Debug_EventScript_WallyTutorial[];
 extern const u8 Debug_EventScript_PrintTimeOfDay[];
@@ -613,6 +614,7 @@ static const struct DebugMenuOption sDebugMenu_Actions_Utilities[] =
     { COMPOUND_STRING("Berry Functions…"),  DebugAction_OpenSubMenu, sDebugMenu_Actions_BerryFunctions },
     { COMPOUND_STRING("EWRAM Counters…"),   DebugAction_ExecuteScript, Debug_EventScript_EWRAMCounters },
     { COMPOUND_STRING("Follower NPC…"),     DebugAction_OpenSubMenu, sDebugMenu_Actions_FollowerNPCMenu },
+    { COMPOUND_STRING("Mining Minigame"),   DebugAction_ExecuteScript, Debug_EventScript_Mining_Minigame },
     { COMPOUND_STRING("Wally Tutorial"),    DebugAction_ExecuteScript, Debug_EventScript_WallyTutorial },
     { COMPOUND_STRING("Steven Multi"),      DebugAction_ExecuteScript, Debug_EventScript_Steven_Multi },
     { COMPOUND_STRING("Set Vial Size…"),    DebugAction_Util_Vial_Size_Dose },
@@ -3210,19 +3212,9 @@ static void DebugAction_Give_Pokemon_SelectId(u8 taskId)
         gTasks[taskId].tInput = 1;
         gTasks[taskId].tDigit = 0;
 
-        if (!gTasks[taskId].tIsEgg)
-        {
-            Debug_Display_Level(gTasks[taskId].tInput, gTasks[taskId].tDigit, gTasks[taskId].tSubWindowId);
-            gTasks[taskId].func = DebugAction_Give_Pokemon_SelectLevel;
-            return;
-        }
+        Debug_Display_Level(gTasks[taskId].tInput, gTasks[taskId].tDigit, gTasks[taskId].tSubWindowId);
 
-        ScriptGiveEgg(sDebugMonData->species);
-        PlaySE(SE_SELECT);
-        Free(sDebugMonData);
-        FreeMonIconPalettes();
-        FreeAndDestroyMonIconSprite(&gSprites[gTasks[taskId].tSpriteId]);
-        DebugAction_DestroyExtraWindow(taskId);
+        gTasks[taskId].func = DebugAction_Give_Pokemon_SelectLevel;
     }
     else if (JOY_NEW(B_BUTTON))
     {
