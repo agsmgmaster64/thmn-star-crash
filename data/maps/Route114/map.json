@@ -3,7 +3,6 @@
   "name": "Route114",
   "layout": "LAYOUT_ROUTE114",
   "music": "MUS_ZGS_AGTLP",
-  "region": "REGION_HOENN",
   "region_map_section": "MAPSEC_ROUTE_114",
   "requires_flash": false,
   "weather": "WEATHER_SUNNY",
@@ -538,5 +537,6 @@
       "quantity": 0,
       "underfoot": false
     }
-  ]
+  ],
+  "region": "REGION_HOENN"
 }
