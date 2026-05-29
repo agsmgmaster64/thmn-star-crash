@@ -513,7 +513,7 @@ void StartScriptedGhostBattle(void)
         if (gSpecialVar_0x8004 == 0 || gSpecialVar_0x8004 >= NUM_SPECIES) //Default is Marowak
         {
             u32 personality = GetMonPersonality(SPECIES_NORMAL_MYSTIA, MON_FEMALE, NATURE_SERIOUS, RANDOM_UNOWN_LETTER);
-            CreateMonWithIVs(&gEnemyParty[0], SPECIES_NORMAL_MYSTIA, 30, personality, OTID_STRUCT_PLAYER_ID, 31);
+            CreateMonWithIVs(&gParties[B_TRAINER_OPPONENT_A][0], SPECIES_NORMAL_MYSTIA, 30, personality, OTID_STRUCT_PLAYER_ID, 31);
         }
     }
     else
@@ -521,8 +521,8 @@ void StartScriptedGhostBattle(void)
         gBattleTypeFlags = BATTLE_TYPE_GHOST;
     }
     CreateBattleStartTask(GetWildBattleTransition(), 0);
-    SetMonData(&gEnemyParty[0], MON_DATA_HELD_ITEM, &gSpecialVar_0x8006);
-    SetMonData(&gEnemyParty[0], MON_DATA_NICKNAME, gText_Ghost);
+    SetMonData(&gParties[B_TRAINER_OPPONENT_A][0], MON_DATA_HELD_ITEM, &gSpecialVar_0x8006);
+    SetMonData(&gParties[B_TRAINER_OPPONENT_A][0], MON_DATA_NICKNAME, gText_Ghost);
     IncrementGameStat(GAME_STAT_TOTAL_BATTLES);
     IncrementGameStat(GAME_STAT_WILD_BATTLES);
     IncrementDailyWildBattles();
@@ -2243,11 +2243,11 @@ void SetNuzlockeChecks(void)
 {
     if (IsNuzlockeActive())
     {
-        gNuzlockeIsSpeciesClauseActive = NuzlockeIsCaptureBlockedBySpeciesClause(GetMonData(&gEnemyParty[0], MON_DATA_SPECIES));
+        gNuzlockeIsSpeciesClauseActive = NuzlockeIsCaptureBlockedBySpeciesClause(GetMonData(&gParties[B_TRAINER_OPPONENT_A][0], MON_DATA_SPECIES));
 
         gNuzlockeIsCaptureBlocked = NuzlockeFlagGet(GetCurrentRegionMapSectionId());
 
-        if (IsMonShiny(&gEnemyParty[0]) && gSaveBlock2Ptr->tx_Nuzlocke_ShinyClause)
+        if (IsMonShiny(&gParties[B_TRAINER_OPPONENT_A][0]) && gSaveBlock2Ptr->tx_Nuzlocke_ShinyClause)
         {
             gNuzlockeIsCaptureBlocked = FALSE;
             gNuzlockeIsSpeciesClauseActive = FALSE;

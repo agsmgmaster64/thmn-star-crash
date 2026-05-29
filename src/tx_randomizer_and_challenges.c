@@ -146,11 +146,11 @@ void NuzlockeDeletePartyMon(u8 position)
 {
     if (!gSaveBlock2Ptr->tx_Nuzlocke_Deletion)
     {
-        struct Pokemon *pokemon = &gPlayerParty[position];
+        struct Pokemon *pokemon = &gParties[B_TRAINER_PLAYER][position];
         u8 val[1] = {TRUE};
         
         SetMonData(pokemon, MON_DATA_NUZLOCKE_RIBBON, val);
-        CopyMonToPC(&gPlayerParty[position]);
+        CopyMonToPC(&gParties[B_TRAINER_PLAYER][position]);
     }
     PurgeMonOrBoxMon(TOTAL_BOXES_COUNT, position);
 }
@@ -163,7 +163,7 @@ void NuzlockeDeleteFaintedPartyPokemon(void) // @Kurausukun
 
     for (i = 0; i < PARTY_SIZE; i++)
     {
-        pokemon = &gPlayerParty[i];
+        pokemon = &gParties[B_TRAINER_PLAYER][i];
         if (GetMonData(pokemon, MON_DATA_SANITY_HAS_SPECIES, NULL) && !GetMonData(pokemon, MON_DATA_IS_EGG, NULL))
         {
             if (GetMonAilment(pokemon) == AILMENT_FNT)

@@ -855,8 +855,8 @@ static void CreateMinigameSprites(u8 taskId)
     u8 y;
     u8 i;
     u8 sections = NUM_SCORE_SECTIONS;
-    u16 species = GetMonData(&gEnemyParty[0], MON_DATA_SPECIES);
-    u8 iconPalSlot = LoadMonIconPaletteGetIndex(species, GetMonData(&gEnemyParty[0], MON_DATA_PERSONALITY));
+    u16 species = GetMonData(&gParties[B_TRAINER_OPPONENT_A][0], MON_DATA_SPECIES);
+    u8 iconPalSlot = LoadMonIconPaletteGetIndex(species, GetMonData(&gParties[B_TRAINER_OPPONENT_A][0], MON_DATA_PERSONALITY));
 
     taskData.tGameStateBits |= FG_PAUSED; // Pause the sprite animations/movements until the game starts.
 
@@ -872,7 +872,7 @@ static void CreateMinigameSprites(u8 taskId)
     spriteData.sBarDirection = FISH_DIR_RIGHT;
     spriteData.sBarWidth = OLD_ROD_BAR_WIDTH;
     taskData.tBarLeftSpriteId = spriteId;
-    taskData.tAbility = GetMonAbility(&gPlayerParty[0]);
+    taskData.tAbility = GetMonAbility(&gParties[B_TRAINER_PLAYER][0]);
     SetAbilityEffectData(taskData.tAbility, spriteId);
 
     // Set width of fishing bar.
@@ -926,12 +926,12 @@ static void CreateMinigameSprites(u8 taskId)
             if (!(taskData.tGameStateBits & FG_SEPARATE_SCREEN))
                 spriteData.oam.priority--;
             spriteData.sTaskId = taskId;
-            spriteId = CreateMonIcon(species, SpriteCB_FishingMonIcon, FISH_ICON_START_X, y, 1, GetMonData(&gEnemyParty[0], MON_DATA_PERSONALITY));
+            spriteId = CreateMonIcon(species, SpriteCB_FishingMonIcon, FISH_ICON_START_X, y, 1, GetMonData(&gParties[B_TRAINER_OPPONENT_A][0], MON_DATA_PERSONALITY));
         }
     }
     else
     {
-        spriteId = CreateMonIcon(species, SpriteCB_FishingMonIcon, FISH_ICON_START_X, y, 1, GetMonData(&gEnemyParty[0], MON_DATA_PERSONALITY));
+        spriteId = CreateMonIcon(species, SpriteCB_FishingMonIcon, FISH_ICON_START_X, y, 1, GetMonData(&gParties[B_TRAINER_OPPONENT_A][0], MON_DATA_PERSONALITY));
 
     }
     spriteData.sTaskId = taskId;

@@ -626,7 +626,7 @@ static void CreatePartyMonIcons()
     s16 x = ICON_BOX_1_START_X;
     s16 y = ICON_BOX_1_START_Y;
     LoadMonIconPalettes();
-    for(i = 0; i < gPlayerPartyCount; i++)
+    for(i = 0; i < gPartiesCount[B_TRAINER_PLAYER]; i++)
     {   
         switch (i) // choose position for each icon
         {
@@ -657,9 +657,9 @@ static void CreatePartyMonIcons()
         }
 
 #ifdef POKEMON_EXPANSION
-            sStartMenuDataPtr->iconMonSpriteIds[i] = CreateMonIcon(GetMonData(&gPlayerParty[i], MON_DATA_SPECIES_OR_EGG), SpriteCB_MonIcon, x, y, 0, GetMonData(&gPlayerParty[i], MON_DATA_PERSONALITY));
+            sStartMenuDataPtr->iconMonSpriteIds[i] = CreateMonIcon(GetMonData(&gParties[B_TRAINER_PLAYER][i], MON_DATA_SPECIES_OR_EGG), SpriteCB_MonIcon, x, y, 0, GetMonData(&gParties[B_TRAINER_PLAYER][i], MON_DATA_PERSONALITY));
 #else
-            sStartMenuDataPtr->iconMonSpriteIds[i] = CreateMonIcon(GetMonData(&gPlayerParty[i], MON_DATA_SPECIES_OR_EGG), SpriteCB_MonIcon, x, y, 0, GetMonData(&gPlayerParty[i], MON_DATA_PERSONALITY), FALSE);
+            sStartMenuDataPtr->iconMonSpriteIds[i] = CreateMonIcon(GetMonData(&gParties[B_TRAINER_PLAYER][i], MON_DATA_SPECIES_OR_EGG), SpriteCB_MonIcon, x, y, 0, GetMonData(&gParties[B_TRAINER_PLAYER][i], MON_DATA_PERSONALITY), FALSE);
 #endif
 
         gSprites[sStartMenuDataPtr->iconMonSpriteIds[i]].oam.priority = 0;
@@ -715,12 +715,12 @@ static const u8 *GetBarGfx(u32 percent)
 
 static bool32 IsMonNotEmpty(u32 partyIndex)
 {
-    return (GetMonData(&gPlayerParty[partyIndex], MON_DATA_SPECIES_OR_EGG, NULL) != SPECIES_NONE);
+    return (GetMonData(&gParties[B_TRAINER_PLAYER][partyIndex], MON_DATA_SPECIES_OR_EGG, NULL) != SPECIES_NONE);
 }
 
 static u32 GetHPEggCyclePercent(u32 partyIndex)
 {
-    struct Pokemon *mon = &gPlayerParty[partyIndex];
+    struct Pokemon *mon = &gParties[B_TRAINER_PLAYER][partyIndex];
     if (!GetMonData(mon, MON_DATA_IS_EGG))
         return ((GetMonData(mon, MON_DATA_HP)) * 100 / (GetMonData(mon,MON_DATA_MAX_HP)));
     else
@@ -843,7 +843,7 @@ static void CreatePartyMonStatuses()
     s16 y = ICON_STATUS_1_START_Y;
     u8 status;
 
-    for(i = 0; i < gPlayerPartyCount; i++)
+    for(i = 0; i < gPartiesCount[B_TRAINER_PLAYER]; i++)
     {   
         switch (i)
         {
@@ -875,7 +875,7 @@ static void CreatePartyMonStatuses()
 
         sStartMenuDataPtr->iconStatusSpriteIds[i] = CreateSprite(&sSpriteTemplate_StatusIcons, x, y, 0);
 
-        status = GetMonAilment(&gPlayerParty[i]);
+        status = GetMonAilment(&gParties[B_TRAINER_PLAYER][i]);
         switch (status)
         {
             case AILMENT_NONE:

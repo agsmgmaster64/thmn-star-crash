@@ -571,11 +571,11 @@ static void DoMoveRelearnerMain(void)
             ListMenuGetScrollAndRow(sMoveRelearnerStruct->moveListMenuTask, &sMoveRelearnerStruct->listMenuScrollPos, &sMoveRelearnerStruct->listMenuScrollRow);
             if (BW_SUMMARY_SCREEN)
             {
-                ShowSelectMovePokemonSummaryScreen_BW(gPlayerParty, gSpecialVar_0x8004, CB2_InitLearnMoveReturnFromSelectMove, GetCurrentSelectedMove());
+                ShowSelectMovePokemonSummaryScreen_BW(gParties[B_TRAINER_PLAYER], gSpecialVar_0x8004, CB2_InitLearnMoveReturnFromSelectMove, GetCurrentSelectedMove());
             }
             else
             {
-                ShowSelectMovePokemonSummaryScreen(gPlayerParty, gSpecialVar_0x8004, CB2_InitLearnMoveReturnFromSelectMove, GetCurrentSelectedMove());
+                ShowSelectMovePokemonSummaryScreen(gParties[B_TRAINER_PLAYER], gSpecialVar_0x8004, CB2_InitLearnMoveReturnFromSelectMove, GetCurrentSelectedMove());
             }
             FreeAllWindowBuffers();
         }
@@ -604,21 +604,21 @@ static void DoMoveRelearnerMain(void)
                 {
                 case RELEARN_MODE_PSS_PAGE_BATTLE_MOVES:
                     if (BW_SUMMARY_SCREEN)
-                        ShowPokemonSummaryScreen_BW(SUMMARY_MODE_RELEARNER_BATTLE, gPlayerParty, sMoveRelearnerStruct->partyMon, gPlayerPartyCount - 1, gInitialSummaryScreenCallback);
+                        ShowPokemonSummaryScreen_BW(SUMMARY_MODE_RELEARNER_BATTLE, gParties[B_TRAINER_PLAYER], sMoveRelearnerStruct->partyMon, gParties[B_TRAINER_PLAYER]Count - 1, gInitialSummaryScreenCallback);
                     else    
-                        ShowPokemonSummaryScreen(SUMMARY_MODE_RELEARNER_BATTLE, gPlayerParty, sMoveRelearnerStruct->partyMon, gPlayerPartyCount - 1, gInitialSummaryScreenCallback);
+                        ShowPokemonSummaryScreen(SUMMARY_MODE_RELEARNER_BATTLE, gParties[B_TRAINER_PLAYER], sMoveRelearnerStruct->partyMon, gParties[B_TRAINER_PLAYER]Count - 1, gInitialSummaryScreenCallback);
                     break;
                 case RELEARN_MODE_PSS_PAGE_CONTEST_MOVES:
                     if (BW_SUMMARY_SCREEN)
-                        ShowPokemonSummaryScreen_BW(SUMMARY_MODE_RELEARNER_CONTEST, gPlayerParty, sMoveRelearnerStruct->partyMon, gPlayerPartyCount - 1, gInitialSummaryScreenCallback);
+                        ShowPokemonSummaryScreen_BW(SUMMARY_MODE_RELEARNER_CONTEST, gParties[B_TRAINER_PLAYER], sMoveRelearnerStruct->partyMon, gParties[B_TRAINER_PLAYER]Count - 1, gInitialSummaryScreenCallback);
                     else
-                        ShowPokemonSummaryScreen(SUMMARY_MODE_RELEARNER_CONTEST, gPlayerParty, sMoveRelearnerStruct->partyMon, gPlayerPartyCount - 1, gInitialSummaryScreenCallback);
+                        ShowPokemonSummaryScreen(SUMMARY_MODE_RELEARNER_CONTEST, gParties[B_TRAINER_PLAYER], sMoveRelearnerStruct->partyMon, gParties[B_TRAINER_PLAYER]Count - 1, gInitialSummaryScreenCallback);
                     break;
                 default:
                     if (BW_SUMMARY_SCREEN)
-                        ShowPokemonSummaryScreen_BW(SUMMARY_MODE_NORMAL, gPlayerParty, sMoveRelearnerStruct->partyMon, gPlayerPartyCount - 1, gInitialSummaryScreenCallback);
+                        ShowPokemonSummaryScreen_BW(SUMMARY_MODE_NORMAL, gParties[B_TRAINER_PLAYER], sMoveRelearnerStruct->partyMon, gParties[B_TRAINER_PLAYER]Count - 1, gInitialSummaryScreenCallback);
                     else
-                        ShowPokemonSummaryScreen(SUMMARY_MODE_NORMAL, gPlayerParty, sMoveRelearnerStruct->partyMon, gPlayerPartyCount - 1, gInitialSummaryScreenCallback);
+                        ShowPokemonSummaryScreen(SUMMARY_MODE_NORMAL, gParties[B_TRAINER_PLAYER], sMoveRelearnerStruct->partyMon, gParties[B_TRAINER_PLAYER]Count - 1, gInitialSummaryScreenCallback);
                     break;
                 }
             }
@@ -657,7 +657,7 @@ static void DoMoveRelearnerMain(void)
                 if (sMoveRelearnerStruct->partyMon == PC_MON_CHOSEN)
                     boxmon = GetBoxedMonPtr(gSpecialVar_MonBoxId, gSpecialVar_MonBoxPos);
                 else
-                    boxmon = &(gPlayerParty[sMoveRelearnerStruct->partyMon].box);
+                    boxmon = &(gParties[B_TRAINER_PLAYER][sMoveRelearnerStruct->partyMon].box);
                 move = GetBoxMonData(boxmon, MON_DATA_MOVE1 + sMoveRelearnerStruct->moveSlot);
                 u8 originalPP = GetBoxMonData(boxmon, MON_DATA_PP1 + sMoveRelearnerStruct->moveSlot);
 

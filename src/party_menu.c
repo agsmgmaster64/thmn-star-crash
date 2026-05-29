@@ -1900,7 +1900,7 @@ static void UpdatePartySelectionSingleLayout(s8 *slotPtr, s8 movementDir)
                 else
                     *slotPtr = PARTY_SIZE + 1;
             }
-            else if (*slotPtr + 2 < gPlayerPartyCount)
+            else if (*slotPtr + 2 < gPartiesCount[partyTrainer])
             {
                 *slotPtr += 2;//(*slotPtr)++;
             }
@@ -1913,12 +1913,12 @@ static void UpdatePartySelectionSingleLayout(s8 *slotPtr, s8 movementDir)
     case MENU_DIR_RIGHT:
         if (gPartiesCount[partyTrainer] != 1)
         {
-            if ((*slotPtr + 1 < gPlayerPartyCount) || (*slotPtr == PARTY_SIZE))
+            if ((*slotPtr + 1 < gPartiesCount[partyTrainer]) || (*slotPtr == PARTY_SIZE))
                 (*slotPtr)++;
             // else
             //     *slotPtr = sPartyMenuInternal->lastSelectedSlot;
         }
-        else if (*slotPtr == gPlayerPartyCount)
+        else if (*slotPtr == gPartiesCount[partyTrainer])
         {
             if (sPartyMenuInternal->chooseHalf)
                 *slotPtr = PARTY_SIZE;
@@ -1947,11 +1947,11 @@ static void UpdatePartySelectionSingleLayout(s8 *slotPtr, s8 movementDir)
             if (sPartyMenuInternal->chooseHalf)
                 *slotPtr = PARTY_SIZE;
             else
-                *slotPtr = gPlayerPartyCount - 1;
+                *slotPtr = gPartiesCount[partyTrainer] - 1;
         }
         else // if (*slotPtr != PARTY_SIZE)
         {
-            *slotPtr = gPlayerPartyCount - 1;
+            *slotPtr = gPartiesCount[partyTrainer] - 1;
         }
         break;
     }
@@ -3259,7 +3259,7 @@ static void CursorCb_Switch(u8 taskId)
 
 static void CursorCb_Follower(u8 taskId)
 {
-    struct Pokemon *mon = &gPlayerParty[gPartyMenu.slotId];
+    struct Pokemon *mon = &gParties[B_TRAINER_PLAYER][gPartyMenu.slotId];
     u16 hp = GetMonData(mon, MON_DATA_HP);
 
     PlaySE(SE_SELECT);
@@ -3269,12 +3269,12 @@ static void CursorCb_Follower(u8 taskId)
     {
         if (hp == 0)
         {
-            SetPartyMonSelectionActions(gPlayerParty, gPartyMenu.slotId, ACTIONS_FOLLOWER_UNSET);
+            SetPartyMonSelectionActions(gParties[B_TRAINER_PLAYER], gPartyMenu.slotId, ACTIONS_FOLLOWER_UNSET);
             DisplaySelectionWindow(SELECTWINDOW_FOLLOWER);
         }
         else
         {
-            SetPartyMonSelectionActions(gPlayerParty, gPartyMenu.slotId, ACTIONS_FOLLOWER_UNSET_RETURN);
+            SetPartyMonSelectionActions(gParties[B_TRAINER_PLAYER], gPartyMenu.slotId, ACTIONS_FOLLOWER_UNSET_RETURN);
             DisplaySelectionWindow(SELECTWINDOW_MISC);
         }
     }
@@ -3282,12 +3282,12 @@ static void CursorCb_Follower(u8 taskId)
     {
         if (hp == 0)
         {
-            SetPartyMonSelectionActions(gPlayerParty, gPartyMenu.slotId, ACTIONS_FOLLOWER_SET);
+            SetPartyMonSelectionActions(gParties[B_TRAINER_PLAYER], gPartyMenu.slotId, ACTIONS_FOLLOWER_SET);
             DisplaySelectionWindow(SELECTWINDOW_FOLLOWER);
         }
         else
         {
-            SetPartyMonSelectionActions(gPlayerParty, gPartyMenu.slotId, ACTIONS_FOLLOWER_SET_RETURN);
+            SetPartyMonSelectionActions(gParties[B_TRAINER_PLAYER], gPartyMenu.slotId, ACTIONS_FOLLOWER_SET_RETURN);
             DisplaySelectionWindow(SELECTWINDOW_MISC);
         }
     }
@@ -3295,12 +3295,12 @@ static void CursorCb_Follower(u8 taskId)
     {
         if (mon == GetFirstLiveMon() && gSaveBlock3Ptr->followerIndex == OW_FOLLOWER_NOT_SET)
         {
-            SetPartyMonSelectionActions(gPlayerParty, gPartyMenu.slotId, ACTIONS_FOLLOWER_SET_RETURN);
+            SetPartyMonSelectionActions(gParties[B_TRAINER_PLAYER], gPartyMenu.slotId, ACTIONS_FOLLOWER_SET_RETURN);
             DisplaySelectionWindow(SELECTWINDOW_MISC);
         }
         else
         {
-            SetPartyMonSelectionActions(gPlayerParty, gPartyMenu.slotId, ACTIONS_FOLLOWER_SET);
+            SetPartyMonSelectionActions(gParties[B_TRAINER_PLAYER], gPartyMenu.slotId, ACTIONS_FOLLOWER_SET);
             DisplaySelectionWindow(SELECTWINDOW_FOLLOWER);
         }
     }
@@ -3312,7 +3312,7 @@ static void CursorCb_Follower(u8 taskId)
 
 static void CursorCb_FollowerSet(u8 taskId)
 {
-    struct Pokemon *mon = &gPlayerParty[gPartyMenu.slotId];
+    struct Pokemon *mon = &gParties[B_TRAINER_PLAYER][gPartyMenu.slotId];
     u16 hp = GetMonData(mon, MON_DATA_HP);
 
     PartyMenuRemoveWindow(&sPartyMenuInternal->windowId[0]);
@@ -3335,7 +3335,7 @@ static void CursorCb_FollowerSet(u8 taskId)
 
 static void CursorCb_FollowerReturn(u8 taskId)
 {
-    struct Pokemon *mon = &gPlayerParty[gPartyMenu.slotId];
+    struct Pokemon *mon = &gParties[B_TRAINER_PLAYER][gPartyMenu.slotId];
 
     PartyMenuRemoveWindow(&sPartyMenuInternal->windowId[0]);
     PartyMenuRemoveWindow(&sPartyMenuInternal->windowId[1]);
@@ -3352,7 +3352,7 @@ static void CursorCb_FollowerReturn(u8 taskId)
 
 static void CursorCb_FollowerUnset(u8 taskId)
 {
-    struct Pokemon *mon = &gPlayerParty[gPartyMenu.slotId];
+    struct Pokemon *mon = &gParties[B_TRAINER_PLAYER][gPartyMenu.slotId];
 
     PartyMenuRemoveWindow(&sPartyMenuInternal->windowId[0]);
     PartyMenuRemoveWindow(&sPartyMenuInternal->windowId[1]);
@@ -3952,7 +3952,7 @@ void CursorCb_MoveItemCallback(u8 taskId)
 
 void CursorCb_MoveItem(u8 taskId)
 {
-    struct Pokemon *mon = &gPlayerParty[gPartyMenu.slotId];
+    struct Pokemon *mon = &gParties[B_TRAINER_PLAYER][gPartyMenu.slotId];
 
     PlaySE(SE_SELECT);
 
@@ -8652,7 +8652,7 @@ void IsLastMonThatKnowsSurf(void)
 
 static bool8 IsMonNotFullyHealed(void)
 {
-    struct Pokemon *mon = &gPlayerParty[gPartyMenu.slotId];
+    struct Pokemon *mon = &gParties[B_TRAINER_PLAYER][gPartyMenu.slotId];
     u16 currentHP = GetMonData(mon,MON_DATA_HP);
     u16 maxHP = GetMonData(mon,MON_DATA_MAX_HP);
     u32 status = GetMonData(mon,MON_DATA_STATUS);
@@ -8684,7 +8684,7 @@ static bool8 IsMonNotFullyHealed(void)
 
 void HealMonFromSlotId(void)
 {
-    struct Pokemon *mon = &gPlayerParty[gPartyMenu.slotId];
+    struct Pokemon *mon = &gParties[B_TRAINER_PLAYER][gPartyMenu.slotId];
     u32 i = 0, ppBonuses = 0;
     u8 arg[4] = {0,0,0,0};
 
@@ -8736,7 +8736,7 @@ void Task_Pokeball(u8 taskId)
             return;
         }
         gPartyMenuUseExitCallback = TRUE;
-        GetMonNickname(&gPlayerParty[tMonId], gStringVar1);
+        GetMonNickname(&gParties[B_TRAINER_PLAYER][tMonId], gStringVar1);
         CopyItemName(gSpecialVar_ItemId, gStringVar2);
         StringExpandPlaceholders(gStringVar4, askBallText);
         PlaySE(SE_SELECT);
@@ -8782,7 +8782,7 @@ void Task_Pokeball(u8 taskId)
             tState++;
         break;
     case 5:
-        SetMonData(&gPlayerParty[tMonId], MON_DATA_POKEBALL, &tNewBall);
+        SetMonData(&gParties[B_TRAINER_PLAYER][tMonId], MON_DATA_POKEBALL, &tNewBall);
         RemoveBagItem(gSpecialVar_ItemId, 1);
         gTasks[taskId].func = Task_ClosePartyMenu;
         break;
@@ -8795,7 +8795,7 @@ void ItemUseCB_Pokeball(u8 taskId, TaskFunc task)
 
     tState = 0;
     tMonId = gPartyMenu.slotId;
-    tOldBall = GetMonData(&gPlayerParty[tMonId], MON_DATA_POKEBALL);
+    tOldBall = GetMonData(&gParties[B_TRAINER_PLAYER][tMonId], MON_DATA_POKEBALL);
     tNewBall = ItemIdToBallId(gSpecialVar_ItemId);
     SetWordTaskArg(taskId, tOldFunc, (uintptr_t)(gTasks[taskId].func));
     gTasks[taskId].func = Task_Pokeball;
@@ -8840,7 +8840,7 @@ void InitPartyMenuForPokevialFromField(u8 taskId)
 
 static void UsePokevial(u8 taskId)
 {
-    struct Pokemon *mon = &gPlayerParty[gPartyMenu.slotId];
+    struct Pokemon *mon = &gParties[B_TRAINER_PLAYER][gPartyMenu.slotId];
     u16 hp = 0, maxHP = 0;
 
     if (GetMonData(mon, MON_DATA_SPECIES) == SPECIES_NONE)
@@ -8931,7 +8931,7 @@ void ItemUseCB_UseHexorb(u8 taskId, TaskFunc task)
         return;
     }
 
-    SetPartyMonSelectionActions(gPlayerParty, gPartyMenu.slotId, ACTIONS_HEXORB);
+    SetPartyMonSelectionActions(gParties[B_TRAINER_PLAYER], gPartyMenu.slotId, ACTIONS_HEXORB);
     DisplaySelectionWindow(SELECTWINDOW_HEXORB);
     DisplayPartyMenuStdMessage(PARTY_MSG_WHICH_STATUS);
     gTasks[taskId].data[0] = TASK_NONE;
@@ -8942,7 +8942,7 @@ static void TryHexorbAndPrintResult(u8 taskId)
 {
     s16 *data = gTasks[taskId].data;
     u32 status = Hexorb_ConvertMenuPosToStatus(data[0]);
-    struct Pokemon *mon = &gPlayerParty[gPartyMenu.slotId];
+    struct Pokemon *mon = &gParties[B_TRAINER_PLAYER][gPartyMenu.slotId];
     enum HexorbResultCodes result = (Hexorb_TryInflictStatus(mon, status));
 
     PartyMenuRemoveWindow(&sPartyMenuInternal->windowId[0]);

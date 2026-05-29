@@ -10211,7 +10211,7 @@ void MoveFirstBoxPokemon(void) // @Kurausukun
     {
         u16 boxNum = position / IN_BOX_COUNT;
         u16 boxIndex = position - (boxNum * IN_BOX_COUNT);
-        BoxMonAtToMon(boxNum, boxIndex, &gPlayerParty[0]);
+        BoxMonAtToMon(boxNum, boxIndex, &gParties[B_TRAINER_PLAYER][0]);
         PurgeMonOrBoxMon(boxNum, boxIndex);
     }
 }

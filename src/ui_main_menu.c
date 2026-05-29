@@ -796,14 +796,14 @@ static void CreateIconShadow(void)
     sMainMenuDataPtr->iconBoxSpriteIds[4] = CreateSprite(&sSpriteTemplate_IconBox, ICON_BOX_1_START_X + (ICON_BOX_X_DIFFERENCE * 1), ICON_BOX_1_START_Y + (ICON_BOX_Y_DIFFERENCE * 1), 2);
     sMainMenuDataPtr->iconBoxSpriteIds[5] = CreateSprite(&sSpriteTemplate_IconBox, ICON_BOX_1_START_X + (ICON_BOX_X_DIFFERENCE * 2), ICON_BOX_1_START_Y + (ICON_BOX_Y_DIFFERENCE * 1), 2);
 
-    for(i = 0; i < gPlayerPartyCount; i++)
+    for(i = 0; i < gPartiesCount[B_TRAINER_PLAYER]; i++)
     {
         gSprites[sMainMenuDataPtr->iconBoxSpriteIds[i]].invisible = FALSE;
         StartSpriteAnim(&gSprites[sMainMenuDataPtr->iconBoxSpriteIds[i]], 0);
         gSprites[sMainMenuDataPtr->iconBoxSpriteIds[i]].oam.priority = 1;
     }
 
-    for(i = gPlayerPartyCount; i < 6; i++) // Hide Shadows For Mons that don't exist
+    for(i = gPartiesCount[B_TRAINER_PLAYER]; i < 6; i++) // Hide Shadows For Mons that don't exist
     {
         gSprites[sMainMenuDataPtr->iconBoxSpriteIds[i]].invisible = TRUE;
     }
@@ -814,7 +814,7 @@ static void CreateIconShadow(void)
 static void DestroyIconShadow(void)
 {
     u8 i = 0;
-    for(i = 0; i < gPlayerPartyCount; i++)
+    for(i = 0; i < gPartiesCount[B_TRAINER_PLAYER]; i++)
     {
         DestroySprite(&gSprites[sMainMenuDataPtr->iconBoxSpriteIds[i]]);
         sMainMenuDataPtr->iconBoxSpriteIds[i] = SPRITE_NONE;
@@ -823,7 +823,7 @@ static void DestroyIconShadow(void)
 
 static u32 GetHPEggCyclePercent(u32 partyIndex) // Random HP function from psf's hack written by Rioluwott
 {
-    struct Pokemon *mon = &gPlayerParty[partyIndex];
+    struct Pokemon *mon = &gParties[B_TRAINER_PLAYER][partyIndex];
     if (!GetMonData(mon, MON_DATA_IS_EGG))
         return ((GetMonData(mon, MON_DATA_HP)) * 100 / (GetMonData(mon,MON_DATA_MAX_HP)));
     else
@@ -836,7 +836,7 @@ static void CreatePartyMonIcons(void)
     s16 x = ICON_BOX_1_START_X;
     s16 y = ICON_BOX_1_START_Y;
     LoadMonIconPalettes();
-    for(i = 0; i < gPlayerPartyCount; i++)
+    for(i = 0; i < gPartiesCount[B_TRAINER_PLAYER]; i++)
     {   
         switch (i) // choose position for each icon
         {
@@ -866,7 +866,7 @@ static void CreatePartyMonIcons(void)
                 break;
         }
 
-        sMainMenuDataPtr->iconMonSpriteIds[i] = CreateMonIcon(GetMonData(&gPlayerParty[i], MON_DATA_SPECIES_OR_EGG), SpriteCB_MonIcon, x, y - 2, 0, GetMonData(&gPlayerParty[i], MON_DATA_PERSONALITY));
+        sMainMenuDataPtr->iconMonSpriteIds[i] = CreateMonIcon(GetMonData(&gParties[B_TRAINER_PLAYER][i], MON_DATA_SPECIES_OR_EGG), SpriteCB_MonIcon, x, y - 2, 0, GetMonData(&gParties[B_TRAINER_PLAYER][i], MON_DATA_PERSONALITY));
         gSprites[sMainMenuDataPtr->iconMonSpriteIds[i]].oam.priority = 0;
 
         if (GetHPEggCyclePercent(i) == 0)

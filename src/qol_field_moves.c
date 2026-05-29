@@ -354,7 +354,7 @@ bool32 PartyCanUseFieldMove(u32 fieldMove, bool32 doUnlockedCheck)
 
     for (i = 0; i < PARTY_SIZE; i++)
     {
-        mon = &gPlayerParty[i];
+        mon = &gParties[B_TRAINER_PLAYER][i];
         species = GetMonData(mon, MON_DATA_SPECIES, NULL);
 
         if (species == SPECIES_NONE)

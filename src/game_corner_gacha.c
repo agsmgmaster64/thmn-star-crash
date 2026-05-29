@@ -2546,21 +2546,21 @@ static void GachaMain(u8 taskId)
     case STATE_POKEBALL_ARRIVE_WAIT:
         if (gSprites[sGacha->bouncingPokeballSpriteId].callback == SpriteCallbackDummy)
         {
-            CreateRandomMon(&gEnemyParty[0], sGacha->CalculatedSpecies, GetSpeciesGachaLevel());
-            gSpecialVar_Result = GiveCapturedMonToPlayer(&gEnemyParty[0]);
+            CreateRandomMon(&gParties[B_TRAINER_OPPONENT_A][0], sGacha->CalculatedSpecies, GetSpeciesGachaLevel());
+            gSpecialVar_Result = GiveCapturedMonToPlayer(&gParties[B_TRAINER_OPPONENT_A][0]);
             VarSet(VAR_TEMP_TRANSFERRED_SPECIES, sGacha->CalculatedSpecies);
             GetSetPokedexFlag(SpeciesToNationalPokedexNum(sGacha->CalculatedSpecies), FLAG_SET_SEEN);
-            HandleSetPokedexFlag(SpeciesToNationalPokedexNum(sGacha->CalculatedSpecies), FLAG_SET_CAUGHT, GetMonData(&gEnemyParty[0], MON_DATA_PERSONALITY));
-            LoadPalette(GetMonFrontSpritePal(&gEnemyParty[0]), OBJ_PLTT_ID(2), PLTT_SIZE_4BPP);
+            HandleSetPokedexFlag(SpeciesToNationalPokedexNum(sGacha->CalculatedSpecies), FLAG_SET_CAUGHT, GetMonData(&gParties[B_TRAINER_OPPONENT_A][0], MON_DATA_PERSONALITY));
+            LoadPalette(GetMonFrontSpritePal(&gParties[B_TRAINER_OPPONENT_A][0]), OBJ_PLTT_ID(2), PLTT_SIZE_4BPP);
             SetMultiuseSpriteTemplateToPokemon(sGacha->CalculatedSpecies, B_POSITION_OPPONENT_LEFT);
-            sGacha->monSpriteId = CreateMonPicSprite_Affine(sGacha->CalculatedSpecies, GetMonData(&gEnemyParty[0], MON_DATA_IS_SHINY), GetMonData(&gEnemyParty[0], MON_DATA_PERSONALITY), MON_PIC_AFFINE_FRONT, 120, 60, 14, TAG_NONE);
+            sGacha->monSpriteId = CreateMonPicSprite_Affine(sGacha->CalculatedSpecies, GetMonData(&gParties[B_TRAINER_OPPONENT_A][0], MON_DATA_IS_SHINY), GetMonData(&gParties[B_TRAINER_OPPONENT_A][0], MON_DATA_PERSONALITY), MON_PIC_AFFINE_FRONT, 120, 60, 14, TAG_NONE);
             gSprites[sGacha->monSpriteId].callback = SpriteCB_Null;
             gSprites[sGacha->monSpriteId].oam.priority = 0;
             gSprites[sGacha->monSpriteId].invisible = TRUE;
             HandleLoadSpecialPokePic(TRUE,
                                         gMonSpritesGfxPtr->spritesGfx[B_POSITION_OPPONENT_LEFT],
                                         sGacha->CalculatedSpecies,
-                                        GetMonData(&gEnemyParty[0], MON_DATA_PERSONALITY));
+                                        GetMonData(&gParties[B_TRAINER_OPPONENT_A][0], MON_DATA_PERSONALITY));
             sGacha->state++;
         }
         break;

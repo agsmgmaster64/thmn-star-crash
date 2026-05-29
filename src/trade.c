@@ -3379,9 +3379,9 @@ static void BufferTradeSceneStrings(void)
     }
     else
     {
-        GetMonData(&gEnemyParty[0], MON_DATA_OT_NAME, gStringVar1);
-        ConvertInternationalString(gStringVar1, GetMonData(&gEnemyParty[0], MON_DATA_LANGUAGE));
-        GetMonData(&gEnemyParty[0], MON_DATA_NICKNAME, name);
+        GetMonData(&gParties[B_TRAINER_OPPONENT_A][0], MON_DATA_OT_NAME, gStringVar1);
+        ConvertInternationalString(gStringVar1, GetMonData(&gParties[B_TRAINER_OPPONENT_A][0], MON_DATA_LANGUAGE));
+        GetMonData(&gParties[B_TRAINER_OPPONENT_A][0], MON_DATA_NICKNAME, name);
         if (gSpecialVar_0x8004 == PC_MON_CHOSEN)
             GetMonData(&gParties[B_TRAINER_OPPONENT_A][TRADEMON_FROM_PC], MON_DATA_NICKNAME, name);
         else
@@ -4657,7 +4657,7 @@ static void CreateRareWonderTradePokemonInternal(u8 rareWonderTradeId)
 {
     const struct RareWonderTrade *wonderTrade = &sRareWonderTradeInfo[rareWonderTradeId];
 
-    struct Pokemon *pokemon = &gEnemyParty[0];
+    struct Pokemon *pokemon = &gParties[B_TRAINER_OPPONENT_A][0];
 
     CreateMon(pokemon, wonderTrade->species, wonderTrade->level, wonderTrade->personality, OTID_STRUCT_PRESET(wonderTrade->otId));
     GiveMonInitialMoveset(pokemon);
@@ -4687,7 +4687,7 @@ static void CreateRareWonderTradePokemonInternal(u8 rareWonderTradeId)
     {
         SetMonData(pokemon, MON_DATA_HELD_ITEM, &wonderTrade->heldItem);
     }
-    CalculateMonStats(&gEnemyParty[0]);
+    CalculateMonStats(&gParties[B_TRAINER_OPPONENT_A][0]);
 }
 
 static void GetInGameTradeMail(struct Mail *mail, const struct InGameTrade *trade)
