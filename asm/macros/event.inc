@@ -3093,8 +3093,7 @@
 	.endm
 
 	.macro forcesave
-	callnative Script_ForceSaveGame, requests_effects=1
-	waitstate
+	callnative Script_ForceSaveGame, requests_effects=1, waitstate=1
 	.endm
 
 	@ Makes the trainer unable to see the player if executed.
