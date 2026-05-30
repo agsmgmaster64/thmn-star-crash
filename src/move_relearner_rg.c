@@ -604,21 +604,21 @@ static void DoMoveRelearnerMain(void)
                 {
                 case RELEARN_MODE_PSS_PAGE_BATTLE_MOVES:
                     if (BW_SUMMARY_SCREEN)
-                        ShowPokemonSummaryScreen_BW(SUMMARY_MODE_RELEARNER_BATTLE, gParties[B_TRAINER_PLAYER], sMoveRelearnerStruct->partyMon, gParties[B_TRAINER_PLAYER]Count - 1, gInitialSummaryScreenCallback);
+                        ShowPokemonSummaryScreen_BW(SUMMARY_MODE_RELEARNER_BATTLE, gParties[B_TRAINER_PLAYER], sMoveRelearnerStruct->partyMon, gPartiesCount[B_TRAINER_PLAYER] - 1, gInitialSummaryScreenCallback);
                     else    
-                        ShowPokemonSummaryScreen(SUMMARY_MODE_RELEARNER_BATTLE, gParties[B_TRAINER_PLAYER], sMoveRelearnerStruct->partyMon, gParties[B_TRAINER_PLAYER]Count - 1, gInitialSummaryScreenCallback);
+                        ShowPokemonSummaryScreen(SUMMARY_MODE_RELEARNER_BATTLE, gParties[B_TRAINER_PLAYER], sMoveRelearnerStruct->partyMon, gPartiesCount[B_TRAINER_PLAYER] - 1, gInitialSummaryScreenCallback);
                     break;
                 case RELEARN_MODE_PSS_PAGE_CONTEST_MOVES:
                     if (BW_SUMMARY_SCREEN)
-                        ShowPokemonSummaryScreen_BW(SUMMARY_MODE_RELEARNER_CONTEST, gParties[B_TRAINER_PLAYER], sMoveRelearnerStruct->partyMon, gParties[B_TRAINER_PLAYER]Count - 1, gInitialSummaryScreenCallback);
+                        ShowPokemonSummaryScreen_BW(SUMMARY_MODE_RELEARNER_CONTEST, gParties[B_TRAINER_PLAYER], sMoveRelearnerStruct->partyMon, gPartiesCount[B_TRAINER_PLAYER] - 1, gInitialSummaryScreenCallback);
                     else
-                        ShowPokemonSummaryScreen(SUMMARY_MODE_RELEARNER_CONTEST, gParties[B_TRAINER_PLAYER], sMoveRelearnerStruct->partyMon, gParties[B_TRAINER_PLAYER]Count - 1, gInitialSummaryScreenCallback);
+                        ShowPokemonSummaryScreen(SUMMARY_MODE_RELEARNER_CONTEST, gParties[B_TRAINER_PLAYER], sMoveRelearnerStruct->partyMon, gPartiesCount[B_TRAINER_PLAYER] - 1, gInitialSummaryScreenCallback);
                     break;
                 default:
                     if (BW_SUMMARY_SCREEN)
-                        ShowPokemonSummaryScreen_BW(SUMMARY_MODE_NORMAL, gParties[B_TRAINER_PLAYER], sMoveRelearnerStruct->partyMon, gParties[B_TRAINER_PLAYER]Count - 1, gInitialSummaryScreenCallback);
+                        ShowPokemonSummaryScreen_BW(SUMMARY_MODE_NORMAL, gParties[B_TRAINER_PLAYER], sMoveRelearnerStruct->partyMon, gPartiesCount[B_TRAINER_PLAYER] - 1, gInitialSummaryScreenCallback);
                     else
-                        ShowPokemonSummaryScreen(SUMMARY_MODE_NORMAL, gParties[B_TRAINER_PLAYER], sMoveRelearnerStruct->partyMon, gParties[B_TRAINER_PLAYER]Count - 1, gInitialSummaryScreenCallback);
+                        ShowPokemonSummaryScreen(SUMMARY_MODE_NORMAL, gParties[B_TRAINER_PLAYER], sMoveRelearnerStruct->partyMon, gPartiesCount[B_TRAINER_PLAYER] - 1, gInitialSummaryScreenCallback);
                     break;
                 }
             }

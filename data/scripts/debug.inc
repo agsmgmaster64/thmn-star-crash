@@ -549,8 +549,8 @@ Debug_Follower_NPC_Test_Message:
 	.string "This is a Follower NPC test.$"
 
 Debug_EventScript_Mining_Minigame::
-    fadescreen FADE_TO_BLACK
-    special StartMining
+	fadescreen FADE_TO_BLACK
+	special StartMining
 	release
 	end
 
