@@ -516,3 +516,6 @@ const u32 gMetatileAttributes_Center2[] = INCBIN_U32("data/tilesets/secondary/ce
 
 const u16 gMetatiles_BankCasino[] = INCBIN_U16("data/tilesets/secondary/bank_casino/metatiles.bin");
 const u32 gMetatileAttributes_BankCasino[] = INCBIN_U32("data/tilesets/secondary/bank_casino/metatile_attributes.bin");
+
+const u16 gMetatiles_StarRealm[] = INCBIN_U16("data/tilesets/secondary/star_realm/metatiles.bin");
+const u32 gMetatileAttributes_StarRealm[] = INCBIN_U32("data/tilesets/secondary/star_realm/metatile_attributes.bin");

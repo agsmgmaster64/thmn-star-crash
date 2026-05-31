@@ -5963,7 +5963,7 @@
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_RG_General",
-      "secondary_tileset": "gTileset_Snow2",
+      "secondary_tileset": "gTileset_StarRealm",
       "border_filepath": "data/layouts/TestMap/border.bin",
       "blockdata_filepath": "data/layouts/TestMap/map.bin",
       "layout_version": "emerald"

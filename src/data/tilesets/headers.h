@@ -1942,3 +1942,14 @@ const struct Tileset gTileset_BankCasino =
     .metatileAttributes = gMetatileAttributes_BankCasino,
     .callback = NULL,
 };
+
+const struct Tileset gTileset_StarRealm =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_StarRealm,
+    .palettes = gTilesetPalettes_StarRealm,
+    .metatiles = gMetatiles_StarRealm,
+    .metatileAttributes = gMetatileAttributes_StarRealm,
+    .callback = NULL,
+};
