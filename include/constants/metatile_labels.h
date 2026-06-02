@@ -1057,6 +1057,24 @@
 #define METATILE_SootopolisGym_Ice_Cracked  0x20E
 #define METATILE_SootopolisGym_Stairs       0x207
 
+// gTileset_Swamp
+#define METATILE_Swamp_BridgeOverGrass_Lowered           0x867
+#define METATILE_Swamp_BridgeOverGrass_Raised            0x866
+#define METATILE_Swamp_BridgeOverTrees_Lowered           0x863
+#define METATILE_Swamp_BridgeOverTrees_Raised            0x862
+#define METATILE_Swamp_LongGrassInner_Mud                0x803
+#define METATILE_Swamp_LongGrass_Mud                     0x801
+#define METATILE_Swamp_LongGrass_Root_Mud                0x802
+#define METATILE_Swamp_Mud                               0x811
+#define METATILE_Swamp_SecretBase_LongGrass_BottomLeft   0x898
+#define METATILE_Swamp_SecretBase_LongGrass_BottomMid    0x899
+#define METATILE_Swamp_SecretBase_LongGrass_BottomRight  0x89A
+#define METATILE_Swamp_SecretBase_LongGrass_TopLeft      0x888
+#define METATILE_Swamp_SecretBase_LongGrass_TopMid       0x889
+#define METATILE_Swamp_SecretBase_LongGrass_TopRight     0x88A
+#define METATILE_Swamp_SecretBase_Shrub                  0x891
+#define METATILE_Swamp_SecretBase_ShrubOpen              0x884
+
 // gTileset_TrainerHill
 #define METATILE_TrainerHill_CounterDoor          0x334
 #define METATILE_TrainerHill_Door_Elevator_Lobby  0x32C

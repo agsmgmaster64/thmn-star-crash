@@ -151,19 +151,34 @@ static const struct CutGrassMetatile sCutGrassMetatileMapping[] = {
         .tileset = &gTileset_GeneralFrlg,
     },
     {
-        .naturalTile = METATILE_Fortree_SecretBase_LongGrass_BottomLeft,
-        .trimmedTile = METATILE_Fortree_SecretBase_LongGrass_TopLeft,
-        .tileset = &gTileset_Fortree,
+        .naturalTile = METATILE_Swamp_SecretBase_LongGrass_BottomLeft,
+        .trimmedTile = METATILE_Swamp_SecretBase_LongGrass_TopLeft,
+        .tileset = &gTileset_Swamp,
     },
     {
-        .naturalTile = METATILE_Fortree_SecretBase_LongGrass_BottomMid,
-        .trimmedTile = METATILE_Fortree_SecretBase_LongGrass_TopMid,
-        .tileset = &gTileset_Fortree,
+        .naturalTile = METATILE_Swamp_SecretBase_LongGrass_BottomMid,
+        .trimmedTile = METATILE_Swamp_SecretBase_LongGrass_TopMid,
+        .tileset = &gTileset_Swamp,
     },
     {
-        .naturalTile = METATILE_Fortree_SecretBase_LongGrass_BottomRight,
-        .trimmedTile = METATILE_Fortree_SecretBase_LongGrass_TopRight,
-        .tileset = &gTileset_Fortree,
+        .naturalTile = METATILE_Swamp_SecretBase_LongGrass_BottomRight,
+        .trimmedTile = METATILE_Swamp_SecretBase_LongGrass_TopRight,
+        .tileset = &gTileset_Swamp,
+    },
+    {
+        .naturalTile = METATILE_Swamp_LongGrass_Mud,
+        .trimmedTile = METATILE_Swamp_Mud,
+        .tileset = &gTileset_Swamp,
+    },
+    {
+        .naturalTile = METATILE_Swamp_LongGrass_Root_Mud,
+        .trimmedTile = METATILE_Swamp_Mud,
+        .tileset = &gTileset_Swamp,
+    },
+    {
+        .naturalTile = METATILE_Swamp_LongGrassInner_Mud,
+        .trimmedTile = METATILE_Swamp_Mud,
+        .tileset = &gTileset_Swamp,
     },
     {
         .naturalTile = METATILE_Lavaridge_NormalGrass,

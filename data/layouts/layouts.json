@@ -61,7 +61,7 @@
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_RG_General",
-      "secondary_tileset": "gTileset_Fortree",
+      "secondary_tileset": "gTileset_Swamp",
       "border_filepath": "data/layouts/FortreeCity/border.bin",
       "blockdata_filepath": "data/layouts/FortreeCity/map.bin",
       "layout_version": "emerald"
@@ -451,7 +451,7 @@
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_RG_General",
-      "secondary_tileset": "gTileset_Fortree",
+      "secondary_tileset": "gTileset_Swamp",
       "border_filepath": "data/layouts/Route119/border.bin",
       "blockdata_filepath": "data/layouts/Route119/map.bin",
       "layout_version": "emerald"
@@ -464,7 +464,7 @@
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_RG_General",
-      "secondary_tileset": "gTileset_Fortree",
+      "secondary_tileset": "gTileset_Swamp",
       "border_filepath": "data/layouts/Route120/border.bin",
       "blockdata_filepath": "data/layouts/Route120/map.bin",
       "layout_version": "emerald"
@@ -6990,7 +6990,7 @@
       "border_width": 3,
       "border_height": 2,
       "primary_tileset": "gTileset_GeneralFrlg",
-      "secondary_tileset": "gTileset_ViridianForest",
+      "secondary_tileset": "gTileset_Swamp",
       "border_filepath": "data/layouts/ViridianForest_Frlg/border.bin",
       "blockdata_filepath": "data/layouts/ViridianForest_Frlg/map.bin",
       "layout_version": "frlg"

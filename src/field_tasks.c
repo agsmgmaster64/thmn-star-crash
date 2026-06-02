@@ -455,11 +455,11 @@ static void TryLowerFortreeBridge(s16 x, s16 y)
     {
         switch (MapGridGetMetatileIdAt(x, y))
         {
-        case METATILE_Fortree_BridgeOverGrass_Raised:
-            MapGridSetMetatileIdAt(x, y, METATILE_Fortree_BridgeOverGrass_Lowered);
+        case METATILE_Swamp_BridgeOverGrass_Raised:
+            MapGridSetMetatileIdAt(x, y, METATILE_Swamp_BridgeOverGrass_Lowered);
             break;
-        case METATILE_Fortree_BridgeOverTrees_Raised:
-            MapGridSetMetatileIdAt(x, y, METATILE_Fortree_BridgeOverTrees_Lowered);
+        case METATILE_Swamp_BridgeOverTrees_Raised:
+            MapGridSetMetatileIdAt(x, y, METATILE_Swamp_BridgeOverTrees_Lowered);
             break;
         }
     }
@@ -472,11 +472,11 @@ static void TryRaiseFortreeBridge(s16 x, s16 y)
     {
         switch (MapGridGetMetatileIdAt(x, y))
         {
-        case METATILE_Fortree_BridgeOverGrass_Lowered:
-            MapGridSetMetatileIdAt(x, y, METATILE_Fortree_BridgeOverGrass_Raised);
+        case METATILE_Swamp_BridgeOverGrass_Lowered:
+            MapGridSetMetatileIdAt(x, y, METATILE_Swamp_BridgeOverGrass_Raised);
             break;
-        case METATILE_Fortree_BridgeOverTrees_Lowered:
-            MapGridSetMetatileIdAt(x, y, METATILE_Fortree_BridgeOverTrees_Raised);
+        case METATILE_Swamp_BridgeOverTrees_Lowered:
+            MapGridSetMetatileIdAt(x, y, METATILE_Swamp_BridgeOverTrees_Raised);
             break;
         }
     }
