@@ -155,7 +155,7 @@ const struct SpeciesInfo gSpeciesInfoMiscellaneous[] =
         .palette = gMonPalette_Basiney,
         .shinyPalette = gMonShinyPalette_Basiney,
         .iconSprite = gMonIcon_Basiney,
-        .iconPalIndex = 3,
+        .iconPalIndex = 5,
         SHADOW(2, 5, SHADOW_SIZE_L)
         FOOTPRINT(Basiney)
         .levelUpLearnset = sBasineyLevelUpLearnset,
@@ -211,7 +211,7 @@ const struct SpeciesInfo gSpeciesInfoMiscellaneous[] =
         .palette = gMonPalette_Blissea,
         .shinyPalette = gMonShinyPalette_Blissea,
         .iconSprite = gMonIcon_Blissea,
-        .iconPalIndex = 3,
+        .iconPalIndex = 5,
         SHADOW(0, 8, SHADOW_SIZE_L)
         FOOTPRINT(Blissea)
         .levelUpLearnset = sBlisseaLevelUpLearnset,
@@ -265,7 +265,7 @@ const struct SpeciesInfo gSpeciesInfoMiscellaneous[] =
         .palette = gMonPalette_Blissea,
         .shinyPalette = gMonShinyPalette_Blissea,
         .iconSprite = gMonIcon_Blissea,
-        .iconPalIndex = 3,
+        .iconPalIndex = 5,
         SHADOW(0, 8, SHADOW_SIZE_L)
         FOOTPRINT(Blissea)
         .teachingType = TM_ILLITERATE,

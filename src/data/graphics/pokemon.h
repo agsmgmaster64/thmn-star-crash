@@ -4961,6 +4961,38 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u8 gMonFootprint_Saki[] = INCGFX_U8("graphics/pokemon/_add/th/saki/normal/footprint.png", ".1bpp");
 #endif //P_FOOTPRINTS
 
+    const u32 gMonFrontPic_CMike[] = INCGFX_U32("graphics/pokemon/_add/th/mike/chibi/anim_front.png", ".4bpp.smol");
+    const u16 gMonPalette_CMike[] = INCGFX_U16("graphics/pokemon/_add/th/mike/chibi/normal.pal", ".gbapal");
+    const u32 gMonBackPic_CMike[] = INCGFX_U32("graphics/pokemon/_add/th/mike/chibi/back.png", ".4bpp.smol");
+    const u16 gMonShinyPalette_CMike[] = INCGFX_U16("graphics/pokemon/_add/th/mike/chibi/shiny.pal", ".gbapal");
+    const u8 gMonIcon_CMike[] = INCGFX_U8("graphics/pokemon/_add/th/mike/chibi/icon.png", ".4bpp");
+#if P_FOOTPRINTS
+    const u8 gMonFootprint_CMike[] = INCGFX_U8("graphics/pokemon/_add/th/mike/chibi/footprint.png", ".1bpp");
+#endif //P_FOOTPRINTS
+#if OW_POKEMON_OBJECT_EVENTS
+    const u32 gObjectEventPic_CMike[] = INCGFX_COMP("graphics/pokemon/_add/th/mike/chibi/overworld.png", ".4bpp", "-mwidth 4 -mheight 4");
+#if OW_PKMN_OBJECTS_SHARE_PALETTES == FALSE
+    const u16 gOverworldPalette_CMike[] = INCGFX_U16("graphics/pokemon/_add/th/mike/chibi/overworld_normal.pal", ".gbapal");
+    const u16 gShinyOverworldPalette_CMike[] = INCGFX_U16("graphics/pokemon/_add/th/mike/chibi/overworld_shiny.pal", ".gbapal");
+#endif //OW_PKMN_OBJECTS_SHARE_PALETTES
+#endif //OW_POKEMON_OBJECT_EVENTS
+
+    const u32 gMonFrontPic_Mike[] = INCGFX_U32("graphics/pokemon/_add/th/mike/normal/anim_front.png", ".4bpp.smol");
+    const u16 gMonPalette_Mike[] = INCGFX_U16("graphics/pokemon/_add/th/mike/normal/normal.pal", ".gbapal");
+    const u32 gMonBackPic_Mike[] = INCGFX_U32("graphics/pokemon/_add/th/mike/normal/back.png", ".4bpp.smol");
+    const u16 gMonShinyPalette_Mike[] = INCGFX_U16("graphics/pokemon/_add/th/mike/normal/shiny.pal", ".gbapal");
+    const u8 gMonIcon_Mike[] = INCGFX_U8("graphics/pokemon/_add/th/mike/normal/icon.png", ".4bpp");
+#if P_FOOTPRINTS
+    const u8 gMonFootprint_Mike[] = INCGFX_U8("graphics/pokemon/_add/th/mike/normal/footprint.png", ".1bpp");
+#endif //P_FOOTPRINTS
+#if OW_POKEMON_OBJECT_EVENTS
+    const u32 gObjectEventPic_Mike[] = INCGFX_COMP("graphics/pokemon/_add/th/mike/normal/overworld.png", ".4bpp", "-mwidth 4 -mheight 4");
+#if OW_PKMN_OBJECTS_SHARE_PALETTES == FALSE
+    const u16 gOverworldPalette_Mike[] = INCGFX_U16("graphics/pokemon/_add/th/mike/normal/overworld_normal.pal", ".gbapal");
+    const u16 gShinyOverworldPalette_Mike[] = INCGFX_U16("graphics/pokemon/_add/th/mike/normal/overworld_shiny.pal", ".gbapal");
+#endif //OW_PKMN_OBJECTS_SHARE_PALETTES
+#endif //OW_POKEMON_OBJECT_EVENTS
+
     const u32 gMonFrontPic_CTakane[] = INCGFX_U32("graphics/pokemon/_add/th/takane/chibi/anim_front.png", ".4bpp.smol");
     const u16 gMonPalette_CTakane[] = INCGFX_U16("graphics/pokemon/_add/th/takane/chibi/normal.pal", ".gbapal");
     const u32 gMonBackPic_CTakane[] = INCGFX_U32("graphics/pokemon/_add/th/takane/chibi/back.png", ".4bpp.smol");

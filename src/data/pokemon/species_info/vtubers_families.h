@@ -328,7 +328,7 @@ const struct SpeciesInfo gSpeciesInfoVtubers[] =
         .palette = gMonPalette_Kronii,
         .shinyPalette = gMonShinyPalette_Kronii,
         .iconSprite = gMonIcon_Kronii,
-        .iconPalIndex = 3,
+        .iconPalIndex = 5,
         SHADOW(0, 14, SHADOW_SIZE_S)
         FOOTPRINT(Kronii)
         .levelUpLearnset = sCKroniiLevelUpLearnset,
@@ -384,7 +384,7 @@ const struct SpeciesInfo gSpeciesInfoVtubers[] =
         .palette = gMonPalette_Kronii,
         .shinyPalette = gMonShinyPalette_Kronii,
         .iconSprite = gMonIcon_Kronii,
-        .iconPalIndex = 3,
+        .iconPalIndex = 5,
         SHADOW(0, 14, SHADOW_SIZE_S)
         FOOTPRINT(Kronii)
         .levelUpLearnset = sKroniiLevelUpLearnset,

@@ -3,6 +3,196 @@ const struct SpeciesInfo gSpeciesInfoTouhou18[] =
 {
 #endif
 
+    [SPECIES_CHIBI_MIKE] =
+    {
+        .baseHP        = 60,
+        .baseAttack    = 45,
+        .baseDefense   = 50,
+        .baseSpeed     = 80,
+        .baseSpAttack  = 45,
+        .baseSpDefense = 50,
+        .types = MON_TYPES(TYPE_BEAST),
+        .catchRate = 190,
+        .expYield = 74,
+        .evYield_Speed = 1,
+        .itemCommon = ITEM_ASPEAR_BERRY,
+        .itemRare = ITEM_SWIMSUIT,
+        .genderRatio = PERCENT_FEMALE(50),
+        .eggCycles = 20,
+        .friendship = STANDARD_FRIENDSHIP,
+        .growthRate = GROWTH_MEDIUM_FAST,
+        .eggGroups = MON_EGG_GROUPS(EGG_GROUP_HUMAN_LIKE, EGG_GROUP_FIELD),
+        .abilities = { ABILITY_PICKUP, ABILITY_COLLECTOR, ABILITY_SUPER_LUCK },
+        .sourceGame = SOURCE_UM,
+        .noFlip = TRUE,
+        .speciesName = _("CMike"),
+        .cryId = CRY_MIKE,
+        .natDexNum = NATIONAL_DEX_CHIBI_MIKE,
+        .categoryName = _("Lucky Cat"),
+        .height = 3,
+        .weight = 250,
+        .description = COMPOUND_STRING(
+            "When it senses danger, it discharges\n"
+            "positive and negative electricity from its\n"
+            "two antennae. It lives in depths beyond\n"
+            "sunlight's reach."),
+        .pokemonScale = 424,
+        .pokemonOffset = -2,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+        .frontPic = gMonFrontPic_CMike,
+        .frontPicSize = MON_COORDS_SIZE(64, 64),
+        .frontPicYOffset = 0,
+        .frontAnimFrames = sAnims_GenericBlinkingAnim,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
+        .enemyMonElevation = 4,
+        .backPic = gMonBackPic_CMike,
+        .backPicSize = MON_COORDS_SIZE(64, 64),
+        .backPicYOffset = 0,
+        .backAnimId = BACK_ANIM_NONE,
+        .palette = gMonPalette_CMike,
+        .shinyPalette = gMonShinyPalette_CMike,
+        .iconSprite = gMonIcon_CMike,
+        .iconPalIndex = 1,
+        SHADOW(0, 12, SHADOW_SIZE_L)
+        FOOTPRINT(CMike)
+        OVERWORLD(
+            sPicTable_CMike,
+            SIZE_32x32,
+            SHADOW_SIZE_M,
+            TRACKS_FOOT,
+            sAnimTable_Following,
+            gOverworldPalette_CMike,
+            gShinyOverworldPalette_CMike
+        )
+        .levelUpLearnset = sCMikeLevelUpLearnset,
+        .teachableLearnset = sCMikeTeachableLearnset,
+        // .eggMoveLearnset = sCMikeEggMoveLearnset,
+        .evolutions = EVOLUTION({EVO_LEVEL, 28, SPECIES_NORMAL_MIKE},
+                                {EVO_ITEM, ITEM_NEUTRAL_HEART, SPECIES_NORMAL_MIKE, CONDITIONS({IF_PAST_LEVEL, 28})}),
+    },
+
+    [SPECIES_NORMAL_MIKE] =
+    {
+        .baseHP        = 80,
+        .baseAttack    = 70,
+        .baseDefense   = 75,
+        .baseSpeed     = 110,
+        .baseSpAttack  = 70,
+        .baseSpDefense = 75,
+        .types = MON_TYPES(TYPE_BEAST),
+        .catchRate = 45,
+        .expYield = 208,
+        .evYield_Speed = 2,
+        .itemRare = ITEM_DONATION_BOX,
+        .genderRatio = PERCENT_FEMALE(50),
+        .eggCycles = 20,
+        .friendship = STANDARD_FRIENDSHIP,
+        .growthRate = GROWTH_MEDIUM_FAST,
+        .eggGroups = MON_EGG_GROUPS(EGG_GROUP_HUMAN_LIKE, EGG_GROUP_FIELD),
+        .abilities = { ABILITY_PICKUP, ABILITY_COLLECTOR, ABILITY_SUPER_LUCK },
+        .sourceGame = SOURCE_UM,
+        .noFlip = TRUE,
+        .speciesName = _("Mike"),
+        .cryId = CRY_MIKE,
+        .natDexNum = NATIONAL_DEX_NORMAL_MIKE,
+        .categoryName = _("Lucky Cat"),
+        .height = 5,
+        .weight = 500,
+        .description = COMPOUND_STRING(
+            "The light-emitting orbs on its back are\n"
+            "very bright. They are formed from a part of\n"
+            "its dorsal fin. This Pokémon illuminates\n"
+            "the inky darkness of deep seas."),
+        .pokemonScale = 269,
+        .pokemonOffset = 6,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+        .frontPic = gMonFrontPic_Mike,
+        .frontPicSize = MON_COORDS_SIZE(64, 64),
+        .frontPicYOffset = 0,
+        .frontAnimFrames = sAnims_GenericBlinkingAnim,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
+        .enemyMonElevation = 0,
+        .backPic = gMonBackPic_Mike,
+        .backPicSize = MON_COORDS_SIZE(64, 64),
+        .backPicYOffset = 0,
+        .backAnimId = BACK_ANIM_NONE,
+        .palette = gMonPalette_Mike,
+        .shinyPalette = gMonShinyPalette_Mike,
+        .iconSprite = gMonIcon_Mike,
+        .iconPalIndex = 1,
+        SHADOW(0, 13, SHADOW_SIZE_M)
+        FOOTPRINT(Mike)
+        OVERWORLD(
+            sPicTable_Mike,
+            SIZE_32x32,
+            SHADOW_SIZE_M,
+            TRACKS_FOOT,
+            sAnimTable_Following,
+            gOverworldPalette_Mike,
+            gShinyOverworldPalette_Mike
+        )
+        .levelUpLearnset = sMikeLevelUpLearnset,
+        .teachableLearnset = sMikeTeachableLearnset,
+    },
+
+    [SPECIES_PLACEHOLD_MIKE] =
+    {
+        .baseHP        = 80,
+        .baseAttack    = 70,
+        .baseDefense   = 75,
+        .baseSpeed     = 110,
+        .baseSpAttack  = 70,
+        .baseSpDefense = 75,
+        .types = MON_TYPES(TYPE_BEAST),
+        .catchRate = 45,
+        .expYield = 208,
+        .evYield_Speed = 2,
+        .itemRare = ITEM_DONATION_BOX,
+        .genderRatio = PERCENT_FEMALE(50),
+        .eggCycles = 20,
+        .friendship = STANDARD_FRIENDSHIP,
+        .growthRate = GROWTH_MEDIUM_FAST,
+        .eggGroups = MON_EGG_GROUPS(EGG_GROUP_HUMAN_LIKE, EGG_GROUP_FIELD),
+        .abilities = { ABILITY_PICKUP, ABILITY_COLLECTOR, ABILITY_SOLAR_POWER },
+        .sourceGame = SOURCE_UM,
+        .noFlip = TRUE,
+        .speciesName = _("PMike"),
+        .cryId = CRY_MIKE,
+        .natDexNum = NATIONAL_DEX_PLACEHOLD_MIKE,
+        .categoryName = _("Yamawaro"),
+        .height = 5,
+        .weight = 500,
+        .description = COMPOUND_STRING(
+            "The light-emitting orbs on its back are\n"
+            "very bright. They are formed from a part of\n"
+            "its dorsal fin. This Pokémon illuminates\n"
+            "the inky darkness of deep seas."),
+        .pokemonScale = 269,
+        .pokemonOffset = 6,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+        .frontPic = gMonFrontPic_Mike,
+        .frontPicSize = MON_COORDS_SIZE(64, 64),
+        .frontPicYOffset = 0,
+        .frontAnimFrames = sAnims_GenericBlinkingAnim,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
+        .enemyMonElevation = 0,
+        .backPic = gMonBackPic_Mike,
+        .backPicSize = MON_COORDS_SIZE(64, 64),
+        .backPicYOffset = 0,
+        .backAnimId = BACK_ANIM_NONE,
+        .palette = gMonPalette_Mike,
+        .shinyPalette = gMonShinyPalette_Mike,
+        .iconSprite = gMonIcon_Mike,
+        .iconPalIndex = 1,
+        SHADOW(0, 13, SHADOW_SIZE_M)
+        FOOTPRINT(Mike)
+        .levelUpLearnset = sMikeLevelUpLearnset,
+        .teachableLearnset = sMikeTeachableLearnset,
+    },
+
     [SPECIES_CHIBI_TAKANE] =
     {
         .baseHP        = 60,

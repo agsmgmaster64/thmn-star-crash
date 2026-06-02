@@ -1381,7 +1381,7 @@ const struct SpeciesInfo gSpeciesInfoTouhou15[] =
         .palette = gMonPalette_CHecatiaEarth,
         .shinyPalette = gMonShinyPalette_CHecatiaEarth,
         .iconSprite = gMonIcon_CHecatiaEarth,
-        .iconPalIndex = 3,
+        .iconPalIndex = 5,
         FOOTPRINT(CHecatiaEarth)
         .levelUpLearnset = sCHecatiaLevelUpLearnset,
         .teachableLearnset = sCHecatiaTeachableLearnset,
@@ -1549,7 +1549,7 @@ const struct SpeciesInfo gSpeciesInfoTouhou15[] =
         .palette = gMonPalette_HecatiaEarth,
         .shinyPalette = gMonShinyPalette_HecatiaEarth,
         .iconSprite = gMonIcon_HecatiaEarth,
-        .iconPalIndex = 3,
+        .iconPalIndex = 5,
         FOOTPRINT(HecatiaEarth)
         .levelUpLearnset = sHecatiaEarthLevelUpLearnset,
         .teachableLearnset = sHecatiaEarthTeachableLearnset,
