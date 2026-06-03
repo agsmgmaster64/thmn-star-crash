@@ -1541,9 +1541,8 @@
 	.4byte \failInstr
 	.endm
 
-	.macro jumpifdamagingball jumpInstr:req
-	callnative BS_JumpIfDamagingBall
-	.4byte \jumpInstr
+	.macro handleballcatcheffects
+	callnative BS_HandleBallCatchEffects
 	.endm
 
 	.macro jumpifpointbattle jumpInstr:req

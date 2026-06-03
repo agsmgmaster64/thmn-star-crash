@@ -10,8 +10,8 @@
 
 static const struct MassOutbreak sPokeOutbreakSpeciesList[OUTBREAK_COUNT] = {
     [OUTBREAK_ID_ROUTE102] = {
-        .species = SPECIES_SEEDOT,
-        .moves = {MOVE_BIDE, MOVE_HARDEN, MOVE_LEECH_SEED},
+        .species = SPECIES_CHIBI_RIN,
+        .moves = {MOVE_BURN_POWDER, MOVE_HARDEN, MOVE_LEECH_SEED},
         .level = 3,
         .probability = 100,
         .duration = 1,
@@ -19,7 +19,7 @@ static const struct MassOutbreak sPokeOutbreakSpeciesList[OUTBREAK_COUNT] = {
 
     },
     [OUTBREAK_ID_ROUTE114] = {
-        .species = SPECIES_NUZLEAF,
+        .species = SPECIES_BEESINEY,
         .moves = {MOVE_HARDEN, MOVE_GROWTH, MOVE_NATURE_POWER, MOVE_LEECH_SEED},
         .level = 15,
         .probability = 50,
@@ -27,7 +27,7 @@ static const struct MassOutbreak sPokeOutbreakSpeciesList[OUTBREAK_COUNT] = {
         .location = MAP_ROUTE114,
     },
     [OUTBREAK_ID_ROUTE117] = {
-        .species = SPECIES_SEEDOT,
+        .species = SPECIES_CHIBI_BIJOU,
         .moves = {MOVE_HARDEN, MOVE_GROWTH, MOVE_NATURE_POWER, MOVE_LEECH_SEED},
         .level = 13,
         .probability = 50,
@@ -35,7 +35,7 @@ static const struct MassOutbreak sPokeOutbreakSpeciesList[OUTBREAK_COUNT] = {
         .location = MAP_ROUTE117,
     },
     [OUTBREAK_ID_ROUTE120] = {
-        .species = SPECIES_SEEDOT,
+        .species = SPECIES_CHIBI_APPLE,
         .moves = {MOVE_GIGA_DRAIN, MOVE_FRUSTRATION, MOVE_SOLAR_BEAM, MOVE_LEECH_SEED},
         .level = 25,
         .probability = 50,
@@ -43,7 +43,7 @@ static const struct MassOutbreak sPokeOutbreakSpeciesList[OUTBREAK_COUNT] = {
         .location = MAP_ROUTE120,
     },
     [OUTBREAK_ID_ROUTE116] = {
-        .species = SPECIES_SKITTY,
+        .species = SPECIES_CHIBI_MIKE,
         .moves = {MOVE_GROWL, MOVE_TACKLE, MOVE_TAIL_WHIP, MOVE_ATTRACT},
         .level = 8,
         .probability = 50,
