@@ -3,6 +3,7 @@
   "name": "CaveLikeCarpet",
   "layout": "LAYOUT_CAVE_LIKE_CARPET",
   "music": "MUS_ZGS_DARK_BLOW_HOLE",
+  "region": "REGION_HOENN",
   "region_map_section": "MAPSEC_ABANDONED_SHIP",
   "requires_flash": false,
   "weather": "WEATHER_NONE",

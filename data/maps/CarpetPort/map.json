@@ -3,6 +3,7 @@
   "name": "CarpetPort",
   "layout": "LAYOUT_CARPET_PORT",
   "music": "MUS_ZGS_SEVII_123",
+  "region": "REGION_HOENN",
   "region_map_section": "MAPSEC_THREE_ISLE_PORT",
   "requires_flash": false,
   "weather": "WEATHER_NONE",

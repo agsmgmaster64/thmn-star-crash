@@ -3,6 +3,7 @@
   "name": "Yogyakarta",
   "layout": "LAYOUT_YOGYAKARTA",
   "music": "MUS_DUMMY",
+  "region": "REGION_HOENN",
   "region_map_section": "MAPSEC_ABANDONED_SHIP",
   "requires_flash": false,
   "weather": "WEATHER_NONE",

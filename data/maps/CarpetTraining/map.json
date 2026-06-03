@@ -3,6 +3,7 @@
   "name": "CarpetTraining",
   "layout": "LAYOUT_CARPET_TRAINING",
   "music": "MUS_WLD_GAME_CORNER",
+  "region": "REGION_HOENN",
   "region_map_section": "MAPSEC_ABANDONED_SHIP",
   "requires_flash": false,
   "weather": "WEATHER_NONE",

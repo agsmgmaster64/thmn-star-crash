@@ -3,6 +3,7 @@
   "name": "ApartmentLikeCarpet",
   "layout": "LAYOUT_APARTMENT_LIKE_CARPET",
   "music": "MUS_DUMMY",
+  "region": "REGION_HOENN",
   "region_map_section": "MAPSEC_TREASURE_BEACH",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
