@@ -1912,9 +1912,9 @@ static void Cmd_resultmessage(void)
                 stringId = STRINGID_EXTREMELYEFFECTIVE;
             }
             if (stringId == STRINGID_EXTREMELYEFFECTIVE || stringId == STRINGID_EXTREMELYEFFECTIVETWOFOES)
-                TryInitializeTrainerSlidePlayerLandsFirstSuperEffectiveHit(gBattlerTarget);
+                TryInitializeTrainerSlideLandsFirstSuperEffectiveHit(gBattlerTarget, gBattlerAttacker);
             if (stringId == STRINGID_EXTREMELYEFFECTIVETWOFOES)
-                TryInitializeTrainerSlidePlayerLandsFirstSuperEffectiveHit(BATTLE_PARTNER(gBattlerTarget));
+                TryInitializeTrainerSlideLandsFirstSuperEffectiveHit(BATTLE_PARTNER(gBattlerTarget), gBattlerAttacker);
             break;
         case MOVE_RESULT_MOSTLY_INEFFECTIVE:
             if (IsDoubleSpreadMove())

@@ -62,25 +62,13 @@ static const u8* const sTrainerSlides[DIFFICULTY_COUNT][TRAINER_PARTNER(PARTNER_
     {
         [TRAINER_ROXANNE_1] =
         {
-            [TRAINER_SLIDE_LAST_SWITCHIN] = COMPOUND_STRING("Uh oh."),
-            [TRAINER_SLIDE_LAST_LOW_HP] = COMPOUND_STRING("I'm in danger."),
+            [TRAINER_SLIDE_OPPONENT_LAST_SWITCHIN] = COMPOUND_STRING("Uh oh."),
+            [TRAINER_SLIDE_OPPONENT_LAST_LOW_HP] = COMPOUND_STRING("I'm in danger."),
         },
         [TRAINER_MAY_RUSTBORO_TREECKO] =
         {
-            [TRAINER_SLIDE_LAST_SWITCHIN] = COMPOUND_STRING("You certainly are stronger than I thought!"),
-            [TRAINER_SLIDE_LAST_LOW_HP] = COMPOUND_STRING("Getting close, huh?"),
-        },
-        [TRAINER_MAY_RUSTBORO_TORCHIC] =
-        {
-            [TRAINER_SLIDE_BEFORE_FIRST_TURN] = COMPOUND_STRING("Alright, show us what you got here!"),
-            [TRAINER_SLIDE_LAST_SWITCHIN] = COMPOUND_STRING("See, you're getting the hang of this!"),
-            [TRAINER_SLIDE_LAST_LOW_HP] = COMPOUND_STRING("You're almost there!"),
-        },
-        [TRAINER_MAY_RUSTBORO_MUDKIP] =
-        {
-            [TRAINER_SLIDE_BEFORE_FIRST_TURN] = COMPOUND_STRING("I hope you really are skillful here."),
-            [TRAINER_SLIDE_LAST_SWITCHIN] = COMPOUND_STRING("Hmm, down to my last Puppet, huh."),
-            [TRAINER_SLIDE_LAST_LOW_HP] = COMPOUND_STRING("This is certainly unexpected."),
+            [TRAINER_SLIDE_OPPONENT_LAST_SWITCHIN] = COMPOUND_STRING("You certainly are stronger than I thought!"),
+            [TRAINER_SLIDE_OPPONENT_LAST_LOW_HP] = COMPOUND_STRING("Getting close, huh?"),
         },
     },
 };
