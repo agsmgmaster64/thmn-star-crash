@@ -8,7 +8,7 @@ ASSUMPTIONS
 
 SINGLE_BATTLE_TEST("Gastro Acid fails if target has a banned ability")
 {
-    u32 species;
+    enum Species species;
     enum Ability ability;
 
     PARAMETRIZE { species = SPECIES_ADVENT_RAN; ability = ABILITY_MULTITYPE; }

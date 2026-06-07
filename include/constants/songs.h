@@ -279,6 +279,8 @@
 #define SE_WLD_FAINT                270
 
 // Music
+#define START_MUS                   350
+
 #define MUS_LITTLEROOT_TEST         350 // MUS_TETSUJI          // Unused, likely a test track.
 #define MUS_GSC_ROUTE38             351 // MUS_FIELD13          // Unused, likely a test track.
 #define MUS_CAUGHT                  352 // MUS_KACHI22
@@ -542,6 +544,9 @@
 #define MUS_CASINO_PLUS_9           609
 #define MUS_DD_UNDERWATER           610
 #define MUS_CASINO_PLUS_GACHA       611
+
+#define END_MUS                     612
+
 
 #define MUS_ROUTE118                0x7FFF  // Map is split into 2 music sections. controlled by GetCurrLocationDefaultMusic().
 

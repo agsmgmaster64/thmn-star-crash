@@ -120,9 +120,9 @@ struct BoxPokemon
     /*0x1E*/ u16 hpLost:14; // 16383 HP.
              u16 shinyModifier:1;
              u16 otGender:1;
-    /*0x20*/ u16 species:11; // 2047 species.
-             u16 teraType:5; // 30 types.
-    /*0x22*/ u16 heldItem:11; // 2047 items.
+    /*0x20*/ enum Species species:11; // 2047 species.
+             enum Type teraType:5; // 30 types.
+    /*0x22*/ enum Item heldItem:11; // 2047 items.
              u16 hpIV:5;
     /*0x24*/ u32 experience:21;
              u32 metLevel:7;
@@ -517,11 +517,11 @@ struct FormChangeContext
     enum Species currentSpecies;
     u16 partyItemUsed;
     u16 multichoiceSelection;
-    u16 heldItem;
-    u16 ability;
+    enum Item heldItem;
+    enum Ability ability;
     u16 learnedMove;
     u32 status;
-    u16 moves[MAX_MON_MOVES];
+    enum Move moves[MAX_MON_MOVES];
     u16 hp;
     u16 maxHP;
     u32 gmaxFactor:1;
@@ -541,10 +541,10 @@ struct Fusion
 {
     u16 fusionStorageIndex;
     enum Item itemId;
-    u16 targetSpecies1;
-    u16 targetSpecies2;
+    enum Species targetSpecies1;
+    enum Species targetSpecies2;
     u16 fusingIntoMon;
-    u16 fusionMove;
+    enum Move fusionMove;
     enum FusionExtraMoveHandling extraMoveHandling;
 };
 
@@ -720,6 +720,7 @@ u32 GetSpeciesBaseStatTotal(enum Species species);
 const struct LevelUpMove *GetSpeciesLevelUpLearnset(enum Species species);
 const u16 *GetSpeciesTeachableLearnset(enum Species species);
 const u16 *GetSpeciesEggMoves(enum Species species);
+bool32 SpeciesHasEggMove(enum Species species, enum Move move);
 const struct Evolution *GetSpeciesEvolutions(enum Species species);
 const u16 *GetSpeciesFormTable(enum Species species);
 const struct FormChange *GetSpeciesFormChanges(enum Species species);
@@ -764,7 +765,6 @@ void MonGainEVs(struct Pokemon *mon, enum Species defeatedSpecies);
 u16 GetMonEVCount(struct Pokemon *mon);
 bool8 TryIncrementMonLevel(struct Pokemon *mon);
 u8 CanLearnTeachableMove(enum Species species, enum Move move);
-u8 GetLevelUpMovesBySpecies(enum Species species, u16 *moves);
 u16 SpeciesToPokedexNum(enum Species species);
 bool32 IsSpeciesInRegionalDex(enum Species species);
 bool32 IsSpeciesInKantoDex(enum Species species);
@@ -831,8 +831,8 @@ void HealPokemon(struct Pokemon *mon);
 void HealBoxPokemon(struct BoxPokemon *boxMon);
 enum Type CheckDynamicMoveType(struct Pokemon *mon, enum Move move, enum BattlerId battler, enum MonState state);
 uq4_12_t GetDynamaxLevelHPMultiplier(u32 dynamaxLevel, bool32 inverseMultiplier);
-u32 GetRegionalFormByRegion(enum Species species, u32 region);
-bool32 IsSpeciesForeignRegionalForm(enum Species species, u32 currentRegion);
+enum Species GetRegionalFormByRegion(enum Species species, enum Region region);
+bool32 IsSpeciesForeignRegionalForm(enum Species species, enum Region currentRegion);
 enum Type GetTeraTypeFromPersonality(struct Pokemon *mon);
 bool8 ShouldSkipFriendshipChange(void);
 struct Pokemon *GetSavedPlayerPartyMon(u32 index);

@@ -8,7 +8,8 @@ ASSUMPTIONS
 
 SINGLE_BATTLE_TEST("Stealth Rock damage on switch in based on typing")
 {
-    u32 species, divisor;
+    enum Species species;
+    u32 divisor;
 
     PARAMETRIZE { species = SPECIES_NORMAL_MARISA; divisor = 2; } // Fire / Flying
     PARAMETRIZE { species = SPECIES_NORMAL_RUMIA; divisor = 4; } // Flying

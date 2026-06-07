@@ -13,5 +13,6 @@ void Script_GetChosenMonDefensiveEVs(void);
 void Script_GetChosenMonOffensiveIVs(void);
 void Script_GetChosenMonDefensiveIVs(void);
 u32 BirchCase_GiveMonParameterized(u16 species, u8 level, u16 item, u8 ball, u8 nature, u8 abilityNum, u8 gender, u16 *evs, u16 *ivs, u16 *moves, bool8 ggMaxFactor, u8 teraType, u8 shinyMode);
+u8 HasEnoughMonsForDoubleBattle2(void);
 
 #endif // GUARD_SCRIPT_POKEMON_UTIL_H

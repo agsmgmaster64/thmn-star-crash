@@ -1,3 +1,4 @@
+
 Pokemart_DefaultItemList::
 	.2byte ITEM_ULTRA_ORB
 	.2byte ITEM_HYPER_POTION
