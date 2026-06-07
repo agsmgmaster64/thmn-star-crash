@@ -736,6 +736,8 @@ static void PrintTeachWhichMoveToStrVar1(bool8 onInit)
     }
 }
 
+#define MAX_LEVEL_UP_MOVES 30
+
 static void InitMoveRelearnerStateVariables(void)
 {
     int i;

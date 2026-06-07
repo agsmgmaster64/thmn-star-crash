@@ -6,7 +6,7 @@
 
 const static enum Ability sForceNatureAbilities[] = {ABILITY_SYNCHRONIZE, ABILITY_NONE};
 const static enum Ability sForceOppositeGenderAbilities[] = {ABILITY_CUTE_CHARM, ABILITY_NONE};
-const static enum Ability sIncreaseHatchingSpeedAbilities[] = {ABILITY_MAGMA_ARMOR, ABILITY_FLAME_BODY, ABILITY_STEAM_ENGINE, ABILITY_NONE};
+const static enum Ability sIncreaseHatchingSpeedAbilities[] = {ABILITY_FIRE_VEIL, ABILITY_FLAME_BODY, ABILITY_STEAM_ENGINE, ABILITY_NONE};
 
 static UNUSED bool32 HasHalfChance(enum Species species);
 static UNUSED bool32 HasTwoThirdsChance(enum Species species);

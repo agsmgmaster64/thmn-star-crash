@@ -1521,7 +1521,7 @@ static void RotomPhone_OverworldMenu_CreateIconSprite(enum RotomPhone_MenuItems 
     iconColumn = spriteId % 2;
     iconRow = spriteId / 2;
 
-    if (GetFlashLevel() > 0 || InBattlePyramid_())
+    if (GetFlashLevel() > 0 || InBattlePyramid())
         flash = TRUE;
 
     if (flash)
@@ -3530,7 +3530,7 @@ static void RotomPhone_StartMenu_CreateRotomFaceSprite(bool32 rotomFade)
         y = 134;
     }
 
-    if ((GetFlashLevel() > 0 || InBattlePyramid_()) && !RotomPhone_StartMenu_IsRotomReality())
+    if ((GetFlashLevel() > 0 || InBattlePyramid()) && !RotomPhone_StartMenu_IsRotomReality())
         flash = TRUE;
 
     if (flash)
