@@ -3,7 +3,6 @@
   "name": "Route104",
   "layout": "LAYOUT_ROUTE104",
   "music": "MUS_ZGS_PARADISE_DEEP_MOUNTAIN",
-  "region": "REGION_HOENN",
   "region_map_section": "MAPSEC_ROUTE_104",
   "requires_flash": false,
   "weather": "WEATHER_SUNNY",
@@ -647,5 +646,6 @@
       "quantity": 0,
       "underfoot": false
     }
-  ]
+  ],
+  "region": "REGION_HOENN"
 }
