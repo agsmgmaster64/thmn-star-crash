@@ -416,7 +416,7 @@ static inline bool32 IsMartTypeOutfit(u8 martType)
     return martType == MART_TYPE_OUTFIT;
 }
 
-static const u16 sShopItemsListDummy[] = { ITEM_NONE };
+static const enum Item sShopItemsListDummy[] = { ITEM_NONE };
 
 static u8 CreateShopMenu(u8 martType)
 {

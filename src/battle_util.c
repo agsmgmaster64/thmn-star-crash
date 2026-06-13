@@ -2057,20 +2057,15 @@ bool32 ChangeTypeBasedOnTerrain(enum BattlerId battler)
     return TRUE;
 }
 
-static inline u8 GetSideFaintCounter(enum BattleSide side)
+u32 GetBattlerSideFaintCounter(enum BattlerId battler)
 {
-    return (side == B_SIDE_PLAYER) ? gBattleResults.playerFaintCounter : gBattleResults.opponentFaintCounter;
-}
-
-static inline u8 GetBattlerSideFaintCounter(enum BattlerId battler)
-{
-    return GetSideFaintCounter(GetBattlerSide(battler));
+    return IsOnPlayerSide(battler) ? gBattleResults.playerFaintCounter : gBattleResults.opponentFaintCounter;
 }
 
 // Supreme Overlord adds a x0.1 damage boost for each fainted ally.
 static inline uq4_12_t GetSupremeOverlordModifier(enum BattlerId battler)
 {
-    return UQ_4_12(1.0) + (PercentToUQ4_12(gBattleStruct->supremeOverlordCounter[battler] * 10));
+    return UQ_4_12(1.0) + (PercentToUQ4_12(gBattleMons[battler].volatiles.supremeOverlordCounter * 10));
 }
 
 bool32 HadMoreThanHalfHpNowDoesnt(enum BattlerId battler)
@@ -2385,10 +2380,27 @@ static bool32 SetStartingHazardStatus(enum Hazards hazard, u32 targetSide, u8 la
     return effect;
 }
 
+static bool32 TryWeatherStartingStatus(enum BattleWeather weather, bool32 isPermanent)
+{
+    if (gBattleWeather & sBattleWeatherInfo[weather].flag)
+        return FALSE;
+
+    gBattleWeather = sBattleWeatherInfo[weather].flag;
+    gBattleCommunication[MULTISTRING_CHOOSER] = sBattleWeatherInfo[weather].moveStartMessage;
+    gBattleScripting.animArg1 = sBattleWeatherInfo[weather].animation;
+
+    if (isPermanent)
+        gBattleStruct->weatherDuration = 0;
+    else
+        gBattleStruct->weatherDuration = 5;
+
+    BattleScriptPushCursorAndCallback(BattleScript_OverworldSSWeatherStarts);
+    return TRUE;
+}
+
 bool32 TryFieldEffects(enum FieldEffectCases caseId)
 {
     bool32 effect = FALSE;
-    bool32 isTerrain = FALSE;
 
     if (gBattleTypeFlags & BATTLE_TYPE_SAFARI)
         return FALSE;
@@ -2404,7 +2416,6 @@ bool32 TryFieldEffects(enum FieldEffectCases caseId)
                         0,
                         &gFieldTimers.terrainTimer, gStartingStatuses.electricTerrain ? 0 : 5);
             gStartingStatuses.electricTerrainTemporary = gStartingStatuses.electricTerrain = FALSE;
-            isTerrain = TRUE;
             if (effect)
             {
                 BattleScriptPushCursorAndCallback(BattleScript_OverworldTerrain);
@@ -2419,7 +2430,6 @@ bool32 TryFieldEffects(enum FieldEffectCases caseId)
                         0,
                         &gFieldTimers.terrainTimer, gStartingStatuses.mistyTerrain ? 0 : 5);
             gStartingStatuses.mistyTerrainTemporary = gStartingStatuses.mistyTerrain = FALSE;
-            isTerrain = TRUE;
             if (effect)
             {
                 BattleScriptPushCursorAndCallback(BattleScript_OverworldTerrain);
@@ -2434,7 +2444,6 @@ bool32 TryFieldEffects(enum FieldEffectCases caseId)
                         0,
                         &gFieldTimers.terrainTimer, gStartingStatuses.grassyTerrain ? 0 : 5);
             gStartingStatuses.grassyTerrainTemporary = gStartingStatuses.grassyTerrain = FALSE;
-            isTerrain = TRUE;
             if (effect)
             {
                 BattleScriptPushCursorAndCallback(BattleScript_OverworldTerrain);
@@ -2449,7 +2458,11 @@ bool32 TryFieldEffects(enum FieldEffectCases caseId)
                         0,
                         &gFieldTimers.terrainTimer, gStartingStatuses.psychicTerrain ? 0 : 5);
             gStartingStatuses.psychicTerrainTemporary = gStartingStatuses.psychicTerrain = FALSE;
-            isTerrain = TRUE;
+            if (effect)
+            {
+                BattleScriptPushCursorAndCallback(BattleScript_OverworldTerrain);
+                return TRUE;
+            }
         }
         else if (gStartingStatuses.holyTerrain || gStartingStatuses.holyTerrainTemporary)
         {
@@ -2459,7 +2472,11 @@ bool32 TryFieldEffects(enum FieldEffectCases caseId)
                         0,
                         &gFieldTimers.terrainTimer, gStartingStatuses.holyTerrain ? 0 : 5);
             gStartingStatuses.holyTerrainTemporary = gStartingStatuses.holyTerrain = FALSE;
-            isTerrain = TRUE;
+            if (effect)
+            {
+                BattleScriptPushCursorAndCallback(BattleScript_OverworldTerrain);
+                return TRUE;
+            }
         }
         else if (gStartingStatuses.trickRoom || gStartingStatuses.trickRoomTemporary)
         {
@@ -2694,14 +2711,48 @@ bool32 TryFieldEffects(enum FieldEffectCases caseId)
             if (effect)
                 return TRUE;
         }
-        if (effect)
+        else if (gStartingStatuses.weatherSun || gStartingStatuses.weatherSunTemporary)
         {
-            if (isTerrain)
-                BattleScriptPushCursorAndCallback(BattleScript_OverworldTerrain);
-            else
-                BattleScriptPushCursorAndCallback(BattleScript_OverworldStatusStarts);
+            bool32 isPermanent = gStartingStatuses.weatherSun ? TRUE : FALSE;
+            gStartingStatuses.weatherSun = gStartingStatuses.weatherSunTemporary = FALSE;
+            if (TryWeatherStartingStatus(BATTLE_WEATHER_SUN, isPermanent))
+                return TRUE;
         }
-
+        else if (gStartingStatuses.weatherRain || gStartingStatuses.weatherRainTemporary)
+        {
+            bool32 isPermanent = gStartingStatuses.weatherRain ? TRUE : FALSE;
+            gStartingStatuses.weatherRain = gStartingStatuses.weatherRainTemporary = FALSE;
+            if (TryWeatherStartingStatus(BATTLE_WEATHER_RAIN, isPermanent))
+                return TRUE;
+        }
+        else if (gStartingStatuses.weatherSandstorm || gStartingStatuses.weatherSandstormTemporary)
+        {
+            bool32 isPermanent = gStartingStatuses.weatherSandstorm ? TRUE : FALSE;
+            gStartingStatuses.weatherSandstorm = gStartingStatuses.weatherSandstormTemporary = FALSE;
+            if (TryWeatherStartingStatus(BATTLE_WEATHER_SANDSTORM, isPermanent))
+                return TRUE;
+        }
+        else if (gStartingStatuses.weatherHail || gStartingStatuses.weatherHailTemporary)
+        {
+            bool32 isPermanent = gStartingStatuses.weatherHail ? TRUE : FALSE;
+            gStartingStatuses.weatherHail = gStartingStatuses.weatherHailTemporary = FALSE;
+            if (TryWeatherStartingStatus(BATTLE_WEATHER_HAIL, isPermanent))
+                return TRUE;
+        }
+        else if (gStartingStatuses.weatherSnow || gStartingStatuses.weatherSnowTemporary)
+        {
+            bool32 isPermanent = gStartingStatuses.weatherSnow ? TRUE : FALSE;
+            gStartingStatuses.weatherSnow = gStartingStatuses.weatherSnowTemporary = FALSE;
+            if (TryWeatherStartingStatus(BATTLE_WEATHER_SNOW, isPermanent))
+                return TRUE;
+        }
+        else if (gStartingStatuses.weatherFog || gStartingStatuses.weatherFogTemporary)
+        {
+            bool32 isPermanent = gStartingStatuses.weatherFog ? TRUE : FALSE;
+            gStartingStatuses.weatherFog = gStartingStatuses.weatherFogTemporary = FALSE;
+            if (TryWeatherStartingStatus(BATTLE_WEATHER_FOG, isPermanent))
+                return TRUE;
+        }
         break;
     case FIELD_EFFECT_OVERWORLD_TERRAIN:   // terrain starting from overworld weather
         if (B_THUNDERSTORM_TERRAIN == TRUE
@@ -3561,8 +3612,8 @@ u32 AbilityBattleEffects(enum AbilityEffect caseID, enum BattlerId battler, enum
         case ABILITY_SUPREME_OVERLORD:
             if (shouldAbilityTrigger)
             {
-                gBattleStruct->supremeOverlordCounter[battler] = min(5, GetBattlerSideFaintCounter(battler));
-                if (gBattleStruct->supremeOverlordCounter[battler] > 0)
+                gBattleMons[battler].volatiles.supremeOverlordCounter = min(5, GetBattlerSideFaintCounter(battler));
+                if (gBattleMons[battler].volatiles.supremeOverlordCounter > 0)
                 {
                     BattleScriptCall(BattleScript_SupremeOverlordActivates);
                     effect++;
@@ -6105,7 +6156,7 @@ bool32 IsBattlerGrounded(enum BattlerId battler, enum Ability ability, enum Hold
     return IsBattlerGroundedInverseCheck(battler, ability, holdEffect, NOT_INVERSE_BATTLE, FALSE);
 }
 
-u32 GetMoveSlot(u16 *moves, enum Move move)
+u32 GetMoveSlot(enum Move *moves, enum Move move)
 {
     u32 i;
 
@@ -6117,7 +6168,7 @@ u32 GetMoveSlot(u16 *moves, enum Move move)
     return i;
 }
 
-u32 GetBattlerWeight(enum BattlerId battler)
+u32 GetBattlerWeight(enum BattlerId battler, enum Ability ability, enum HoldEffect holdEffect)
 {
     u32 weight = GetSpeciesWeight(gBattleMons[battler].species);
 
@@ -6294,11 +6345,15 @@ static inline u32 CalcMoveBasePower(struct DamageContext *ctx)
     u32 moveEffect = GetMoveEffect(move);
     u32 weight, hpFraction, speed;
 
-    if (GetActiveGimmick(battlerAtk) == GIMMICK_Z_MOVE)
+    switch (GetActiveGimmick(battlerAtk))
+    {
+    case GIMMICK_Z_MOVE:
         return GetZMovePower(gCurrentMove);
-
-    if (GetActiveGimmick(battlerAtk) == GIMMICK_DYNAMAX)
+    case GIMMICK_DYNAMAX:
         return GetMaxMovePower(move);
+    default:
+        break;
+    }
 
     switch (moveEffect)
     {
@@ -6390,7 +6445,7 @@ static inline u32 CalcMoveBasePower(struct DamageContext *ctx)
             basePower *= 2;
         break;
     case EFFECT_LOW_KICK:
-        weight = GetBattlerWeight(battlerDef);
+        weight = GetBattlerWeight(battlerDef, ctx->abilities[battlerDef], ctx->holdEffects[battlerDef]);
         for (i = 0; sWeightToDamageTable[i] != 0xFFFF; i += 2)
         {
             if (sWeightToDamageTable[i] > weight)
@@ -6402,7 +6457,7 @@ static inline u32 CalcMoveBasePower(struct DamageContext *ctx)
             basePower = 120;
         break;
     case EFFECT_HEAT_CRASH:
-        weight = GetBattlerWeight(battlerAtk) / GetBattlerWeight(battlerDef);
+        weight = GetBattlerWeight(battlerAtk, ctx->abilities[battlerAtk], ctx->holdEffects[battlerAtk]) / GetBattlerWeight(battlerDef, ctx->abilities[battlerDef], ctx->holdEffects[battlerDef]);
         if (weight >= ARRAY_COUNT(sHeatCrashPowerTable))
             basePower = sHeatCrashPowerTable[ARRAY_COUNT(sHeatCrashPowerTable) - 1];
         else
@@ -6547,6 +6602,20 @@ static inline u32 CalcMoveBasePower(struct DamageContext *ctx)
     if (basePower == 0)
         basePower = 1;
     return basePower;
+}
+
+static bool32 DmgCalc_IsAbilityOnField(enum Ability ability, enum Ability abilities[], enum BattlerId *battler)
+{
+    for (enum BattlerId i = 0; i < gBattlersCount; i++)
+    {
+        if (abilities[i] == ability)
+        {
+            *battler = i;
+            return TRUE;
+        }
+    }
+
+    return FALSE;
 }
 
 static inline u32 CalcMoveBasePowerAfterModifiers(struct DamageContext *ctx)
@@ -6753,27 +6822,35 @@ static inline u32 CalcMoveBasePowerAfterModifiers(struct DamageContext *ctx)
     }
 
     // field abilities
-    if ((IsAbilityOnField(ABILITY_DARK_AURA) && moveType == TYPE_DARK)
-     || (IsAbilityOnField(ABILITY_FAIRY_AURA) && moveType == TYPE_HEART))
+    enum BattlerId fieldAbilityBattler = MAX_BATTLERS_COUNT;
+    if ((moveType == TYPE_DARK && DmgCalc_IsAbilityOnField(ABILITY_DARK_AURA, ctx->abilities, &fieldAbilityBattler))
+     || (moveType == TYPE_HEART && DmgCalc_IsAbilityOnField(ABILITY_FAIRY_AURA, ctx->abilities, &fieldAbilityBattler)))
     {
-        if (IsAbilityOnField(ABILITY_AURA_BREAK))
+        if (ctx->updateFlags)
+            RecordAbilityBattle(fieldAbilityBattler, ctx->abilities[fieldAbilityBattler]);
+
+        if (DmgCalc_IsAbilityOnField(ABILITY_AURA_BREAK, ctx->abilities, &fieldAbilityBattler))
+        {
+            if (ctx->updateFlags)
+                RecordAbilityBattle(fieldAbilityBattler, ctx->abilities[fieldAbilityBattler]);
             modifier = uq4_12_multiply(modifier, UQ_4_12(0.75));
+        }
         else
+        {
             modifier = uq4_12_multiply(modifier, UQ_4_12(1.33));
+        }
+
     }
 
     // attacker partner's abilities
-    if (IsBattlerAlive(BATTLE_PARTNER(battlerAtk)))
+    switch (ctx->abilities[BATTLE_PARTNER(battlerAtk)])
     {
-        switch (GetBattlerAbility(BATTLE_PARTNER(battlerAtk)))
-        {
-        case ABILITY_BATTERY:
-            if (IsBattleMoveSpecial(move))
-                modifier = uq4_12_multiply(modifier, UQ_4_12(1.3));
-            break;
-        default:
-            break;
-        }
+    case ABILITY_BATTERY:
+        if (IsBattleMoveSpecial(move))
+            modifier = uq4_12_multiply(modifier, UQ_4_12(1.3));
+        break;
+    default:
+        break;
     }
 
     // target's abilities
@@ -6998,18 +7075,18 @@ static inline u32 CalcAttackStat(struct DamageContext *ctx)
             modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(1.5));
         break;
     case ABILITY_PLUS:
-        if (IsBattleMoveSpecial(move) && IsBattlerAlive(BATTLE_PARTNER(battlerAtk)))
+        if (IsBattleMoveSpecial(move))
         {
-            enum Ability partnerAbility = GetBattlerAbility(BATTLE_PARTNER(battlerAtk));
+            enum Ability partnerAbility = ctx->abilities[BATTLE_PARTNER(battlerAtk)];
             if (partnerAbility == ABILITY_MINUS
             || (B_PLUS_MINUS_INTERACTION >= GEN_5 && partnerAbility == ABILITY_PLUS))
                 modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(1.5));
         }
         break;
     case ABILITY_MINUS:
-        if (IsBattleMoveSpecial(move) && IsBattlerAlive(BATTLE_PARTNER(battlerAtk)))
+        if (IsBattleMoveSpecial(move))
         {
-            enum Ability partnerAbility = GetBattlerAbility(BATTLE_PARTNER(battlerAtk));
+            enum Ability partnerAbility = ctx->abilities[BATTLE_PARTNER(battlerAtk)];
             if (partnerAbility == ABILITY_PLUS
             || (B_PLUS_MINUS_INTERACTION >= GEN_5 && partnerAbility == ABILITY_MINUS))
                 modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(1.5));
@@ -7109,17 +7186,14 @@ static inline u32 CalcAttackStat(struct DamageContext *ctx)
     }
 
     // ally's abilities
-    if (IsBattlerAlive(BATTLE_PARTNER(battlerAtk)))
+    switch (ctx->abilities[BATTLE_PARTNER(battlerAtk)])
     {
-        switch (GetBattlerAbility(BATTLE_PARTNER(battlerAtk)))
-        {
-        case ABILITY_FLOWER_GIFT:
-            if (gBattleMons[BATTLE_PARTNER(battlerAtk)].species == SPECIES_CHERRIM_SUNSHINE && IsBattlerWeatherAffected(GetBattlerHoldEffect(BATTLE_PARTNER(battlerAtk)), GetWeather(), B_WEATHER_SUN) && IsBattleMovePhysical(move))
-                modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(1.5));
-            break;
-        default:
-            break;
-        }
+    case ABILITY_FLOWER_GIFT:
+        if (gBattleMons[BATTLE_PARTNER(battlerAtk)].species == SPECIES_CHERRIM_SUNSHINE && IsBattlerWeatherAffected(ctx->holdEffects[BATTLE_PARTNER(battlerAtk)], ctx->weather, B_WEATHER_SUN) && IsBattleMovePhysical(move))
+            modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(1.5));
+        break;
+    default:
+        break;
     }
 
     // Ruin field effects
@@ -7297,18 +7371,15 @@ static inline u32 CalcDefenseStat(struct DamageContext *ctx)
     }
 
     // ally's abilities
-    if (IsBattlerAlive(BATTLE_PARTNER(battlerDef)))
+    switch (ctx->abilities[BATTLE_PARTNER(battlerDef)])
     {
-        switch (GetBattlerAbility(BATTLE_PARTNER(battlerDef)))
-        {
-        case ABILITY_FLOWER_GIFT:
-            if (gBattleMons[BATTLE_PARTNER(battlerDef)].species == SPECIES_CHERRIM_SUNSHINE
-             && IsBattlerWeatherAffected(GetBattlerHoldEffect(BATTLE_PARTNER(battlerDef)), ctx->weather, B_WEATHER_SUN) && !usesDefStat)
-                modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(1.5));
-            break;
-        default:
-            break;
-        }
+    case ABILITY_FLOWER_GIFT:
+        if (gBattleMons[BATTLE_PARTNER(battlerDef)].species == SPECIES_CHERRIM_SUNSHINE
+         && IsBattlerWeatherAffected(ctx->holdEffects[BATTLE_PARTNER(battlerDef)], ctx->weather, B_WEATHER_SUN) && !usesDefStat)
+            modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(1.5));
+        break;
+    default:
+        break;
     }
 
     // Ruin field effects
@@ -7960,7 +8031,7 @@ static inline u32 GetCriticalHitOdds(u32 critChance)
     return sCriticalHitOdds[critChance];
 }
 
-static inline u32 IsBattlerBigCloudAffected(enum BattlerId battler, enum HoldEffect holdEffect)
+static inline bool32 IsBattlerBigCloudAffected(enum BattlerId battler, enum HoldEffect holdEffect)
 {
     if (holdEffect == HOLD_EFFECT_BIG_CLOUD)
     {
@@ -7972,7 +8043,7 @@ static inline u32 IsBattlerBigCloudAffected(enum BattlerId battler, enum HoldEff
     return FALSE;
 }
 
-static inline u32 IsBattlerBloomersAffected(enum BattlerId battler, enum HoldEffect holdEffect)
+static inline bool32 IsBattlerBloomersAffected(enum BattlerId battler, enum HoldEffect holdEffect)
 {
     if (holdEffect == HOLD_EFFECT_BLOOMERS)
     {
@@ -8606,7 +8677,7 @@ bool32 IsPartnerMonFromSameTrainer(enum BattlerId battler)
         return !(gBattleTypeFlags & BATTLE_TYPE_MULTI);
 }
 
-bool32 DoesSpeciesUseHoldItemToChangeForm(enum Species species, u16 heldItemId)
+bool32 DoesSpeciesUseHoldItemToChangeForm(enum Species species, enum Item heldItemId)
 {
     u32 i;
     const struct FormChange *formChanges = GetSpeciesFormChanges(species);
@@ -9369,7 +9440,7 @@ void TryRestoreHeldItems(void)
         // Check if held items should be restored after battle based on generation
         if (B_RESTORE_HELD_BATTLE_ITEMS >= GEN_9 || gBattleStruct->itemLost[B_SIDE_PLAYER][i].stolen || returnNPCItems)
         {
-            u16 lostItem = gBattleStruct->itemLost[B_SIDE_PLAYER][i].originalItem;
+            enum Item lostItem = gBattleStruct->itemLost[B_SIDE_PLAYER][i].originalItem;
 
             // Check if the lost item is a berry and the mon is not holding it
             if (GetItemPocket(lostItem) == POCKET_BERRIES && GetMonData(&gParties[B_TRAINER_PLAYER][i], MON_DATA_HELD_ITEM) != lostItem)
@@ -9518,7 +9589,7 @@ u32 GetAttackerWeather(enum HoldEffect holdEffect, enum Ability ability, u32 wea
 }
 
 
-bool32 IsBattlerWeatherAffected(enum HoldEffect holdEffect, u32 weather, u32 weatherFlags)// note: should probably be turned into something like "getbattlerweather", returning weather flags
+bool32 IsBattlerWeatherAffected(enum HoldEffect holdEffect, u32 weather, u32 weatherFlags)
 {
     if (weather & (B_WEATHER_SUN | B_WEATHER_RAIN) && holdEffect == HOLD_EFFECT_UTILITY_UMBRELLA)
         return FALSE;
@@ -9757,9 +9828,9 @@ bool32 MoveHasAdditionalEffectSelf(enum Move move, enum MoveEffect moveEffect)
     return FALSE;
 }
 
-bool32 IsMoveEffectRemoveSpeciesType(enum Move move, enum MoveEffect moveEffect, u32 argument)
+bool32 IsMoveEffectRemoveSpeciesType(enum Move move, enum MoveEffect moveEffect, enum Type type)
 {
-    return (MoveHasAdditionalEffectSelf(move, moveEffect) && GetMoveArgType(move) == argument);
+    return (MoveHasAdditionalEffectSelf(move, moveEffect) && GetMoveArgType(move) == type);
 }
 
 bool32 MoveHasChargeTurnAdditionalEffect(enum Move move)

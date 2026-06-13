@@ -3,8 +3,8 @@
 
 SINGLE_BATTLE_TEST("Zen Mode switches Darmanitan's form when HP is half or less at the end of the turn")
 {
-    u16 standardSpecies, zenSpecies;
-    PARAMETRIZE { standardSpecies = SPECIES_CHIBI_NARUMI;          zenSpecies = SPECIES_DARMANITAN_ZEN; }
+    enum Species standardSpecies, zenSpecies;
+    PARAMETRIZE { standardSpecies = SPECIES_DARMANITAN_STANDARD;          zenSpecies = SPECIES_DARMANITAN_ZEN; }
     PARAMETRIZE { standardSpecies = SPECIES_DARMANITAN_GALAR_STANDARD; zenSpecies = SPECIES_DARMANITAN_GALAR_ZEN; }
 
     GIVEN {
@@ -33,7 +33,7 @@ SINGLE_BATTLE_TEST("Zen Mode switches Darmanitan's form when HP is half or less 
 
 SINGLE_BATTLE_TEST("Zen Mode switches Darmanitan's form to Standard when swapped out")
 {
-    u16 standardSpecies, zenSpecies;
+    enum Species standardSpecies, zenSpecies;
     PARAMETRIZE { standardSpecies = SPECIES_DARMANITAN_STANDARD;          zenSpecies = SPECIES_DARMANITAN_ZEN; }
     PARAMETRIZE { standardSpecies = SPECIES_DARMANITAN_GALAR_STANDARD;    zenSpecies = SPECIES_DARMANITAN_GALAR_ZEN; }
 
@@ -72,8 +72,8 @@ SINGLE_BATTLE_TEST("Zen Mode switches Darmanitan's form to Standard when swapped
 
 SINGLE_BATTLE_TEST("Zen Mode switches Darmanitan's form when HP is healed above half")
 {
-    u16 standardSpecies, zenSpecies;
-    PARAMETRIZE { standardSpecies = SPECIES_CHIBI_NARUMI;          zenSpecies = SPECIES_DARMANITAN_ZEN; }
+    enum Species standardSpecies, zenSpecies;
+    PARAMETRIZE { standardSpecies = SPECIES_DARMANITAN_STANDARD;          zenSpecies = SPECIES_DARMANITAN_ZEN; }
     PARAMETRIZE { standardSpecies = SPECIES_DARMANITAN_GALAR_STANDARD;    zenSpecies = SPECIES_DARMANITAN_GALAR_ZEN; }
 
     GIVEN {

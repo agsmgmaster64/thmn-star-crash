@@ -279,7 +279,7 @@ u32 GetItemCoinPrice(enum Item itemId);
 u32 GetItemBpPrice(enum Item itemId);
 u32 GetItemSellPrice(enum Item itemId);
 bool32 IsHoldEffectChoice(enum HoldEffect holdEffect);
-ShopCriteriaFunc GetItemShopCriteriaFunc(u32 itemId);
-bool32 IsItemShopCriteriaFulfilled(u32 itemId);
+ShopCriteriaFunc GetItemShopCriteriaFunc(enum Item itemId);
+bool32 IsItemShopCriteriaFulfilled(enum Item itemId);
 
 #endif // GUARD_ITEM_H
