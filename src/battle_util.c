@@ -4710,13 +4710,13 @@ u32 AbilityBattleEffects(enum AbilityEffect caseID, enum BattlerId battler, enum
                     if (!(magicianTargets & 1u << targetBattler))
                         continue;
 
-                    if (GetBattlerAbility(targetBattler) == ABILITY_COLLECTOR && IsBattlerAlive(targetBattler))
+                    if (GetBattlerAbility(targetBattler) == ABILITY_COLLECTOR)
                     {
                         effect = FALSE;
                         break;
                     }
 
-                    StealTargetItem(battler, targetBattler);
+                    StealTargetItem(battler, targetBattler, ITEM_NONE);
                     gBattlerAbility = battler;
                     gEffectBattler = targetBattler;
                     BattleScriptCall(BattleScript_MagicianActivates);
