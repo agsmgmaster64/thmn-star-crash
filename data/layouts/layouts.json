@@ -10443,11 +10443,11 @@
     {
       "id": "LAYOUT_TRACEN_ACADEMY",
       "name": "TracenAcademy_Layout",
-      "width": 60,
-      "height": 60,
+      "width": 46,
+      "height": 72,
       "border_width": 2,
       "border_height": 2,
-      "primary_tileset": "gTileset_RG_General",
+      "primary_tileset": "gTileset_GeneralFrlg",
       "secondary_tileset": "gTileset_Swamp",
       "border_filepath": "data/layouts/TracenAcademy/border.bin",
       "blockdata_filepath": "data/layouts/TracenAcademy/map.bin"
