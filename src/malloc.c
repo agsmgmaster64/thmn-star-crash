@@ -210,7 +210,7 @@ void *Alloc_(u32 size, const char *location)
     {
         if (TESTING)
             PrintHeap();
-        errorf("%s: out of memory trying to allocate %d bytes", location, size);
+        fatalf("%s: out of memory trying to allocate %d bytes", location, size);
     }
     return p;
 }
@@ -227,7 +227,7 @@ void *AllocZeroed_(u32 size, const char *location)
     {
         if (TESTING)
             PrintHeap();
-        errorf("%s: out of memory trying to allocate %d bytes", location, size);
+        fatalf("%s: out of memory trying to allocate %d bytes", location, size);
     }
     return p;
 }
