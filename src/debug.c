@@ -5158,6 +5158,7 @@ static void DebugAction_DestroyFollowerNPC(u8 taskId)
     X(MUS_CASINO_PLUS_9) \
     X(MUS_DD_UNDERWATER) \
     X(MUS_CASINO_PLUS_GACHA)        \
+    X(MUS_SUNSET_SEVEN_SUN_DEMO) \
 
 #define SOUND_LIST_SE               \
     X(SE_USE_ITEM)                  \

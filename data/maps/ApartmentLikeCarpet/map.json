@@ -3,7 +3,6 @@
   "name": "ApartmentLikeCarpet",
   "layout": "LAYOUT_APARTMENT_LIKE_CARPET",
   "music": "MUS_DUMMY",
-  "region": "REGION_HOENN",
   "region_map_section": "MAPSEC_TREASURE_BEACH",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
@@ -24,11 +23,11 @@
   "object_events": [
     {
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_KRONII",
+      "graphics_id": "OBJ_EVENT_GFX_NICE_NATURE",
       "x": 19,
       "y": 15,
       "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_FACE_UP",
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
@@ -38,11 +37,11 @@
     },
     {
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_GIGI_MURIN",
+      "graphics_id": "OBJ_EVENT_GFX_TOKAI_TEIO",
       "x": 20,
       "y": 15,
       "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_FACE_UP",
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
@@ -68,5 +67,6 @@
     }
   ],
   "coord_events": [],
-  "bg_events": []
+  "bg_events": [],
+  "region": "REGION_HOENN"
 }

@@ -273,6 +273,61 @@ const struct SpeciesInfo gSpeciesInfoMiscellaneous[] =
         .teachableLearnset = sBeesineyTeachableLearnset,
     },
 
+/*
+    [SPECIES_CHIBI_APPLE] =
+    {
+        .baseHP        = 100,
+        .baseAttack    = 80,
+        .baseDefense   = 100,
+        .baseSpeed     = 100,
+        .baseSpAttack  = 120,
+        .baseSpDefense = 100,
+        .types = MON_TYPES(TYPE_FLYING),
+        .catchRate = 3,
+        .expYield = 240,
+        .evYield_SpAttack = 3,
+        .genderRatio = PERCENT_FEMALE(50),
+        .eggCycles = 25,
+        .friendship = STANDARD_FRIENDSHIP,
+        .growthRate = GROWTH_SLOW,
+        .eggGroups = MON_EGG_GROUPS(EGG_GROUP_NO_EGGS_DISCOVERED),
+        .abilities = { ABILITY_SERENE_GRACE, ABILITY_NONE },
+        .sourceGame = SOURCE_OTHER,
+        .noFlip = TRUE,
+        .speciesName = _("A-Vivit"),
+        .cryId = CRY_PORYGON,
+        .natDexNum = NATIONAL_DEX_ANGEL_VIVIT,
+        .categoryName = _("Fang Scorp"),
+        .height = 20,
+        .weight = 425,
+        .description = COMPOUND_STRING(
+            "Gliscor observes prey while hanging\n"
+            "upside down from branches. Its flight is\n"
+            "soundless. When the chance presents\n"
+            "itself, it swoops!"),
+        .pokemonScale = 261,
+        .pokemonOffset = 1,
+        .trainerScale = 334,
+        .trainerOffset = 4,
+        .frontPic = gMonFrontPic_AngelVivit,
+        .frontPicSize = MON_COORDS_SIZE(64, 64),
+        .frontPicYOffset = 1,
+        .frontAnimFrames = sAnims_GenericBlinkingAnim,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
+        .backPic = gMonBackPic_AngelVivit,
+        .backPicSize = MON_COORDS_SIZE(64, 64),
+        .backPicYOffset = 0,
+        .backAnimId = BACK_ANIM_NONE,
+        .palette = gMonPalette_AngelVivit,
+        .shinyPalette = gMonShinyPalette_AngelVivit,
+        .iconSprite = gMonIcon_AngelVivit,
+        .iconPalIndex = 0,
+        FOOTPRINT(AngelVivit)
+        .levelUpLearnset = sAngelVivitLevelUpLearnset,
+        .teachableLearnset = sAngelVivitTeachableLearnset,
+    },
+*/
+
 #ifdef __INTELLISENSE__
 };
 #endif

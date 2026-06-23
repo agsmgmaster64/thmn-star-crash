@@ -544,8 +544,9 @@
 #define MUS_CASINO_PLUS_9           609
 #define MUS_DD_UNDERWATER           610
 #define MUS_CASINO_PLUS_GACHA       611
+#define MUS_SUNSET_SEVEN_SUN_DEMO   612
 
-#define END_MUS                     612
+#define END_MUS                     613
 
 
 #define MUS_ROUTE118                0x7FFF  // Map is split into 2 music sections. controlled by GetCurrLocationDefaultMusic().

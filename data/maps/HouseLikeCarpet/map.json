@@ -3,7 +3,6 @@
   "name": "HouseLikeCarpet",
   "layout": "LAYOUT_HOUSE_LIKE_CARPET",
   "music": "MUS_ZGS_PARADISE_DEEP_MOUNTAIN",
-  "region": "REGION_HOENN",
   "region_map_section": "MAPSEC_KINDLE_ROAD",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
@@ -121,5 +120,6 @@
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "NULL"
     }
-  ]
+  ],
+  "region": "REGION_HOENN"
 }
