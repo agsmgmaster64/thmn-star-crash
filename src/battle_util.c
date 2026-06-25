@@ -1335,7 +1335,7 @@ u32 TrySetCantSelectMoveBattleScript(enum BattlerId battler)
         if (SetCantSelectScript(battler, gCurrentMove, BattleScript_SelectingCantUseMoveInPalace, BattleScript_SelectingCantUseMove))
             limitations++;
     }
-    
+
     if (DYNAMAX_BYPASS_CHECK
      && moveEffect == EFFECT_SPIT_UP
      && gBattleMons[battler].volatiles.stockpileCounter == 0
@@ -1344,7 +1344,7 @@ u32 TrySetCantSelectMoveBattleScript(enum BattlerId battler)
         if (SetCantSelectScript(battler, gCurrentMove, BattleScript_SelectingCantUseMoveInPalace, BattleScript_SelectingCantUseMove))
             limitations++;
     }
-    
+
     if (DYNAMAX_BYPASS_CHECK
      && moveEffect == EFFECT_FAIL_IF_NOT_ARG_TYPE
      && !IS_BATTLER_OF_TYPE(battler, GetMoveArgType(move))
@@ -1353,7 +1353,7 @@ u32 TrySetCantSelectMoveBattleScript(enum BattlerId battler)
         if (SetCantSelectScript(battler, gCurrentMove, BattleScript_SelectingCantUseMoveInPalace, BattleScript_SelectingCantUseMove))
             limitations++;
     }
-    
+
     if (DYNAMAX_BYPASS_CHECK
      && moveEffect == EFFECT_LAST_RESORT
      && !CanUseLastResort(battler)
@@ -6052,7 +6052,7 @@ static bool32 IsBattlerUngroundedByAbilityItemOrEffect(enum BattlerId battler, e
 {
     if (gBattleMons[battler].volatiles.telekinesis)
         return TRUE;
-    if (gBattleMons[battler].volatiles.magnetRise)
+    if (gBattleMons[battler].volatiles.magnetRiseTimer > 0)
         return TRUE;
     if (holdEffect == HOLD_EFFECT_AIR_BALLOON)
         return TRUE;
@@ -8015,7 +8015,7 @@ s32 CalcCritChanceStage(struct DamageContext *ctx)
     {
         critChance = CRITICAL_HIT_BLOCKED;
     }
-    else if (gBattleMons[ctx->battlerAtk].volatiles.laserFocus
+    else if (gBattleMons[ctx->battlerAtk].volatiles.laserFocusTimer > 0
           || MoveAlwaysCrits(ctx->move)
           || (ctx->abilities[ctx->battlerAtk] == ABILITY_MERCILESS && gBattleMons[ctx->battlerDef].status1 & STATUS1_PSN_ANY))
     {
@@ -8113,7 +8113,7 @@ s32 CalcCritChanceStageGen1(struct DamageContext *ctx)
             RecordItemEffectBattle(ctx->battlerDef, ctx->holdEffects[ctx->battlerDef]);
         critChance = CRITICAL_HIT_BLOCKED;
     }
-    else if (gBattleMons[ctx->battlerAtk].volatiles.laserFocus
+    else if (gBattleMons[ctx->battlerAtk].volatiles.laserFocusTimer > 0
           || MoveAlwaysCrits(ctx->move)
           || (ctx->abilities[ctx->battlerAtk] == ABILITY_MERCILESS && gBattleMons[ctx->battlerDef].status1 & STATUS1_PSN_ANY))
     {
@@ -8922,7 +8922,7 @@ bool32 CanBattlerGetOrLoseItem(enum BattlerId fromBattler, enum BattlerId battle
 
     if (ItemIsMail(itemId))
         return FALSE;
-    else if (DoesSpeciesUseHoldItemToChangeForm(fromSpecies, itemId))
+    else if (DoesSpeciesUseHoldItemToChangeForm(fromSpecies, itemId) || (DoesSpeciesUseHoldItemToChangeForm(otherSpecies, itemId) && GetConfig(B_KNOCK_OFF_REMOVAL) < GEN_CHAMPIONS))
         return FALSE;
     else if (holdEffect == HOLD_EFFECT_Z_CRYSTAL)
         return FALSE;
@@ -9615,7 +9615,7 @@ void RecalcBattlerStats(enum BattlerId battler, struct Pokemon *mon, bool32 isDy
         CalculateMonStatsCont(mon, FALSE);
     else
         CalculateMonStats(mon);
-        
+
     if (GetActiveGimmick(battler) == GIMMICK_DYNAMAX && gChosenActionByBattler[battler] != B_ACTION_SWITCH)
     {
         ApplyDynamaxHPMultiplier(mon);

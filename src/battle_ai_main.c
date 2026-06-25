@@ -1994,7 +1994,7 @@ static s32 AI_CheckBadMove(enum BattlerId battlerAtk, enum BattlerId battlerDef,
             ADJUST_SCORE(-10);
         else if (gBattleMons[battlerAtk].volatiles.substitute
               || gBattleMons[battlerAtk].volatiles.powerTrick
-              || gBattleMons[battlerAtk].volatiles.magnetRise
+              || gBattleMons[battlerAtk].volatiles.magnetRiseTimer > 0
               || gBattleMons[battlerAtk].volatiles.aquaRing
               || gBattleMons[battlerAtk].volatiles.root
               || AnyStatIsRaised(battlerAtk))
@@ -2245,7 +2245,7 @@ static s32 AI_CheckBadMove(enum BattlerId battlerAtk, enum BattlerId battlerDef,
             ADJUST_SCORE(-10);
         break;
     case EFFECT_LASER_FOCUS:
-        if (gBattleMons[battlerDef].volatiles.laserFocus)
+        if (gBattleMons[battlerDef].volatiles.laserFocusTimer > 0)
             ADJUST_SCORE(-10);
         else if (aiData->abilities[battlerDef] == ABILITY_SHELL_ARMOR || aiData->abilities[battlerDef] == ABILITY_GUARD_ARMOR)
             ADJUST_SCORE(-8);
@@ -2856,7 +2856,6 @@ static s32 AI_CheckBadMove(enum BattlerId battlerAtk, enum BattlerId battlerDef,
           || aiData->holdEffects[battlerAtk] == HOLD_EFFECT_IRON_BALL
           || gBattleMons[battlerAtk].volatiles.smackDown
           || gBattleMons[battlerAtk].volatiles.root
-          || gBattleMons[battlerAtk].volatiles.magnetRise
           || !AI_IsBattlerGrounded(battlerAtk))
             ADJUST_SCORE(-10);
         break;
@@ -3891,7 +3890,7 @@ bool32 DoesBattlerKOItselfWithRecoil(enum BattlerId battlerAtk, enum BattlerId b
     u32 recoilDmg = 0;
     u32 monHP = GetNonDynamaxMaxHP(battlerAtk);
     enum BattleMoveEffects effect = GetMoveEffect(move);
-    
+
     // Is recoil applicable
     if (!IsRecoilDamageEffect(effect) || !AI_IsDamagedByRecoil(battlerAtk))
         return FALSE;
@@ -3908,7 +3907,7 @@ bool32 DoesBattlerKOItselfWithRecoil(enum BattlerId battlerAtk, enum BattlerId b
         opposingMons = CountUsablePartyMons(battlerDef);
     else
         opposingMons = CountUsableSideMons(battlerDef);
-    
+
     if (recoilDmg >= gBattleMons[battlerAtk].hp && opposingMons != 0)
         return TRUE;
 
@@ -4586,7 +4585,7 @@ static s32 AI_CalcMoveEffectScore(enum BattlerId battlerAtk, enum BattlerId batt
     case EFFECT_BATON_PASS:
         if ((aiData->shouldSwitch & (1u << battlerAtk)) && (gBattleMons[battlerAtk].volatiles.substitute
           || gBattleMons[battlerAtk].volatiles.powerTrick
-          || gBattleMons[battlerAtk].volatiles.magnetRise
+          || gBattleMons[battlerAtk].volatiles.magnetRiseTimer > 0
           || gBattleMons[battlerAtk].volatiles.aquaRing
           || gBattleMons[battlerAtk].volatiles.root
           || AnyStatIsRaised(battlerAtk)))

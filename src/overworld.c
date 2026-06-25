@@ -67,6 +67,7 @@
 #include "script_pokemon_util.h"
 #include "secret_base.h"
 #include "sound.h"
+#include "sprite.h"
 #include "start_menu.h"
 #include "string_util.h"
 #include "task.h"
@@ -3825,7 +3826,6 @@ bool8 GetSetItemObtained(enum Item item, enum ItemObtainFlags caseId)
 
 EWRAM_DATA static u8 sHeaderBoxWindowId = 0;
 EWRAM_DATA u8 sItemIconSpriteId = 0;
-EWRAM_DATA u8 sItemIconSpriteId2 = 0;
 
 static void ShowItemIconSprite(enum Item item, bool8 firstTime, bool8 flash);
 static void DestroyItemIconSprite(void);
@@ -3963,7 +3963,6 @@ static void ShowItemIconSprite(enum Item item, bool8 firstTime, bool8 flash)
 {
     s16 x = 0, y = 0;
     u8 iconSpriteId;
-    u8 spriteId2 = MAX_SPRITES;
 
     if (flash)
     {
@@ -3972,8 +3971,10 @@ static void ShowItemIconSprite(enum Item item, bool8 firstTime, bool8 flash)
     }
 
     iconSpriteId = AddItemIconSprite(ITEM_TAG, ITEM_TAG, item);
+
     if (flash)
-        spriteId2 = AddItemIconSprite(ITEM_TAG, ITEM_TAG, item);
+        gSprites[iconSpriteId].copyToObjWin = TRUE;
+
     if (iconSpriteId != MAX_SPRITES)
     {
         if (!firstTime)
@@ -3994,15 +3995,6 @@ static void ShowItemIconSprite(enum Item item, bool8 firstTime, bool8 flash)
         gSprites[iconSpriteId].oam.priority = 0;
     }
 
-    if (spriteId2 != MAX_SPRITES)
-    {
-        gSprites[spriteId2].x2 = x;
-        gSprites[spriteId2].y2 = y;
-        gSprites[spriteId2].oam.priority = 0;
-        gSprites[spriteId2].oam.objMode = ST_OAM_OBJ_WINDOW;
-        sItemIconSpriteId2 = spriteId2;
-    }
-
     sItemIconSpriteId = iconSpriteId;
 }
 
@@ -4012,12 +4004,6 @@ static void DestroyItemIconSprite(void)
     FreeSpritePaletteByTag(ITEM_TAG);
     FreeSpriteOamMatrix(&gSprites[sItemIconSpriteId]);
     DestroySprite(&gSprites[sItemIconSpriteId]);
-
-    if ((GetFlashLevel() > 0 || InBattlePyramid()) && sItemIconSpriteId2 != MAX_SPRITES)
-    {
-        FreeSpriteOamMatrix(&gSprites[sItemIconSpriteId2]);
-        DestroySprite(&gSprites[sItemIconSpriteId2]);
-    }
 }
 
 // returns old sHoursOverride
