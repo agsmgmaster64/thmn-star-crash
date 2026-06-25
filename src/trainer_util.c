@@ -101,6 +101,7 @@ void MakeTrainerGenerator(struct TrainerGenerator *trainerGen, const struct Trai
     trainerGen->trainerClass = trainer->trainerClass;
     trainerGen->otID = OTID_STRUCT_RANDOM_NO_SHINY;
     trainerGen->localRngState = GeneratePartySeed(trainer);
+    trainerGen->cantRandomize = trainer->isBossTrainer;
 }
 
 void MakePartnerGenerator(struct TrainerGenerator *trainerGen, const struct Trainer *partner)
@@ -119,7 +120,15 @@ void GenerateMonFromTrainerMon(struct Pokemon *mon, const struct TrainerMon *tra
 {
     u32 data;
     u32 personality = (LocalRandom32(&trainer->localRngState) & 0xFFFFDF00) + 0x1000;
+    u32 cantRandomize = trainer->cantRandomize;
     u32 genderValue = 0;
+    enum Species species = trainerMon->species;
+    /*
+    #if (RANDOMIZER_AVAILABLE)
+        if(!cantRandomize)
+            species = RandomizeTrainerMon(trainer->seed, i, monsCount, species);
+    #endif
+    */
     if (trainerMon->gender == TRAINER_MON_RANDOM_GENDER)
         genderValue = LocalRandom32(&trainer->localRngState) & 0x000000FF;
     else if (trainerMon->gender == TRAINER_MON_MALE)
@@ -130,7 +139,7 @@ void GenerateMonFromTrainerMon(struct Pokemon *mon, const struct TrainerMon *tra
         errorf("Unkwown trainer mon gender value %d", trainerMon->gender);
     personality |= genderValue;
     ModifyPersonalityForNature(&personality, trainerMon->nature);
-    CreateMon(mon, trainerMon->species, trainerMon->lvl, personality, trainer->otID);
+    CreateMon(mon, species, trainerMon->lvl, personality, trainer->otID);
     if (trainerMon->nickname != NULL)
         SetMonData(mon, MON_DATA_NICKNAME, trainerMon->nickname);
     if (trainerMon->ev) //ev in struct TrainerMon are stored in Showdown order not vanilla Emerald order
@@ -159,7 +168,7 @@ void GenerateMonFromTrainerMon(struct Pokemon *mon, const struct TrainerMon *tra
         {
             do {
                 data = Random() % NUM_ABILITY_SLOTS; // includes hidden abilities
-            } while (GetAbilityBySpecies(trainerMon->species, data) == ABILITY_NONE);
+            } while (GetAbilityBySpecies(trainerMon->species, data, cantRandomize) == ABILITY_NONE);
             SetMonData(mon, MON_DATA_ABILITY_NUM, &data);
         }
         else if (B_TRAINER_MON_RANDOM_ABILITY == 0)
@@ -170,6 +179,7 @@ void GenerateMonFromTrainerMon(struct Pokemon *mon, const struct TrainerMon *tra
         // else B_TRAINER_MON_RANDOM_ABILITY == 1
         // this is the default from CreateMon (random non-hidden ability based on personality)
     }
+    SetMonData(mon, MON_DATA_CANT_RANDOMIZE_ABILITY, &cantRandomize);
 
     if (trainerMon->ball < POKEBALL_COUNT)
     {

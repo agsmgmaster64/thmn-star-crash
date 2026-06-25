@@ -5394,6 +5394,19 @@ bool32 CanBeFrozen(enum BattlerId battlerAtk, enum BattlerId battlerDef, enum Ab
     return FALSE;
 }
 
+bool32 CanGetFrostbite(enum BattlerId battlerAtk, enum BattlerId battlerDef, enum Ability abilityDef)
+{
+    if (CanSetNonVolatileStatus(
+            battlerAtk,
+            battlerDef,
+            ABILITY_NONE, // attacker ability does not matter
+            abilityDef,
+            MOVE_EFFECT_FROSTBITE,
+            CHECK_TRIGGER))
+        return TRUE;
+    return FALSE;
+}
+
 bool32 IsSafeguardProtected(enum BattlerId battlerAtk, enum BattlerId battlerDef, enum Ability abilityAtk)
 {
     if (!(gSideStatuses[GetBattlerSide(battlerDef)] & SIDE_STATUS_SAFEGUARD))

@@ -432,25 +432,25 @@ static inline u8 GetStarterChoiceGender(enum StarterChoice starterChoice)
     return gender;
 }
 
-static inline u16 *GetStarterChoiceEVs(enum StarterChoice starterChoice)
+static inline u16 GetStarterChoiceEV(enum StarterChoice starterChoice, u32 stat)
 {
     u16 *evs = (u16 *) sStarterChoiceInfo[starterChoice].evs;
 
-    return evs;
+    return evs[stat];
 }
 
-static inline u16 *GetStarterChoiceIVs(enum StarterChoice starterChoice)
+static inline u16 GetStarterChoiceIV(enum StarterChoice starterChoice, u32 stat)
 {
     u16 *ivs = (u16 *) sStarterChoiceInfo[starterChoice].ivs;
 
-    return ivs;
+    return ivs[stat];
 }
 
-static inline u16 *GetStarterChoiceMoves(enum StarterChoice starterChoice)
+static inline u16 GetStarterChoiceMove(enum StarterChoice starterChoice, u32 slot)
 {
     u16 *moves = (u16 *) sStarterChoiceInfo[starterChoice].moves;
 
-    return moves;
+    return moves[slot];
 }
 
 static inline bool8 GetStarterChoiceGgMaxFactor(enum StarterChoice starterChoice)
@@ -617,17 +617,28 @@ static u32 BirchCase_GiveStarterMon(enum StarterChoice starterChoice)
     {
         return ScriptGiveMon(species, level, item);
     }
-    return BirchCase_GiveMonParameterized(species, level, item,
-        GetStarterChoiceBall(starterChoice),
-        GetStarterChoiceNature(starterChoice),
-        GetStarterChoiceAbilityNum(starterChoice),
-        GetStarterChoiceGender(starterChoice),
-        GetStarterChoiceEVs(starterChoice),
-        GetStarterChoiceIVs(starterChoice),
-        GetStarterChoiceMoves(starterChoice),
-        GetStarterChoiceGgMaxFactor(starterChoice),
-        GetStarterChoiceTeraType(starterChoice),
-        GetStarterChoiceShinyMode(starterChoice));
+    struct PokemonTemplate monTemplate = {0};
+    u32 i;
+    monTemplate.species = species;
+    monTemplate.level = level;
+    monTemplate.heldItem = item;
+    monTemplate.ball = GetStarterChoiceBall(starterChoice);
+    monTemplate.nature = GetStarterChoiceNature(starterChoice);
+    monTemplate.abilityNum = GetStarterChoiceAbilityNum(starterChoice);
+    monTemplate.gender = GetStarterChoiceGender(starterChoice);
+    for (i = 0; i < NUM_STATS; i++)
+        monTemplate.evs[i]   = GetStarterChoiceEV(starterChoice, i);
+
+    for (i = 0; i < NUM_STATS; i++)
+        monTemplate.ivs[i]   = GetStarterChoiceIV(starterChoice, i);
+
+    for (i = 0; i < MAX_MON_MOVES; i++)
+        monTemplate.moves[i] = GetStarterChoiceMove(starterChoice, i);
+
+    monTemplate.gmaxFactor = GetStarterChoiceGgMaxFactor(starterChoice);
+    monTemplate.teraType = GetStarterChoiceTeraType(starterChoice);
+    monTemplate.isShiny = GetStarterChoiceShinyMode(starterChoice);
+    return ScriptGiveMonParameterized(B_SIDE_PLAYER, PARTY_SIZE, &monTemplate);
 }
 
 static void BirchCase_GiveMon(void) // Function that calls the GiveMon function pulled from Expansion by Lunos and Ghoulslash

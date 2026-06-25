@@ -3492,7 +3492,7 @@ bool32 ShouldFreezeOrFrostbite(enum BattlerId battlerAtk, enum BattlerId battler
 {
     if (!B_USE_FROSTBITE)
     {
-        if (CanBeFrozen(battlerAtk, battlerDef, abilityDef))
+        if (CanGetFrostbite(battlerAtk, battlerDef, abilityDef))
         {
             if (battlerAtk == battlerDef) // Targeting self
                 return FALSE;
