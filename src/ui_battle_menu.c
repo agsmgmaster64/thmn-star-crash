@@ -724,7 +724,7 @@ void UI_Battle_Menu_Init(MainCallback callback)
                     isExtraInfoShown = TRUE;
                 break;
             case STATUS_INFO_MAGNET_RISE:
-                if(gBattleMons[j].volatiles.magnetRise)
+                if(gBattleMons[j].volatiles.magnetRiseTimer > 0)
                     isExtraInfoShown = TRUE;
                 break;
             case STATUS_INFO_SEMI_INVULNERABLE:
