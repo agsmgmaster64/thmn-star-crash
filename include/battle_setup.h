@@ -2,6 +2,7 @@
 #define GUARD_BATTLE_SETUP_H
 
 #include "battle_transition.h"
+#include "data.h"
 #include "gym_leader_rematch.h"
 #include "script.h"
 #include "trainer_see.h"
@@ -101,7 +102,6 @@ enum BattleTransition GetWildBattleTransition(void);
 enum BattleTransition GetTrainerBattleTransition(void);
 enum BattleTransition GetSpecialBattleTransition(enum BattleTransitionGroup id);
 void ChooseStarter(void);
-void ResetTrainerOpponentIds(void);
 void SetMapVarsToTrainerA(void);
 void SetMapVarsToTrainerB(void);
 void ConfigureTrainerBattle(struct ScriptContext *ctx);
@@ -129,8 +129,6 @@ void UpdateRematchIfDefeated(s32 rematchTableId);
 void ClearCurrentTrainerWantRematchVsSeeker(void);
 void IncrementRematchStepCounter(void);
 void TryUpdateRandomTrainerRematches(u16 mapGroup, u16 mapNum);
-bool32 DoesSomeoneWantRematchIn(u16 mapGroup, u16 mapNum);
-bool32 IsRematchTrainerIn(u16 mapGroup, u16 mapNum);
 u16 GetLastBeatenRematchTrainerId(u16 trainerId);
 bool8 ShouldTryRematchBattle(void);
 bool8 ShouldTryRematchBattleForTrainerId(u16 trainerId);
@@ -139,8 +137,6 @@ void ShouldTryGetTrainerScript(void);
 u16 CountMaxPossibleRematch(u16 trainerId);
 u16 CountBattledRematchTeams(u16 trainerId);
 void TrainerBattleLoadArgs(const u8 *data);
-void TrainerBattleLoadArgsTrainerA(const u8 *data);
-void TrainerBattleLoadArgsTrainerB(const u8 *data);
 void TrainerBattleLoadArgsSecondTrainer(const u8 *data);
 void InitTrainerBattleParameter(void);
 
@@ -154,5 +150,6 @@ u8 GetRivalBattleFlags(void);
 //tx_randomizer_and_challenges
 u8 NuzlockeIsCaptureBlockedBySpeciesClause(u16 species);
 void SetNuzlockeChecks(void);
+void CreateNPCTrainerPartyFromTrainer(struct Pokemon *party, const struct Trainer *trainer);
 
 #endif // GUARD_BATTLE_SETUP_H

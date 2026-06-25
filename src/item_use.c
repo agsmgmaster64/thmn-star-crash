@@ -1121,18 +1121,11 @@ static void Task_UseRepel(u8 taskId)
         VarSet(VAR_LAST_REPEL_LURE_USED, gSpecialVar_ItemId);
     #endif
         RemoveUsedItem();
-        SetInstantOWESpawnTimer();
         if (CurrentBattlePyramidLocation() != PYRAMID_LOCATION_NONE || FlagGet(FLAG_USE_PYRAMID_BAG))
             DisplayItemMessageInBattlePyramid(taskId, gStringVar4, Task_CloseBattlePyramidBagMessage);
         else
             DisplayItemMessage(taskId, FONT_NORMAL, gStringVar4, CloseItemMessage);
     }
-}
-void HandleUseExpiredRepel(struct ScriptContext *ctx)
-{
-#if VAR_LAST_REPEL_LURE_USED != 0
-    VarSet(VAR_REPEL_STEP_COUNT, GetItemHoldEffectParam(VarGet(VAR_LAST_REPEL_LURE_USED)));
-#endif
 }
 
 void ItemUseOutOfBattle_Lure(u8 taskId)
@@ -1171,13 +1164,6 @@ static void Task_UseLure(u8 taskId)
         else
             DisplayItemMessage(taskId, FONT_NORMAL, gStringVar4, CloseItemMessage);
     }
-}
-
-void HandleUseExpiredLure(struct ScriptContext *ctx)
-{
-#if VAR_LAST_REPEL_LURE_USED != 0
-    VarSet(VAR_REPEL_STEP_COUNT, GetItemHoldEffectParam(VarGet(VAR_LAST_REPEL_LURE_USED)) | REPEL_LURE_MASK);
-#endif
 }
 
 static void Task_UsedBlackWhiteFlute(u8 taskId)
@@ -1285,60 +1271,10 @@ bool32 CanThrowBall(void)
 }
 
 static const u8 sText_CantThrowPokeBall_TwoMons[] = _("Cannot throw a ball!\nThere are two Puppets out there!\p");
-static const u8 sText_CantThrowPokeBall_SemiInvulnerable[] = _("Cannot throw a ball!\nThere's no Puppets in sight!\p");
+static const u8 sText_CantThrowPokeBall_SemiInvulnerable[] = _("Cannot throw a ball!\nThere's no Puppet in sight!\p");
 static const u8 sText_CantThrowPokeBall_Disabled[] = _("Toho Orbs cannot be used\nright now!\p");
 static const u8 sText_NuzlockeCantThrowPokeBallRoute[] = _("You have already used your encounter\nfor this area!{PAUSE_UNTIL_PRESS}");
 static const u8 sText_NuzlockeCantThrowPokeBallAlreadyCaught[] = _("You have already caught this Puppet!{PAUSE_UNTIL_PRESS}");
-void ItemUseInBattle_PokeBall(u8 taskId)
-{
-    switch (GetBallThrowableState())
-    {
-    case BALL_THROW_ABLE:
-    default:
-        RemoveBagItem(gSpecialVar_ItemId, 1);
-        if (CurrentBattlePyramidLocation() != PYRAMID_LOCATION_NONE || FlagGet(FLAG_USE_PYRAMID_BAG))
-            CloseBattlePyramidBag(taskId);
-        else
-            Task_FadeAndCloseBagMenu(taskId);
-        break;
-    case BALL_THROW_UNABLE_TWO_MONS:
-        if (CurrentBattlePyramidLocation() != PYRAMID_LOCATION_NONE || FlagGet(FLAG_USE_PYRAMID_BAG))
-            DisplayItemMessageInBattlePyramid(taskId, sText_CantThrowPokeBall_TwoMons, Task_CloseBattlePyramidBagMessage);
-        else
-            DisplayItemMessage(taskId, FONT_NORMAL, sText_CantThrowPokeBall_TwoMons, CloseItemMessage);
-        break;
-    case BALL_THROW_UNABLE_NO_ROOM:
-        if (CurrentBattlePyramidLocation() != PYRAMID_LOCATION_NONE || FlagGet(FLAG_USE_PYRAMID_BAG))
-            DisplayItemMessageInBattlePyramid(taskId, gText_BoxFull, Task_CloseBattlePyramidBagMessage);
-        else
-            DisplayItemMessage(taskId, FONT_NORMAL, gText_BoxFull, CloseItemMessage);
-        break;
-    case BALL_THROW_UNABLE_SEMI_INVULNERABLE:
-        if (CurrentBattlePyramidLocation() != PYRAMID_LOCATION_NONE || FlagGet(FLAG_USE_PYRAMID_BAG))
-            DisplayItemMessageInBattlePyramid(taskId, sText_CantThrowPokeBall_SemiInvulnerable, Task_CloseBattlePyramidBagMessage);
-        else
-            DisplayItemMessage(taskId, FONT_NORMAL, sText_CantThrowPokeBall_SemiInvulnerable, CloseItemMessage);
-        break;
-    case BALL_THROW_UNABLE_DISABLED_FLAG:
-        if (CurrentBattlePyramidLocation() != PYRAMID_LOCATION_NONE || FlagGet(FLAG_USE_PYRAMID_BAG))
-            DisplayItemMessageInBattlePyramid(taskId, sText_CantThrowPokeBall_Disabled, Task_CloseBattlePyramidBagMessage);
-        else
-            DisplayItemMessage(taskId, FONT_NORMAL, sText_CantThrowPokeBall_Disabled, CloseItemMessage);
-        break;
-    case BALL_THROW_NUZLOCKE_ROUTE_BLOCK:
-        if (CurrentBattlePyramidLocation() != PYRAMID_LOCATION_NONE || FlagGet(FLAG_USE_PYRAMID_BAG))
-            DisplayItemMessageInBattlePyramid(taskId, sText_NuzlockeCantThrowPokeBallRoute, Task_CloseBattlePyramidBagMessage);
-        else
-            DisplayCannotUseItemMessage(taskId, FALSE, sText_NuzlockeCantThrowPokeBallRoute);
-        break;
-    case BALL_THROW_NUZLOCKE_ALREADY_CAUGHT:
-        if (CurrentBattlePyramidLocation() != PYRAMID_LOCATION_NONE || FlagGet(FLAG_USE_PYRAMID_BAG))
-            DisplayItemMessageInBattlePyramid(taskId, sText_NuzlockeCantThrowPokeBallAlreadyCaught, Task_CloseBattlePyramidBagMessage);
-        else
-            DisplayCannotUseItemMessage(taskId, FALSE, sText_NuzlockeCantThrowPokeBallAlreadyCaught);
-        break;
-    }
-}
 
 static void ItemUseInBattle_ShowPartyMenu(u8 taskId)
 {

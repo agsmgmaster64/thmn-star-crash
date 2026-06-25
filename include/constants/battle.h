@@ -331,7 +331,8 @@ enum VolatileFlags
     F(VOLATILE_ACTIVATE_WALL_MASTER,        activateWallMaster,            (u32, 1)) \
     F(VOLATILE_HONEY_CHIP,                  honeyChip,                     (u32, 1), V_BATON_PASSABLE) \
     F(VOLATILE_HONEY_CHIP_TIMER,            honeyChipTimer,                (u32, B_HONEY_CHIP_TIMER)) \
-    F(VOLATILE_TRACE_ACTIVATED,             traceActivated,                (u32, 1))
+    F(VOLATILE_TRACE_ACTIVATED,             traceActivated,                (u32, 1)) \
+    F(VOLATILE_SPEED_SWAP,                  speedSwapped,                  (u32, 1))
 
 
 /* Use within a macro to get the maximum allowed value for a volatile. Requires _typeMaxValue as input. */
