@@ -2452,11 +2452,11 @@ void SetMoveEffect(enum BattlerId battlerAtk, enum BattlerId effectBattler, enum
         break;
     case MOVE_EFFECT_DEBT_SPIRAL:
         // Don't scatter coins on the second hit of Parental Bond
-        if (IsOnPlayerSide(gBattlerAttacker) && gSpecialStatuses[gBattlerAttacker].parentalBondState != PARENTAL_BOND_2ND_HIT)
+        if (IsOnPlayerSide(battlerAtk) && gSpecialStatuses[battlerAtk].parentalBondState != PARENTAL_BOND_2ND_HIT)
         {
             u16 payday = gDebtSpiralMoney;
-            u16 moveTarget = GetBattlerMoveTargetType(gBattlerAttacker, gCurrentMove);
-            gDebtSpiralMoney += (gBattleMons[gBattlerAttacker].level * 20);
+            enum MoveTarget moveTarget = GetBattlerMoveTargetType(battlerAtk, gCurrentMove);
+            gDebtSpiralMoney += (gBattleMons[battlerAtk].level * 20);
             if (payday > gDebtSpiralMoney)
                 gDebtSpiralMoney = 0xFFFF;
 
@@ -7529,10 +7529,30 @@ static void Cmd_givepaydaymoney(void)
 {
     CMD_ARGS();
 
-    if (!(gBattleTypeFlags & (BATTLE_TYPE_LINK | BATTLE_TYPE_RECORDED_LINK)) && (gPaydayMoney != 0 || gDebtSpiralMoney != 0 || gPaydayMoney != gDebtSpiralMoney))
+    if (!(gBattleTypeFlags & (BATTLE_TYPE_LINK | BATTLE_TYPE_RECORDED_LINK))
+     && (gPaydayMoney != 0 || gDebtSpiralMoney != 0))
     {
-        s32 bonusMoney = gPaydayMoney - gDebtSpiralMoney;
-        if (bonusMoney > 0)
+        bool32 isNegative = FALSE;
+        u32 bonusMoney = gPaydayMoney * gBattleStruct->moneyMultiplier;
+        if (bonusMoney > 0xFFFF)
+        {
+            bonusMoney -= gDebtSpiralMoney;
+        }
+        else
+        {
+            s32 moneyChange = bonusMoney - gDebtSpiralMoney;
+            if (moneyChange < 0)
+            {
+                bonusMoney = moneyChange * -1;
+                isNegative = TRUE;
+            }
+            else
+            {
+                bonusMoney = moneyChange;
+            }
+        }
+
+        if (!isNegative && bonusMoney > 0)
         {
             AddMoney(&gSaveBlock1Ptr->money, bonusMoney);
 
@@ -7541,15 +7561,18 @@ static void Cmd_givepaydaymoney(void)
             BattleScriptPush(cmd->nextInstr);
             gBattlescriptCurrInstr = BattleScript_PrintPayDayMoneyString;
         }
-        else
+        else if (isNegative)
         {
-            bonusMoney *= -1;
             RemoveMoney(&gSaveBlock1Ptr->money, bonusMoney);
 
             PREPARE_HWORD_NUMBER_BUFFER(gBattleTextBuff1, 5, bonusMoney)
 
             BattleScriptPush(cmd->nextInstr);
             gBattlescriptCurrInstr = BattleScript_PrintDebtSpiralMoneyString;
+        }
+        else
+        {
+            gBattlescriptCurrInstr = cmd->nextInstr;
         }
     }
     else
