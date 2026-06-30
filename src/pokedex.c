@@ -680,6 +680,52 @@ static const u8 sText_No000[] = _("{NO}000");
 const u8 sCaughtBall_Gfx[] = INCGFX_U8("graphics/pokedex/caught_ball.png", ".4bpp");
 static const u8 sText_TenDashes[] = _("----------");
 
+static const u8 sText_UnkHeight[] = _("{CLEAR_TO 12}??'??”");
+static const u8 sText_UnkHeightMetric[] = _("???.? m");
+static const u8 sText_UnkWeight[] = _("????.? lbs.");
+static const u8 sText_UnkWeightMetric[] = _("???.? kg.");
+static const u8 sText_UnkCost[] = _("????.?");
+static const u8 sText_PokedexRegistration[] = _("POKéDEX registration completed.");
+static const u8 sText_HTHeight[] = _("HT");
+static const u8 sText_WTWeight[] = _("CT");
+static const u8 sText_SearchingPleaseWait[] = _("Searching…\nPlease wait.");
+static const u8 sText_SearchCompleted[] = _("Search completed.");
+static const u8 sText_NoMatchingPkmnWereFound[] = _("No matching Puppets were found.");
+static const u8 sText_SearchForPkmnBasedOnParameters[] = _("Search for POKéMON based on\nselected parameters.");
+static const u8 sText_SwitchPokedexListings[] = _("Switch POKéDEX listings.");
+static const u8 sText_ReturnToPokedex[] = _("Return to the POKéDEX.");
+static const u8 sText_SelectPokedexMode[] = _("Select the POKéDEX mode.");
+static const u8 sText_SelectPokedexListingMode[] = _("Select the POKéDEX listing mode.");
+static const u8 sText_ListByFirstLetter[] = _("List by the first letter in the name.\nSpotted Puppets only.");
+static const u8 sText_ListByBodyColor[] = _("List by source.\nSpotted Puppets only.");
+static const u8 sText_ListByType[] = _("List by type.\nOwned Puppets only.");
+static const u8 sText_ExecuteSearchSwitch[] = _("Execute search/switch.");
+static const u8 sText_DexEmptyString[] = _("");
+static const u8 sText_DexSearchDontSpecify[] = _("DON'T SPECIFY.");
+static const u8 sText_DexSearchTypeNone[] = _("NONE");
+static const u8 sText_DexHRTPDescription[] = _("01: Reiiden (Wondrous Tale) {EMOJI_TILDE}\nThe Highly Responsive to Prayers.");
+static const u8 sText_DexSOEWDescription[] = _("02: Fumaroku (Demon-Sealing Record) {EMOJI_TILDE}\nthe Story of Eastern Wonderland.");
+static const u8 sText_DexPODDDescription[] = _("03: Yumejikuu (Space Time Dream) {EMOJI_TILDE}\nthe Phantasmagoria of Dim.Dream.");
+static const u8 sText_DexLLSDescription[] = _("04: Gensoukyou (Fantasy Land) {EMOJI_TILDE}\nLotus Land Story.");
+static const u8 sText_DexMSDescription[] = _("05: Kaikidan (Bizarre Romantic Story) {EMOJI_TILDE}\nMystic Square.");
+static const u8 sText_DexEOSDDescription[] = _("06: Koumakyou (Scarlet Devil Land) {EMOJI_TILDE}\nthe Embodiment of Scarlet Devil.");
+static const u8 sText_DexPCBDescription[] = _("07: Youyoumu (Ghostly Dream) {EMOJI_TILDE}\nPerfect Cherry Blossom.");
+static const u8 sText_DexINDescription[] = _("08: Eiyashou (Eternal Night Vignette) {EMOJI_TILDE}\nImperishable Night.");
+static const u8 sText_DexPOFVDescription[] = _("09: Kaeizuka (Flower Reflecting Mound) {EMOJI_TILDE}\nPhantasmagoria of Flower View.");
+static const u8 sText_DexMOFDescription[] = _("10: Fuujinroku (Wind God Chronicles) {EMOJI_TILDE}\nMountain of Faith.");
+static const u8 sText_DexSADescription[] = _("11: Chireiden (Earth Spirit Palace) {EMOJI_TILDE}\nSubterranean Animism.");
+static const u8 sText_DexUFODescription[] = _("12: Seirensen (Star Lotus Ship) {EMOJI_TILDE}\nUndefined Fantastic Object.");
+static const u8 sText_DexTDDescription[] = _("13: Shinreibyou (Divine Spirit Mausoleum) {EMOJI_TILDE}\nTen Desires.");
+static const u8 sText_DexDDCDescription[] = _("14: Kishinjou (Shining Needle Castle) {EMOJI_TILDE}\nDouble Dealing Character.");
+static const u8 sText_DexLOLKDescription[] = _("15: Kanjuden (Ultramarine Orb Tale) {EMOJI_TILDE}\nLegacy of Lunatic Kingdom.");
+static const u8 sText_DexHSIFSDescription[] = _("16: Tenkuushou (Heavenly Jade Dipper) {EMOJI_TILDE}\nHidden Star in Four Seasons.");
+static const u8 sText_DexWBAWCDescription[] = _("17: Kikeijuu (Oni-Shaped Beast) {EMOJI_TILDE}\nWily Beast and Weakest Creature.");
+static const u8 sText_DexUMDescription[] = _("18: Kouryuudou (Rainbow Dragon Cave) {EMOJI_TILDE}\nUnconnected Marketeers.");
+static const u8 sText_DexUDOALGDescription[] = _("19: Juuouen (Beast King Garden) {EMOJI_TILDE}\nUnfinished Dream of All Living Ghost.");
+static const u8 sText_DexSpinoffDescription[] = _("Characters originating from non-mainline\nentries, such as fighting games.");
+static const u8 sText_DexPrintWDescription[] = _("Characters originating from comics,\nmagazines, and music albums.");
+static const u8 sText_DexOtherDescription[] = _("Original characters from fan works,\ninternet memes, or other such sources.");
+
 ALIGNED(4) static const u8 sExpandedPlaceholder_PokedexDescription[] = _("");
 
 static const u16 sSizeScreenSilhouette_Pal[] = INCGFX_U16("graphics/pokedex/size_silhouette.pal", ".gbapal");
@@ -845,21 +891,21 @@ static const struct SearchMenuTopBarItem sSearchMenuTopBarItems[SEARCH_TOPBAR_CO
 {
     [SEARCH_TOPBAR_SEARCH] =
     {
-        .description = gText_SearchForPkmnBasedOnParameters,
+        .description = sText_SearchForPkmnBasedOnParameters,
         .highlightX = 0,
         .highlightY = 0,
         .highlightWidth = 5,
     },
     [SEARCH_TOPBAR_SHIFT] =
     {
-        .description = gText_SwitchPokedexListings,
+        .description = sText_SwitchPokedexListings,
         .highlightX = 6,
         .highlightY = 0,
         .highlightWidth = 5,
     },
     [SEARCH_TOPBAR_CANCEL] =
     {
-        .description = gText_ReturnToPokedex,
+        .description = sText_ReturnToPokedex,
         .highlightX = 12,
         .highlightY = 0,
         .highlightWidth = 5,
@@ -870,7 +916,7 @@ static const struct SearchMenuItem sSearchMenuItems[SEARCH_COUNT] =
 {
     [SEARCH_NAME] =
     {
-        .description = gText_ListByFirstLetter,
+        .description = sText_ListByFirstLetter,
         .titleBgX = 0,
         .titleBgY = 2,
         .titleBgWidth = 5,
@@ -880,7 +926,7 @@ static const struct SearchMenuItem sSearchMenuItems[SEARCH_COUNT] =
     },
     [SEARCH_SOURCE] =
     {
-        .description = gText_ListByBodyColor,
+        .description = sText_ListByBodyColor,
         .titleBgX = 0,
         .titleBgY = 4,
         .titleBgWidth = 5,
@@ -890,7 +936,7 @@ static const struct SearchMenuItem sSearchMenuItems[SEARCH_COUNT] =
     },
     [SEARCH_TYPE_LEFT] =
     {
-        .description = gText_ListByType,
+        .description = sText_ListByType,
         .titleBgX = 0,
         .titleBgY = 6,
         .titleBgWidth = 5,
@@ -900,7 +946,7 @@ static const struct SearchMenuItem sSearchMenuItems[SEARCH_COUNT] =
     },
     [SEARCH_TYPE_RIGHT] =
     {
-        .description = gText_ListByType,
+        .description = sText_ListByType,
         .titleBgX = 0,
         .titleBgY = 6,
         .titleBgWidth = 5,
@@ -910,7 +956,7 @@ static const struct SearchMenuItem sSearchMenuItems[SEARCH_COUNT] =
     },
     [SEARCH_ORDER] =
     {
-        .description = gText_SelectPokedexListingMode,
+        .description = sText_SelectPokedexListingMode,
         .titleBgX = 0,
         .titleBgY = 8,
         .titleBgWidth = 5,
@@ -920,7 +966,7 @@ static const struct SearchMenuItem sSearchMenuItems[SEARCH_COUNT] =
     },
     [SEARCH_MODE] =
     {
-        .description = gText_SelectPokedexMode,
+        .description = sText_SelectPokedexMode,
         .titleBgX = 0,
         .titleBgY = 10,
         .titleBgWidth = 5,
@@ -930,7 +976,7 @@ static const struct SearchMenuItem sSearchMenuItems[SEARCH_COUNT] =
     },
     [SEARCH_OK] =
     {
-        .description = gText_ExecuteSearchSwitch,
+        .description = sText_ExecuteSearchSwitch,
         .titleBgX = 0,
         .titleBgY = 12,
         .titleBgWidth = 5,
@@ -1156,91 +1202,88 @@ static const u8 sSearchMovementMap_ShiftHoennDex[SEARCH_COUNT][4] =
 
 static const struct SearchOptionText sDexModeOptions[] =
 {
-    [DEX_MODE_HOENN]    = {gText_DexHoennDescription, gText_DexHoennTitle},
-    [DEX_MODE_NATIONAL] = {gText_DexNatDescription,   gText_DexNatTitle},
+    [DEX_MODE_HOENN]    = {COMPOUND_STRING("HOENN region's POKéDEX"),   COMPOUND_STRING("HOENN DEX")},
+    [DEX_MODE_NATIONAL] = {COMPOUND_STRING("National edition POKéDEX"), COMPOUND_STRING("NATIONAL DEX")},
     {},
 };
 
 static const struct SearchOptionText sDexOrderOptions[] =
 {
-    [ORDER_NUMERICAL]    = {gText_DexSortNumericalDescription, gText_DexSortNumericalTitle},
-    [ORDER_ALPHABETICAL] = {gText_DexSortAtoZDescription,      gText_DexSortAtoZTitle},
-    [ORDER_HEAVIEST]     = {gText_DexSortHeaviestDescription,  gText_DexSortHeaviestTitle},
-    [ORDER_LIGHTEST]     = {gText_DexSortLightestDescription,  gText_DexSortLightestTitle},
-    [ORDER_TALLEST]      = {gText_DexSortTallestDescription,   gText_DexSortTallestTitle},
-    [ORDER_SMALLEST]     = {gText_DexSortSmallestDescription,  gText_DexSortSmallestTitle},
+    [ORDER_NUMERICAL]    = {COMPOUND_STRING("POKéMON are listed according to their\nnumber."),               COMPOUND_STRING("NUMERICAL MODE")},
+    [ORDER_ALPHABETICAL] = {COMPOUND_STRING("Spotted and owned POKéMON are listed\nalphabetically."),        COMPOUND_STRING("A TO Z MODE")},
+    [ORDER_HEAVIEST]     = {COMPOUND_STRING("Owned POKéMON are listed from the\nheaviest to the lightest."), COMPOUND_STRING("HEAVIEST MODE")},
+    [ORDER_LIGHTEST]     = {COMPOUND_STRING("Owned POKéMON are listed from the\nlightest to the heaviest."), COMPOUND_STRING("LIGHTEST MODE")},
+    [ORDER_TALLEST]      = {COMPOUND_STRING("Owned POKéMON are listed from the\ntallest to the smallest."),  COMPOUND_STRING("TALLEST MODE")},
+    [ORDER_SMALLEST]     = {COMPOUND_STRING("Owned POKéMON are listed from the\nsmallest to the tallest."),  COMPOUND_STRING("SMALLEST MODE")},
     {},
 };
 
 static const struct SearchOptionText sDexSearchNameOptions[] =
 {
-    {gText_DexEmptyString, gText_DexSearchDontSpecify},
-    [NAME_ABC] = {gText_DexEmptyString, gText_DexSearchAlphaABC},
-    [NAME_DEF] = {gText_DexEmptyString, gText_DexSearchAlphaDEF},
-    [NAME_GHI] = {gText_DexEmptyString, gText_DexSearchAlphaGHI},
-    [NAME_JKL] = {gText_DexEmptyString, gText_DexSearchAlphaJKL},
-    [NAME_MNO] = {gText_DexEmptyString, gText_DexSearchAlphaMNO},
-    [NAME_PQR] = {gText_DexEmptyString, gText_DexSearchAlphaPQR},
-    [NAME_STU] = {gText_DexEmptyString, gText_DexSearchAlphaSTU},
-    [NAME_VWX] = {gText_DexEmptyString, gText_DexSearchAlphaVWX},
-    [NAME_YZ]  = {gText_DexEmptyString, gText_DexSearchAlphaYZ},
+    {sText_DexEmptyString, sText_DexSearchDontSpecify},
+    [NAME_ABC] = {sText_DexEmptyString, COMPOUND_STRING("ABC")},
+    [NAME_DEF] = {sText_DexEmptyString, COMPOUND_STRING("DEF")},
+    [NAME_GHI] = {sText_DexEmptyString, COMPOUND_STRING("GHI")},
+    [NAME_JKL] = {sText_DexEmptyString, COMPOUND_STRING("JKL")},
+    [NAME_MNO] = {sText_DexEmptyString, COMPOUND_STRING("MNO")},
+    [NAME_PQR] = {sText_DexEmptyString, COMPOUND_STRING("PQR")},
+    [NAME_STU] = {sText_DexEmptyString, COMPOUND_STRING("STU")},
+    [NAME_VWX] = {sText_DexEmptyString, COMPOUND_STRING("VWX")},
+    [NAME_YZ]  = {sText_DexEmptyString, COMPOUND_STRING("YZ")},
     {},
 };
 
 static const struct SearchOptionText sDexSearchColorOptions[] =
 {
-    {gText_DexEmptyString, gText_DexSearchDontSpecify},
-    [SOURCE_HRTP + 1]         = {gText_DexHRTPDescription,    gText_DexSearchSourceTouhou1},
-    [SOURCE_SOEW + 1]         = {gText_DexSOEWDescription,    gText_DexSearchSourceTouhou2},
-    [SOURCE_PODD + 1]         = {gText_DexPODDDescription,    gText_DexSearchSourceTouhou3},
-    [SOURCE_LLS + 1]          = {gText_DexLLSDescription,     gText_DexSearchSourceTouhou4},
-    [SOURCE_MS + 1]           = {gText_DexMSDescription,      gText_DexSearchSourceTouhou5},
-    [SOURCE_EOSD + 1]         = {gText_DexEOSDDescription,    gText_DexSearchSourceTouhou6},
-    [SOURCE_PCB + 1]          = {gText_DexPCBDescription,     gText_DexSearchSourceTouhou7},
-    [SOURCE_IN + 1]           = {gText_DexINDescription,      gText_DexSearchSourceTouhou8},
-    [SOURCE_POFV + 1]         = {gText_DexPOFVDescription,    gText_DexSearchSourceTouhou9},
-    [SOURCE_MOF + 1]          = {gText_DexMOFDescription,     gText_DexSearchSourceTouhou10},
-    [SOURCE_SA + 1]           = {gText_DexSADescription,      gText_DexSearchSourceTouhou11},
-    [SOURCE_UFO + 1]          = {gText_DexUFODescription,     gText_DexSearchSourceTouhou12},
-    [SOURCE_TD + 1]           = {gText_DexTDDescription,      gText_DexSearchSourceTouhou13},
-    [SOURCE_DDC + 1]          = {gText_DexDDCDescription,     gText_DexSearchSourceTouhou14},
-    [SOURCE_LOLK + 1]         = {gText_DexLOLKDescription,    gText_DexSearchSourceTouhou15},
-    [SOURCE_HSIFS + 1]        = {gText_DexHSIFSDescription,   gText_DexSearchSourceTouhou16},
-    [SOURCE_WBAWC + 1]        = {gText_DexWBAWCDescription,   gText_DexSearchSourceTouhou17},
-    [SOURCE_UM + 1]           = {gText_DexUMDescription,      gText_DexSearchSourceTouhou18},
-    [SOURCE_UDOALG + 1]       = {gText_DexUDOALGDescription,  gText_DexSearchSourceTouhou19},
-    [SOURCE_SPINOFF + 1]      = {gText_DexSpinoffDescription, gText_DexSearchSourceTouhouSpinoff},
-    [SOURCE_PRINT + 1]        = {gText_DexPrintWDescription,  gText_DexSearchSourceTouhouPrint},
-    [SOURCE_VTUBERS + 1]      = {gText_DexOtherDescription,   gText_DexSearchSourceVTubers},
-    [SOURCE_UNDERTALE + 1]    = {gText_DexOtherDescription,   gText_DexSearchSourceUndertale},
-    [SOURCE_DELTARUNE + 1]    = {gText_DexOtherDescription,   gText_DexSearchSourceDeltarune},
-    [SOURCE_PIZZA_TOWER + 1]  = {gText_DexOtherDescription,   gText_DexSearchSourcePizzaTower},
-    [SOURCE_MARIO + 1]        = {gText_DexOtherDescription,   gText_DexSearchSourceMario},
-    [SOURCE_OTHER + 1]        = {gText_DexOtherDescription,   gText_DexSearchSourceMisc},
+    {sText_DexEmptyString, sText_DexSearchDontSpecify},
+    [SOURCE_HRTP + 1]         = {sText_DexHRTPDescription,    COMPOUND_STRING("HRtP")},
+    [SOURCE_SOEW + 1]         = {sText_DexSOEWDescription,    COMPOUND_STRING("SeOW")},
+    [SOURCE_PODD + 1]         = {sText_DexPODDDescription,    COMPOUND_STRING("PoDD")},
+    [SOURCE_LLS + 1]          = {sText_DexLLSDescription,     COMPOUND_STRING("LLS")},
+    [SOURCE_MS + 1]           = {sText_DexMSDescription,      COMPOUND_STRING("MS")},
+    [SOURCE_EOSD + 1]         = {sText_DexEOSDDescription,    COMPOUND_STRING("EoSD")},
+    [SOURCE_PCB + 1]          = {sText_DexPCBDescription,     COMPOUND_STRING("PCB")},
+    [SOURCE_IN + 1]           = {sText_DexINDescription,      COMPOUND_STRING("IN")},
+    [SOURCE_POFV + 1]         = {sText_DexPOFVDescription,    COMPOUND_STRING("PoFV")},
+    [SOURCE_MOF + 1]          = {sText_DexMOFDescription,     COMPOUND_STRING("MoF")},
+    [SOURCE_SA + 1]           = {sText_DexSADescription,      COMPOUND_STRING("SA")},
+    [SOURCE_UFO + 1]          = {sText_DexUFODescription,     COMPOUND_STRING("UFO")},
+    [SOURCE_TD + 1]           = {sText_DexTDDescription,      COMPOUND_STRING("TD")},
+    [SOURCE_DDC + 1]          = {sText_DexDDCDescription,     COMPOUND_STRING("DDC")},
+    [SOURCE_LOLK + 1]         = {sText_DexLOLKDescription,    COMPOUND_STRING("LoLK")},
+    [SOURCE_HSIFS + 1]        = {sText_DexHSIFSDescription,   COMPOUND_STRING("HSiFS")},
+    [SOURCE_WBAWC + 1]        = {sText_DexWBAWCDescription,   COMPOUND_STRING("WBaBC")},
+    [SOURCE_UM + 1]           = {sText_DexUMDescription,      COMPOUND_STRING("UM")},
+    [SOURCE_UDOALG + 1]       = {sText_DexUDOALGDescription,  COMPOUND_STRING("UDoALG")},
+    [SOURCE_SPINOFF + 1]      = {sText_DexSpinoffDescription, COMPOUND_STRING("Spinoff")},
+    [SOURCE_PRINT + 1]        = {sText_DexPrintWDescription,  COMPOUND_STRING("Print")},
+    [SOURCE_VTUBERS + 1]      = {sText_DexOtherDescription,   COMPOUND_STRING("VTubers")},
+    [SOURCE_UTDR + 1]         = {sText_DexOtherDescription,   COMPOUND_STRING("UTDR")},
+    [SOURCE_OTHER + 1]        = {sText_DexOtherDescription,   COMPOUND_STRING("Misc.")},
     {},
 };
 
 static const struct SearchOptionText sDexSearchTypeOptions[] =
 {
-    {gText_DexEmptyString, gTypesInfo[TYPE_NONE].name},
-    {gText_DexEmptyString, gTypesInfo[TYPE_ILLUSION].name},
-    {gText_DexEmptyString, gTypesInfo[TYPE_DREAM].name},
-    {gText_DexEmptyString, gTypesInfo[TYPE_FLYING].name},
-    {gText_DexEmptyString, gTypesInfo[TYPE_MIASMA].name},
-    {gText_DexEmptyString, gTypesInfo[TYPE_EARTH].name},
-    {gText_DexEmptyString, gTypesInfo[TYPE_BEAST].name},
-    {gText_DexEmptyString, gTypesInfo[TYPE_HEART].name},
-    {gText_DexEmptyString, gTypesInfo[TYPE_GHOST].name},
-    {gText_DexEmptyString, gTypesInfo[TYPE_STEEL].name},
-    {gText_DexEmptyString, gTypesInfo[TYPE_FIRE].name},
-    {gText_DexEmptyString, gTypesInfo[TYPE_WATER].name},
-    {gText_DexEmptyString, gTypesInfo[TYPE_NATURE].name},
-    {gText_DexEmptyString, gTypesInfo[TYPE_ELECTRIC].name},
-    {gText_DexEmptyString, gTypesInfo[TYPE_REASON].name},
-    {gText_DexEmptyString, gTypesInfo[TYPE_ICE].name},
-    {gText_DexEmptyString, gTypesInfo[TYPE_FAITH].name},
-    {gText_DexEmptyString, gTypesInfo[TYPE_DARK].name},
-    {gText_DexEmptyString, gTypesInfo[TYPE_COSMIC].name},
+    {sText_DexEmptyString, gTypesInfo[TYPE_NONE].name},
+    {sText_DexEmptyString, gTypesInfo[TYPE_ILLUSION].name},
+    {sText_DexEmptyString, gTypesInfo[TYPE_DREAM].name},
+    {sText_DexEmptyString, gTypesInfo[TYPE_FLYING].name},
+    {sText_DexEmptyString, gTypesInfo[TYPE_MIASMA].name},
+    {sText_DexEmptyString, gTypesInfo[TYPE_EARTH].name},
+    {sText_DexEmptyString, gTypesInfo[TYPE_BEAST].name},
+    {sText_DexEmptyString, gTypesInfo[TYPE_HEART].name},
+    {sText_DexEmptyString, gTypesInfo[TYPE_GHOST].name},
+    {sText_DexEmptyString, gTypesInfo[TYPE_STEEL].name},
+    {sText_DexEmptyString, gTypesInfo[TYPE_FIRE].name},
+    {sText_DexEmptyString, gTypesInfo[TYPE_WATER].name},
+    {sText_DexEmptyString, gTypesInfo[TYPE_NATURE].name},
+    {sText_DexEmptyString, gTypesInfo[TYPE_ELECTRIC].name},
+    {sText_DexEmptyString, gTypesInfo[TYPE_REASON].name},
+    {sText_DexEmptyString, gTypesInfo[TYPE_ICE].name},
+    {sText_DexEmptyString, gTypesInfo[TYPE_FAITH].name},
+    {sText_DexEmptyString, gTypesInfo[TYPE_DARK].name},
+    {sText_DexEmptyString, gTypesInfo[TYPE_COSMIC].name},
     {},
 };
 
@@ -1570,7 +1613,7 @@ void Task_HandlePokedexInput(u8 taskId)
             sPokedexView->selectedPokemon = TryDoPokedexScroll(sPokedexView->selectedPokemon, 0xE);
             if (sPokedexView->scrollTimer)
                 gTasks[taskId].func = Task_WaitForScroll;
-            HandleCreateStatBarsDPAD_HGSS(); 
+            HandleCreateStatBarsDPAD_HGSS();
         }
     }
 }
@@ -2066,7 +2109,7 @@ bool32 ShouldSkipPokedexListEntry(enum NationalDexOrder dexNum)
         return !GetSetPokedexFlag(dexNumBefore, FLAG_GET_SEEN)
             && !GetSetPokedexFlag(dexNumAfter, FLAG_GET_SEEN);
 
-    return TRUE; 
+    return TRUE;
 }
 
 void CreatePokedexList(u8 dexMode, u8 order)
@@ -2382,7 +2425,7 @@ void ClearMonListEntry(u8 x, u8 y, u16 unused)
     u32 xMultiplier = 8;
     if (POKEDEX_PLUS_HGSS)
         xMultiplier = 6;
-    
+
     FillWindowPixelRect(0, PIXEL_FILL(0), x * xMultiplier, y * 8, 0x60, 16);
 }
 
@@ -3351,7 +3394,7 @@ void Task_HandleInfoScreenInput(u8 taskId)
         PlaySE(SE_PC_OFF);
         return;
     }
-    
+
     if (TryHandleInfoScreenInput_HGSS(taskId))
         return;
 
@@ -3733,7 +3776,7 @@ static void LoadPlayArrowPalette(bool8 cryPlaying)
 {
     if (TryLoadPlayArrowPalette_HGSS(cryPlaying))
         return;
-    
+
     u16 color;
 
     if (cryPlaying)
@@ -4159,7 +4202,7 @@ static void PrintMonInfo(u32 num, u32 value, u32 owned, u32 newEntry)
     u8 digitCount = (NATIONAL_DEX_COUNT > 999 && IsNationalPokedexEnabled()) ? 4 : 3;
 
     if (newEntry)
-        PrintInfoScreenText(gText_PokedexRegistration, GetStringCenterAlignXOffset(FONT_NORMAL, gText_PokedexRegistration, DISPLAY_WIDTH), 0);
+        PrintInfoScreenText(sText_PokedexRegistration, GetStringCenterAlignXOffset(FONT_NORMAL, sText_PokedexRegistration, DISPLAY_WIDTH), 0);
     if (value == 0)
         value = NationalToRegionalOrder(num);
     else
@@ -4198,8 +4241,8 @@ void PrintMonMeasurements(enum Species species, u32 owned)
     u32 yTop = GetMeasurementTextPositions(DEX_Y_TOP);
     u32 yBottom = GetMeasurementTextPositions(DEX_Y_BOTTOM);
 
-    PrintInfoScreenText(gText_HTHeight, x, yTop);
-    PrintInfoScreenText(gText_WTWeight, x, yBottom);
+    PrintInfoScreenText(sText_HTHeight, x, yTop);
+    PrintInfoScreenText(sText_WTWeight, x, yBottom);
 
     if (owned)
         PrintOwnedMonMeasurements(species);
@@ -4252,14 +4295,14 @@ static void PrintUnknownMonMeasurements(void)
 static u8* GetUnknownMonHeightString(void)
 {
     if (gSaveBlock2Ptr->optionsUnitSystem == UNITS_IMPERIAL)
-        return ReplaceDecimalSeparator(gText_UnkHeight);
+        return ReplaceDecimalSeparator(sText_UnkHeight);
     else
-        return ReplaceDecimalSeparator(gText_UnkHeightMetric);
+        return ReplaceDecimalSeparator(sText_UnkHeightMetric);
 }
 
 static u8* GetUnknownMonCostString(void)
 {
-    return ReplaceDecimalSeparator(gText_UnkCost);
+    return ReplaceDecimalSeparator(sText_UnkCost);
 }
 
 static u8* ReplaceDecimalSeparator(const u8* originalString)
@@ -5197,7 +5240,7 @@ static void Task_HandleSearchMenuInput(u8 taskId)
             }
             else
             {
-                EraseAndPrintSearchTextBox(gText_SearchingPleaseWait);
+                EraseAndPrintSearchTextBox(sText_SearchingPleaseWait);
                 gTasks[taskId].func = Task_StartPokedexSearch;
                 PlaySE(SE_DEX_SEARCH);
                 CopyWindowToVram(0, COPYWIN_GFX);
@@ -5265,12 +5308,12 @@ static void Task_WaitAndCompleteSearch(u8 taskId)
         if (sPokedexView->pokemonListCount != 0)
         {
             PlaySE(SE_SUCCESS);
-            EraseAndPrintSearchTextBox(gText_SearchCompleted);
+            EraseAndPrintSearchTextBox(sText_SearchCompleted);
         }
         else
         {
             PlaySE(SE_FAILURE);
-            EraseAndPrintSearchTextBox(gText_NoMatchingPkmnWereFound);
+            EraseAndPrintSearchTextBox(sText_NoMatchingPkmnWereFound);
         }
         gTasks[taskId].func = Task_SearchCompleteWaitForInput;
         CopyWindowToVram(0, COPYWIN_GFX);

@@ -1073,10 +1073,10 @@ static const struct MenuAction sMultichoiceList_TrainerTowerMode[] = {
 };
 
 static const struct MenuAction sMultichoiceList_TrainerCardIconTint[] = {
-    { gText_Normal },
-    { COMPOUND_STRING("Black") },
-    { COMPOUND_STRING("Pink") },
-    { COMPOUND_STRING("Sepia") }
+    {gText_Normal},
+    {COMPOUND_STRING("Black")},
+    {COMPOUND_STRING("Pink")},
+    {COMPOUND_STRING("Sepia")}
 };
 
 static const u8 sText_Eggs[] = _("EGGS");
