@@ -92,11 +92,11 @@ MauvilleCity_GameCorner_EventScript_CheckWinnings::
 	waitmessage
 	addcoins GAME_CORNER_VAR_WINNINGS
 	setvar GAME_CORNER_VAR_WINNINGS, 0
-	updatecoinsbox 1, 1
+	updatecoinsbox
 	playse SE_SHOP
 	delay 40
 MauvilleCity_GameCorner_CancelVF::
-	hidecoinsbox 0, 5
+	hidecoinsbox
 MauvilleCity_GameCorner_CancelBJ::
 	closemessage
 MauvilleCity_GameCorner_NoWin::
@@ -114,10 +114,10 @@ MauvilleCity_GameCorner_EventScript_Snake::
 	closemessage
 	goto_if_eq VAR_RESULT, NO, MauvilleCity_GameCorner_CancelVF
 	removecoins 25
-	updatecoinsbox 1, 1
+	updatecoinsbox
 	playse SE_SHOP
 	delay 40
-	hidecoinsbox 0, 5
+	hidecoinsbox
 	playbgm MUS_NONE, FALSE
 	special StartSnake
 	savebgm MUS_DUMMY
@@ -135,10 +135,10 @@ MauvilleCity_GameCorner_EventScript_FlappyBird::
 	closemessage
 	goto_if_eq VAR_RESULT, NO, MauvilleCity_GameCorner_CancelVF
 	removecoins 25
-	updatecoinsbox 1, 1
+	updatecoinsbox
 	playse SE_SHOP
 	delay 40
-	hidecoinsbox 0, 5
+	hidecoinsbox
 	playbgm MUS_NONE, FALSE
 	special StartFlappyBird
 	savebgm MUS_DUMMY
@@ -156,10 +156,10 @@ MauvilleCity_GameCorner_EventScript_BlockStacker::
 	closemessage
 	goto_if_eq VAR_RESULT, NO, MauvilleCity_GameCorner_CancelVF	
 	removecoins 25
-	updatecoinsbox 1, 1
+	updatecoinsbox
 	playse SE_SHOP
 	delay 40
-	hidecoinsbox 0, 5
+	hidecoinsbox
 	playbgm MUS_CASINO_PLUS_1, FALSE
 	special StartBlockStacker
 	savebgm MUS_DUMMY
@@ -222,10 +222,10 @@ MauvilleCity_GameCorner_EventScript_PinballMeowth::
 	closemessage
 	goto_if_eq VAR_RESULT, NO, MauvilleCity_GameCorner_CancelVF	
 	removecoins 25
-	updatecoinsbox 1, 1
+	updatecoinsbox
 	playse SE_SHOP
 	delay 40
-	hidecoinsbox 0, 5
+	hidecoinsbox
 	playbgm MUS_CASINO_PLUS_2, FALSE
 	callnative PlayMeowthPinballGame
     waitstate
@@ -244,10 +244,10 @@ MauvilleCity_GameCorner_EventScript_PinballDiglett::
 	closemessage
 	goto_if_eq VAR_RESULT, NO, MauvilleCity_GameCorner_CancelVF	
 	removecoins 50
-	updatecoinsbox 1, 1
+	updatecoinsbox
 	playse SE_SHOP
 	delay 40
-	hidecoinsbox 0, 5
+	hidecoinsbox
 	playbgm MUS_CASINO_PLUS_3, FALSE
 	callnative PlayDiglettPinballGame
     waitstate
@@ -266,10 +266,10 @@ MauvilleCity_GameCorner_EventScript_PinballSeel::
 	closemessage
 	goto_if_eq VAR_RESULT, NO, MauvilleCity_GameCorner_CancelVF	
 	removecoins 25
-	updatecoinsbox 1, 1
+	updatecoinsbox
 	playse SE_SHOP
 	delay 40
-	hidecoinsbox 0, 5
+	hidecoinsbox
 	playbgm MUS_CASINO_PLUS_9, FALSE
 	callnative PlaySeelPinballGame
     waitstate 
@@ -288,10 +288,10 @@ MauvilleCity_GameCorner_EventScript_PinballGengar::
 	closemessage
 	goto_if_eq VAR_RESULT, NO, MauvilleCity_GameCorner_CancelVF	
 	removecoins 100
-	updatecoinsbox 1, 1
+	updatecoinsbox
 	playse SE_SHOP
 	delay 40
-	hidecoinsbox 0, 5
+	hidecoinsbox
 	playbgm MUS_CASINO_PLUS_5, FALSE
 	callnative PlayGengarPinballGame
     waitstate
@@ -310,10 +310,10 @@ MauvilleCity_GameCorner_EventScript_VoltorbFlip::
 	closemessage
 	goto_if_eq VAR_RESULT, NO, MauvilleCity_GameCorner_CancelVF
 	removecoins 50
-	updatecoinsbox 1, 1
+	updatecoinsbox
 	playse SE_SHOP
 	delay 40
-	hidecoinsbox 0, 5
+	hidecoinsbox
 	playbgm MUS_HGSS_CASINO, FALSE
 	setvar GAME_CORNER_VAR_WINNINGS, 0
 	special Special_ViewVoltorbFlip
@@ -339,7 +339,7 @@ VF_Go_On::
 	goto VF_Loop
 	
 VF_Loop::
-	hidecoinsbox 0, 5
+	hidecoinsbox
 	special Special_ViewVoltorbFlip
 	goto_if_eq VAR_RESULT, 0, VF_Come_Again
 	goto_if_eq VAR_RESULT, 1, VF_Go_On
@@ -352,12 +352,12 @@ VF_Cash_Out::
 .if FLIP_VAR_LEVEL != 0
 	setvar FLIP_VAR_LEVEL, 0
 .endif
-	updatecoinsbox 1, 1
+	updatecoinsbox
 	playse SE_SHOP
 	savebgm MUS_DUMMY
 	fadedefaultbgm
 	delay 40
-	hidecoinsbox 0, 5
+	hidecoinsbox
 	releaseall
 	end
 	
@@ -459,11 +459,11 @@ MauvilleCity_GameCorner_EventScript_Buy50Coins::
 	addcoins 50
 	removemoney COINS_PRICE_50
 	updatemoneybox
-	updatecoinsbox 1, 6
+	updatecoinsbox
 	playse SE_SHOP
 	msgbox MauvilleCity_GameCorner_Text_ThankYouHereAreYourCoins, MSGBOX_DEFAULT
 	hidemoneybox
-	hidecoinsbox 0, 5
+	hidecoinsbox
 	release
 	end
 
@@ -475,11 +475,11 @@ MauvilleCity_GameCorner_EventScript_Buy500Coins::
 	addcoins 500
 	removemoney COINS_PRICE_500
 	updatemoneybox
-	updatecoinsbox 1, 6
+	updatecoinsbox
 	playse SE_SHOP
 	msgbox MauvilleCity_GameCorner_Text_ThankYouHereAreYourCoins, MSGBOX_DEFAULT
 	hidemoneybox
-	hidecoinsbox 0, 5
+	hidecoinsbox
 	release
 	end
 
@@ -491,21 +491,21 @@ MauvilleCity_GameCorner_EventScript_NeedCoinCase::
 MauvilleCity_GameCorner_EventScript_NotEnoughMoney::
 	msgbox MauvilleCity_GameCorner_Text_DontHaveEnoughMoney, MSGBOX_DEFAULT
 	hidemoneybox
-	hidecoinsbox 0, 5
+	hidecoinsbox
 	release
 	end
 
 MauvilleCity_GameCorner_EventScript_CancelBuyCoins::
 	msgbox MauvilleCity_GameCorner_Text_DontNeedCoinsThen, MSGBOX_DEFAULT
 	hidemoneybox
-	hidecoinsbox 0, 5
+	hidecoinsbox
 	release
 	end
 
 MauvilleCity_GameCorner_EventScript_NoRoomForCoins::
 	msgbox MauvilleCity_GameCorner_Text_CoinCaseIsFull, MSGBOX_DEFAULT
 	hidemoneybox
-	hidecoinsbox 0, 5
+	hidecoinsbox
 	release
 	end
 
@@ -572,7 +572,7 @@ MauvilleCity_GameCorner_EventScript_BuyTreeckoDoll::
 	goto_if_eq VAR_RESULT, FALSE, MauvilleCity_GameCorner_EventScript_NoRoomForDoll
 	removecoins DOLL_COINS
 	adddecoration DECOR_TREECKO_DOLL
-	updatecoinsbox 1, 1
+	updatecoinsbox
 	playse SE_SHOP
 	msgbox MauvilleCity_GameCorner_Text_SendToYourHomePC, MSGBOX_DEFAULT
 	goto MauvilleCity_GameCorner_EventScript_ReturnToChooseDollPrize
@@ -586,7 +586,7 @@ MauvilleCity_GameCorner_EventScript_BuyTorchicDoll::
 	goto_if_eq VAR_RESULT, FALSE, MauvilleCity_GameCorner_EventScript_NoRoomForDoll
 	removecoins DOLL_COINS
 	adddecoration DECOR_TORCHIC_DOLL
-	updatecoinsbox 1, 1
+	updatecoinsbox
 	playse SE_SHOP
 	msgbox MauvilleCity_GameCorner_Text_SendToYourHomePC, MSGBOX_DEFAULT
 	goto MauvilleCity_GameCorner_EventScript_ReturnToChooseDollPrize
@@ -600,7 +600,7 @@ MauvilleCity_GameCorner_EventScript_BuyMudkipDoll::
 	goto_if_eq VAR_RESULT, FALSE, MauvilleCity_GameCorner_EventScript_NoRoomForDoll
 	removecoins DOLL_COINS
 	adddecoration DECOR_MUDKIP_DOLL
-	updatecoinsbox 1, 1
+	updatecoinsbox
 	playse SE_SHOP
 	msgbox MauvilleCity_GameCorner_Text_SendToYourHomePC, MSGBOX_DEFAULT
 	goto MauvilleCity_GameCorner_EventScript_ReturnToChooseDollPrize
@@ -618,7 +618,7 @@ MauvilleCity_GameCorner_EventScript_NoRoomForDoll::
 
 MauvilleCity_GameCorner_EventScript_CancelDollSelect::
 	msgbox MauvilleCity_GameCorner_Text_OhIsThatSo, MSGBOX_DEFAULT
-	hidecoinsbox 0, 0
+	hidecoinsbox
 	release
 	end
 
@@ -788,7 +788,6 @@ MauvilleCity_GameCorner_EventScript_ConfirmNewPrize::
 	case 7, MauvilleCity_GameCorner_EventScript_BuyLeafStone
 	case 8, MauvilleCity_GameCorner_EventScript_BuyChoiceBand
 	case 9, MauvilleCity_GameCorner_EventScript_BuyBrightPowder
-	
 	end
 
 MauvilleCity_GameCorner_EventScript_BuyBrightPowder::
@@ -798,7 +797,7 @@ MauvilleCity_GameCorner_EventScript_BuyBrightPowder::
 	goto_if_eq VAR_RESULT, FALSE, MauvilleCity_GameCorner_EventScript_NoRoomForNew
 	removecoins BRIGHTPOWDER_COINS
 	additem ITEM_BRIGHT_POWDER
-	updatecoinsbox 1, 1
+	updatecoinsbox
 	playse SE_SHOP
 	msgbox MauvilleCity_GameCorner_Text_HereYouGo, MSGBOX_DEFAULT
 	goto MauvilleCity_GameCorner_EventScript_ReturnToChooseNewPrize
@@ -811,7 +810,7 @@ MauvilleCity_GameCorner_EventScript_BuyChoiceBand::
 	goto_if_eq VAR_RESULT, FALSE, MauvilleCity_GameCorner_EventScript_NoRoomForNew
 	removecoins CHOICEBAND_COINS
 	additem ITEM_CHOICE_RIBBON
-	updatecoinsbox 1, 1
+	updatecoinsbox
 	playse SE_SHOP
 	msgbox MauvilleCity_GameCorner_Text_HereYouGo, MSGBOX_DEFAULT
 	goto MauvilleCity_GameCorner_EventScript_ReturnToChooseNewPrize
@@ -824,7 +823,7 @@ MauvilleCity_GameCorner_EventScript_BuyRareCandy::
 	goto_if_eq VAR_RESULT, FALSE, MauvilleCity_GameCorner_EventScript_NoRoomForNew
 	removecoins RARECANDY_COINS
 	additem ITEM_RARE_CANDY
-	updatecoinsbox 1, 1
+	updatecoinsbox
 	playse SE_SHOP
 	msgbox MauvilleCity_GameCorner_Text_HereYouGo, MSGBOX_DEFAULT
 	goto MauvilleCity_GameCorner_EventScript_ReturnToChooseNewPrize
@@ -837,7 +836,7 @@ MauvilleCity_GameCorner_EventScript_BuySunStone::
 	goto_if_eq VAR_RESULT, FALSE, MauvilleCity_GameCorner_EventScript_NoRoomForNew
 	removecoins SUNSTONE_COINS
 	additem ITEM_JUST_HEART
-	updatecoinsbox 1, 1
+	updatecoinsbox
 	playse SE_SHOP
 	msgbox MauvilleCity_GameCorner_Text_HereYouGo, MSGBOX_DEFAULT
 	goto MauvilleCity_GameCorner_EventScript_ReturnToChooseNewPrize
@@ -850,7 +849,7 @@ MauvilleCity_GameCorner_EventScript_BuyMoonStone::
 	goto_if_eq VAR_RESULT, FALSE, MauvilleCity_GameCorner_EventScript_NoRoomForNew
 	removecoins MOONSTONE_COINS
 	additem ITEM_HELPER_HEART
-	updatecoinsbox 1, 1
+	updatecoinsbox
 	playse SE_SHOP
 	msgbox MauvilleCity_GameCorner_Text_HereYouGo, MSGBOX_DEFAULT
 	goto MauvilleCity_GameCorner_EventScript_ReturnToChooseNewPrize
@@ -863,7 +862,7 @@ MauvilleCity_GameCorner_EventScript_BuyFireStone::
 	goto_if_eq VAR_RESULT, FALSE, MauvilleCity_GameCorner_EventScript_NoRoomForNew2
 	removecoins FIRESTONE_COINS
 	additem ITEM_POWER_HEART
-	updatecoinsbox 1, 1
+	updatecoinsbox
 	playse SE_SHOP
 	msgbox MauvilleCity_GameCorner_Text_HereYouGo, MSGBOX_DEFAULT
 	goto MauvilleCity_GameCorner_EventScript_ReturnToChooseNewPrize2
@@ -876,7 +875,7 @@ MauvilleCity_GameCorner_EventScript_BuyThunderStone::
 	goto_if_eq VAR_RESULT, FALSE, MauvilleCity_GameCorner_EventScript_NoRoomForNew2
 	removecoins THUNDERSTONE_COINS
 	additem ITEM_GUARD_HEART
-	updatecoinsbox 1, 1
+	updatecoinsbox
 	playse SE_SHOP
 	msgbox MauvilleCity_GameCorner_Text_HereYouGo, MSGBOX_DEFAULT
 	goto MauvilleCity_GameCorner_EventScript_ReturnToChooseNewPrize2
@@ -889,7 +888,7 @@ MauvilleCity_GameCorner_EventScript_BuyWaterStone::
 	goto_if_eq VAR_RESULT, FALSE, MauvilleCity_GameCorner_EventScript_NoRoomForNew2
 	removecoins WATERSTONE_COINS
 	additem ITEM_SWIFT_HEART
-	updatecoinsbox 1, 1
+	updatecoinsbox
 	playse SE_SHOP
 	msgbox MauvilleCity_GameCorner_Text_HereYouGo, MSGBOX_DEFAULT
 	goto MauvilleCity_GameCorner_EventScript_ReturnToChooseNewPrize2
@@ -902,7 +901,7 @@ MauvilleCity_GameCorner_EventScript_BuyLeafStone::
 	goto_if_eq VAR_RESULT, FALSE, MauvilleCity_GameCorner_EventScript_NoRoomForNew2
 	removecoins LEAFSTONE_COINS
 	additem ITEM_TECH_HEART
-	updatecoinsbox 1, 1
+	updatecoinsbox
 	playse SE_SHOP
 	msgbox MauvilleCity_GameCorner_Text_HereYouGo, MSGBOX_DEFAULT
 	goto MauvilleCity_GameCorner_EventScript_ReturnToChooseNewPrize2
@@ -957,7 +956,7 @@ MauvilleCity_GameCorner_EventScript_BuyTMDoubleTeam::
 	goto_if_eq VAR_RESULT, FALSE, MauvilleCity_GameCorner_EventScript_NoRoomForTM
 	removecoins TM_DOUBLE_TEAM_COINS
 	additem ITEM_TM_DOUBLE_TEAM
-	updatecoinsbox 1, 1
+	updatecoinsbox
 	playse SE_SHOP
 	msgbox MauvilleCity_GameCorner_Text_HereYouGo, MSGBOX_DEFAULT
 	goto MauvilleCity_GameCorner_EventScript_ReturnToChooseTMPrize
@@ -970,7 +969,7 @@ MauvilleCity_GameCorner_EventScript_BuyTMPsychic::
 	goto_if_eq VAR_RESULT, FALSE, MauvilleCity_GameCorner_EventScript_NoRoomForTM
 	removecoins TM_PSYCHIC_COINS
 	additem ITEM_TM_MANA_BURST
-	updatecoinsbox 1, 1
+	updatecoinsbox
 	playse SE_SHOP
 	msgbox MauvilleCity_GameCorner_Text_HereYouGo, MSGBOX_DEFAULT
 	goto MauvilleCity_GameCorner_EventScript_ReturnToChooseTMPrize
@@ -983,7 +982,7 @@ MauvilleCity_GameCorner_EventScript_BuyTMFlamethrower::
 	goto_if_eq VAR_RESULT, FALSE, MauvilleCity_GameCorner_EventScript_NoRoomForTM
 	removecoins TM_FLAMETHROWER_COINS
 	additem ITEM_TM_FLAMETHROWER
-	updatecoinsbox 1, 1
+	updatecoinsbox
 	playse SE_SHOP
 	msgbox MauvilleCity_GameCorner_Text_HereYouGo, MSGBOX_DEFAULT
 	goto MauvilleCity_GameCorner_EventScript_ReturnToChooseTMPrize
@@ -996,7 +995,7 @@ MauvilleCity_GameCorner_EventScript_BuyTMThunderbolt::
 	goto_if_eq VAR_RESULT, FALSE, MauvilleCity_GameCorner_EventScript_NoRoomForTM
 	removecoins TM_THUNDERBOLT_COINS
 	additem ITEM_TM_THUNDERBOLT
-	updatecoinsbox 1, 1
+	updatecoinsbox
 	playse SE_SHOP
 	msgbox MauvilleCity_GameCorner_Text_HereYouGo, MSGBOX_DEFAULT
 	goto MauvilleCity_GameCorner_EventScript_ReturnToChooseTMPrize
@@ -1009,7 +1008,7 @@ MauvilleCity_GameCorner_EventScript_BuyTMIceBeam::
 	goto_if_eq VAR_RESULT, FALSE, MauvilleCity_GameCorner_EventScript_NoRoomForTM
 	removecoins TM_ICE_BEAM_COINS
 	additem ITEM_TM_ICE_BEAM
-	updatecoinsbox 1, 1
+	updatecoinsbox
 	playse SE_SHOP
 	msgbox MauvilleCity_GameCorner_Text_HereYouGo, MSGBOX_DEFAULT
 	goto MauvilleCity_GameCorner_EventScript_ReturnToChooseTMPrize
@@ -1047,7 +1046,7 @@ MauvilleCity_GameCorner_EventScript_NoRoomForNew2::
 
 MauvilleCity_GameCorner_EventScript_CancelTMSelect::
 	msgbox MauvilleCity_GameCorner_Text_OhIsThatSo, MSGBOX_DEFAULT
-	hidecoinsbox 0, 0
+	hidecoinsbox
 	release
 	end
 
@@ -1251,10 +1250,10 @@ MauvilleCity_GameCorner_EventScript_JuiceLady::
 	checkcoins VAR_TEMP_2
 	goto_if_lt VAR_TEMP_2, 10, Juice_Not_Enough
 	removecoins 10
-	updatecoinsbox 1, 1
+	updatecoinsbox
 	playse SE_SHOP
 	delay 40
-	hidecoinsbox 0, 5
+	hidecoinsbox
 	giveitem ITEM_BERRY_JUICE
 	release
 	end

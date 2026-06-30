@@ -3280,7 +3280,7 @@ bool8 ScrCmd_bufferoutfitstr(struct ScriptContext *ctx)
 
     Script_RequestEffects(SCREFF_V1);
 
-    BufferOutfitStrings(sScriptStringVars[strVarIdx], outfit, type);
+    BufferOutfitStrings(GetStringVar(strVarIdx), outfit, type);
     return TRUE;
 }
 

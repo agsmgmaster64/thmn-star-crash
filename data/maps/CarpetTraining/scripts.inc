@@ -9,7 +9,7 @@ CarpetTraining_EventScript_NoCoinCasePlay::
 
 
 CarpetTraining_EventScript_CancelGame::
-	hidecoinsbox 0, 5
+	hidecoinsbox
 	closemessage
 	releaseall
 	end
@@ -24,10 +24,10 @@ CarpetTraining_EventScript_CheckWinnings::
 	waitmessage
 	addcoins GAME_CORNER_VAR_WINNINGS
 	setvar GAME_CORNER_VAR_WINNINGS, 0
-	updatecoinsbox 1, 1
+	updatecoinsbox
 	playse SE_SHOP
 	delay 40
-	hidecoinsbox 0, 5
+	hidecoinsbox
 	closemessage
 	releaseall
 	end
@@ -82,10 +82,10 @@ CarpetTraining_EventScript_PinballSeel_4:
 	goto_if_eq CarpetTraining_EventScript_PinballSeel_8
 CarpetTraining_EventScript_PinballSeel_7:
 	removecoins 25
-	updatecoinsbox 1, 1
+	updatecoinsbox
 	playse SE_SHOP
 	delay 40
-	hidecoinsbox 0, 5
+	hidecoinsbox
 	playbgm MUS_CASINO_PLUS_9, FALSE
 	callnative PlaySeelPinballGame
 	waitstate
@@ -130,10 +130,10 @@ CarpetTraining_EventScript_Snake_4:
 	goto_if_eq CarpetTraining_EventScript_Snake_8
 CarpetTraining_EventScript_Snake_7:
 	removecoins 25
-	updatecoinsbox 1, 1
+	updatecoinsbox
 	playse SE_SHOP
 	delay 40
-	hidecoinsbox 0, 5
+	hidecoinsbox
 	playbgm MUS_NONE, FALSE
 	special StartSnake
 	savebgm MUS_DUMMY
@@ -177,10 +177,10 @@ CarpetTraining_EventScript_FlappyBird_4:
 	goto_if_eq CarpetTraining_EventScript_FlappyBird_8
 CarpetTraining_EventScript_FlappyBird_7:
 	removecoins 25
-	updatecoinsbox 1, 1
+	updatecoinsbox
 	playse SE_SHOP
 	delay 40
-	hidecoinsbox 0, 5
+	hidecoinsbox
 	playbgm MUS_NONE, FALSE
 	special StartFlappyBird
 	savebgm MUS_DUMMY
@@ -224,10 +224,10 @@ CarpetTraining_EventScript_BlockStacker_4:
 	goto_if_eq CarpetTraining_EventScript_BlockStacker_8
 CarpetTraining_EventScript_BlockStacker_7:
 	removecoins 25
-	updatecoinsbox 1, 1
+	updatecoinsbox
 	playse SE_SHOP
 	delay 40
-	hidecoinsbox 0, 5
+	hidecoinsbox
 	playbgm MUS_CASINO_PLUS_1, FALSE
 	special StartBlockStacker
 	savebgm MUS_DUMMY
@@ -270,7 +270,7 @@ CarpetTraining_EventScript_VoltorbFlip_4:
 	goto_if_eq CarpetTraining_EventScript_VoltorbFlip_8
 CarpetTraining_EventScript_VoltorbFlip_7:
 	removecoins 50
-	updatecoinsbox 1, 1
+	updatecoinsbox
 	playse SE_SHOP
 	delay 40
 	playbgm MUS_HGSS_CASINO, FALSE
@@ -311,7 +311,7 @@ CarpetTraining_EventScript_VoltorbFlipGoAgain::
 	compare VAR_RESULT, NO
 	goto_if_eq CarpetTraining_EventScript_VoltorbFlipGoAgain_2
 CarpetTraining_EventScript_VoltorbFlipGoAgain_1:
-	hidecoinsbox 0, 5
+	hidecoinsbox
 	special Special_ViewVoltorbFlip
 	compare VAR_RESULT, TRUE
 	goto_if_eq CarpetTraining_EventScript_VoltorbFlipGoAgain_5
@@ -336,12 +336,12 @@ CarpetTraining_EventScript_VoltorbFlipGetWinnings::
 	addcoins GAME_CORNER_VAR_WINNINGS
 	setvar GAME_CORNER_VAR_WINNINGS, 0
 	setvar FLIP_VAR_LEVEL, 0
-	updatecoinsbox 1, 1
+	updatecoinsbox
 	playse SE_SHOP
 	savebgm MUS_DUMMY
 	fadedefaultbgm
 	delay 40
-	hidecoinsbox 0, 5
+	hidecoinsbox
 	releaseall
 	end
 
@@ -533,7 +533,7 @@ CarpetTraining_EventScript_ATMCoins_7:
 CarpetTraining_EventScript_ATMCoins_1:
 	closemessage
 	hidemoneybox
-	hidecoinsbox 0, 5
+	hidecoinsbox
 	return
 
 CarpetTraining_EventScript_ATMCoins_5:
@@ -549,7 +549,7 @@ CarpetTraining_EventScript_ATMCoins_9:
 	addcoins 50
 	removemoney 1000
 	updatemoneybox
-	updatecoinsbox 1, 6
+	updatecoinsbox
 	playse SE_SHOP
 	msgbox CarpetTraining_Text_ATMGetCoins
 	goto CarpetTraining_EventScript_ATMCoins_7
@@ -564,7 +564,7 @@ CarpetTraining_EventScript_ATMCoins_10:
 	addcoins 500
 	removemoney 10000
 	updatemoneybox
-	updatecoinsbox 1, 6
+	updatecoinsbox
 	playse SE_SHOP
 	msgbox CarpetTraining_Text_ATMGetCoins
 	goto CarpetTraining_EventScript_ATMCoins_7

@@ -15,7 +15,7 @@ script CarpetTraining_EventScript_NoCoinCasePlay {
 }
 
 script CarpetTraining_EventScript_CancelGame {
-	hidecoinsbox(0, 5)
+	hidecoinsbox
 	closemessage
 	releaseall
 	end
@@ -32,10 +32,10 @@ script CarpetTraining_EventScript_CheckWinnings {
 	waitmessage
 	addcoins(GAME_CORNER_VAR_WINNINGS)
 	setvar(GAME_CORNER_VAR_WINNINGS, 0)
-	updatecoinsbox(1, 1)
+	updatecoinsbox
 	playse(SE_SHOP)
 	delay(40)
-	hidecoinsbox(0, 5)
+	hidecoinsbox
 	closemessage
 	releaseall
 	end
@@ -76,10 +76,10 @@ script CarpetTraining_EventScript_Pachinko {
 		goto(CarpetTraining_EventScript_CancelGame)
 	}
 	removecoins(25)
-	updatecoinsbox(1, 1)
+	updatecoinsbox
 	playse(SE_SHOP)
 	delay(40)
-	hidecoinsbox(0, 5)
+	hidecoinsbox
 	playbgm(MUS_CASINO_PLUS_9, FALSE)
 	callnative(PlaySeelPinballGame)
     waitstate 
@@ -110,10 +110,10 @@ script CarpetTraining_EventScript_Snake {
 		goto(CarpetTraining_EventScript_CancelGame)
 	}
 	removecoins(25)
-	updatecoinsbox(1, 1)
+	updatecoinsbox
 	playse(SE_SHOP)
 	delay(40)
-	hidecoinsbox(0, 5)
+	hidecoinsbox
 	playbgm(MUS_NONE, FALSE)
 	special(StartSnake)
 	savebgm(MUS_DUMMY)
@@ -143,10 +143,10 @@ script CarpetTraining_EventScript_FlappyBird {
 		goto(CarpetTraining_EventScript_CancelGame)
 	}
 	removecoins(25)
-	updatecoinsbox(1, 1)
+	updatecoinsbox
 	playse(SE_SHOP)
 	delay(40)
-	hidecoinsbox(0, 5)
+	hidecoinsbox
 	playbgm(MUS_NONE, FALSE)
 	special(StartFlappyBird)
 	savebgm(MUS_DUMMY)
@@ -176,10 +176,10 @@ script CarpetTraining_EventScript_BlockStacker {
 		goto(CarpetTraining_EventScript_CancelGame)
 	}
 	removecoins(25)
-	updatecoinsbox(1, 1)
+	updatecoinsbox
 	playse(SE_SHOP)
 	delay(40)
-	hidecoinsbox(0, 5)
+	hidecoinsbox
 	playbgm(MUS_CASINO_PLUS_1, FALSE)
 	special(StartBlockStacker)
 	savebgm(MUS_DUMMY)
@@ -208,7 +208,7 @@ script CarpetTraining_EventScript_VoltorbFlip {
 		goto(CarpetTraining_EventScript_CancelGame)
 	}
 	removecoins(50)
-	updatecoinsbox(1, 1)
+	updatecoinsbox
 	playse(SE_SHOP)
 	delay(40)
 	playbgm(MUS_HGSS_CASINO, FALSE)
@@ -233,7 +233,7 @@ script CarpetTraining_EventScript_VoltorbFlipGoAgain {
 	if (var(VAR_RESULT) == NO) {
 		goto(CarpetTraining_EventScript_VoltorbFlipGetWinnings)
 	}
-	hidecoinsbox(0, 5)
+	hidecoinsbox
 	special(Special_ViewVoltorbFlip)
 	if (var(VAR_RESULT) == TRUE) {
 		goto(CarpetTraining_EventScript_VoltorbFlipGoAgain)
@@ -250,12 +250,12 @@ script CarpetTraining_EventScript_VoltorbFlipGetWinnings {
 	addcoins(GAME_CORNER_VAR_WINNINGS)
 	setvar(GAME_CORNER_VAR_WINNINGS, 0)
 	setvar(FLIP_VAR_LEVEL, 0)
-	updatecoinsbox(1, 1)
+	updatecoinsbox
 	playse(SE_SHOP)
 	savebgm(MUS_DUMMY)
 	fadedefaultbgm
 	delay(40)
-	hidecoinsbox(0, 5)
+	hidecoinsbox
 	releaseall
 	end
 }
@@ -402,7 +402,7 @@ script CarpetTraining_EventScript_ATMCoins {
 				addcoins(50)
 				removemoney(1000)
 				updatemoneybox
-				updatecoinsbox(1, 6)
+				updatecoinsbox
 				playse(SE_SHOP)
 				msgbox(CarpetTraining_Text_ATMGetCoins)
 			case 1:
@@ -418,7 +418,7 @@ script CarpetTraining_EventScript_ATMCoins {
 				addcoins(500)
 				removemoney(10000)
 				updatemoneybox
-				updatecoinsbox(1, 6)
+				updatecoinsbox
 				playse(SE_SHOP)
 				msgbox(CarpetTraining_Text_ATMGetCoins)
 		}
@@ -427,7 +427,7 @@ script CarpetTraining_EventScript_ATMCoins {
 	}
 	closemessage
 	hidemoneybox
-	hidecoinsbox(0, 5)
+	hidecoinsbox
 	return
 }
 

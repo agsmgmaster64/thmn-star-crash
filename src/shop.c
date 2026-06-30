@@ -827,18 +827,6 @@ static void MoveTutorLoadMoveInfo(u32 item)
 
     str = gTypesInfo[moveType].name;
     x = GetStringWidth(FONT_NARROW, str, 0) + GetStringRightAlignXOffset(FONT_NARROW, str, 0);
-    switch (GetMoveCategory(item))
-    {
-        case DAMAGE_CATEGORY_PHYSICAL:
-            //str = gText_TutorPhysical;
-            break;
-        case DAMAGE_CATEGORY_SPECIAL:
-            //str = gText_TutorSpecial;
-            break;
-        case DAMAGE_CATEGORY_STATUS:
-            //str = gText_TutorStatus;
-            break;
-    }
     AddTextPrinterParameterized(WIN_BATTLE_MOVE_DESC, FONT_NARROW, str, x, 39, TEXT_SKIP_DRAW, NULL); // adds Physical/Special/Status text
 
     x = 2 + GetStringWidth(FONT_NARROW, gText_MoveRelearnerPP, 0);
