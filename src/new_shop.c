@@ -659,19 +659,19 @@ static const struct WindowTemplate sBuyMenuWindowTemplates[] =
         .bg = 0,
         .tilemapLeft = 1,
         .tilemapTop = 13,
-        .width = 10,
+        .width = 9,
         .height = 6,
         .paletteNum = 15,
         .baseBlock = 0x0032,
     },
     [WIN_ITEM_DESCRIPTION] = {
         .bg = 0,
-        .tilemapLeft = 11,
+        .tilemapLeft = 10,
         .tilemapTop = 13,
-        .width = 14,
+        .width = 15,
         .height = 6,
         .paletteNum = 15,
-        .baseBlock = 0x0122,
+        .baseBlock = 0x006E,
     },
     [WIN_QUANTITY_PRICE] = {
         .bg = 0,
@@ -1771,11 +1771,11 @@ static void UpdateItemData(void)
     if (sMartInfo.itemList[GridMenu_SelectedIndex(sShopData->gridItems)] == ITEM_NONE)
     {
         BuyMenuPrint(WIN_MULTI, COMPOUND_STRING("Return to Field"), 0, 0, TEXT_SKIP_DRAW, COLORID_NORMAL, FALSE);
-        BuyMenuPrint(WIN_MULTI, strip, GetStringRightAlignXOffset(FONT_SMALL, strip, 80), ITEM_PRICE_Y, TEXT_SKIP_DRAW, COLORID_NORMAL, FALSE);
+        BuyMenuPrint(WIN_MULTI, strip, GetStringRightAlignXOffset(FONT_SMALL, strip, 72), ITEM_PRICE_Y, TEXT_SKIP_DRAW, COLORID_NORMAL, FALSE);
 
         if (IsMartTypeItem(sMartInfo.martType))
         {
-            BuyMenuPrint(WIN_MULTI, strip, GetStringRightAlignXOffset(FONT_SMALL, strip, 80), ITEM_IN_BAG_Y, TEXT_SKIP_DRAW, COLORID_NORMAL, FALSE);
+            BuyMenuPrint(WIN_MULTI, strip, GetStringRightAlignXOffset(FONT_SMALL, strip, 72), ITEM_IN_BAG_Y, TEXT_SKIP_DRAW, COLORID_NORMAL, FALSE);
         }
 
         FillWindowPixelBuffer(WIN_ITEM_DESCRIPTION, PIXEL_FILL(0));
@@ -1800,16 +1800,16 @@ static void UpdateItemData(void)
                     const u8 *move = GetMoveName(ItemIdToBattleMoveId(item));
                     FormatTextByWidth(gStringVar2, 80, FONT_SMALL, desc, 0);
                     desc = gStringVar2;
-                    BuyMenuPrint(WIN_MULTI, move, GetStringRightAlignXOffset(FONT_SMALL, move, 80), 0, TEXT_SKIP_DRAW, COLORID_NORMAL, FALSE);
+                    BuyMenuPrint(WIN_MULTI, move, GetStringRightAlignXOffset(FONT_SMALL, move, 72), 0, TEXT_SKIP_DRAW, COLORID_NORMAL, FALSE);
                 }
 
                 if (GetItemImportance(item) && (CheckBagHasItem(item, 1) || CheckPCHasItem(item, 1)))
-                    BuyMenuPrint(WIN_MULTI, sText_SoldOut, GetStringRightAlignXOffset(FONT_SMALL, sText_SoldOut, 80), ITEM_PRICE_Y, TEXT_SKIP_DRAW, COLORID_NORMAL, FALSE);
+                    BuyMenuPrint(WIN_MULTI, sText_SoldOut, GetStringRightAlignXOffset(FONT_SMALL, sText_SoldOut, 72), ITEM_PRICE_Y, TEXT_SKIP_DRAW, COLORID_NORMAL, FALSE);
                 else
                     PrintMoneyLocal(WIN_MULTI, RIGHT_ALIGNED_X, ITEM_PRICE_Y, price, COLORID_NORMAL, STR_CONV_MODE_LEFT_ALIGN, FALSE);
 
                 ConvertIntToDecimalStringN(gStringVar3, quantity, STR_CONV_MODE_RIGHT_ALIGN, 10);
-                BuyMenuPrint(WIN_MULTI, gStringVar3, GetStringRightAlignXOffset(FONT_SMALL, gStringVar3, 80), ITEM_IN_BAG_Y, TEXT_SKIP_DRAW, COLORID_NORMAL, FALSE);
+                BuyMenuPrint(WIN_MULTI, gStringVar3, GetStringRightAlignXOffset(FONT_SMALL, gStringVar3, 72), ITEM_IN_BAG_Y, TEXT_SKIP_DRAW, COLORID_NORMAL, FALSE);
                 break;
             }
         #ifdef MUDSKIP_OUTFIT_SYSTEM
@@ -1817,7 +1817,7 @@ static void UpdateItemData(void)
             {
                 u32 outfit = item;
                 if (GetOutfitStatus(outfit))
-                    BuyMenuPrint(WIN_MULTI, sText_SoldOut, GetStringRightAlignXOffset(FONT_SMALL, sText_SoldOut, 80), ITEM_PRICE_Y, TEXT_SKIP_DRAW, COLORID_NORMAL, FALSE);
+                    BuyMenuPrint(WIN_MULTI, sText_SoldOut, GetStringRightAlignXOffset(FONT_SMALL, sText_SoldOut, 72), ITEM_PRICE_Y, TEXT_SKIP_DRAW, COLORID_NORMAL, FALSE);
                 else
                     PrintMoneyLocal(WIN_MULTI, RIGHT_ALIGNED_X, ITEM_PRICE_Y, price, COLORID_NORMAL, STR_CONV_MODE_LEFT_ALIGN, FALSE);
                 break;
@@ -1839,7 +1839,7 @@ static void UpdateItemData(void)
         }
 
         FillWindowPixelBuffer(WIN_ITEM_DESCRIPTION, PIXEL_FILL(0));
-        FormatTextByWidth(gStringVar2, 104, FONT_SMALL, desc, 0);
+        FormatTextByWidth(gStringVar2, 112, FONT_SMALL, desc, 0);
         BuyMenuPrint(WIN_ITEM_DESCRIPTION, gStringVar2, 8, 0, TEXT_SKIP_DRAW, COLORID_NORMAL, TRUE);
     }
     CopyWindowToVram(WIN_MULTI, COPYWIN_FULL);
