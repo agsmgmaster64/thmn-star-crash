@@ -5020,6 +5020,24 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u8 gMonFootprint_TTakane[] = INCGFX_U8("graphics/pokemon/_add/th/takane/tech/footprint.png", ".1bpp");
 #endif //P_FOOTPRINTS
 
+    const u32 gMonFrontPic_CApple[] = INCGFX_U32("graphics/pokemon/_add/etc/apple/chibi/anim_front.png", ".4bpp.smol");
+    const u16 gMonPalette_CApple[] = INCGFX_U16("graphics/pokemon/_add/etc/apple/chibi/normal.pal", ".gbapal");
+    const u32 gMonBackPic_CApple[] = INCGFX_U32("graphics/pokemon/_add/etc/apple/chibi/back.png", ".4bpp.smol");
+    const u16 gMonShinyPalette_CApple[] = INCGFX_U16("graphics/pokemon/_add/etc/apple/chibi/shiny.pal", ".gbapal");
+    const u8 gMonIcon_CApple[] = INCGFX_U8("graphics/pokemon/_add/etc/apple/chibi/icon.png", ".4bpp");
+#if P_FOOTPRINTS
+    const u8 gMonFootprint_CApple[] = INCGFX_U8("graphics/pokemon/_add/etc/apple/chibi/footprint.png", ".1bpp");
+#endif //P_FOOTPRINTS
+
+    const u32 gMonFrontPic_Apple[] = INCGFX_U32("graphics/pokemon/_add/etc/apple/normal/anim_front.png", ".4bpp.smol");
+    const u16 gMonPalette_Apple[] = INCGFX_U16("graphics/pokemon/_add/etc/apple/normal/normal.pal", ".gbapal");
+    const u32 gMonBackPic_Apple[] = INCGFX_U32("graphics/pokemon/_add/etc/apple/normal/back.png", ".4bpp.smol");
+    const u16 gMonShinyPalette_Apple[] = INCGFX_U16("graphics/pokemon/_add/etc/apple/normal/shiny.pal", ".gbapal");
+    const u8 gMonIcon_Apple[] = INCGFX_U8("graphics/pokemon/_add/etc/apple/normal/icon.png", ".4bpp");
+#if P_FOOTPRINTS
+    const u8 gMonFootprint_Apple[] = INCGFX_U8("graphics/pokemon/_add/etc/apple/normal/footprint.png", ".1bpp");
+#endif //P_FOOTPRINTS
+
     const u32 gMonFrontPic_Egg[] = INCGFX_U32("graphics/pokemon/egg/anim_front.png", ".4bpp.smol");
     const u16 gMonPalette_Egg[] = INCGFX_U16("graphics/pokemon/egg/normal.pal", ".gbapal");
     const u8 gMonIcon_Egg[] = INCGFX_U8("graphics/pokemon/egg/icon.png", ".4bpp");

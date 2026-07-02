@@ -2441,3 +2441,9 @@ u8 GetGhostSpriteDefault_Y(enum BattlerId battler)
     else
         return GetBattlerSpriteCoord(battler, BATTLER_COORD_Y);
 }
+
+void AnimTask_GetMoodSwingAnimation(u8 taskId)
+{
+	gBattleAnimArgs[7] = gBattleCommunication[MULTISTRING_CHOOSER] - 1;
+	DestroyAnimVisualTask(taskId);
+}

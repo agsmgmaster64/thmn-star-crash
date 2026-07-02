@@ -21957,6 +21957,31 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .battleAnimScript = gBattleAnimMove_MalignantChain,
     },
 
+    [MOVE_MOOD_SWING] =
+    {
+        .name = COMPOUND_STRING("Mood Swing"),
+        .description = COMPOUND_STRING(
+            "The user raises one\n"
+            "of its stats."),
+        .effect = EFFECT_MOOD_SWING,
+        .power = 0,
+        .type = TYPE_HEART,
+        .accuracy = 0,
+        .pp = 30,
+        .target = TARGET_USER,
+        .priority = 0,
+        .category = DAMAGE_CATEGORY_STATUS,
+        .zMove = { .effect = Z_EFFECT_BOOST_CRITS },
+        .ignoresProtect = TRUE,
+        .mirrorMoveBanned = TRUE,
+        .snatchAffected = TRUE,
+        .contestEffect = CONTEST_EFFECT_IMPROVE_CONDITION_PREVENT_NERVOUSNESS,
+        .contestCategory = CONTEST_CATEGORY_COOL,
+        .contestComboStarterId = 0,
+        .contestComboMoves = {0},
+        .battleAnimScript = gBattleAnimMove_MoodSwing,
+    },
+
     // Z-Moves
     [MOVE_BREAKNECK_BLITZ] =
     {

@@ -4930,6 +4930,7 @@ static void TryMoodSwingStatChange(struct BattleCalcValues *cv)
         } while (!(bits & (1u << statId)));
 
         SetStatChange(cv->battlerDef, statId, 1);
+        gBattleCommunication[MULTISTRING_CHOOSER] = statId;
         gBattleStruct->moveResultFlags[cv->battlerDef] = MOVE_RESULT_ATTEMPT_STAT_CHANGE;
     }
     else
@@ -4945,9 +4946,9 @@ static enum MoveResult StatChangeCanAnyChange(struct BattleCalcValues *cv)
         TryAcupressureStatChange(cv);
         return MOVE_RESULT_CONTINUE;
     }
-    else if (GetMoveEffect(cv->move) == EFFECT_ACUPRESSURE)
+    else if (GetMoveEffect(cv->move) == EFFECT_MOOD_SWING)
     {
-        TryAcupressureStatChange(cv);
+        TryMoodSwingStatChange(cv);
         return MOVE_RESULT_CONTINUE;
     }
 
