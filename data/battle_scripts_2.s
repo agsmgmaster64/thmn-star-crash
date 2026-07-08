@@ -234,8 +234,8 @@ BattleScript_ShakeBallThrowEnd::
 
 BattleScript_BombOrbDamage::
 	dmg_1_8_targethp
-	healthbarupdate BS_TARGET, PASSIVE_HP_UPDATE
-	datahpupdate BS_TARGET, PASSIVE_HP_UPDATE
+	healthbarupdate BS_TARGET
+	datahpupdate BS_TARGET
 	printstring STRINGID_BOMBORBTOOKDAMAGE
 	waitmessage B_WAIT_TIME_LONG
 	tryfaintmon BS_TARGET

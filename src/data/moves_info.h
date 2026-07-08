@@ -15421,7 +15421,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .description = COMPOUND_STRING(
             "The ground turns holy for 5\n"
             "turns. Blocks raising stats."),
-        .effect = EFFECT_HOLY_TERRAIN,
+        .effect = EFFECT_TERRAIN,
         .power = 0,
         .type = TYPE_FAITH,
         .accuracy = 0,
@@ -15429,6 +15429,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .target = TARGET_FIELD,
         .priority = 0,
         .category = DAMAGE_CATEGORY_STATUS,
+        .argument = { .terrainType = B_TERRAIN_PSYCHIC },
         .zMove = { .effect = Z_EFFECT_RESET_STATS },
         .ignoresProtect = TRUE,
         .mirrorMoveBanned = TRUE,

@@ -440,7 +440,7 @@ void UI_Battle_Menu_Init(MainCallback callback)
                 isExtraInfoShown = TRUE;
             break;
         case FIELD_INFO_TERRAIN:
-            if (gFieldStatuses & STATUS_FIELD_TERRAIN_ANY)
+            if (gFieldTimers.terrain != B_TERRAIN_NONE)
                 isExtraInfoShown = TRUE;
             break;
         case FIELD_INFO_INVERSE_ROOM:
@@ -2807,36 +2807,36 @@ static void PrintFieldTab(void)
             case FIELD_INFO_TERRAIN:
                 //Terrain
                 AddTextPrinterParameterized4(windowId, FONT_SMALL_NARROW, (x * 8) + x2, (y * 8) + y2, 0, 0, sMenuWindowFontColors[FONT_WHITE], 0xFF, sText_Title_Field_Terrain);
-                if (gFieldStatuses & STATUS_FIELD_ELECTRIC_TERRAIN)
+                if (gFieldTimers.terrain == B_TERRAIN_ELECTRIC)
                     StringCopy(gStringVar1, sText_Title_Field_Terrain_Electric);
-                else if (gFieldStatuses & STATUS_FIELD_GRASSY_TERRAIN)
+                else if (gFieldTimers.terrain == B_TERRAIN_GRASSY)
                     StringCopy(gStringVar1, sText_Title_Field_Terrain_Grassy);
-                else if (gFieldStatuses & STATUS_FIELD_MISTY_TERRAIN)
+                else if (gFieldTimers.terrain == B_TERRAIN_MISTY)
                     StringCopy(gStringVar1, sText_Title_Field_Terrain_Misty);
-                else if (gFieldStatuses & STATUS_FIELD_PSYCHIC_TERRAIN)
+                else if (gFieldTimers.terrain == B_TERRAIN_PSYCHIC)
                     StringCopy(gStringVar1, sText_Title_Field_Terrain_Psychic);
-                else if (gFieldStatuses & STATUS_FIELD_HOLY_TERRAIN)
+                else if (gFieldTimers.terrain == B_TERRAIN_HOLY)
                     StringCopy(gStringVar1, sText_Title_Field_Terrain_Psychic);
                 else
                     StringCopy(gStringVar1, sText_Title_Field_None);
 
                 AddTextPrinterParameterized4(windowId, FONT_SMALL_NARROW, (x * 8) + x2 + SPACE_BETWEEN_LINES_FIELD, (y * 8) + y2, 0, 0, sMenuWindowFontColors[FONT_WHITE], 0xFF, gStringVar1);
                 //Turns Left
-                if (gFieldStatuses & STATUS_FIELD_TERRAIN_ANY)
+                if (gFieldTimers.terrain != B_TERRAIN_NONE)
                 {
                     AddTextPrinterParameterized4(windowId, FONT_SMALL_NARROW, (x * 8) + x2 + (SPACE_BETWEEN_LINES_FIELD * 2), (y * 8) + y2, 0, 0, sMenuWindowFontColors[FONT_WHITE], 0xFF, sText_Title_Field_Turns_Left);
                     ConvertIntToDecimalStringN(gStringVar1, gFieldTimers.terrainTimer, STR_CONV_MODE_LEFT_ALIGN, 4);
                     AddTextPrinterParameterized4(windowId, FONT_SMALL_NARROW, (x * 8) + x2 + (SPACE_BETWEEN_LINES_FIELD * 3), (y * 8) + y2, 0, 0, sMenuWindowFontColors[FONT_WHITE], 0xFF, gStringVar1);
                     //Terrain Description
-                    if ((gFieldStatuses & STATUS_FIELD_ELECTRIC_TERRAIN))
+                    if (gFieldTimers.terrain == B_TERRAIN_ELECTRIC)
                         StringCopy(gStringVar1, sText_Title_Field_Terrain_Description_Electric);
-                    else if ((gFieldStatuses & STATUS_FIELD_GRASSY_TERRAIN))
+                    else if (gFieldTimers.terrain == B_TERRAIN_GRASSY)
                         StringCopy(gStringVar1, sText_Title_Field_Terrain_Description_Grassy);
-                    else if ((gFieldStatuses & STATUS_FIELD_MISTY_TERRAIN))
+                    else if (gFieldTimers.terrain == B_TERRAIN_MISTY)
                         StringCopy(gStringVar1, sText_Title_Field_Terrain_Description_Misty);
-                    else if ((gFieldStatuses & STATUS_FIELD_PSYCHIC_TERRAIN))
+                    else if (gFieldTimers.terrain == B_TERRAIN_PSYCHIC)
                         StringCopy(gStringVar1, sText_Title_Field_Terrain_Description_Psychic);
-                    else if ((gFieldStatuses & STATUS_FIELD_HOLY_TERRAIN))
+                    else if (gFieldTimers.terrain == B_TERRAIN_HOLY)
                         StringCopy(gStringVar1, sText_Title_Field_Terrain_Description_Psychic);
 
                     AddTextPrinterParameterized4(windowId, FONT_SMALL_NARROW, (x * 8) + x2, ((y + 1) * 8) + y2, 0, 0, sMenuWindowFontColors[FONT_BLACK], 0xFF, gStringVar1);
