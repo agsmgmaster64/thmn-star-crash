@@ -215,6 +215,7 @@ enum BattleScriptOpcode
     B_SCR_OP_TRYMOVESTATCHANGES,
     B_SCR_OP_TRYSTATCHANGES,
     B_SCR_OP_TRYBATTLERSTATCHANGE,
+    B_SCR_OP_JUMPIFTERRAIN,
 
     // Expansion users, please don't use any of the unused commands.
     // They are reserved for expansion usage.
@@ -257,7 +258,6 @@ enum BattleScriptOpcode
     B_SCR_OP_UNUSED_36,
     B_SCR_OP_UNUSED_37,
     B_SCR_OP_UNUSED_38,
-    B_SCR_OP_UNUSED_39,
     B_SCR_OP_CALLNATIVE,
 };
 
@@ -380,12 +380,6 @@ enum TriggerOnFieldStatus
     ON_ANY,
     ON_TERRAIN,
     ON_WEATHER,
-};
-
-enum HealthUpdate
-{
-    PASSIVE_HP_UPDATE,
-    MOVE_DAMAGE_HP_UPDATE,
 };
 
 enum FlungItem
