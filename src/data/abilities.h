@@ -2394,8 +2394,6 @@ const struct AbilityInfo gAbilitiesInfo[ABILITIES_COUNT] =
         .cantBeCopied = TRUE,
         .cantBeSwapped = TRUE,
         .cantBeTraced = TRUE,
-        .cantBeSuppressed = TRUE,
-        .cantBeOverwritten = TRUE,
         .randomizerBlacklist = TRUE,
     },
 
@@ -2476,9 +2474,6 @@ const struct AbilityInfo gAbilitiesInfo[ABILITIES_COUNT] =
             "Boosts the Special Attack stat if\n"
             "the Puppet has a status condition."),
         .aiRating = 8,
-        .cantBeSwapped = TRUE,
-        .cantBeCopied = TRUE,
-        .cantBeOverwritten = TRUE,
     },
 
     [ABILITY_FASCINATE] =
@@ -2489,9 +2484,6 @@ const struct AbilityInfo gAbilitiesInfo[ABILITIES_COUNT] =
             "Lowers the opposing Puppet's Special\n"
             "Attack stat upon entering battle."),
         .aiRating = 8,
-        .cantBeSwapped = TRUE,
-        .cantBeCopied = TRUE,
-        .cantBeOverwritten = TRUE,
     },
 
     [ABILITY_OPPORTUNIST] =

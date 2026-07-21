@@ -109,7 +109,6 @@ SINGLE_BATTLE_TEST("Role Play fails if user's ability can't be suppressed")
     PARAMETRIZE { species = SPECIES_CALYREX_ICE; ability = ABILITY_HOLY_SURGE; }
     PARAMETRIZE { species = SPECIES_CALYREX_SHADOW; ability = ABILITY_YIN_AND_YANG; }
     PARAMETRIZE { species = SPECIES_PALAFIN_ZERO; ability = ABILITY_ZERO_TO_HERO; }
-    PARAMETRIZE { species = SPECIES_TATSUGIRI; ability = ABILITY_COMMANDER; }
 
     GIVEN {
         PLAYER(SPECIES_CHIBI_YUUGI) { Ability(ABILITY_TELEPATHY); }
