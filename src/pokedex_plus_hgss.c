@@ -2351,8 +2351,8 @@ static void PrintStatsScreen_Moves_Description(u8 taskId)
     {
     case 0:
         PrintStatsScreenTextSmall(WIN_STATS_MOVES_DESCRIPTION, gText_Power,  moves_x, moves_y);
-        PrintStatsScreenTextSmall(WIN_STATS_MOVES_DESCRIPTION, gText_Accuracy3,  moves_x + 55, moves_y);
-        PrintStatsScreenTextSmall(WIN_STATS_MOVES_DESCRIPTION, gText_PPDex,  moves_x + 104, moves_y);
+        PrintStatsScreenTextSmall(WIN_STATS_MOVES_DESCRIPTION, gText_Accuracy2,  moves_x + 66, moves_y);
+        PrintStatsScreenTextSmall(WIN_STATS_MOVES_DESCRIPTION, gText_PPDex,  moves_x, moves_y + 11);
 
         //Power
         u32 power = GetMovePower(move);
@@ -2374,7 +2374,7 @@ static void PrintStatsScreen_Moves_Description(u8 taskId)
         //PP
         u32 pp = GetMovePP(move);
         ConvertIntToDecimalStringN(gStringVar1, pp, STR_CONV_MODE_RIGHT_ALIGN, 2);
-        PrintStatsScreenTextSmall(WIN_STATS_MOVES_DESCRIPTION, gStringVar1,  moves_x + 119, moves_y);
+        PrintStatsScreenTextSmall(WIN_STATS_MOVES_DESCRIPTION, gStringVar1,  moves_x + 30, moves_y + 11);
         break;
     case 1:
         DestroyCategoryIcon();

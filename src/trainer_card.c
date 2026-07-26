@@ -727,6 +727,15 @@ static void SetPlayerCardData(struct TrainerCard *trainerCard, u8 cardType)
 
     trainerCard->money = GetMoney(&gSaveBlock1Ptr->money);
 
+    trainerCard->monIconTint = VarGet(VAR_TRAINER_CARD_MON_ICON_TINT_IDX);
+
+    trainerCard->monSpecies[0] = VarGet(VAR_TRAINER_CARD_MON_ICON_1);
+    trainerCard->monSpecies[1] = VarGet(VAR_TRAINER_CARD_MON_ICON_2);
+    trainerCard->monSpecies[2] = VarGet(VAR_TRAINER_CARD_MON_ICON_3);
+    trainerCard->monSpecies[3] = VarGet(VAR_TRAINER_CARD_MON_ICON_4);
+    trainerCard->monSpecies[4] = VarGet(VAR_TRAINER_CARD_MON_ICON_5);
+    trainerCard->monSpecies[5] = VarGet(VAR_TRAINER_CARD_MON_ICON_6);
+
     for (i = 0; i < TRAINER_CARD_PROFILE_LENGTH; i++)
         trainerCard->easyChatProfile[i] = gSaveBlock1Ptr->easyChatProfile[i];
 
@@ -766,19 +775,7 @@ static void TrainerCard_GenerateCardForPlayer(struct TrainerCard *trainerCard)
     if (trainerCard->hasAllFrontierSymbols)
         trainerCard->stars++;
 
-    if (trainerCard->gender == FEMALE)
-        trainerCard->unionRoomClass = gUnionRoomFacilityClasses[(trainerCard->trainerId % NUM_UNION_ROOM_CLASSES) + NUM_UNION_ROOM_CLASSES];
-    else
-        trainerCard->unionRoomClass = gUnionRoomFacilityClasses[trainerCard->trainerId % NUM_UNION_ROOM_CLASSES];
-
-    trainerCard->monIconTint = VarGet(VAR_TRAINER_CARD_MON_ICON_TINT_IDX);
-
-    trainerCard->monSpecies[0] = VarGet(VAR_TRAINER_CARD_MON_ICON_1);
-    trainerCard->monSpecies[1] = VarGet(VAR_TRAINER_CARD_MON_ICON_2);
-    trainerCard->monSpecies[2] = VarGet(VAR_TRAINER_CARD_MON_ICON_3);
-    trainerCard->monSpecies[3] = VarGet(VAR_TRAINER_CARD_MON_ICON_4);
-    trainerCard->monSpecies[4] = VarGet(VAR_TRAINER_CARD_MON_ICON_5);
-    trainerCard->monSpecies[5] = VarGet(VAR_TRAINER_CARD_MON_ICON_6);
+    trainerCard->unionRoomClass = gSaveBlock3Ptr->currOutfitId;
 }
 
 //! TODO: Store the link player's current outfit id
@@ -792,10 +789,7 @@ void TrainerCard_GenerateCardForLinkPlayer(struct TrainerCard *trainerCard)
     if (trainerCard->linkHasAllFrontierSymbols)
         trainerCard->stars++;
 
-    if (trainerCard->gender == FEMALE)
-        trainerCard->unionRoomClass = gUnionRoomFacilityClasses[(trainerCard->trainerId % NUM_UNION_ROOM_CLASSES) + NUM_UNION_ROOM_CLASSES];
-    else
-        trainerCard->unionRoomClass = gUnionRoomFacilityClasses[trainerCard->trainerId % NUM_UNION_ROOM_CLASSES];
+    trainerCard->unionRoomClass = gSaveBlock3Ptr->currOutfitId;
 }
 
 void CopyTrainerCardData(struct TrainerCard *dst, struct TrainerCard *src, u8 gameVersion)
@@ -1806,24 +1800,11 @@ static u8 VersionToCardType(enum GameVersion version)
 
 static void CreateTrainerCardTrainerPic(void)
 {
-    if (InUnionRoom() == TRUE && gReceivedRemoteLinkPlayers)
-    {
-        CreateTrainerCardTrainerPicSprite(FacilityClassToPicIndex(sData->trainerCard.unionRoomClass),
-                    TRUE,
-                    sTrainerPicOffset[sData->isHoenn][sData->trainerCard.gender][0],
-                    sTrainerPicOffset[sData->isHoenn][sData->trainerCard.gender][1],
-                    10,
-                    WIN_TRAINER_PIC);
-    }
-    else
-    {
-        //! TODO: Support outfits on linking
-        u16 picId = GetPlayerTrainerPicIdByOutfitGenderType(gSaveBlock3Ptr->currOutfitId, sData->trainerCard.gender);
-        CreateTrainerCardTrainerPicSprite(picId,
-                    TRUE,
-                    sTrainerPicOffset[sData->isHoenn][sData->trainerCard.gender][0],
-                    sTrainerPicOffset[sData->isHoenn][sData->trainerCard.gender][1],
-                    10,
-                    WIN_TRAINER_PIC);
-    }
+    u16 picId = GetPlayerTrainerPicIdByOutfitGenderType(sData->trainerCard.unionRoomClass, sData->trainerCard.gender);
+    CreateTrainerCardTrainerPicSprite(picId,
+                TRUE,
+                sTrainerPicOffset[sData->isHoenn][sData->trainerCard.gender][0],
+                sTrainerPicOffset[sData->isHoenn][sData->trainerCard.gender][1],
+                10,
+                WIN_TRAINER_PIC);
 }
