@@ -629,7 +629,7 @@ void UI_Battle_Menu_Init(MainCallback callback)
                     isExtraInfoShown = TRUE;
                 break;
             case STATUS_INFO_CONFUSION:
-                if (gBattleMons[j].volatiles.confusionTurns)
+                if (gBattleMons[j].volatiles.confusionTimer)
                     isExtraInfoShown = TRUE;
                 break;
             case STATUS_INFO_FUTURE_SIGHT:
