@@ -1711,8 +1711,8 @@ static bool32 CanTwoTurnMoveFireThisTurn(struct BattleCalcValues *cv, bool32 *sh
         return FALSE;
 
     enum BattleWeather moveAffectedByWeather = GetTwoTurnMoveWeather(cv->move);
-    enum BattleWeather weatherType = sBattleWeatherInfo[GetBattleWeather(weather)].type;
-    enum BattleWeather attackerWeatherType = sBattleWeatherInfo[GetBattleWeather(attackerWeather)].type;
+    enum BattleWeather weatherType = gBattleWeatherInfo[GetBattleWeather(weather)].type;
+    enum BattleWeather attackerWeatherType = gBattleWeatherInfo[GetBattleWeather(attackerWeather)].type;
 
     if (weatherType == moveAffectedByWeather)
     {
@@ -2928,6 +2928,8 @@ static bool32 TryMoveDamageUpdate(struct BattleCalcValues *cv)
         gBattleStruct->moveDamage[cv->battlerDef] = 0;
         if (cv->moveEffect == EFFECT_OHKO)
             gProtectStructs[cv->battlerDef].survivedOHKO = TRUE;
+        if (DoesIceFaceBlockMove(cv->battlerDef, cv->move))
+            gProtectStructs[cv->battlerDef].assuranceDoubled = TRUE;
     }
     else
     {
