@@ -1155,7 +1155,7 @@ BattleScript_GivingHeartActivates::
 	playanimation BS_SCRIPTING, B_ANIM_WISH_HEAL
 	waitanimation
 	healthbarupdate BS_SCRIPTING
-	datahpupdate BS_SCRIPTING
+	datahpupdate BS_SCRIPTING, ASSURANCE_DOUBLE
 	clearstatus BS_SCRIPTING
 	waitstate
 	updatestatusicon BS_SCRIPTING
@@ -2444,7 +2444,7 @@ BattleScript_EffectHoneyboiled::
 	attackanimation
 	waitanimation
 	healthbarupdate BS_TARGET
-	datahpupdate BS_TARGET
+	datahpupdate BS_TARGET, ASSURANCE_DOUBLE
 	printstring STRINGID_PKMNREGAINEDHEALTH
 	waitmessage B_WAIT_TIME_LONG
 	tryhoneychipheal BS_TARGET, BattleScript_MoveEnd
@@ -4258,7 +4258,7 @@ BattleScript_EarlyBirdHeal:
 	call BattleScript_AbilityPopUp
 	pause B_WAIT_TIME_LONG
 	healthbarupdate BS_ATTACKER
-	datahpupdate BS_ATTACKER
+	datahpupdate BS_ATTACKER, ASSURANCE_DOUBLE
 	printstring STRINGID_FELTBETTERWITHABILITY
 	waitmessage B_WAIT_TIME_LONG
 BattleScript_EarlyBirdHeal_Ret:
@@ -4277,7 +4277,7 @@ BattleScript_EarlyBirdHealEffect:
 	call BattleScript_AbilityPopUp
 	pause B_WAIT_TIME_LONG
 	healthbarupdate BS_EFFECT_BATTLER
-	datahpupdate BS_EFFECT_BATTLER
+	datahpupdate BS_EFFECT_BATTLER, ASSURANCE_DOUBLE
 	printstring STRINGID_EFFFELTBETTERWITHABILITY
 	waitmessage B_WAIT_TIME_LONG
 BattleScript_EarlyBirdHealEffect_Ret:
