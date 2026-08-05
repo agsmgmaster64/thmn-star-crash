@@ -301,6 +301,9 @@ const u16 gTrainerPalette_MischievousFairy[] = INCGFX_U16("graphics/trainers/fro
 const u32 gTrainerFrontPic_SunflowerFairy[] = INCGFX_U32("graphics/trainers/front_pics/sunflower_fairy.png", ".4bpp.smol");
 const u16 gTrainerPalette_SunflowerFairy[] = INCGFX_U16("graphics/trainers/front_pics/sunflower_fairy.png", ".gbapal");
 
+const u32 gTrainerFrontPic_TokaiTeio[] = INCGFX_U32("graphics/trainers/front_pics/tokai_teio.png", ".4bpp.smol");
+const u16 gTrainerPalette_TokaiTeio[] = INCGFX_U16("graphics/trainers/front_pics/tokai_teio.png", ".gbapal");
+
 const u32 gTrainerFrontPic_Engineer[] = INCGFX_U32("graphics/trainers/front_pics/engineer.png", ".4bpp.smol");
 const u16 gTrainerPalette_Engineer[] = INCGFX_U16("graphics/trainers/front_pics/engineer.png", ".gbapal");
 
@@ -1285,5 +1288,9 @@ const struct TrainerPicInfo gTrainerPicInfo[TRAINER_PIC_COUNT] =
     {
         .frontPic = TRAINER_FRONT_PIC(gTrainerFrontPic_Steven, gTrainerPalette_Steven),
         .backPic = TRAINER_BACK_PIC(4, gTrainerBackPic_Kronii, gTrainerBackPicPalette_Kronii, sBackAnims_Hoenn),
+    },
+    [TRAINER_PIC_TOKAI_TEIO] =
+    {
+        .frontPic = TRAINER_FRONT_PIC(gTrainerFrontPic_TokaiTeio, gTrainerPalette_TokaiTeio),
     },
 };

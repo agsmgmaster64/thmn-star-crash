@@ -1259,7 +1259,7 @@ static void HighlightSelectedMainMenuItem(enum PartyMenuType menuType, u8 select
 #define tLotadSpriteId data[9]
 #define tBrendanSpriteId data[10]
 #define tMaySpriteId data[11]
-#define tGigiSpriteId data[12]
+#define tCustomSpriteId data[12]
 
 void CB2_NewGameBirchSpeech_ReturnFromOptionsMenu(void)
 {
@@ -1782,7 +1782,7 @@ static void Task_NewGameBirchSpeech_ReshowBirchLotad(u8 taskId)
     {
         gSprites[gTasks[taskId].tBrendanSpriteId].invisible = TRUE;
         gSprites[gTasks[taskId].tMaySpriteId].invisible = TRUE;
-        gSprites[gTasks[taskId].tGigiSpriteId].invisible = TRUE;
+        gSprites[gTasks[taskId].tCustomSpriteId].invisible = TRUE;
         spriteId = gTasks[taskId].tBirchSpriteId;
         gSprites[spriteId].x = 136;
         gSprites[spriteId].y = 60;
@@ -1833,9 +1833,9 @@ static void Task_NewGameBirchSpeech_AreYouReady(u8 taskId)
             gTasks[taskId].tTimer--;
             return;
         }
-        if (!StringCompare(gSaveBlock2Ptr->playerName, gText_Gigi))
+        if (GetEasterEggOutfit() != OUTFIT_NONE)
         {
-            spriteId = gTasks[taskId].tGigiSpriteId;
+            spriteId = gTasks[taskId].tCustomSpriteId;
         }
         else if (gSaveBlock2Ptr->playerGender != MALE)
         {
@@ -1919,6 +1919,7 @@ static void CB2_NewGameBirchSpeech_ReturnFromNamingScreen(void)
     u8 taskId;
     u8 spriteId;
     u16 savedIme;
+    u32 outfitEasterEgg;
 
     ResetBgsAndClearDma3BusyFlags(0);
     SetGpuReg(REG_OFFSET_DISPCNT, 0);
@@ -1952,11 +1953,18 @@ static void CB2_NewGameBirchSpeech_ReturnFromNamingScreen(void)
     FreeAllSpritePalettes();
     ResetAllPicSprites();
     AddBirchSpeechObjects(taskId);
-    if (!StringCompare(gSaveBlock2Ptr->playerName, gText_Gigi))
+    outfitEasterEgg = GetEasterEggOutfit();
+    if (outfitEasterEgg != OUTFIT_NONE)
     {
-        gSaveBlock2Ptr->playerGender = FEMALE;
-        gTasks[taskId].tPlayerGender = FEMALE;
-        spriteId = gTasks[taskId].tGigiSpriteId;
+        switch (outfitEasterEgg)
+        {
+        case OUTFIT_TOKAI_TEIO:
+        case OUTFIT_GIGI_MURIN:
+            gSaveBlock2Ptr->playerGender = FEMALE;
+            gTasks[taskId].tPlayerGender = FEMALE;
+            break;
+        }
+        spriteId = gTasks[taskId].tCustomSpriteId;
     }
     else if (gSaveBlock2Ptr->playerGender != MALE)
     {
@@ -2020,7 +2028,8 @@ static void AddBirchSpeechObjects(u8 taskId)
     u8 lotadSpriteId;
     u8 brendanSpriteId;
     u8 maySpriteId;
-    u8 gigiSpriteId;
+    u8 customSpriteId;
+    u32 outfitEasterEgg;
 
     birchSpriteId = AddNewGameBirchObject(0x88, 0x3C, 1);
     gSprites[birchSpriteId].callback = SpriteCB_Null;
@@ -2042,11 +2051,12 @@ static void AddBirchSpeechObjects(u8 taskId)
     gSprites[maySpriteId].invisible = TRUE;
     gSprites[maySpriteId].oam.priority = 0;
     gTasks[taskId].tMaySpriteId = maySpriteId;
-    gigiSpriteId = CreateTrainerSprite(GetPlayerTrainerPicIdByOutfitGenderType(OUTFIT_GIGI_MURIN, MALE), 120, 60, 0, NULL);
-    gSprites[gigiSpriteId].callback = SpriteCB_Null;
-    gSprites[gigiSpriteId].invisible = TRUE;
-    gSprites[gigiSpriteId].oam.priority = 0;
-    gTasks[taskId].tGigiSpriteId = gigiSpriteId;
+    outfitEasterEgg = GetEasterEggOutfit();
+    customSpriteId = CreateTrainerSprite(GetPlayerTrainerPicIdByOutfitGenderType(outfitEasterEgg, MALE), 120, 60, 0, NULL);
+    gSprites[customSpriteId].callback = SpriteCB_Null;
+    gSprites[customSpriteId].invisible = TRUE;
+    gSprites[customSpriteId].oam.priority = 0;
+    gTasks[taskId].tCustomSpriteId = customSpriteId;
 }
 
 #undef tPlayerSpriteId
@@ -2056,7 +2066,7 @@ static void AddBirchSpeechObjects(u8 taskId)
 #undef tLotadSpriteId
 #undef tBrendanSpriteId
 #undef tMaySpriteId
-#undef tGigiSpriteId
+#undef tCustomSpriteId
 
 #define tMainTask data[0]
 #define tAlphaCoeff1 data[1]

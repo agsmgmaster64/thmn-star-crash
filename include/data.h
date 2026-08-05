@@ -373,6 +373,7 @@ struct Outfit
     u16 mugshotIds[GENDER_COUNT];
     u16 avatarGfxIds[GENDER_COUNT][PLAYER_AVATAR_STATE_COUNT];
     u16 animGfxIds[GENDER_COUNT][PLAYER_AVATAR_GFX_COUNT];
+    u8 hasBackPic[GENDER_COUNT];
     //! region map & frontier pass
     const void *iconsRM[GENDER_COUNT]; //! region map
     const void *iconsFP; //! frontier pass

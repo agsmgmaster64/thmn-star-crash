@@ -193,10 +193,11 @@ static void ResetOutfitData(void)
 {
     memset(gSaveBlock3Ptr->outfits, 0, sizeof(gSaveBlock3Ptr->outfits));
     UnlockOutfit(DEFAULT_OUTFIT);
-    if (!StringCompare(gSaveBlock2Ptr->playerName, gText_Gigi))
+    u32 outfitEasterEgg = GetEasterEggOutfit();
+    if (outfitEasterEgg != OUTFIT_NONE)
     {
-        UnlockOutfit(OUTFIT_GIGI_MURIN);
-        gSaveBlock3Ptr->currOutfitId = OUTFIT_GIGI_MURIN;
+        UnlockOutfit(outfitEasterEgg);
+        gSaveBlock3Ptr->currOutfitId = outfitEasterEgg;
     }
     else
     {

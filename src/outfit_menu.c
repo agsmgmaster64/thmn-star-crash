@@ -4,6 +4,7 @@
 #include "malloc.h"
 #include "gpu_regs.h"
 #include "sprite.h"
+#include "strings.h"
 #include "string_util.h"
 #include "text.h"
 #include "window.h"
@@ -930,6 +931,23 @@ u32 GetPlayerTrainerPicIdByOutfitGenderType(u32 outfitId, u32 gender)
         return gOutfits[outfitId].trainerPics[gender];
     else
         return gOutfits[OUTFIT_NONE].trainerPics[gender];
+}
+
+u32 HasTrainerOutfitGenderBackPic(u32 outfitId, u32 gender)
+{
+    if (outfitId > OUTFIT_NONE && outfitId < OUTFIT_COUNT)
+        return gOutfits[outfitId].hasBackPic[gender];
+    else
+        return FALSE;
+}
+
+u32 GetEasterEggOutfit(void)
+{
+    if (!StringCompare(gSaveBlock2Ptr->playerName, gText_Gigi))
+        return OUTFIT_GIGI_MURIN;
+    if (!StringCompare(gSaveBlock2Ptr->playerName, gText_Teio))
+        return OUTFIT_TOKAI_TEIO;
+    return OUTFIT_NONE;
 }
 
 u32 GetPlayerMugshotIdByOutfitGender(u32 outfitId, u32 gender)

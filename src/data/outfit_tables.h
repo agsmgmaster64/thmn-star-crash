@@ -51,6 +51,11 @@ const struct Outfit gOutfits[OUTFIT_COUNT] =
             [FEMALE] = TRAINER_PIC_MARIBEL,
         },
 
+        .hasBackPic = {
+            [MALE] = TRUE,
+            [FEMALE] = TRUE,
+        },
+
         //! DESC: mugshot IDs for the mugshot feature
         .mugshotIds = {
             [MALE] =   MUGSHOT_RENKO,
@@ -112,6 +117,10 @@ const struct Outfit gOutfits[OUTFIT_COUNT] =
             [MALE]   = TRAINER_PIC_MARIBEL,
             [FEMALE] = TRAINER_PIC_RENKO
         },
+        .hasBackPic = {
+            [MALE] = TRUE,
+            [FEMALE] = TRUE,
+        },
         .mugshotIds = {
             [MALE] =   MUGSHOT_MARIBEL,
             [FEMALE] = MUGSHOT_RENKO,
@@ -160,6 +169,10 @@ const struct Outfit gOutfits[OUTFIT_COUNT] =
             [MALE] =  TRAINER_PIC_RENKO_YOUNG,
             [FEMALE] = TRAINER_PIC_MARIBEL_YOUNG,
         },
+        .hasBackPic = {
+            [MALE] = TRUE,
+            [FEMALE] = TRUE,
+        },
         .mugshotIds = {
             [MALE] =   MUGSHOT_RENKO,
             [FEMALE] = MUGSHOT_MARIBEL,
@@ -207,6 +220,10 @@ const struct Outfit gOutfits[OUTFIT_COUNT] =
         .trainerPics = {
             [MALE]   = TRAINER_PIC_MARIBEL_YOUNG,
             [FEMALE] = TRAINER_PIC_RENKO_YOUNG,
+        },
+        .hasBackPic = {
+            [MALE] = TRUE,
+            [FEMALE] = TRUE,
         },
         .mugshotIds = {
             [MALE] =   MUGSHOT_MARIBEL,
@@ -304,6 +321,10 @@ const struct Outfit gOutfits[OUTFIT_COUNT] =
             [MALE]   = TRAINER_PIC_RED,
             [FEMALE] = TRAINER_PIC_LEAF,
         },
+        .hasBackPic = {
+            [MALE] = TRUE,
+            [FEMALE] = TRUE,
+        },
         .mugshotIds = {
             [MALE] =   MUGSHOT_MARIBEL,
             [FEMALE] = MUGSHOT_RENKO,
@@ -341,6 +362,54 @@ const struct Outfit gOutfits[OUTFIT_COUNT] =
             },
         },
         .iconsRM = { sRegionMapPlayerIcon_MaribelGfx, sRegionMapPlayerIcon_RenkoGfx },
+        .iconsFP = sFrontierPassPlayerIcons_RSBrendanMay_Gfx,
+    },
+    [OUTFIT_TOKAI_TEIO] = {
+        .isHidden = TRUE,
+        .prices = { 200, 200 },
+        .name = COMPOUND_STRING("Tokai Teio"),
+        .desc = COMPOUND_STRING("Cosplay of the\norange gremlin\nherself."),
+        .trainerPics = {
+            [MALE]   = TRAINER_PIC_TOKAI_TEIO,
+            [FEMALE] = TRAINER_PIC_TOKAI_TEIO,
+        },
+        .mugshotIds = {
+            [MALE] =   MUGSHOT_GIGI,
+            [FEMALE] = MUGSHOT_GIGI,
+        },
+        .avatarGfxIds = {
+           [MALE] = {
+               [PLAYER_AVATAR_STATE_NORMAL] =     OBJ_EVENT_GFX_TOKAI_TEIO,
+               [PLAYER_AVATAR_STATE_BIKE] =       OBJ_EVENT_GFX_RENKO_ACRO_BIKE,
+               [PLAYER_AVATAR_STATE_SURFING] =    OBJ_EVENT_GFX_RENKO_SURFING,
+               [PLAYER_AVATAR_STATE_UNDERWATER] = OBJ_EVENT_GFX_RENKO_UNDERWATER
+           },
+           [FEMALE] = {
+               [PLAYER_AVATAR_STATE_NORMAL] =     OBJ_EVENT_GFX_TOKAI_TEIO,
+               [PLAYER_AVATAR_STATE_BIKE] =       OBJ_EVENT_GFX_MARIBEL_ACRO_BIKE,
+               [PLAYER_AVATAR_STATE_SURFING] =    OBJ_EVENT_GFX_MARIBEL_SURFING,
+               [PLAYER_AVATAR_STATE_UNDERWATER] = OBJ_EVENT_GFX_MARIBEL_UNDERWATER
+           },
+        },
+        .animGfxIds = {
+            [MALE] = {
+                [PLAYER_AVATAR_GFX_FIELD_MOVE] = OBJ_EVENT_GFX_RENKO_FIELD_MOVE,
+                [PLAYER_AVATAR_GFX_FISHING] =    OBJ_EVENT_GFX_RENKO_FISHING,
+                [PLAYER_AVATAR_GFX_WATERING] =   OBJ_EVENT_GFX_RENKO_WATERING,
+                [PLAYER_AVATAR_GFX_DECORATING] = OBJ_EVENT_GFX_RENKO_DECORATING,
+                [PLAYER_AVATAR_GFX_VSSEEKER] =   OBJ_EVENT_GFX_RENKO_VS_SEEKER,
+                [PLAYER_AVATAR_GFX_VSSEEKER_BIKE] = OBJ_EVENT_GFX_RENKO_VS_SEEKER_BIKE
+            },
+            [FEMALE] = {
+                [PLAYER_AVATAR_GFX_FIELD_MOVE] = OBJ_EVENT_GFX_MARIBEL_FIELD_MOVE,
+                [PLAYER_AVATAR_GFX_FISHING] =    OBJ_EVENT_GFX_MARIBEL_FISHING,
+                [PLAYER_AVATAR_GFX_WATERING] =   OBJ_EVENT_GFX_MARIBEL_WATERING,
+                [PLAYER_AVATAR_GFX_DECORATING] = OBJ_EVENT_GFX_MARIBEL_DECORATING,
+                [PLAYER_AVATAR_GFX_VSSEEKER] =   OBJ_EVENT_GFX_MARIBEL_VS_SEEKER,
+                [PLAYER_AVATAR_GFX_VSSEEKER_BIKE] = OBJ_EVENT_GFX_MARIBEL_VS_SEEKER_BIKE
+            },
+        },
+        .iconsRM = { sRegionMapPlayerIcon_GigiGfx, sRegionMapPlayerIcon_GigiGfx },
         .iconsFP = sFrontierPassPlayerIcons_RSBrendanMay_Gfx,
     },
 };

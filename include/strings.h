@@ -601,6 +601,7 @@ extern const u8 gText_Cyan[];
 extern const u8 gText_Susie[];
 extern const u8 gText_Ralsei[];
 extern const u8 gText_Lancer[];
+extern const u8 gText_Teio[];
 
 extern const u8 gText_MoveRelearnerPkmnLearnedMove[];
 extern const u8 gText_MoveRelearnerPkmnTryingToLearnMove[];

@@ -452,6 +452,7 @@ const u8 gText_Cyan[] = _("Teal");
 const u8 gText_Susie[] = _("Susie");
 const u8 gText_Ralsei[] = _("Ralsei");
 const u8 gText_Lancer[] = _("Lancer");
+const u8 gText_Teio[] = _("Teio");
 const u8 gText_CoolnessContest[] = _("COOLNESS CONTEST");
 const u8 gText_BeautyContest[] = _("BEAUTY CONTEST");
 const u8 gText_CutenessContest[] = _("CUTENESS CONTEST");

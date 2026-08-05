@@ -5010,7 +5010,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_TokaiTeio = {
     .rematchMovement = MOVEMENT_TYPE_RAISE_HAND_AND_JUMP,
     .oam = &gObjectEventBaseOam_16x32,
     .subspriteTables = sOamTables_16x32,
-    .anims = sAnimTable_Standard,
+    .anims = sAnimTable_PlayableNPC,
     .images = sPicTable_TokaiTeio,
     .affineAnims = gDummySpriteAffineAnimTable,
 };
