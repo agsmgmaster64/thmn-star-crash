@@ -334,6 +334,7 @@ const struct HoldEffectInfo gHoldEffectsInfo[HOLD_EFFECT_COUNT] =
     [HOLD_EFFECT_FROST_ORB] =
     {
         .orbs = TRUE,
+        .orbsWhiteHerbActivation = TRUE,
     },
 
     [HOLD_EFFECT_STICKY_BARB] =
