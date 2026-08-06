@@ -4651,10 +4651,7 @@ BattleScript_AbilityPopUpTarget::
 BattleScript_AbilityPopUp::
 	tryactivateabilityshield BS_ABILITY_BATTLER
 	showabilitypopup
-	@ start bwBattleUI
-	@pause B_WAIT_TIME_SHORT
-	pause B_WAIT_TIME_MED
-	@ end bwBattleUI
+	pause B_WAIT_TIME_SHORT
 	recordability BS_ABILITY_BATTLER
 	sethword sABILITY_OVERWRITE, 0
 	return

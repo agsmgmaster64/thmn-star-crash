@@ -24,7 +24,6 @@
 #include "window.h"
 #include "line_break.h"
 #include "outfit_menu.h"
-#include "bw_battle_ui.h" // bwBattleUI
 #include "constants/battle_anim.h"
 #include "constants/party_menu.h"
 #include "constants/songs.h"
@@ -210,7 +209,6 @@ static void SafariOpenPokeblockCase(enum BattlerId battler)
 {
     if (!gPaletteFade.active)
     {
-        BattleUI_SetCursorMode(NUM_BUI_CURSOR_MODES); // bwBattleUI
         gBattlerControllerFuncs[battler] = CompleteWhenChosePokeblock;
         CloseMainBattleScreen();
         OpenPokeblockCaseInBattle();
