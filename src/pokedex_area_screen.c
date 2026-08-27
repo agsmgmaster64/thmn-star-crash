@@ -462,20 +462,20 @@ static bool8 MonListHasSpecies(const struct WildEncounterTypes *info, enum Speci
     {
         case WILD_AREA_WATER:
             actualInfo = info->waterMonsInfo;
-            size = WATER_WILD_COUNT;
+            size = NUM_WATER_MONS_ENCOUNTER_SLOTS;
             break;
         case WILD_AREA_ROCKS:
             actualInfo = info->rockSmashMonsInfo;
-            size = ROCK_WILD_COUNT;
+            size = NUM_ROCK_SMASH_MONS_ENCOUNTER_SLOTS;
             break;
         case WILD_AREA_FISHING:
             actualInfo = info->fishingMonsInfo;
-            size = FISH_WILD_COUNT;
+            size = NUM_FISHING_MONS_ENCOUNTER_SLOTS;
             break;
         case WILD_AREA_LAND:
         default:
             actualInfo = info->landMonsInfo;
-            size = LAND_WILD_COUNT;
+            size = NUM_LAND_MONS_ENCOUNTER_SLOTS;
             break;
     }
 
