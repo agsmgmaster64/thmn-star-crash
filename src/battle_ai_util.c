@@ -1108,11 +1108,11 @@ static bool32 AI_IsMoveEffectInPlus(enum BattlerId battlerAtk, enum BattlerId ba
                     return TRUE;
                 break;
             case MOVE_EFFECT_FREEZE:
-                if (AI_CanGiveFrostbite(battlerAtk, battlerDef, abilityDef, BATTLE_PARTNER(battlerAtk), move, MOVE_NONE))
+                if (AI_CanGiveFrostbite(battlerAtk, battlerDef, abilityDef, GetPartnerBattler(battlerAtk), move, MOVE_NONE))
                     return TRUE;
                 break;
             case MOVE_EFFECT_FROSTBITE:
-                if (AI_CanGiveFrostbite(battlerAtk, battlerDef, abilityDef, BATTLE_PARTNER(battlerAtk), move, MOVE_NONE))
+                if (AI_CanGiveFrostbite(battlerAtk, battlerDef, abilityDef, GetPartnerBattler(battlerAtk), move, MOVE_NONE))
                     return TRUE;
                 break;
             case MOVE_EFFECT_PARALYSIS:

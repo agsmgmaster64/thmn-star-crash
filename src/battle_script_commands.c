@@ -9491,7 +9491,7 @@ void BS_TryEarlyBirdHeal(void)
     u32 battler = GetBattlerForBattleScript(cmd->battler);
     u32 battlerAbility = GetBattlerAbility(battler);
 
-    if (battlerAbility == ABILITY_EARLY_BIRD && !IsBattlerAtMaxHp(battler) && !gBattleMons[gBattlerAttacker].volatiles.healBlock)
+    if (battlerAbility == ABILITY_EARLY_BIRD && !IsBattlerAtMaxHp(battler) && !gBattleMons[gBattlerAttacker].volatiles.healBlockTimer)
     {
         SetHealAmount(battler, GetNonDynamaxMaxHP(battler) / 4);
         gBattlescriptCurrInstr = cmd->nextInstr;
@@ -9510,7 +9510,7 @@ void BS_TryHoneyBoiledHeal(void)
     NATIVE_ARGS(u8 battler, const u8 *jumpInstr);
     u32 battler = GetBattlerForBattleScript(cmd->battler);
 
-    if (!IsBattlerAtMaxHp(battler) && !gBattleMons[gBattlerAttacker].volatiles.healBlock)
+    if (!IsBattlerAtMaxHp(battler) && !gBattleMons[gBattlerAttacker].volatiles.healBlockTimer)
     {
         SetHealAmount(battler, 35 * GetNonDynamaxMaxHP(battler) / 100);
         gBattlescriptCurrInstr = cmd->nextInstr;
@@ -10384,7 +10384,7 @@ void BS_CopyMovePermanentlyDeleteOthers(void)
         && !IsMoveSketchBanned(gLastPrintedMoves[gBattlerTarget]))
     {
         s32 i;
-        struct MovePpInfo movePpData;
+        struct MovePPInfo movePpData;
 
         gBattleMons[gBattlerAttacker].moves[0] = gLastPrintedMoves[gBattlerTarget];
         gBattleMons[gBattlerAttacker].pp[0] = GetMovePP(gLastPrintedMoves[gBattlerTarget]);

@@ -47,7 +47,6 @@ enum __attribute__((packed)) MoveEffect
     MOVE_EFFECT_PSYCHIC_NOISE,
     MOVE_EFFECT_TERA_BLAST,
     MOVE_EFFECT_ORDER_UP,
-    MOVE_EFFECT_ION_DELUGE,
     MOVE_EFFECT_HAZE,
     MOVE_EFFECT_LEECH_SEED,
     MOVE_EFFECT_REFLECT,
@@ -58,6 +57,8 @@ enum __attribute__((packed)) MoveEffect
     MOVE_EFFECT_RAINBOW,
     MOVE_EFFECT_SEA_OF_FIRE,
     MOVE_EFFECT_SWAMP,
+    MOVE_EFFECT_MAD_HONEY,
+    MOVE_EFFECT_DEBT_SPIRAL,
 
     // Max move effects happen earlier in the execution chain.
     // For example stealth rock from G-Max Stonesurge is set up before abilities but from Stone Axe after.
@@ -71,6 +72,7 @@ enum __attribute__((packed)) MoveEffect
     MOVE_EFFECT_GRASSY_TERRAIN,
     MOVE_EFFECT_ELECTRIC_TERRAIN,
     MOVE_EFFECT_PSYCHIC_TERRAIN,
+    MOVE_EFFECT_HOLY_TERRAIN,
     MOVE_EFFECT_VINE_LASH,
     MOVE_EFFECT_WILDFIRE,
     MOVE_EFFECT_CANNONADE,

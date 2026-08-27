@@ -3808,7 +3808,7 @@ static void PrintHeldItemName(void)
 static void PrintFriendship(void)
 {
     const u8 bgColour[] = _("");
-    const u8 starIcon[] = _("{STAR_ICON}");
+    const u8 starIcon[] = _("{STAR}");
     u8 *text;
     int x;
     u16 i;

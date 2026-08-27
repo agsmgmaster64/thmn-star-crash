@@ -118,7 +118,7 @@ static void HandleSetEffectAbsorb(struct BattleCalcValues *cv, struct SetEffect 
         gEffectBattler = cv->battlerAtk;
         gBattlerAbility = gBattleScripting.battler = cv->battlerDef;
 
-        if (cv->abilities[cv->battlerDef] == ABILITY_LIQUID_OOZE
+        if (cv->abilities[cv->battlerDef] == ABILITY_STRANGE_MIST
          && (GetMoveEffect(cv->move)!= EFFECT_DREAM_EATER || GetConfig(B_DREAM_EATER_LIQUID_OOZE) >= GEN_5))
         {
             SetPassiveDamageAmount(cv->battlerAtk, healAmount);
@@ -449,7 +449,7 @@ static void HandleSetEffectThroatChop(struct BattleCalcValues *cv, struct SetEff
 
 static void HandleSetEffectIncinerate(struct BattleCalcValues *cv, struct SetEffect *se)
 {
-    if (cv->abilities[se->effectBattler] == ABILITY_STICKY_HOLD)
+    if (cv->abilities[se->effectBattler] == ABILITY_COLLECTOR)
         return;
 
     if (gItemsInfo[gBattleMons[se->effectBattler].item].pocket == POCKET_BERRIES
@@ -474,7 +474,7 @@ static void HandleSetEffectBugBite(struct BattleCalcValues *cv, struct SetEffect
         gBattlescriptCurrInstr = se->script;
     }
     else if (GetItemPocket(gBattleMons[se->effectBattler].item) == POCKET_BERRIES
-        && cv->abilities[se->effectBattler] != ABILITY_STICKY_HOLD)
+        && cv->abilities[se->effectBattler] != ABILITY_COLLECTOR)
     {
         // target loses their berry
         gLastUsedItem = gBattleMons[se->effectBattler].item;
@@ -497,7 +497,6 @@ static void HandleSetEffectRecoilHp25(struct BattleCalcValues *cv, struct SetEff
         recoil = 1;
 
     SetPassiveDamageAmount(se->effectBattler, recoil);
-    TryUpdateEvolutionTracker(IF_RECOIL_DAMAGE_GE, gBattleStruct->passiveHpUpdate[cv->battlerAtk], MOVE_NONE);
     BattleScriptPush(se->script);
     gBattlescriptCurrInstr = BattleScript_MoveEffectRecoilHP25;
 }
@@ -693,16 +692,6 @@ static void HandleSetEffectOrderUp(struct BattleCalcValues *cv, struct SetEffect
     }
 }
 
-static void HandleSetEffectIonDeluge(struct BattleCalcValues *cv, struct SetEffect *se)
-{
-    if (!(gFieldStatuses & STATUS_FIELD_ION_DELUGE))
-    {
-        gFieldStatuses |= STATUS_FIELD_ION_DELUGE;
-        BattleScriptPush(se->script);
-        gBattlescriptCurrInstr = BattleScript_MoveEffectIonDeluge;
-    }
-}
-
 static void HandleSetEffectHaze(struct BattleCalcValues *cv, struct SetEffect *se)
 {
     for (enum BattlerId battler = 0; battler < gBattlersCount; battler++)
@@ -713,7 +702,7 @@ static void HandleSetEffectHaze(struct BattleCalcValues *cv, struct SetEffect *s
 
 static void HandleSetEffectLeechSeed(struct BattleCalcValues *cv, struct SetEffect *se)
 {
-    if (!IS_BATTLER_OF_TYPE(se->effectBattler, TYPE_GRASS) && !gBattleMons[se->effectBattler].volatiles.leechSeed)
+    if (!IS_BATTLER_OF_TYPE(se->effectBattler, TYPE_NATURE) && !gBattleMons[se->effectBattler].volatiles.leechSeed)
     {
         gBattleMons[se->effectBattler].volatiles.leechSeed = LEECHSEEDED_BY(cv->battlerAtk);
         BattleScriptPush(se->script);
@@ -844,12 +833,12 @@ static void HandleSetEffectFling(struct BattleCalcValues *cv, struct SetEffect *
             flingEffect.moveEffect = MOVE_EFFECT_TOXIC;
             SetMoveEffect(cv, &flingEffect);
             break;
-        case HOLD_EFFECT_LIGHT_BALL:
-            flingEffect.moveEffect = MOVE_EFFECT_PARALYSIS;
+        case HOLD_EFFECT_ICY_BALL:
+            flingEffect.moveEffect = MOVE_EFFECT_FROSTBITE;
             SetMoveEffect(cv, &flingEffect);
             break;
         case HOLD_EFFECT_TYPE_POWER:
-            if (GetItemSecondaryId(item) == TYPE_POISON)
+            if (GetItemSecondaryId(item) == TYPE_MIASMA)
             {
                 flingEffect.moveEffect = MOVE_EFFECT_POISON;
                 SetMoveEffect(cv, &flingEffect);
@@ -866,6 +855,28 @@ static void HandleSetEffectFling(struct BattleCalcValues *cv, struct SetEffect *
         default:
             break;
         }
+    }
+}
+
+static void HandleSetEffectMadHoney(struct BattleCalcValues *cv, struct SetEffect *se)
+{
+    if (gBattleMons[cv->battlerAtk].item == ITEM_HONEY)
+    {
+        gLastUsedItem = gBattleMons[cv->battlerAtk].item;
+        if (IsMoveEffectBlockedByTarget(cv->abilities[se->effectBattler]))
+        {
+            BattleScriptPush(se->script);
+            gBattlescriptCurrInstr = BattleScript_FlingBlockedByShieldDust;
+            return;
+        }
+        BattleScriptPush(se->script);
+        gBattlescriptCurrInstr = BattleScript_RemoveItem;
+
+        struct SetEffect madHoneyEffect = {0};
+        madHoneyEffect.script = gBattlescriptCurrInstr;
+        madHoneyEffect.effectBattler = se->effectBattler;
+        madHoneyEffect.moveEffect = MOVE_EFFECT_TOXIC;
+        SetMoveEffect(cv, &madHoneyEffect);
     }
 }
 
@@ -968,6 +979,10 @@ static void HandleSetEffectTerrain(struct BattleCalcValues *cv, struct SetEffect
         terrain = B_TERRAIN_PSYCHIC;
         gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_TERRAIN_SET_PSYCHIC;
         break;
+    case MOVE_EFFECT_HOLY_TERRAIN:
+        terrain = B_TERRAIN_HOLY;
+        gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_TERRAIN_SET_HOLY;
+        break;
     default:
         break;
     }
@@ -1018,6 +1033,34 @@ static void HandleSetEffectConfusePayDaySide(struct BattleCalcValues *cv, struct
 
     BattleScriptPush(se->script);
     gBattlescriptCurrInstr = BattleScript_EffectConfuseSide;
+}
+
+static void HandleSetEffectDebtSpiral(struct BattleCalcValues *cv, struct SetEffect *se)
+{
+    if (IsOnPlayerSide(cv->battlerAtk))
+    {
+        u16 debtSpiral = gDebtSpiralMoney;
+        enum MoveTarget moveTarget = GetBattlerMoveTargetType(cv->battlerAtk, cv->move);
+        gDebtSpiralMoney += (gBattleMons[cv->battlerAtk].level * 20);
+        if (debtSpiral > gDebtSpiralMoney)
+            gDebtSpiralMoney = 0xFFFF;
+
+        // For a move that hits multiple targets (i.e. Make it Rain)
+        // we only want to print the message on the final hit
+        if (!(NumAffectedSpreadMoveTargets() > 1 && GetNextTarget(moveTarget, TRUE) != MAX_BATTLERS_COUNT))
+        {
+            BattleScriptPush(se->script);
+            gBattlescriptCurrInstr = BattleScript_MoveEffectDebtSpiral;
+        }
+        else
+        {
+            gBattlescriptCurrInstr = se->script;
+        }
+    }
+    else
+    {
+        gBattlescriptCurrInstr = se->script;
+    }
 }
 
 static void HandleSetEffectCritPlusSide(struct BattleCalcValues *cv, struct SetEffect *se)
@@ -1349,7 +1392,6 @@ static void (*const sSetEffectHandlers[])(struct BattleCalcValues *cv, struct Se
     [MOVE_EFFECT_PSYCHIC_NOISE] = HandleSetEffectPsychicNoise,
     [MOVE_EFFECT_TERA_BLAST] = HandleSetEffectTeraBlast,
     [MOVE_EFFECT_ORDER_UP] = HandleSetEffectOrderUp,
-    [MOVE_EFFECT_ION_DELUGE] = HandleSetEffectIonDeluge,
     [MOVE_EFFECT_HAZE] = HandleSetEffectHaze,
     [MOVE_EFFECT_LEECH_SEED] = HandleSetEffectLeechSeed,
     [MOVE_EFFECT_REFLECT] = HandleSetEffectReflect,
@@ -1360,6 +1402,8 @@ static void (*const sSetEffectHandlers[])(struct BattleCalcValues *cv, struct Se
     [MOVE_EFFECT_RAINBOW] = HandleSetEffectRainbow,
     [MOVE_EFFECT_SEA_OF_FIRE] = HandleSetEffectSeaOfFire,
     [MOVE_EFFECT_SWAMP] = HandleSetEffectSwamp,
+    [MOVE_EFFECT_DEBT_SPIRAL] = HandleSetEffectDebtSpiral,
+    [MOVE_EFFECT_MAD_HONEY] = HandleSetEffectMadHoney,
     [MOVE_EFFECT_SUN] = HandleSetEffectWeather,
     [MOVE_EFFECT_RAIN] = HandleSetEffectWeather,
     [MOVE_EFFECT_SANDSTORM] = HandleSetEffectWeather,
@@ -1368,6 +1412,7 @@ static void (*const sSetEffectHandlers[])(struct BattleCalcValues *cv, struct Se
     [MOVE_EFFECT_GRASSY_TERRAIN] = HandleSetEffectTerrain,
     [MOVE_EFFECT_ELECTRIC_TERRAIN] = HandleSetEffectTerrain,
     [MOVE_EFFECT_PSYCHIC_TERRAIN] = HandleSetEffectTerrain,
+    [MOVE_EFFECT_HOLY_TERRAIN] = HandleSetEffectTerrain,
     [MOVE_EFFECT_VINE_LASH] = HandleSetEffectGmaxNonTypeDamage,
     [MOVE_EFFECT_WILDFIRE] = HandleSetEffectGmaxNonTypeDamage,
     [MOVE_EFFECT_CANNONADE] = HandleSetEffectGmaxNonTypeDamage,
@@ -1479,8 +1524,8 @@ static inline bool32 IgnoreTargetingForMoveEffect(enum MoveEffect moveEffect) //
     case MOVE_EFFECT_GRASSY_TERRAIN:
     case MOVE_EFFECT_ELECTRIC_TERRAIN:
     case MOVE_EFFECT_PSYCHIC_TERRAIN:
+    case MOVE_EFFECT_HOLY_TERRAIN:
     case MOVE_EFFECT_DEFOG:
-    case MOVE_EFFECT_ION_DELUGE:
     case MOVE_EFFECT_HAZE:
     case MOVE_EFFECT_VINE_LASH:
     case MOVE_EFFECT_WILDFIRE:
@@ -1502,6 +1547,7 @@ static inline bool32 IgnoreTargetingForMoveEffect(enum MoveEffect moveEffect) //
     case MOVE_EFFECT_SEA_OF_FIRE:
     case MOVE_EFFECT_SWAMP:
     case MOVE_EFFECT_ABSORB:
+    case MOVE_EFFECT_DEBT_SPIRAL:
         return TRUE;
     default:
         return FALSE;

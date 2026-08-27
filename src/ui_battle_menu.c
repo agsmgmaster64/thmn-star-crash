@@ -704,7 +704,7 @@ void UI_Battle_Menu_Init(MainCallback callback)
                     isExtraInfoShown = TRUE;
                 break;
             case STATUS_INFO_EMBARGO:
-                if(gBattleMons[j].volatiles.embargo)
+                if(gBattleMons[j].volatiles.embargoTimer)
                     isExtraInfoShown = TRUE;
                 break;
             case STATUS_INFO_SMACKED_DOWN:
@@ -716,7 +716,7 @@ void UI_Battle_Menu_Init(MainCallback callback)
                     isExtraInfoShown = TRUE;
                 break;
             case STATUS_INFO_HEAL_BLOCKED:
-                if(gBattleMons[j].volatiles.healBlock)
+                if(gBattleMons[j].volatiles.healBlockTimer)
                     isExtraInfoShown = TRUE;
                 break;
             case STATUS_INFO_AQUA_RING:
