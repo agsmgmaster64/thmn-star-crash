@@ -9526,16 +9526,39 @@ void BS_TryHoneyChipHeal(void)
     NATIVE_ARGS(u8 battler, const u8 *jumpInstr);
     u32 battler = GetBattlerForBattleScript(cmd->battler);
 
-    if (!gBattleMons[battler].volatiles.honeyChip
+    if (!gBattleMons[battler].volatiles.honeyChipTimer
      && GetMonData(GetBattlerMon(battler), MON_DATA_HELD_ITEM) == ITEM_HONEY)
     {
-        gBattleMons[battler].volatiles.honeyChip = TRUE;
         gBattleMons[battler].volatiles.honeyChipTimer = B_HONEY_CHIP_TIMER;
         gBattlescriptCurrInstr = cmd->nextInstr;
     }
     else
     {
         gBattlescriptCurrInstr = cmd->jumpInstr;
+    }
+}
+
+void BS_TryGiveHoney(void)
+{
+    NATIVE_ARGS(u8 battler, const u8 *failInstr);
+    u32 battler = GetBattlerForBattleScript(cmd->battler);
+
+    if (gBattleMons[battler].item != ITEM_NONE)
+    {
+        gBattlescriptCurrInstr = cmd->failInstr;
+    }
+    else
+    {
+        gLastUsedItem = ITEM_HONEY;
+
+        gBattleMons[battler].item = gLastUsedItem;
+
+        RecordItemEffectBattle(battler, GetItemHoldEffect(gLastUsedItem));
+
+        BtlController_EmitSetMonData(battler, B_COMM_TO_CONTROLLER, REQUEST_HELDITEM_BATTLE, 0, sizeof(gBattleMons[battler].item), &gBattleMons[gBattlerAttacker].item);
+        MarkBattlerForControllerExec(battler);
+
+        gBattlescriptCurrInstr = cmd->nextInstr;
     }
 }
 

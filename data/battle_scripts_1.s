@@ -4756,7 +4756,7 @@ BattleScript_HarvestActivatesEnd:
 	return
 
 BattleScript_HoneyGatherActivatesEntry::
-	tryrecycleitem BattleScript_HoneyGatherActivatesEntryEnd
+	trygivehoney BS_SCRIPTING, BattleScript_HoneyGatherActivatesEntryEnd
 	call BattleScript_AbilityPopUp
 	printstring STRINGID_HARVESTHONEY
 	waitmessage B_WAIT_TIME_LONG

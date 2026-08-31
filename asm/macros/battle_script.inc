@@ -1223,6 +1223,12 @@
 	.4byte \failInstr
 	.endm
 
+	.macro trygivehoney battler:req, failInstr:req
+	callnative BS_TryGiveHoney
+	.byte \battler
+	.4byte \failInstr
+	.endm
+
 	@ Used by effects that may proc Symbiosis but do not call removeitem.
 	.macro trysymbiosis battler:req
 	callnative BS_TrySymbiosis

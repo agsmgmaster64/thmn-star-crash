@@ -534,22 +534,23 @@ static bool32 HandleEndTurnHoneyChip(enum BattlerId battler)
 
     gBattleStruct->eventState.endTurnBattler++;
 
-    if (gBattleMons[battler].volatiles.honeyChip
+    if (gBattleMons[battler].volatiles.honeyChipTimer
      && IsBattlerPresent(battler))
     {
+        gBattleMons[battler].volatiles.honeyChipTimer--;
         if (gBattleMons[battler].volatiles.honeyChipTimer != 0)
         {
-            gBattleMons[battler].volatiles.honeyChipTimer--;
             if (gBattleMons[battler].volatiles.healBlockTimer
              || IsBattlerAtMaxHp(battler))
+            {
                 return effect;
+            }
             SetHealAmount(battler, GetNonDynamaxMaxHP(battler) / 5);
             BattleScriptCall(BattleScript_HoneyChipHeal);
             effect = TRUE;
         }
         else
         {
-            gBattleMons[battler].volatiles.honeyChip = FALSE;
             BattleScriptCall(BattleScript_HoneyChipEnds);
             effect = TRUE;
         }

@@ -3662,10 +3662,8 @@ u32 AbilityBattleEffects(enum AbilityEffect caseID, enum BattlerId battler, enum
             }
             break;
         case ABILITY_HONEY_GATHER:
-            if (shouldAbilityTrigger
-             && GetMonData(GetBattlerMon(battler), MON_DATA_HELD_ITEM) == ITEM_NONE)
+            if (shouldAbilityTrigger)
             {
-                gLastUsedItem = ITEM_HONEY;
                 BattleScriptCall(BattleScript_HoneyGatherActivatesEntry);
                 effect++;
             }

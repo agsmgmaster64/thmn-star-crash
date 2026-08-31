@@ -1,7 +1,4 @@
-So uhh, in case you may or may not stumble into this, and in case for whatever reason, I'm not maintaining this anymore, you have full permission to use this as a base, provided you credit everyone involved in this repo here.
-This list may be incomplete as well, so be warned.
-
-# World Link Deluxe Credits
+# Touhoumon Star Crash Credits
 
 - **Aichiya Sanae**: Making the original Touhoumon World Link and the original binary base for World Link Deluxe
 - **Zeta Sukuna**: Making Touhou Puppet Play Enahnced Reloaded as well as general advice
@@ -44,34 +41,7 @@ This list may be incomplete as well, so be warned.
 
 - **ZUN/Team Shanghai Alice**: Making Touhou
 
-## pokeemerald-expansion Maintainers
-- **UltimaSoul**
-- **ghoulslash**
-- **DizzyEggg**
-- **AsparagusEduardo**
-- **ExpoSeed**
-- **Pyredrid**
-- **MandL127**
-
-## pokeemerald-expansion Credits
-- **DizzyEggg**: creating the original Egg repos
-- **ghoulslash**: totem boosts, z-moves, move animations, terrains, several item effects, abilities, and move effects.
-- **UltimaSoul**: fixing some icon sprites, new items data, moving the repo
-- **Lunos**: battle strings, save file, item images and palettes, save file and getting the coordinates for gen1-gen4 mons, majority of items data and pics
-- **ShantyTown**: move animations
-- **mvit**: ability pop up and mega evo gfx
-- **Doesnt**: berries gfx, pokeball particles
-- **Cancer Fairy**: coordinates, new animations, coding help, battle strings, more
-- **MrDollSteak**: Pokedex descriptions
-- **Avara**: item descriptions
-- **Kurausukun**: testing, small edits and fixes
-- **TheLaw**: move animations
-- **BreadCrumbs**: code review
-- **Syreldar**: testing, wrote an explanation post
-- **Pyredrid**: automating issue creation, code review and testing
-- **MandL27**: code review and testing, contributing features
-
-## Credits ✨
+## pokeemerald-expansion Credits ✨
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/en/reference/emoji-key/)):
 
