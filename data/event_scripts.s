@@ -82,6 +82,7 @@
 #include "constants/new_shop.h"
 #include "constants/speaker_names.h"
 #include "constants/game_corner_gacha.h"
+#include "constants/bxpy.h" 
 	.include "asm/macros.inc"
 	.include "asm/macros/event.inc"
 	.include "constants/constants.inc"
@@ -1746,6 +1747,7 @@ EventScript_PalletTown_PlayersHouse_2F_TurnOnPC::
 	.include "data/scripts/qol_field_move_scripts.inc"
 	.include "data/scripts/dexnav.inc"
 	.include "data/scripts/music_player.inc"
+	.include "data/scripts/bxpy.inc" 
     
 
 	.include "data/maps/EikiIsland_1/scripts.inc"
