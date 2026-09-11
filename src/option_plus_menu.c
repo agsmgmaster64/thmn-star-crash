@@ -2196,7 +2196,7 @@ static int ProcessInput_FrameType(int selection)
 
 static int ProcessInput_MusicVolume(int selection)
 {
-    bool8 refreshMus = (selection == 0);
+    bool8 refreshMus = (selection == 10);
 
     if (JOY_NEW(DPAD_RIGHT))
     {
