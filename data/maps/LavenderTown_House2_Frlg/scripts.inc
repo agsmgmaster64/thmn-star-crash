@@ -12,8 +12,8 @@ LavenderTown_House2_EventScript_NameRater::
 LavenderTown_House2_EventScript_ChooseMon::
 	msgbox LavenderTown_House2_Text_CritiqueWhichMonsNickname
 	chooseboxmon
-	goto_if_ne VAR_0x8004, PARTY_NOTHING_CHOSEN, LavenderTown_House2_EventScript_CheckCanRateMon
-	goto_if_eq VAR_0x8004, PARTY_NOTHING_CHOSEN, LavenderTown_House2_EventScript_DontRateNickname
+	goto_if_ne VAR_0x8004, PARTY_MON_CANCEL, LavenderTown_House2_EventScript_CheckCanRateMon
+	goto_if_eq VAR_0x8004, PARTY_MON_CANCEL, LavenderTown_House2_EventScript_DontRateNickname
 	end
 
 LavenderTown_House2_EventScript_DontRateNickname::

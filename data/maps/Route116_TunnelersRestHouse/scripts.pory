@@ -188,7 +188,7 @@ script Route116_TunnelersRestHouse_UFOTrader_PrepareMultichoiceStat {
 script Route116_TunnelersRestHouse_EventScript_UFOTraderWorsenIV {
 	msgbox(Route116_TunnelersRestHouse_Text_UFOTraderSeePuppet)
 	special(ChoosePartyMon)
-	if (var(VAR_0x8004) == PARTY_NOTHING_CHOSEN) {
+	if (var(VAR_0x8004) == PARTY_MON_CANCEL) {
 		return
 	}
 	special(IsSelectedMonEgg)
@@ -442,7 +442,7 @@ script Route116_TunnelersRestHouse_EventScript_UFOTraderEvoHeart {
 script Route116_TunnelersRestHouse_EventScript_UFOTraderPerfect1IV {
 	msgbox(Route116_TunnelersRestHouse_Text_UFOTraderSeePuppet)
 	special(ChoosePartyMon)
-	if (var(VAR_0x8004) == PARTY_NOTHING_CHOSEN) {
+	if (var(VAR_0x8004) == PARTY_MON_CANCEL) {
 		return
 	}
 	special(IsSelectedMonEgg)
@@ -601,7 +601,7 @@ script Route116_TunnelersRestHouse_EventScript_UFOTraderTutor {
 	}
 	msgbox(Route116_TunnelersRestHouse_Text_UFOTraderSeePuppet)
 	chooseboxmon(SELECT_PC_MON_MOVE_RELEARNER)
-	if (var(VAR_0x8004) == PARTY_NOTHING_CHOSEN) {
+	if (var(VAR_0x8004) == PARTY_MON_CANCEL) {
 		return
 	}
 	special(IsSelectedMonEgg)
@@ -627,7 +627,7 @@ script Route116_TunnelersRestHouse_EventScript_UFOTraderTutor {
 script Route116_TunnelersRestHouse_EventScript_UFOTraderPerfectAllIV {
 	msgbox(Route116_TunnelersRestHouse_Text_UFOTraderSeePuppet)
 	special(ChoosePartyMon)
-	if (var(VAR_0x8004) == PARTY_NOTHING_CHOSEN) {
+	if (var(VAR_0x8004) == PARTY_MON_CANCEL) {
 		return
 	}
 	special(IsSelectedMonEgg)

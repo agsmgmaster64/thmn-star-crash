@@ -256,7 +256,7 @@ Route116_TunnelersRestHouse_UFOTrader_PrepareMultichoiceStat::
 Route116_TunnelersRestHouse_EventScript_UFOTraderWorsenIV::
 	msgbox Route116_TunnelersRestHouse_Text_UFOTraderSeePuppet
 	special ChoosePartyMon
-	compare VAR_0x8004, PARTY_NOTHING_CHOSEN
+	compare VAR_0x8004, PARTY_MON_CANCEL
 	goto_if_eq Route116_TunnelersRestHouse_EventScript_UFOTraderWorsenIV_2
 	special IsSelectedMonEgg
 	compare VAR_RESULT, TRUE
@@ -685,7 +685,7 @@ Route116_TunnelersRestHouse_EventScript_UFOTraderEvoHeart_53:
 Route116_TunnelersRestHouse_EventScript_UFOTraderPerfect1IV::
 	msgbox Route116_TunnelersRestHouse_Text_UFOTraderSeePuppet
 	special ChoosePartyMon
-	compare VAR_0x8004, PARTY_NOTHING_CHOSEN
+	compare VAR_0x8004, PARTY_MON_CANCEL
 	goto_if_eq Route116_TunnelersRestHouse_EventScript_UFOTraderPerfect1IV_2
 	special IsSelectedMonEgg
 	compare VAR_RESULT, TRUE
@@ -946,7 +946,7 @@ Route116_TunnelersRestHouse_EventScript_UFOTraderTutor_4:
 	goto_if_ne Route116_TunnelersRestHouse_EventScript_UFOTraderTutor_9
 	msgbox Route116_TunnelersRestHouse_Text_UFOTraderSeePuppet
 	chooseboxmon SELECT_PC_MON_MOVE_RELEARNER
-	compare VAR_0x8004, PARTY_NOTHING_CHOSEN
+	compare VAR_0x8004, PARTY_MON_CANCEL
 	goto_if_eq Route116_TunnelersRestHouse_EventScript_UFOTraderTutor_12
 	special IsSelectedMonEgg
 	compare VAR_RESULT, TRUE
@@ -994,7 +994,7 @@ Route116_TunnelersRestHouse_EventScript_UFOTraderTutor_21:
 Route116_TunnelersRestHouse_EventScript_UFOTraderPerfectAllIV::
 	msgbox Route116_TunnelersRestHouse_Text_UFOTraderSeePuppet
 	special ChoosePartyMon
-	compare VAR_0x8004, PARTY_NOTHING_CHOSEN
+	compare VAR_0x8004, PARTY_MON_CANCEL
 	goto_if_eq Route116_TunnelersRestHouse_EventScript_UFOTraderPerfectAllIV_2
 	special IsSelectedMonEgg
 	compare VAR_RESULT, TRUE
