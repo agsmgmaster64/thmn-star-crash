@@ -114,5 +114,8 @@
       "script": "CeruleanCity_Gym_EventScript_GymStatue"
     }
   ],
-  "region": "REGION_KANTO"
+  "build_version": [
+    "firered",
+    "leafgreen"
+  ]
 }

@@ -42,5 +42,8 @@
       "script": "RocketHideout_Elevator_EventScript_FloorSelect"
     }
   ],
-  "region": "REGION_KANTO"
+  "build_version": [
+    "firered",
+    "leafgreen"
+  ]
 }

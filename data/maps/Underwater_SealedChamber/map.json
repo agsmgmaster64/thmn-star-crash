@@ -35,5 +35,7 @@
       "script": "Underwater_SealedChamber_EventScript_Braille"
     }
   ],
-  "region": "REGION_HOENN"
+  "build_version": [
+    "emerald"
+  ]
 }

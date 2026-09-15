@@ -431,5 +431,8 @@
     }
   ],
   "connections_no_include": true,
-  "region": "REGION_KANTO"
+  "build_version": [
+    "firered",
+    "leafgreen"
+  ]
 }

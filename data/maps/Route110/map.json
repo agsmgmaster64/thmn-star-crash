@@ -754,5 +754,7 @@
       "script": "Route110_EventScript_CyclingRoadSign"
     }
   ],
-  "region": "REGION_HOENN"
+  "build_version": [
+    "emerald"
+  ]
 }

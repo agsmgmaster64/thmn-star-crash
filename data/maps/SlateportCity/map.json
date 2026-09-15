@@ -693,5 +693,7 @@
       "script": "SlateportCity_EventScript_BerryCrushRankingsSign"
     }
   ],
-  "region": "REGION_HOENN"
+  "build_version": [
+    "emerald"
+  ]
 }

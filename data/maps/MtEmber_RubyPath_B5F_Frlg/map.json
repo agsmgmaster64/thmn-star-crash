@@ -50,5 +50,8 @@
       "script": "MtEmber_RubyPath_B5F_EventScript_BrailleMessage"
     }
   ],
-  "region": "REGION_KANTO"
+  "build_version": [
+    "firered",
+    "leafgreen"
+  ]
 }

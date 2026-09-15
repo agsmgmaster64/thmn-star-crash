@@ -113,5 +113,7 @@
       "script": "AbandonedShip_Corridors_B1F_EventScript_StorageRoomDoor"
     }
   ],
-  "region": "REGION_HOENN"
+  "build_version": [
+    "emerald"
+  ]
 }

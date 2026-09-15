@@ -429,5 +429,7 @@
       "script": "SootopolisCity_EventScript_CitySign"
     }
   ],
-  "region": "REGION_HOENN"
+  "build_version": [
+    "emerald"
+  ]
 }

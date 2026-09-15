@@ -276,5 +276,8 @@
       "script": "PalletTown_ProfessorOaksLab_EventScript_RightSign"
     }
   ],
-  "region": "REGION_KANTO"
+  "build_version": [
+    "firered",
+    "leafgreen"
+  ]
 }

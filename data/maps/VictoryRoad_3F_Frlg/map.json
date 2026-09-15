@@ -235,5 +235,8 @@
     }
   ],
   "bg_events": [],
-  "region": "REGION_KANTO"
+  "build_version": [
+    "firered",
+    "leafgreen"
+  ]
 }

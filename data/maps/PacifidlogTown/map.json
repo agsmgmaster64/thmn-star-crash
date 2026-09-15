@@ -140,5 +140,7 @@
       "script": "Common_EventScript_ShowPokemonCenterSign"
     }
   ],
-  "region": "REGION_HOENN"
+  "build_version": [
+    "emerald"
+  ]
 }

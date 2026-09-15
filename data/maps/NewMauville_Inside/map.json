@@ -295,5 +295,7 @@
       "script": "NewMauville_Inside_EventScript_Generator"
     }
   ],
-  "region": "REGION_HOENN"
+  "build_version": [
+    "emerald"
+  ]
 }

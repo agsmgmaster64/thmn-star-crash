@@ -49,5 +49,9 @@
   ],
   "coord_events": [],
   "bg_events": [],
-  "region": "REGION_KANTO"
+  "floor_number": 0,
+  "build_version": [
+    "firered",
+    "leafgreen"
+  ]
 }

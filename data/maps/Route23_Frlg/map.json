@@ -632,5 +632,8 @@
       "script": "Route23_EventScript_VictoryRoadGateSign"
     }
   ],
-  "region": "REGION_KANTO"
+  "build_version": [
+    "firered",
+    "leafgreen"
+  ]
 }

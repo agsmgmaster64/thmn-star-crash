@@ -516,5 +516,8 @@
       "script": "CeladonCity_GameCorner_EventScript_PhotoPrinter"
     }
   ],
-  "region": "REGION_KANTO"
+  "build_version": [
+    "firered",
+    "leafgreen"
+  ]
 }

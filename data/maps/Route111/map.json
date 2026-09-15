@@ -1177,5 +1177,7 @@
       "script": "Route111_EventScript_TrainerHillSign"
     }
   ],
-  "region": "REGION_HOENN"
+  "build_version": [
+    "emerald"
+  ]
 }

@@ -47,6 +47,7 @@
 #include "qol_field_moves.h" // qol_field_moves
 #include "random.h"
 #include "overworld.h"
+#include "region_map.h"
 #include "rotating_tile_puzzle.h"
 #include "rtc.h"
 #include "script.h"
@@ -3772,5 +3773,18 @@ bool8 ScrCmd_normalmsg(struct ScriptContext *ctx)
     Script_RequestEffects(SCREFF_V1);
 
     gMsgIsSignPost = FALSE;
+    return FALSE;
+}
+
+bool8 ScrCmd_bufferregionname(struct ScriptContext *ctx)
+{
+    u8 stringVarIndex = ScriptReadByte(ctx);
+    enum RegionMapId regionMap = VarGet(ScriptReadHalfword(ctx));
+    if (regionMap == REGION_MAP_UNKNOWN)
+        regionMap = GetRegionMap(gMapHeader.regionMapSectionId);
+
+    Script_RequestEffects(SCREFF_V1);
+
+    StringCopy(GetStringVar(stringVarIndex), GetRegionName(regionMap));
     return FALSE;
 }

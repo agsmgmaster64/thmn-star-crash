@@ -124,5 +124,8 @@
       "script": "Route22_EventScript_LeagueGateSign"
     }
   ],
-  "region": "REGION_KANTO"
+  "build_version": [
+    "firered",
+    "leafgreen"
+  ]
 }

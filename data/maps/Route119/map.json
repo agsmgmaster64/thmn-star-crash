@@ -972,5 +972,7 @@
       "script": "Route119_EventScript_TrainerTipsDecoration"
     }
   ],
-  "region": "REGION_HOENN"
+  "build_version": [
+    "emerald"
+  ]
 }

@@ -166,5 +166,8 @@
       "script": "PalletTown_EventScript_TrainerTips"
     }
   ],
-  "region": "REGION_KANTO"
+  "build_version": [
+    "firered",
+    "leafgreen"
+  ]
 }

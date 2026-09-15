@@ -241,5 +241,7 @@
       "script": "Common_EventScript_ShowPokemartSign"
     }
   ],
-  "region": "REGION_HOENN"
+  "build_version": [
+    "emerald"
+  ]
 }

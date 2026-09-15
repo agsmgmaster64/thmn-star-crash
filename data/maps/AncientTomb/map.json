@@ -80,5 +80,7 @@
       "script": "AncientTomb_EventScript_CaveEntranceSide"
     }
   ],
-  "region": "REGION_HOENN"
+  "build_version": [
+    "emerald"
+  ]
 }

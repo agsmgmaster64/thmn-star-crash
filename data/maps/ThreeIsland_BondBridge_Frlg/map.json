@@ -213,5 +213,8 @@
       "script": "ThreeIsland_BondBridge_EventScript_BondBridgeSign"
     }
   ],
-  "region": "REGION_KANTO"
+  "build_version": [
+    "firered",
+    "leafgreen"
+  ]
 }

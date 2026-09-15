@@ -279,5 +279,8 @@
       "script": "ViridianCity_EventScript_GymDoor"
     }
   ],
-  "region": "REGION_KANTO"
+  "build_version": [
+    "firered",
+    "leafgreen"
+  ]
 }

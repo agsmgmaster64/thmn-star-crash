@@ -202,5 +202,8 @@
       "script": "FiveIsland_ResortGorgeous_EventScript_SelphysHouseSign"
     }
   ],
-  "region": "REGION_KANTO"
+  "build_version": [
+    "firered",
+    "leafgreen"
+  ]
 }

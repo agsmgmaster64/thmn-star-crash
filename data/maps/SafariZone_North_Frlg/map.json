@@ -194,5 +194,8 @@
       "script": "SafariZone_North_EventScript_RestHouseSign"
     }
   ],
-  "region": "REGION_KANTO"
+  "build_version": [
+    "firered",
+    "leafgreen"
+  ]
 }

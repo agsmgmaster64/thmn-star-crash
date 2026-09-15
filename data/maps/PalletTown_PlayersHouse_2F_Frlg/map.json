@@ -51,5 +51,8 @@
       "script": "PalletTown_PlayersHouse_2F_EventScript_Sign"
     }
   ],
-  "region": "REGION_KANTO"
+  "build_version": [
+    "firered",
+    "leafgreen"
+  ]
 }

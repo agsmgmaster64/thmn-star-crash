@@ -281,5 +281,8 @@
       "script": "SixIsland_RuinValley_EventScript_DottedHoleDoor"
     }
   ],
-  "region": "REGION_KANTO"
+  "build_version": [
+    "firered",
+    "leafgreen"
+  ]
 }

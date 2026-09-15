@@ -67,5 +67,8 @@
       "script": "Route5_EventScript_UndergroundPathSign"
     }
   ],
-  "region": "REGION_KANTO"
+  "build_version": [
+    "firered",
+    "leafgreen"
+  ]
 }

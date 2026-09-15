@@ -3,7 +3,6 @@
   "name": "LilycoveCity_MoveDeletersHouse",
   "layout": "LAYOUT_HOUSE2",
   "music": "MUS_LILYCOVE",
-  "region": "REGION_HOENN",
   "region_map_section": "MAPSEC_LILYCOVE_CITY",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
@@ -48,10 +47,9 @@
       "dest_warp_id": "7"
     }
   ],
-  "coord_events": [
-
-  ],
-  "bg_events": [
-
+  "coord_events": [],
+  "bg_events": [],
+  "build_version": [
+    "emerald"
   ]
 }

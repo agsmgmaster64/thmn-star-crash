@@ -202,5 +202,7 @@
       "script": "VerdanturfTown_EventScript_RusturfTunnelSign"
     }
   ],
-  "region": "REGION_HOENN"
+  "build_version": [
+    "emerald"
+  ]
 }

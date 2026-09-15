@@ -57,5 +57,7 @@
     }
   ],
   "bg_events": [],
-  "region": "REGION_HOENN"
+  "build_version": [
+    "emerald"
+  ]
 }

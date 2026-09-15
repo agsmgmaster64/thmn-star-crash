@@ -159,5 +159,8 @@
       "script": "SeafoamIslands_B4F_EventScript_BoulderHintSign"
     }
   ],
-  "region": "REGION_KANTO"
+  "build_version": [
+    "firered",
+    "leafgreen"
+  ]
 }

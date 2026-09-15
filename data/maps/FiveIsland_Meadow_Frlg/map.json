@@ -146,5 +146,8 @@
       "script": "FiveIsland_Meadow_EventScript_WarehouseDoor"
     }
   ],
-  "region": "REGION_KANTO"
+  "build_version": [
+    "firered",
+    "leafgreen"
+  ]
 }

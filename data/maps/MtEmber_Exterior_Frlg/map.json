@@ -393,5 +393,8 @@
       "underfoot": false
     }
   ],
-  "region": "REGION_KANTO"
+  "build_version": [
+    "firered",
+    "leafgreen"
+  ]
 }

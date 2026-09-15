@@ -228,5 +228,7 @@
       "script": "AbandonedShip_HiddenFloorRooms_EventScript_Trash"
     }
   ],
-  "region": "REGION_HOENN"
+  "build_version": [
+    "emerald"
+  ]
 }

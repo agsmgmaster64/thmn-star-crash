@@ -67,5 +67,8 @@
       "script": "SSAnne_CaptainsOffice_EventScript_Book"
     }
   ],
-  "region": "REGION_KANTO"
+  "build_version": [
+    "firered",
+    "leafgreen"
+  ]
 }

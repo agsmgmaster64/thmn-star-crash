@@ -153,5 +153,8 @@
       "script": "LavenderTown_EventScript_VolunteerHouseSign"
     }
   ],
-  "region": "REGION_KANTO"
+  "build_version": [
+    "firered",
+    "leafgreen"
+  ]
 }

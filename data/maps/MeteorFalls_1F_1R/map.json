@@ -226,5 +226,7 @@
       "script": "0x0"
     }
   ],
-  "region": "REGION_HOENN"
+  "build_version": [
+    "emerald"
+  ]
 }

@@ -3,7 +3,6 @@
   "name": "ArtisanCave_B1F",
   "layout": "LAYOUT_ARTISAN_CAVE_B1F",
   "music": "MUS_PETALBURG_WOODS",
-  "region": "REGION_HOENN",
   "region_map_section": "MAPSEC_ARTISAN_CAVE",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
@@ -89,5 +88,8 @@
       "quantity": 0,
       "underfoot": false
     }
+  ],
+  "build_version": [
+    "emerald"
   ]
 }

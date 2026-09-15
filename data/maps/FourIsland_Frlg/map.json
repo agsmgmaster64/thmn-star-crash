@@ -283,5 +283,8 @@
       "script": "FourIsland_EventScript_LoreleisHouseSign"
     }
   ],
-  "region": "REGION_KANTO"
+  "build_version": [
+    "firered",
+    "leafgreen"
+  ]
 }

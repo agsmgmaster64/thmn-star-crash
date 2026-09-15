@@ -63,5 +63,8 @@
       "script": "SixIsland_DottedHole_B2F_EventScript_BrailleLeft"
     }
   ],
-  "region": "REGION_KANTO"
+  "build_version": [
+    "firered",
+    "leafgreen"
+  ]
 }

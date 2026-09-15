@@ -421,5 +421,8 @@
       "script": "CeruleanCity_BikeShop_EventScript_Bicycle"
     }
   ],
-  "region": "REGION_KANTO"
+  "build_version": [
+    "firered",
+    "leafgreen"
+  ]
 }

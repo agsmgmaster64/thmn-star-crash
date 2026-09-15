@@ -147,5 +147,7 @@
       "script": "Route106_EventScript_TrainerTipsSign"
     }
   ],
-  "region": "REGION_HOENN"
+  "build_version": [
+    "emerald"
+  ]
 }

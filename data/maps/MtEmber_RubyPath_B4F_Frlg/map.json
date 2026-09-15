@@ -242,5 +242,8 @@
       "script": "MtEmber_RubyPath_B4F_EventScript_BrailleWXYZ"
     }
   ],
-  "region": "REGION_KANTO"
+  "build_version": [
+    "firered",
+    "leafgreen"
+  ]
 }

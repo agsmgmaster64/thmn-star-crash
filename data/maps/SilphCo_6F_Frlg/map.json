@@ -246,5 +246,8 @@
       "script": "SilphCo_6F_EventScript_FloorSign"
     }
   ],
-  "region": "REGION_KANTO"
+  "build_version": [
+    "firered",
+    "leafgreen"
+  ]
 }

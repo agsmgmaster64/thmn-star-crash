@@ -209,5 +209,8 @@
       "script": "PewterCity_Museum_1F_EventScript_PokemonJournalBrock"
     }
   ],
-  "region": "REGION_KANTO"
+  "build_version": [
+    "firered",
+    "leafgreen"
+  ]
 }

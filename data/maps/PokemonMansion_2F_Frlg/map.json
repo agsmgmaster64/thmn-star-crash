@@ -136,5 +136,8 @@
       "script": "PokemonMansion_2F_EventScript_DiaryJuly5th"
     }
   ],
-  "region": "REGION_KANTO"
+  "build_version": [
+    "firered",
+    "leafgreen"
+  ]
 }

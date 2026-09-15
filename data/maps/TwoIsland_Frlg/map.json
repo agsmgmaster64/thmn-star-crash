@@ -205,5 +205,8 @@
       "script": "TwoIsland_EventScript_FastCurrentSign"
     }
   ],
-  "region": "REGION_KANTO"
+  "build_version": [
+    "firered",
+    "leafgreen"
+  ]
 }

@@ -150,5 +150,8 @@
       "script": "LavenderTown_VolunteerPokemonHouse_EventScript_Bookshelf"
     }
   ],
-  "region": "REGION_KANTO"
+  "build_version": [
+    "firered",
+    "leafgreen"
+  ]
 }

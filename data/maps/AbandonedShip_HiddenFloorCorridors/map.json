@@ -94,5 +94,7 @@
       "script": "AbandonedShip_HiddenFloorCorridors_EventScript_Room6Door"
     }
   ],
-  "region": "REGION_HOENN"
+  "build_version": [
+    "emerald"
+  ]
 }

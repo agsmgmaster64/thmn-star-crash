@@ -108,5 +108,8 @@
       "script": "SevenIsland_TrainerTower_EventScript_TrainerTowerAheadSign"
     }
   ],
-  "region": "REGION_KANTO"
+  "build_version": [
+    "firered",
+    "leafgreen"
+  ]
 }

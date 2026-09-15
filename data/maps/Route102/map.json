@@ -178,5 +178,7 @@
       "script": "Route102_EventScript_RouteSignOldale"
     }
   ],
-  "region": "REGION_HOENN"
+  "build_version": [
+    "emerald"
+  ]
 }

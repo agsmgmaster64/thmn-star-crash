@@ -73,5 +73,8 @@
       "script": "SixIsland_DottedHole_SapphireRoom_EventScript_BrailleMessage"
     }
   ],
-  "region": "REGION_KANTO"
+  "build_version": [
+    "firered",
+    "leafgreen"
+  ]
 }

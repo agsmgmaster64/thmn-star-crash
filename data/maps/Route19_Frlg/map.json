@@ -207,5 +207,8 @@
       "script": "Route19_EventScript_RouteSign"
     }
   ],
-  "region": "REGION_KANTO"
+  "build_version": [
+    "firered",
+    "leafgreen"
+  ]
 }

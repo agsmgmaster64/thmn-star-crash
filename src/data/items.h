@@ -11985,6 +11985,7 @@ const struct ItemInfo gItemsInfo[] =
         .fieldUseFunc = ItemUseOutOfBattle_TownMap,
         .iconPic = gItemIcon_TownMap,
         .iconPalette = gItemIconPalette_TownMap,
+        .secondaryId = REGION_MAP_KANTO
     },
 
     [ITEM_VS_SEEKER] =

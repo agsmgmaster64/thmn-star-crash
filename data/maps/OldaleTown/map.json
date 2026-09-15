@@ -169,5 +169,7 @@
       "script": "OldaleTown_EventScript_TownSign"
     }
   ],
-  "region": "REGION_HOENN"
+  "build_version": [
+    "emerald"
+  ]
 }

@@ -255,5 +255,7 @@
       "script": "LittlerootTown_EventScript_MaysHouseSign"
     }
   ],
-  "region": "REGION_HOENN"
+  "build_version": [
+    "emerald"
+  ]
 }

@@ -150,5 +150,8 @@
       "script": "SafariZone_East_EventScript_TrainerTips"
     }
   ],
-  "region": "REGION_KANTO"
+  "build_version": [
+    "firered",
+    "leafgreen"
+  ]
 }

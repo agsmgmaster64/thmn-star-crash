@@ -167,5 +167,8 @@
       "script": "CinnabarIsland_EventScript_PokemonLabSign"
     }
   ],
-  "region": "REGION_KANTO"
+  "build_version": [
+    "firered",
+    "leafgreen"
+  ]
 }

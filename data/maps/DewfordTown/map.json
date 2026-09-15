@@ -163,5 +163,7 @@
       "script": "DewfordTown_EventScript_HallSign"
     }
   ],
-  "region": "REGION_HOENN"
+  "build_version": [
+    "emerald"
+  ]
 }

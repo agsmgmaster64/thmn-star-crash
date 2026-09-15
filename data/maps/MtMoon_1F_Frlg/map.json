@@ -253,5 +253,8 @@
       "script": "MtMoon_1F_EventScript_ZubatSign"
     }
   ],
-  "region": "REGION_KANTO"
+  "build_version": [
+    "firered",
+    "leafgreen"
+  ]
 }

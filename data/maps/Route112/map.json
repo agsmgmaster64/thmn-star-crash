@@ -301,5 +301,7 @@
       "script": "Route112_EventScript_RouteSignLavaridge"
     }
   ],
-  "region": "REGION_HOENN"
+  "build_version": [
+    "emerald"
+  ]
 }

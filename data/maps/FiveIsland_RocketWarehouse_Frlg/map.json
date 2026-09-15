@@ -404,5 +404,8 @@
       "script": "FiveIsland_RocketWarehouse_EventScript_Cage"
     }
   ],
-  "region": "REGION_KANTO"
+  "build_version": [
+    "firered",
+    "leafgreen"
+  ]
 }

@@ -72,5 +72,8 @@
       "script": "PalletTown_PlayersHouse_1F_EventScript_TV"
     }
   ],
-  "region": "REGION_KANTO"
+  "build_version": [
+    "firered",
+    "leafgreen"
+  ]
 }

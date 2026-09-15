@@ -891,5 +891,7 @@
       "underfoot": false
     }
   ],
-  "region": "REGION_HOENN"
+  "build_version": [
+    "emerald"
+  ]
 }
