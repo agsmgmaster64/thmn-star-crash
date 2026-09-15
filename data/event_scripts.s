@@ -1821,3 +1821,6 @@ EventScript_PalletTown_PlayersHouse_2F_TurnOnPC::
 
 	.include "data/maps/CarpetMansion/scripts.inc"
 	.include "data/maps/CarpetMansion/text.inc"
+
+	.include "data/maps/NewBarkTown/scripts.inc"
+	.include "data/maps/NewBarkTown/text.inc"
