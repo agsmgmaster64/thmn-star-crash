@@ -128,7 +128,7 @@ static const u32 sRegionMapBg_GfxLZ[] = INCGFX_U32("graphics/pokenav/region_map/
 static const u32 sRegionMapBg_TilemapLZ[] = INCGFX_U32("graphics/pokenav/region_map/map.bin", ".smolTM");
 
 #include "data/region_map/region_map_layout.h"
-#include "data/region_map/region_map_layout_kanto.h"
+#include "data/region_map/region_map_layout_kanto_alt.h"
 #include "data/region_map/region_map_layout_sevii123.h"
 #include "data/region_map/region_map_layout_sevii45.h"
 #include "data/region_map/region_map_layout_sevii67.h"
