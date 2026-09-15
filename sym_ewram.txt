@@ -173,4 +173,4 @@
 	.include "src/derby.o"
 	.include "src/snake.o"
 	.include "src/flappybird.o"
-	
+	.include "src/sliding_puzzle.o"
