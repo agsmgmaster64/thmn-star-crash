@@ -146,5 +146,7 @@
       "script": "NULL"
     }
   ],
-  "region": "REGION_HOENN"
+  "build_version": [
+    "emerald"
+  ]
 }

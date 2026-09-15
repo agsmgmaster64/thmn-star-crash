@@ -2020,7 +2020,7 @@ static void ItemUseOnFieldCB_TownMap(u8 taskId)
 
 static void UseTownMapFromBag(void)
 {
-    InitRegionMapWithExitCB(REGIONMAP_TYPE_NORMAL, GetRegionMapType(gMapHeader.regionMapSectionId), CB2_BagMenuFromStartMenu);
+    InitRegionMapWithExitCB(REGIONMAP_TYPE_NORMAL, GetRegionMap(gMapHeader.regionMapSectionId), CB2_BagMenuFromStartMenu);
 }
 
 static void Task_UseTownMapFromField(u8 taskId)
@@ -2028,7 +2028,7 @@ static void Task_UseTownMapFromField(u8 taskId)
     if (!gPaletteFade.active)
     {
         CleanupOverworldWindowsAndTilemaps();
-        InitRegionMapWithExitCB(REGIONMAP_TYPE_NORMAL, GetRegionMapType(gMapHeader.regionMapSectionId), CB2_ReturnToField);
+        InitRegionMapWithExitCB(REGIONMAP_TYPE_NORMAL, GetRegionMap(gMapHeader.regionMapSectionId), CB2_ReturnToField);
         DestroyTask(taskId);
     }
 }

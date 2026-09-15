@@ -754,27 +754,10 @@ static const u8 gText_RegionMap_AButtonOK[] = _("{A_BUTTON}OK");
 static const u8 gText_RegionMap_DPadMove[] = _("{DPAD_NONE}MOVE");
 static const u8 gText_RegionMap_UpDownPick[] = _("{DPAD_UPDOWN}PICK");
 
-static inline bool32 IsRegionMapUnlocked(enum RegionMapType regionMapId)
-{
-    switch (regionMapId)
-    {
-    case REGION_MAP_KANTO:
-        return TRUE;
-    case REGION_MAP_SEVII123:
-        return FlagGet(FLAG_SYS_SEVII_MAP_123);
-    case REGION_MAP_SEVII45:
-        return FlagGet(FLAG_SYS_SEVII_MAP_4567);
-    case REGION_MAP_SEVII67:
-        return FlagGet(FLAG_SYS_SEVII_MAP_4567);
-    default:
-        return FALSE;
-    }
-}
-
 static u32 GetUnlockedRegionMaps(void)
 {
     u32 unlockedRegions = 0;
-    for (enum RegionMapType i = 0; i <= REGION_MAP_SEVII67; i++)
+    for (enum RegionMapId i = 0; i <= REGION_MAP_SEVII67; i++)
     {
         if (IsRegionMapUnlocked(i))
             unlockedRegions++;
@@ -822,7 +805,7 @@ static void InitRegionMapFrlg(u8 type)
     {
         gExitStairsMovementDisabled = TRUE;
         sRegionMapFrlg->type = type;
-        sRegionMapFrlg->selectedRegion = GetRegionMapType(gMapHeader.regionMapSectionId);
+        sRegionMapFrlg->selectedRegion = GetRegionMap(gMapHeader.regionMapSectionId);
         sRegionMapFrlg->mainState = 0;
         sRegionMapFrlg->openState = 0;
         sRegionMapFrlg->loadGfxState = 0;
@@ -875,7 +858,7 @@ static void InitRegionMapType(void)
     }
     if (GetUnlockedRegionMaps() < 2)
         sRegionMapFrlg->permissions[MAPPERM_HAS_SWITCH_BUTTON] = FALSE;
-    regionMap = GetRegionMapType(gMapHeader.regionMapSectionId);
+    regionMap = GetRegionMap(gMapHeader.regionMapSectionId);
     sRegionMapFrlg->playersRegion = regionMap;
 }
 
@@ -1292,11 +1275,11 @@ static void DisplayCurrentDungeonName(void)
     {
         SetDispCnt(1, FALSE);
         sRegionMapFrlg->dungeonWinTop = TRUE;
-        sRegionMapFrlg->dungeonWinLeft = StringLength(gRegionMapEntries[mapsecId].name);
+        sRegionMapFrlg->dungeonWinLeft = StringLength(gMapSections[mapsecId].name);
         sRegionMapFrlg->dungeonWinRight = sRegionMapFrlg->dungeonWinLeft * 10 + 50;
         sRegionMapFrlg->dungeonWinBottom = 48;
         FillWindowPixelBuffer(WIN_DUNGEON_NAME, PIXEL_FILL(0));
-        StringCopy(sRegionMapFrlg->dungeonName, gRegionMapEntries[mapsecId].name);
+        StringCopy(sRegionMapFrlg->dungeonName, gMapSections[mapsecId].name);
         AddTextPrinterParameterized3(WIN_DUNGEON_NAME, FONT_SHORT, 12, 2, sTextColorTable[GetSelectedMapsecType(LAYER_DUNGEON) - 2], 0, sRegionMapFrlg->dungeonName);
         PutWindowTilemap(WIN_DUNGEON_NAME);
         CopyWindowToVram(WIN_DUNGEON_NAME, COPYWIN_FULL);
@@ -1741,7 +1724,7 @@ static const u8 *GetDungeonName(u16 mapsec)
     for (i = 0; i < NELEMS(sDungeonInfo); i++)
     {
         if (sDungeonInfo[i].id == mapsec)
-            return gRegionMapEntries[mapsec].name;
+            return gMapSections[mapsec].name;
     }
     return sText_RegionMap_NoData;
 }
@@ -2978,20 +2961,20 @@ static void GetPlayerPositionOnRegionMap(void)
         break;
     }
 
-    divisor = width / gRegionMapEntries[sMapCursor->selectedMapsec].width;
+    divisor = width / gMapSections[sMapCursor->selectedMapsec].width;
     if (divisor == 0)
         divisor = 1;
     x /= divisor;
-    if (x >= gRegionMapEntries[sMapCursor->selectedMapsec].width)
-        x = gRegionMapEntries[sMapCursor->selectedMapsec].width - 1;
-    divisor = height / gRegionMapEntries[sMapCursor->selectedMapsec].height;
+    if (x >= gMapSections[sMapCursor->selectedMapsec].width)
+        x = gMapSections[sMapCursor->selectedMapsec].width - 1;
+    divisor = height / gMapSections[sMapCursor->selectedMapsec].height;
     if (divisor == 0)
         divisor = 1;
     y /= divisor;
-    if (y >= gRegionMapEntries[sMapCursor->selectedMapsec].height)
-        y = gRegionMapEntries[sMapCursor->selectedMapsec].height - 1;
-    sMapCursor->x = x + gRegionMapEntries[sMapCursor->selectedMapsec].x;
-    sMapCursor->y = y + gRegionMapEntries[sMapCursor->selectedMapsec].y;
+    if (y >= gMapSections[sMapCursor->selectedMapsec].height)
+        y = gMapSections[sMapCursor->selectedMapsec].height - 1;
+    sMapCursor->x = x + gMapSections[sMapCursor->selectedMapsec].x;
+    sMapCursor->y = y + gMapSections[sMapCursor->selectedMapsec].y;
 }
 
 static void GetPlayerPositionOnRegionMap_HandleOverrides(void)

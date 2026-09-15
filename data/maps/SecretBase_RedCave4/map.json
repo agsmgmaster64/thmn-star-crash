@@ -237,6 +237,7 @@
   ],
   "coord_events": [],
   "bg_events": [],
+  "shared_scripts_map": "SecretBase",
   "build_version": [
     "emerald"
   ]

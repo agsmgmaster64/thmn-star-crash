@@ -3,7 +3,6 @@
   "name": "MauvilleCity_GameCornerBasement",
   "layout": "LAYOUT_MAUVILLE_CITY_GAME_CORNER_BASEMENT",
   "music": "MUS_ZGS_ROCKET_HIDEOUT",
-  "region": "REGION_HOENN",
   "region_map_section": "MAPSEC_ABANDONED_SHIP",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
@@ -32,5 +31,8 @@
   ],
   "bg_events": [
 
+  ],
+  "build_version": [
+    "emerald"
   ]
 }

@@ -3,7 +3,6 @@
   "name": "CarpetTraining",
   "layout": "LAYOUT_CARPET_TRAINING",
   "music": "MUS_WLD_GAME_CORNER",
-  "region": "REGION_HOENN",
   "region_map_section": "MAPSEC_ABANDONED_SHIP",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
@@ -312,5 +311,8 @@
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "CarpetTraining_EventScript_PinballSeel"
     }
+  ],
+  "build_version": [
+    "emerald"
   ]
 }
