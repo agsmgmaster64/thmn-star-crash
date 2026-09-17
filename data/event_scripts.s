@@ -1824,3 +1824,84 @@ EventScript_PalletTown_PlayersHouse_2F_TurnOnPC::
 
 	.include "data/maps/NewBarkTown/scripts.inc"
 	.include "data/maps/NewBarkTown/text.inc"
+
+	.include "data/maps/Route29/scripts.inc"
+	.include "data/maps/Route29/text.inc"
+
+	.include "data/maps/CherrygroveCity/scripts.inc"
+	.include "data/maps/CherrygroveCity/text.inc"
+
+	.include "data/maps/VioletCity/scripts.inc"
+	.include "data/maps/VioletCity/text.inc"
+
+	.include "data/maps/AzaleaTown/scripts.inc"
+	.include "data/maps/AzaleaTown/text.inc"
+
+	.include "data/maps/GoldenrodCity/scripts.inc"
+	.include "data/maps/GoldenrodCity/text.inc"
+
+	.include "data/maps/BlackthornCity/scripts.inc"
+	.include "data/maps/BlackthornCity/text.inc"
+
+	.include "data/maps/MahoganyTown/scripts.inc"
+	.include "data/maps/MahoganyTown/text.inc"
+
+	.include "data/maps/EcruteakCity/scripts.inc"
+	.include "data/maps/EcruteakCity/text.inc"
+
+	.include "data/maps/CianwoodCity/scripts.inc"
+	.include "data/maps/CianwoodCity/text.inc"
+
+	.include "data/maps/OlivineCity/scripts.inc"
+	.include "data/maps/OlivineCity/text.inc"
+
+	.include "data/maps/Route30/scripts.inc"
+	.include "data/maps/Route30/text.inc"
+
+	.include "data/maps/Route35/scripts.inc"
+	.include "data/maps/Route35/text.inc"
+
+	.include "data/maps/Route33/scripts.inc"
+	.include "data/maps/Route33/text.inc"
+
+	.include "data/maps/Route31/scripts.inc"
+	.include "data/maps/Route31/text.inc"
+
+	.include "data/maps/Route32/scripts.inc"
+	.include "data/maps/Route32/text.inc"
+
+	.include "data/maps/Route34/scripts.inc"
+	.include "data/maps/Route34/text.inc"
+
+	.include "data/maps/Route39/scripts.inc"
+	.include "data/maps/Route39/text.inc"
+
+	.include "data/maps/Route40/scripts.inc"
+	.include "data/maps/Route40/text.inc"
+
+	.include "data/maps/Route36/scripts.inc"
+	.include "data/maps/Route36/text.inc"
+
+	.include "data/maps/Route37/scripts.inc"
+	.include "data/maps/Route37/text.inc"
+
+	.include "data/maps/Route38/scripts.inc"
+	.include "data/maps/Route38/text.inc"
+
+	.include "data/maps/Route41/scripts.inc"
+	.include "data/maps/Route41/text.inc"
+
+	.include "data/maps/Route43/scripts.inc"
+	.include "data/maps/Route43/text.inc"
+
+	.include "data/maps/Route46/scripts.inc"
+	.include "data/maps/Route46/text.inc"
+
+	.include "data/maps/Route42/scripts.inc"
+	.include "data/maps/Route42/text.inc"
+
+	.include "data/maps/Route45/scripts.inc"
+	.include "data/maps/Route45/text.inc"
+
+	.include "data/maps/Route44/scripts.inc"
+	.include "data/maps/Route44/text.inc"

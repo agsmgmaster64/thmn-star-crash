@@ -67,14 +67,6 @@
     "gMapGroup_IndoorOneIsland_Frlg",
     "gMapGroup_IndoorTwoIsland_Frlg",
     "gMapGroup_IndoorThreeIsland_Frlg",
-    "gMapGroup_IndoorFourIsland_Frlg",
-    "gMapGroup_IndoorFiveIsland_Frlg",
-    "gMapGroup_IndoorSixIsland_Frlg",
-    "gMapGroup_IndoorThreeIslandRoute_Frlg",
-    "gMapGroup_IndoorFiveIslandRoute_Frlg",
-    "gMapGroup_IndoorTwoIslandRoute_Frlg",
-    "gMapGroup_IndoorSixIslandRoute_Frlg",
-    "gMapGroup_IndoorSevenIslandRoute_Frlg",
     "gMapGroup_TownsAndRoutes_Johto"
   ],
   "gMapGroup_TownsAndRoutes": [
@@ -1139,9 +1131,7 @@
     "ThreeIsland_House2_Frlg",
     "ThreeIsland_House3_Frlg",
     "ThreeIsland_House4_Frlg",
-    "ThreeIsland_House5_Frlg"
-  ],
-  "gMapGroup_IndoorFourIsland_Frlg": [
+    "ThreeIsland_House5_Frlg",
     "FourIsland_PokemonDayCare_Frlg",
     "FourIsland_PokemonCenter_1F_Frlg",
     "FourIsland_PokemonCenter_2F_Frlg",
@@ -1149,39 +1139,52 @@
     "FourIsland_LoreleisHouse_Frlg",
     "FourIsland_Harbor_Frlg",
     "FourIsland_House2_Frlg",
-    "FourIsland_Mart_Frlg"
-  ],
-  "gMapGroup_IndoorFiveIsland_Frlg": [
+    "FourIsland_Mart_Frlg",
     "FiveIsland_PokemonCenter_1F_Frlg",
     "FiveIsland_PokemonCenter_2F_Frlg",
     "FiveIsland_Harbor_Frlg",
     "FiveIsland_House1_Frlg",
-    "FiveIsland_House2_Frlg"
-  ],
-  "gMapGroup_IndoorSixIsland_Frlg": [
+    "FiveIsland_House2_Frlg",
     "SixIsland_PokemonCenter_1F_Frlg",
     "SixIsland_PokemonCenter_2F_Frlg",
     "SixIsland_Harbor_Frlg",
     "SixIsland_House_Frlg",
-    "SixIsland_Mart_Frlg"
-  ],
-  "gMapGroup_IndoorThreeIslandRoute_Frlg": [
-    "ThreeIsland_Harbor_Frlg"
-  ],
-  "gMapGroup_IndoorFiveIslandRoute_Frlg": [
-    "FiveIsland_ResortGorgeous_House_Frlg"
-  ],
-  "gMapGroup_IndoorTwoIslandRoute_Frlg": [
-    "TwoIsland_CapeBrink_House_Frlg"
-  ],
-  "gMapGroup_IndoorSixIslandRoute_Frlg": [
+    "SixIsland_Mart_Frlg",
+    "ThreeIsland_Harbor_Frlg",
+    "FiveIsland_ResortGorgeous_House_Frlg",
+    "TwoIsland_CapeBrink_House_Frlg",
     "SixIsland_WaterPath_House1_Frlg",
-    "SixIsland_WaterPath_House2_Frlg"
-  ],
-  "gMapGroup_IndoorSevenIslandRoute_Frlg": [
+    "SixIsland_WaterPath_House2_Frlg",
     "SevenIsland_SevaultCanyon_House_Frlg"
   ],
   "gMapGroup_TownsAndRoutes_Johto": [
-    "NewBarkTown"
+    "NewBarkTown",
+    "CherrygroveCity",
+    "VioletCity",
+    "AzaleaTown",
+    "GoldenrodCity",
+    "EcruteakCity",
+    "OlivineCity",
+    "CianwoodCity",
+    "MahoganyTown",
+    "BlackthornCity",
+    "Route29",
+    "Route30",
+    "Route31",
+    "Route32",
+    "Route33",
+    "Route34",
+    "Route35",
+    "Route36",
+    "Route37",
+    "Route38",
+    "Route39",
+    "Route40",
+    "Route41",
+    "Route42",
+    "Route43",
+    "Route44",
+    "Route45",
+    "Route46"
   ]
 }
