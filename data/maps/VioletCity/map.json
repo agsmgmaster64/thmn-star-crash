@@ -23,10 +23,27 @@
       "map": "MAP_ROUTE32",
       "offset": -4,
       "direction": "down"
+    },
+    {
+      "map": "MAP_ROUTE36",
+      "offset": -2,
+      "direction": "left"
     }
   ],
   "object_events": [],
-  "warp_events": [],
+  "warp_events": [
+    {
+      "x": 39,
+      "y": 45,
+      "elevation": 0,
+      "dest_map": "MAP_VIOLET_CITY",
+      "dest_warp_id": "0"
+    }
+  ],
   "coord_events": [],
-  "bg_events": []
+  "bg_events": [],
+  "build_version": [
+    "firered",
+    "leafgreen"
+  ]
 }

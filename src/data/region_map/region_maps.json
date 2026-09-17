@@ -31,14 +31,13 @@
       "pokedex_tilemap": ["graphics/pokedex/region_map_kanto.bin", ".smolTM"]
     },
     {
-      "label": "sevii123",
-      "region_name": "SEVII A",
-      "layout_file": "src/data/region_map/layout_sevii123.h",
+      "label": "johto",
+      "region_name": "JOHTO",
+      "layout_file": "src/data/region_map/layout_johto.h",
       "layout_width": 28,
       "layout_height": 15,
       "layout_offset_left": 1,
       "layout_offset_top": 2,
-      "unlock_condition" : "FLAG_UNLOCK(FLAG_SYS_SEVII_MAP_123)",
       "palette": ["graphics/pokenav/region_map/map_sevii_123.pal", ".gbapal"],
       "gfx": ["graphics/pokenav/region_map/map_sevii_123.png", ".8bpp.smol"],
       "tilemap": ["graphics/pokenav/region_map/map_sevii_123.bin", ".smolTM"],

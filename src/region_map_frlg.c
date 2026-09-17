@@ -34,7 +34,7 @@
 
 enum {
     FRLG_LAYOUT_KANTO,
-    FRLG_LAYOUT_SEVII123,
+    FRLG_LAYOUT_JOHTO,
     FRLG_LAYOUT_SEVII45,
     FRLG_LAYOUT_SEVII67,
     FRLG_LAYOUT_COUNT
@@ -948,7 +948,7 @@ static bool8 LoadRegionMapGfxFrlg(void)
         DecompressDataWithHeaderWram(sKanto_Tilemap, sRegionMapFrlg->layouts[FRLG_LAYOUT_KANTO]);
         break;
     case 6:
-        DecompressDataWithHeaderWram(sSevii123_Tilemap, sRegionMapFrlg->layouts[FRLG_LAYOUT_SEVII123]);
+        DecompressDataWithHeaderWram(sSevii123_Tilemap, sRegionMapFrlg->layouts[FRLG_LAYOUT_JOHTO]);
         break;
     case 7:
         DecompressDataWithHeaderWram(sSevii45_Tilemap, sRegionMapFrlg->layouts[FRLG_LAYOUT_SEVII45]);
@@ -2766,11 +2766,11 @@ static u8 GetMapsecType(u8 mapsec)
         return FlagGet(FLAG_WORLD_MAP_INDIGO_PLATEAU_EXTERIOR) ? MAPSECTYPE_CITY_CANFLY : MAPSECTYPE_CITY_CANTFLY;
     case MAPSEC_SAFFRON_CITY:
         return FlagGet(FLAG_WORLD_MAP_SAFFRON_CITY) ? MAPSECTYPE_CITY_CANFLY : MAPSECTYPE_CITY_CANTFLY;
-    case MAPSEC_ONE_ISLAND:
+    case MAPSEC_NEW_BARK_TOWN:
         return FlagGet(FLAG_WORLD_MAP_ONE_ISLAND) ? MAPSECTYPE_CITY_CANFLY : MAPSECTYPE_CITY_CANTFLY;
-    case MAPSEC_TWO_ISLAND:
+    case MAPSEC_CHERRYGROVE_CITY:
         return FlagGet(FLAG_WORLD_MAP_TWO_ISLAND) ? MAPSECTYPE_CITY_CANFLY : MAPSECTYPE_CITY_CANTFLY;
-    case MAPSEC_THREE_ISLAND:
+    case MAPSEC_VIOLET_CITY:
         return FlagGet(FLAG_WORLD_MAP_THREE_ISLAND) ? MAPSECTYPE_CITY_CANFLY : MAPSECTYPE_CITY_CANTFLY;
     case MAPSEC_FOUR_ISLAND:
         return FlagGet(FLAG_WORLD_MAP_FOUR_ISLAND) ? MAPSECTYPE_CITY_CANFLY : MAPSECTYPE_CITY_CANTFLY;
@@ -2886,8 +2886,8 @@ static u8 RegionMapToFrlgLayout(u8 regionMap)
     default:
     case REGION_MAP_KANTO:
         return FRLG_LAYOUT_KANTO;
-    case REGION_MAP_SEVII123:
-        return FRLG_LAYOUT_SEVII123;
+    case REGION_MAP_JOHTO:
+        return FRLG_LAYOUT_JOHTO;
     case REGION_MAP_SEVII45:
         return FRLG_LAYOUT_SEVII45;
     case REGION_MAP_SEVII67:
@@ -3163,7 +3163,7 @@ static u8 GetSelectedMapSection(u8 regionMap, u8 layer, s16 y, s16 x)
     {
     case REGION_MAP_KANTO:
         return sRegionMapSections_Kanto[layer][y][x];
-    case REGION_MAP_SEVII123:
+    case REGION_MAP_JOHTO:
         return sRegionMapSections_Sevii123[layer][y][x];
     case REGION_MAP_SEVII45:
         return sRegionMapSections_Sevii45[layer][y][x];

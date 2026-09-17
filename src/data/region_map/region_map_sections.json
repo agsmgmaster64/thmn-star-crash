@@ -1414,34 +1414,34 @@
       "pokemon_region": "POKEMON_REGION_KANTO"
     },
     {
-      "id": "MAPSEC_ONE_ISLAND",
-      "name": "ONE ISLAND",
+      "id": "MAPSEC_NEW_BARK_TOWN",
+      "name": "New Bark Town",
       "x": 1,
       "y": 8,
       "width": 1,
       "height": 1,
-      "map_region": "REGION_MAP_SEVII123",
-      "pokemon_region": "POKEMON_REGION_KANTO"
+      "map_region": "REGION_MAP_JOHTO",
+      "pokemon_region": "POKEMON_REGION_JOHTO"
     },
     {
-      "id": "MAPSEC_TWO_ISLAND",
-      "name": "TWO ISLAND",
+      "id": "MAPSEC_CHERRYGROVE_CITY",
+      "name": "Cherrygrove City",
       "x": 9,
       "y": 9,
       "width": 1,
       "height": 1,
-      "map_region": "REGION_MAP_SEVII123",
-      "pokemon_region": "POKEMON_REGION_KANTO"
+      "map_region": "REGION_MAP_JOHTO",
+      "pokemon_region": "POKEMON_REGION_JOHTO"
     },
     {
-      "id": "MAPSEC_THREE_ISLAND",
-      "name": "THREE ISLAND",
+      "id": "MAPSEC_VIOLET_CITY",
+      "name": "Violet City",
       "x": 18,
       "y": 12,
       "width": 1,
       "height": 1,
-      "map_region": "REGION_MAP_SEVII123",
-      "pokemon_region": "POKEMON_REGION_KANTO"
+      "map_region": "REGION_MAP_JOHTO",
+      "pokemon_region": "POKEMON_REGION_JOHTO"
     },
     {
       "id": "MAPSEC_FOUR_ISLAND",
@@ -1450,8 +1450,8 @@
       "y": 4,
       "width": 1,
       "height": 1,
-      "map_region": "REGION_MAP_SEVII45",
-      "pokemon_region": "POKEMON_REGION_KANTO"
+      "map_region": "REGION_MAP_JOHTO",
+      "pokemon_region": "POKEMON_REGION_JOHTO"
     },
     {
       "id": "MAPSEC_FIVE_ISLAND",
@@ -1461,7 +1461,7 @@
       "width": 1,
       "height": 1,
       "map_region": "REGION_MAP_SEVII45",
-      "pokemon_region": "POKEMON_REGION_KANTO"
+      "pokemon_region": "POKEMON_REGION_JOHTO"
     },
     {
       "id": "MAPSEC_SEVEN_ISLAND",
@@ -1470,8 +1470,8 @@
       "y": 8,
       "width": 1,
       "height": 1,
-      "map_region": "REGION_MAP_SEVII67",
-      "pokemon_region": "POKEMON_REGION_KANTO"
+      "map_region": "REGION_MAP_JOHTO",
+      "pokemon_region": "POKEMON_REGION_JOHTO"
     },
     {
       "id": "MAPSEC_SIX_ISLAND",
@@ -1480,8 +1480,8 @@
       "y": 5,
       "width": 1,
       "height": 1,
-      "map_region": "REGION_MAP_SEVII67",
-      "pokemon_region": "POKEMON_REGION_KANTO"
+      "map_region": "REGION_MAP_JOHTO",
+      "pokemon_region": "POKEMON_REGION_JOHTO"
     },
     {
       "id": "MAPSEC_KINDLE_ROAD",
@@ -1490,7 +1490,7 @@
       "y": 3,
       "width": 1,
       "height": 6,
-      "map_region": "REGION_MAP_SEVII123",
+      "map_region": "REGION_MAP_JOHTO",
       "pokemon_region": "POKEMON_REGION_KANTO"
     },
     {
@@ -1500,7 +1500,7 @@
       "y": 9,
       "width": 1,
       "height": 2,
-      "map_region": "REGION_MAP_SEVII123",
+      "map_region": "REGION_MAP_JOHTO",
       "pokemon_region": "POKEMON_REGION_KANTO"
     },
     {
@@ -1510,7 +1510,7 @@
       "y": 7,
       "width": 1,
       "height": 2,
-      "map_region": "REGION_MAP_SEVII123",
+      "map_region": "REGION_MAP_JOHTO",
       "pokemon_region": "POKEMON_REGION_KANTO"
     },
     {
@@ -1520,7 +1520,7 @@
       "y": 12,
       "width": 4,
       "height": 1,
-      "map_region": "REGION_MAP_SEVII123",
+      "map_region": "REGION_MAP_JOHTO",
       "pokemon_region": "POKEMON_REGION_KANTO"
     },
     {
@@ -1530,7 +1530,7 @@
       "y": 13,
       "width": 2,
       "height": 1,
-      "map_region": "REGION_MAP_SEVII123",
+      "map_region": "REGION_MAP_JOHTO",
       "pokemon_region": "POKEMON_REGION_KANTO"
     },
     {
@@ -1694,7 +1694,7 @@
       "y": 3,
       "width": 1,
       "height": 1,
-      "map_region": "REGION_MAP_SEVII123",
+      "map_region": "REGION_MAP_JOHTO",
       "pokemon_region": "POKEMON_REGION_KANTO"
     },
     {
@@ -1794,7 +1794,7 @@
       "y": 13,
       "width": 1,
       "height": 1,
-      "map_region": "REGION_MAP_SEVII123",
+      "map_region": "REGION_MAP_JOHTO",
       "pokemon_region": "POKEMON_REGION_KANTO"
     },
     {
@@ -1890,7 +1890,7 @@
     {
       "id": "MAPSEC_EMBER_SPA",
       "name": "EMBER SPA",
-      "map_region": "REGION_MAP_SEVII123",
+      "map_region": "REGION_MAP_JOHTO",
       "pokemon_region": "POKEMON_REGION_KANTO"
     },
     {

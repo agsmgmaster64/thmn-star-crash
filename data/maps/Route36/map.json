@@ -13,9 +13,24 @@
   "show_map_name": true,
   "floor_number": 0,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
-  "connections": null,
+  "connections": [
+    {
+      "map": "MAP_ROUTE35",
+      "offset": -16,
+      "direction": "down"
+    },
+    {
+      "map": "MAP_VIOLET_CITY",
+      "offset": 2,
+      "direction": "right"
+    }
+  ],
   "object_events": [],
   "warp_events": [],
   "coord_events": [],
-  "bg_events": []
+  "bg_events": [],
+  "build_version": [
+    "firered",
+    "leafgreen"
+  ]
 }
