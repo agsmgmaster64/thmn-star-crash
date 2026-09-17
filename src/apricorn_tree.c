@@ -10,7 +10,7 @@
 
 void DailyResetApricornTrees(void)
 {
-#if (APRICORN_TREE_COUNT > 0)
+#if (IS_FRLG)
     memset(&gSaveBlock3Ptr->apricornTrees[0], 0, NUM_APRICORN_TREE_BYTES);
 #endif
 }
@@ -40,7 +40,7 @@ void ObjectEventInteractionPickApricornTree(void)
 
 enum ApricornType GetApricornTypeByApricornTreeId(u32 id)
 {
-    if (APRICORN_TREE_COUNT > 0)
+    if (IS_FRLG)
         return gApricornTrees[id].apricornType;
     else
         return 0;
@@ -51,7 +51,7 @@ u8 GetApricornCountByApricornTreeId(u32 id)
     if (IsApricornTreePicked(id))
         return 0;
 
-    if (APRICORN_TREE_COUNT > 0)
+    if (IS_FRLG)
     {
         if (gApricornTrees[id].maximum > gApricornTrees[id].minimum)
             return gApricornTrees[id].minimum + Random() % (gApricornTrees[id].maximum - gApricornTrees[id].minimum);
@@ -67,7 +67,7 @@ bool8 IsApricornTreePicked(u32 id)
     if (id > APRICORN_TREE_COUNT)
         return TRUE;
 
-#if (APRICORN_TREE_COUNT > 0)
+#if (IS_FRLG)
     return gSaveBlock3Ptr->apricornTrees[id / 8] & (1 << (id % 8));
 #else
     return TRUE;
@@ -79,7 +79,7 @@ void SetApricornTreePicked(u32 id)
     if (id > APRICORN_TREE_COUNT)
         return;
 
-#if (APRICORN_TREE_COUNT > 0)
+#if (IS_FRLG)
     u8 *flagByte = &gSaveBlock3Ptr->apricornTrees[id / 8];
     *flagByte = (*flagByte) | (1 << (id % 8));
 #endif

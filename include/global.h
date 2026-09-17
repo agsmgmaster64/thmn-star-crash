@@ -315,11 +315,11 @@ struct SaveBlock3
 #if FLAPPY_STORE_HIGH_SCORE == TRUE
     u16 flappyHighScore;
 #endif
-#if APRICORN_TREE_COUNT > 0
-    u8 apricornTrees[NUM_APRICORN_TREE_BYTES];
-#endif
 #if SAVINGS_ENABLED
     struct Banking banking;
+#endif
+#if IS_FRLG
+    u8 apricornTrees[NUM_APRICORN_TREE_BYTES];
 #endif
 }; /* max size 1624 bytes */
 

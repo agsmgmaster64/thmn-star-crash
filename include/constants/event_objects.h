@@ -602,7 +602,8 @@ enum
 #define OBJ_EVENT_PAL_TAG_SS_ANNE                 0x1143
 #define OBJ_EVENT_PAL_TAG_TOKAI_TEIO              0x1144
 #define OBJ_EVENT_PAL_TAG_NICE_NATURE             0x1145
-#define OBJ_EVENT_PAL_TAG_DYNAMIC                 0x1146
+#define OBJ_EVENT_PAL_TAG_APRICORN_TREE           0x1146
+#define OBJ_EVENT_PAL_TAG_DYNAMIC                 0x1147
 
 #if OW_FOLLOWERS_POKEBALLS
 // Vanilla
