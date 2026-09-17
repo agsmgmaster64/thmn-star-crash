@@ -191,126 +191,134 @@ static const struct MapPreviewScreen sMapPreviewScreenData[MPS_COUNT] = {
         .tilemapptr = sPowerPlantMapPreviewTilemap,
         .palptr = sPowerPlantMapPreviewPalette
     },
-    [MPS_MT_EMBER] = {
-        .mapsec = MAPSEC_MT_EMBER,
+    [MPS_DARK_CAVE_SOUTH] = {
+        .mapsec = MAPSEC_DARK_CAVE_SOUTH,
         .type = MPS_TYPE_CAVE,
-        .flagId = FLAG_WORLD_MAP_MT_EMBER_EXTERIOR,
+        .flagId = FLAG_WORLD_MAP_DARK_CAVE,
         .tilesptr = sMtEmberMapPreviewTiles,
         .tilemapptr = sMtEmberMapPreviewTilemap,
         .palptr = sMtEmberMapPreviewPalette
     },
-    [MPS_ROCKET_WAREHOUSE] = {
-        .mapsec = MAPSEC_ROCKET_WAREHOUSE,
+    [MPS_SPROUT_TOWER] = {
+        .mapsec = MAPSEC_SPROUT_TOWER,
         .type = MPS_TYPE_FADE_IN,
-        .flagId = FLAG_WORLD_MAP_THREE_ISLAND_BERRY_FOREST,
+        .flagId = FLAG_WORLD_MAP_SPROUT_TOWER,
         .tilesptr = sRocketWarehouseMapPreviewTiles,
         .tilemapptr = sRocketWarehouseMapPreviewTilemap,
         .palptr = sRocketWarehouseMapPreviewPalette
     },
-    [MPS_MONEAN_CHAMBER] = {
-        .mapsec = MAPSEC_MONEAN_CHAMBER,
+    [MPS_RUINS_OF_ALPH] = {
+        .mapsec = MAPSEC_RUINS_OF_ALPH,
         .type = MPS_TYPE_CAVE,
-        .flagId = FLAG_WORLD_MAP_SEVEN_ISLAND_TANOBY_RUINS_MONEAN_CHAMBER,
+        .flagId = FLAG_WORLD_MAP_RUINS_OF_ALPH,
         .tilesptr = sMoneanChamberMapPreviewTiles,
         .tilemapptr = sMoneanChamberMapPreviewTilemap,
         .palptr = sMoneanChamberMapPreviewPalette
     },
-    [MPS_DOTTED_HOLE] = {
-        .mapsec = MAPSEC_DOTTED_HOLE,
+    [MPS_UNION_CAVE] = {
+        .mapsec = MAPSEC_UNION_CAVE,
         .type = MPS_TYPE_CAVE,
-        .flagId = FLAG_WORLD_MAP_SIX_ISLAND_DOTTED_HOLE_1F,
-        .tilesptr = sDottedHoleMapPreviewTiles,
-        .tilemapptr = sDottedHoleMapPreviewTilemap,
-        .palptr = sDottedHoleMapPreviewPalette
-    },
-    [MPS_BERRY_FOREST] = {
-        .mapsec = MAPSEC_BERRY_FOREST,
-        .type = MPS_TYPE_FADE_IN,
-        .flagId = FLAG_WORLD_MAP_THREE_ISLAND_BERRY_FOREST,
-        .tilesptr = sBerryForestMapPreviewTiles,
-        .tilemapptr = sBerryForestMapPreviewTilemap,
-        .palptr = sBerryForestMapPreviewPalette
-    },
-    [MPS_ICEFALL_CAVE] = {
-        .mapsec = MAPSEC_ICEFALL_CAVE,
-        .type = MPS_TYPE_CAVE,
-        .flagId = FLAG_WORLD_MAP_FOUR_ISLAND_ICEFALL_CAVE_ENTRANCE,
-        .tilesptr = sIcefallCaveMapPreviewTiles,
-        .tilemapptr = sIcefallCaveMapPreviewTilemap,
-        .palptr = sIcefallCaveMapPreviewPalette
-    },
-    [MPS_LOST_CAVE] = {
-        .mapsec = MAPSEC_LOST_CAVE,
-        .type = MPS_TYPE_CAVE,
-        .flagId = FLAG_WORLD_MAP_FIVE_ISLAND_LOST_CAVE_ENTRANCE,
+        .flagId = FLAG_WORLD_MAP_UNION_CAVE,
         .tilesptr = sLostCaveMapPreviewTiles,
         .tilemapptr = sLostCaveMapPreviewTilemap,
         .palptr = sLostCaveMapPreviewPalette
     },
-    [MPS_ALTERING_CAVE] = {
-        .mapsec = MAPSEC_ALTERING_CAVE_FRLG,
+    [MPS_SLOWPOKE_WELL] = {
+        .mapsec = MAPSEC_SLOWPOKE_WELL,
         .type = MPS_TYPE_CAVE,
-        .flagId = FLAG_WORLD_MAP_SIX_ISLAND_ALTERING_CAVE,
-        .tilesptr = sAlteringCaveMapPreviewTiles,
-        .tilemapptr = sAlteringCaveMapPreviewTilemap,
-        .palptr = sAlteringCaveMapPreviewPalette
+        .flagId = FLAG_WORLD_MAP_SLOWPOKE_WELL,
+        .tilesptr = sDottedHoleMapPreviewTiles,
+        .tilemapptr = sDottedHoleMapPreviewTilemap,
+        .palptr = sDottedHoleMapPreviewPalette
     },
-    [MPS_PATTERN_BUSH] = {
-        .mapsec = MAPSEC_PATTERN_BUSH,
+    [MPS_ILEX_FOREST] = {
+        .mapsec = MAPSEC_ILEX_FOREST,
         .type = MPS_TYPE_FADE_IN,
-        .flagId = FLAG_WORLD_MAP_SIX_ISLAND_PATTERN_BUSH,
+        .flagId = FLAG_WORLD_MAP_ILEX_FOREST,
+        .tilesptr = sBerryForestMapPreviewTiles,
+        .tilemapptr = sBerryForestMapPreviewTilemap,
+        .palptr = sBerryForestMapPreviewPalette
+    },
+    [MPS_NATIONAL_PARK] = {
+        .mapsec = MAPSEC_NATIONAL_PARK,
+        .type = MPS_TYPE_FADE_IN,
+        .flagId = FLAG_WORLD_MAP_NATIONAL_PARK,
         .tilesptr = sViridianForestMapPreviewTiles,
         .tilemapptr = sViridianForestMapPreviewTilemap,
         .palptr = sViridianForestMapPreviewPalette
     },
-    [MPS_LIPTOO_CHAMBER] = {
-        .mapsec = MAPSEC_LIPTOO_CHAMBER,
-        .type = MPS_TYPE_CAVE,
-        .flagId = FLAG_WORLD_MAP_SEVEN_ISLAND_TANOBY_RUINS_MONEAN_CHAMBER,
+    [MPS_BURNED_TOWER] = {
+        .mapsec = MAPSEC_BURNED_TOWER,
+        .type = MPS_TYPE_FADE_IN,
+        .flagId = FLAG_WORLD_MAP_BURNT_TOWER,
         .tilesptr = sMoneanChamberMapPreviewTiles,
         .tilemapptr = sMoneanChamberMapPreviewTilemap,
         .palptr = sMoneanChamberMapPreviewPalette
     },
-    [MPS_WEEPTH_CHAMBER] = {
-        .mapsec = MAPSEC_WEEPTH_CHAMBER,
+    [MPS_BELL_TOWER] = {
+        .mapsec = MAPSEC_BELL_TOWER,
         .type = MPS_TYPE_CAVE,
-        .flagId = FLAG_WORLD_MAP_SEVEN_ISLAND_TANOBY_RUINS_MONEAN_CHAMBER,
+        .flagId = 0,
         .tilesptr = sMoneanChamberMapPreviewTiles,
         .tilemapptr = sMoneanChamberMapPreviewTilemap,
         .palptr = sMoneanChamberMapPreviewPalette
     },
-    [MPS_TDILFORD_CHAMBER] = {
-        .mapsec = MAPSEC_DILFORD_CHAMBER,
-        .type = MPS_TYPE_CAVE,
-        .flagId = FLAG_WORLD_MAP_SEVEN_ISLAND_TANOBY_RUINS_MONEAN_CHAMBER,
+    [MPS_OLIVINE_LIGHTHOUSE] = {
+        .mapsec = MAPSEC_OLIVINE_LIGHTHOUSE,
+        .type = MPS_TYPE_FADE_IN,
+        .flagId = FLAG_WORLD_MAP_OLIVINE_LIGHTHOUSE,
         .tilesptr = sMoneanChamberMapPreviewTiles,
         .tilemapptr = sMoneanChamberMapPreviewTilemap,
         .palptr = sMoneanChamberMapPreviewPalette
     },
-    [MPS_SCUFIB_CHAMBER] = {
-        .mapsec = MAPSEC_SCUFIB_CHAMBER,
+    [MPS_WHIRL_ISLANDS] = {
+        .mapsec = MAPSEC_WHIRL_ISLANDS,
         .type = MPS_TYPE_CAVE,
-        .flagId = FLAG_WORLD_MAP_SEVEN_ISLAND_TANOBY_RUINS_MONEAN_CHAMBER,
+        .flagId = FLAG_WORLD_MAP_WHIRL_ISLANDS,
         .tilesptr = sMoneanChamberMapPreviewTiles,
         .tilemapptr = sMoneanChamberMapPreviewTilemap,
         .palptr = sMoneanChamberMapPreviewPalette
     },
-    [MPS_RIXY_CHAMBER] = {
-        .mapsec = MAPSEC_RIXY_CHAMBER,
+    [MPS_MT_MORTAR] = {
+        .mapsec = MAPSEC_MT_MORTAR,
         .type = MPS_TYPE_CAVE,
-        .flagId = FLAG_WORLD_MAP_SEVEN_ISLAND_TANOBY_RUINS_MONEAN_CHAMBER,
+        .flagId = FLAG_WORLD_MAP_MT_MORTAR,
         .tilesptr = sMoneanChamberMapPreviewTiles,
         .tilemapptr = sMoneanChamberMapPreviewTilemap,
         .palptr = sMoneanChamberMapPreviewPalette
     },
-    [MPS_VIAPOIS_CHAMBER] = {
-        .mapsec = MAPSEC_VIAPOIS_CHAMBER,
+    [MPS_TEAM_ROCKET_HQ] = {
+        .mapsec = MAPSEC_TEAM_ROCKET_HQ,
+        .type = MPS_TYPE_FADE_IN,
+        .flagId = FLAG_WORLD_MAP_TEAM_ROCKET_HQ,
+        .tilesptr = sRocketWarehouseMapPreviewTiles,
+        .tilemapptr = sRocketWarehouseMapPreviewTilemap,
+        .palptr = sRocketWarehouseMapPreviewPalette
+    },
+    [MPS_ICE_PATH] = {
+        .mapsec = MAPSEC_ICE_PATH,
         .type = MPS_TYPE_CAVE,
-        .flagId = FLAG_WORLD_MAP_SEVEN_ISLAND_TANOBY_RUINS_MONEAN_CHAMBER,
-        .tilesptr = sMoneanChamberMapPreviewTiles,
-        .tilemapptr = sMoneanChamberMapPreviewTilemap,
-        .palptr = sMoneanChamberMapPreviewPalette
-    }
+        .flagId = FLAG_WORLD_MAP_ICE_PATH,
+        .tilesptr = sIcefallCaveMapPreviewTiles,
+        .tilemapptr = sIcefallCaveMapPreviewTilemap,
+        .palptr = sIcefallCaveMapPreviewPalette
+    },
+    [MPS_DRAGONS_DEN] = {
+        .mapsec = MAPSEC_DRAGONS_DEN,
+        .type = MPS_TYPE_CAVE,
+        .flagId = FLAG_WORLD_MAP_DRAGONS_DEN,
+        .tilesptr = sMtEmberMapPreviewTiles,
+        .tilemapptr = sMtEmberMapPreviewTilemap,
+        .palptr = sMtEmberMapPreviewPalette
+    },
+    [MPS_DARK_CAVE_NORTH] = {
+        .mapsec = MAPSEC_DARK_CAVE_NORTH,
+        .type = MPS_TYPE_CAVE,
+        .flagId = 0,
+        .tilesptr = sMtEmberMapPreviewTiles,
+        .tilemapptr = sMtEmberMapPreviewTilemap,
+        .palptr = sMtEmberMapPreviewPalette
+    },
 };
 
 static const struct WindowTemplate sMapNameWindow = {

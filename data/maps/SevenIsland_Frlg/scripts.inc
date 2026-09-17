@@ -3,7 +3,7 @@ SevenIsland_Frlg_MapScripts::
 	.byte 0
 
 SevenIsland_OnTransition::
-	setworldmapflag FLAG_WORLD_MAP_SEVEN_ISLAND
+	setworldmapflag FLAG_WORLD_MAP_ECRUTEAK_CITY
 	end
 
 SevenIsland_EventScript_IslandSign::

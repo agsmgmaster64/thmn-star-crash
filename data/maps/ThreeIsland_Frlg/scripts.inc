@@ -3,7 +3,7 @@ ThreeIsland_Frlg_MapScripts::
 	.byte 0
 
 ThreeIsland_OnTransition::
-	setworldmapflag FLAG_WORLD_MAP_THREE_ISLAND
+	setworldmapflag FLAG_WORLD_MAP_VIOLET_CITY
 	call_if_set FLAG_RESCUED_LOSTELLE, ThreeIsland_EventScript_HideAntiBikers
 	call_if_eq VAR_MAP_SCENE_THREE_ISLAND, 4, ThreeIsland_EventScript_SetAntiBikersMovementAfterBikers
 	end

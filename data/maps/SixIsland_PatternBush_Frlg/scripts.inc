@@ -3,7 +3,7 @@ SixIsland_PatternBush_Frlg_MapScripts::
 	.byte 0
 
 SixIsland_PatternBush_OnTransition::
-	setworldmapflag FLAG_WORLD_MAP_SIX_ISLAND_PATTERN_BUSH
+	setworldmapflag FLAG_WORLD_MAP_NATIONAL_PARK
 	getplayerxy VAR_TEMP_1, VAR_TEMP_2
 	call_if_ge VAR_TEMP_1, 50, SixIsland_PatternBush_EventScript_SetEscapeRightExit
 	call_if_le VAR_TEMP_1, 49, SixIsland_PatternBush_EventScript_SetEscapeLeftExit

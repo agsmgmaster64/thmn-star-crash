@@ -3,5 +3,5 @@ FiveIsland_LostCave_Entrance_Frlg_MapScripts::
 	.byte 0
 
 FiveIsland_LostCave_Entrance_OnTransition::
-	setworldmapflag FLAG_WORLD_MAP_FIVE_ISLAND_LOST_CAVE_ENTRANCE
+	setworldmapflag FLAG_WORLD_MAP_UNION_CAVE
 	end

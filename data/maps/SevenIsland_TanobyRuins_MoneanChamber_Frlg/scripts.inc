@@ -3,6 +3,6 @@ SevenIsland_TanobyRuins_MoneanChamber_Frlg_MapScripts::
 	.byte 0
 
 SevenIsland_TanobyRuins_MoneanChamber_OnTransition::
-	setworldmapflag FLAG_WORLD_MAP_SEVEN_ISLAND_TANOBY_RUINS_MONEAN_CHAMBER
+	setworldmapflag FLAG_WORLD_MAP_RUINS_OF_ALPH
 	call EventScript_TryDarkenRuins
 	end

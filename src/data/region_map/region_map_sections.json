@@ -1416,8 +1416,8 @@
     {
       "id": "MAPSEC_NEW_BARK_TOWN",
       "name": "New Bark Town",
-      "x": 1,
-      "y": 8,
+      "x": 20,
+      "y": 10,
       "width": 1,
       "height": 1,
       "map_region": "REGION_MAP_JOHTO",
@@ -1426,8 +1426,8 @@
     {
       "id": "MAPSEC_CHERRYGROVE_CITY",
       "name": "Cherrygrove City",
-      "x": 9,
-      "y": 9,
+      "x": 15,
+      "y": 10,
       "width": 1,
       "height": 1,
       "map_region": "REGION_MAP_JOHTO",
@@ -1436,332 +1436,518 @@
     {
       "id": "MAPSEC_VIOLET_CITY",
       "name": "Violet City",
-      "x": 18,
-      "y": 12,
+      "x": 13,
+      "y": 6,
       "width": 1,
       "height": 1,
       "map_region": "REGION_MAP_JOHTO",
       "pokemon_region": "POKEMON_REGION_JOHTO"
     },
     {
-      "id": "MAPSEC_FOUR_ISLAND",
-      "name": "FOUR ISLAND",
-      "x": 3,
-      "y": 4,
-      "width": 1,
-      "height": 1,
-      "map_region": "REGION_MAP_JOHTO",
-      "pokemon_region": "POKEMON_REGION_JOHTO"
-    },
-    {
-      "id": "MAPSEC_FIVE_ISLAND",
-      "name": "FIVE ISLAND",
-      "x": 16,
+      "id": "MAPSEC_AZALEA_TOWN",
+      "name": "Azalea Town",
+      "x": 11,
       "y": 11,
       "width": 1,
       "height": 1,
-      "map_region": "REGION_MAP_SEVII45",
-      "pokemon_region": "POKEMON_REGION_JOHTO"
-    },
-    {
-      "id": "MAPSEC_SEVEN_ISLAND",
-      "name": "SEVEN ISLAND",
-      "x": 5,
-      "y": 8,
-      "width": 1,
-      "height": 1,
       "map_region": "REGION_MAP_JOHTO",
       "pokemon_region": "POKEMON_REGION_JOHTO"
     },
     {
-      "id": "MAPSEC_SIX_ISLAND",
-      "name": "SIX ISLAND",
-      "x": 17,
-      "y": 5,
-      "width": 1,
-      "height": 1,
-      "map_region": "REGION_MAP_JOHTO",
-      "pokemon_region": "POKEMON_REGION_JOHTO"
-    },
-    {
-      "id": "MAPSEC_KINDLE_ROAD",
-      "name": "KINDLE ROAD",
-      "x": 2,
-      "y": 3,
-      "width": 1,
-      "height": 6,
-      "map_region": "REGION_MAP_JOHTO",
-      "pokemon_region": "POKEMON_REGION_KANTO"
-    },
-    {
-      "id": "MAPSEC_TREASURE_BEACH",
-      "name": "TREASURE BEACH",
-      "x": 1,
-      "y": 9,
-      "width": 1,
-      "height": 2,
-      "map_region": "REGION_MAP_JOHTO",
-      "pokemon_region": "POKEMON_REGION_KANTO"
-    },
-    {
-      "id": "MAPSEC_CAPE_BRINK",
-      "name": "CAPE BRINK",
-      "x": 9,
-      "y": 7,
-      "width": 1,
-      "height": 2,
-      "map_region": "REGION_MAP_JOHTO",
-      "pokemon_region": "POKEMON_REGION_KANTO"
-    },
-    {
-      "id": "MAPSEC_BOND_BRIDGE",
-      "name": "BOND BRIDGE",
-      "x": 13,
-      "y": 12,
-      "width": 4,
-      "height": 1,
-      "map_region": "REGION_MAP_JOHTO",
-      "pokemon_region": "POKEMON_REGION_KANTO"
-    },
-    {
-      "id": "MAPSEC_THREE_ISLE_PORT",
-      "name": "THREE ISLE PORT",
-      "x": 18,
-      "y": 13,
-      "width": 2,
-      "height": 1,
-      "map_region": "REGION_MAP_JOHTO",
-      "pokemon_region": "POKEMON_REGION_KANTO"
-    },
-    {
-      "id": "MAPSEC_RESORT_GORGEOUS",
-      "name": "RESORT GORGEOUS",
-      "x": 16,
-      "y": 9,
-      "width": 3,
-      "height": 1,
-      "map_region": "REGION_MAP_SEVII45",
-      "pokemon_region": "POKEMON_REGION_KANTO"
-    },
-    {
-      "id": "MAPSEC_WATER_LABYRINTH",
-      "name": "WATER LABYRINTH",
-      "x": 14,
-      "y": 10,
-      "width": 3,
-      "height": 1,
-      "map_region": "REGION_MAP_SEVII45",
-      "pokemon_region": "POKEMON_REGION_KANTO"
-    },
-    {
-      "id": "MAPSEC_FIVE_ISLE_MEADOW",
-      "name": "FIVE ISLE MEADOW",
-      "x": 17,
-      "y": 10,
-      "width": 1,
-      "height": 3,
-      "map_region": "REGION_MAP_SEVII45",
-      "pokemon_region": "POKEMON_REGION_KANTO"
-    },
-    {
-      "id": "MAPSEC_MEMORIAL_PILLAR",
-      "name": "MEMORIAL PILLAR",
-      "x": 18,
-      "y": 12,
-      "width": 1,
-      "height": 3,
-      "map_region": "REGION_MAP_SEVII45",
-      "pokemon_region": "POKEMON_REGION_KANTO"
-    },
-    {
-      "id": "MAPSEC_OUTCAST_ISLAND",
-      "name": "OUTCAST ISLAND",
-      "x": 15,
-      "y": 0,
-      "width": 1,
-      "height": 3,
-      "map_region": "REGION_MAP_SEVII67",
-      "pokemon_region": "POKEMON_REGION_KANTO"
-    },
-    {
-      "id": "MAPSEC_GREEN_PATH",
-      "name": "GREEN PATH",
-      "x": 15,
-      "y": 3,
-      "width": 3,
-      "height": 1,
-      "map_region": "REGION_MAP_SEVII67",
-      "pokemon_region": "POKEMON_REGION_KANTO"
-    },
-    {
-      "id": "MAPSEC_WATER_PATH",
-      "name": "WATER PATH",
-      "x": 18,
-      "y": 3,
-      "width": 1,
-      "height": 5,
-      "map_region": "REGION_MAP_SEVII67",
-      "pokemon_region": "POKEMON_REGION_KANTO"
-    },
-    {
-      "id": "MAPSEC_RUIN_VALLEY",
-      "name": "RUIN VALLEY",
-      "x": 16,
-      "y": 7,
-      "width": 2,
-      "height": 2,
-      "map_region": "REGION_MAP_SEVII67",
-      "pokemon_region": "POKEMON_REGION_KANTO"
-    },
-    {
-      "id": "MAPSEC_TRAINER_TOWER",
-      "name": "TRAINER TOWER",
-      "x": 5,
-      "y": 6,
-      "width": 1,
-      "height": 2,
-      "map_region": "REGION_MAP_SEVII67",
-      "pokemon_region": "POKEMON_REGION_KANTO"
-    },
-    {
-      "id": "MAPSEC_CANYON_ENTRANCE",
-      "name": "CANYON ENTRANCE",
-      "x": 5,
-      "y": 9,
-      "width": 1,
-      "height": 1,
-      "map_region": "REGION_MAP_SEVII67",
-      "pokemon_region": "POKEMON_REGION_KANTO"
-    },
-    {
-      "id": "MAPSEC_SEVAULT_CANYON",
-      "name": "SEVAULT CANYON",
-      "x": 6,
-      "y": 9,
-      "width": 1,
-      "height": 3,
-      "map_region": "REGION_MAP_SEVII67",
-      "pokemon_region": "POKEMON_REGION_KANTO"
-    },
-    {
-      "id": "MAPSEC_TANOBY_RUINS",
-      "name": "TANOBY RUINS",
-      "x": 3,
-      "y": 12,
-      "width": 7,
-      "height": 1,
-      "map_region": "REGION_MAP_SEVII67",
-      "pokemon_region": "POKEMON_REGION_KANTO"
-    },
-    {
-      "id": "MAPSEC_SEVII_ISLE_22",
-      "name": "SEVII ISLE 22",
-      "x": 9,
-      "y": 12,
-      "width": 1,
-      "height": 3
-    },
-    {
-      "id": "MAPSEC_SEVII_ISLE_23",
-      "name": "SEVII ISLE 23",
-      "x": 3,
-      "y": 14,
-      "width": 6,
-      "height": 1
-    },
-    {
-      "id": "MAPSEC_SEVII_ISLE_24",
-      "name": "SEVII ISLE 24",
-      "x": 2,
-      "y": 12,
-      "width": 1,
-      "height": 3
-    },
-    {
-      "id": "MAPSEC_NAVEL_ROCK_FRLG",
-      "name": "NAVEL ROCK",
+      "id": "MAPSEC_GOLDENROD_CITY",
+      "name": "Goldenrod City",
       "x": 10,
       "y": 8,
       "width": 1,
       "height": 1,
-      "map_region": "REGION_MAP_SEVII45",
-      "pokemon_region": "POKEMON_REGION_KANTO"
+      "map_region": "REGION_MAP_JOHTO",
+      "pokemon_region": "POKEMON_REGION_JOHTO"
     },
     {
-      "id": "MAPSEC_MT_EMBER",
-      "name": "MT. EMBER",
-      "x": 2,
+      "id": "MAPSEC_ECRUTEAK_CITY",
+      "name": "Ecruteak City",
+      "x": 11,
       "y": 3,
       "width": 1,
       "height": 1,
       "map_region": "REGION_MAP_JOHTO",
-      "pokemon_region": "POKEMON_REGION_KANTO"
+      "pokemon_region": "POKEMON_REGION_JOHTO"
     },
     {
-      "id": "MAPSEC_BERRY_FOREST",
-      "name": "BERRY FOREST",
-      "x": 14,
-      "y": 12,
+      "id": "MAPSEC_OLIVINE_CITY",
+      "name": "Olivine City",
+      "x": 7,
+      "y": 6,
       "width": 1,
       "height": 1,
-      "map_region": "REGION_MAP_SEVII45",
-      "pokemon_region": "POKEMON_REGION_KANTO"
+      "map_region": "REGION_MAP_JOHTO",
+      "pokemon_region": "POKEMON_REGION_JOHTO"
     },
     {
-      "id": "MAPSEC_ICEFALL_CAVE",
-      "name": "ICEFALL CAVE",
-      "x": 3,
+      "id": "MAPSEC_CIANWOOD_CITY",
+      "name": "Cianwood City",
+      "x": 4,
+      "y": 10,
+      "width": 1,
+      "height": 1,
+      "map_region": "REGION_MAP_JOHTO",
+      "pokemon_region": "POKEMON_REGION_JOHTO"
+    },
+    {
+      "id": "MAPSEC_MAHOGANY_TOWN",
+      "name": "Mahogany Town",
+      "x": 15,
+      "y": 3,
+      "width": 1,
+      "height": 1,
+      "map_region": "REGION_MAP_JOHTO",
+      "pokemon_region": "POKEMON_REGION_JOHTO"
+    },
+    {
+      "id": "MAPSEC_BLACKTHORN_CITY",
+      "name": "Blackthorn City",
+      "x": 18,
       "y": 4,
       "width": 1,
       "height": 1,
-      "map_region": "REGION_MAP_SEVII45",
+      "map_region": "REGION_MAP_JOHTO",
+      "pokemon_region": "POKEMON_REGION_JOHTO"
+    },
+    {
+      "id": "MAPSEC_ROUTE_26",
+      "name": "Route 26",
+      "x": 2,
+      "y": 9,
+      "width": 1,
+      "height": 2,
+      "map_region": "REGION_MAP_KANTO",
       "pokemon_region": "POKEMON_REGION_KANTO"
     },
     {
-      "id": "MAPSEC_ROCKET_WAREHOUSE",
-      "name": "ROCKET WAREHOUSE",
+      "id": "MAPSEC_ROUTE_27",
+      "name": "Route 27",
+      "x": 0,
+      "y": 11,
+      "width": 3,
+      "height": 1,
+      "map_region": "REGION_MAP_KANTO",
+      "pokemon_region": "POKEMON_REGION_KANTO"
+    },
+    {
+      "id": "MAPSEC_ROUTE_28",
+      "name": "Route 28",
+      "x": 0,
+      "y": 8,
+      "width": 2,
+      "height": 1,
+      "map_region": "REGION_MAP_KANTO",
+      "pokemon_region": "POKEMON_REGION_KANTO"
+    },
+    {
+      "id": "MAPSEC_ROUTE_29",
+      "name": "Route 29",
+      "x": 16,
+      "y": 10,
+      "width": 4,
+      "height": 1,
+      "map_region": "REGION_MAP_JOHTO",
+      "pokemon_region": "POKEMON_REGION_JOHTO"
+    },
+    {
+      "id": "MAPSEC_ROUTE_30",
+      "name": "Route 30",
+      "x": 15,
+      "y": 7,
+      "width": 1,
+      "height": 3,
+      "map_region": "REGION_MAP_JOHTO",
+      "pokemon_region": "POKEMON_REGION_JOHTO"
+    },
+    {
+      "id": "MAPSEC_ROUTE_31",
+      "name": "Route 31",
+      "x": 14,
+      "y": 6,
+      "width": 2,
+      "height": 1,
+      "map_region": "REGION_MAP_JOHTO",
+      "pokemon_region": "POKEMON_REGION_JOHTO"
+    },
+    {
+      "id": "MAPSEC_ROUTE_32",
+      "name": "Route 32",
+      "x": 13,
+      "y": 7,
+      "width": 1,
+      "height": 4,
+      "map_region": "REGION_MAP_JOHTO",
+      "pokemon_region": "POKEMON_REGION_JOHTO"
+    },
+    {
+      "id": "MAPSEC_ROUTE_33",
+      "name": "Route 33",
+      "x": 12,
+      "y": 11,
+      "width": 2,
+      "height": 1,
+      "map_region": "REGION_MAP_JOHTO",
+      "pokemon_region": "POKEMON_REGION_JOHTO"
+    },
+    {
+      "id": "MAPSEC_ROUTE_34",
+      "name": "Route 34",
+      "x": 10,
+      "y": 9,
+      "width": 1,
+      "height": 3,
+      "map_region": "REGION_MAP_JOHTO",
+      "pokemon_region": "POKEMON_REGION_JOHTO"
+    },
+    {
+      "id": "MAPSEC_ROUTE_35",
+      "name": "Route 35",
+      "x": 10,
+      "y": 6,
+      "width": 1,
+      "height": 2,
+      "map_region": "REGION_MAP_JOHTO",
+      "pokemon_region": "POKEMON_REGION_JOHTO"
+    },
+    {
+      "id": "MAPSEC_ROUTE_36",
+      "name": "Route 36",
+      "x": 11,
+      "y": 6,
+      "width": 2,
+      "height": 1,
+      "map_region": "REGION_MAP_JOHTO",
+      "pokemon_region": "POKEMON_REGION_JOHTO"
+    },
+    {
+      "id": "MAPSEC_ROUTE_37",
+      "name": "Route 37",
+      "x": 11,
+      "y": 4,
+      "width": 1,
+      "height": 2,
+      "map_region": "REGION_MAP_JOHTO",
+      "pokemon_region": "POKEMON_REGION_JOHTO"
+    },
+    {
+      "id": "MAPSEC_ROUTE_38",
+      "name": "Route 38",
+      "x": 8,
+      "y": 3,
+      "width": 3,
+      "height": 1,
+      "map_region": "REGION_MAP_JOHTO",
+      "pokemon_region": "POKEMON_REGION_JOHTO"
+    },
+    {
+      "id": "MAPSEC_ROUTE_39",
+      "name": "Route 39",
+      "x": 7,
+      "y": 3,
+      "width": 1,
+      "height": 3,
+      "map_region": "REGION_MAP_JOHTO",
+      "pokemon_region": "POKEMON_REGION_JOHTO"
+    },
+    {
+      "id": "MAPSEC_ROUTE_40",
+      "name": "Route 40",
+      "x": 6,
+      "y": 6,
+      "width": 1,
+      "height": 3,
+      "map_region": "REGION_MAP_JOHTO",
+      "pokemon_region": "POKEMON_REGION_JOHTO"
+    },
+    {
+      "id": "MAPSEC_ROUTE_41",
+      "name": "Route 41",
+      "x": 5,
+      "y": 9,
+      "width": 2,
+      "height": 2,
+      "map_region": "REGION_MAP_JOHTO",
+      "pokemon_region": "POKEMON_REGION_JOHTO"
+    },
+    {
+      "id": "MAPSEC_ROUTE_42",
+      "name": "Route 42",
+      "x": 12,
+      "y": 3,
+      "width": 3,
+      "height": 1,
+      "map_region": "REGION_MAP_JOHTO",
+      "pokemon_region": "POKEMON_REGION_JOHTO"
+    },
+    {
+      "id": "MAPSEC_ROUTE_43",
+      "name": "Route 43",
+      "x": 15,
+      "y": 2,
+      "width": 1,
+      "height": 1,
+      "map_region": "REGION_MAP_JOHTO",
+      "pokemon_region": "POKEMON_REGION_JOHTO"
+    },
+    {
+      "id": "MAPSEC_ROUTE_44",
+      "name": "Route 44",
+      "x": 16,
+      "y": 3,
+      "width": 3,
+      "height": 1,
+      "map_region": "REGION_MAP_JOHTO",
+      "pokemon_region": "POKEMON_REGION_JOHTO"
+    },
+    {
+      "id": "MAPSEC_ROUTE_45",
+      "name": "Route 45",
+      "x": 18,
+      "y": 5,
+      "width": 1,
+      "height": 4,
+      "map_region": "REGION_MAP_JOHTO",
+      "pokemon_region": "POKEMON_REGION_JOHTO"
+    },
+    {
+      "id": "MAPSEC_ROUTE_46",
+      "name": "Route 46",
       "x": 17,
+      "y": 8,
+      "width": 1,
+      "height": 2,
+      "map_region": "REGION_MAP_JOHTO",
+      "pokemon_region": "POKEMON_REGION_JOHTO"
+    },
+    {
+      "id": "MAPSEC_LAKE_OF_RAGE",
+      "name": "Lake of Rage",
+      "x": 15,
+      "y": 1,
+      "width": 1,
+      "height": 1,
+      "map_region": "REGION_MAP_JOHTO",
+      "pokemon_region": "POKEMON_REGION_JOHTO"
+    },
+    {
+      "id": "MAPSEC_BELLCHIME_TRAIL",
+      "name": "Bellchime Trail",
+      "x": 11,
+      "y": 2,
+      "width": 1,
+      "height": 1,
+      "map_region": "REGION_MAP_JOHTO",
+      "pokemon_region": "POKEMON_REGION_JOHTO"
+    },
+    {
+      "id": "MAPSEC_MT_SILVER_EXTERIOR",
+      "name": "Mt. Silver",
+      "x": 20,
+      "y": 6,
+      "width": 1,
+      "height": 1,
+      "map_region": "REGION_MAP_JOHTO",
+      "pokemon_region": "POKEMON_REGION_JOHTO"
+    },
+    {
+      "id": "MAPSEC_DARK_CAVE_SOUTH",
+      "name": "Dark Cave",
+      "x": 15,
+      "y": 6,
+      "width": 1,
+      "height": 1,
+      "map_region": "REGION_MAP_JOHTO",
+      "pokemon_region": "POKEMON_REGION_JOHTO"
+    },
+    {
+      "id": "MAPSEC_SPROUT_TOWER",
+      "name": "Sprout Tower",
+      "x": 13,
+      "y": 6,
+      "width": 1,
+      "height": 1,
+      "map_region": "REGION_MAP_JOHTO",
+      "pokemon_region": "POKEMON_REGION_JOHTO"
+    },
+    {
+      "id": "MAPSEC_RUINS_OF_ALPH",
+      "name": "Ruins of Alph",
+      "x": 12,
+      "y": 7,
+      "width": 1,
+      "height": 1,
+      "map_region": "REGION_MAP_JOHTO",
+      "pokemon_region": "POKEMON_REGION_JOHTO"
+    },
+    {
+      "id": "MAPSEC_UNION_CAVE",
+      "name": "Union Cave",
+      "x": 13,
+      "y": 10,
+      "width": 1,
+      "height": 1,
+      "map_region": "REGION_MAP_JOHTO",
+      "pokemon_region": "POKEMON_REGION_JOHTO"
+    },
+    {
+      "id": "MAPSEC_SLOWPOKE_WELL",
+      "name": "Slowpoke Well",
+      "x": 10,
       "y": 11,
       "width": 1,
       "height": 1,
-      "map_region": "REGION_MAP_SEVII45",
-      "pokemon_region": "POKEMON_REGION_KANTO"
+      "map_region": "REGION_MAP_JOHTO",
+      "pokemon_region": "POKEMON_REGION_JOHTO"
+    },
+    {
+      "id": "MAPSEC_ILEX_FOREST",
+      "name": "Ilex Forest",
+      "x": 10,
+      "y": 11,
+      "width": 1,
+      "height": 1,
+      "map_region": "REGION_MAP_JOHTO",
+      "pokemon_region": "POKEMON_REGION_JOHTO"
+    },
+    {
+      "id": "MAPSEC_GOLDENROD_TUNNEL",
+      "name": "Goldenrod Tunnel",
+      "x": 10,
+      "y": 8,
+      "width": 1,
+      "height": 1,
+      "map_region": "REGION_MAP_JOHTO",
+      "pokemon_region": "POKEMON_REGION_JOHTO"
+    },
+    {
+      "id": "MAPSEC_RADIO_TOWER",
+      "name": "Radio Tower",
+      "x": 10,
+      "y": 8,
+      "width": 1,
+      "height": 1,
+      "map_region": "REGION_MAP_JOHTO",
+      "pokemon_region": "POKEMON_REGION_JOHTO"
+    },
+    {
+      "id": "MAPSEC_NATIONAL_PARK",
+      "name": "National Park",
+      "x": 10,
+      "y": 6,
+      "width": 1,
+      "height": 1,
+      "map_region": "REGION_MAP_JOHTO",
+      "pokemon_region": "POKEMON_REGION_JOHTO"
+    },
+    {
+      "id": "MAPSEC_BURNED_TOWER",
+      "name": "Burned Tower",
+      "x": 11,
+      "y": 3,
+      "width": 1,
+      "height": 1,
+      "map_region": "REGION_MAP_JOHTO",
+      "pokemon_region": "POKEMON_REGION_JOHTO"
+    },
+    {
+      "id": "MAPSEC_BELL_TOWER",
+      "name": "Bell Tower",
+      "x": 11,
+      "y": 2,
+      "width": 1,
+      "height": 1,
+      "map_region": "REGION_MAP_JOHTO",
+      "pokemon_region": "POKEMON_REGION_JOHTO"
+    },
+    {
+      "id": "MAPSEC_OLIVINE_LIGHTHOUSE",
+      "name": "Olivine Lighthouse",
+      "x": 6,
+      "y": 6,
+      "width": 1,
+      "height": 1,
+      "map_region": "REGION_MAP_JOHTO",
+      "pokemon_region": "POKEMON_REGION_JOHTO"
+    },
+    {
+      "id": "MAPSEC_WHIRL_ISLANDS",
+      "name": "Whirl Islands",
+      "x": 6,
+      "y": 10,
+      "width": 1,
+      "height": 1,
+      "map_region": "REGION_MAP_JOHTO",
+      "pokemon_region": "POKEMON_REGION_JOHTO"
+    },
+    {
+      "id": "MAPSEC_MT_MORTAR",
+      "name": "Mt. Mortar",
+      "x": 13,
+      "y": 3,
+      "width": 1,
+      "height": 1,
+      "map_region": "REGION_MAP_JOHTO",
+      "pokemon_region": "POKEMON_REGION_JOHTO"
+    },
+    {
+      "id": "MAPSEC_TEAM_ROCKET_HQ",
+      "name": "Team Rocket HQ",
+      "x": 14,
+      "y": 3,
+      "width": 1,
+      "height": 1,
+      "map_region": "REGION_MAP_JOHTO",
+      "pokemon_region": "POKEMON_REGION_JOHTO"
+    },
+    {
+      "id": "MAPSEC_ICE_PATH",
+      "name": "Ice Path",
+      "x": 18,
+      "y": 3,
+      "width": 1,
+      "height": 1,
+      "map_region": "REGION_MAP_JOHTO",
+      "pokemon_region": "POKEMON_REGION_JOHTO"
+    },
+    {
+      "id": "MAPSEC_DRAGONS_DEN",
+      "name": "Dragon's Den",
+      "x": 18,
+      "y": 4,
+      "width": 1,
+      "height": 1,
+      "map_region": "REGION_MAP_JOHTO",
+      "pokemon_region": "POKEMON_REGION_JOHTO"
+    },
+    {
+      "id": "MAPSEC_DARK_CAVE_NORTH",
+      "name": "Dark Cave",
+      "x": 17,
+      "y": 8,
+      "width": 1,
+      "height": 1,
+      "map_region": "REGION_MAP_JOHTO",
+      "pokemon_region": "POKEMON_REGION_JOHTO"
+    },
+    {
+      "id": "MAPSEC_MT_SILVER_CAVE",
+      "name": "Mt. Silver",
+      "x": 20,
+      "y": 6,
+      "width": 1,
+      "height": 1,
+      "map_region": "REGION_MAP_JOHTO",
+      "pokemon_region": "POKEMON_REGION_JOHTO"
     },
     {
       "id": "MAPSEC_TRAINER_TOWER_2",
       "name": "TRAINER TOWER",
       "x": 5,
       "y": 6,
-      "width": 1,
-      "height": 1,
-      "map_region": "REGION_MAP_SEVII67",
-      "pokemon_region": "POKEMON_REGION_KANTO"
-    },
-    {
-      "id": "MAPSEC_DOTTED_HOLE",
-      "name": "DOTTED HOLE",
-      "x": 16,
-      "y": 8,
-      "width": 1,
-      "height": 1,
-      "map_region": "REGION_MAP_SEVII67",
-      "pokemon_region": "POKEMON_REGION_KANTO"
-    },
-    {
-      "id": "MAPSEC_LOST_CAVE",
-      "name": "LOST CAVE",
-      "x": 18,
-      "y": 9,
-      "width": 1,
-      "height": 1,
-      "map_region": "REGION_MAP_SEVII45",
-      "pokemon_region": "POKEMON_REGION_KANTO"
-    },
-    {
-      "id": "MAPSEC_PATTERN_BUSH",
-      "name": "PATTERN BUSH",
-      "x": 17,
-      "y": 3,
       "width": 1,
       "height": 1,
       "map_region": "REGION_MAP_SEVII67",
@@ -1775,122 +1961,6 @@
       "width": 1,
       "height": 1,
       "map_region": "REGION_MAP_SEVII67",
-      "pokemon_region": "POKEMON_REGION_KANTO"
-    },
-    {
-      "id": "MAPSEC_TANOBY_CHAMBERS",
-      "name": "TANOBY CHAMBERS",
-      "x": 9,
-      "y": 12,
-      "width": 1,
-      "height": 1,
-      "map_region": "REGION_MAP_SEVII67",
-      "pokemon_region": "POKEMON_REGION_KANTO"
-    },
-    {
-      "id": "MAPSEC_THREE_ISLE_PATH",
-      "name": "THREE ISLE PATH",
-      "x": 18,
-      "y": 13,
-      "width": 1,
-      "height": 1,
-      "map_region": "REGION_MAP_JOHTO",
-      "pokemon_region": "POKEMON_REGION_KANTO"
-    },
-    {
-      "id": "MAPSEC_TANOBY_KEY",
-      "name": "TANOBY KEY",
-      "x": 6,
-      "y": 9,
-      "width": 1,
-      "height": 1,
-      "map_region": "REGION_MAP_SEVII67",
-      "pokemon_region": "POKEMON_REGION_KANTO"
-    },
-    {
-      "id": "MAPSEC_BIRTH_ISLAND_FRLG",
-      "name": "BIRTH ISLAND",
-      "x": 18,
-      "y": 13,
-      "width": 1,
-      "height": 1,
-      "map_region": "REGION_MAP_SEVII67",
-      "pokemon_region": "POKEMON_REGION_KANTO"
-    },
-    {
-      "id": "MAPSEC_MONEAN_CHAMBER",
-      "name": "MONEAN CHAMBER",
-      "x": 9,
-      "y": 12,
-      "width": 1,
-      "height": 1,
-      "map_region": "REGION_MAP_SEVII67",
-      "pokemon_region": "POKEMON_REGION_KANTO"
-    },
-    {
-      "id": "MAPSEC_LIPTOO_CHAMBER",
-      "name": "LIPTOO CHAMBER",
-      "x": 9,
-      "y": 12,
-      "width": 1,
-      "height": 1,
-      "map_region": "REGION_MAP_SEVII67",
-      "pokemon_region": "POKEMON_REGION_KANTO"
-    },
-    {
-      "id": "MAPSEC_WEEPTH_CHAMBER",
-      "name": "WEEPTH CHAMBER",
-      "x": 9,
-      "y": 12,
-      "width": 1,
-      "height": 1,
-      "map_region": "REGION_MAP_SEVII67",
-      "pokemon_region": "POKEMON_REGION_KANTO"
-    },
-    {
-      "id": "MAPSEC_DILFORD_CHAMBER",
-      "name": "DILFORD CHAMBER",
-      "x": 9,
-      "y": 12,
-      "width": 1,
-      "height": 1,
-      "map_region": "REGION_MAP_SEVII67",
-      "pokemon_region": "POKEMON_REGION_KANTO"
-    },
-    {
-      "id": "MAPSEC_SCUFIB_CHAMBER",
-      "name": "SCUFIB CHAMBER",
-      "x": 9,
-      "y": 12,
-      "width": 1,
-      "height": 1,
-      "map_region": "REGION_MAP_SEVII67",
-      "pokemon_region": "POKEMON_REGION_KANTO"
-    },
-    {
-      "id": "MAPSEC_RIXY_CHAMBER",
-      "name": "RIXY CHAMBER",
-      "x": 9,
-      "y": 12,
-      "width": 1,
-      "height": 1,
-      "map_region": "REGION_MAP_SEVII67",
-      "pokemon_region": "POKEMON_REGION_KANTO"
-    },
-    {
-      "id": "MAPSEC_VIAPOIS_CHAMBER",
-      "name": "VIAPOIS CHAMBER",
-      "x": 9,
-      "y": 12,
-      "width": 1,
-      "height": 1,
-      "map_region": "REGION_MAP_SEVII67",
-      "pokemon_region": "POKEMON_REGION_KANTO"
-    },
-    {
-      "id": "MAPSEC_EMBER_SPA",
-      "name": "EMBER SPA",
-      "map_region": "REGION_MAP_JOHTO",
       "pokemon_region": "POKEMON_REGION_KANTO"
     },
     {

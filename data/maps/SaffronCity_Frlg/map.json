@@ -430,9 +430,9 @@
       "script": "SaffronCity_EventScript_TrainerFanClubSign"
     }
   ],
-  "connections_no_include": true,
   "build_version": [
     "firered",
     "leafgreen"
-  ]
+  ],
+  "connections_no_include": true
 }

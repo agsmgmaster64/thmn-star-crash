@@ -3,7 +3,7 @@ SixIsland_DottedHole_1F_Frlg_MapScripts::
 	.byte 0
 
 SixIsland_DottedHole_1F_OnTransition::
-	setworldmapflag FLAG_WORLD_MAP_SIX_ISLAND_DOTTED_HOLE_1F
+	setworldmapflag FLAG_WORLD_MAP_SLOWPOKE_WELL
 	end
 
 SixIsland_DottedHole_B1F_EventScript_BrailleUp::

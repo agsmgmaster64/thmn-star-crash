@@ -4,7 +4,7 @@ FourIsland_Frlg_MapScripts::
 	.byte 0
 
 FourIsland_OnTransition::
-	setworldmapflag FLAG_WORLD_MAP_FOUR_ISLAND
+	setworldmapflag FLAG_WORLD_MAP_AZALEA_TOWN
 	call_if_eq VAR_MAP_SCENE_FOUR_ISLAND, 0, FourIsland_EventScript_ShowRival
 	call FourIsland_EventScript_TrySetDayCareManPos
 	end

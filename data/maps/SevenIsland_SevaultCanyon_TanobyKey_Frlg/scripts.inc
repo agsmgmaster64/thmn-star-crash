@@ -5,7 +5,7 @@ SevenIsland_SevaultCanyon_TanobyKey_Frlg_MapScripts::
 	.byte 0
 
 SevenIsland_SevaultCanyon_TanobyKey_OnTransition::
-	setworldmapflag FLAG_WORLD_MAP_SEVEN_ISLAND_SEVAULT_CANYON_TANOBY_KEY
+	setworldmapflag FLAG_WORLD_MAP_OLIVINE_LIGHTHOUSE
 	call_if_set FLAG_SYS_UNLOCKED_TANOBY_RUINS, SevenIsland_SevaultCanyon_TanobyKey_EventScript_MoveBouldersToSolvedPos
 	setvar VAR_TEMP_1, 0
 	setvar VAR_TEMP_2, 0

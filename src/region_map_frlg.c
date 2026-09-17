@@ -607,36 +607,68 @@ static const struct DungeonMapInfo sDungeonInfo[] = {
         .desc = COMPOUND_STRING("A power plant that was abandoned\nyears ago, though some of the\nmachines still work. It is infested\nwith electric POKéMON.")
     },
     {
-        .id = MAPSEC_MT_EMBER,
-        .desc = COMPOUND_STRING("Supposedly an inactive volcano.\nHowever, there are persistent\nreports that the peak blazes\nwith fire at night.")
+        .id = MAPSEC_DARK_CAVE_SOUTH,
+        .desc = COMPOUND_STRING("Placeholer.")
     },
     {
-        .id = MAPSEC_BERRY_FOREST,
-        .desc = COMPOUND_STRING("A forest on a small islet off the\ncoast of THREE ISLAND. BERRIES\ngrow wildly in profusion, quickly\nreplenishing those that fall off.")
+        .id = MAPSEC_SPROUT_TOWER,
+        .desc = COMPOUND_STRING("Placeholer.")
     },
     {
-        .id = MAPSEC_ICEFALL_CAVE,
-        .desc = COMPOUND_STRING("A cave which is covered by water\nand ice on FOUR ISLAND.\nIt seems like the end of the cave\nis connected to the ocean.")
+        .id = MAPSEC_RUINS_OF_ALPH,
+        .desc = COMPOUND_STRING("Placeholer.")
     },
     {
-        .id = MAPSEC_LOST_CAVE,
-        .desc = COMPOUND_STRING("A bewildering cave off the coast\nof RESORT GORGEOUS.\nSome curious thrill seekers have\nnever emerged from it.")
+        .id = MAPSEC_UNION_CAVE,
+        .desc = COMPOUND_STRING("Placeholer.")
     },
     {
-        .id = MAPSEC_TANOBY_CHAMBERS,
-        .desc = COMPOUND_STRING("An ancient ruin that is rumored to\nbe home to a peculiar POKéMON.\nHowever, so far, the POKéMON\nremains an unconfirmed rumor.")
+        .id = MAPSEC_SLOWPOKE_WELL,
+        .desc = COMPOUND_STRING("Placeholer.")
     },
     {
-        .id = MAPSEC_ALTERING_CAVE,
-        .desc = COMPOUND_STRING("This island has been known by this\nname since the distant past.\nNo one today knows where it got\nthis name, however.")
+        .id = MAPSEC_ILEX_FOREST,
+        .desc = COMPOUND_STRING("Placeholer.")
     },
     {
-        .id = MAPSEC_PATTERN_BUSH,
-        .desc = COMPOUND_STRING("A lush and bush-like area. \nIn it are patterns where no grass\ngrows. Some study it in the belief\nthat a secret is concealed.")
+        .id = MAPSEC_NATIONAL_PARK,
+        .desc = COMPOUND_STRING("Placeholer.")
     },
     {
-        .id = MAPSEC_DOTTED_HOLE,
-        .desc = COMPOUND_STRING("A mysterious, just-discovered\nruin from an ancient time.\nIt got its name from the six dots\non its door.")
+        .id = MAPSEC_BURNED_TOWER,
+        .desc = COMPOUND_STRING("Placeholer.")
+    },
+    {
+        .id = MAPSEC_BELL_TOWER,
+        .desc = COMPOUND_STRING("Placeholer.")
+    },
+    {
+        .id = MAPSEC_OLIVINE_LIGHTHOUSE,
+        .desc = COMPOUND_STRING("Placeholer.")
+    },
+    {
+        .id = MAPSEC_WHIRL_ISLANDS,
+        .desc = COMPOUND_STRING("Placeholer.")
+    },
+    {
+        .id = MAPSEC_MT_MORTAR,
+        .desc = COMPOUND_STRING("Placeholer.")
+    },
+    {
+        .id = MAPSEC_ICE_PATH,
+        .desc = COMPOUND_STRING("Placeholer.")
+    },
+    {
+        .id = MAPSEC_DRAGONS_DEN,
+        .desc = COMPOUND_STRING("Placeholer.")
+    },
+    {
+        .id = MAPSEC_DARK_CAVE_NORTH,
+        .desc = COMPOUND_STRING("Placeholer.")
+    },
+    {
+        .id = MAPSEC_MT_SILVER_CAVE,
+        .desc = COMPOUND_STRING("Placeholer.")
     }
 };
 
@@ -1320,10 +1352,6 @@ static void BufferRegionMapBg(u8 bg, u16 *map)
         regionMap = sSwitchMapMenu->currentSelection;
     else
         regionMap = sRegionMapFrlg->selectedRegion;
-    if (regionMap == REGION_MAP_SEVII45 && !FlagGet(FLAG_WORLD_MAP_NAVEL_ROCK_EXTERIOR))
-        FillBgTilemapBufferRect_Palette0(0, 0x003, 13, 11, 3, 2);
-    if (regionMap == REGION_MAP_SEVII67 && !FlagGet(FLAG_WORLD_MAP_BIRTH_ISLAND_EXTERIOR))
-        FillBgTilemapBufferRect_Palette0(0, 0x003, 21, 16, 3, 3);
 }
 
 static bool8 GetRegionMapPermission(u8 attr)
@@ -1734,8 +1762,6 @@ static void InitDungeonMapPreview(u8 unused, u8 taskId, TaskFunc taskFunc)
     u8 mapsec;
     sDungeonMapPreview = AllocZeroed(sizeof(struct DungeonMapPreview));
     mapsec = GetDungeonMapsecUnderCursor();
-    if (mapsec == MAPSEC_TANOBY_CHAMBERS)
-        mapsec = MAPSEC_MONEAN_CHAMBER;
     sDungeonMapPreview->mapPreviewInfo = GetDungeonMapPreviewScreenInfo(mapsec);
     if (sDungeonMapPreview->mapPreviewInfo == NULL)
         sDungeonMapPreview->mapPreviewInfo = GetDungeonMapPreviewScreenInfo(MAPSEC_ROCK_TUNNEL);
@@ -2720,8 +2746,6 @@ static u16 GetMapsecUnderCursor(void)
         return MAPSEC_NONE;
 
     mapsec = GetSelectedMapSection(GetSelectedRegionMap(), LAYER_MAP, sMapCursor->y, sMapCursor->x);
-    if ((mapsec == MAPSEC_NAVEL_ROCK || mapsec == MAPSEC_BIRTH_ISLAND) && !FlagGet(FLAG_WORLD_MAP_NAVEL_ROCK_EXTERIOR))
-        mapsec = MAPSEC_NONE;
     return mapsec;
 }
 
@@ -2767,19 +2791,29 @@ static u8 GetMapsecType(u8 mapsec)
     case MAPSEC_SAFFRON_CITY:
         return FlagGet(FLAG_WORLD_MAP_SAFFRON_CITY) ? MAPSECTYPE_CITY_CANFLY : MAPSECTYPE_CITY_CANTFLY;
     case MAPSEC_NEW_BARK_TOWN:
-        return FlagGet(FLAG_WORLD_MAP_ONE_ISLAND) ? MAPSECTYPE_CITY_CANFLY : MAPSECTYPE_CITY_CANTFLY;
+        return FlagGet(FLAG_WORLD_MAP_NEW_BARK_TOWN) ? MAPSECTYPE_CITY_CANFLY : MAPSECTYPE_CITY_CANTFLY;
     case MAPSEC_CHERRYGROVE_CITY:
-        return FlagGet(FLAG_WORLD_MAP_TWO_ISLAND) ? MAPSECTYPE_CITY_CANFLY : MAPSECTYPE_CITY_CANTFLY;
+        return FlagGet(FLAG_WORLD_MAP_CHERRYGROVE_CITY) ? MAPSECTYPE_CITY_CANFLY : MAPSECTYPE_CITY_CANTFLY;
     case MAPSEC_VIOLET_CITY:
-        return FlagGet(FLAG_WORLD_MAP_THREE_ISLAND) ? MAPSECTYPE_CITY_CANFLY : MAPSECTYPE_CITY_CANTFLY;
-    case MAPSEC_FOUR_ISLAND:
-        return FlagGet(FLAG_WORLD_MAP_FOUR_ISLAND) ? MAPSECTYPE_CITY_CANFLY : MAPSECTYPE_CITY_CANTFLY;
-    case MAPSEC_FIVE_ISLAND:
-        return FlagGet(FLAG_WORLD_MAP_FIVE_ISLAND) ? MAPSECTYPE_CITY_CANFLY : MAPSECTYPE_CITY_CANTFLY;
-    case MAPSEC_SEVEN_ISLAND:
-        return FlagGet(FLAG_WORLD_MAP_SEVEN_ISLAND) ? MAPSECTYPE_CITY_CANFLY : MAPSECTYPE_CITY_CANTFLY;
-    case MAPSEC_SIX_ISLAND:
-        return FlagGet(FLAG_WORLD_MAP_SIX_ISLAND) ? MAPSECTYPE_CITY_CANFLY : MAPSECTYPE_CITY_CANTFLY;
+        return FlagGet(FLAG_WORLD_MAP_VIOLET_CITY) ? MAPSECTYPE_CITY_CANFLY : MAPSECTYPE_CITY_CANTFLY;
+    case MAPSEC_AZALEA_TOWN:
+        return FlagGet(FLAG_WORLD_MAP_AZALEA_TOWN) ? MAPSECTYPE_CITY_CANFLY : MAPSECTYPE_CITY_CANTFLY;
+    case MAPSEC_GOLDENROD_CITY:
+        return FlagGet(FLAG_WORLD_MAP_GOLDENROD_CITY) ? MAPSECTYPE_CITY_CANFLY : MAPSECTYPE_CITY_CANTFLY;
+    case MAPSEC_ECRUTEAK_CITY:
+        return FlagGet(FLAG_WORLD_MAP_ECRUTEAK_CITY) ? MAPSECTYPE_CITY_CANFLY : MAPSECTYPE_CITY_CANTFLY;
+    case MAPSEC_OLIVINE_CITY:
+        return FlagGet(FLAG_WORLD_MAP_OLIVINE_CITY) ? MAPSECTYPE_CITY_CANFLY : MAPSECTYPE_CITY_CANTFLY;
+    case MAPSEC_CIANWOOD_CITY:
+        return FlagGet(FLAG_WORLD_MAP_CIANWOOD_CITY) ? MAPSECTYPE_CITY_CANFLY : MAPSECTYPE_CITY_CANTFLY;
+    case MAPSEC_MAHOGANY_TOWN:
+        return FlagGet(FLAG_WORLD_MAP_MAHOGANY_TOWN) ? MAPSECTYPE_CITY_CANFLY : MAPSECTYPE_CITY_CANTFLY;
+    case MAPSEC_BLACKTHORN_CITY:
+        return FlagGet(FLAG_WORLD_MAP_BLACKTHORN_CITY) ? MAPSECTYPE_CITY_CANFLY : MAPSECTYPE_CITY_CANTFLY;
+    case MAPSEC_LAKE_OF_RAGE:
+        return FlagGet(FLAG_WORLD_MAP_LAKE_OF_RAGE) ? MAPSECTYPE_CITY_CANFLY : MAPSECTYPE_CITY_CANTFLY;
+    case MAPSEC_MT_SILVER_EXTERIOR:
+        return FlagGet(FLAG_WORLD_MAP_MT_SILVER_EXTERIOR) ? MAPSECTYPE_CITY_CANFLY : MAPSECTYPE_CITY_CANTFLY;
     case MAPSEC_ROUTE_4_POKECENTER:
         if (!GetRegionMapPermission(MAPPERM_HAS_FLY_DESTINATIONS))
             return MAPSECTYPE_NONE;
@@ -2833,34 +2867,36 @@ static u8 GetDungeonMapsecType(u8 mapsec)
         return FlagGet(FLAG_WORLD_MAP_CERULEAN_CAVE_1F) ? MAPSECTYPE_CITY_CANFLY : MAPSECTYPE_CITY_CANTFLY;
     case MAPSEC_POWER_PLANT:
         return FlagGet(FLAG_WORLD_MAP_POWER_PLANT) ? MAPSECTYPE_CITY_CANFLY : MAPSECTYPE_CITY_CANTFLY;
-    case MAPSEC_NAVEL_ROCK_FRLG:
-        return FlagGet(FLAG_WORLD_MAP_NAVEL_ROCK_EXTERIOR) ? MAPSECTYPE_CITY_CANFLY : MAPSECTYPE_CITY_CANTFLY;
-    case MAPSEC_MT_EMBER:
-        return FlagGet(FLAG_WORLD_MAP_MT_EMBER_EXTERIOR) ? MAPSECTYPE_CITY_CANFLY : MAPSECTYPE_CITY_CANTFLY;
-    case MAPSEC_BERRY_FOREST:
-        return FlagGet(FLAG_WORLD_MAP_THREE_ISLAND_BERRY_FOREST) ? MAPSECTYPE_CITY_CANFLY : MAPSECTYPE_CITY_CANTFLY;
-    case MAPSEC_ICEFALL_CAVE:
-        return FlagGet(FLAG_WORLD_MAP_FOUR_ISLAND_ICEFALL_CAVE_ENTRANCE) ? MAPSECTYPE_CITY_CANFLY : MAPSECTYPE_CITY_CANTFLY;
-    case MAPSEC_ROCKET_WAREHOUSE:
-        return FlagGet(FLAG_WORLD_MAP_FIVE_ISLAND_ROCKET_WAREHOUSE) ? MAPSECTYPE_CITY_CANFLY : MAPSECTYPE_CITY_CANTFLY;
-    case MAPSEC_TRAINER_TOWER_2:
-        return FlagGet(FLAG_WORLD_MAP_TRAINER_TOWER_LOBBY) ? MAPSECTYPE_CITY_CANFLY : MAPSECTYPE_CITY_CANTFLY;
-    case MAPSEC_DOTTED_HOLE:
-        return FlagGet(FLAG_WORLD_MAP_SIX_ISLAND_DOTTED_HOLE_1F) ? MAPSECTYPE_CITY_CANFLY : MAPSECTYPE_CITY_CANTFLY;
-    case MAPSEC_LOST_CAVE:
-        return FlagGet(FLAG_WORLD_MAP_FIVE_ISLAND_LOST_CAVE_ENTRANCE) ? MAPSECTYPE_CITY_CANFLY : MAPSECTYPE_CITY_CANTFLY;
-    case MAPSEC_PATTERN_BUSH:
-        return FlagGet(FLAG_WORLD_MAP_SIX_ISLAND_PATTERN_BUSH) ? MAPSECTYPE_CITY_CANFLY : MAPSECTYPE_CITY_CANTFLY;
-    case MAPSEC_ALTERING_CAVE_FRLG:
-        return FlagGet(FLAG_WORLD_MAP_SIX_ISLAND_ALTERING_CAVE) ? MAPSECTYPE_CITY_CANFLY : MAPSECTYPE_CITY_CANTFLY;
-    case MAPSEC_TANOBY_CHAMBERS:
-        return FlagGet(FLAG_WORLD_MAP_SEVEN_ISLAND_TANOBY_RUINS_MONEAN_CHAMBER) ? MAPSECTYPE_CITY_CANFLY : MAPSECTYPE_CITY_CANTFLY;
-    case MAPSEC_THREE_ISLE_PATH:
-        return FlagGet(FLAG_WORLD_MAP_THREE_ISLAND_DUNSPARCE_TUNNEL) ? MAPSECTYPE_CITY_CANFLY : MAPSECTYPE_CITY_CANTFLY;
-    case MAPSEC_TANOBY_KEY:
-        return FlagGet(FLAG_WORLD_MAP_SEVEN_ISLAND_SEVAULT_CANYON_TANOBY_KEY) ? MAPSECTYPE_CITY_CANFLY : MAPSECTYPE_CITY_CANTFLY;
-    case MAPSEC_BIRTH_ISLAND:
-        return FlagGet(FLAG_WORLD_MAP_BIRTH_ISLAND_EXTERIOR) ? MAPSECTYPE_CITY_CANFLY : MAPSECTYPE_CITY_CANTFLY;
+    case MAPSEC_DARK_CAVE_SOUTH:
+        return FlagGet(FLAG_WORLD_MAP_DARK_CAVE) ? MAPSECTYPE_CITY_CANFLY : MAPSECTYPE_CITY_CANTFLY;
+    case MAPSEC_SPROUT_TOWER:
+        return FlagGet(FLAG_WORLD_MAP_SPROUT_TOWER) ? MAPSECTYPE_CITY_CANFLY : MAPSECTYPE_CITY_CANTFLY;
+    case MAPSEC_RUINS_OF_ALPH:
+        return FlagGet(FLAG_WORLD_MAP_RUINS_OF_ALPH) ? MAPSECTYPE_CITY_CANFLY : MAPSECTYPE_CITY_CANTFLY;
+    case MAPSEC_UNION_CAVE:
+        return FlagGet(FLAG_WORLD_MAP_UNION_CAVE) ? MAPSECTYPE_CITY_CANFLY : MAPSECTYPE_CITY_CANTFLY;
+    case MAPSEC_SLOWPOKE_WELL:
+        return FlagGet(FLAG_WORLD_MAP_SLOWPOKE_WELL) ? MAPSECTYPE_CITY_CANFLY : MAPSECTYPE_CITY_CANTFLY;
+    case MAPSEC_ILEX_FOREST:
+        return FlagGet(FLAG_WORLD_MAP_ILEX_FOREST) ? MAPSECTYPE_CITY_CANFLY : MAPSECTYPE_CITY_CANTFLY;
+    case MAPSEC_NATIONAL_PARK:
+        return FlagGet(FLAG_WORLD_MAP_NATIONAL_PARK) ? MAPSECTYPE_CITY_CANFLY : MAPSECTYPE_CITY_CANTFLY;
+    case MAPSEC_BURNED_TOWER:
+        return FlagGet(FLAG_WORLD_MAP_BURNT_TOWER) ? MAPSECTYPE_CITY_CANFLY : MAPSECTYPE_CITY_CANTFLY;
+    case MAPSEC_OLIVINE_LIGHTHOUSE:
+        return FlagGet(FLAG_WORLD_MAP_OLIVINE_LIGHTHOUSE) ? MAPSECTYPE_CITY_CANFLY : MAPSECTYPE_CITY_CANTFLY;
+    case MAPSEC_WHIRL_ISLANDS:
+        return FlagGet(FLAG_WORLD_MAP_WHIRL_ISLANDS) ? MAPSECTYPE_CITY_CANFLY : MAPSECTYPE_CITY_CANTFLY;
+    case MAPSEC_MT_MORTAR:
+        return FlagGet(FLAG_WORLD_MAP_MT_MORTAR) ? MAPSECTYPE_CITY_CANFLY : MAPSECTYPE_CITY_CANTFLY;
+    case MAPSEC_ICE_PATH:
+        return FlagGet(FLAG_WORLD_MAP_ICE_PATH) ? MAPSECTYPE_CITY_CANFLY : MAPSECTYPE_CITY_CANTFLY;
+    case MAPSEC_DRAGONS_DEN:
+        return FlagGet(FLAG_WORLD_MAP_DRAGONS_DEN) ? MAPSECTYPE_CITY_CANFLY : MAPSECTYPE_CITY_CANTFLY;
+    case MAPSEC_DARK_CAVE_NORTH:
+        return FlagGet(FLAG_WORLD_MAP_DARK_CAVE) ? MAPSECTYPE_CITY_CANFLY : MAPSECTYPE_CITY_CANTFLY;
+    case MAPSEC_MT_SILVER_CAVE:
+        return FlagGet(FLAG_WORLD_MAP_MT_SILVER_CAVE) ? MAPSECTYPE_CITY_CANFLY : MAPSECTYPE_CITY_CANTFLY;
     default:
         return MAPSECTYPE_ROUTE;
     }
@@ -3031,6 +3067,7 @@ static void GetPlayerPositionOnRegionMap_HandleOverrides(void)
             sMapCursor->y = 6; // optimized out but required to match
         }
         break;
+    /*
     case MAPSEC_BIRTH_ISLAND:
         sMapCursor->x = 18;
         sMapCursor->y = 13;
@@ -3043,37 +3080,38 @@ static void GetPlayerPositionOnRegionMap_HandleOverrides(void)
         sMapCursor->x = 5;
         sMapCursor->y = 6;
         break;
-    case MAPSEC_MT_EMBER:
+    case MAPSEC_DARK_CAVE_SOUTH:
         sMapCursor->x = 2;
         sMapCursor->y = 3;
         break;
-    case MAPSEC_BERRY_FOREST:
+    case MAPSEC_ILEX_FOREST:
         sMapCursor->x = 14;
         sMapCursor->y = 12;
         break;
-    case MAPSEC_PATTERN_BUSH:
+    case MAPSEC_NATIONAL_PARK:
         sMapCursor->x = 17;
         sMapCursor->y = 3;
         break;
-    case MAPSEC_ROCKET_WAREHOUSE:
+    case MAPSEC_SPROUT_TOWER:
         sMapCursor->x = 17;
         sMapCursor->y = 11;
         break;
-    case MAPSEC_DILFORD_CHAMBER:
-    case MAPSEC_LIPTOO_CHAMBER:
-    case MAPSEC_MONEAN_CHAMBER:
-    case MAPSEC_RIXY_CHAMBER:
-    case MAPSEC_SCUFIB_CHAMBER:
-    case MAPSEC_TANOBY_CHAMBERS:
-    case MAPSEC_VIAPOIS_CHAMBER:
-    case MAPSEC_WEEPTH_CHAMBER:
+    case MAPSEC_BURNED_TOWER:
+    case MAPSEC_GOLDENROD_TUNNEL:
+    case MAPSEC_DRAGONS_DEN:
+    case MAPSEC_WHIRL_ISLANDS:
+    case MAPSEC_OLIVINE_LIGHTHOUSE:
+    case MAPSEC_RUINS_OF_ALPH:
+    case MAPSEC_BELL_TOWER:
+    case MAPSEC_RADIO_TOWER:
         sMapCursor->x = 9;
         sMapCursor->y = 12;
         break;
-    case MAPSEC_DOTTED_HOLE:
+    case MAPSEC_SLOWPOKE_WELL:
         sMapCursor->x = 16;
         sMapCursor->y = 8;
         break;
+    */
     case MAPSEC_VIRIDIAN_FOREST:
         sMapCursor->x = 4;
         sMapCursor->y = 6;

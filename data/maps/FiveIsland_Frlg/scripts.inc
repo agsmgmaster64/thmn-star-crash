@@ -3,7 +3,7 @@ FiveIsland_Frlg_MapScripts::
 	.byte 0
 
 FiveIsland_OnTransition::
-	setworldmapflag FLAG_WORLD_MAP_FIVE_ISLAND
+	setworldmapflag FLAG_WORLD_MAP_GOLDENROD_CITY
 	end
 
 FiveIsland_EventScript_IslandSign::

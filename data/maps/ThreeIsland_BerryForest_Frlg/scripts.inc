@@ -3,7 +3,7 @@ ThreeIsland_BerryForest_Frlg_MapScripts::
 	.byte 0
 
 ThreeIsland_BerryForest_OnTransition::
-	setworldmapflag FLAG_WORLD_MAP_THREE_ISLAND_BERRY_FOREST
+	setworldmapflag FLAG_WORLD_MAP_ILEX_FOREST
 	setescapewarp MAP_THREE_ISLAND_BOND_BRIDGE, 12, 6
 	end
 

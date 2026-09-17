@@ -3,7 +3,7 @@ SixIsland_Frlg_MapScripts::
 	.byte 0
 
 SixIsland_OnTransition::
-	setworldmapflag FLAG_WORLD_MAP_SIX_ISLAND
+	setworldmapflag FLAG_WORLD_MAP_OLIVINE_CITY
 	end
 
 SixIsland_EventScript_Hiker::

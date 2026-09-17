@@ -3,7 +3,7 @@
   "name": "FiveIsland_ResortGorgeous_House_Frlg",
   "layout": "LAYOUT_FIVE_ISLAND_RESORT_GORGEOUS_HOUSE",
   "music": "MUS_ZGS_SEVII_45",
-  "region_map_section": "MAPSEC_RESORT_GORGEOUS",
+  "region_map_section": "MAPSEC_ROUTE_34",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_INDOOR",

@@ -3,5 +3,5 @@ NavelRock_Exterior_Frlg_MapScripts::
 	.byte 0
 
 NavelRock_Exterior_Frlg_OnTransition::
-	setworldmapflag FLAG_WORLD_MAP_NAVEL_ROCK_EXTERIOR
+	setworldmapflag FLAG_WORLD_MAP_MT_SILVER_CAVE
 	end

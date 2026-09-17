@@ -3,5 +3,5 @@ SixIsland_AlteringCave_Frlg_MapScripts::
 	.byte 0
 
 SixIsland_AlteringCave_OnTransition::
-	setworldmapflag FLAG_WORLD_MAP_SIX_ISLAND_ALTERING_CAVE
+	setworldmapflag FLAG_WORLD_MAP_DRAGONS_DEN
 	end

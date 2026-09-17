@@ -3,7 +3,7 @@
   "name": "SixIsland_House_Frlg",
   "layout": "LAYOUT_HOUSE3_FRLG",
   "music": "MUS_ZGS_SEVII_67",
-  "region_map_section": "MAPSEC_SIX_ISLAND",
+  "region_map_section": "MAPSEC_OLIVINE_CITY",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_INDOOR",

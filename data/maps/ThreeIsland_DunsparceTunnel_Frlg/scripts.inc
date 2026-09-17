@@ -3,7 +3,7 @@ ThreeIsland_DunsparceTunnel_Frlg_MapScripts::
 	.byte 0
 
 ThreeIsland_DunsparceTunnel_OnTransition::
-	setworldmapflag FLAG_WORLD_MAP_THREE_ISLAND_DUNSPARCE_TUNNEL
+	setworldmapflag FLAG_WORLD_MAP_BURNT_TOWER
 	specialvar VAR_RESULT, IsNationalPokedexEnabled
 	copyvar VAR_0x8008, VAR_RESULT
 	call_if_eq VAR_0x8008, TRUE, ThreeIsland_DunsparceTunnel_EventScript_SetLayoutDugOut

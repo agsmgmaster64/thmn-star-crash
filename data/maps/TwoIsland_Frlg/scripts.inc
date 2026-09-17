@@ -3,7 +3,7 @@ TwoIsland_Frlg_MapScripts::
 	.byte 0
 
 TwoIsland_OnTransition::
-	setworldmapflag FLAG_WORLD_MAP_TWO_ISLAND
+	setworldmapflag FLAG_WORLD_MAP_CHERRYGROVE_CITY
 	setflag FLAG_VISITED_TWO_ISLAND
 	call TwoIsland_EventScript_SetShopState
 	end

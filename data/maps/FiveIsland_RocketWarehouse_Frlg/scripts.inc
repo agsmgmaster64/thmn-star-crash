@@ -7,7 +7,7 @@ FiveIsland_RocketWarehouse_Frlg_MapScripts::
 	.byte 0
 
 FiveIsland_RocketWarehouse_OnTransition::
-	setworldmapflag FLAG_WORLD_MAP_FIVE_ISLAND_ROCKET_WAREHOUSE
+	setworldmapflag FLAG_WORLD_MAP_SPROUT_TOWER
 	end
 
 FiveIsland_RocketWarehouse_OnLoad::

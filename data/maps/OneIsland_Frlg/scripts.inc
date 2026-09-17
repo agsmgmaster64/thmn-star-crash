@@ -4,7 +4,7 @@ OneIsland_Frlg_MapScripts::
 	.byte 0
 
 OneIsland_OnTransition::
-	setworldmapflag FLAG_WORLD_MAP_ONE_ISLAND
+	setworldmapflag FLAG_WORLD_MAP_NEW_BARK_TOWN
 	end
 
 OneIsland_OnFrame::

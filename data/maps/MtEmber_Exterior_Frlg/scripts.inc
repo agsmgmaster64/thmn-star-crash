@@ -4,7 +4,7 @@ MtEmber_Exterior_Frlg_MapScripts::
 	.byte 0
 
 MtEmber_Exterior_OnTransition::
-	setworldmapflag FLAG_WORLD_MAP_MT_EMBER_EXTERIOR
+	setworldmapflag FLAG_WORLD_MAP_DARK_CAVE
 	call_if_eq VAR_MAP_SCENE_MT_EMBER_EXTERIOR, 2, MtEmber_Exterior_EventScript_RocketsFaceDown
 	end
 
