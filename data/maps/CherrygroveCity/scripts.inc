@@ -1,3 +1,8 @@
 CherrygroveCity_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, CherrygroveCity_MapScripts_MAP_SCRIPT_ON_TRANSITION
 	.byte 0
+
+CherrygroveCity_MapScripts_MAP_SCRIPT_ON_TRANSITION:
+	setflag FLAG_WORLD_MAP_CHERRYGROVE_CITY
+	end
 

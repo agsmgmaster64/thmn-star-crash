@@ -1,3 +1,8 @@
 AzaleaTown_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, AzaleaTown_MapScripts_MAP_SCRIPT_ON_TRANSITION
 	.byte 0
+
+AzaleaTown_MapScripts_MAP_SCRIPT_ON_TRANSITION:
+	setflag FLAG_WORLD_MAP_AZALEA_TOWN
+	end
 

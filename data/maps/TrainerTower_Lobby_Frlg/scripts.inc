@@ -35,7 +35,7 @@ TrainerTower_Lobby_OpenCounterBarrier::
 	return
 
 TrainerTower_Lobby_OnTransition::
-	setworldmapflag FLAG_WORLD_MAP_TRAINER_TOWER_LOBBY
+	setworldmapflag FLAG_WORLD_MAP_MT_MORTAR
 	getplayerxy VAR_TEMP_D, VAR_RESULT
 	end
 

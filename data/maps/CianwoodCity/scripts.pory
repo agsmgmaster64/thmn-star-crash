@@ -1,1 +1,6 @@
-mapscripts CianwoodCity_MapScripts {}
+mapscripts CianwoodCity_MapScripts {
+    MAP_SCRIPT_ON_TRANSITION {
+        setflag(FLAG_WORLD_MAP_CIANWOOD_CITY)
+        end
+    }
+}

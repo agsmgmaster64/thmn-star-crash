@@ -1,1 +1,6 @@
-mapscripts OlivineCity_MapScripts {}
+mapscripts OlivineCity_MapScripts {
+    MAP_SCRIPT_ON_TRANSITION {
+        setflag(FLAG_WORLD_MAP_OLIVINE_CITY)
+        end
+    }
+}

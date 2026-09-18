@@ -397,6 +397,54 @@
       "y": 46,
       "respawn_map": "MAP_VIOLET_CITY",
       "respawn_npc": "1"
+    },
+    {
+      "id": "HEAL_LOCATION_BLACKTHORN_CITY",
+      "map": "MAP_BLACKTHORN_CITY",
+      "x": 27,
+      "y": 49,
+      "respawn_map": "MAP_BLACKTHORN_CITY",
+      "respawn_npc": "1"
+    },
+    {
+      "id": "HEAL_LOCATION_CIANWOOD_CITY",
+      "map": "MAP_CIANWOOD_CITY",
+      "x": 31,
+      "y": 46,
+      "respawn_map": "MAP_CIANWOOD_CITY",
+      "respawn_npc": "1"
+    },
+    {
+      "id": "HEAL_LOCATION_ECRUTEAK_CITY",
+      "map": "MAP_ECRUTEAK_CITY",
+      "x": 39,
+      "y": 48,
+      "respawn_map": "MAP_ECRUTEAK_CITY",
+      "respawn_npc": "1"
+    },
+    {
+      "id": "HEAL_LOCATION_MAHOGANY_TOWN",
+      "map": "MAP_MAHOGANY_TOWN",
+      "x": 21,
+      "y": 20,
+      "respawn_map": "MAP_MAHOGANY_TOWN",
+      "respawn_npc": "1"
+    },
+    {
+      "id": "HEAL_LOCATION_OLIVINE_CITY",
+      "map": "MAP_OLIVINE_CITY",
+      "x": 15,
+      "y": 44,
+      "respawn_map": "MAP_OLIVINE_CITY",
+      "respawn_npc": "1"
+    },
+    {
+      "id": "HEAL_LOCATION_ROUTE32",
+      "map": "MAP_ROUTE32",
+      "x": 25,
+      "y": 85,
+      "respawn_map": "MAP_ROUTE32",
+      "respawn_npc": "1"
     }
   ]
 }

@@ -507,9 +507,9 @@ static const struct WindowTemplate sRegionMapWindowTemplates[] = {
 
 static const u8 sTextColors[] = {TEXT_COLOR_MAP_BG, TEXT_COLOR_MAP_WHITE, TEXT_COLOR_MAP_DARK_GRAY};
 
-ALIGNED(4) const u8 sTextColor_White[] = {TEXT_COLOR_TRANSPARENT, TEXT_COLOR_WHITE,       TEXT_COLOR_DARK_GRAY};
-ALIGNED(4) const u8 sTextColor_Green[] = {TEXT_COLOR_TRANSPARENT, TEXT_COLOR_LIGHT_GREEN, TEXT_COLOR_DARK_GRAY};
-ALIGNED(4) const u8 sTextColor_Red[]   = {TEXT_COLOR_TRANSPARENT, TEXT_DYNAMIC_COLOR_1,   TEXT_COLOR_DARK_GRAY};
+ALIGNED(4) const u8 sTextColor_White[] = {TEXT_COLOR_TRANSPARENT, TEXT_COLOR_MAP_WHITE,       TEXT_COLOR_MAP_DARK_GRAY};
+ALIGNED(4) const u8 sTextColor_Green[] = {TEXT_COLOR_TRANSPARENT, TEXT_COLOR_MAP_GREEN, TEXT_COLOR_MAP_DARK_GRAY};
+ALIGNED(4) const u8 sTextColor_Red[]   = {TEXT_COLOR_TRANSPARENT, TEXT_COLOR_MAP_ORANGE,   TEXT_COLOR_MAP_DARK_GRAY};
 
 static const u8 *const sTextColorTable[] = {
     [MAPSECTYPE_CITY_CANFLY - 2]     = sTextColor_Green,
@@ -789,7 +789,7 @@ static const u8 gText_RegionMap_UpDownPick[] = _("{DPAD_UPDOWN}PICK");
 static u32 GetUnlockedRegionMaps(void)
 {
     u32 unlockedRegions = 0;
-    for (enum RegionMapId i = 0; i <= REGION_MAP_SEVII67; i++)
+    for (enum RegionMapId i = REGION_MAP_JOHTO; i <= REGION_MAP_SEVII67; i++)
     {
         if (IsRegionMapUnlocked(i))
             unlockedRegions++;
@@ -977,10 +977,10 @@ static bool8 LoadRegionMapGfxFrlg(void)
             return FALSE;
         break;
     case 5:
-        DecompressDataWithHeaderWram(sKanto_Tilemap, sRegionMapFrlg->layouts[FRLG_LAYOUT_KANTO]);
+        DecompressDataWithHeaderWram(sSevii123_Tilemap, sRegionMapFrlg->layouts[FRLG_LAYOUT_JOHTO]);
         break;
     case 6:
-        DecompressDataWithHeaderWram(sSevii123_Tilemap, sRegionMapFrlg->layouts[FRLG_LAYOUT_JOHTO]);
+        DecompressDataWithHeaderWram(sKanto_Tilemap, sRegionMapFrlg->layouts[FRLG_LAYOUT_KANTO]);
         break;
     case 7:
         DecompressDataWithHeaderWram(sSevii45_Tilemap, sRegionMapFrlg->layouts[FRLG_LAYOUT_SEVII45]);
@@ -2920,10 +2920,10 @@ static u8 RegionMapToFrlgLayout(u8 regionMap)
     switch (regionMap)
     {
     default:
-    case REGION_MAP_KANTO:
-        return FRLG_LAYOUT_KANTO;
     case REGION_MAP_JOHTO:
         return FRLG_LAYOUT_JOHTO;
+    case REGION_MAP_KANTO:
+        return FRLG_LAYOUT_KANTO;
     case REGION_MAP_SEVII45:
         return FRLG_LAYOUT_SEVII45;
     case REGION_MAP_SEVII67:
@@ -3199,10 +3199,10 @@ static u8 GetSelectedMapSection(u8 regionMap, u8 layer, s16 y, s16 x)
 {
     switch (regionMap)
     {
-    case REGION_MAP_KANTO:
-        return sRegionMapSections_Kanto[layer][y][x];
     case REGION_MAP_JOHTO:
         return sRegionMapSections_Sevii123[layer][y][x];
+    case REGION_MAP_KANTO:
+        return sRegionMapSections_Kanto[layer][y][x];
     case REGION_MAP_SEVII45:
         return sRegionMapSections_Sevii45[layer][y][x];
     case REGION_MAP_SEVII67:

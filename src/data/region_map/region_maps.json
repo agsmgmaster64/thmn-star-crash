@@ -16,21 +16,6 @@
       "pokedex_tilemap": ["graphics/pokedex/region_map_hoenn.bin", ".smolTM"]
     },
     {
-      "label": "kanto",
-      "region_name": "KANTO",
-      "layout_file": "src/data/region_map/layout_kanto.h",
-      "layout_width": 28,
-      "layout_height": 15,
-      "layout_offset_left": 1,
-      "layout_offset_top": 2,
-      "palette": ["graphics/pokenav/region_map/map_kanto.pal", ".gbapal"],
-      "gfx": ["graphics/pokenav/region_map/map_kanto.png", ".8bpp.smol"],
-      "tilemap": ["graphics/pokenav/region_map/map_kanto.bin", ".smolTM"],
-      "pokedex_palette": ["graphics/pokedex/region_map_kanto.pal", ".gbapal"],
-      "pokedex_gfx": ["graphics/pokedex/region_map_kanto.png", ".8bpp.smol"],
-      "pokedex_tilemap": ["graphics/pokedex/region_map_kanto.bin", ".smolTM"]
-    },
-    {
       "label": "johto",
       "region_name": "JOHTO",
       "layout_file": "src/data/region_map/layout_johto.h",
@@ -44,6 +29,21 @@
       "pokedex_palette": ["graphics/pokedex/region_map_sevii123.pal", ".gbapal"],
       "pokedex_gfx": ["graphics/pokedex/region_map_sevii123.png", ".8bpp.smol"],
       "pokedex_tilemap": ["graphics/pokedex/region_map_sevii123.bin", ".smolTM"]
+    },
+    {
+      "label": "kanto",
+      "region_name": "KANTO",
+      "layout_file": "src/data/region_map/layout_kanto.h",
+      "layout_width": 28,
+      "layout_height": 15,
+      "layout_offset_left": 1,
+      "layout_offset_top": 2,
+      "palette": ["graphics/pokenav/region_map/map_kanto.pal", ".gbapal"],
+      "gfx": ["graphics/pokenav/region_map/map_kanto.png", ".8bpp.smol"],
+      "tilemap": ["graphics/pokenav/region_map/map_kanto.bin", ".smolTM"],
+      "pokedex_palette": ["graphics/pokedex/region_map_kanto.pal", ".gbapal"],
+      "pokedex_gfx": ["graphics/pokedex/region_map_kanto.png", ".8bpp.smol"],
+      "pokedex_tilemap": ["graphics/pokedex/region_map_kanto.bin", ".smolTM"]
     },
     {
       "label": "sevii45",

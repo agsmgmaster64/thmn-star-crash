@@ -1,3 +1,8 @@
 GoldenrodCity_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, GoldenrodCity_MapScripts_MAP_SCRIPT_ON_TRANSITION
 	.byte 0
+
+GoldenrodCity_MapScripts_MAP_SCRIPT_ON_TRANSITION:
+	setflag FLAG_WORLD_MAP_GOLDENROD_CITY
+	end
 

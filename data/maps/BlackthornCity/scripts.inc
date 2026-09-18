@@ -1,3 +1,8 @@
 BlackthornCity_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, BlackthornCity_MapScripts_MAP_SCRIPT_ON_TRANSITION
 	.byte 0
+
+BlackthornCity_MapScripts_MAP_SCRIPT_ON_TRANSITION:
+	setflag FLAG_WORLD_MAP_BLACKTHORN_CITY
+	end
 

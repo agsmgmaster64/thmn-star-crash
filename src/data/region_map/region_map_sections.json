@@ -1416,7 +1416,7 @@
     {
       "id": "MAPSEC_NEW_BARK_TOWN",
       "name": "New Bark Town",
-      "x": 20,
+      "x": 19,
       "y": 10,
       "width": 1,
       "height": 1,
@@ -1548,7 +1548,7 @@
       "name": "Route 29",
       "x": 16,
       "y": 10,
-      "width": 4,
+      "width": 3,
       "height": 1,
       "map_region": "REGION_MAP_JOHTO",
       "pokemon_region": "POKEMON_REGION_JOHTO"

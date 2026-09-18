@@ -13372,8 +13372,8 @@
     {
       "id": "LAYOUT_MAHOGANY_TOWN",
       "name": "MahoganyTown_Layout",
-      "width": 20,
-      "height": 20,
+      "width": 44,
+      "height": 28,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_GeneralFrlg",
@@ -13404,8 +13404,8 @@
     {
       "id": "LAYOUT_BLACKTHORN_CITY",
       "name": "BlackthornCity_Layout",
-      "width": 20,
-      "height": 20,
+      "width": 59,
+      "height": 60,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_GeneralFrlg",
@@ -13628,8 +13628,8 @@
     {
       "id": "LAYOUT_ROUTE46",
       "name": "Route46_Layout",
-      "width": 20,
-      "height": 20,
+      "width": 27,
+      "height": 46,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_GeneralFrlg",
@@ -13644,8 +13644,8 @@
     {
       "id": "LAYOUT_ROUTE42",
       "name": "Route42_Layout",
-      "width": 20,
-      "height": 20,
+      "width": 94,
+      "height": 26,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_GeneralFrlg",

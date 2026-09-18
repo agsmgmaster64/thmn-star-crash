@@ -1,3 +1,8 @@
 OlivineCity_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, OlivineCity_MapScripts_MAP_SCRIPT_ON_TRANSITION
 	.byte 0
+
+OlivineCity_MapScripts_MAP_SCRIPT_ON_TRANSITION:
+	setflag FLAG_WORLD_MAP_OLIVINE_CITY
+	end
 
