@@ -37,6 +37,7 @@ ApricornTree_EventScript_PickApricorn::
 	waitmessage
 	waitfanfare
 	waitbuttonpress
+	call EventScript_BufferPocketNameAndTryFanfare
 	message ApricornTree_Text_PutAwayApricorn
 	waitmessage
 	waitbuttonpress

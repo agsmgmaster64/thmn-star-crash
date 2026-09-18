@@ -1905,3 +1905,15 @@ EventScript_PalletTown_PlayersHouse_2F_TurnOnPC::
 
 	.include "data/maps/Route44/scripts.inc"
 	.include "data/maps/Route44/text.inc"
+
+	.include "data/maps/DarkCaveSouth/scripts.inc"
+	.include "data/maps/DarkCaveSouth/text.inc"
+
+	.include "data/maps/NewBarkTownPlayerHouse/scripts.inc"
+	.include "data/maps/NewBarkTownPlayerHouse/text.inc"
+
+	.include "data/maps/NewBarkTownPlayerRoom/scripts.inc"
+	.include "data/maps/NewBarkTownPlayerRoom/text.inc"
+
+	.include "data/maps/DarkCaveNorth/scripts.inc"
+	.include "data/maps/DarkCaveNorth/text.inc"

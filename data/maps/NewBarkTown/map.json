@@ -26,8 +26,8 @@
       "x": 20,
       "y": 11,
       "elevation": 0,
-      "dest_map": "MAP_NEW_BARK_TOWN",
-      "dest_warp_id": "0"
+      "dest_map": "MAP_NEW_BARK_TOWN_PLAYER_HOUSE",
+      "dest_warp_id": "1"
     }
   ],
   "coord_events": [],

@@ -64,10 +64,13 @@
     "gMapGroup_IndoorRoute22_Frlg",
     "gMapGroup_IndoorRoute25_Frlg",
     "gMapGroup_IndoorSevenIsland_Frlg",
-    "gMapGroup_IndoorOneIsland_Frlg",
-    "gMapGroup_IndoorTwoIsland_Frlg",
     "gMapGroup_IndoorThreeIsland_Frlg",
-    "gMapGroup_TownsAndRoutes_Johto"
+    "gMapGroup_TownsAndRoutes_Johto",
+    "gMapGroup_Dungeons_Johto",
+    "gMapGroup_IndoorNewBarkTown",
+    "gMapGroup_IndoorCherrygroveCity",
+    "gMapGroup_IndoorVioletCity",
+    "gMapGroup_IndoorAzaleaTown"
   ],
   "gMapGroup_TownsAndRoutes": [
     "PetalburgCity",
@@ -1107,16 +1110,12 @@
     "SevenIsland_Mart_Frlg",
     "SevenIsland_PokemonCenter_1F_Frlg",
     "SevenIsland_PokemonCenter_2F_Frlg",
-    "SevenIsland_Harbor_Frlg"
-  ],
-  "gMapGroup_IndoorOneIsland_Frlg": [
+    "SevenIsland_Harbor_Frlg",
     "OneIsland_PokemonCenter_1F_Frlg",
     "OneIsland_PokemonCenter_2F_Frlg",
     "OneIsland_House1_Frlg",
     "OneIsland_House2_Frlg",
-    "OneIsland_Harbor_Frlg"
-  ],
-  "gMapGroup_IndoorTwoIsland_Frlg": [
+    "OneIsland_Harbor_Frlg",
     "TwoIsland_JoyfulGameCorner_Frlg",
     "TwoIsland_House_Frlg",
     "TwoIsland_PokemonCenter_1F_Frlg",
@@ -1186,5 +1185,16 @@
     "Route44",
     "Route45",
     "Route46"
-  ]
+  ],
+  "gMapGroup_Dungeons_Johto": [
+    "DarkCaveSouth",
+    "DarkCaveNorth"
+  ],
+  "gMapGroup_IndoorNewBarkTown": [
+    "NewBarkTownPlayerHouse",
+    "NewBarkTownPlayerRoom"
+  ],
+  "gMapGroup_IndoorCherrygroveCity": [],
+  "gMapGroup_IndoorVioletCity": [],
+  "gMapGroup_IndoorAzaleaTown": []
 }

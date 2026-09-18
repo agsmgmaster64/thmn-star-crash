@@ -13688,6 +13688,70 @@
         "firered",
         "leafgreen"
       ]
+    },
+    {
+      "id": "LAYOUT_DARK_CAVE_SOUTH",
+      "name": "DarkCaveSouth_Layout",
+      "width": 20,
+      "height": 20,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_GeneralFrlg",
+      "secondary_tileset": "gTileset_Cave_Frlg",
+      "border_filepath": "data/layouts/DarkCaveSouth/border.bin",
+      "blockdata_filepath": "data/layouts/DarkCaveSouth/map.bin",
+      "build_version": [
+        "firered",
+        "leafgreen"
+      ]
+    },
+    {
+      "id": "LAYOUT_NEW_BARK_TOWN_PLAYER_HOUSE",
+      "name": "NewBarkTownPlayerHouse_Layout",
+      "width": 13,
+      "height": 10,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_BuildingFrlg",
+      "secondary_tileset": "gTileset_GenericBuilding1",
+      "border_filepath": "data/layouts/NewBarkTownPlayerHouse/border.bin",
+      "blockdata_filepath": "data/layouts/NewBarkTownPlayerHouse/map.bin",
+      "build_version": [
+        "firered",
+        "leafgreen"
+      ]
+    },
+    {
+      "id": "LAYOUT_NEW_BARK_TOWN_PLAYER_ROOM",
+      "name": "NewBarkTownPlayerRoom_Layout",
+      "width": 11,
+      "height": 9,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_BuildingFrlg",
+      "secondary_tileset": "gTileset_GenericBuilding1",
+      "border_filepath": "data/layouts/NewBarkTownPlayerRoom/border.bin",
+      "blockdata_filepath": "data/layouts/NewBarkTownPlayerRoom/map.bin",
+      "build_version": [
+        "firered",
+        "leafgreen"
+      ]
+    },
+    {
+      "id": "LAYOUT_DARK_CAVE_NORTH",
+      "name": "DarkCaveNorth_Layout",
+      "width": 20,
+      "height": 20,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_GeneralFrlg",
+      "secondary_tileset": "gTileset_Cave",
+      "border_filepath": "data/layouts/DarkCaveNorth/border.bin",
+      "blockdata_filepath": "data/layouts/DarkCaveNorth/map.bin",
+      "build_version": [
+        "firered",
+        "leafgreen"
+      ]
     }
   ]
 }
