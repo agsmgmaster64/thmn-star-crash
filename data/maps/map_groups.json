@@ -70,7 +70,14 @@
     "gMapGroup_IndoorNewBarkTown",
     "gMapGroup_IndoorCherrygroveCity",
     "gMapGroup_IndoorVioletCity",
-    "gMapGroup_IndoorAzaleaTown"
+    "gMapGroup_IndoorAzaleaTown",
+    "gMapGroup_IndoorGoldenrodCity",
+    "gMapGroup_IndoorEcruteakCity",
+    "gMapGroup_IndoorOlivineCity",
+    "gMapGroup_IndoorCianwoodCity",
+    "gMapGroup_IndoorMahoganyTown",
+    "gMapGroup_IndoorBlackthornCity",
+    "gMapGroup_IndoorRoutes_Johto"
   ],
   "gMapGroup_TownsAndRoutes": [
     "PetalburgCity",
@@ -1200,7 +1207,8 @@
   ],
   "gMapGroup_IndoorNewBarkTown": [
     "NewBarkTownPlayerHouse",
-    "NewBarkTownPlayerRoom"
+    "NewBarkTownPlayerRoom",
+    "NewBarkTown_ElmsLab"
   ],
   "gMapGroup_IndoorCherrygroveCity": [
     "CherrygroveCity_PokemonCenter_1F",
@@ -1208,5 +1216,12 @@
     "CherrygroveCity_Mart"
   ],
   "gMapGroup_IndoorVioletCity": [],
-  "gMapGroup_IndoorAzaleaTown": []
+  "gMapGroup_IndoorAzaleaTown": [],
+  "gMapGroup_IndoorGoldenrodCity": [],
+  "gMapGroup_IndoorEcruteakCity": [],
+  "gMapGroup_IndoorOlivineCity": [],
+  "gMapGroup_IndoorCianwoodCity": [],
+  "gMapGroup_IndoorMahoganyTown": [],
+  "gMapGroup_IndoorBlackthornCity": [],
+  "gMapGroup_IndoorRoutes_Johto": []
 }

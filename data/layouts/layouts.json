@@ -13880,6 +13880,22 @@
         "firered",
         "leafgreen"
       ]
+    },
+    {
+      "id": "LAYOUT_NEW_BARK_TOWN_ELMS_LAB",
+      "name": "NewBarkTown_ElmsLab_Layout",
+      "width": 11,
+      "height": 14,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_BuildingFrlg",
+      "secondary_tileset": "gTileset_Lab_Frlg",
+      "border_filepath": "data/layouts/NewBarkTown_ElmsLab/border.bin",
+      "blockdata_filepath": "data/layouts/NewBarkTown_ElmsLab/map.bin",
+      "build_version": [
+        "firered",
+        "leafgreen"
+      ]
     }
   ]
 }

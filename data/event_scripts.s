@@ -1950,3 +1950,6 @@ EventScript_PalletTown_PlayersHouse_2F_TurnOnPC::
 
 	.include "data/maps/CherrygroveCity_Mart/scripts.inc"
 	.include "data/maps/CherrygroveCity_Mart/text.inc"
+
+	.include "data/maps/NewBarkTown_ElmsLab/scripts.inc"
+	.include "data/maps/NewBarkTown_ElmsLab/text.inc"
