@@ -1184,17 +1184,29 @@
     "Route43",
     "Route44",
     "Route45",
-    "Route46"
+    "Route46",
+    "LakeOfRageLowTide",
+    "LakeOfRageHighTide"
   ],
   "gMapGroup_Dungeons_Johto": [
     "DarkCaveSouth",
-    "DarkCaveNorth"
+    "DarkCaveNorth",
+    "SproutTower_1F",
+    "SproutTower_2F",
+    "SproutTower_3F",
+    "RuinsOfAlph_Outside",
+    "RuinsOfAlph_B1F",
+    "RuinsOfAlph_Puzzles"
   ],
   "gMapGroup_IndoorNewBarkTown": [
     "NewBarkTownPlayerHouse",
     "NewBarkTownPlayerRoom"
   ],
-  "gMapGroup_IndoorCherrygroveCity": [],
+  "gMapGroup_IndoorCherrygroveCity": [
+    "CherrygroveCity_PokemonCenter_1F",
+    "CherrygroveCity_PokemonCenter_2F",
+    "CherrygroveCity_Mart"
+  ],
   "gMapGroup_IndoorVioletCity": [],
   "gMapGroup_IndoorAzaleaTown": []
 }

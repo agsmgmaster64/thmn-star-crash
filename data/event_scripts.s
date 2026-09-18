@@ -1917,3 +1917,36 @@ EventScript_PalletTown_PlayersHouse_2F_TurnOnPC::
 
 	.include "data/maps/DarkCaveNorth/scripts.inc"
 	.include "data/maps/DarkCaveNorth/text.inc"
+
+	.include "data/maps/RuinsOfAlph_B1F/scripts.inc"
+	.include "data/maps/RuinsOfAlph_B1F/text.inc"
+
+	.include "data/maps/RuinsOfAlph_Outside/scripts.inc"
+	.include "data/maps/RuinsOfAlph_Outside/text.inc"
+
+	.include "data/maps/LakeOfRageHighTide/scripts.inc"
+	.include "data/maps/LakeOfRageHighTide/text.inc"
+
+	.include "data/maps/LakeOfRageLowTide/scripts.inc"
+	.include "data/maps/LakeOfRageLowTide/text.inc"
+
+	.include "data/maps/SproutTower_2F/scripts.inc"
+	.include "data/maps/SproutTower_2F/text.inc"
+
+	.include "data/maps/SproutTower_3F/scripts.inc"
+	.include "data/maps/SproutTower_3F/text.inc"
+
+	.include "data/maps/SproutTower_1F/scripts.inc"
+	.include "data/maps/SproutTower_1F/text.inc"
+
+	.include "data/maps/RuinsOfAlph_Puzzles/scripts.inc"
+	.include "data/maps/RuinsOfAlph_Puzzles/text.inc"
+
+	.include "data/maps/CherrygroveCity_PokemonCenter_2F/scripts.inc"
+	.include "data/maps/CherrygroveCity_PokemonCenter_2F/text.inc"
+
+	.include "data/maps/CherrygroveCity_PokemonCenter_1F/scripts.inc"
+	.include "data/maps/CherrygroveCity_PokemonCenter_1F/text.inc"
+
+	.include "data/maps/CherrygroveCity_Mart/scripts.inc"
+	.include "data/maps/CherrygroveCity_Mart/text.inc"

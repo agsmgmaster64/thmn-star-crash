@@ -28,10 +28,17 @@
   "object_events": [],
   "warp_events": [
     {
-      "x": 48,
+      "x": 47,
       "y": 7,
       "elevation": 0,
-      "dest_map": "MAP_CHERRYGROVE_CITY",
+      "dest_map": "MAP_CHERRYGROVE_CITY_POKEMON_CENTER_1F",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 41,
+      "y": 7,
+      "elevation": 0,
+      "dest_map": "MAP_CHERRYGROVE_CITY_MART",
       "dest_warp_id": "0"
     }
   ],

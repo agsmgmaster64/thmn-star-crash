@@ -13745,9 +13745,137 @@
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_GeneralFrlg",
-      "secondary_tileset": "gTileset_Cave",
+      "secondary_tileset": "gTileset_Cave_Frlg",
       "border_filepath": "data/layouts/DarkCaveNorth/border.bin",
       "blockdata_filepath": "data/layouts/DarkCaveNorth/map.bin",
+      "build_version": [
+        "firered",
+        "leafgreen"
+      ]
+    },
+    {
+      "id": "LAYOUT_RUINS_OF_ALPH_OUTSIDE",
+      "name": "RuinsOfAlph_Outside_Layout",
+      "width": 20,
+      "height": 20,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_GeneralFrlg",
+      "secondary_tileset": "gTileset_SeviiIslands67",
+      "border_filepath": "data/layouts/RuinsOfAlph_Outside/border.bin",
+      "blockdata_filepath": "data/layouts/RuinsOfAlph_Outside/map.bin",
+      "build_version": [
+        "firered",
+        "leafgreen"
+      ]
+    },
+    {
+      "id": "LAYOUT_RUINS_OF_ALPH_PUZZLES",
+      "name": "RuinsOfAlph_Puzzles_Layout",
+      "width": 20,
+      "height": 20,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_GeneralFrlg",
+      "secondary_tileset": "gTileset_Autumn",
+      "border_filepath": "data/layouts/RuinsOfAlph_Puzzles/border.bin",
+      "blockdata_filepath": "data/layouts/RuinsOfAlph_Puzzles/map.bin",
+      "build_version": [
+        "firered",
+        "leafgreen"
+      ]
+    },
+    {
+      "id": "LAYOUT_SPROUT_TOWER_3F",
+      "name": "SproutTower_3F_Layout",
+      "width": 20,
+      "height": 20,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_BuildingFrlg",
+      "secondary_tileset": "gTileset_BankCasino",
+      "border_filepath": "data/layouts/SproutTower_3F/border.bin",
+      "blockdata_filepath": "data/layouts/SproutTower_3F/map.bin",
+      "build_version": [
+        "firered",
+        "leafgreen"
+      ]
+    },
+    {
+      "id": "LAYOUT_SPROUT_TOWER_1F",
+      "name": "SproutTower_1F_Layout",
+      "width": 20,
+      "height": 20,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_BuildingFrlg",
+      "secondary_tileset": "gTileset_BankCasino",
+      "border_filepath": "data/layouts/SproutTower_1F/border.bin",
+      "blockdata_filepath": "data/layouts/SproutTower_1F/map.bin",
+      "build_version": [
+        "firered",
+        "leafgreen"
+      ]
+    },
+    {
+      "id": "LAYOUT_SPROUT_TOWER_2F",
+      "name": "SproutTower_2F_Layout",
+      "width": 20,
+      "height": 20,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_BuildingFrlg",
+      "secondary_tileset": "gTileset_BankCasino",
+      "border_filepath": "data/layouts/SproutTower_2F/border.bin",
+      "blockdata_filepath": "data/layouts/SproutTower_2F/map.bin",
+      "build_version": [
+        "firered",
+        "leafgreen"
+      ]
+    },
+    {
+      "id": "LAYOUT_LAKE_OF_RAGE_HIGH_TIDE",
+      "name": "LakeOfRageHighTide_Layout",
+      "width": 20,
+      "height": 20,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_GeneralFrlg",
+      "secondary_tileset": "gTileset_PalletTown",
+      "border_filepath": "data/layouts/LakeOfRageHighTide/border.bin",
+      "blockdata_filepath": "data/layouts/LakeOfRageHighTide/map.bin",
+      "build_version": [
+        "firered",
+        "leafgreen"
+      ]
+    },
+    {
+      "id": "LAYOUT_LAKE_OF_RAGE_LOW_TIDE",
+      "name": "LakeOfRageLowTide_Layout",
+      "width": 20,
+      "height": 20,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_GeneralFrlg",
+      "secondary_tileset": "gTileset_PalletTown",
+      "border_filepath": "data/layouts/LakeOfRageLowTide/border.bin",
+      "blockdata_filepath": "data/layouts/LakeOfRageLowTide/map.bin",
+      "build_version": [
+        "firered",
+        "leafgreen"
+      ]
+    },
+    {
+      "id": "LAYOUT_RUINS_OF_ALPH_B1F",
+      "name": "RuinsOfAlph_B1F_Layout",
+      "width": 20,
+      "height": 20,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_GeneralFrlg",
+      "secondary_tileset": "gTileset_Autumn",
+      "border_filepath": "data/layouts/RuinsOfAlph_B1F/border.bin",
+      "blockdata_filepath": "data/layouts/RuinsOfAlph_B1F/map.bin",
       "build_version": [
         "firered",
         "leafgreen"
