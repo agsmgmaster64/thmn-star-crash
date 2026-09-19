@@ -71,8 +71,8 @@
 #define VAR_DEOXYS_ROCK_LEVEL              0x403E
 #define VAR_0x403F                         0x403F
 #define VAR_MAGIKARP_SIZE_RECORD           0x4040
-#define VAR_0x4041                         0x4041
-#define VAR_0x4042                         0x4042
+#define VAR_NEW_BARK_TOWN_LAB_STATE        0x4041
+#define VAR_NEW_BARK_TOWN_STATE            0x4042
 #define VAR_0x4043                         0x4043
 #define VAR_0x4044                         0x4044
 #define VAR_0x4045                         0x4045

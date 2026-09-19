@@ -1384,7 +1384,7 @@
 #define FLAG_NURSE_UNION_ROOM_REMINDER              (SYSTEM_FLAGS + 0x20)
 
 #define FLAG_DEXNAV_SEARCH                          (SYSTEM_FLAGS + 0x21) // Unused Flag
-#define FLAG_UNUSED_0x882                           (SYSTEM_FLAGS + 0x22) // Unused Flag
+#define FLAG_SYS_PHONE_UPGRADE                          (SYSTEM_FLAGS + 0x22) // Unused Flag
 #define FLAG_UNUSED_0x883                           (SYSTEM_FLAGS + 0x23) // Unused Flag
 #define FLAG_SYS_USE_CUT                            (SYSTEM_FLAGS + 0x24)
 #define FLAG_SYS_USE_SURF                           (SYSTEM_FLAGS + 0x25)
@@ -2356,7 +2356,6 @@
 #define FLAG_DEFEATED_LANCE           0
 #define FLAG_DEFEATED_CHAMP           0
 
-#define FLAG_0x82A                                                  0
 #define FLAG_0x82B                                                  0
 #define FLAG_SYS_SET_TRAINER_CARD_PROFILE                           0
 #define FLAG_0x82E                                                  0

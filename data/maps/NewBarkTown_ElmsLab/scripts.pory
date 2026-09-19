@@ -1,1 +1,293 @@
+const PLAYER_STARTER_NUM = VAR_TEMP_1
+const PLAYER_STARTER_SPECIES = VAR_TEMP_2
+
 mapscripts NewBarkTown_ElmsLab_MapScripts {}
+
+script NewBarkTown_ElmsLab_EventScript_ElmIntroTrigger1 {
+    lockall
+    applymovement(LOCALID_PLAYER, NewBarkTown_ElmsLab_Movement_Approach_Elm1)
+    waitmovement(LOCALID_PLAYER)
+    goto(NewBarkTown_ElmsLab_EventScript_ElmIntroTriggerEnd)
+}
+
+script NewBarkTown_ElmsLab_EventScript_ElmIntroTrigger2 {
+    lockall
+    applymovement(LOCALID_PLAYER, NewBarkTown_ElmsLab_Movement_Approach_Elm2)
+    waitmovement(LOCALID_PLAYER)
+    goto(NewBarkTown_ElmsLab_EventScript_ElmIntroTriggerEnd)
+}
+
+script NewBarkTown_ElmsLab_EventScript_ElmIntroTrigger3 {
+    lockall
+    applymovement(LOCALID_PLAYER, NewBarkTown_ElmsLab_Movement_Approach_Elm3)
+    waitmovement(LOCALID_PLAYER)
+    goto(NewBarkTown_ElmsLab_EventScript_ElmIntroTriggerEnd)
+}
+
+script NewBarkTown_ElmsLab_EventScript_ElmIntroTriggerEnd {
+    msgbox(NewBarkTown_ElmsLab_Text_ElmIntro)
+    setvar(VAR_NEW_BARK_TOWN_LAB_STATE, 1)
+    releaseall
+    end
+}
+
+script NewBarkTown_ElmsLab_EventScript_ComeBackTrigger {
+    lockall
+    msgbox(NewBarkTown_ElmsLab_Text_ElmGetBack)
+    applymovement(LOCALID_PLAYER, NewBarkTown_ElmsLab_Movement_StarterNoLeave)
+    waitmovement(LOCALID_PLAYER)
+    releaseall
+    end
+}
+
+script NewBarkTown_ElmsLab_EventScript_Starter1Ball {
+	lock
+    if (var(VAR_NEW_BARK_TOWN_LAB_STATE) >= 2) {
+        goto(NewBarkTown_ElmsLab_EventScript_StarterBallChosenAlready)
+    }
+	setvar(PLAYER_STARTER_NUM, 0)
+	setvar(PLAYER_STARTER_SPECIES, SPECIES_CHIBI_SANAE)
+	call(NewBarkTown_ElmsLab_EventScript_ChooseStarterCommon)
+	msgbox(NewBarkTown_ElmsLab_Text_Starter1Choose, MSGBOX_YESNO)
+    if(var(VAR_RESULT) == NO) {
+        goto(NewBarkTown_ElmsLab_EventScript_DeclinedStarter)
+    }
+	call(NewBarkTown_ElmsLab_EventScript_ConfirmStarter)
+    applymovement(LOCALID_PLAYER, NewBarkTown_ElmsLab_Movement_Assist_Elm1)
+    waitmovement(LOCALID_PLAYER)
+    goto(NewBarkTown_ElmsLab_EventScript_ElmStarterEnd)
+}
+
+script NewBarkTown_ElmsLab_EventScript_Starter2Ball {
+	lock
+    if (var(VAR_NEW_BARK_TOWN_LAB_STATE) >= 2) {
+        goto(NewBarkTown_ElmsLab_EventScript_StarterBallChosenAlready)
+    }
+	setvar(PLAYER_STARTER_NUM, 1)
+	setvar(PLAYER_STARTER_SPECIES, SPECIES_CHIBI_REISEN)
+	call(NewBarkTown_ElmsLab_EventScript_ChooseStarterCommon)
+	msgbox(NewBarkTown_ElmsLab_Text_Starter2Choose, MSGBOX_YESNO)
+    if(var(VAR_RESULT) == NO) {
+        goto(NewBarkTown_ElmsLab_EventScript_DeclinedStarter)
+    }
+	call(NewBarkTown_ElmsLab_EventScript_ConfirmStarter)
+    applymovement(LOCALID_PLAYER, NewBarkTown_ElmsLab_Movement_Assist_Elm2)
+    waitmovement(LOCALID_PLAYER)
+    goto(NewBarkTown_ElmsLab_EventScript_ElmStarterEnd)
+}
+
+script NewBarkTown_ElmsLab_EventScript_Starter3Ball {
+	lock
+    if (var(VAR_NEW_BARK_TOWN_LAB_STATE) >= 2) {
+        goto(NewBarkTown_ElmsLab_EventScript_StarterBallChosenAlready)
+    }
+	setvar(PLAYER_STARTER_NUM, 2)
+	setvar(PLAYER_STARTER_SPECIES, SPECIES_CHIBI_ALICE)
+	call(NewBarkTown_ElmsLab_EventScript_ChooseStarterCommon)
+	msgbox(NewBarkTown_ElmsLab_Text_Starter3Choose, MSGBOX_YESNO)
+    if(var(VAR_RESULT) == NO) {
+        goto(NewBarkTown_ElmsLab_EventScript_DeclinedStarter)
+    }
+	call(NewBarkTown_ElmsLab_EventScript_ConfirmStarter)
+    applymovement(LOCALID_PLAYER, NewBarkTown_ElmsLab_Movement_Assist_Elm3)
+    waitmovement(LOCALID_PLAYER)
+    goto(NewBarkTown_ElmsLab_EventScript_ElmStarterEnd)
+}
+
+script NewBarkTown_ElmsLab_EventScript_DeclinedStarter {
+    closemessage
+	hidemonpic
+	release
+	end
+}
+
+script NewBarkTown_ElmsLab_EventScript_ChooseStarterCommon {
+	applymovement(LOCALID_NEW_BARK_TOWN_LAB_ELM, Common_Movement_FaceRight)
+	waitmovement(LOCALID_NEW_BARK_TOWN_LAB_ELM)
+	showmonpic(PLAYER_STARTER_SPECIES, 10, 3)
+	playmoncry(PLAYER_STARTER_SPECIES, CRY_MODE_NORMAL)
+    return
+}
+
+script NewBarkTown_ElmsLab_EventScript_ConfirmStarter {
+	hidemonpic
+	removeobject(VAR_LAST_TALKED)
+	msgbox(NewBarkTown_ElmsLab_Text_ElmChooseStarter)
+	setflag(FLAG_SYS_POKEMON_GET)
+	givemon(PLAYER_STARTER_SPECIES, 5)
+	copyvar(VAR_STARTER_MON, PLAYER_STARTER_NUM)
+	bufferspeciesname(STR_VAR_1, PLAYER_STARTER_SPECIES)
+	message(NewBarkTown_ElmsLab_Text_ReceivedMonFromElm)
+	waitmessage
+	playfanfare(MUS_RG_OBTAIN_KEY_ITEM)
+	waitfanfare
+	msgbox(gText_NicknameThisPokemon, MSGBOX_YESNO)
+    if (var(VAR_RESULT) == YES) {
+        setvar(VAR_0x8004, 0)
+        call(Common_EventScript_NameReceivedPartyMon)
+    }
+    closemessage
+	return
+}
+
+script NewBarkTown_ElmsLab_EventScript_ElmStarterEnd {
+    msgbox(NewBarkTown_ElmsLab_Text_ElmFindMrMan)
+    closemessage
+    setvar(VAR_NEW_BARK_TOWN_LAB_STATE, 2)
+    release
+    end
+}
+
+script NewBarkTown_ElmsLab_EventScript_StarterBallChosenAlready {
+    msgbox(NewBarkTown_ElmsLab_Text_StarterChosenAlready)
+    closemessage
+    release
+    end
+}
+
+script NewBarkTown_ElmsLab_EventScript_AideAssistTrigger1 {
+    lockall
+    applymovement(LOCALID_NEW_BARK_TOWN_LAB_AIDE, NewBarkTown_ElmsLab_Movement_Aide_Approach1)
+    waitmovement(LOCALID_NEW_BARK_TOWN_LAB_AIDE)
+    call(NewBarkTown_ElmsLab_EventScript_AideAssistCommon)
+    applymovement(LOCALID_NEW_BARK_TOWN_LAB_AIDE, NewBarkTown_ElmsLab_Movement_Aide_GoBack1)
+    waitmovement(LOCALID_NEW_BARK_TOWN_LAB_AIDE)
+    releaseall
+    end
+}
+
+script NewBarkTown_ElmsLab_EventScript_AideAssistTrigger2 {
+    lockall
+    applymovement(LOCALID_NEW_BARK_TOWN_LAB_AIDE, NewBarkTown_ElmsLab_Movement_Aide_Approach2)
+    waitmovement(LOCALID_NEW_BARK_TOWN_LAB_AIDE)
+    call(NewBarkTown_ElmsLab_EventScript_AideAssistCommon)
+    applymovement(LOCALID_NEW_BARK_TOWN_LAB_AIDE, NewBarkTown_ElmsLab_Movement_Aide_GoBack2)
+    waitmovement(LOCALID_NEW_BARK_TOWN_LAB_AIDE)
+    releaseall
+    end
+}
+
+script NewBarkTown_ElmsLab_EventScript_AideAssistTrigger3 {
+    lockall
+    applymovement(LOCALID_NEW_BARK_TOWN_LAB_AIDE, NewBarkTown_ElmsLab_Movement_Aide_Approach3)
+    waitmovement(LOCALID_NEW_BARK_TOWN_LAB_AIDE)
+    call(NewBarkTown_ElmsLab_EventScript_AideAssistCommon)
+    applymovement(LOCALID_NEW_BARK_TOWN_LAB_AIDE, NewBarkTown_ElmsLab_Movement_Aide_GoBack3)
+    waitmovement(LOCALID_NEW_BARK_TOWN_LAB_AIDE)
+    releaseall
+    end
+}
+
+script NewBarkTown_ElmsLab_EventScript_AideAssistCommon {
+    msgbox(NewBarkTown_ElmsLab_Text_AideGivePotion)
+    giveitem(ITEM_POTION)
+    setvar(VAR_NEW_BARK_TOWN_LAB_STATE, 3)
+    closemessage
+    return
+}
+
+movement NewBarkTown_ElmsLab_Movement_Approach_Elm1 {
+    walk_up * 3
+    walk_right * 1
+    face_up
+}
+
+movement NewBarkTown_ElmsLab_Movement_Approach_Elm2 {
+    walk_up * 3
+}
+
+movement NewBarkTown_ElmsLab_Movement_Approach_Elm3 {
+    walk_up * 3
+    walk_left * 1
+    face_up
+}
+
+movement NewBarkTown_ElmsLab_Movement_Assist_Elm1 {
+    walk_left * 2
+    walk_up
+}
+
+movement NewBarkTown_ElmsLab_Movement_Assist_Elm2 {
+    walk_left * 3
+    walk_up
+}
+
+movement NewBarkTown_ElmsLab_Movement_Assist_Elm3 {
+    walk_left * 4
+    walk_up
+}
+
+movement NewBarkTown_ElmsLab_Movement_Aide_Approach1 {
+    walk_left * 4
+    walk_up
+}
+
+movement NewBarkTown_ElmsLab_Movement_Aide_Approach2 {
+    walk_left * 3
+    walk_up
+}
+
+movement NewBarkTown_ElmsLab_Movement_Aide_Approach3 {
+    walk_left * 2
+    walk_up
+}
+
+movement NewBarkTown_ElmsLab_Movement_Aide_GoBack1 {
+    walk_down
+    walk_right * 4
+}
+
+movement NewBarkTown_ElmsLab_Movement_Aide_GoBack2 {
+    walk_down
+    walk_right * 3
+}
+
+movement NewBarkTown_ElmsLab_Movement_Aide_GoBack3 {
+    walk_down
+    walk_right * 2
+}
+
+movement NewBarkTown_ElmsLab_Movement_StarterNoLeave {
+    walk_up
+}
+
+text NewBarkTown_ElmsLab_Text_ElmIntro {
+    format("Pick starter")
+}
+
+text NewBarkTown_ElmsLab_Text_ElmGetBack {
+    format("Forbidden")
+}
+
+text NewBarkTown_ElmsLab_Text_Starter1Choose {
+    format("Starter 1?")
+}
+
+text NewBarkTown_ElmsLab_Text_Starter2Choose {
+    format("Starter 2?")
+}
+
+text NewBarkTown_ElmsLab_Text_Starter3Choose {
+    format("Starter 3?")
+}
+
+text NewBarkTown_ElmsLab_Text_ElmChooseStarter {
+    format("Starter chosen")
+}
+
+text NewBarkTown_ElmsLab_Text_ReceivedMonFromElm {
+    format("{PLAYER} received the {STR_VAR_1}\n"
+	        "from Prof. Elm!")
+}
+
+text NewBarkTown_ElmsLab_Text_ElmFindMrMan {
+    format("Find her.ogg")
+}
+
+text NewBarkTown_ElmsLab_Text_StarterChosenAlready {
+    format("You made your choice")
+}
+
+text NewBarkTown_ElmsLab_Text_AideGivePotion {
+    format("A potion")
+}

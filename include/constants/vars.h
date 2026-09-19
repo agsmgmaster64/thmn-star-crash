@@ -305,6 +305,8 @@
 #define VAR_MAP_SCENE_POKEMON_LEAGUE                         0
 #define VAR_MAP_SCENE_TRAINER_TOWER                          0
 #define VAR_MAP_SCENE_POKEMON_CENTER_TEALA                   0
+#define VAR_NEW_BARK_TOWN_LAB_STATE                         0
+#define VAR_NEW_BARK_TOWN_STATE    0
 
 #endif
 
