@@ -9,6 +9,6 @@
 #define DERBY_FLAG_NICKNAME             FLAG_DERBY_NICKNAME    // This flag tracks whether nicknames should be reset or not. Must be set to a valid flag
 #define DERBY_FLAG_RESET                FLAG_DERBY_RESET    // This flag tracks whether the data for the derby should be reset or not. Must be set to a valid flag
 
-#define FLIP_VAR_LEVEL                  VAR_UNUSED_0x40FE   // If this variable isn't set to 0, it will track the difficult level for any game of Voltorb Flip after the first one
+#define FLIP_VAR_LEVEL                  VAR_FLIP_LEVEL   // If this variable isn't set to 0, it will track the difficult level for any game of Voltorb Flip after the first one
 
 #endif // GUARD_GAME_CORNER_EXPANSION_H

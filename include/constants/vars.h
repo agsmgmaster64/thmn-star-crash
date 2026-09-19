@@ -178,20 +178,20 @@
 #define VAR_PETALBURG_WOODS_STATE                        0x4098
 #define VAR_LILYCOVE_CONTEST_LOBBY_STATE                 0x4099
 #define VAR_RUSTURF_TUNNEL_STATE                         0x409A
-#define VAR_UNUSED_0x409B                                0x409B // Unused Var
+#define VAR_RANDOMIZER_SPECIES                                0x409B // Unused Var
 #define VAR_ELITE_4_STATE                                0x409C
-#define VAR_TILE_WATER                                   0x409D // Unused Var
+#define VAR_TILE_WATER                                   0x409D
 #define VAR_MOSSDEEP_SPACE_CENTER_STAIR_GUARD_STATE      0x409E
 #define VAR_MOSSDEEP_SPACE_CENTER_STATE                  0x409F
 #define VAR_SLATEPORT_HARBOR_STATE                       0x40A0
-#define VAR_UNUSED_0x40A1                                0x40A1 // Unused var
+#define VAR_DEXNAV_SPECIES                               0x40A1
 #define VAR_SEAFLOOR_CAVERN_STATE                        0x40A2
 #define VAR_CABLE_CAR_STATION_STATE                      0x40A3
 #define VAR_SAFARI_ZONE_STATE                            0x40A4  // 0: In or out of SZ, 1: Player exiting SZ, 2: Player entering SZ
 #define VAR_TRICK_HOUSE_BEING_WATCHED_STATE              0x40A5
 #define VAR_TRICK_HOUSE_FOUND_TRICK_MASTER               0x40A6
 #define VAR_TRICK_HOUSE_ENTRANCE_STATE                   0x40A7
-#define VAR_UNUSED_0x40A8                                0x40A8 // Unused Var
+#define VAR_DEXNAV_STEP_COUNTER                          0x40A8
 #define VAR_CYCLING_CHALLENGE_STATE                      0x40A9
 #define VAR_SLATEPORT_MUSEUM_1F_STATE                    0x40AA
 #define VAR_TRICK_HOUSE_PUZZLE_1_STATE                   0x40AB
@@ -277,7 +277,7 @@
 #define VAR_UNUSED_0x40FB                                0x40FB // Unused Var
 #define VAR_UNUSED_0x40FC                                0x40FC // Unused Var
 #define VAR_UNUSED_0x40FD                                0x40FD // Unused Var
-#define VAR_UNUSED_0x40FE                                0x40FE // Unused Var
+#define VAR_FLIP_LEVEL                                   0x40FE
 #define VAR_UNUSED_0x40FF                                0x40FF // Unused Var
 
 #define VARS_END                                         0x40FF
@@ -289,13 +289,6 @@
 #define VAR_RESORT_GORGEOUS_REQUESTED_MON   0
 #define VAR_RESORT_GORGEOUS_REWARD          0
 #define VAR_RESORT_GOREGEOUS_STEP_COUNTER   0
-#define VAR_TRAINER_CARD_MON_ICON_TINT_IDX  0
-#define VAR_TRAINER_CARD_MON_ICON_1         0
-#define VAR_TRAINER_CARD_MON_ICON_2         0
-#define VAR_TRAINER_CARD_MON_ICON_3         0
-#define VAR_TRAINER_CARD_MON_ICON_4         0
-#define VAR_TRAINER_CARD_MON_ICON_5         0
-#define VAR_TRAINER_CARD_MON_ICON_6         0
 #define VAR_HERACROSS_SIZE_RECORD           0
 #define VAR_MAGIKARP_SIZE_RECORD            0
 

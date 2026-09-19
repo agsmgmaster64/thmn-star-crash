@@ -147,9 +147,6 @@
 #define OW_FLAG_VARIABLE_ROD_GOOD_TECHNIQUE     FLAG_RECEIVED_GOOD_ROD     // If this flag is set, the game will unlock the 'good fishing technique'.
 #define OW_FLAG_VARIABLE_ROD_SUPER_TECHNIQUE    FLAG_RECEIVED_SUPER_ROD     // If this flag is set, the game will unlock the 'super fishing technique'.
 
-// Music
-#define OW_VAR_REGION_MUSIC               VAR_REGION_MUSIC     // Depending on the variable value, the music played will be based on which region the value is set to.
-
 // Berry Blender
 #define BERRY_BLENDER_THROW_ALL_BERRIES_AT_ONCE TRUE        // This is a small little addition, that basically speeds up the animation where all players' berries are thrown into the blender. Self-explanatory I hope!
 

@@ -648,9 +648,6 @@ static u16 GetMusicStyle(void)
 {
     u16 musicStyle = gSaveBlock3Ptr->savedPlayerMusic.playlistPresetStyle;
 
-    if (musicStyle == PLAYLIST_SET_STYLE_DEFAULT)
-        musicStyle = VarGet(OW_VAR_REGION_MUSIC);
-
     if (musicStyle >= PLAYLIST_SET_STYLE_COUNT)
         return PLAYLIST_SET_STYLE_DEFAULT;
     else

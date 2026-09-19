@@ -150,14 +150,14 @@
 #define VAR_MAP_SCENE_MT_MOON_B2F                                              0x408B
 
 
-#define VAR_0x408C                 0x408C
-#define VAR_0x408D                 0x408D
-#define VAR_0x408E                 0x408E
-#define VAR_0x408F                 0x408F
-#define VAR_0x4090                 0x4090
-#define VAR_0x4091                 0x4091
-#define VAR_0x4092                 0x4092
-#define VAR_0x4093                 0x4093
+#define VAR_TECHNIQUE_ROD                 0x408C
+#define VAR_DEXNAV_SPECIES                 0x408D
+#define VAR_DEXNAV_STEP_COUNTER                 0x408E
+#define VAR_LAST_USED_LURE_REPEL                 0x408F
+#define VAR_FLIP_LEVEL                 0x4090
+#define VAR_TILE_WATER                 0x4091
+#define VAR_FLY_TOOL_SOURCE                 0x4092
+#define VAR_RANDOMIZER_SPECIES                 0x4093
 #define VAR_0x4094                 0x4094
 #define VAR_0x4095                 0x4095
 #define VAR_0x4096                 0x4096
@@ -229,16 +229,16 @@
 #define VAR_0x40D9                 0x40D9
 #define VAR_0x40DA                 0x40DA
 #define VAR_0x40DB                 0x40DB
-#define VAR_TRAINER_CARD_MON_ICON_TINT_ID  0x40DC
+#define VAR_TRAINER_CARD_MON_ICON_TINT_IDX  0x40DC
 #define VAR_0x40DD                 0x40DD
 #define VAR_0x40DE                 0x40DE
 #define VAR_0x40DF                 0x40DF
-#define VAR_TRAINER_CARD_MON_ICON_1_RG     0x4043
-#define VAR_TRAINER_CARD_MON_ICON_2_RG     0x4044
-#define VAR_TRAINER_CARD_MON_ICON_3_RG     0x4045
-#define VAR_TRAINER_CARD_MON_ICON_4_RG     0x4046
-#define VAR_TRAINER_CARD_MON_ICON_5_RG     0x4047
-#define VAR_TRAINER_CARD_MON_ICON_6_RG     0x4048
+#define VAR_TRAINER_CARD_MON_ICON_1     0x4043
+#define VAR_TRAINER_CARD_MON_ICON_2     0x4044
+#define VAR_TRAINER_CARD_MON_ICON_3     0x4045
+#define VAR_TRAINER_CARD_MON_ICON_4     0x4046
+#define VAR_TRAINER_CARD_MON_ICON_5     0x4047
+#define VAR_TRAINER_CARD_MON_ICON_6     0x4048
 #define VAR_DAILY_SLOTS            0x40E6
 #define VAR_DAILY_WILDS            0x40E7
 #define VAR_DAILY_BLENDER          0x40E8
@@ -405,5 +405,6 @@
 #define VAR_ROXANNE_CALL_STEP_COUNTER                    0
 #define VAR_SCOTT_BF_CALL_STEP_COUNTER                   0
 #define VAR_RIVAL_RAYQUAZA_CALL_STEP_COUNTER             0
+#define VAR_HOUSE_LIKE_CARPET_STATE                      0
 
 #endif // GUARD_CONSTANTS_VARS_FRLG_H

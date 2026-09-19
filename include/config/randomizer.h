@@ -43,37 +43,7 @@
 //#define FORCE_RANDOMIZE_EGG_MON                   TRUE
 //#define FORCE_RANDOMIZE_ABILITIES                 TRUE
 
-// These flags control whether a particular randomization feature is active.
-// They are ignored and disabled if the flags above are set.
-#ifndef FORCE_RANDOMIZE_WILD_MON
-#define RANDOMIZER_FLAG_WILD_MON                      FLAG_UNUSED_0x020
-#endif
-
-#ifndef FORCE_RANDOMIZE_FIELD_ITEMS
-#define RANDOMIZER_FLAG_FIELD_ITEMS                   FLAG_UNUSED_0x021
-#endif
-
-#ifndef FORCE_RANDOMIZE_TRAINER_MON
-#define RANDOMIZER_FLAG_TRAINER_MON                   FLAG_UNUSED_0x022
-#endif
-
-#ifndef FORCE_RANDOMIZE_FIXED_MON
-#define RANDOMIZER_FLAG_FIXED_MON                     FLAG_UNUSED_0x023
-#endif
-
-#ifndef FORCE_RANDOMIZE_STARTER_AND_GIFT_MON
-#define RANDOMIZER_FLAG_STARTER_AND_GIFT_MON          FLAG_UNUSED_0x024
-#endif
-
-#ifndef FORCE_RANDOMIZE_EGG_MON
-#define RANDOMIZER_FLAG_EGG_MON                       FLAG_UNUSED_0x025
-#endif
-
-#ifndef FORCE_RANDOMIZE_ABILITIES
-#define RANDOMIZER_FLAG_ABILITIES                     FLAG_UNUSED_0x026
-#endif
-
-#define RANDOMIZER_VAR_SPECIES_MODE                   VAR_UNUSED_0x409B
+#define RANDOMIZER_VAR_SPECIES_MODE                   VAR_RANDOMIZER_SPECIES
 
 #if RANDOMIZER_SEED_IS_TRAINER_ID == FALSE
 #define RANDOMIZER_VAR_SEED_L                         VAR_UNUSED_0x40FA
