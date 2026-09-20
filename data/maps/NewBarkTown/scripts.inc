@@ -4,5 +4,32 @@ NewBarkTown_MapScripts::
 
 NewBarkTown_MapScripts_MAP_SCRIPT_ON_TRANSITION:
 	setflag FLAG_WORLD_MAP_NEW_BARK_TOWN
+	compare VAR_NEW_BARK_TOWN_STATE, 2
+	goto_if_lt NewBarkTown_MapScripts_MAP_SCRIPT_ON_TRANSITION_2
+NewBarkTown_MapScripts_MAP_SCRIPT_ON_TRANSITION_1:
 	end
 
+NewBarkTown_MapScripts_MAP_SCRIPT_ON_TRANSITION_2:
+	setobjectxyperm LOCALID_NEW_BARK_TOWN_LASS, 1, 11
+	setobjectmovementtype LOCALID_NEW_BARK_TOWN_LASS, MOVEMENT_TYPE_LOOK_AROUND
+	goto NewBarkTown_MapScripts_MAP_SCRIPT_ON_TRANSITION_1
+
+
+NewBarkTown_EventScript_LassWarnTrigger::
+	lockall
+	applymovement LOCALID_NEW_BARK_TOWN_LASS, Common_Movement_FaceDown
+	waitmovement LOCALID_NEW_BARK_TOWN_LASS
+	msgbox NewBarkTown_Text_LassWarn
+	closemessage
+	applymovement LOCALID_PLAYER, NewBarkTown_Movement_PlayerWarned
+	waitmovement LOCALID_PLAYER
+	releaseall
+	end
+
+
+NewBarkTown_Movement_PlayerWarned:
+	walk_right
+	step_end
+
+NewBarkTown_Text_LassWarn::
+	.string "Cannot progress$"

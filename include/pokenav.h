@@ -147,9 +147,9 @@ enum
 // As opposed to the cursor position, which is only relative to the number of options for the current menu
 enum
 {
+    POKENAV_MENUITEM_MATCH_CALL,
     POKENAV_MENUITEM_MAP,
     POKENAV_MENUITEM_CONDITION,
-    POKENAV_MENUITEM_MATCH_CALL,
     POKENAV_MENUITEM_RIBBONS,
     POKENAV_MENUITEM_SWITCH_OFF,
     POKENAV_MENUITEM_CONDITION_PARTY,

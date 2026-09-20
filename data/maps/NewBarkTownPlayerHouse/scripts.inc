@@ -1,3 +1,54 @@
 NewBarkTownPlayerHouse_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, NewBarkTownPlayerHouse_MapScripts_MAP_SCRIPT_ON_TRANSITION
+	map_script MAP_SCRIPT_ON_FRAME_TABLE, NewBarkTownPlayerHouse_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE
 	.byte 0
 
+NewBarkTownPlayerHouse_MapScripts_MAP_SCRIPT_ON_TRANSITION:
+	compare VAR_NEW_BARK_TOWN_STATE, 2
+	goto_if_lt NewBarkTownPlayerHouse_MapScripts_MAP_SCRIPT_ON_TRANSITION_2
+NewBarkTownPlayerHouse_MapScripts_MAP_SCRIPT_ON_TRANSITION_1:
+	end
+
+NewBarkTownPlayerHouse_MapScripts_MAP_SCRIPT_ON_TRANSITION_2:
+	setobjectxyperm LOCALID_NEW_BARK_TOWN_PLAYER_MOM, 8, 4
+	setobjectmovementtype LOCALID_NEW_BARK_TOWN_PLAYER_MOM, MOVEMENT_TYPE_FACE_LEFT
+	goto NewBarkTownPlayerHouse_MapScripts_MAP_SCRIPT_ON_TRANSITION_1
+
+NewBarkTownPlayerHouse_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE:
+	map_script_2 VAR_NEW_BARK_TOWN_STATE, 0, NewBarkTownPlayerHouse_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE_0
+	.2byte 0
+
+NewBarkTownPlayerHouse_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE_0:
+	applymovement LOCALID_NEW_BARK_TOWN_PLAYER_MOM, NewBarkTownPlayerHouse_Movement_MomApproachPlayer
+	waitmovement LOCALID_NEW_BARK_TOWN_PLAYER_MOM
+	msgbox NewBarkTownPlayerHouse_Text_MomIntro
+	closemessage
+	applymovement LOCALID_NEW_BARK_TOWN_PLAYER_MOM, NewBarkTownPlayerHouse_Movement_MomGoBack
+	waitmovement LOCALID_NEW_BARK_TOWN_PLAYER_MOM
+	setflag FLAG_SYS_PHONE_UPGRADE
+	setflag FLAG_SYS_POKENAV_GET
+	setflag FLAG_ENABLE_MOM_MATCH_CALL
+	setflag FLAG_HAS_MATCH_CALL
+	setflag FLAG_SYS_B_DASH
+	setvar VAR_NEW_BARK_TOWN_STATE, 1
+	end
+
+
+NewBarkTownPlayerHouse_Eventscript_Mom::
+	end
+
+
+NewBarkTownPlayerHouse_Movement_MomApproachPlayer:
+	walk_right
+	walk_right
+	walk_up
+	step_end
+
+NewBarkTownPlayerHouse_Movement_MomGoBack:
+	walk_down
+	walk_left
+	walk_left
+	step_end
+
+NewBarkTownPlayerHouse_Text_MomIntro::
+	.string "Your stuff$"

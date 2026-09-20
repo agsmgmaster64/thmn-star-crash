@@ -124,6 +124,7 @@ NewBarkTown_ElmsLab_EventScript_Starter3Ball_5:
 
 
 NewBarkTown_ElmsLab_EventScript_DeclinedStarter::
+	closemessage
 	hidemonpic
 	release
 	end
@@ -153,6 +154,7 @@ NewBarkTown_ElmsLab_EventScript_ConfirmStarter::
 	compare VAR_RESULT, YES
 	goto_if_eq NewBarkTown_ElmsLab_EventScript_ConfirmStarter_2
 NewBarkTown_ElmsLab_EventScript_ConfirmStarter_1:
+	closemessage
 	return
 
 NewBarkTown_ElmsLab_EventScript_ConfirmStarter_2:
@@ -163,6 +165,7 @@ NewBarkTown_ElmsLab_EventScript_ConfirmStarter_2:
 
 NewBarkTown_ElmsLab_EventScript_ElmStarterEnd::
 	msgbox NewBarkTown_ElmsLab_Text_ElmFindMrMan
+	closemessage
 	setvar VAR_NEW_BARK_TOWN_LAB_STATE, 2
 	release
 	end
@@ -170,6 +173,7 @@ NewBarkTown_ElmsLab_EventScript_ElmStarterEnd::
 
 NewBarkTown_ElmsLab_EventScript_StarterBallChosenAlready::
 	msgbox NewBarkTown_ElmsLab_Text_StarterChosenAlready
+	closemessage
 	release
 	end
 
@@ -211,6 +215,8 @@ NewBarkTown_ElmsLab_EventScript_AideAssistCommon::
 	msgbox NewBarkTown_ElmsLab_Text_AideGivePotion
 	giveitem ITEM_POTION
 	setvar VAR_NEW_BARK_TOWN_LAB_STATE, 3
+	setvar VAR_NEW_BARK_TOWN_STATE, 2
+	closemessage
 	return
 
 

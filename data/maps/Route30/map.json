@@ -36,8 +36,8 @@
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "trainer_sight_or_berry_tree_id": "APRICORN_TREE_ROUTE_30_TREE_1",
+      "script": "ApricornTreeScript",
       "flag": "0"
     },
     {
@@ -50,12 +50,64 @@
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "APRICORN_TREE_ROUTE_30_TREE_2",
+      "script": "ApricornTreeScript",
+      "flag": "0"
+    },
+    {
+      "local_id": "LOCALID_YOUNGSTER_BATTLER_1",
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_YOUNGSTER_FRLG",
+      "x": 23,
+      "y": 25,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_UP",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
-      "flag": "0"
+      "flag": "FLAG_HIDE_YOUNGSTER_BATTLE_ROUTE_30"
+    },
+    {
+      "local_id": "LOCALID_YOUNGSTER_BATTLER_2",
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_YOUNGSTER_FRLG",
+      "x": 23,
+      "y": 22,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "FLAG_HIDE_YOUNGSTER_BATTLE_ROUTE_30"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_YOUNGSTER_FRLG",
+      "x": 20,
+      "y": 27,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "FLAG_HIDE_ROUTE_30_YOUNGSTER"
     }
   ],
-  "warp_events": [],
+  "warp_events": [
+    {
+      "x": 35,
+      "y": 4,
+      "elevation": 0,
+      "dest_map": "MAP_ROUTE30_MR_PUPPET_HOUSE",
+      "dest_warp_id": "0"
+    }
+  ],
   "coord_events": [],
   "bg_events": [],
   "build_version": [

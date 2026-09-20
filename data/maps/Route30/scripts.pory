@@ -1,1 +1,17 @@
-mapscripts Route30_MapScripts {}
+mapscripts Route30_MapScripts {
+    MAP_SCRIPT_ON_FRAME_TABLE [
+        VAR_CHERRYGROVE_CITY_STATE, 2 {
+            lockall
+            pokenavcall(Route30_Text_ElmBrokenInto)
+            waitmessage
+            clearflag(FLAG_HIDE_RIVAL_CHERRYGROVE)
+            setvar(VAR_CHERRYGROVE_CITY_STATE, 3)
+            releaseall
+            end
+        }
+    ]
+}
+
+text Route30_Text_ElmBrokenInto {
+    format("Proceed to New Bark")
+}

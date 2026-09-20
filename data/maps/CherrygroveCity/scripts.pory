@@ -4,3 +4,276 @@ mapscripts CherrygroveCity_MapScripts {
         end
     }
 }
+
+script CherrygroveCity_EventScript_OldManGuideTrigger1 {
+    lockall
+    call(CherrygroveCity_EventScript_OldManGuideCommon1)
+    applymovement(LOCALID_PLAYER, CherrygroveCity_Player_GuideMoveOutOfWay)
+    waitmovement(LOCALID_PLAYER)
+    goto(CherrygroveCity_EventScript_OldManGuideCommon2)
+}
+
+script CherrygroveCity_EventScript_OldManGuideTrigger2 {
+    lockall
+    call(CherrygroveCity_EventScript_OldManGuideCommon1)
+    goto(CherrygroveCity_EventScript_OldManGuideCommon2)
+}
+
+script CherrygroveCity_EventScript_OldManGuideTrigger3 {
+    lockall
+    call(CherrygroveCity_EventScript_OldManGuideCommon1)
+    applymovement(LOCALID_PLAYER, CherrygroveCity_Player_GuideMoveTo)
+    waitmovement(LOCALID_PLAYER)
+    goto(CherrygroveCity_EventScript_OldManGuideCommon2)
+}
+
+script CherrygroveCity_EventScript_OldManGuideCommon1 {
+    msgbox(CherrygroveCity_Text_GuideIntro)
+    closemessage
+    return
+}
+
+script CherrygroveCity_EventScript_OldManGuideCommon2 {
+    applymovement(LOCALID_CHERRYGROVE_GUIDE, CherrygroveCity_Movement_GuideToCenter)
+    applymovement(LOCALID_PLAYER, CherrygroveCity_Movement_PlayerToCenter)
+    waitmovement(LOCALID_PLAYER)
+    msgbox(CherrygroveCity_Text_GuideCenter)
+    closemessage
+    applymovement(LOCALID_CHERRYGROVE_GUIDE, CherrygroveCity_Movement_GuideToMart)
+    applymovement(LOCALID_PLAYER, CherrygroveCity_Movement_PlayerToMart)
+    waitmovement(LOCALID_PLAYER)
+    msgbox(CherrygroveCity_Text_GuideMart)
+    closemessage
+    applymovement(LOCALID_CHERRYGROVE_GUIDE, CherrygroveCity_Movement_GuideToSea)
+    applymovement(LOCALID_PLAYER, CherrygroveCity_Movement_PlayerToSea)
+    waitmovement(LOCALID_PLAYER)
+    msgbox(CherrygroveCity_Text_GuideSea)
+    closemessage
+    applymovement(LOCALID_CHERRYGROVE_GUIDE, CherrygroveCity_Movement_GuideToEnd)
+    applymovement(LOCALID_PLAYER, CherrygroveCity_Movement_PlayerToEnd)
+    waitmovement(LOCALID_PLAYER)
+    msgbox(CherrygroveCity_Text_GuideGiveUpgrade)
+    msgbox(CherrygroveCity_Text_GuideEnd)
+    closemessage
+    applymovement(LOCALID_CHERRYGROVE_GUIDE, Common_Movement_FaceUp)
+    waitmovement(LOCALID_CHERRYGROVE_GUIDE)
+    opendoor(42, 14)
+    waitdooranim
+    applymovement(LOCALID_CHERRYGROVE_GUIDE, CherrygroveCity_Player_GuideMoveTo)
+    waitmovement(LOCALID_CHERRYGROVE_GUIDE)
+    removeobject(LOCALID_CHERRYGROVE_GUIDE)
+    closedoor(42, 14)
+    waitdooranim
+    setflag(FLAG_ADDED_MATCH_CALL_TO_POKENAV)
+    setvar(VAR_CHERRYGROVE_CITY_STATE, 1)
+    releaseall
+    end
+}
+
+script CherrygroveCity_EventScript_RivalTrigger1 {
+    lockall
+    applymovement(LOCALID_CHERRYGROVE_RIVAL, CherrygroveCity_Movement_RivalApproachPlayer1)
+    waitmovement(LOCALID_CHERRYGROVE_RIVAL)
+    applymovement(LOCALID_PLAYER, Common_Movement_FaceDown)
+    waitmovement(LOCALID_PLAYER)
+    call(CherrygroveCity_EventScript_RivalBattleCommon)
+    applymovement(LOCALID_CHERRYGROVE_RIVAL, CherrygroveCity_Movement_RivalTryLeave1)
+    waitmovement(LOCALID_CHERRYGROVE_RIVAL)
+    msgbox(CherrygroveCity_Text_RivalGiveBack)
+    closemessage
+    goto(CherrygroveCity_EventScript_RivalTriggerEnd)
+}
+
+script CherrygroveCity_EventScript_RivalTrigger2 {
+    lockall
+    applymovement(LOCALID_CHERRYGROVE_RIVAL, CherrygroveCity_Movement_RivalApproachPlayer2)
+    waitmovement(LOCALID_CHERRYGROVE_RIVAL)
+    call(CherrygroveCity_EventScript_RivalBattleCommon)
+    applymovement(LOCALID_PLAYER, CherrygroveCity_Player_GuideMoveOutOfWay)
+    applymovement(LOCALID_CHERRYGROVE_RIVAL, CherrygroveCity_Movement_RivalTryLeave2)
+    waitmovement(LOCALID_CHERRYGROVE_RIVAL)
+    msgbox(CherrygroveCity_Text_RivalGiveBack)
+    closemessage
+    goto(CherrygroveCity_EventScript_RivalTriggerEnd)
+}
+
+script CherrygroveCity_EventScript_RivalTrigger3 {
+    lockall
+    applymovement(LOCALID_CHERRYGROVE_RIVAL, CherrygroveCity_Movement_RivalApproachPlayer3)
+    waitmovement(LOCALID_CHERRYGROVE_RIVAL)
+    applymovement(LOCALID_PLAYER, Common_Movement_FaceUp)
+    waitmovement(LOCALID_PLAYER)
+    call(CherrygroveCity_EventScript_RivalBattleCommon)
+    applymovement(LOCALID_CHERRYGROVE_RIVAL, CherrygroveCity_Movement_RivalTryLeave3)
+    waitmovement(LOCALID_CHERRYGROVE_RIVAL)
+    msgbox(CherrygroveCity_Text_RivalGiveBack)
+    closemessage
+    goto(CherrygroveCity_EventScript_RivalTriggerEnd)
+}
+
+script CherrygroveCity_EventScript_RivalBattleCommon {
+    msgbox(CherrygroveCity_Text_RivalInitiateFight)
+    closemessage
+    switch(var(VAR_STARTER_MON)) {
+        case 0:
+            trainerbattle_no_intro(TRAINER_RIVAL_CHERRYGROVE_STARTER_1, CherrygroveCity_Text_RivalLost)
+            setflag(FLAG_HIDE_SQUIRTLE_BALL)
+        case 1:
+            trainerbattle_no_intro(TRAINER_RIVAL_CHERRYGROVE_STARTER_2, CherrygroveCity_Text_RivalLost)
+            setflag(FLAG_HIDE_CHARMANDER_BALL)
+        case 2:
+            trainerbattle_no_intro(TRAINER_RIVAL_CHERRYGROVE_STARTER_3, CherrygroveCity_Text_RivalLost)
+            setflag(FLAG_HIDE_BULBASAUR_BALL)
+    }
+    msgbox(CherrygroveCity_Text_RivalAfterBattle)
+    closemessage
+    return
+}
+
+script CherrygroveCity_EventScript_RivalTriggerEnd {
+    applymovement(LOCALID_CHERRYGROVE_RIVAL, CherrygroveCity_Movement_RivalActuallyLeave)
+    waitmovement(LOCALID_CHERRYGROVE_RIVAL)
+    removeobject(LOCALID_CHERRYGROVE_RIVAL)
+    setvar(VAR_CHERRYGROVE_CITY_STATE, 4)
+    setvar(VAR_NEW_BARK_TOWN_LAB_STATE, 4)
+    releaseall
+    end
+}
+
+movement CherrygroveCity_Player_GuideMoveOutOfWay {
+    walk_down
+    face_up
+}
+
+movement CherrygroveCity_Player_GuideMoveTo {
+    walk_up
+}
+
+movement CherrygroveCity_Movement_GuideToCenter {
+    walk_down
+    walk_left * 10
+    face_up
+}
+
+movement CherrygroveCity_Movement_PlayerToCenter {
+    delay_16 * 2
+    walk_up
+    walk_left * 9
+    face_up
+}
+
+movement CherrygroveCity_Movement_GuideToMart {
+    walk_left * 7
+    face_up
+}
+
+movement CherrygroveCity_Movement_PlayerToMart {
+    delay_16 * 2
+    walk_left * 7
+    face_up
+}
+
+movement CherrygroveCity_Movement_GuideToSea {
+    walk_left * 13
+    walk_down * 4
+    face_left
+}
+
+movement CherrygroveCity_Movement_PlayerToSea {
+    delay_16 * 2
+    walk_left * 14
+    walk_down * 3
+    face_left
+}
+
+movement CherrygroveCity_Movement_GuideToEnd {
+    walk_down * 2
+    walk_right * 15
+    face_left
+}
+
+movement CherrygroveCity_Movement_PlayerToEnd {
+    delay_16 * 2
+    walk_down * 3
+    walk_right * 14
+}
+
+movement CherrygroveCity_Movement_RivalApproachPlayer1 {
+    walk_left * 7
+    face_up
+}
+
+movement CherrygroveCity_Movement_RivalApproachPlayer2 {
+    walk_left * 6
+}
+
+movement CherrygroveCity_Movement_RivalApproachPlayer3 {
+    walk_left * 7
+    face_down
+}
+
+movement CherrygroveCity_Movement_RivalTryLeave1 {
+    walk_left * 5
+    delay_16
+    walk_right * 5
+    face_up
+}
+
+movement CherrygroveCity_Movement_RivalTryLeave2 {
+    delay_16
+    walk_left * 6
+    delay_16
+    walk_right * 5
+    face_down
+}
+
+movement CherrygroveCity_Movement_RivalTryLeave3 {
+    walk_left * 5
+    delay_16
+    walk_right * 5
+    face_down
+}
+
+movement CherrygroveCity_Movement_RivalActuallyLeave {
+    walk_left * 9
+}
+
+text CherrygroveCity_Text_GuideIntro {
+    format("Show Cherrygrove")
+}
+
+text CherrygroveCity_Text_GuideCenter {
+    format("Center")
+}
+
+text CherrygroveCity_Text_GuideMart {
+    format("Mart")
+}
+
+text CherrygroveCity_Text_GuideSea {
+    format("Other side")
+}
+
+text CherrygroveCity_Text_GuideGiveUpgrade {
+    format("Map upgrade")
+}
+
+text CherrygroveCity_Text_GuideEnd {
+    format("Goodbye")
+}
+
+text CherrygroveCity_Text_RivalInitiateFight {
+    format("We fight now")
+}
+
+text CherrygroveCity_Text_RivalLost {
+    format("Loss")
+}
+
+text CherrygroveCity_Text_RivalAfterBattle {
+    format("I leave")
+}
+
+text CherrygroveCity_Text_RivalGiveBack {
+    format("My name jeff")
+}

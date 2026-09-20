@@ -23,9 +23,9 @@
       "layout_height": 15,
       "layout_offset_left": 1,
       "layout_offset_top": 2,
-      "palette": ["graphics/pokenav/region_map/map_sevii_123.pal", ".gbapal"],
-      "gfx": ["graphics/pokenav/region_map/map_sevii_123.png", ".8bpp.smol"],
-      "tilemap": ["graphics/pokenav/region_map/map_sevii_123.bin", ".smolTM"],
+      "palette": ["graphics/pokenav/region_map/map_johto.pal", ".gbapal"],
+      "gfx": ["graphics/pokenav/region_map/map_johto.png", ".8bpp.smol"],
+      "tilemap": ["graphics/pokenav/region_map/map_johto.bin", ".smolTM"],
       "pokedex_palette": ["graphics/pokedex/region_map_sevii123.pal", ".gbapal"],
       "pokedex_gfx": ["graphics/pokedex/region_map_sevii123.png", ".8bpp.smol"],
       "pokedex_tilemap": ["graphics/pokedex/region_map_sevii123.bin", ".smolTM"]

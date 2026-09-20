@@ -1953,3 +1953,6 @@ EventScript_PalletTown_PlayersHouse_2F_TurnOnPC::
 
 	.include "data/maps/NewBarkTown_ElmsLab/scripts.inc"
 	.include "data/maps/NewBarkTown_ElmsLab/text.inc"
+
+	.include "data/maps/Route30_MrPuppetHouse/scripts.inc"
+	.include "data/maps/Route30_MrPuppetHouse/text.inc"

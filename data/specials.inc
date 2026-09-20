@@ -651,3 +651,4 @@ gSpecials::
 	def_special StickerManGetBragFlags
 	def_special CheckAddCoins
 	def_special DoSlidingPuzzle, waitstate=1
+	def_special NameJohtoRival, waitstate=1

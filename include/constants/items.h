@@ -806,6 +806,8 @@ enum __attribute__((packed)) Item
     ITEM_RUBY,
     ITEM_SAPPHIRE,
 
+    ITEM_MYSTERY_ORB,
+
     ITEM_TEACHY_TV,
     ITEM_POKE_RADAR,
     ITEM_POKEBLOCK_CASE,

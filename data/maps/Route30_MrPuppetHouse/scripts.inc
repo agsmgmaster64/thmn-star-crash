@@ -1,0 +1,69 @@
+Route30_MrPuppetHouse_MapScripts::
+	map_script MAP_SCRIPT_ON_FRAME_TABLE, Route30_MrPuppetHouse_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE
+	.byte 0
+
+Route30_MrPuppetHouse_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE:
+	map_script_2 VAR_CHERRYGROVE_CITY_STATE, 1, Route30_MrPuppetHouse_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE_0
+	.2byte 0
+
+Route30_MrPuppetHouse_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE_0:
+	lockall
+	applymovement LOCALID_ROUTE30_HOUSE_MR_PUPPET, Route30_MrPuppetHouse_Movement_MrPuppetSeePlayer
+	waitmovement LOCALID_ROUTE30_HOUSE_MR_PUPPET
+	msgbox Route30_MrPuppetHouse_Text_MrPuppetElm
+	closemessage
+	applymovement LOCALID_PLAYER, Route30_MrPuppetHouse_Movement_PlayerApproachMrPuppet
+	waitmovement LOCALID_PLAYER
+	msgbox Route30_MrPuppetHouse_Text_MrPuppetGiveOrb
+	giveitem ITEM_MYSTERY_ORB
+	msgbox Route30_MrPuppetHouse_Text_MrPuppetHeal
+	closemessage
+	call Common_EventScript_OutOfCenterPartyHeal
+	applymovement LOCALID_ROUTE30_HOUSE_OAK, Route30_MrPuppetHouse_Movement_OakApproachPlayer
+	waitmovement LOCALID_ROUTE30_HOUSE_OAK
+	msgbox Route30_MrPuppetHouse_Text_OakGiveDex
+	closemessage
+	applymovement LOCALID_ROUTE30_HOUSE_OAK, Route30_MrPuppetHouse_Movement_OakWalkOut
+	waitmovement LOCALID_ROUTE30_HOUSE_OAK
+	removeobject LOCALID_ROUTE30_HOUSE_OAK
+	setflag FLAG_SYS_POKEDEX_GET
+	special EnableNationalPokedex
+	setrespawn HEAL_LOCATION_CHERRYGROVE_CITY
+	setvar VAR_CHERRYGROVE_CITY_STATE, 2
+	releaseall
+	end
+
+
+Route30_MrPuppetHouse_Movement_MrPuppetSeePlayer:
+	face_down
+	step_end
+
+Route30_MrPuppetHouse_Movement_PlayerApproachMrPuppet:
+	walk_up
+	walk_up
+	step_end
+
+Route30_MrPuppetHouse_Movement_OakApproachPlayer:
+	walk_left
+	walk_left
+	walk_down
+	face_left
+	step_end
+
+Route30_MrPuppetHouse_Movement_OakWalkOut:
+	walk_down
+	walk_left
+	walk_down
+	step_end
+
+Route30_MrPuppetHouse_Text_MrPuppetElm::
+	.string "You are here$"
+
+Route30_MrPuppetHouse_Text_MrPuppetGiveOrb::
+	.string "Here egg$"
+
+Route30_MrPuppetHouse_Text_MrPuppetHeal::
+	.string "Free Heal$"
+
+Route30_MrPuppetHouse_Text_OakGiveDex::
+	.string "You get Dex$"

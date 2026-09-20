@@ -2438,6 +2438,14 @@
 #define FLAG_WORLD_MAP_DRAGONS_DEN                                  0
 #define FLAG_WORLD_MAP_BIRTH_ISLAND_EXTERIOR                        0
 
+
+#define FLAG_HIDE_RIVAL_CHERRYGROVE          0
+#define FLAG_HIDE_RIVAL_NEW_BARK_TOWN        0
+#define FLAG_HIDE_CHERRYGROVE_GUIDE          0
+#define FLAG_HIDE_YOUNGSTER_BATTLE_ROUTE_30  0
+#define FLAG_HIDE_ROUTE_30_YOUNGSTER         0
+#define FLAG_HIDE_ROUTE_30_OAK               0
+
 #endif
 
 #if TESTING

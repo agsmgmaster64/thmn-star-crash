@@ -182,6 +182,7 @@ script NewBarkTown_ElmsLab_EventScript_AideAssistCommon {
     msgbox(NewBarkTown_ElmsLab_Text_AideGivePotion)
     giveitem(ITEM_POTION)
     setvar(VAR_NEW_BARK_TOWN_LAB_STATE, 3)
+    setvar(VAR_NEW_BARK_TOWN_STATE, 2)
     closemessage
     return
 }

@@ -15,11 +15,25 @@ const struct ApricornTree gApricornTrees[APRICORN_TREE_COUNT] =
         .apricornType = APRICORN_BERRY_CHERI,
     },
 
-    [APRICORN_TREE_ROUTE_29_GREEN_TREE] =
+    [APRICORN_TREE_ROUTE_29_TREE] =
     {
         .minimum = 1,
         .maximum = 1,
-        .apricornType = APRICORN_GREEN,
+        .apricornType = APRICORN_BERRY_ORAN,
+    },
+
+    [APRICORN_TREE_ROUTE_30_TREE_1] =
+    {
+        .minimum = 1,
+        .maximum = 1,
+        .apricornType = APRICORN_BERRY_ORAN,
+    },
+
+    [APRICORN_TREE_ROUTE_30_TREE_2] =
+    {
+        .minimum = 1,
+        .maximum = 1,
+        .apricornType = APRICORN_BERRY_PECHA,
     },
     #endif
 };

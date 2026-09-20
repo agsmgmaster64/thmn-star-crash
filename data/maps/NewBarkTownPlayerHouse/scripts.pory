@@ -1,1 +1,44 @@
-mapscripts NewBarkTownPlayerHouse_MapScripts {}
+mapscripts NewBarkTownPlayerHouse_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION {
+		if (var(VAR_NEW_BARK_TOWN_STATE) < 2) {
+			setobjectxyperm(LOCALID_NEW_BARK_TOWN_PLAYER_MOM, 8, 4)
+			setobjectmovementtype(LOCALID_NEW_BARK_TOWN_PLAYER_MOM, MOVEMENT_TYPE_FACE_LEFT)
+		}
+		end
+	}
+    MAP_SCRIPT_ON_FRAME_TABLE [
+        VAR_NEW_BARK_TOWN_STATE, 0 {
+            applymovement(LOCALID_NEW_BARK_TOWN_PLAYER_MOM, NewBarkTownPlayerHouse_Movement_MomApproachPlayer)
+            waitmovement(LOCALID_NEW_BARK_TOWN_PLAYER_MOM)
+            msgbox(NewBarkTownPlayerHouse_Text_MomIntro)
+            closemessage
+            applymovement(LOCALID_NEW_BARK_TOWN_PLAYER_MOM, NewBarkTownPlayerHouse_Movement_MomGoBack)
+            waitmovement(LOCALID_NEW_BARK_TOWN_PLAYER_MOM)
+            setflag(FLAG_SYS_PHONE_UPGRADE)
+            setflag(FLAG_SYS_POKENAV_GET)
+            setflag(FLAG_ENABLE_MOM_MATCH_CALL)
+            setflag(FLAG_HAS_MATCH_CALL)
+            setflag(FLAG_SYS_B_DASH)
+            setvar(VAR_NEW_BARK_TOWN_STATE, 1)
+            end
+        }
+    ]
+}
+
+script NewBarkTownPlayerHouse_Eventscript_Mom {
+    end
+}
+
+text NewBarkTownPlayerHouse_Text_MomIntro {
+    format("Your stuff")
+}
+
+movement NewBarkTownPlayerHouse_Movement_MomApproachPlayer {
+    walk_right * 2
+    walk_up
+}
+
+movement NewBarkTownPlayerHouse_Movement_MomGoBack {
+    walk_down
+    walk_left * 2
+}

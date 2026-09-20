@@ -1223,5 +1223,7 @@
   "gMapGroup_IndoorCianwoodCity": [],
   "gMapGroup_IndoorMahoganyTown": [],
   "gMapGroup_IndoorBlackthornCity": [],
-  "gMapGroup_IndoorRoutes_Johto": []
+  "gMapGroup_IndoorRoutes_Johto": [
+    "Route30_MrPuppetHouse"
+  ]
 }

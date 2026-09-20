@@ -1,6 +1,30 @@
 mapscripts NewBarkTown_MapScripts {
     MAP_SCRIPT_ON_TRANSITION {
         setflag(FLAG_WORLD_MAP_NEW_BARK_TOWN)
+		if (var(VAR_NEW_BARK_TOWN_STATE) < 2) {
+			setobjectxyperm(LOCALID_NEW_BARK_TOWN_LASS, 1, 11)
+			setobjectmovementtype(LOCALID_NEW_BARK_TOWN_LASS, MOVEMENT_TYPE_LOOK_AROUND)
+		}
         end
     }
+}
+
+script NewBarkTown_EventScript_LassWarnTrigger {
+    lockall
+    applymovement(LOCALID_NEW_BARK_TOWN_LASS, Common_Movement_FaceDown)
+    waitmovement(LOCALID_NEW_BARK_TOWN_LASS)
+    msgbox(NewBarkTown_Text_LassWarn)
+    closemessage
+    applymovement(LOCALID_PLAYER, NewBarkTown_Movement_PlayerWarned)
+    waitmovement(LOCALID_PLAYER)
+    releaseall
+    end
+}
+
+movement NewBarkTown_Movement_PlayerWarned {
+    walk_right
+}
+
+text NewBarkTown_Text_LassWarn {
+    format("Cannot progress")
 }

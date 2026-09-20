@@ -753,15 +753,15 @@
 #define FLAG_OAKS_RATING_IS_VIA_PC                       0x2FF
 
 // Unused?
-#define FLAG_0x300               0x300
-#define FLAG_0x301               0x301
-#define FLAG_0x302               0x302
-#define FLAG_0x303               0x303
-#define FLAG_0x304               0x304
-#define FLAG_0x305               0x305
-#define FLAG_0x306               0x306
-#define FLAG_0x307               0x307
-#define FLAG_0x308               0x308
+#define FLAG_ENABLE_MOM_MATCH_CALL           0x300
+#define FLAG_ADDED_MATCH_CALL_TO_POKENAV     0x301
+#define FLAG_HAS_MATCH_CALL                  0x302
+#define FLAG_HIDE_RIVAL_CHERRYGROVE          0x303
+#define FLAG_HIDE_RIVAL_NEW_BARK_TOWN        0x304
+#define FLAG_HIDE_CHERRYGROVE_GUIDE          0x305
+#define FLAG_HIDE_YOUNGSTER_BATTLE_ROUTE_30  0x306
+#define FLAG_HIDE_ROUTE_30_YOUNGSTER         0x307
+#define FLAG_HIDE_ROUTE_30_OAK               0x308
 #define FLAG_0x309               0x309
 #define FLAG_0x30A               0x30A
 #define FLAG_0x30B               0x30B
@@ -1231,7 +1231,7 @@
 #define FLAG_CAN_DYNAMAX               0x4CB
 #define FLAG_GHOST_BATTLE               0x4CC
 #define FLAG_NO_WILD_BATTLES               0x4CD
-#define FLAG_USE_VS_SEEKER               0x4CE
+#define FLAG_0x4CE               0x4CE
 #define FLAG_CAN_TERASTALIZE               0x4CF
 #define FLAG_TERA_ORB_NO_COST               0x4D0
 #define FLAG_DOISE_BATTLE               0x4D1
@@ -1338,8 +1338,8 @@
 
 #define FLAG_SYS_POKEMON_GET                                        (SYS_FLAGS + 0x28)
 #define FLAG_SYS_POKEDEX_GET                                        (SYS_FLAGS + 0x29)
-#define FLAG_SYS_PHONE_UPGRADE                                          (SYS_FLAGS + 0x2A)
-#define FLAG_0x82B                                                  (SYS_FLAGS + 0x2B)
+#define FLAG_SYS_PHONE_UPGRADE                                      (SYS_FLAGS + 0x2A)
+#define FLAG_SYS_POKENAV_GET                                        (SYS_FLAGS + 0x2B)
 #define FLAG_SYS_GAME_CLEAR                                         (SYS_FLAGS + 0x2C)
 #define FLAG_SYS_SET_TRAINER_CARD_PROFILE                           (SYS_FLAGS + 0x2D)
 #define FLAG_0x82E                                                  (SYS_FLAGS + 0x2E)
@@ -1641,7 +1641,6 @@
 #define FLAG_RECEIVED_PREMIER_BALL_RUSTBORO  0
 #define FLAG_ENABLE_WALLY_MATCH_CALL         0
 #define FLAG_ENABLE_SCOTT_MATCH_CALL         0
-#define FLAG_ENABLE_MOM_MATCH_CALL           0
 #define FLAG_MET_DIVING_TREASURE_HUNTER      0
 #define FLAG_MET_WAILMER_TRAINER             0
 #define FLAG_EVIL_LEADER_PLEASE_STOP         0
@@ -1730,8 +1729,6 @@
 #define FLAG_MET_FANCLUB_YOUNGER_BROTHER     0
 #define FLAG_RIVAL_LEFT_FOR_ROUTE103         0
 #define FLAG_OMIT_DIVE_FROM_STEVEN_LETTER    0
-#define FLAG_HAS_MATCH_CALL                  0
-#define FLAG_ADDED_MATCH_CALL_TO_POKENAV     0
 #define FLAG_REGISTERED_STEVEN_POKENAV       0
 #define FLAG_ENABLE_NORMAN_MATCH_CALL        0
 #define FLAG_STEVEN_GUIDES_TO_CAVE_OF_ORIGIN 0 // Set after you follow Steven to the entrance of the Cave of Origin.
@@ -2492,7 +2489,6 @@
 // See constants/opponents.h. The values there + FLAG_TRAINER_FLAG_START are the flag IDs
 
 // System Flags
-#define FLAG_SYS_POKENAV_GET                         0
 #define FLAG_UNUSED_0x863                            0
 #define FLAG_SYS_CHAT_USED                           0
 #define FLAG_UNLOCKED_TRENDY_SAYINGS                 0
@@ -2674,6 +2670,8 @@
 #define FLAG_DAILY_SOOTOPOLIS_RECEIVED_BERRY        0
 #define FLAG_UNUSED_0x933                           0
 #define FLAG_DAILY_APPRENTICE_LEAVES                0
+
+#define FLAG_USE_VS_SEEKER    0
 
 // Special Flags (Stored in EWRAM (sSpecialFlags), not in the SaveBlock)
 #define SPECIAL_FLAGS_START                     0x4000

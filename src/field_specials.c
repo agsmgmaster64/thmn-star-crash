@@ -5745,3 +5745,10 @@ bool8 CheckAddCoins(void)
     else
         return TRUE;
 }
+
+void NameJohtoRival(void)
+{
+#if IS_FRLG
+    DoNamingScreen(NAMING_SCREEN_RIVAL, gSaveBlock1Ptr->rivalName, 0, 0, 0, CB2_ReturnToFieldContinueScriptPlayMapMusic);
+#endif
+}

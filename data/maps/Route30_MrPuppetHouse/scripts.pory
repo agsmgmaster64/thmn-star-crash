@@ -1,0 +1,67 @@
+mapscripts Route30_MrPuppetHouse_MapScripts {
+    MAP_SCRIPT_ON_FRAME_TABLE [
+        VAR_CHERRYGROVE_CITY_STATE, 1 {
+            lockall
+            applymovement(LOCALID_ROUTE30_HOUSE_MR_PUPPET, Route30_MrPuppetHouse_Movement_MrPuppetSeePlayer)
+            waitmovement(LOCALID_ROUTE30_HOUSE_MR_PUPPET)
+            msgbox(Route30_MrPuppetHouse_Text_MrPuppetElm)
+            closemessage
+            applymovement(LOCALID_PLAYER, Route30_MrPuppetHouse_Movement_PlayerApproachMrPuppet)
+            waitmovement(LOCALID_PLAYER)
+            msgbox(Route30_MrPuppetHouse_Text_MrPuppetGiveOrb)
+            giveitem(ITEM_MYSTERY_ORB)
+            msgbox(Route30_MrPuppetHouse_Text_MrPuppetHeal)
+            closemessage
+            call(Common_EventScript_OutOfCenterPartyHeal)
+            applymovement(LOCALID_ROUTE30_HOUSE_OAK, Route30_MrPuppetHouse_Movement_OakApproachPlayer)
+            waitmovement(LOCALID_ROUTE30_HOUSE_OAK)
+            msgbox(Route30_MrPuppetHouse_Text_OakGiveDex)
+            closemessage
+            applymovement(LOCALID_ROUTE30_HOUSE_OAK, Route30_MrPuppetHouse_Movement_OakWalkOut)
+            waitmovement(LOCALID_ROUTE30_HOUSE_OAK)
+            removeobject(LOCALID_ROUTE30_HOUSE_OAK)
+            setflag(FLAG_SYS_POKEDEX_GET)
+            special(EnableNationalPokedex)
+            setrespawn(HEAL_LOCATION_CHERRYGROVE_CITY)
+            setvar(VAR_CHERRYGROVE_CITY_STATE, 2)
+            releaseall
+            end
+        }
+    ]
+}
+
+movement Route30_MrPuppetHouse_Movement_MrPuppetSeePlayer {
+    face_down
+}
+
+movement Route30_MrPuppetHouse_Movement_PlayerApproachMrPuppet {
+    walk_up * 2
+}
+
+movement Route30_MrPuppetHouse_Movement_OakApproachPlayer {
+    walk_left * 2
+    walk_down
+    face_left
+}
+
+movement Route30_MrPuppetHouse_Movement_OakWalkOut {
+    walk_down
+    walk_left
+    walk_down
+}
+
+text Route30_MrPuppetHouse_Text_MrPuppetElm {
+    format("You are here")
+}
+
+text Route30_MrPuppetHouse_Text_MrPuppetGiveOrb {
+    format("Here egg")
+}
+
+text Route30_MrPuppetHouse_Text_MrPuppetHeal {
+    format("Free Heal")
+}
+
+text Route30_MrPuppetHouse_Text_OakGiveDex {
+    format("You get Dex")
+}

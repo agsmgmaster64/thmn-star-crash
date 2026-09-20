@@ -12712,6 +12712,20 @@ const struct ItemInfo gItemsInfo[] =
         .iconPalette = gItemIconPalette_Sapphire,
     },
 
+    [ITEM_MYSTERY_ORB] =
+    {
+        .name = ITEM_NAME("Mystery Orb"),
+        .price = 0,
+        .description = COMPOUND_STRING(
+            "Placeholder."),
+        .importance = 1,
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_SecretKey,
+        .iconPalette = gItemIconPalette_SecretKey,
+    },
+
 // Gen 9 Items
 
     [ITEM_ABILITY_SHIELD] =

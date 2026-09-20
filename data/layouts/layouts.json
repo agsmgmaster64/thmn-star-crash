@@ -13896,6 +13896,22 @@
         "firered",
         "leafgreen"
       ]
+    },
+    {
+      "id": "LAYOUT_ROUTE30_MR_PUPPET_HOUSE",
+      "name": "Route30_MrPuppetHouse_Layout",
+      "width": 11,
+      "height": 10,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_BuildingFrlg",
+      "secondary_tileset": "gTileset_Lab_Frlg",
+      "border_filepath": "data/layouts/Route30_MrPuppetHouse/border.bin",
+      "blockdata_filepath": "data/layouts/Route30_MrPuppetHouse/map.bin",
+      "build_version": [
+        "firered",
+        "leafgreen"
+      ]
     }
   ]
 }
