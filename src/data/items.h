@@ -8700,9 +8700,6 @@ const struct ItemInfo gItemsInfo[] =
             "When held by a Pokémon, it will be\n"
             "used in battle to restore 30 HP."),
     #endif
-        .descriptionLong = COMPOUND_STRING(
-            "When held by a Puppet, it will be\n"
-            "used in battle to heal any problem."),
         .pocket = POCKET_BERRIES,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_Medicine,

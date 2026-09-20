@@ -55,6 +55,20 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
       "flag": "FLAG_HIDE_RIVAL_CHERRYGROVE"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_NICE_NATURE",
+      "x": 43,
+      "y": 8,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "0"
     }
   ],
   "warp_events": [
@@ -70,6 +84,27 @@
       "y": 7,
       "elevation": 0,
       "dest_map": "MAP_CHERRYGROVE_CITY_MART",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 34,
+      "y": 13,
+      "elevation": 0,
+      "dest_map": "MAP_CHERRYGROVE_CITY",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 42,
+      "y": 14,
+      "elevation": 0,
+      "dest_map": "MAP_CHERRYGROVE_CITY",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 50,
+      "y": 17,
+      "elevation": 0,
+      "dest_map": "MAP_CHERRYGROVE_CITY",
       "dest_warp_id": "0"
     }
   ],

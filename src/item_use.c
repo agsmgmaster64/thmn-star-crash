@@ -1578,7 +1578,7 @@ void ItemUseOutOfBattle_FlyTool(u8 taskId)
     }
     else if (gTasks[taskId].tUsingRegisteredKeyItem != TRUE)
     {
-        SetUpItemUseCallback(CB2_OpenFlyToolFromBag);
+        SetItemMenuCallback(CB2_OpenFlyToolFromBag);
         CloseItemMenu(taskId);
     }
     else

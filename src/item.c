@@ -527,7 +527,15 @@ void RemovePCItemFromIndex(u8 index, u16 count)
 {
     struct BagPocket dummyPocket = DUMMY_PC_BAG_POCKET;
 
-    BagPocket_RemoveItem(&dummyPocket, itemId, count);
+    // Get id, quantity at slot
+    struct ItemSlot tempItem = BagPocket_GetSlotData(&dummyPocket, index);
+
+    // Remove quantity
+    BagPocket_SetSlotItemIdAndCount(&dummyPocket, index, tempItem.itemId, tempItem.quantity - count);
+
+    // Compact if necessary
+    if (tempItem.quantity == 0)
+        BagPocket_CompactItems(&dummyPocket);
 }
 
 void CompactPCItems(void)

@@ -373,11 +373,6 @@ static const u8 sContextMenuItems_BerryPouchTMCase[] = {
     ACTION_CANCEL
 };
 
-static const u8 sContextMenuItems_BerryPouchTMCaseOpen[] = {
-    ACTION_OPEN,
-    ACTION_CANCEL
-};
-
 static const u8 sContextMenu_RegisterKeyItem[] = {
     ACTION_SELECT_BUTTON,
     ACTION_L_BUTTON,
@@ -1939,7 +1934,7 @@ static void OpenContextMenu(u8 taskId)
                     if (TestPlayerAvatarFlags(PLAYER_AVATAR_FLAG_BIKE))
                         gBagMenu->contextMenuItemsBuffer[0] = ACTION_WALK;
                 }
-                else if (GetItemFieldFunc(gSpecialVar_ItemId) == ItemUseOutOfBattle_TmCase || GetItemFieldFunc(gSpecialVar_ItemId) == ItemUseOutOfBattle_BerryPouch)
+                else if (GetItemFieldFunc(gSpecialVar_ItemId) == ItemUseOutOfBattle_TMCase || GetItemFieldFunc(gSpecialVar_ItemId) == ItemUseOutOfBattle_BerryPouch)
                 {
                     gBagMenu->contextMenuNumItems = ARRAY_COUNT(sContextMenuItems_BerryPouchTMCase);
                     memcpy(&gBagMenu->contextMenuItemsBuffer, &sContextMenuItems_BerryPouchTMCase, sizeof(sContextMenuItems_BerryPouchTMCase));
@@ -2524,16 +2519,6 @@ static void GoToTMCase_Give(void)
 static void GoToBerryPouch_Give(void)
 {
     InitBerryPouch(BERRYPOUCH_GIVE_PARTY, CB2_SelectBagItemToGive, FALSE);
-}
-
-static void GoToTMCase_Give(void)
-{
-    InitTMCase(TMCASE_GIVE_PARTY, CB2_SelectBagItemToGive, FALSE);
-}
-
-static void GoToBerryPouch_Give(void)
-{
-    InitBerryPouch(BERRYPOUCH_FROMPARTYGIVE, CB2_SelectBagItemToGive, FALSE);
 }
 
 static void Task_ItemContext_GiveToParty(u8 taskId)
