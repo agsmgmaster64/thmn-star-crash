@@ -36,6 +36,7 @@
 #include "international_string_util.h"
 #include "item.h"
 #include "item_menu.h"
+#include "item_menu_frlg.h"
 #include "item_pc_rg.h"
 #include "item_use.h"
 #include "caps.h"
@@ -3675,6 +3676,8 @@ void CB2_SelectBagItemToGive(void)
 {
     if (CurrentBattlePyramidLocation() != PYRAMID_LOCATION_NONE || FlagGet(FLAG_USE_PYRAMID_BAG))
         GoToBattlePyramidBagMenu(PYRAMIDBAG_LOC_PARTY, CB2_GiveHoldItem);
+    else if (FRLG_I_USE_FRLG_BAG)
+        GoToBagMenuFrlg(ITEMMENULOCATION_PARTY, OPEN_BAG_LAST, CB2_GiveHoldItem);
     else
         GoToBagMenu(ITEMMENULOCATION_PARTY, POCKETS_COUNT, CB2_GiveHoldItem);
 }
@@ -5060,12 +5063,14 @@ static void CB2_ReturnToBerryPouchMenu(void)
 
 static void CB2_ReturnToBagMenu(void)
 {
-    if (CurrentBattlePyramidLocation() != PYRAMID_LOCATION_NONE || FlagGet(FLAG_USE_PYRAMID_BAG))
-        GoToBattlePyramidBagMenu(PYRAMIDBAG_LOC_PREV, gPyramidBagMenuState.exitCallback);
-    else if (CheckIfInTMCase())
+    if (CheckIfInTMCase())
         CB2_ReturnToTMCaseMenu();
     else if (CheckIfInBerryPouch())
         CB2_ReturnToBerryPouchMenu();
+    else if (CurrentBattlePyramidLocation() != PYRAMID_LOCATION_NONE || FlagGet(FLAG_USE_PYRAMID_BAG))
+        GoToBattlePyramidBagMenu(PYRAMIDBAG_LOC_PREV, gPyramidBagMenuState.exitCallback);
+    else if (FRLG_I_USE_FRLG_BAG)
+        GoToBagMenuFrlg(ITEMMENULOCATION_LAST, OPEN_BAG_LAST, NULL);
     else
         GoToBagMenu(ITEMMENULOCATION_LAST, POCKETS_COUNT, NULL);
 }
@@ -7428,12 +7433,12 @@ void CB2_ChooseMonToGiveItem(void)
 {
     MainCallback callback;
 
-    if (CurrentBattlePyramidLocation() != PYRAMID_LOCATION_NONE || FlagGet(FLAG_USE_PYRAMID_BAG))
-        callback = CB2_ReturnToPyramidBagMenu;
-    else if (CheckIfInTMCase())
+    if (CheckIfInTMCase())
         callback = CB2_ReturnToTMCaseMenu;
     else if (CheckIfInBerryPouch())
         callback = CB2_ReturnToBerryPouchMenu;
+    else if (CurrentBattlePyramidLocation() != PYRAMID_LOCATION_NONE || FlagGet(FLAG_USE_PYRAMID_BAG))
+        callback = CB2_ReturnToPyramidBagMenu;
     else
         callback = CB2_ReturnToBagMenu;
 

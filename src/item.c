@@ -354,7 +354,7 @@ static bool32 NONNULL BagPocket_AddItem(struct BagPocket *pocket, enum Item item
         }
     }
 
-    if (TMCASE_ADD_TM_CASE_WITH_TMS)
+    if (FRLG_I_ADD_TM_CASE_WITH_TMS)
     {
         if (pocket->id == POCKET_TM_HM)
         {
@@ -363,7 +363,7 @@ static bool32 NONNULL BagPocket_AddItem(struct BagPocket *pocket, enum Item item
         }
     }
 
-    if (BP_ADD_BERRY_POUCH_WITH_BERRIES)
+    if (FRLG_I_ADD_BERRY_POUCH_WITH_BERRIES)
     {
         if (pocket->id == POCKET_BERRIES)
         {
@@ -517,6 +517,13 @@ static void NONNULL BagPocket_CompactItems(struct BagPocket *pocket)
 }
 
 void RemovePCItem(enum Item itemId, u16 count)
+{
+    struct BagPocket dummyPocket = DUMMY_PC_BAG_POCKET;
+
+    BagPocket_RemoveItem(&dummyPocket, itemId, count);
+}
+
+void RemovePCItemFromIndex(u8 index, u16 count)
 {
     struct BagPocket dummyPocket = DUMMY_PC_BAG_POCKET;
 

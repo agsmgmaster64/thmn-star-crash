@@ -8686,6 +8686,9 @@ const struct ItemInfo gItemsInfo[] =
             "A held item that\n"
             "restores a little\n"
             "HP in battle."),
+        .descriptionLong = COMPOUND_STRING(
+            "When held by a Pokémon, it restores\n"
+            "the user's HP by a small amount."),
     #else
         .holdEffect = HOLD_EFFECT_RESTORE_HP,
         .holdEffectParam = 30,
@@ -8693,6 +8696,9 @@ const struct ItemInfo gItemsInfo[] =
             "A held item that\n"
             "restores 30 HP in\n"
             "battle."),
+        .descriptionLong = COMPOUND_STRING(
+            "When held by a Pokémon, it will be\n"
+            "used in battle to restore 30 HP."),
     #endif
         .descriptionLong = COMPOUND_STRING(
             "When held by a Puppet, it will be\n"
@@ -9788,6 +9794,9 @@ const struct ItemInfo gItemsInfo[] =
             "Restores HP when\n"
             "hit by a super\n"
             "effective move."),
+        .descriptionLong = COMPOUND_STRING(
+            "When held by a Puppet, it restores\n"
+            "HP from a super-effective move."),
         .pocket = POCKET_BERRIES,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
@@ -9808,7 +9817,7 @@ const struct ItemInfo gItemsInfo[] =
             "boosts accuracy in\n"
             "a pinch."),
         .descriptionLong = COMPOUND_STRING(
-            "If held by a Puppet, it increases\n"
+            "When held by a Puppet, it raises\n"
             "Accuracy just once in a pinch."),
         .pocket = POCKET_BERRIES,
         .type = ITEM_USE_BAG_MENU,
@@ -9830,7 +9839,7 @@ const struct ItemInfo gItemsInfo[] =
             "to move first just\n"
             "once in a pinch."),
         .descriptionLong = COMPOUND_STRING(
-            "If held by a Puppet, it gets to\n"
+            "When held by a Puppet, it gets to\n"
             "move first just once in a pinch."),
         .pocket = POCKET_BERRIES,
         .type = ITEM_USE_BAG_MENU,
@@ -12019,7 +12028,7 @@ const struct ItemInfo gItemsInfo[] =
         .importance = 1,
         .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_BAG_MENU,
-        .fieldUseFunc = ItemUseOutOfBattle_TmCase,
+        .fieldUseFunc = ItemUseOutOfBattle_TMCase,
         .iconPic = gItemIcon_TMCase,
         .iconPalette = gItemIconPalette_TMCase,
     },

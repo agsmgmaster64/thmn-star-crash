@@ -246,9 +246,7 @@ static const u8 sText_ClearTo18[] = _("{CLEAR_TO 18}");
 static const u8 sText_SingleSpace[] = _(" ");
 static const u8 sText_Close[] = _("Close");
 static const u8 sText_FontSmall[] = _("{FONT_SMALL}");
-static const u8 sText_FontFontSmall[] = _("{FONT_SHORT}");
-static const u8 sText_BerryPouch[] = _("BERRY POUCH");
-static const u8 sText_TheBerryPouchWillBePutAway[] = _("The Berry Pouch will be\nput away.");
+static const u8 sText_FontShort[] = _("{FONT_SHORT}");
 static const u8 sText_TMCase[] = _("TM CASE");
 static const u8 sText_TMCaseWillBePutAway[] = _("The TM Case will be\nput away.");
 
@@ -265,12 +263,12 @@ static const u8 sTMCaseHM_Gfx[] = INCGFX_U8("graphics/tm_case/hm.png", ".4bpp");
 
 static ALIGNED(4) const u16 sPal3Override[] = {RGB(8, 8, 8), RGB(30, 16, 6)};
 
-#define TEXT_COLOR_TMCASE_TRANSPARENT 0
-#define TEXT_COLOR_TMCASE_DARK_GRAY 1
-#define TEXT_COLOR_TMCASE_WHITE 2
-#define TEXT_COLOR_TMCASE_LIGHT_GRAY 10
-#define TEXT_COLOR_TMCASE_MESSAGE_NORMAL 2
-#define TEXT_COLOR_TMCASE_MESSAGE_SHADOW 3
+#define TEXT_COLOR_TMCASE_TRANSPARENT TEXT_COLOR_TRANSPARENT
+#define TEXT_COLOR_TMCASE_DARK_GRAY TEXT_COLOR_WHITE
+#define TEXT_COLOR_TMCASE_WHITE TEXT_COLOR_DARK_GRAY
+#define TEXT_COLOR_TMCASE_LIGHT_GRAY TEXT_DYNAMIC_COLOR_1
+#define TEXT_COLOR_TMCASE_MESSAGE_NORMAL TEXT_COLOR_DARK_GRAY
+#define TEXT_COLOR_TMCASE_MESSAGE_SHADOW TEXT_COLOR_LIGHT_GRAY
 
 static const u8 sTextColors[][3] =
 {
@@ -368,8 +366,8 @@ static const struct WindowTemplate sWindowTemplates[] =
         .bg = 1,
         .tilemapLeft = 1,
         .tilemapTop = 1,
-        .width = 10,
-        .height = 2,
+        .width = 8,
+        .height = 3,
         .paletteNum = 15,
         .baseBlock = 0x31d
     },
@@ -689,7 +687,7 @@ static bool8 HandleLoadTMCaseGraphicsAndPalettes(void)
 static void CreateTMCaseListMenuBuffers(void)
 {
     sListMenuItemsBuffer = Alloc((BAG_TMHM_COUNT + 1) * sizeof(struct ListMenuItem));
-    sListMenuStringsBuffer = Alloc(sTMCaseDynamicResources->numTMs * 29);
+    sListMenuStringsBuffer = Alloc(sTMCaseDynamicResources->numTMs * 31);
 }
 
 static void InitTMCaseListMenuItems(void)
@@ -744,7 +742,7 @@ static void GetTMNumberAndMoveString(u8 * dest, u16 itemId)
         StringAppend(gStringVar4, gStringVar1);
     }
     StringAppend(gStringVar4, sText_SingleSpace);
-    StringAppend(gStringVar4, sText_FontFontSmall);
+    StringAppend(gStringVar4, sText_FontShort);
     StringAppend(gStringVar4, GetMoveName(ItemIdToBattleMoveId(itemId)));
     StringCopy(dest, gStringVar4);
 }
@@ -1120,14 +1118,14 @@ static void Action_Give(u8 taskId)
 
 static void PrintError_ThereIsNoPokemon(u8 taskId)
 {
-    PrintMessageWithFollowupTask(taskId, FONT_SHORT, gText_NoPokemon, Task_WaitButtonAfterErrorPrint);
+    PrintMessageWithFollowupTask(taskId, FONT_NORMAL, gText_NoPokemon, Task_WaitButtonAfterErrorPrint);
 }
 
 static void PrintError_ItemCantBeHeld(u8 taskId)
 {
     CopyItemName(gSpecialVar_ItemId, gStringVar1);
     StringExpandPlaceholders(gStringVar4, gText_Var1CantBeHeld);
-    PrintMessageWithFollowupTask(taskId, FONT_SHORT, gStringVar4, Task_WaitButtonAfterErrorPrint);
+    PrintMessageWithFollowupTask(taskId, FONT_NORMAL, gStringVar4, Task_WaitButtonAfterErrorPrint);
 }
 
 static void Task_WaitButtonAfterErrorPrint(u8 taskId)
@@ -1216,7 +1214,7 @@ static void Task_SelectedTMHM_Sell(u8 taskId)
         // Can't sell TM/HMs with no price (by default this is just the HMs)
         CopyItemName(gSpecialVar_ItemId, gStringVar2);
         StringExpandPlaceholders(gStringVar4, gText_CantBuyKeyItem);
-        PrintMessageWithFollowupTask(taskId, FONT_SHORT, gStringVar4, CloseMessageAndReturnToList);
+        PrintMessageWithFollowupTask(taskId, FONT_NORMAL, gStringVar4, CloseMessageAndReturnToList);
     }
     else
     {
@@ -1228,9 +1226,14 @@ static void Task_SelectedTMHM_Sell(u8 taskId)
         }
         else
         {
+            u32 maxQuantity = MAX_MONEY / GetItemSellPrice(gSpecialVar_ItemId);
+
+            if (tQuantity > maxQuantity)
+                tQuantity = maxQuantity;
+
             CopyItemName(gSpecialVar_ItemId, gStringVar2);
             StringExpandPlaceholders(gStringVar4, gText_HowManyToSell);
-            PrintMessageWithFollowupTask(taskId, FONT_SHORT, gStringVar4, Task_InitQuantitySelectUI);
+            PrintMessageWithFollowupTask(taskId, FONT_NORMAL, gStringVar4, Task_InitQuantitySelectUI);
         }
     }
 }
@@ -1241,7 +1244,7 @@ static void Task_AskConfirmSaleWithAmount(u8 taskId)
 
     ConvertIntToDecimalStringN(gStringVar1, GetItemSellPrice(GetTMCaseItemIdByPosition(tListPosition)) * tItemCount, STR_CONV_MODE_LEFT_ALIGN, MAX_MONEY_DIGITS);
     StringExpandPlaceholders(gStringVar4, gText_ICanPayVar1);
-    PrintMessageWithFollowupTask(taskId, FONT_SHORT, gStringVar4, Task_PlaceYesNoBox);
+    PrintMessageWithFollowupTask(taskId, FONT_NORMAL, gStringVar4, Task_PlaceYesNoBox);
 }
 
 static void Task_PlaceYesNoBox(u8 taskId)
@@ -1289,7 +1292,7 @@ static void SellTM_PrintQuantityAndSalePrice(s16 quantity, s32 amount)
     ConvertIntToDecimalStringN(gStringVar1, quantity, STR_CONV_MODE_LEADING_ZEROS, MAX_ITEM_DIGITS);
     StringExpandPlaceholders(gStringVar4, gText_xVar1);
     TMCase_Print(WIN_SELL_QUANTITY, FONT_SMALL, gStringVar4, 4, 10, 1, 0, 0, COLOR_MESSAGE);
-    PrintMoneyAmount(WIN_SELL_QUANTITY, 40, 10, amount, 0);
+    PrintMoneyAmountFrlg(WIN_SELL_QUANTITY, 40, 10, amount, 0);
 }
 
 static void Task_QuantitySelect_HandleInput(u8 taskId)
@@ -1336,7 +1339,7 @@ static void Task_PrintSaleConfirmedText(u8 taskId)
     CopyItemName(gSpecialVar_ItemId, gStringVar2);
     ConvertIntToDecimalStringN(gStringVar1, GetItemSellPrice(GetTMCaseItemIdByPosition(tListPosition)) * tItemCount, STR_CONV_MODE_LEFT_ALIGN, MAX_MONEY_DIGITS);
     StringExpandPlaceholders(gStringVar4, gText_TurnedOverVar1ForVar2);
-    PrintMessageWithFollowupTask(taskId, FONT_SHORT, gStringVar4, Task_DoSaleOfTMs);
+    PrintMessageWithFollowupTask(taskId, FONT_NORMAL, gStringVar4, Task_DoSaleOfTMs);
 }
 
 static void Task_DoSaleOfTMs(u8 taskId)
@@ -1352,7 +1355,7 @@ static void Task_DoSaleOfTMs(u8 taskId)
     InitTMCaseListMenuItems();
     tListTaskId = ListMenuInit(&gMultiuseListMenuTemplate, sTMCaseStaticResources.scrollOffset, sTMCaseStaticResources.selectedRow);
     PrintListCursor(tListTaskId, COLOR_CURSOR_SELECTED);
-    PrintMoneyAmountInMoneyBox(WIN_MONEY, GetMoney(&gSaveBlock1Ptr->money), 0);
+    PrintMoneyAmountInMoneyBoxFrlg(WIN_MONEY, GetMoney(&gSaveBlock1Ptr->money), 0);
     gTasks[taskId].func = Task_AfterSale_ReturnToList;
 }
 
@@ -1486,8 +1489,8 @@ static void PlaceHMTileInWindow(u8 windowId, u8 x, u8 y)
 
 static void PrintPlayersMoney(void)
 {
-    PrintMoneyAmountInMoneyBoxWithBorder(WIN_MONEY, 120, 14, GetMoney(&gSaveBlock1Ptr->money));
-    AddMoneyLabelObject(19, 11);
+    PrintMoneyAmountInMoneyBoxWithBorderFrlg(WIN_MONEY, 120, 14, GetMoney(&gSaveBlock1Ptr->money));
+    AddMoneyLabelObject(21, 14);
 }
 
 static void HandleCreateYesNoMenu(u8 taskId, const struct YesNoFuncTable *ptrs)
@@ -1559,7 +1562,7 @@ static void SetDiscSpritePosition(struct Sprite *sprite, u8 tmIdx)
     }
     else
     {
-        if (TMCASE_HMS_FIRST)
+        if (FRLG_I_HMS_FIRST)
         {
             if (tmIdx > NUM_TECHNICAL_MACHINES)
                 tmIdx -= NUM_TECHNICAL_MACHINES;

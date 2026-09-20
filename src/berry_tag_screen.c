@@ -184,6 +184,7 @@ static const u8 sText_NumberVar1Var2[] = _("{NO}{STR_VAR_1} {STR_VAR_2}");
 static const u8 sText_BerryTag[] = _("Berry Tag");
 static const u8 sText_ThreeMarks[] = _("???");
 
+// code
 static void DoBerryTagScreenCheckPouch(bool32 fromBerryPouch)
 {
     sBerryTag = AllocZeroed(sizeof(*sBerryTag));
@@ -565,12 +566,12 @@ static void Task_CloseBerryTagScreen(u8 taskId)
     {
         DestroyBerrySprite();
         DestroyFlavorCircleSprites();
-        Free(sBerryTag);
-        FreeAllWindowBuffers();
         if (sBerryTag->fromBerryPouch)
             SetMainCallback2(CB2_ReturnToBerryPouchMenu);
         else
             SetMainCallback2(CB2_ReturnToBagMenuPocket);
+        Free(sBerryTag);
+        FreeAllWindowBuffers();
         DestroyTask(taskId);
     }
 }

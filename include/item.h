@@ -249,6 +249,7 @@ u8 CountUsedPCItemSlots(void);
 bool32 CheckPCHasItem(enum Item itemId, u16 count);
 bool32 AddPCItem(enum Item itemId, u16 count);
 void RemovePCItem(enum Item itemId, u16 count);
+void RemovePCItemFromIndex(u8 index, u16 count);
 void CompactPCItems(void);
 void SwapRegisteredBike(void);
 void CompactItemsInBagPocket(enum Pocket pocketId);

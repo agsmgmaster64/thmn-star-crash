@@ -7,6 +7,7 @@
 #include "graphics.h"
 #include "item.h"
 #include "item_menu.h"
+#include "item_menu_frlg.h"
 #include "item_icon.h"
 #include "list_menu.h"
 #include "item_pc_rg.h"
@@ -86,9 +87,6 @@ static EWRAM_DATA struct ListMenuItem * sListMenuItems = NULL;
 static EWRAM_DATA struct ItemPcStaticResources sItemPcRGStaticResources = {};
 static EWRAM_DATA u8 sSubmenuWindowIds[ITEM_PC_SUBWINDOW_COUNT] = {};
 
-extern const struct CompressedSpriteSheet sBagSwapSpriteSheet;
-extern const struct SpritePalette sBagSwapSpritePalette;
-
 static void ItemPc_RunSetup(void);
 static bool8 ItemPc_DoGfxSetup(void);
 static void ItemPc_FadeAndBail(void);
@@ -162,12 +160,12 @@ static const struct MenuAction sItemPcSubmenuOptions[] =
     [ITEM_PC_OPTION_CANCEL]   = { gText_Cancel,       {Task_ItemPcCancel} }
 };
 
-#define TEXT_COLOR_ITEM_PC_TRANSPARENT 0
-#define TEXT_COLOR_ITEM_PC_DARK_GRAY 1
-#define TEXT_COLOR_ITEM_PC_WHITE 2
-#define TEXT_COLOR_ITEM_PC_LIGHT_GRAY 10
-#define TEXT_COLOR_ITEM_PC_MESSAGE_NORMAL 2
-#define TEXT_COLOR_ITEM_PC_MESSAGE_SHADOW 3
+#define TEXT_COLOR_ITEM_PC_TRANSPARENT TEXT_COLOR_TRANSPARENT
+#define TEXT_COLOR_ITEM_PC_DARK_GRAY TEXT_COLOR_WHITE
+#define TEXT_COLOR_ITEM_PC_WHITE TEXT_COLOR_DARK_GRAY
+#define TEXT_COLOR_ITEM_PC_LIGHT_GRAY TEXT_DYNAMIC_COLOR_1
+#define TEXT_COLOR_ITEM_PC_MESSAGE_NORMAL TEXT_COLOR_DARK_GRAY
+#define TEXT_COLOR_ITEM_PC_MESSAGE_SHADOW TEXT_COLOR_LIGHT_GRAY
 
 static const u8 sTextColors[][3] =
 {
@@ -520,11 +518,11 @@ static bool8 ItemPc_LoadGraphics(void)
         sItemPcRGResources->data[0]++;
         break;
     case 3:
-        LoadCompressedSpriteSheet(&sBagSwapSpriteSheet);
+        LoadCompressedSpriteSheet(&gBagSwapSpriteSheet);
         sItemPcRGResources->data[0]++;
         break;
     default:
-        LoadSpritePalette(&sBagSwapSpritePalette);
+        LoadSpritePalette(&gBagSwapSpritePalette);
         sItemPcRGResources->data[0] = 0;
         return TRUE;
     }
@@ -1177,7 +1175,7 @@ static void ItemPc_DestroySubwindow(u8 idx)
 
 static void ItemPc_PrintOnMessageWithContinueTask(u8 taskId, const u8 * str, TaskFunc taskFunc)
 {
-    DisplayMessageAndContinueTask(taskId, ITEM_PC_WINDOW_MESSAGE, 0x3A3, 13, FONT_SHORT, GetPlayerTextSpeedDelay(), str, taskFunc);
+    DisplayMessageAndContinueTask(taskId, ITEM_PC_WINDOW_MESSAGE, 0x3A3, 13, FONT_NORMAL, GetPlayerTextSpeedDelay(), str, taskFunc);
     ScheduleBgCopyTilemapToVram(0);
 }
 
