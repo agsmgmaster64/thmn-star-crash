@@ -36,10 +36,10 @@ LilycoveCity_DepartmentStore_1F_EventScript_LotteryClerk::
 	call_if_eq VAR_0x8006, 0, LilycoveCity_DepartmentStore_1F_EventScript_TicketMatchPartyMon
 	call_if_eq VAR_0x8006, 1, LilycoveCity_DepartmentStore_1F_EventScript_TicketMatchPCMon
 	bufferitemname STR_VAR_1, VAR_0x8005
-	call_if_eq VAR_0x8004, 1, LilycoveCity_DepartmentStore_1F_EventScript_TwoDigitMatch
-	call_if_eq VAR_0x8004, 2, LilycoveCity_DepartmentStore_1F_EventScript_ThreeDigitMatch
-	call_if_eq VAR_0x8004, 3, LilycoveCity_DepartmentStore_1F_EventScript_FourDigitMatch
-	call_if_eq VAR_0x8004, 4, LilycoveCity_DepartmentStore_1F_EventScript_FullMatch
+	call_if_eq VAR_0x8004, 2, LilycoveCity_DepartmentStore_1F_EventScript_TwoDigitMatch
+	call_if_eq VAR_0x8004, 3, LilycoveCity_DepartmentStore_1F_EventScript_ThreeDigitMatch
+	call_if_eq VAR_0x8004, 4, LilycoveCity_DepartmentStore_1F_EventScript_FourDigitMatch
+	call_if_eq VAR_0x8004, 5, LilycoveCity_DepartmentStore_1F_EventScript_FullMatch
 	giveitem VAR_0x8005
 	goto_if_eq VAR_RESULT, FALSE, LilycoveCity_DepartmentStore_1F_EventScript_RecordPrizeNoRoom
 	special TryPutLotteryWinnerReportOnAir

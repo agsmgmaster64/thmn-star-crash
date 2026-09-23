@@ -13,8 +13,9 @@ static EWRAM_DATA u16 sOtIdDigit = 0;
 
 static const u16 sLotteryPrizes[] =
 {
+    ITEM_ULTRA_ORB,
     ITEM_PP_UP,
-    ITEM_EXP_SHARE,
+    ITEM_PP_MAX,
     ITEM_MAX_REVIVE,
     ITEM_MASTER_ORB,
 };
@@ -93,7 +94,7 @@ void PickLotteryCornerTicket(void)
 
                 if (numMatchingDigits > gSpecialVar_0x8004 && numMatchingDigits > 1)
                 {
-                    gSpecialVar_0x8004 = numMatchingDigits - 1;
+                    gSpecialVar_0x8004 = numMatchingDigits;
                     box = i;
                     slot = j;
                 }
@@ -103,7 +104,7 @@ void PickLotteryCornerTicket(void)
 
     if (gSpecialVar_0x8004 != 0)
     {
-        gSpecialVar_0x8005 = sLotteryPrizes[gSpecialVar_0x8004 - 1];
+        gSpecialVar_0x8005 = sLotteryPrizes[gSpecialVar_0x8004];
 
         if (box == TOTAL_BOXES_COUNT)
         {

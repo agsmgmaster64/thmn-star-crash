@@ -51,10 +51,10 @@
 
 static const u16 sRadioChannelSongs[] = 
 {
-    [OAKS_POKEMON_TALK] = MUS_ZGS_AGTLP,
+    [OAKS_POKEMON_TALK] = MUS_ZGS_OAK_LAB,
     [POKEDEX_SHOW] = MUS_ZGS_POKE_CENTER,
     [POKEMON_MUSIC] = MUS_DUMMY,
-    [LUCKY_CHANNEL] = MUS_ZGS_GAME_CORNER,
+    [LUCKY_CHANNEL] = MUS_HGSS_CASINO,
     [BUENAS_PASSWORD] = MUS_ZGS_CELADON,
     [PLACES_AND_PEOPLE] = MUS_ZGS_PEWTER,
     [LETS_ALL_SING] = MUS_ZGS_FOLLOW_ME,
@@ -234,6 +234,7 @@ const u8 *const gRadioShowNames[] =
 static u8 LoadStation_PokemonChannel(void);
 static u8 LoadStation_PokemonMusic(void);
 static u8 LoadStation_LetsAllSing(void);
+static u8 LoadStation_Pokeflute(void);
 static u8 LoadStation_LuckyChannel(void);
 static u8 LoadStation_BuenasPassword(void);
 static u8 LoadStation_UnownRadio(void);
@@ -247,6 +248,7 @@ const struct RadioStation gRadioStationData[] = {
     { RADIO_FREQ(13.5), POKEMON_REGION_JOHTO, LoadStation_UnownRadio },
     { RADIO_FREQ(20.5), POKEMON_REGION_JOHTO, LoadStation_EvolutionRadio },
     { RADIO_FREQ(18.5), POKEMON_REGION_KANTO, LoadStation_LetsAllSing },
+    { RADIO_FREQ(20.0), POKEMON_REGION_KANTO, LoadStation_Pokeflute },
     { 0xFF, 0xFF, NULL }
 };
 
@@ -293,13 +295,10 @@ static void NextRadioLine(u8 taskId, u8 nextLine, const u8 *lineToPrint, bool8 s
 
 void PlayPokemonMusic(void)
 {
-    u16 song = MUS_HGSS_CASINO;
-    /*
-    u16 song = MUS_POKEMON_MARCH;  // Sunday, Tuesday, Thursday, Saturday
+    u16 song = MUS_ZGS_FUCHSIA;  // Sunday, Tuesday, Thursday, Saturday
     RtcCalcLocalTime();
     if (GetDayOfWeek() & 1)   // Monday, Wednesday, Friday
-        song = MUS_POKEMON_LULLABY;
-    */
+        song = MUS_ZGS_BELL_OF_AVICI;
     PlayAndSaveMusic(song);
 }
 
@@ -838,7 +837,18 @@ static u8 LoadStation_PokemonMusic(void)
 
 static u8 LoadStation_LetsAllSing(void)
 {
-    return LETS_ALL_SING;
+    if (FlagGet(FLAG_SYS_RADIO_UPGRADE))
+        return LETS_ALL_SING;
+
+    return 0xFF;
+}
+
+static u8 LoadStation_Pokeflute(void)
+{
+    if (FlagGet(FLAG_SYS_RADIO_UPGRADE))
+        return POKE_FLUTE_RADIO;
+
+    return 0xFF;
 }
 
 static u8 LoadStation_LuckyChannel(void)

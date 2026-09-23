@@ -76,8 +76,8 @@
 #define VAR_CHERRYGROVE_CITY_STATE         0x4043
 #define VAR_0x4044                         0x4044
 #define VAR_0x4045                         0x4045
-#define VAR_0x4046                         0x4046
-#define VAR_0x4047                         0x4047
+#define VAR_POKELOT_PRIZE_PLACE            0x4046
+#define VAR_POKELOT_PRIZE_ITEM             0x4047
 #define VAR_POKELOT_RND1                   0x4048
 #define VAR_HOF_BRAG_STATE                 0x4049
 #define VAR_EGG_BRAG_STATE                 0x404A
@@ -293,12 +293,10 @@
 #define VAR_DISTRIBUTE_EON_TICKET                        0 // This var is read and written, but is always zero. The only way to obtain the Eon Ticket in Emerald is via Record Mixing
 #define VAR_DEPT_STORE_FLOOR                             0
 #define VAR_TRICK_HOUSE_LEVEL                            0
-#define VAR_POKELOT_PRIZE_ITEM                           0
 #define VAR_SEEDOT_SIZE_RECORD                           0
 #define VAR_ASH_GATHER_COUNT                             0
 #define VAR_BIRCH_STATE                                  0
 #define VAR_CRUISE_STEP_COUNT                            0
-#define VAR_POKELOT_PRIZE_PLACE                          0
 #define VAR_LITTLEROOT_TOWN_STATE                        0
 #define VAR_OLDALE_TOWN_STATE                            0
 #define VAR_LAVARIDGE_TOWN_STATE                         0

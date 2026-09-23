@@ -900,7 +900,7 @@
 
 #define DAILY_FLAGS_START                           (FLAG_0x38F + (8 - FLAG_0x38F % 8))
 
-#define FLAG_0x390               0x390
+#define FLAG_DAILY_PICKED_LOTO_TICKET               0x390
 #define FLAG_0x391               0x391
 #define FLAG_0x392               0x392
 #define FLAG_0x393               0x393
@@ -1345,7 +1345,7 @@
 #define FLAG_0x82E                                                  (SYS_FLAGS + 0x2E)
 #define FLAG_SYS_B_DASH                                             (SYS_FLAGS + 0x2F)
 #define FLAG_SYS_ON_CYCLING_ROAD                                    (SYS_FLAGS + 0x30)
-#define FLAG_SYS_HAS_MAP_CARD                                       (SYS_FLAGS + 0x31)
+#define FLAG_SYS_RADIO_UPGRADE                                       (SYS_FLAGS + 0x31)
 #define FLAG_SYS_HAS_RADIO_CARD                                     (SYS_FLAGS + 0x32)
 #define FLAG_0x833                                                  (SYS_FLAGS + 0x33)
 #define FLAG_SYS_PC_LANETTE                                         (SYS_FLAGS + 0x34)
@@ -2659,7 +2659,6 @@
 #define FLAG_UNUSED_0x927                           0
 #define FLAG_UNUSED_0x928                           0
 #define FLAG_UNUSED_0x929                           0
-#define FLAG_DAILY_PICKED_LOTO_TICKET               0
 #define FLAG_DAILY_ROUTE_114_RECEIVED_BERRY         0
 #define FLAG_DAILY_ROUTE_111_RECEIVED_BERRY         0
 #define FLAG_DAILY_BERRY_MASTER_RECEIVED_BERRY      0

@@ -26,7 +26,22 @@
     }
   ],
   "object_events": [],
-  "warp_events": [],
+  "warp_events": [
+    {
+      "x": 4,
+      "y": 10,
+      "elevation": 0,
+      "dest_map": "MAP_VIOLET_CITY",
+      "dest_warp_id": "1"
+    },
+    {
+      "x": 48,
+      "y": 9,
+      "elevation": 0,
+      "dest_map": "MAP_ROUTE31",
+      "dest_warp_id": "0"
+    }
+  ],
   "coord_events": [],
   "bg_events": [],
   "build_version": [
