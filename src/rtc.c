@@ -445,6 +445,22 @@ u8 GetDay(void)
     return dateTime.day;
 }
 
+static const u8 *const gDayOfWeekTable[] = 
+{
+    COMPOUND_STRING("Sunday"),
+    COMPOUND_STRING("Monday"),
+    COMPOUND_STRING("Tuesday"),
+    COMPOUND_STRING("Wednesday"),
+    COMPOUND_STRING("Thursday"),
+    COMPOUND_STRING("Friday"),
+    COMPOUND_STRING("Saturday"),
+};
+
+const u8 *GetDayOfWeekString(u8 dayOfWeek)
+{
+    return gDayOfWeekTable[dayOfWeek];
+}
+
 enum Weekday GetDayOfWeek(void)
 {
     struct DateTime dateTime;

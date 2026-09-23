@@ -2445,6 +2445,9 @@
 #define FLAG_HIDE_YOUNGSTER_BATTLE_ROUTE_30  0
 #define FLAG_HIDE_ROUTE_30_YOUNGSTER         0
 #define FLAG_HIDE_ROUTE_30_OAK               0
+#define FLAG_SYS_HAS_MAP_CARD                0
+#define FLAG_SYS_HAS_RADIO_CARD              0
+#define FLAG_ROCKETS_IN_RADIO_TOWER          0
 
 #endif
 

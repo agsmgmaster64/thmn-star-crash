@@ -5,6 +5,8 @@
 #define MUSIC_PLAYER_VICTORY_TRAINER   1
 #define MUSIC_PLAYER_CAUGHT_MON        2
 
+#include "constants/music_player.h"
+
 struct PlaylistMusicList
 {
     u16 wildBattleMusic;
@@ -21,6 +23,8 @@ struct MP3PlayerTrackInfo
     const u8 *name;
     u16 trackId;
 };
+
+extern const struct MP3PlayerTrackInfo gMP3PlayerTrackInfo[MUSIC_TRACK_COUNT];
 
 struct MP3PlayerOptionInfo
 {

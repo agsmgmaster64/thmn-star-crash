@@ -762,7 +762,7 @@
 #define FLAG_HIDE_YOUNGSTER_BATTLE_ROUTE_30  0x306
 #define FLAG_HIDE_ROUTE_30_YOUNGSTER         0x307
 #define FLAG_HIDE_ROUTE_30_OAK               0x308
-#define FLAG_0x309               0x309
+#define FLAG_ROCKETS_IN_RADIO_TOWER          0x309
 #define FLAG_0x30A               0x30A
 #define FLAG_0x30B               0x30B
 #define FLAG_0x30C               0x30C
@@ -1345,8 +1345,8 @@
 #define FLAG_0x82E                                                  (SYS_FLAGS + 0x2E)
 #define FLAG_SYS_B_DASH                                             (SYS_FLAGS + 0x2F)
 #define FLAG_SYS_ON_CYCLING_ROAD                                    (SYS_FLAGS + 0x30)
-#define FLAG_0x831                                                  (SYS_FLAGS + 0x31)
-#define FLAG_0x832                                                  (SYS_FLAGS + 0x32)
+#define FLAG_SYS_HAS_MAP_CARD                                       (SYS_FLAGS + 0x31)
+#define FLAG_SYS_HAS_RADIO_CARD                                     (SYS_FLAGS + 0x32)
 #define FLAG_0x833                                                  (SYS_FLAGS + 0x33)
 #define FLAG_SYS_PC_LANETTE                                         (SYS_FLAGS + 0x34)
 #define FLAG_0x835                                                  (SYS_FLAGS + 0x35)

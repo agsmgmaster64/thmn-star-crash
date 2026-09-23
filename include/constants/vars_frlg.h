@@ -78,7 +78,7 @@
 #define VAR_0x4045                         0x4045
 #define VAR_0x4046                         0x4046
 #define VAR_0x4047                         0x4047
-#define VAR_0x4048                         0x4048
+#define VAR_POKELOT_RND1                   0x4048
 #define VAR_HOF_BRAG_STATE                 0x4049
 #define VAR_EGG_BRAG_STATE                 0x404A
 #define VAR_LINK_WIN_BRAG_STATE            0x404B
@@ -298,7 +298,6 @@
 #define VAR_ASH_GATHER_COUNT                             0
 #define VAR_BIRCH_STATE                                  0
 #define VAR_CRUISE_STEP_COUNT                            0
-#define VAR_POKELOT_RND1                                 0
 #define VAR_POKELOT_PRIZE_PLACE                          0
 #define VAR_LITTLEROOT_TOWN_STATE                        0
 #define VAR_OLDALE_TOWN_STATE                            0

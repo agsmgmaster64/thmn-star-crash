@@ -661,7 +661,8 @@ struct SaveBlock2
              u32 optionsRButtonMode:3;
              u32 optionsOwSpeed:4;
              u32 optionsBattleMenu:2;
-             u32 optionsUnused:10;
+             u32 twentyFourHourClock:1;
+             u32 optionsUnused:9;
              u32 tx_Challenges_Nuzlocke:1;
              u32 tx_Challenges_NuzlockeHardcore:1;
              u32 tx_Nuzlocke_SpeciesClause:1;
