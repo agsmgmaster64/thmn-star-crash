@@ -1215,7 +1215,10 @@
     "CherrygroveCity_PokemonCenter_2F",
     "CherrygroveCity_Mart"
   ],
-  "gMapGroup_IndoorVioletCity": [],
+  "gMapGroup_IndoorVioletCity": [
+    "VioletCity_PokemonCenter_1F",
+    "VioletCity_PokemonCenter_2F"
+  ],
   "gMapGroup_IndoorAzaleaTown": [],
   "gMapGroup_IndoorGoldenrodCity": [],
   "gMapGroup_IndoorEcruteakCity": [],

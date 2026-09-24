@@ -13756,8 +13756,8 @@
     {
       "id": "LAYOUT_RUINS_OF_ALPH_OUTSIDE",
       "name": "RuinsOfAlph_Outside_Layout",
-      "width": 20,
-      "height": 20,
+      "width": 46,
+      "height": 48,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_GeneralFrlg",

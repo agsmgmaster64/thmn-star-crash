@@ -1956,3 +1956,9 @@ EventScript_PalletTown_PlayersHouse_2F_TurnOnPC::
 
 	.include "data/maps/Route30_MrPuppetHouse/scripts.inc"
 	.include "data/maps/Route30_MrPuppetHouse/text.inc"
+
+	.include "data/maps/VioletCity_PokemonCenter_1F/scripts.inc"
+	.include "data/maps/VioletCity_PokemonCenter_1F/text.inc"
+
+	.include "data/maps/VioletCity_PokemonCenter_2F/scripts.inc"
+	.include "data/maps/VioletCity_PokemonCenter_2F/text.inc"
