@@ -140,14 +140,16 @@ enum PartyBattleSlot
 #define PYRAMID_BAG_ITEMS_COUNT 10
 #define ROAMER_COUNT 1 // Number of maximum concurrent active roamers
 
-// Bag constants
-#define BAG_ITEMS_COUNT 130
-#define BAG_KEYITEMS_COUNT 50
-#define BAG_POKEBALLS_COUNT 31
-#define BAG_TMHM_COUNT 108
-#define BAG_BERRIES_COUNT 79
-#define BAG_MEDICINE_COUNT 87
-#define BAG_BATTLEITEMS_COUNT 100
+enum BagCounts
+{
+    BAG_ITEMS_COUNT = 30,
+    BAG_KEYITEMS_COUNT = 30,
+    BAG_POKEBALLS_COUNT = 16,
+    BAG_TMHM_COUNT = 64,
+    BAG_BERRIES_COUNT = 46,
+    BAG_MEDICINE_COUNT = 87,
+    BAG_BATTLEITEMS_COUNT = 100,
+};
 
 // Number of facilities for Ranking Hall.
 // 7 facilities for single mode + tower double mode + tower multi mode.
