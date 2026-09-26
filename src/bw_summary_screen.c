@@ -4028,7 +4028,7 @@ static void PrintMonDexNumberSpecies(void)
         if (BXPY_SummaryScreen_HideSpecies(sMonSummaryScreen->mode))
             PrintTextOnWindowToFitPx(windowId, COMPOUND_STRING("???"), 4, 12, 0, 0, WindowWidthPx(windowId) - 9);
         else if (BXPY_SummaryScreen_ShowBaseSpecies(sMonSummaryScreen->mode))
-            PrintTextOnWindowToFitPx(windowId, GetSpeciesName(GET_BASE_SPECIES_ID(summary->species2)), 4, 12, 0, 0, WindowWidthPx(windowId) - 9);
+            PrintTextOnWindowToFitPx(windowId, GetSpeciesName(GetBaseSpecies(summary->species2)), 4, 12, 0, 0, WindowWidthPx(windowId) - 9);
         else
             PrintTextOnWindowToFitPx(windowId, GetSpeciesName(summary->species2), 4, 12, 0, 0, WindowWidthPx(windowId) - 9);
 
