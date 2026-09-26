@@ -539,9 +539,9 @@ static const struct RenewableHiddenItemData sRenewableHiddenItems[] = {
 
 void SetAllRenewableItemFlags(void)
 {
+#if IS_FRLG
     u8 i, j;
 
-#if IS_FRLG
     for (i = 0; i < ARRAY_COUNT(sRenewableHiddenItems); i++)
     {
         const u8 * rare = sRenewableHiddenItems[i].rare;
@@ -574,10 +574,10 @@ void IncrementRenewableHiddenItemStepCounter(void)
 
 void TryRegenerateRenewableHiddenItems(void)
 {
+#if IS_FRLG
     u8 i;
     u8 found_map = 0xFF;
 
-#if IS_FRLG
     for (i = 0; i < ARRAY_COUNT(sRenewableHiddenItems); i++)
     {
         if (sRenewableHiddenItems[i].mapGroup == gSaveBlock1Ptr->location.mapGroup
@@ -598,11 +598,11 @@ void TryRegenerateRenewableHiddenItems(void)
 
 static void SampleRenewableItemFlags(void)
 {
+#if IS_FRLG
     u8 i, j;
     const u8 * flags;
     u16 rval;
 
-#if IS_FRLG
     for (i = 0; i < ARRAY_COUNT(sRenewableHiddenItems); i++)
     {
         rval = Random() % 100;

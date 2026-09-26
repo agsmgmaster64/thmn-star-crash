@@ -1822,6 +1822,8 @@ EventScript_PalletTown_PlayersHouse_2F_TurnOnPC::
 	.include "data/maps/CarpetMansion/scripts.inc"
 	.include "data/maps/CarpetMansion/text.inc"
 
+.if IS_FRLG
+
 	.include "data/maps/NewBarkTown/scripts.inc"
 	.include "data/maps/NewBarkTown/text.inc"
 
@@ -1962,3 +1964,5 @@ EventScript_PalletTown_PlayersHouse_2F_TurnOnPC::
 
 	.include "data/maps/VioletCity_PokemonCenter_2F/scripts.inc"
 	.include "data/maps/VioletCity_PokemonCenter_2F/text.inc"
+
+.endif
