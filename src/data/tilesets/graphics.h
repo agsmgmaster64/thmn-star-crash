@@ -3819,3 +3819,60 @@ const u16 gTilesetPalettes_StarRealm[][16] =
 };
 
 const u32 gTilesetTiles_StarRealm[] = INCBIN_U32("data/tilesets/secondary/star_realm/tiles.4bpp.lz");
+
+const u16 gTilesetPalettes_WoodenTower[][16] =
+{
+    INCBIN_U16("data/tilesets/secondary/wooden_tower/palettes/00.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/wooden_tower/palettes/01.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/wooden_tower/palettes/02.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/wooden_tower/palettes/03.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/wooden_tower/palettes/04.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/wooden_tower/palettes/05.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/wooden_tower/palettes/06.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/wooden_tower/palettes/07.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/wooden_tower/palettes/08.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/wooden_tower/palettes/09.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/wooden_tower/palettes/10.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/wooden_tower/palettes/11.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/wooden_tower/palettes/12.gbapal"),
+};
+
+const u32 gTilesetTiles_WoodenTower[] = INCBIN_U32("data/tilesets/secondary/wooden_tower/tiles.4bpp.lz");
+
+const u16 gTilesetPalettes_NewBarkTown[][16] =
+{
+    INCBIN_U16("data/tilesets/secondary/new_bark_town/palettes/00.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/new_bark_town/palettes/01.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/new_bark_town/palettes/02.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/new_bark_town/palettes/03.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/new_bark_town/palettes/04.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/new_bark_town/palettes/05.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/new_bark_town/palettes/06.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/new_bark_town/palettes/07.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/new_bark_town/palettes/08.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/new_bark_town/palettes/09.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/new_bark_town/palettes/10.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/new_bark_town/palettes/11.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/new_bark_town/palettes/12.gbapal"),
+};
+
+const u32 gTilesetTiles_NewBarkTown[] = INCBIN_U32("data/tilesets/secondary/new_bark_town/tiles.4bpp.lz");
+
+const u16 gTilesetPalettes_CherrygroveCity[][16] =
+{
+    INCBIN_U16("data/tilesets/secondary/cherrygrove_city/palettes/00.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/cherrygrove_city/palettes/01.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/cherrygrove_city/palettes/02.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/cherrygrove_city/palettes/03.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/cherrygrove_city/palettes/04.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/cherrygrove_city/palettes/05.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/cherrygrove_city/palettes/06.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/cherrygrove_city/palettes/07.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/cherrygrove_city/palettes/08.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/cherrygrove_city/palettes/09.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/cherrygrove_city/palettes/10.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/cherrygrove_city/palettes/11.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/cherrygrove_city/palettes/12.gbapal"),
+};
+
+const u32 gTilesetTiles_CherrygroveCity[] = INCBIN_U32("data/tilesets/secondary/cherrygrove_city/tiles.4bpp.lz");

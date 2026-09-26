@@ -13249,7 +13249,7 @@
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_GeneralFrlg",
-      "secondary_tileset": "gTileset_PalletTown",
+      "secondary_tileset": "gTileset_NewBarkTown",
       "border_filepath": "data/layouts/NewBarkTown/border.bin",
       "blockdata_filepath": "data/layouts/NewBarkTown/map.bin",
       "build_version": [
@@ -13281,7 +13281,7 @@
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_GeneralFrlg",
-      "secondary_tileset": "gTileset_PalletTown",
+      "secondary_tileset": "gTileset_CherrygroveCity",
       "border_filepath": "data/layouts/CherrygroveCity/border.bin",
       "blockdata_filepath": "data/layouts/CherrygroveCity/map.bin",
       "build_version": [
@@ -13425,7 +13425,7 @@
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_GeneralFrlg",
-      "secondary_tileset": "gTileset_PewterCity",
+      "secondary_tileset": "gTileset_CherrygroveCity",
       "border_filepath": "data/layouts/Route30/border.bin",
       "blockdata_filepath": "data/layouts/Route30/map.bin",
       "build_version": [
@@ -13788,12 +13788,12 @@
     {
       "id": "LAYOUT_SPROUT_TOWER_3F",
       "name": "SproutTower_3F_Layout",
-      "width": 20,
-      "height": 20,
+      "width": 21,
+      "height": 18,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_BuildingFrlg",
-      "secondary_tileset": "gTileset_BankCasino",
+      "secondary_tileset": "gTileset_WoodenTower",
       "border_filepath": "data/layouts/SproutTower_3F/border.bin",
       "blockdata_filepath": "data/layouts/SproutTower_3F/map.bin",
       "build_version": [
@@ -13804,12 +13804,12 @@
     {
       "id": "LAYOUT_SPROUT_TOWER_1F",
       "name": "SproutTower_1F_Layout",
-      "width": 20,
-      "height": 20,
+      "width": 21,
+      "height": 18,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_BuildingFrlg",
-      "secondary_tileset": "gTileset_BankCasino",
+      "secondary_tileset": "gTileset_WoodenTower",
       "border_filepath": "data/layouts/SproutTower_1F/border.bin",
       "blockdata_filepath": "data/layouts/SproutTower_1F/map.bin",
       "build_version": [
@@ -13820,12 +13820,12 @@
     {
       "id": "LAYOUT_SPROUT_TOWER_2F",
       "name": "SproutTower_2F_Layout",
-      "width": 20,
-      "height": 20,
+      "width": 21,
+      "height": 18,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_BuildingFrlg",
-      "secondary_tileset": "gTileset_BankCasino",
+      "secondary_tileset": "gTileset_WoodenTower",
       "border_filepath": "data/layouts/SproutTower_2F/border.bin",
       "blockdata_filepath": "data/layouts/SproutTower_2F/map.bin",
       "build_version": [
@@ -13873,7 +13873,7 @@
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_GeneralFrlg",
-      "secondary_tileset": "gTileset_Autumn",
+      "secondary_tileset": "gTileset_TanobyRuins",
       "border_filepath": "data/layouts/RuinsOfAlph_B1F/border.bin",
       "blockdata_filepath": "data/layouts/RuinsOfAlph_B1F/map.bin",
       "build_version": [

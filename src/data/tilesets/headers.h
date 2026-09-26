@@ -1953,3 +1953,36 @@ const struct Tileset gTileset_StarRealm =
     .metatileAttributes = gMetatileAttributes_StarRealm,
     .callback = NULL,
 };
+
+const struct Tileset gTileset_WoodenTower =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_WoodenTower,
+    .palettes = gTilesetPalettes_WoodenTower,
+    .metatiles = gMetatiles_WoodenTower,
+    .metatileAttributes = gMetatileAttributes_WoodenTower,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_NewBarkTown =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_NewBarkTown,
+    .palettes = gTilesetPalettes_NewBarkTown,
+    .metatiles = gMetatiles_NewBarkTown,
+    .metatileAttributes = gMetatileAttributes_NewBarkTown,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_CherrygroveCity =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_CherrygroveCity,
+    .palettes = gTilesetPalettes_CherrygroveCity,
+    .metatiles = gMetatiles_CherrygroveCity,
+    .metatileAttributes = gMetatileAttributes_CherrygroveCity,
+    .callback = NULL,
+};
