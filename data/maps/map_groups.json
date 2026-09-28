@@ -1203,7 +1203,13 @@
     "SproutTower_3F",
     "RuinsOfAlph_Outside",
     "RuinsOfAlph_B1F",
-    "RuinsOfAlph_Puzzles"
+    "RuinsOfAlph_Puzzles",
+    "UnionCave_1F",
+    "UnionCave_B1F",
+    "UnionCave_B2F",
+    "SlowpokeWell_B1F",
+    "SlowpokeWell_B2F",
+    "IlexForest"
   ],
   "gMapGroup_IndoorNewBarkTown": [
     "NewBarkTownPlayerHouse",
@@ -1217,7 +1223,9 @@
   ],
   "gMapGroup_IndoorVioletCity": [
     "VioletCity_PokemonCenter_1F",
-    "VioletCity_PokemonCenter_2F"
+    "VioletCity_PokemonCenter_2F",
+    "VioletCity_Gym",
+    "VioletCity_Mart"
   ],
   "gMapGroup_IndoorAzaleaTown": [],
   "gMapGroup_IndoorGoldenrodCity": [],

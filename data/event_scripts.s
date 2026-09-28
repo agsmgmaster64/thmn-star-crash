@@ -1965,4 +1965,28 @@ EventScript_PalletTown_PlayersHouse_2F_TurnOnPC::
 	.include "data/maps/VioletCity_PokemonCenter_2F/scripts.inc"
 	.include "data/maps/VioletCity_PokemonCenter_2F/text.inc"
 
+	.include "data/maps/VioletCity_Gym/scripts.inc"
+	.include "data/maps/VioletCity_Gym/text.inc"
+
+	.include "data/maps/VioletCity_Mart/scripts.inc"
+	.include "data/maps/VioletCity_Mart/text.inc"
+
+	.include "data/maps/UnionCave_1F/scripts.inc"
+	.include "data/maps/UnionCave_1F/text.inc"
+
+	.include "data/maps/UnionCave_B1F/scripts.inc"
+	.include "data/maps/UnionCave_B1F/text.inc"
+
+	.include "data/maps/UnionCave_B2F/scripts.inc"
+	.include "data/maps/UnionCave_B2F/text.inc"
+
+	.include "data/maps/IlexForest/scripts.inc"
+	.include "data/maps/IlexForest/text.inc"
+
+	.include "data/maps/SlowpokeWell_B2F/scripts.inc"
+	.include "data/maps/SlowpokeWell_B2F/text.inc"
+
+	.include "data/maps/SlowpokeWell_B1F/scripts.inc"
+	.include "data/maps/SlowpokeWell_B1F/text.inc"
+
 .endif

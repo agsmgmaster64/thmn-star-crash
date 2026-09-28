@@ -13441,7 +13441,7 @@
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_GeneralFrlg",
-      "secondary_tileset": "gTileset_PewterCity",
+      "secondary_tileset": "gTileset_CherrygroveCity",
       "border_filepath": "data/layouts/Route31/border.bin",
       "blockdata_filepath": "data/layouts/Route31/map.bin",
       "build_version": [
@@ -13908,6 +13908,118 @@
       "secondary_tileset": "gTileset_Lab_Frlg",
       "border_filepath": "data/layouts/Route30_MrPuppetHouse/border.bin",
       "blockdata_filepath": "data/layouts/Route30_MrPuppetHouse/map.bin",
+      "build_version": [
+        "firered",
+        "leafgreen"
+      ]
+    },
+    {
+      "id": "LAYOUT_VIOLET_CITY_GYM",
+      "name": "VioletCity_Gym_Layout",
+      "width": 19,
+      "height": 21,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_BuildingFrlg",
+      "secondary_tileset": "gTileset_PokemonDayCare",
+      "border_filepath": "data/layouts/VioletCity_Gym/border.bin",
+      "blockdata_filepath": "data/layouts/VioletCity_Gym/map.bin",
+      "build_version": [
+        "firered",
+        "leafgreen"
+      ]
+    },
+    {
+      "id": "LAYOUT_UNION_CAVE_1F",
+      "name": "UnionCave_1F_Layout",
+      "width": 11,
+      "height": 9,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_GeneralFrlg",
+      "secondary_tileset": "gTileset_Cave_Frlg",
+      "border_filepath": "data/layouts/UnionCave_1F/border.bin",
+      "blockdata_filepath": "data/layouts/UnionCave_1F/map.bin",
+      "build_version": [
+        "firered",
+        "leafgreen"
+      ]
+    },
+    {
+      "id": "LAYOUT_UNION_CAVE_B2F",
+      "name": "UnionCave_B2F_Layout",
+      "width": 11,
+      "height": 9,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_GeneralFrlg",
+      "secondary_tileset": "gTileset_Cave_Frlg",
+      "border_filepath": "data/layouts/UnionCave_B2F/border.bin",
+      "blockdata_filepath": "data/layouts/UnionCave_B2F/map.bin",
+      "build_version": [
+        "firered",
+        "leafgreen"
+      ]
+    },
+    {
+      "id": "LAYOUT_UNION_CAVE_B1F",
+      "name": "UnionCave_B1F_Layout",
+      "width": 11,
+      "height": 9,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_GeneralFrlg",
+      "secondary_tileset": "gTileset_Cave_Frlg",
+      "border_filepath": "data/layouts/UnionCave_B1F/border.bin",
+      "blockdata_filepath": "data/layouts/UnionCave_B1F/map.bin",
+      "build_version": [
+        "firered",
+        "leafgreen"
+      ]
+    },
+    {
+      "id": "LAYOUT_ILEX_FOREST",
+      "name": "IlexForest_Layout",
+      "width": 11,
+      "height": 9,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_GeneralFrlg",
+      "secondary_tileset": "gTileset_Swamp",
+      "border_filepath": "data/layouts/IlexForest/border.bin",
+      "blockdata_filepath": "data/layouts/IlexForest/map.bin",
+      "build_version": [
+        "firered",
+        "leafgreen"
+      ]
+    },
+    {
+      "id": "LAYOUT_SLOWPOKE_WELL_B1F",
+      "name": "SlowpokeWell_B1F_Layout",
+      "width": 11,
+      "height": 9,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_GeneralFrlg",
+      "secondary_tileset": "gTileset_Cave_Frlg",
+      "border_filepath": "data/layouts/SlowpokeWell_B1F/border.bin",
+      "blockdata_filepath": "data/layouts/SlowpokeWell_B1F/map.bin",
+      "build_version": [
+        "firered",
+        "leafgreen"
+      ]
+    },
+    {
+      "id": "LAYOUT_SLOWPOKE_WELL_B2F",
+      "name": "SlowpokeWell_B2F_Layout",
+      "width": 11,
+      "height": 9,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_GeneralFrlg",
+      "secondary_tileset": "gTileset_Cave_Frlg",
+      "border_filepath": "data/layouts/SlowpokeWell_B2F/border.bin",
+      "blockdata_filepath": "data/layouts/SlowpokeWell_B2F/map.bin",
       "build_version": [
         "firered",
         "leafgreen"

@@ -160,6 +160,9 @@
 // gTileset_CeruleanCity
 #define METATILE_CeruleanCity_Door  0x818
 
+// gTileset_CherrygroveCity
+#define METATILE_CherrygroveCity_Door  0x83A
+
 // gTileset_CinnabarGym
 #define METATILE_CinnabarGym_Floor                  0x801
 #define METATILE_CinnabarGym_Floor_ShadeDiagonal    0x802
