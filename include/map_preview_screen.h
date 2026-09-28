@@ -32,6 +32,8 @@ enum MapPreviewScreenId
     MPS_ICE_PATH,
     MPS_DRAGONS_DEN,
     MPS_DARK_CAVE_NORTH,
+    MPS_TOHJO_FALLS,
+    MPS_MT_SILVER_CAVE,
     MPS_COUNT
 };
 

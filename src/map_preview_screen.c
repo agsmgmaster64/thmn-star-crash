@@ -319,6 +319,22 @@ static const struct MapPreviewScreen sMapPreviewScreenData[MPS_COUNT] = {
         .tilemapptr = sMtEmberMapPreviewTilemap,
         .palptr = sMtEmberMapPreviewPalette
     },
+    [MPS_TOHJO_FALLS] = {
+        .mapsec = MAPSEC_TOHJO_FALLS,
+        .type = MPS_TYPE_CAVE,
+        .flagId = 0,
+        .tilesptr = sIcefallCaveMapPreviewTiles,
+        .tilemapptr = sIcefallCaveMapPreviewTilemap,
+        .palptr = sIcefallCaveMapPreviewPalette
+    },
+    [MPS_MT_SILVER_CAVE] = {
+        .mapsec = MAPSEC_MT_SILVER_CAVE,
+        .type = MPS_TYPE_CAVE,
+        .flagId = FLAG_WORLD_MAP_MT_SILVER_CAVE,
+        .tilesptr = sMtEmberMapPreviewTiles,
+        .tilemapptr = sMtEmberMapPreviewTilemap,
+        .palptr = sMtEmberMapPreviewPalette
+    },
 };
 
 static const struct WindowTemplate sMapNameWindow = {

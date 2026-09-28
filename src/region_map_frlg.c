@@ -670,6 +670,10 @@ static const struct DungeonMapInfo sDungeonInfo[] = {
     {
         .id = MAPSEC_MT_SILVER_CAVE,
         .desc = COMPOUND_STRING("Placeholer.")
+    },
+    {
+        .id = MAPSEC_TOHJO_FALLS,
+        .desc = COMPOUND_STRING("Placeholer.")
     }
 };
 
@@ -2883,6 +2887,8 @@ static u8 GetDungeonMapsecType(u8 mapsec)
     case MAPSEC_DARK_CAVE_NORTH:
         return FlagGet(FLAG_WORLD_MAP_DARK_CAVE) ? MAPSECTYPE_CITY_CANFLY : MAPSECTYPE_CITY_CANTFLY;
     case MAPSEC_MT_SILVER_CAVE:
+        return FlagGet(FLAG_WORLD_MAP_MT_SILVER_CAVE) ? MAPSECTYPE_CITY_CANFLY : MAPSECTYPE_CITY_CANTFLY;
+    case MAPSEC_TOHJO_FALLS:
         return FlagGet(FLAG_WORLD_MAP_MT_SILVER_CAVE) ? MAPSECTYPE_CITY_CANFLY : MAPSECTYPE_CITY_CANTFLY;
     default:
         return MAPSECTYPE_ROUTE;

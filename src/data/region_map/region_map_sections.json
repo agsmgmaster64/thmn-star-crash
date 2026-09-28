@@ -1724,6 +1724,26 @@
       "pokemon_region": "POKEMON_REGION_JOHTO"
     },
     {
+      "id": "MAPSEC_ROUTE_47",
+      "name": "Route 47",
+      "x": 17,
+      "y": 8,
+      "width": 1,
+      "height": 2,
+      "map_region": "REGION_MAP_JOHTO",
+      "pokemon_region": "POKEMON_REGION_JOHTO"
+    },
+    {
+      "id": "MAPSEC_ROUTE_48",
+      "name": "Route 48",
+      "x": 17,
+      "y": 8,
+      "width": 1,
+      "height": 2,
+      "map_region": "REGION_MAP_JOHTO",
+      "pokemon_region": "POKEMON_REGION_JOHTO"
+    },
+    {
       "id": "MAPSEC_LAKE_OF_RAGE",
       "name": "Lake of Rage",
       "x": 15,
@@ -1944,20 +1964,24 @@
       "pokemon_region": "POKEMON_REGION_JOHTO"
     },
     {
+      "id": "MAPSEC_TOHJO_FALLS",
+      "name": "Tohjo Falls",
+      "x": 15,
+      "y": 0,
+      "width": 1,
+      "height": 1,
+      "map_region": "REGION_MAP_KANTO",
+      "pokemon_region": "POKEMON_REGION_KANTO"
+    },
+    {
+      "id": "MAPSEC_S_S_AQUA",
+      "name": "S.S. Aqua"
+    },
+    {
       "id": "MAPSEC_TRAINER_TOWER_2",
       "name": "TRAINER TOWER",
       "x": 5,
       "y": 6,
-      "width": 1,
-      "height": 1,
-      "map_region": "REGION_MAP_SEVII67",
-      "pokemon_region": "POKEMON_REGION_KANTO"
-    },
-    {
-      "id": "MAPSEC_ALTERING_CAVE_FRLG",
-      "name": "ALTERING CAVE",
-      "x": 15,
-      "y": 0,
       "width": 1,
       "height": 1,
       "map_region": "REGION_MAP_SEVII67",

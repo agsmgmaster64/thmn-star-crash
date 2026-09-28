@@ -96,7 +96,7 @@ const u8 NuzlockeLUT[] =
     [MAPSEC_UNDERWATER_126] = 0x3C,
     [MAPSEC_ARTISAN_CAVE] = 0x3D,
     [MAPSEC_DESERT_UNDERPASS] = 0x3D,
-    [MAPSEC_ALTERING_CAVE_FRLG] = 0x3F,
+    [MAPSEC_ALTERING_CAVE] = 0x3F,
 };
 
 //tx_randomizer_and_challenges
