@@ -1552,7 +1552,14 @@ void ItemUseOutOfBattle_CannotUse(u8 taskId)
 }
 
 // Start qol_field_moves
-void ItemUseOutOfBattle_CutTool(u8 taskId)
+static void ItemUseOnFieldCB_CutTool(u8 taskId)
+{
+    LockPlayerFieldControls();
+    ScriptContext_SetupScript(EventScript_UseBigAxe);
+    DestroyTask(taskId);
+}
+
+void ItemUseOutOfBattle_BigAxe(u8 taskId)
 {
     if (CheckObjectGraphicsInFrontOfPlayer(OBJ_EVENT_GFX_CUTTABLE_TREE))
     {
@@ -1563,14 +1570,24 @@ void ItemUseOutOfBattle_CutTool(u8 taskId)
         DisplayDadsAdviceCannotUseItemMessage(taskId, gTasks[taskId].tUsingRegisteredKeyItem);
 }
 
-void ItemUseOnFieldCB_CutTool(u8 taskId)
+static void CB2_OpenFlyToolFromBag(void)
 {
-    LockPlayerFieldControls();
-    ScriptContext_SetupScript(EventScript_UseBigAxe);
-    DestroyTask(taskId);
+    VarSet(VAR_FLY_TOOL_SOURCE, FLY_SOURCE_BAG);
+    CB2_OpenFlyMap();
 }
 
-void ItemUseOutOfBattle_FlyTool(u8 taskId)
+static void Task_OpenRegisteredFlyTool(u8 taskId)
+{
+    VarSet(VAR_FLY_TOOL_SOURCE, FLY_SOURCE_FIELD);
+    if (!gPaletteFade.active)
+    {
+        CleanupOverworldWindowsAndTilemaps();
+        SetMainCallback2(CB2_OpenFlyMap);
+        DestroyTask(taskId);
+    }
+}
+
+void ItemUseOutOfBattle_Pager(u8 taskId)
 {
     if (MenuHelpers_IsLinkActive() == TRUE)
     {
@@ -1588,99 +1605,102 @@ void ItemUseOutOfBattle_FlyTool(u8 taskId)
     }
 }
 
-void CB2_OpenFlyToolFromBag(void)
-{
-    VarSet(VAR_FLY_TOOL_SOURCE, FLY_SOURCE_BAG);
-    CB2_OpenFlyMap();
-}
-
-void Task_OpenRegisteredFlyTool(u8 taskId)
-{
-    VarSet(VAR_FLY_TOOL_SOURCE, FLY_SOURCE_FIELD);
-    if (!gPaletteFade.active)
-    {
-        CleanupOverworldWindowsAndTilemaps();
-        SetMainCallback2(CB2_OpenFlyMap);
-        DestroyTask(taskId);
-    }
-}
-
-void ItemUseOutOfBattle_SurfTool(u8 taskId)
-{
-    if (IsPlayerFacingSurfableFishableWater())
-    {
-        sItemUseOnFieldCB = ItemUseOnFieldCB_SurfTool;
-        SetUpItemUseOnFieldCallback(taskId);
-    }
-    else
-        DisplayDadsAdviceCannotUseItemMessage(taskId, gTasks[taskId].tUsingRegisteredKeyItem);
-}
-
-void ItemUseOnFieldCB_SurfTool(u8 taskId)
+static void ItemUseOnFieldCB_Surfboard(u8 taskId)
 {
     ScriptContext_SetupScript(EventScript_UseSurfboard);
     DestroyTask(taskId);
 }
 
-void ItemUseOutOfBattle_StrengthTool(u8 taskId)
+void ItemUseOutOfBattle_Surfboard(u8 taskId)
 {
-    sItemUseOnFieldCB = ItemUseOnFieldCB_StrengthTool;
-    SetUpItemUseOnFieldCallback(taskId);
+    if (IsPlayerFacingSurfableFishableWater())
+    {
+        sItemUseOnFieldCB = ItemUseOnFieldCB_Surfboard;
+        SetUpItemUseOnFieldCallback(taskId);
+    }
+    else
+    {
+        DisplayDadsAdviceCannotUseItemMessage(taskId, gTasks[taskId].tUsingRegisteredKeyItem);
+    }
 }
 
-void ItemUseOnFieldCB_StrengthTool(u8 taskId)
+static void ItemUseOnFieldCB_SurfboardPlus(u8 taskId)
+{
+    LockPlayerFieldControls();
+    ScriptContext_SetupScript(EventScript_UseSurfboardPlus);
+    DestroyTask(taskId);
+}
+
+static void ItemUseOnFieldCB_SurfboardPlusWaterfall(u8 taskId)
+{
+    LockPlayerFieldControls();
+    ScriptContext_SetupScript(EventScript_UseSurfboardPlusWaterfall);
+    DestroyTask(taskId);
+}
+
+void ItemUseOutOfBattle_SurfboardPlus(u8 taskId)
+{
+    if (IsPlayerFacingSurfableFishableWater())
+    {
+        sItemUseOnFieldCB = ItemUseOnFieldCB_SurfboardPlus;
+        SetUpItemUseOnFieldCallback(taskId);
+    }
+    else if (CanUseWaterfallTool())
+    {
+        sItemUseOnFieldCB = ItemUseOnFieldCB_SurfboardPlusWaterfall;
+        SetUpItemUseOnFieldCallback(taskId);
+    }
+    else
+    {
+        DisplayDadsAdviceCannotUseItemMessage(taskId, gTasks[taskId].tUsingRegisteredKeyItem);
+    }
+}
+
+static void ItemUseOnFieldCB_PowerGlove(u8 taskId)
 {
     LockPlayerFieldControls();
     ScriptContext_SetupScript(EventScript_UsePowerGlove);
     DestroyTask(taskId);
 }
 
-void ItemUseOutOfBattle_FlashTool(u8 taskId)
+void ItemUseOutOfBattle_PowerGlove(u8 taskId)
 {
-    if (CanUseFlashTool())
-    {
-        sItemUseOnFieldCB = ItemUseOnFieldCB_FlashTool;
-        SetUpItemUseOnFieldCallback(taskId);
-    }
-    else
-        DisplayDadsAdviceCannotUseItemMessage(taskId, gTasks[taskId].tUsingRegisteredKeyItem);
+    sItemUseOnFieldCB = ItemUseOnFieldCB_PowerGlove;
+    SetUpItemUseOnFieldCallback(taskId);
 }
 
-void ItemUseOnFieldCB_FlashTool(u8 taskId)
+static void ItemUseOnFieldCB_Lantern(u8 taskId)
 {
     LockPlayerFieldControls();
     FldEff_UseFlashTool();
     DestroyTask(taskId);
 }
 
-void ItemUseOutOfBattle_RockSmashTool(u8 taskId)
+void ItemUseOutOfBattle_Lantern(u8 taskId)
 {
-    if (CheckObjectGraphicsInFrontOfPlayer(OBJ_EVENT_GFX_BREAKABLE_ROCK))
+    if (CanUseFlashTool())
     {
-        sItemUseOnFieldCB = ItemUseOnFieldCB_RockSmashTool;
+        sItemUseOnFieldCB = ItemUseOnFieldCB_Lantern;
         SetUpItemUseOnFieldCallback(taskId);
     }
     else
+    {
         DisplayDadsAdviceCannotUseItemMessage(taskId, gTasks[taskId].tUsingRegisteredKeyItem);
+    }
 }
 
-void ItemUseOnFieldCB_RockSmashTool(u8 taskId)
+void ItemUseOnFieldCB_Pickaxe(u8 taskId)
 {
     LockPlayerFieldControls();
     ScriptContext_SetupScript(EventScript_UsePickaxe);
     DestroyTask(taskId);
 }
 
-void ItemUseOutOfBattle_WaterfallTool(u8 taskId)
+void ItemUseOutOfBattle_Pickaxe(u8 taskId)
 {
-    if (CanUseWaterfallTool())
+    if (CheckObjectGraphicsInFrontOfPlayer(OBJ_EVENT_GFX_BREAKABLE_ROCK))
     {
-        sItemUseOnFieldCB = ItemUseOnFieldCB_WaterfallTool;
-        SetUpItemUseOnFieldCallback(taskId);
-    }
-    else if (CanUseRockClimbTool())
-    {
-        sItemUseOnFieldCB = ItemUseOnFieldCB_RockClimbTool;
+        sItemUseOnFieldCB = ItemUseOnFieldCB_Pickaxe;
         SetUpItemUseOnFieldCallback(taskId);
     }
     else
@@ -1689,36 +1709,44 @@ void ItemUseOutOfBattle_WaterfallTool(u8 taskId)
     }
 }
 
-void ItemUseOnFieldCB_WaterfallTool(u8 taskId)
+static void ItemUseOnFieldCB_ClimbingBoots(u8 taskId)
 {
     LockPlayerFieldControls();
-    ScriptContext_SetupScript(EventScript_UseWaterfallTool);
+    ScriptContext_SetupScript(EventScript_UseClimbingBoots);
     DestroyTask(taskId);
 }
 
-void ItemUseOnFieldCB_RockClimbTool(u8 taskId)
+void ItemUseOutOfBattle_ClimbingBoots(u8 taskId)
 {
-    LockPlayerFieldControls();
-    ScriptContext_SetupScript(EventScript_UseRockClimbTool);
-    DestroyTask(taskId);
-}
-
-void ItemUseOutOfBattle_DiveTool(u8 taskId)
-{
-    if (TrySetDiveWarp())
+    if (CanUseRockClimbTool())
     {
-        sItemUseOnFieldCB = ItemUseOnFieldCB_DiveTool;
+        sItemUseOnFieldCB = ItemUseOnFieldCB_ClimbingBoots;
         SetUpItemUseOnFieldCallback(taskId);
     }
     else
+    {
         DisplayDadsAdviceCannotUseItemMessage(taskId, gTasks[taskId].tUsingRegisteredKeyItem);
+    }
 }
 
-void ItemUseOnFieldCB_DiveTool(u8 taskId)
+static void ItemUseOnFieldCB_ScubaGear(u8 taskId)
 {
     LockPlayerFieldControls();
     ScriptContext_SetupScript(EventScript_UseScubaGear);
     DestroyTask(taskId);
+}
+
+void ItemUseOutOfBattle_ScubaGear(u8 taskId)
+{
+    if (TrySetDiveWarp())
+    {
+        sItemUseOnFieldCB = ItemUseOnFieldCB_ScubaGear;
+        SetUpItemUseOnFieldCallback(taskId);
+    }
+    else
+    {
+        DisplayDadsAdviceCannotUseItemMessage(taskId, gTasks[taskId].tUsingRegisteredKeyItem);
+    }
 }
 
 // End qol_field_moves

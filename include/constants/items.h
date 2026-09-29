@@ -761,10 +761,11 @@ enum __attribute__((packed)) Item
     ITEM_BIG_AXE,
     ITEM_PAGER,
     ITEM_SURFBOARD,
+    ITEM_SURFBOARD_PLUS,
     ITEM_POWER_GLOVE,
     ITEM_LANTERN,
     ITEM_PICKAXE,
-    ITEM_CLIMBING_GEAR,
+    ITEM_CLIMBING_BOOTS,
     ITEM_SCUBA_GEAR,
 
     // Story Key Items

@@ -431,12 +431,13 @@ extern const u8 EventScript_UseDefog[];
 //Start qol_field_moves
 extern const u8 EventScript_UseBigAxe[];
 extern const u8 EventScript_UseSurfboard[];
+extern const u8 EventScript_UseSurfboardPlus[];
 extern const u8 EventScript_UsePowerGlove[];
 extern const u8 EventScript_UseLantern[];
 extern const u8 EventScript_UsePickaxe[];
-extern const u8 EventScript_UseWaterfallTool[];
+extern const u8 EventScript_UseSurfboardPlusWaterfall[];
 extern const u8 EventScript_UseScubaGear[];
-extern const u8 EventScript_UseRockClimbTool[];
+extern const u8 EventScript_UseClimbingBoots[];
 //End qol_field_moves
 
 //player pc

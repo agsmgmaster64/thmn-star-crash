@@ -18,7 +18,7 @@ EventScript_EndUseSurf::
 
 EventScript_CanUseSurfOtherwise::
 	partycheckfieldmove FIELD_MOVE_SURF
-	goto_if_eq VAR_RESULT, PARTY_SIZE, EventScript_CanUseSurfTool
+	goto_if_eq VAR_RESULT, PARTY_SIZE, EventScript_CanUseSurfboard
 	bufferpartymonnick STR_VAR_1, VAR_RESULT
 	setfieldeffectargument 0, VAR_RESULT
 	lockall
@@ -32,19 +32,33 @@ EventScript_UseSurfboard::
 	lock
 	goto EventScript_UseSurfboard_SkipCheck
 
-EventScript_CanUseSurfTool::
+EventScript_CanUseSurfboard::
 	checkitem ITEM_SURFBOARD, 1
-	goto_if_ne VAR_RESULT, TRUE, EventScript_EndUseSurf
+	goto_if_ne VAR_RESULT, TRUE, EventScript_CanUseSurfboardPlus
 	lockall
 	msgbox gText_WantToUseSurf, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, EventScript_ReleaseUseSurf
 EventScript_UseSurfboard_SkipCheck::
 	bufferitemname STR_VAR_2, ITEM_SURFBOARD
 	msgbox Text_PlayerUsedFieldTool, MSGBOX_DEFAULT
-EventScript_UseSurfFieldEffect::
-	dofieldeffect FLDEFF_USE_SURF_TOOL
-	releaseall
-	end
+	setskipshowanim
+	goto EventScript_UseSurfMove
+
+EventScript_UseSurfboardPlus::
+	lock
+	goto EventScript_UseSurfboardPlus_SkipCheck
+
+EventScript_CanUseSurfboardPlus::
+	checkitem ITEM_SURFBOARD_PLUS, 1
+	goto_if_ne VAR_RESULT, TRUE, EventScript_EndUseSurf
+	lockall
+	msgbox gText_WantToUseSurf, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, EventScript_ReleaseUseSurf
+EventScript_UseSurfboardPlus_SkipCheck::
+	bufferitemname STR_VAR_2, ITEM_SURFBOARD_PLUS
+	msgbox Text_PlayerUsedFieldTool, MSGBOX_DEFAULT
+	setskipshowanim
+	goto EventScript_UseSurfMove
 
 EventScript_CurrentTooFast::
 	lockall

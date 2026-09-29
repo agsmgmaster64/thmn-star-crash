@@ -1357,9 +1357,7 @@ const struct SpriteTemplate gFieldEffectObjectTemplate_FallGrass = {
 };
 
 static const struct SpriteFrameImage sPicTable_RockClimbBlob[] = {
-    overworld_frame(gFieldEffectObjectPic_RockClimbBlob, 4, 4, 1),
-    overworld_frame(gFieldEffectObjectPic_RockClimbBlob, 4, 4, 0),
-    overworld_frame(gFieldEffectObjectPic_RockClimbBlob, 4, 4, 2),
+    overworld_ascending_frames(gFieldEffectObjectPic_RockClimbBlob, 4, 4),
 };
 
 const struct SpriteTemplate gFieldEffectObjectTemplate_RockClimbBlob = {

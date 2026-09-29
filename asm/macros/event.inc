@@ -3068,6 +3068,10 @@
 	callnative Script_RemoveFieldMugshot, requests_effects=1
 	.endm
 
+	.macro setskipshowanim
+	callnative ScrCmd_setskipshowanim, requests_effects=1
+	.endm
+
 	@ Hides any follower Pokémon if present, putting them into their Poké Ball; by default waits for their movement to finish.
 	.macro hidefollower wait=1
 	.byte SCR_OP_HIDEFOLLOWER

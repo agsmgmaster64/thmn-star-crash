@@ -80,11 +80,7 @@ gFieldEffectScriptPointers::
 	.4byte gFieldEffectScript_TracksBug                 @ FLDEFF_TRACKS_BUG
 	.4byte gFieldEffectScript_TracksSpot                @ FLDEFF_TRACKS_SPOT
 	.4byte gFieldEffectScript_CaveDust                  @ FLDEFF_CAVE_DUST
-	.4byte gFieldEffectScript_UseSurfTool               @ FLDEFF_USE_SURF_TOOL
-	.4byte gFieldEffectScript_UseWaterfallTool          @ FLDEFF_USE_WATERFALL_TOOL
-	.4byte gFieldEffectScript_UseDiveTool               @ FLDEFF_USE_DIVE_TOOL
 	.4byte gFieldEffectScript_UseRockClimb              @ FLDEFF_USE_ROCK_CLIMB
-	.4byte gFieldEffectScript_UseRockClimbTool          @ FLDEFF_USE_ROCK_CLIMB_TOOL
 	.4byte gFieldEffectScript_SnowGrass                 @ FLDEFF_SNOW_GRASS
 	.4byte gFieldEffectScript_Defog                     @ FLDEFF_DEFOG
 	.4byte gFieldEffectScript_ORASDowse                 @ FLDEFF_ORAS_DOWSE
@@ -380,22 +376,6 @@ gFieldEffectScript_DoubleExclMarkIcon::
 	field_eff_callnative FldEff_DoubleExclMarkIcon
 	field_eff_end
 
-@ Start qol_field_moves
-
-gFieldEffectScript_UseSurfTool::
-	field_eff_callnative FldEff_UseSurfTool
-	field_eff_end
-
-gFieldEffectScript_UseWaterfallTool::
-	field_eff_callnative FldEff_UseWaterfallTool
-	field_eff_end
-
-gFieldEffectScript_UseDiveTool::
-	field_eff_callnative FldEff_UseDiveTool
-	field_eff_end
-
-@ End qol_field_moves
-
 gFieldEffectScript_TracksBug::
 	field_eff_loadfadedpal_callnative gSpritePalette_GeneralFieldEffect0, FldEff_TracksBug
 	field_eff_end
@@ -414,10 +394,6 @@ gFieldEffectScript_CaveDust::
 
 gFieldEffectScript_UseRockClimb::
 	field_eff_callnative FldEff_UseRockClimb
-	field_eff_end
-
-gFieldEffectScript_UseRockClimbTool::
-	field_eff_callnative FldEff_UseRockClimbTool
 	field_eff_end
 
 gFieldEffectScript_SnowGrass::

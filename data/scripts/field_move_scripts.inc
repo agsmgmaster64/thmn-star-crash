@@ -399,13 +399,14 @@ EventScript_DoWaterfall::
 	msgbox Text_MonUsedFieldMove, MSGBOX_DEFAULT
 EventScript_UseWaterfallMon::
 	hidefollowernpc
+EventScript_WaterfallCommon::
 	dofieldeffect FLDEFF_USE_WATERFALL
 	callnative FollowerNPC_WarpSetEnd
 	goto EventScript_EndWaterfall
 
 EventScript_CanUseWaterfallOtherwise::
 	partycheckfieldmove FIELD_MOVE_WATERFALL
-	goto_if_eq VAR_RESULT, PARTY_SIZE, EventScript_CanUseWaterfallTool
+	goto_if_eq VAR_RESULT, PARTY_SIZE, EventScript_CanUseSurfboardPlusWaterfall
 	bufferpartymonnick STR_VAR_1, VAR_RESULT
 	setfieldeffectargument 0, VAR_RESULT
 	msgbox Text_WantToWaterfall, MSGBOX_YESNO
@@ -414,21 +415,21 @@ EventScript_CanUseWaterfallOtherwise::
 	msgbox Text_MonAttemptedToUseFieldMove, MSGBOX_DEFAULT
 	goto EventScript_UseWaterfallMon
 
-EventScript_UseWaterfallTool::
+EventScript_UseSurfboardPlusWaterfall::
 	lock
-	goto EventScript_UseWaterfallTool_SkipCheck
+	goto EventScript_UseSurfboardPlusWaterfall_SkipCheck
 
-EventScript_CanUseWaterfallTool::
-	checkitem ITEM_CLIMBING_GEAR, 1
+EventScript_CanUseSurfboardPlusWaterfall::
+	checkitem ITEM_SURFBOARD_PLUS, 1
 	goto_if_ne VAR_RESULT, TRUE, EventScript_CantWaterfall
-EventScript_UseWaterfallTool_SkipCheck::
-	bufferitemname STR_VAR_2, ITEM_CLIMBING_GEAR
+	msgbox Text_WantToWaterfallItem, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, EventScript_EndWaterfall
+EventScript_UseSurfboardPlusWaterfall_SkipCheck::
+	bufferitemname STR_VAR_2, ITEM_SURFBOARD_PLUS
 	msgbox Text_PlayerUsedFieldTool, MSGBOX_DEFAULT
-	waitmessage
-EventScript_UseWaterfallFieldEffect::
-	dofieldeffect FLDEFF_USE_WATERFALL_TOOL
-	releaseall
-	end
+	closemessage
+	setskipshowanim
+	goto EventScript_WaterfallCommon
 
 EventScript_CannotUseWaterfall::
 	lockall
@@ -445,6 +446,10 @@ Text_CantWaterfall:
 Text_WantToWaterfall:
 	.string "It's a large waterfall.\n"
 	.string "Would you like to use Waterfall?$"
+
+Text_WantToWaterfallItem:
+	.string "It's a large waterfall.\n"
+	.string "Would you like to use the Surfboard?$"
 
 EventScript_UseDive::
 	lockall
@@ -474,24 +479,16 @@ EventScript_EndDive::
 	releaseall
 	end
 
-EventScript_CheckDiveToolAndParty::
-	checkitem ITEM_SCUBA_GEAR, 1
-	goto_if_eq VAR_RESULT, TRUE, EventScript_UseScubaGear
-	partycheckfieldmove FIELD_MOVE_DIVE
-	return
-
 EventScript_UseScubaGear::
 	lockall
-	goto EventScript_UseDiveItem_SkipCheck
+	goto EventScript_UseDiveItemDive_SkipCheck
 
-EventScript_CanUseDiveItem::
-	checkitem ITEM_SCUBA_GEAR, 1
-	goto_if_ne VAR_RESULT, TRUE, EventScript_CantDive
-EventScript_UseDiveItem_SkipCheck::
+EventScript_UseDiveItemDive_SkipCheck::
 	bufferitemname STR_VAR_2, ITEM_SCUBA_GEAR
 	msgbox Text_PlayerUsedFieldTool, MSGBOX_DEFAULT
 	waitmessage
-	dofieldeffect FLDEFF_USE_DIVE_TOOL
+	setskipshowanim
+	dofieldeffect FLDEFF_USE_DIVE
 	goto EventScript_EndDive
 
 EventScript_UseDiveUnderwater::
@@ -613,6 +610,7 @@ EventScript_UseRockClimb::
 	msgbox Text_MonUsedFieldMove, MSGBOX_DEFAULT
 	closemessage
 EventScript_RockClimbCommon::
+	hidefollowernpc
 	dofieldeffect FLDEFF_USE_ROCK_CLIMB
 	waitstate
 EventScript_EndRockClimb::
@@ -621,7 +619,7 @@ EventScript_EndRockClimb::
 
 EventScript_CanUseRockClimbOtherwise::
 	partycheckfieldmove FIELD_MOVE_ROCK_CLIMB, TRUE
-	goto_if_eq VAR_RESULT, PARTY_SIZE, EventScript_CanUseRockClimbTool
+	goto_if_eq VAR_RESULT, PARTY_SIZE, EventScript_CanUseClimbingBoots
 	setfieldeffectargument 0, VAR_RESULT
 	bufferpartymonnick STR_VAR_1, VAR_RESULT
 	msgbox Text_WantToRockClimb, MSGBOX_YESNO
@@ -631,16 +629,17 @@ EventScript_CanUseRockClimbOtherwise::
 	closemessage
 	goto EventScript_RockClimbCommon
 
-EventScript_CanUseRockClimbTool::
-	checkitem ITEM_CLIMBING_GEAR, 1
+EventScript_CanUseClimbingBoots::
+	checkitem ITEM_CLIMBING_BOOTS, 1
 	goto_if_ne VAR_RESULT, TRUE, EventScript_CantRockClimb
-EventScript_UseRockClimbTool_SkipCheck::
-	bufferitemname STR_VAR_2, ITEM_CLIMBING_GEAR
+	msgbox Text_WantToRockClimbItem, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, EventScript_EndRockClimb
+EventScript_UseClimbingBoots_SkipCheck::
+	bufferitemname STR_VAR_2, ITEM_CLIMBING_BOOTS
 	msgbox Text_PlayerUsedFieldTool, MSGBOX_DEFAULT
-	waitmessage
-	dofieldeffect FLDEFF_USE_ROCK_CLIMB_TOOL
-	releaseall
-	end
+	closemessage
+	setskipshowanim
+	goto EventScript_RockClimbCommon
 
 EventScript_CantRockClimb::
 	msgbox Text_CantRockClimb, MSGBOX_DEFAULT
@@ -650,10 +649,15 @@ Text_WantToRockClimb:
 	.string "The cliff is steep.\n"
 	.string "Would you like to use Rock Climb?$"
 
+Text_WantToRockClimbItem:
+	.string "The cliff is steep.\n"
+	.string "Would you like to use the Climbing\l"
+	.string "Gear?$"
+
 Text_CantRockClimb:
 	.string "The cliff is steep.\n"
 	.string "A Puppet may be able to climb it.$"
 
-EventScript_UseRockClimbTool::
+EventScript_UseClimbingBoots::
 	lock
-	goto EventScript_UseRockClimbTool_SkipCheck
+	goto EventScript_UseClimbingBoots_SkipCheck

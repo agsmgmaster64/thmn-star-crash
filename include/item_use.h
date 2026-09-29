@@ -56,35 +56,18 @@ void ItemUseOutOfBattle_Pokeball(u8 taskId);
 
 // Start qol_field_moves
 
-void ItemUseOutOfBattle_CutTool(u8 taskId);
-void ItemUseOnFieldCB_CutTool(u8 taskId);
-
-void ItemUseOutOfBattle_FlyTool(u8 taskId);
-void CB2_OpenFlyToolFromBag(void);
-void Task_OpenRegisteredFlyTool(u8 taskId);
-
-void ItemUseOutOfBattle_SurfTool(u8 taskId);
-void ItemUseOnFieldCB_SurfTool(u8 taskId);
-
-void ItemUseOutOfBattle_StrengthTool(u8 taskId);
-void ItemUseOnFieldCB_StrengthTool(u8 taskId);
-
-void ItemUseOutOfBattle_FlashTool(u8 taskId);
-void ItemUseOnFieldCB_FlashTool(u8 taskId);
-
-void ItemUseOutOfBattle_RockSmashTool(u8 taskId);
-void ItemUseOnFieldCB_RockSmashTool(u8 taskId);
-
-void ItemUseOutOfBattle_WaterfallTool(u8 taskId);
-void ItemUseOnFieldCB_WaterfallTool(u8 taskId);
-
-void ItemUseOutOfBattle_DiveTool(u8 taskId);
-void ItemUseOnFieldCB_DiveTool(u8 taskId);
+void ItemUseOutOfBattle_BigAxe(u8 taskId);
+void ItemUseOutOfBattle_Pager(u8 taskId);
+void ItemUseOutOfBattle_Surfboard(u8 taskId);
+void ItemUseOutOfBattle_SurfboardPlus(u8 taskId);
+void ItemUseOutOfBattle_PowerGlove(u8 taskId);
+void ItemUseOutOfBattle_Lantern(u8 taskId);
+void ItemUseOutOfBattle_Pickaxe(u8 taskId);
+void ItemUseOutOfBattle_ClimbingBoots(u8 taskId);
+void ItemUseOutOfBattle_ScubaGear(u8 taskId);
 
 void ItemUseOutOfBattle_TMCase(u8 taskId);
 void ItemUseOutOfBattle_BerryPouch(u8 taskId);
-
-void ItemUseOnFieldCB_RockClimbTool(u8);
 
 // End qol_field_moves
 bool8 ItemfinderCheckForHiddenItems(const struct MapEvents *, u8);

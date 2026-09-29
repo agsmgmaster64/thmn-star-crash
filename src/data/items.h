@@ -13246,7 +13246,7 @@ const struct ItemInfo gItemsInfo[] =
         .importance = 1,
         .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_FIELD,
-        .fieldUseFunc = ItemUseOutOfBattle_CutTool,
+        .fieldUseFunc = ItemUseOutOfBattle_BigAxe,
         .iconPic = gItemIcon_BigAxe,
         .iconPalette = gItemIconPalette_BigAxe,
     },
@@ -13262,7 +13262,7 @@ const struct ItemInfo gItemsInfo[] =
         .importance = 1,
         .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_FIELD,
-        .fieldUseFunc = ItemUseOutOfBattle_FlyTool,
+        .fieldUseFunc = ItemUseOutOfBattle_Pager,
         .iconPic = gItemIcon_QuestionMark,
         .iconPalette = gItemIconPalette_QuestionMark,
     },
@@ -13275,10 +13275,33 @@ const struct ItemInfo gItemsInfo[] =
             "A surfboard for\n"
             "surfing on bodies\n"
             "of water."),
+        .descriptionLong = COMPOUND_STRING(
+            "A surfboard that can traverse most\n"
+            "bodies of water."),
         .importance = 1,
         .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_FIELD,
-        .fieldUseFunc = ItemUseOutOfBattle_SurfTool,
+        .fieldUseFunc = ItemUseOutOfBattle_Surfboard,
+        .iconPic = gItemIcon_Surfboard,
+        .iconPalette = gItemIconPalette_Surfboard,
+    },
+
+    [ITEM_SURFBOARD_PLUS] =
+    {
+        .name = ITEM_NAME("Surfboard+"),
+        .price = 0,
+        .description = COMPOUND_STRING(
+            "A surfboard for\n"
+            "surfing on bodies\n"
+            "of water."),
+        .descriptionLong = COMPOUND_STRING(
+            "A surfboard upgraded with thrusters\n"
+            "and stabilizers. It produces enough\n"
+            "force to scale waterfalls."),
+        .importance = 1,
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_FIELD,
+        .fieldUseFunc = ItemUseOutOfBattle_SurfboardPlus,
         .iconPic = gItemIcon_Surfboard,
         .iconPalette = gItemIconPalette_Surfboard,
     },
@@ -13291,10 +13314,14 @@ const struct ItemInfo gItemsInfo[] =
             "Some gloves that\n"
             "have the strength\n"
             "to move boulders."),
+        .descriptionLong = COMPOUND_STRING(
+            "Gloves that enhance the wearer's\n"
+            "strength, allowing them to move\n"
+            "heavy stones."),
         .importance = 1,
         .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_FIELD,
-        .fieldUseFunc = ItemUseOutOfBattle_StrengthTool,
+        .fieldUseFunc = ItemUseOutOfBattle_PowerGlove,
         .iconPic = gItemIcon_PowerGlove,
         .iconPalette = gItemIconPalette_PowerGlove,
     },
@@ -13307,10 +13334,13 @@ const struct ItemInfo gItemsInfo[] =
             "A lantern that\n"
             "can light up\n"
             "dark areas."),
+        .descriptionLong = COMPOUND_STRING(
+            "A lantern useful for exploring dark\n"
+            "areas."),
         .importance = 1,
         .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_FIELD,
-        .fieldUseFunc = ItemUseOutOfBattle_FlashTool,
+        .fieldUseFunc = ItemUseOutOfBattle_Lantern,
         .iconPic = gItemIcon_Lantern,
         .iconPalette = gItemIconPalette_Lantern,
     },
@@ -13323,15 +13353,18 @@ const struct ItemInfo gItemsInfo[] =
             "A pickaxe that\n"
             "can smash away\n"
             "weak rocks."),
+        .descriptionLong = COMPOUND_STRING(
+            "A pickaxe that is useful for clearing\n"
+            "away cracked rocks."),
         .importance = 1,
         .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_FIELD,
-        .fieldUseFunc = ItemUseOutOfBattle_RockSmashTool,
+        .fieldUseFunc = ItemUseOutOfBattle_Pickaxe,
         .iconPic = gItemIcon_Pickaxe,
         .iconPalette = gItemIconPalette_Pickaxe,
     },
 
-    [ITEM_CLIMBING_GEAR] =
+    [ITEM_CLIMBING_BOOTS] =
     {
         .name = ITEM_NAME("Climbing Gear"),
         .price = 0,
@@ -13339,10 +13372,14 @@ const struct ItemInfo gItemsInfo[] =
             "\n"
             "\n"
             "waterfalls."),
+        .descriptionLong = COMPOUND_STRING(
+            "Equipment that is useful for scaling\n"
+            "rock walls when paired with a Power\n"
+            "Glove."),
         .importance = 1,
         .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_FIELD,
-        .fieldUseFunc = ItemUseOutOfBattle_WaterfallTool,
+        .fieldUseFunc = ItemUseOutOfBattle_ClimbingBoots,
         .iconPic = gItemIcon_QuestionMark,
         .iconPalette = gItemIconPalette_QuestionMark,
     },
@@ -13355,10 +13392,13 @@ const struct ItemInfo gItemsInfo[] =
             "Some scuba gear\n"
             "for diving down\n"
             "the ocean."),
+        .descriptionLong = COMPOUND_STRING(
+            "Allows the wearer to dive and\n"
+            "explore deep areas of water safely."),
         .importance = 1,
         .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_FIELD,
-        .fieldUseFunc = ItemUseOutOfBattle_DiveTool,
+        .fieldUseFunc = ItemUseOutOfBattle_ScubaGear,
         .iconPic = gItemIcon_ScubaGear,
         .iconPalette = gItemIconPalette_ScubaGear,
     },

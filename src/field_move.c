@@ -21,7 +21,7 @@ static bool32 IsAlwaysTrue(enum FieldMove fieldMove)
 
 static bool32 HasBadgeForFieldMove(enum FieldMove fieldMove)
 {
-    return FlagGet(gFieldMoveInfo[fieldMove].arg + FLAG_BADGE01_GET);
+    return FlagGet(gFieldMoveInfo[fieldMove].arg);
 }
 
 const struct FieldMoveUnlock gFieldMoveUnlocks[FIELD_MOVE_UNLOCK_COUNT] =
@@ -36,7 +36,7 @@ const struct FieldMoveUnlock gFieldMoveUnlocks[FIELD_MOVE_UNLOCK_COUNT] =
         .isUnlockedFunc = IsAlwaysTrue,
         .lockedMessage = gText_EmptyString2,
     },
-    [BADGE_UNLOCK] =
+    [FLAG_UNLOCK] =
     {
         .isUnlockedFunc = HasBadgeForFieldMove,
         .lockedMessage = gText_CantUseUntilNewBadge,
@@ -50,73 +50,73 @@ const struct FieldMoveInfo gFieldMoveInfo[FIELD_MOVES_COUNT] =
     [FIELD_MOVE_CUT] =
     {
         .fieldMoveFunc = SetUpFieldMove_Cut,
-        .unlockType = BADGE_UNLOCK,
+        .unlockType = FLAG_UNLOCK,
         .moveID = MOVE_CUT,
         .partyMsgID = PARTY_MSG_NOTHING_TO_CUT,
-        .arg = IS_FRLG ? FLAG_TO_BADGE(FLAG_BADGE02_GET) : FLAG_TO_BADGE(FLAG_BADGE01_GET),
+        .arg = IS_FRLG ? FLAG_BADGE02_GET : FLAG_BADGE01_GET,
     },
 
     [FIELD_MOVE_FLASH] =
     {
         .fieldMoveFunc = SetUpFieldMove_Flash,
-        .unlockType = BADGE_UNLOCK,
+        .unlockType = FLAG_UNLOCK,
         .moveID = MOVE_FLASH,
         .partyMsgID = PARTY_MSG_CANT_USE_HERE,
-        .arg = IS_FRLG ? FLAG_TO_BADGE(FLAG_BADGE01_GET) : FLAG_TO_BADGE(FLAG_BADGE02_GET),
+        .arg = IS_FRLG ? FLAG_BADGE01_GET : FLAG_BADGE02_GET,
     },
 
     [FIELD_MOVE_ROCK_SMASH] =
     {
         .fieldMoveFunc = SetUpFieldMove_RockSmash,
-        .unlockType = BADGE_UNLOCK,
+        .unlockType = FLAG_UNLOCK,
         .moveID = MOVE_ROCK_SMASH,
         .partyMsgID = PARTY_MSG_CANT_USE_HERE,
-        .arg = IS_FRLG ? FLAG_TO_BADGE(FLAG_BADGE06_GET) : FLAG_TO_BADGE(FLAG_BADGE03_GET),
+        .arg = IS_FRLG ? FLAG_BADGE06_GET : FLAG_BADGE03_GET,
     },
 
     [FIELD_MOVE_STRENGTH] =
     {
         .fieldMoveFunc = SetUpFieldMove_Strength,
-        .unlockType = BADGE_UNLOCK,
+        .unlockType = FLAG_UNLOCK,
         .moveID = MOVE_STRENGTH,
         .partyMsgID = PARTY_MSG_CANT_USE_HERE,
-        .arg = FLAG_TO_BADGE(FLAG_BADGE04_GET),
+        .arg = FLAG_BADGE04_GET,
     },
 
     [FIELD_MOVE_SURF] =
     {
         .fieldMoveFunc = SetUpFieldMove_Surf,
-        .unlockType = BADGE_UNLOCK,
+        .unlockType = FLAG_UNLOCK,
         .moveID = MOVE_SURF,
         .partyMsgID = PARTY_MSG_CANT_SURF_HERE,
-        .arg = FLAG_TO_BADGE(FLAG_BADGE05_GET),
+        .arg = FLAG_BADGE05_GET,
     },
 
     [FIELD_MOVE_FLY] =
     {
         .fieldMoveFunc = SetUpFieldMove_Fly,
-        .unlockType = BADGE_UNLOCK,
+        .unlockType = FLAG_UNLOCK,
         .moveID = MOVE_FLY,
         .partyMsgID = PARTY_MSG_CANT_USE_HERE,
-        .arg = IS_FRLG ? FLAG_TO_BADGE(FLAG_BADGE03_GET) : FLAG_TO_BADGE(FLAG_BADGE06_GET),
+        .arg = IS_FRLG ? FLAG_BADGE03_GET : FLAG_BADGE06_GET,
     },
 
     [FIELD_MOVE_DIVE] =
     {
         .fieldMoveFunc = SetUpFieldMove_Dive,
-        .unlockType = BADGE_UNLOCK,
+        .unlockType = FLAG_UNLOCK,
         .moveID = MOVE_DIVE,
         .partyMsgID = PARTY_MSG_CANT_USE_HERE,
-        .arg = FLAG_TO_BADGE(FLAG_BADGE07_GET),
+        .arg = FLAG_BADGE07_GET,
     },
 
     [FIELD_MOVE_WATERFALL] =
     {
         .fieldMoveFunc = SetUpFieldMove_Waterfall,
-        .unlockType = BADGE_UNLOCK,
+        .unlockType = FLAG_UNLOCK,
         .moveID = MOVE_WATERFALL,
         .partyMsgID = PARTY_MSG_CANT_USE_HERE,
-        .arg = IS_FRLG ? FLAG_TO_BADGE(FLAG_BADGE07_GET) : FLAG_TO_BADGE(FLAG_BADGE08_GET),
+        .arg = IS_FRLG ? FLAG_BADGE07_GET : FLAG_BADGE08_GET,
     },
 
     [FIELD_MOVE_TELEPORT] =

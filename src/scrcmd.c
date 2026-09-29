@@ -3147,11 +3147,20 @@ bool8 ScrCmd_partycheckfieldmove(struct ScriptContext *ctx)
 
     Script_RequestEffects(SCREFF_V1);
 
-    PartyCanUseFieldMove(fieldMove, doUnlockedCheck);
+    PartyCanUseFieldMove(fieldMove, doUnlockedCheck, TRUE);
 
     return FALSE;
 }
 // End qol_field_moves
+
+bool8 ScrCmd_setskipshowanim(struct ScriptContext * ctx)
+{
+    gSkipShowMonAnim = TRUE;
+
+    Script_RequestEffects(SCREFF_V1 | SCREFF_HARDWARE);
+
+    return FALSE;
+}
 
 bool8 ScrCmd_pokevial(struct ScriptContext *ctx)
 {

@@ -115,10 +115,17 @@ static bool8 EscalatorWarpIn_Up_Ride(struct Task *);
 static bool8 EscalatorWarpIn_WaitForMovement(struct Task *);
 static bool8 EscalatorWarpIn_End(struct Task *);
 
+static void Task_UseWaterfall(u8);
+static bool8 WaterfallFieldEffect_Init(struct Task *, struct ObjectEvent *);
 static bool8 WaterfallFieldEffect_ShowMon(struct Task *, struct ObjectEvent *);
 static bool8 WaterfallFieldEffect_WaitForShowMon(struct Task *, struct ObjectEvent *);
+static bool8 WaterfallFieldEffect_RideUp(struct Task *, struct ObjectEvent *);
+static bool8 WaterfallFieldEffect_ContinueRideOrEnd(struct Task *, struct ObjectEvent *);
 
+static void Task_UseDive(u8);
+static bool8 DiveFieldEffect_Init(struct Task *);
 static bool8 DiveFieldEffect_ShowMon(struct Task *);
+static bool8 DiveFieldEffect_TryWarp(struct Task *);
 
 static void Task_LavaridgeGymB1FWarp(u8);
 static bool8 LavaridgeGymB1FWarpEffect_Init(struct Task *, struct ObjectEvent *, struct Sprite *);
@@ -193,8 +200,12 @@ static void SpriteCB_FieldMoveMonSlideOnscreen(struct Sprite *);
 static void SpriteCB_FieldMoveMonWaitAfterCry(struct Sprite *);
 static void SpriteCB_FieldMoveMonSlideOffscreen(struct Sprite *);
 
+static void Task_SurfFieldEffect(u8);
+static void SurfFieldEffect_Init(struct Task *);
 static void SurfFieldEffect_FieldMovePose(struct Task *);
 static void SurfFieldEffect_ShowMon(struct Task *);
+static void SurfFieldEffect_JumpOnSurfBlob(struct Task *);
+static void SurfFieldEffect_End(struct Task *);
 
 static void SpriteCB_NPCFlyOut(struct Sprite *);
 
@@ -2052,12 +2063,12 @@ bool8 FldEff_UseWaterfall(void)
     return FALSE;
 }
 
-void Task_UseWaterfall(u8 taskId)
+static void Task_UseWaterfall(u8 taskId)
 {
     while (sWaterfallFieldEffectFuncs[gTasks[taskId].tState](&gTasks[taskId], &gObjectEvents[gPlayerAvatar.objectEventId]));
 }
 
-bool8 WaterfallFieldEffect_Init(struct Task *task, struct ObjectEvent *objectEvent)
+static bool8 WaterfallFieldEffect_Init(struct Task *task, struct ObjectEvent *objectEvent)
 {
     LockPlayerFieldControls();
     gPlayerAvatar.preventStep = TRUE;
@@ -2071,9 +2082,12 @@ static bool8 WaterfallFieldEffect_ShowMon(struct Task *task, struct ObjectEvent 
     if (!ObjectEventIsMovementOverridden(objectEvent))
     {
         ObjectEventClearHeldMovementIfFinished(objectEvent);
-        gFieldEffectArguments[0] = task->tMonId;
-        FieldEffectStart(FLDEFF_FIELD_MOVE_SHOW_MON_INIT);
         task->tState++;
+        if (!gSkipShowMonAnim)
+        {
+            gFieldEffectArguments[0] = task->tMonId;
+            FieldEffectStart(FLDEFF_FIELD_MOVE_SHOW_MON_INIT);
+        }
     }
     return FALSE;
 }
@@ -2088,14 +2102,15 @@ static bool8 WaterfallFieldEffect_WaitForShowMon(struct Task *task, struct Objec
     return TRUE;
 }
 
-bool8 WaterfallFieldEffect_RideUp(struct Task *task, struct ObjectEvent *objectEvent)
+static bool8 WaterfallFieldEffect_RideUp(struct Task *task, struct ObjectEvent *objectEvent)
 {
+    gSkipShowMonAnim = FALSE;
     ObjectEventSetHeldMovement(objectEvent, GetWalkSlowMovementAction(DIR_NORTH));
     task->tState++;
     return FALSE;
 }
 
-bool8 WaterfallFieldEffect_ContinueRideOrEnd(struct Task *task, struct ObjectEvent *objectEvent)
+static bool8 WaterfallFieldEffect_ContinueRideOrEnd(struct Task *task, struct ObjectEvent *objectEvent)
 {
     if (!ObjectEventClearHeldMovementIfFinished(objectEvent))
         return FALSE;
@@ -2109,7 +2124,8 @@ bool8 WaterfallFieldEffect_ContinueRideOrEnd(struct Task *task, struct ObjectEve
 
     UnlockPlayerFieldControls();
     gPlayerAvatar.preventStep = FALSE;
-    RemoveRelevantWaterfallFieldEffect(); // qol_field_moves
+    DestroyTask(FindTaskIdByFunc(Task_UseWaterfall));
+    FieldEffectActiveListRemove(FLDEFF_USE_WATERFALL);
     return FALSE;
 }
 
@@ -2126,12 +2142,12 @@ bool8 FldEff_UseDive(void)
     return FALSE;
 }
 
-void Task_UseDive(u8 taskId)
+static void Task_UseDive(u8 taskId)
 {
     while (sDiveFieldEffectFuncs[gTasks[taskId].data[0]](&gTasks[taskId]));
 }
 
-bool8 DiveFieldEffect_Init(struct Task *task)
+static bool8 DiveFieldEffect_Init(struct Task *task)
 {
     gPlayerAvatar.preventStep = TRUE;
     task->data[0]++;
@@ -2141,13 +2157,16 @@ bool8 DiveFieldEffect_Init(struct Task *task)
 static bool8 DiveFieldEffect_ShowMon(struct Task *task)
 {
     LockPlayerFieldControls();
-    gFieldEffectArguments[0] = task->data[15];
-    FieldEffectStart(FLDEFF_FIELD_MOVE_SHOW_MON_INIT);
+    if (!gSkipShowMonAnim)
+    {
+        gFieldEffectArguments[0] = task->data[15];
+        FieldEffectStart(FLDEFF_FIELD_MOVE_SHOW_MON_INIT);
+    }
     task->data[0]++;
     return FALSE;
 }
 
-bool8 DiveFieldEffect_TryWarp(struct Task *task)
+static bool8 DiveFieldEffect_TryWarp(struct Task *task)
 {
     struct MapPosition mapPosition;
     PlayerGetDestCoords(&mapPosition.x, &mapPosition.y);
@@ -2155,8 +2174,10 @@ bool8 DiveFieldEffect_TryWarp(struct Task *task)
     // Wait for show mon first
     if (!FieldEffectActiveListContains(FLDEFF_FIELD_MOVE_SHOW_MON))
     {
+        gSkipShowMonAnim = FALSE;
         TryDoDiveWarp(&mapPosition, gObjectEvents[gPlayerAvatar.objectEventId].currentMetatileBehavior);
-        RemoveRelevantDiveFieldEffect(); // qol_field_moves
+        DestroyTask(FindTaskIdByFunc(Task_UseDive));
+        FieldEffectActiveListRemove(FLDEFF_USE_DIVE);
     }
     return FALSE;
 }
@@ -3339,12 +3360,12 @@ static void (*const sSurfFieldEffectFuncs[])(struct Task *) = {
     SurfFieldEffect_End,
 };
 
-void Task_SurfFieldEffect(u8 taskId)
+static void Task_SurfFieldEffect(u8 taskId)
 {
     sSurfFieldEffectFuncs[gTasks[taskId].tState](&gTasks[taskId]);
 }
 
-void SurfFieldEffect_Init(struct Task *task)
+static void SurfFieldEffect_Init(struct Task *task)
 {
     LockPlayerFieldControls();
     FreezeObjectEvents();
@@ -3359,6 +3380,11 @@ void SurfFieldEffect_Init(struct Task *task)
 
 static void SurfFieldEffect_FieldMovePose(struct Task *task)
 {
+    if (gSkipShowMonAnim)
+    {
+        task->tState++;
+        return;
+    }
     struct ObjectEvent *objectEvent;
     objectEvent = &gObjectEvents[gPlayerAvatar.objectEventId];
     if (!ObjectEventIsMovementOverridden(objectEvent) || ObjectEventClearHeldMovementIfFinished(objectEvent))
@@ -3371,6 +3397,11 @@ static void SurfFieldEffect_FieldMovePose(struct Task *task)
 
 static void SurfFieldEffect_ShowMon(struct Task *task)
 {
+    if (gSkipShowMonAnim)
+    {
+        task->tState++;
+        return;
+    }
     struct ObjectEvent *objectEvent;
     objectEvent = &gObjectEvents[gPlayerAvatar.objectEventId];
     if (ObjectEventCheckHeldMovementStatus(objectEvent))
@@ -3381,11 +3412,12 @@ static void SurfFieldEffect_ShowMon(struct Task *task)
     }
 }
 
-void SurfFieldEffect_JumpOnSurfBlob(struct Task *task)
+static void SurfFieldEffect_JumpOnSurfBlob(struct Task *task)
 {
     struct ObjectEvent *objectEvent;
     if (!FieldEffectActiveListContains(FLDEFF_FIELD_MOVE_SHOW_MON))
     {
+        gSkipShowMonAnim = FALSE;
         objectEvent = &gObjectEvents[gPlayerAvatar.objectEventId];
         ObjectEventSetGraphicsId(objectEvent, GetPlayerAvatarGraphicsIdByStateId(PLAYER_AVATAR_STATE_SURFING));
         ObjectEventClearHeldMovementIfFinished(objectEvent);
@@ -3400,7 +3432,7 @@ void SurfFieldEffect_JumpOnSurfBlob(struct Task *task)
     }
 }
 
-void SurfFieldEffect_End(struct Task *task)
+static void SurfFieldEffect_End(struct Task *task)
 {
     struct ObjectEvent *objectEvent = &gObjectEvents[gPlayerAvatar.objectEventId];
     struct ObjectEvent *followerObject = GetFollowerObject();
@@ -3414,7 +3446,8 @@ void SurfFieldEffect_End(struct Task *task)
         SetSurfBlob_BobState(objectEvent->fieldEffectSpriteId, BOB_PLAYER_AND_MON);
         UnfreezeObjectEvents();
         UnlockPlayerFieldControls();
-        RemoveRelevantSurfFieldEffect(); // qol_field_moves
+        FieldEffectActiveListRemove(FLDEFF_USE_SURF);
+        DestroyTask(FindTaskIdByFunc(Task_SurfFieldEffect));
     }
 }
 
@@ -4321,19 +4354,6 @@ bool8 (*const sRockClimbFieldEffectFuncs[])(struct Task *, struct ObjectEvent *)
     [STATE_ROCK_CLIMB_WAIT_STOP]     = RockClimb_WaitStopRockClimb
 };
 
-bool8 (*const sRockClimbToolFieldEffectFuncs[])(struct Task *, struct ObjectEvent *) =
-{
-    [STATE_ROCK_CLIMB_INIT]          = RockClimb_Init,
-    [STATE_ROCK_CLIMB_POSE]          = RockClimb_SkipTool,
-    [STATE_ROCK_CLIMB_SHOW_MON]      = RockClimb_SkipTool,
-    [STATE_ROCK_CLIMB_JUMP_ON]       = RockClimb_JumpOnRockClimbBlob,
-    [STATE_ROCK_CLIMB_WAIT_JUMP]     = RockClimb_WaitJumpOnRockClimbBlob,
-    [STATE_ROCK_CLIMB_RIDE]          = RockClimb_Ride,
-    [STATE_ROCK_CLIMB_CONTINUE_RIDE] = RockClimb_ContinueRideOrEnd,
-    [STATE_ROCK_CLIMB_STOP_INIT]     = RockClimb_StopRockClimbInit,
-    [STATE_ROCK_CLIMB_WAIT_STOP]     = RockClimb_WaitStopRockClimb
-};
-
 bool8 FldEff_UseRockClimb(void)
 {
     u8 taskId;
@@ -4343,28 +4363,9 @@ bool8 FldEff_UseRockClimb(void)
     return FALSE;
 }
 
-bool8 FldEff_UseRockClimbTool(void)
-{
-    u8 taskId;
-    taskId = CreateTask(Task_UseRockClimbTool, 0xFF);
-    gTasks[taskId].tMonId = gFieldEffectArguments[0];
-    if (gPlayerAvatar.flags & PLAYER_AVATAR_FLAG_BIKE)
-    {
-        Overworld_ClearSavedMusic();
-        Overworld_PlaySpecialMapMusic();
-    }
-    Task_UseRockClimbTool(taskId);
-    return FALSE;
-}
-
 static void Task_UseRockClimb(u8 taskId)
 {
     while (sRockClimbFieldEffectFuncs[gTasks[taskId].tState](&gTasks[taskId], &gObjectEvents[gPlayerAvatar.objectEventId]));
-}
-
-static void Task_UseRockClimbTool(u8 taskId)
-{
-    while (sRockClimbToolFieldEffectFuncs[gTasks[taskId].tState](&gTasks[taskId], &gObjectEvents[gPlayerAvatar.objectEventId]));
 }
 
 static bool8 RockClimb_Init(struct Task *task, struct ObjectEvent *objectEvent)
@@ -4383,6 +4384,11 @@ static bool8 RockClimb_Init(struct Task *task, struct ObjectEvent *objectEvent)
 
 static bool8 RockClimb_FieldMovePose(struct Task *task, struct ObjectEvent *objectEvent)
 {
+    if (gSkipShowMonAnim)
+    {
+        task->tState++;
+        return TRUE;
+    }
     if (!ObjectEventIsMovementOverridden(objectEvent) || ObjectEventClearHeldMovementIfFinished(objectEvent))
     {
         SetPlayerAvatarFieldMove();
@@ -4394,6 +4400,11 @@ static bool8 RockClimb_FieldMovePose(struct Task *task, struct ObjectEvent *obje
 
 static bool8 RockClimb_ShowMon(struct Task *task, struct ObjectEvent *objectEvent)
 {
+    if (gSkipShowMonAnim)
+    {
+        task->tState++;
+        return TRUE;
+    }
     if (ObjectEventCheckHeldMovementStatus(objectEvent))
     {
         gFieldEffectArguments[0] = task->tMonId | SHOW_MON_CRY_NO_DUCKING;
@@ -4404,16 +4415,11 @@ static bool8 RockClimb_ShowMon(struct Task *task, struct ObjectEvent *objectEven
     return FALSE;
 }
 
-static bool8 RockClimb_SkipTool(struct Task *task, struct ObjectEvent *objectEvent)
-{
-    task->tState++;
-    return FALSE;
-}
-
 static bool8 RockClimb_JumpOnRockClimbBlob(struct Task *task, struct ObjectEvent *objectEvent)
 {
     if (!FieldEffectActiveListContains(FLDEFF_FIELD_MOVE_SHOW_MON))
     {
+        gSkipShowMonAnim = FALSE;
         objectEvent->noShadow = TRUE; // hide shadow
         ObjectEventSetGraphicsId(objectEvent, GetPlayerAvatarGraphicsIdByStateId(PLAYER_AVATAR_STATE_SURFING));
         ObjectEventClearHeldMovementIfFinished(objectEvent);
@@ -4547,30 +4553,17 @@ static bool8 RockClimb_WaitStopRockClimb(struct Task *task, struct ObjectEvent *
         UnfreezeObjectEvents();
         UnlockPlayerFieldControls();
         DestroySprite(&gSprites[objectEvent->fieldEffectSpriteId]);
+        FieldEffectActiveListRemove(FLDEFF_USE_ROCK_CLIMB);
         objectEvent->triggerGroundEffectsOnMove = TRUE; // e.g. if dismount on grass
-        RemoveRelevantRockClimbFieldEffect();
+        DestroyTask(FindTaskIdByFunc(Task_UseRockClimb));
     }
 
     return FALSE;
 }
 
-static void RemoveRelevantRockClimbFieldEffect(void)
-{
-    if (FieldEffectActiveListContains(FLDEFF_USE_ROCK_CLIMB))
-    {
-        FieldEffectActiveListRemove(FLDEFF_USE_ROCK_CLIMB);
-        DestroyTask(FindTaskIdByFunc(Task_UseRockClimb));
-    }
-    else if (FieldEffectActiveListContains(FLDEFF_USE_ROCK_CLIMB_TOOL))
-    {
-        FieldEffectActiveListRemove(FLDEFF_USE_ROCK_CLIMB_TOOL);
-        DestroyTask(FindTaskIdByFunc(Task_UseRockClimbTool));
-    }
-}
-
 bool8 IsRockClimbActive(void)
 {
-    if (FieldEffectActiveListContains(FLDEFF_USE_ROCK_CLIMB) || FieldEffectActiveListContains(FLDEFF_USE_ROCK_CLIMB_TOOL))
+    if (FieldEffectActiveListContains(FLDEFF_USE_ROCK_CLIMB))
         return TRUE;
     else
         return FALSE;

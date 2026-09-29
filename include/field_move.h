@@ -14,7 +14,7 @@ enum FieldMoveUnlockType
 {
     CANT_UNLOCK,
     ALWAYS_UNLOCKED,
-    BADGE_UNLOCK,
+    FLAG_UNLOCK,
     FIELD_MOVE_UNLOCK_COUNT
 };
 

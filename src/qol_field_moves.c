@@ -37,22 +37,18 @@
 static void FieldCallback_UseFlyTool(void);
 static void Task_UseFlyTool(void);
 
-static void Task_UseWaterfallTool(u8);
-
-static void Task_UseDiveTool(u8);
-
 static bool32 CanSpeciesLearnMoveLevelUp(u16 species, u16 move);
-static bool32 SetMonResultVariables(u32 partyIndex, u32 species);
+static void SetMonResultVariables(u32 partyIndex, u32 species);
 
 #define tState      data[0]
 #define tFallOffset data[1]
 #define tTotalFall  data[2]
 
-static inline u32 GetFieldMoveUsage(u32 fieldMove, u32 item)
+static inline u32 GetFieldMoveUsage(enum FieldMove fieldMove, u32 item)
 {
-    if (PartyCanUseFieldMove(fieldMove, TRUE) || CheckBagHasItem(item, 1))
+    if (CheckBagHasItem(item, 1))
         return TRUE;
-    return FALSE;
+    return PartyCanUseFieldMove(fieldMove, TRUE, FALSE);
 }
 
 // Fly
@@ -102,55 +98,12 @@ void ResetFlyTool(void)
 
 u32 CanUseSurfFromInteractedWater(void)
 {
-    if (IsPlayerFacingSurfableFishableWater())
-    {
-        return GetFieldMoveUsage(FIELD_MOVE_SURF, ITEM_SURFBOARD);
-    }
+    if (!IsPlayerFacingSurfableFishableWater())
+        return FALSE;
 
-    return FALSE;
-}
-
-u8 FldEff_UseSurfTool(void)
-{
-    CreateTask(Task_SurfToolFieldEffect, 0);
-    Overworld_ClearSavedMusic();
-    Overworld_ChangeMusicTo(GetSurfMusic());
-    return FALSE;
-}
-
-static void SurfToolFieldEffect_CheckHeldMovementStatus(struct Task *task)
-{
-    struct ObjectEvent *objectEvent;
-    objectEvent = &gObjectEvents[gPlayerAvatar.objectEventId];
-    if (ObjectEventCheckHeldMovementStatus(objectEvent))
-        task->tState++;
-}
-
-static void (*const sSurfToolFieldEffectFuncs[])(struct Task *) =
-{
-    SurfFieldEffect_Init,
-    SurfToolFieldEffect_CheckHeldMovementStatus,
-    SurfFieldEffect_JumpOnSurfBlob,
-    SurfFieldEffect_End,
-};
-
-void Task_SurfToolFieldEffect(u8 taskId)
-{
-    sSurfToolFieldEffectFuncs[gTasks[taskId].tState](&gTasks[taskId]);
-}
-
-void RemoveRelevantSurfFieldEffect(void)
-{
-    if (FieldEffectActiveListContains(FLDEFF_USE_SURF))
-    {
-        FieldEffectActiveListRemove(FLDEFF_USE_SURF);
-        DestroyTask(FindTaskIdByFunc(Task_SurfFieldEffect));
-    }
-    else if(FieldEffectActiveListContains(FLDEFF_USE_SURF_TOOL))
-    {
-        FieldEffectActiveListRemove(FLDEFF_USE_SURF_TOOL);
-        DestroyTask(FindTaskIdByFunc(Task_SurfToolFieldEffect));
-    }
+    if (GetFieldMoveUsage(FIELD_MOVE_SURF, ITEM_SURFBOARD_PLUS))
+        return TRUE;
+    return GetFieldMoveUsage(FIELD_MOVE_SURF, ITEM_SURFBOARD);
 }
 
 // Flash
@@ -163,29 +116,28 @@ void FldEff_UseFlashTool(void)
     ScriptContext_SetupScript(EventScript_UseLantern);
 }
 
-u32 CanUseFlashTool(void)
+u32 CanUseLantern(void)
 {
     bool32 playerIsInCave = (gMapHeader.cave == TRUE);
+    if (!playerIsInCave)
+        return FALSE;
     bool32 mapIsNotLit = (GetFlashLevel() == (gMaxFlashLevel - 1));
+    if (!mapIsNotLit)
+        return FALSE;
     bool32 playerHasUsedFlash = FlagGet(FLAG_SYS_USE_FLASH);
-
-    if (playerIsInCave && mapIsNotLit && !playerHasUsedFlash)
-    {
-        return TRUE;
-    }
-    return FALSE;
+    if (playerHasUsedFlash)
+        return FALSE;
+    return TRUE;
 }
 
 //Waterfall
 
 u32 CanUseWaterfallFromInteractedWater(void)
 {
-    if (IsPlayerSurfingNorth())
-    {
-        return GetFieldMoveUsage(FIELD_MOVE_WATERFALL, ITEM_CLIMBING_GEAR);
-    }
+    if (!IsPlayerSurfingNorth())
+        return FALSE;
 
-    return FALSE;
+    return GetFieldMoveUsage(FIELD_MOVE_WATERFALL, ITEM_SURFBOARD_PLUS);
 }
 
 u32 CanUseWaterfallTool(void)
@@ -205,59 +157,6 @@ u32 CanUseWaterfallTool(void)
     return FALSE;
 }
 
-static bool8 WaterfallToolFieldEffect_ContinueRideOrEnd(struct Task *task, struct ObjectEvent *objectEvent)
-{
-    if (!ObjectEventClearHeldMovementIfFinished(objectEvent))
-        return FALSE;
-
-    if (MetatileBehavior_IsWaterfall(objectEvent->currentMetatileBehavior))
-    {
-        // Still ascending waterfall, back to WaterfallFieldEffect_RideUp
-        task->tState = 1;
-        return TRUE;
-    }
-
-    UnlockPlayerFieldControls();
-    gPlayerAvatar.preventStep = FALSE;
-    DestroyTask(FindTaskIdByFunc(Task_UseWaterfallTool));
-    FieldEffectActiveListRemove(FLDEFF_USE_WATERFALL_TOOL);
-    return FALSE;
-    return WaterfallFieldEffect_ContinueRideOrEnd(task, objectEvent);
-}
-
-static bool8 (*const sWaterfallToolFieldEffectFuncs[])(struct Task *, struct ObjectEvent *) =
-{
-    WaterfallFieldEffect_Init,
-    WaterfallFieldEffect_RideUp,
-    WaterfallToolFieldEffect_ContinueRideOrEnd,
-};
-
-static void Task_UseWaterfallTool(u8 taskId)
-{
-    while (sWaterfallToolFieldEffectFuncs[gTasks[taskId].tState](&gTasks[taskId], &gObjectEvents[gPlayerAvatar.objectEventId]));
-}
-
-u8 FldEff_UseWaterfallTool(void)
-{
-    u8 taskId = CreateTask(Task_UseWaterfallTool, 0);
-    Task_UseWaterfallTool(taskId);
-    return FALSE;
-}
-
-void RemoveRelevantWaterfallFieldEffect(void)
-{
-    if (FieldEffectActiveListContains(FLDEFF_USE_WATERFALL))
-    {
-        FieldEffectActiveListRemove(FLDEFF_USE_WATERFALL);
-        DestroyTask(FindTaskIdByFunc(Task_UseWaterfall));
-    }
-    else if(FieldEffectActiveListContains(FLDEFF_USE_WATERFALL_TOOL))
-    {
-        FieldEffectActiveListRemove(FLDEFF_USE_SURF_TOOL);
-        DestroyTask(FindTaskIdByFunc(Task_UseWaterfallTool));
-    }
-}
-
 // Dive
 
 u32 CanUseDiveDown(void)
@@ -272,7 +171,7 @@ u32 CanUseDiveDown(void)
 
 u32 CanUseDiveEmerge(void)
 {
-    if (TrySetDiveWarp() == 1 && gMapHeader.mapType == MAP_TYPE_UNDERWATER)
+    if (TrySetDiveWarp() == 1)
     {
         return GetFieldMoveUsage(FIELD_MOVE_DIVE, ITEM_SCUBA_GEAR);
     }
@@ -280,39 +179,6 @@ u32 CanUseDiveEmerge(void)
     return FALSE;
 }
 
-
-static bool8 (*const sDiveToolFieldEffectFuncs[])(struct Task *) =
-{
-    DiveFieldEffect_Init,
-    DiveFieldEffect_TryWarp,
-};
-
-bool8 FldEff_UseDiveTool(void)
-{
-    u8 taskId;
-    taskId = CreateTask(Task_UseDiveTool, 0xFF);
-    Task_UseDiveTool(taskId);
-    return FALSE;
-}
-
-static void Task_UseDiveTool(u8 taskId)
-{
-    while (sDiveToolFieldEffectFuncs[gTasks[taskId].data[0]](&gTasks[taskId]));
-}
-
-void RemoveRelevantDiveFieldEffect(void)
-{
-    if (FieldEffectActiveListContains(FLDEFF_USE_DIVE))
-    {
-        FieldEffectActiveListRemove(FLDEFF_USE_DIVE);
-        DestroyTask(FindTaskIdByFunc(Task_UseDive));
-    }
-    else if(FieldEffectActiveListContains(FLDEFF_USE_DIVE_TOOL))
-    {
-        FieldEffectActiveListRemove(FLDEFF_USE_SURF_TOOL);
-        DestroyTask(FindTaskIdByFunc(Task_UseDiveTool));
-    }
-}
 
 u32 CanUseRockClimbTool(void)
 {
@@ -341,13 +207,13 @@ static bool32 CanSpeciesLearnMoveLevelUp(u16 species, u16 move)
     return FALSE;
 }
 
-bool32 PartyCanUseFieldMove(u32 fieldMove, bool32 doUnlockedCheck)
+bool32 PartyCanUseFieldMove(u32 fieldMove, bool32 doUnlockedCheck, bool32 setVariables)
 {
     struct Pokemon *mon;
-    u32 species, i, monCanLearn, move, canUseMove;
+    u32 i, monCanLearn;
     gSpecialVar_Result = PARTY_SIZE;
     gSpecialVar_0x8004 = 0;
-    move = FieldMove_GetMoveId(fieldMove);
+    enum Move move = FieldMove_GetMoveId(fieldMove);
 
     if (doUnlockedCheck && !IsFieldMoveUnlocked(fieldMove))
         return FALSE;
@@ -355,7 +221,7 @@ bool32 PartyCanUseFieldMove(u32 fieldMove, bool32 doUnlockedCheck)
     for (i = 0; i < PARTY_SIZE; i++)
     {
         mon = &gParties[B_TRAINER_PLAYER][i];
-        species = GetMonData(mon, MON_DATA_SPECIES, NULL);
+        enum Species species = GetMonData(mon, MON_DATA_SPECIES);
 
         if (species == SPECIES_NONE)
             break;
@@ -363,22 +229,27 @@ bool32 PartyCanUseFieldMove(u32 fieldMove, bool32 doUnlockedCheck)
         monCanLearn = CanTeachMove(mon, move);
 
         if (monCanLearn == ALREADY_KNOWS_MOVE)
-            return SetMonResultVariables(i, species);
+        {
+            if (setVariables)
+                SetMonResultVariables(i, species);
+            return TRUE;
+        }
 
         if (CanSpeciesLearnMoveLevelUp(species, move) || monCanLearn == CAN_LEARN_MOVE)
         {
-            return SetMonResultVariables(i, species);
+            if (setVariables)
+                SetMonResultVariables(i, species);
+            return TRUE;
         }
     }
 
     return FALSE;
 }
 
-static bool32 SetMonResultVariables(u32 partyIndex, u32 species)
+static void SetMonResultVariables(u32 partyIndex, enum Species species)
 {
     gSpecialVar_Result = partyIndex;
     gSpecialVar_0x8004 = species;
-    return TRUE;
 }
 
 #undef tState
