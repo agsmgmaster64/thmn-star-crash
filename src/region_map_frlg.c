@@ -3784,6 +3784,8 @@ static void Task_FlyMap(u8 taskId)
         {
             if (sFlyMapFrlg->selectedDestination == TRUE)
                 SetFlyDestinationMapSec(GetMapsecUnderCursor());
+            if (IsFlyToolUsed())
+                gSkipShowMonAnim = TRUE;
             ReturnToFieldFromFlyMapSelect();
             FreeFlyMap(taskId);
         }

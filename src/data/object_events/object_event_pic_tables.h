@@ -1500,6 +1500,10 @@ static const struct SpriteFrameImage sPicTable_NiceNature[] = {
     overworld_ascending_frames(gObjectEventPic_NiceNature, 2, 4),
 };
 
+static const struct SpriteFrameImage sPicTable_KrisDelta[] = {
+    overworld_ascending_frames(gObjectEventPic_KrisDelta, 2, 4),
+};
+
 static const struct SpriteFrameImage sPicTable_ApricornTree[] = {
     overworld_frame(gObjectEventPic_ApricornTree, 2, 4, 0),
 };

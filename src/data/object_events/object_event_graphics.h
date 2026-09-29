@@ -194,6 +194,7 @@ const u32 gObjectEventPic_BattleGirl[] = INCGFX_U32("graphics/object_events/pics
 const u32 gObjectEventPic_BirdKeeper[] = INCGFX_U32("graphics/object_events/pics/people/bird_keeper.png", ".4bpp", "-mwidth 2 -mheight 4");
 const u32 gObjectEventPic_TokaiTeio[] = INCGFX_U32("graphics/object_events/pics/people/tokai_teio.png", ".4bpp", "-mwidth 2 -mheight 4");
 const u32 gObjectEventPic_NiceNature[] = INCGFX_U32("graphics/object_events/pics/people/nice_nature.png", ".4bpp", "-mwidth 2 -mheight 4");
+const u32 gObjectEventPic_KrisDelta[] = INCGFX_U32("graphics/object_events/pics/people/kris_dreemurr.png", ".4bpp", "-mwidth 2 -mheight 4");
 const u16 gObjectEventPal_HakosBaelz[] = INCGFX_U16("graphics/object_events/palettes/hakos_baelz.pal", ".gbapal");
 const u16 gObjectEventPal_GigiMurin[] = INCGFX_U16("graphics/object_events/palettes/gigi_murin.pal", ".gbapal");
 const u16 gObjectEventPal_Larry[] = INCGFX_U16("graphics/object_events/palettes/larry.pal", ".gbapal");

@@ -431,6 +431,7 @@ extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SuperNerd;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BirdKeeper;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_TokaiTeio;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_NiceNature;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_KrisDelta;
 
 const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM_OBJ_EVENT_GFX] = {
     [OBJ_EVENT_GFX_RENKO_NORMAL] =             &gObjectEventGraphicsInfo_BrendanNormal,
@@ -705,6 +706,7 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_BIRD_KEEPER] =              &gObjectEventGraphicsInfo_BirdKeeper,
     [OBJ_EVENT_GFX_TOKAI_TEIO] =               &gObjectEventGraphicsInfo_TokaiTeio,
     [OBJ_EVENT_GFX_NICE_NATURE] =              &gObjectEventGraphicsInfo_NiceNature,
+    [OBJ_EVENT_GFX_KRIS_DELTA] =               &gObjectEventGraphicsInfo_KrisDelta,
     [OBJ_EVENT_GFX_APRICORN_TREE] =            &gObjectEventGraphicsInfo_ApricornTree,
     [OBJ_EVENT_GFX_RED_NORMAL] =               &gObjectEventGraphicsInfo_RedNormal,
     [OBJ_EVENT_GFX_RED_BIKE] =                 &gObjectEventGraphicsInfo_RedBike,
