@@ -541,11 +541,62 @@ EventScript_CutGrassCommon:
 	setfieldeffectargument 3, VAR_0x8004 @ skip pose if true
 	dofieldeffect FLDEFF_USE_CUT_ON_GRASS
 	waitstate
+	releaseall
+	end
 
 @ Use Cut grass from party menu
 EventScript_UseCutGrass::
 	lockall
 	goto EventScript_CutGrassCommon
+
+@ Interact with a tree a Pokémon can use headbutt on
+EventScript_Headbutt::
+	lockall
+	checkfieldmove FIELD_MOVE_HEADBUTT
+	goto_if_eq VAR_RESULT, PARTY_SIZE, EventScript_CantHeadbuttTree
+	setfieldeffectargument 0, VAR_RESULT
+	bufferpartymonnick STR_VAR_1, VAR_RESULT
+	msgbox Text_WantToHeadbutt, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, EventScript_CancelHeadbutt
+	buffermovename STR_VAR_2, MOVE_HEADBUTT
+	msgbox Text_MonUsedFieldMove, MSGBOX_DEFAULT
+	closemessage
+EventScript_HeadbuttCommon:
+	isfollowerfieldmoveuser VAR_0x8004
+	setfieldeffectargument 3, VAR_0x8004 @ skip pose if so
+	dofieldeffect FLDEFF_USE_HEADBUTT
+	waitstate
+	call_if_eq VAR_0x8004, TRUE, EventScript_FollowerFieldMove
+EventScript_HeadbuttTree:
+	setflag FLAG_SAFE_FOLLOWER_MOVEMENT
+	playse SE_NOT_EFFECTIVE
+	setvar VAR_0x8004, 1  @ vertical pan
+	setvar VAR_0x8005, 1  @ horizontal pan
+	setvar VAR_0x8006, 8  @ num shakes
+	setvar VAR_0x8007, 5  @ shake delay
+	special ShakeCamera
+	waitstate
+	special HeadbuttWildEncounter
+	goto_if_eq VAR_RESULT, FALSE, EventScript_EndHeadbutt
+	waitstate
+EventScript_EndHeadbutt:
+	releaseall
+	end
+
+EventScript_CantHeadbuttTree::
+	msgbox Text_CantHeadbuttTree, MSGBOX_DEFAULT
+	releaseall
+	end
+
+EventScript_CancelHeadbutt::
+	closemessage
+	releaseall
+	end
+
+@ Use headbutt from party menu
+EventScript_UseHeadbutt::
+	lockall
+	goto EventScript_HeadbuttCommon
 
 Text_CantDive:
 	.string "The sea is deep here. A POKéMON\n"
@@ -572,6 +623,14 @@ EventScript_FailSweetScent::
 
 Text_FailSweetScent:
 	.string "Looks like there's nothing here…$"
+
+Text_WantToHeadbutt:
+	.string "It's a moderated sized tree.\n"
+	.string "Would you like to use Headbutt?$"
+
+Text_CantHeadbuttTree:
+	.string "There's a large, formidable tree.\n"
+	.string "It looks like it can be headbutted!$"
 
 EventScript_DisableAutoRun::
     msgbox AutoRunDisabled MSGBOX_SIGN

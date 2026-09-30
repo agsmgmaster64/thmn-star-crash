@@ -88,6 +88,7 @@
 #define FLDEFF_OW_ENCOUNTER_SPAWN_ANIM   83
 #define FLDEFF_SNOW_FOOTPRINTS           84
 #define FLDEFF_SNOW_BIKE_TIRE_TRACKS     85
+#define FLDEFF_USE_HEADBUTT              86
 
 #define FLDEFFOBJ_SHADOW_S              0
 #define FLDEFFOBJ_SHADOW_M              1

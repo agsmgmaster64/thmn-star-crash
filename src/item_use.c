@@ -1678,7 +1678,7 @@ static void ItemUseOnFieldCB_Lantern(u8 taskId)
 
 void ItemUseOutOfBattle_Lantern(u8 taskId)
 {
-    if (CanUseFlashTool())
+    if (CanUseLantern())
     {
         sItemUseOnFieldCB = ItemUseOnFieldCB_Lantern;
         SetUpItemUseOnFieldCallback(taskId);

@@ -36,10 +36,15 @@ const struct FieldMoveUnlock gFieldMoveUnlocks[FIELD_MOVE_UNLOCK_COUNT] =
         .isUnlockedFunc = IsAlwaysTrue,
         .lockedMessage = gText_EmptyString2,
     },
-    [FLAG_UNLOCK] =
+    [BADGE_UNLOCK] =
     {
         .isUnlockedFunc = HasBadgeForFieldMove,
         .lockedMessage = gText_CantUseUntilNewBadge,
+    },
+    [OTHER_FLAG_UNLOCK] =
+    {
+        .isUnlockedFunc = HasBadgeForFieldMove,
+        .lockedMessage = gText_CantUseUntilSomething,
     },
 };
 
@@ -50,7 +55,7 @@ const struct FieldMoveInfo gFieldMoveInfo[FIELD_MOVES_COUNT] =
     [FIELD_MOVE_CUT] =
     {
         .fieldMoveFunc = SetUpFieldMove_Cut,
-        .unlockType = FLAG_UNLOCK,
+        .unlockType = BADGE_UNLOCK,
         .moveID = MOVE_CUT,
         .partyMsgID = PARTY_MSG_NOTHING_TO_CUT,
         .arg = IS_FRLG ? FLAG_BADGE02_GET : FLAG_BADGE01_GET,
@@ -59,64 +64,63 @@ const struct FieldMoveInfo gFieldMoveInfo[FIELD_MOVES_COUNT] =
     [FIELD_MOVE_FLASH] =
     {
         .fieldMoveFunc = SetUpFieldMove_Flash,
-        .unlockType = FLAG_UNLOCK,
+        .unlockType = ALWAYS_UNLOCKED,
         .moveID = MOVE_FLASH,
         .partyMsgID = PARTY_MSG_CANT_USE_HERE,
-        .arg = IS_FRLG ? FLAG_BADGE01_GET : FLAG_BADGE02_GET,
     },
 
     [FIELD_MOVE_ROCK_SMASH] =
     {
         .fieldMoveFunc = SetUpFieldMove_RockSmash,
-        .unlockType = FLAG_UNLOCK,
+        .unlockType = BADGE_UNLOCK,
         .moveID = MOVE_ROCK_SMASH,
         .partyMsgID = PARTY_MSG_CANT_USE_HERE,
-        .arg = IS_FRLG ? FLAG_BADGE06_GET : FLAG_BADGE03_GET,
+        .arg = IS_FRLG ? FLAG_BADGE01_GET : FLAG_BADGE03_GET,
     },
 
     [FIELD_MOVE_STRENGTH] =
     {
         .fieldMoveFunc = SetUpFieldMove_Strength,
-        .unlockType = FLAG_UNLOCK,
+        .unlockType = BADGE_UNLOCK,
         .moveID = MOVE_STRENGTH,
         .partyMsgID = PARTY_MSG_CANT_USE_HERE,
-        .arg = FLAG_BADGE04_GET,
+        .arg = IS_FRLG ? FLAG_BADGE03_GET : FLAG_BADGE04_GET,
     },
 
     [FIELD_MOVE_SURF] =
     {
         .fieldMoveFunc = SetUpFieldMove_Surf,
-        .unlockType = FLAG_UNLOCK,
+        .unlockType = BADGE_UNLOCK,
         .moveID = MOVE_SURF,
         .partyMsgID = PARTY_MSG_CANT_SURF_HERE,
-        .arg = FLAG_BADGE05_GET,
+        .arg = IS_FRLG ? FLAG_BADGE04_GET : FLAG_BADGE05_GET,
     },
 
     [FIELD_MOVE_FLY] =
     {
         .fieldMoveFunc = SetUpFieldMove_Fly,
-        .unlockType = FLAG_UNLOCK,
+        .unlockType = BADGE_UNLOCK,
         .moveID = MOVE_FLY,
         .partyMsgID = PARTY_MSG_CANT_USE_HERE,
-        .arg = IS_FRLG ? FLAG_BADGE03_GET : FLAG_BADGE06_GET,
+        .arg = IS_FRLG ? FLAG_BADGE05_GET : FLAG_BADGE06_GET,
     },
 
     [FIELD_MOVE_DIVE] =
     {
         .fieldMoveFunc = SetUpFieldMove_Dive,
-        .unlockType = FLAG_UNLOCK,
+        .unlockType = BADGE_UNLOCK,
         .moveID = MOVE_DIVE,
         .partyMsgID = PARTY_MSG_CANT_USE_HERE,
-        .arg = FLAG_BADGE07_GET,
+        .arg = IS_FRLG ? FLAG_BADGE07_GET : FLAG_BADGE07_GET,
     },
 
     [FIELD_MOVE_WATERFALL] =
     {
         .fieldMoveFunc = SetUpFieldMove_Waterfall,
-        .unlockType = FLAG_UNLOCK,
+        .unlockType = BADGE_UNLOCK,
         .moveID = MOVE_WATERFALL,
         .partyMsgID = PARTY_MSG_CANT_USE_HERE,
-        .arg = IS_FRLG ? FLAG_BADGE07_GET : FLAG_BADGE08_GET,
+        .arg = IS_FRLG ? FLAG_BADGE08_GET : FLAG_BADGE08_GET,
     },
 
     [FIELD_MOVE_TELEPORT] =
@@ -169,14 +173,10 @@ const struct FieldMoveInfo gFieldMoveInfo[FIELD_MOVES_COUNT] =
     [FIELD_MOVE_ROCK_CLIMB] =
     {
         .fieldMoveFunc = SetUpFieldMove_RockClimb,
-#if OW_ROCK_CLIMB_FIELD_MOVE
-        .unlockType = ALWAYS_UNLOCKED,
-#else
-        .unlockType = CANT_UNLOCK,
-#endif
+        .unlockType = OTHER_FLAG_UNLOCK,
         .moveID = MOVE_ROCK_CLIMB,
         .partyMsgID = PARTY_MSG_CANT_USE_HERE,
-        .hideIfLocked = TRUE,
+        .arg = IS_FRLG ? FLAG_BADGE08_GET : FLAG_BADGE08_GET,
     },
     [FIELD_MOVE_DEFOG] =
     {
@@ -189,5 +189,13 @@ const struct FieldMoveInfo gFieldMoveInfo[FIELD_MOVES_COUNT] =
         .moveID = MOVE_DEFOG,
         .partyMsgID = PARTY_MSG_CANT_USE_HERE,
         .hideIfLocked = TRUE,
+    },
+
+    [FIELD_MOVE_HEADBUTT] =
+    {
+        .fieldMoveFunc = SetUpFieldMove_Headbutt,
+        .unlockType = ALWAYS_UNLOCKED,
+        .moveID = MOVE_HEADBUTT,
+        .partyMsgID = PARTY_MSG_CANT_USE_HERE,
     },
 };

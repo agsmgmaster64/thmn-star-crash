@@ -52,6 +52,10 @@ u8 CreateFieldMoveTask(void);
 bool32 SetUpFieldMove_RockSmash(void);
 bool8 FldEff_UseRockSmash(void);
 
+// headbutt
+bool8 FldEff_UseHeadbutt(void);
+bool32 SetUpFieldMove_Headbutt(void);
+
 //general
 void Task_DoFieldMove_RunFunc(u8 taskId); // qol_field_moves
 

@@ -71,7 +71,7 @@
     F(RECYCLE) \
     F(COUNTER) \
     F(MIRROR_COAT) \
-    F(DECISION) \
+    F(FLASH) \
     F(NATURE_POWER) \
     F(VOLT_SWITCH) \
     F(THUNDER_WAVE) \
@@ -92,8 +92,10 @@
     F(BODY_SLAM) \
     F(U_TURN) \
     F(SUBSTITUTE) \
-    F(METRONOME) \
+    F(DECISION) \
+    F(HEADBUTT) \
     F(TRICK_ROOM) \
+    F(METRONOME) \
     F(TERA_BLAST)
 
 
@@ -102,10 +104,10 @@
     F(FLY) \
     F(SURF) \
     F(STRENGTH) \
-    F(FLASH) \
-    F(ROCK_SMASH) \
     F(WATERFALL) \
-    F(DIVE)
+    F(ROCK_SMASH) \
+    F(DIVE) \
+    F(ROCK_CLIMB)
 
 #define FOREACH_TMHM(F) \
     FOREACH_TM(F) \

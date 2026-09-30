@@ -9,6 +9,7 @@
 #include "m4a.h"
 #include "overworld.h"
 #include "event_data.h"
+#include "qol_field_moves.h"
 #include "region_map.h"
 #include "region_map_frlg.h"
 #include "palette.h"
@@ -3811,8 +3812,17 @@ static void FreeFlyMap(u8 taskId)
     DestroyTask(taskId);
     FreeAllWindowBuffers();
     if (sFlyMapFrlg->selectedDestination == TRUE)
+    {
         SetMainCallback2(CB2_ReturnToField);
+    }
+    else if (IsFlyToolUsed())
+    {
+        ReturnToFieldOrBagFromFlyTool();
+    }
     else
+    {
         SetMainCallback2(CB2_ReturnToPartyMenuFromFlyMap);
+    }
+    ResetFlyTool();
     FREE_IF_NOT_NULL(sFlyMapFrlg);
 }

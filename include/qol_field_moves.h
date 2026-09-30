@@ -9,7 +9,7 @@ void ResetFlyTool(void);
 u32 CanUseSurfFromInteractedWater(void);
 
 void FldEff_UseFlashTool(void);
-u32 CanUseFlashTool(void);
+u32 CanUseLantern(void);
 
 bool32 CanUseWaterfallTool(void);
 u32 CanUseWaterfallFromInteractedWater(void);

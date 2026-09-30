@@ -446,6 +446,8 @@ static bool8 MapHasSpecies(const struct WildEncounterTypes *info, u32 headerSect
         return TRUE;
     if (MonListHasSpecies(info, species, currentMapGroup, currentMapNum, WILD_AREA_ROCKS))
         return TRUE;
+    if (MonListHasSpecies(info, species, currentMapGroup, currentMapNum, WILD_AREA_TREES))
+        return TRUE;
     return FALSE;
 }
 
@@ -467,6 +469,10 @@ static bool8 MonListHasSpecies(const struct WildEncounterTypes *info, enum Speci
         case WILD_AREA_FISHING:
             actualInfo = info->fishingMonsInfo;
             size = NUM_FISHING_MONS_ENCOUNTER_SLOTS;
+            break;
+        case WILD_AREA_TREES:
+            actualInfo = info->headbuttMonsInfo;
+            size = NUM_HEADBUTT_MONS_ENCOUNTER_SLOTS;
             break;
         case WILD_AREA_LAND:
         default:

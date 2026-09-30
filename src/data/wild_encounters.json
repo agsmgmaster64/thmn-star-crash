@@ -42,6 +42,16 @@
           ]
         },
         {
+          "type": "headbutt_mons",
+          "encounter_rates": [
+            30,
+            30,
+            30,
+            5,
+            5
+          ]
+        },
+        {
           "type": "fishing_mons",
           "encounter_rates": [
             70,

@@ -176,6 +176,7 @@ bool8 MetatileBehavior_IsSidewaysStairsLeftSideAny(u8 metatileBehavior);
 bool8 MetatileBehavior_IsFlipSwitchOn(u8 metatileBehavior);
 bool8 MetatileBehavior_IsFlipSwitchOff(u8 metatileBehavior);
 bool8 MetatileBehavior_IsRockClimbable(u8 metatileBehavior);
+bool8 MetatileBehavior_IsHeadbuttTree(u8 metatileBehavior);
 bool8 MetatileBehavior_IsSpinRight(u8 metatileBehavior);
 bool8 MetatileBehavior_IsSpinLeft(u8 metatileBehavior);
 bool8 MetatileBehavior_IsSpinUp(u8 metatileBehavior);

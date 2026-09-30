@@ -14,7 +14,8 @@ enum FieldMoveUnlockType
 {
     CANT_UNLOCK,
     ALWAYS_UNLOCKED,
-    FLAG_UNLOCK,
+    BADGE_UNLOCK,
+    OTHER_FLAG_UNLOCK,
     FIELD_MOVE_UNLOCK_COUNT
 };
 
@@ -24,9 +25,10 @@ struct FieldMoveInfo
     enum FieldMoveUnlockType unlockType:3;
     enum Move moveID:11;
     u32 partyMsgID:7;
-    u32 arg:8;
     u32 hideIfLocked:1;
-    u32 padding:3;
+    u32 padding1:11;
+    u32 arg:16;
+    u32 padding2:16;
 };
 
 extern const struct FieldMoveInfo gFieldMoveInfo[];

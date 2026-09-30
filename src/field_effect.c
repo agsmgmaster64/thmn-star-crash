@@ -252,11 +252,9 @@ static void UseVsSeeker_ResetPlayerGraphics(struct Task *task);
 static void UseVsSeeker_CleanUpFieldEffect(struct Task *task);
 
 static void Task_UseRockClimb(u8);
-static void Task_UseRockClimbTool(u8);
 static bool8 RockClimb_Init(struct Task *, struct ObjectEvent *);
 static bool8 RockClimb_FieldMovePose(struct Task *, struct ObjectEvent *);
 static bool8 RockClimb_ShowMon(struct Task *, struct ObjectEvent *);
-static bool8 RockClimb_SkipTool(struct Task *task, struct ObjectEvent *objectEvent);
 static bool8 RockClimb_JumpOnRockClimbBlob(struct Task *task, struct ObjectEvent *objectEvent);
 static bool8 RockClimb_WaitJumpOnRockClimbBlob(struct Task *task, struct ObjectEvent *objectEvent);
 static bool8 RockClimb_Ride(struct Task *task, struct ObjectEvent *objectEvent);
@@ -265,7 +263,6 @@ static bool8 RockClimb_Ride(struct Task *task, struct ObjectEvent *objectEvent);
 static bool8 RockClimb_ContinueRideOrEnd(struct Task *, struct ObjectEvent *);
 static bool8 RockClimb_WaitStopRockClimb(struct Task *task, struct ObjectEvent *objectEvent);
 static bool8 RockClimb_StopRockClimbInit(struct Task *task, struct ObjectEvent *objectEvent);
-static void RemoveRelevantRockClimbFieldEffect(void);
 // Static RAM declarations
 
 static u8 sActiveList[32];

@@ -361,7 +361,7 @@ bool8 FldEff_CutGrass(void)
 
             if (MapGridGetElevationAt(x, y) == gPlayerFacingPosition.elevation)
             {
-                if (TestMetatileAttributeBit(MapGridGetMetatileAttributeAt(x, y, METATILE_ATTRIBUTE_TERRAIN), TILE_TERRAIN_GRASS))
+                if (MetatileBehavior_IsPokeGrass(MapGridGetMetatileAttributeAt(x, y, METATILE_ATTRIBUTE_BEHAVIOR)))
                 {
                     SetCutGrassMetatile(x, y);
                     AllowObjectAtPosTriggerGroundEffects(x, y);
@@ -398,13 +398,9 @@ static void SetCutGrassMetatile(s32 x, s32 y)
     u32 i = 0;
     u16 metatileId = MapGridGetMetatileIdAt(x, y);
 
-    while (TRUE)
+    for (i = 0; sCutGrassMetatileMapping[i].naturalTile != 0xFFFF; i++)
     {
         struct CutGrassMetatile metatileMapping = sCutGrassMetatileMapping[i];
-        if (metatileMapping.naturalTile == 0xFFFF)
-        {
-            return;
-        }
         if (metatileMapping.tileset != gMapHeader.mapLayout->primaryTileset
          && metatileMapping.tileset != gMapHeader.mapLayout->secondaryTileset)
             continue;
@@ -412,7 +408,6 @@ static void SetCutGrassMetatile(s32 x, s32 y)
         {
             MapGridSetMetatileIdAt(x, y, metatileMapping.trimmedTile);
         }
-        i++;
     }
 }
 
@@ -441,7 +436,7 @@ static void CutGrassSpriteCallback2(struct Sprite *sprite)
 
 // get map grid metatile depending on x, y
 static u32 GetCutGrassMetatile(s32 x, s32 y, bool32 isTop)
-{   
+{
     u32 i;
     u32 metatileId = MapGridGetMetatileIdAt(x, y);
     for (i = 0; sCutGrassMetatileMapping[i].naturalTile != 0xFFFF; i++)

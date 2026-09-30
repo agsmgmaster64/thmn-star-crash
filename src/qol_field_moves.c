@@ -38,7 +38,7 @@ static void FieldCallback_UseFlyTool(void);
 static void Task_UseFlyTool(void);
 
 static bool32 CanSpeciesLearnMoveLevelUp(u16 species, u16 move);
-static void SetMonResultVariables(u32 partyIndex, u32 species);
+static void SetMonResultVariables(u32 partyIndex, enum Species species);
 
 #define tState      data[0]
 #define tFallOffset data[1]

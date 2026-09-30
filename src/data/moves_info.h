@@ -1540,11 +1540,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .name = COMPOUND_STRING("Surf"),
         .description = COMPOUND_STRING(
             "Creates a huge wave, then\n"
-        #if B_UPDATED_MOVE_DATA >= GEN_4
             "crashes it on all others."),
-        #else
-            "crashes it down on the foes."),
-        #endif
         .effect = EFFECT_HIT,
         .power = 95,
         .type = TYPE_WATER,
@@ -3444,17 +3440,12 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
     {
         .name = COMPOUND_STRING("Waterfall"),
         .description = COMPOUND_STRING(
-    #if B_UPDATED_MOVE_DATA >= GEN_4
             "Charges with speed to\n"
             "climb waterfalls. May flinch."),
         .additionalEffects = ADDITIONAL_EFFECTS({
             .moveEffect = MOVE_EFFECT_FLINCH,
             .chance = 20,
         }),
-    #else
-            "Charges the foe with speed\n"
-            "to climb waterfalls."),
-    #endif
         .effect = EFFECT_HIT,
         .power = 80,
         .type = TYPE_WATER,
