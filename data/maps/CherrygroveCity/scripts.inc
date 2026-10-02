@@ -133,17 +133,17 @@ CherrygroveCity_EventScript_RivalBattleCommon_1:
 
 CherrygroveCity_EventScript_RivalBattleCommon_3:
 	trainerbattle_no_intro TRAINER_RIVAL_CHERRYGROVE_STARTER_1, CherrygroveCity_Text_RivalLost
-	setflag FLAG_HIDE_SQUIRTLE_BALL
+	setflag FLAG_HIDE_STARTER_3_BALL
 	goto CherrygroveCity_EventScript_RivalBattleCommon_1
 
 CherrygroveCity_EventScript_RivalBattleCommon_4:
 	trainerbattle_no_intro TRAINER_RIVAL_CHERRYGROVE_STARTER_2, CherrygroveCity_Text_RivalLost
-	setflag FLAG_HIDE_CHARMANDER_BALL
+	setflag FLAG_HIDE_STARTER_1_BALL
 	goto CherrygroveCity_EventScript_RivalBattleCommon_1
 
 CherrygroveCity_EventScript_RivalBattleCommon_5:
 	trainerbattle_no_intro TRAINER_RIVAL_CHERRYGROVE_STARTER_3, CherrygroveCity_Text_RivalLost
-	setflag FLAG_HIDE_BULBASAUR_BALL
+	setflag FLAG_HIDE_STARTER_2_BALL
 	goto CherrygroveCity_EventScript_RivalBattleCommon_1
 
 
@@ -153,6 +153,7 @@ CherrygroveCity_EventScript_RivalTriggerEnd::
 	removeobject LOCALID_CHERRYGROVE_RIVAL
 	setvar VAR_CHERRYGROVE_CITY_STATE, 4
 	setvar VAR_NEW_BARK_TOWN_LAB_STATE, 4
+	clearflag FLAG_HIDE_LAB_POLICE
 	releaseall
 	end
 

@@ -487,6 +487,10 @@
 // gTileset_MtEmber
 #define METATILE_MtEmber_CaveEntrance  0x8C6
 
+// gTileset_NewBarkTown
+#define METATILE_NewBarkTown_BlueDoor    0x802
+#define METATILE_NewBarkTown_YellowDoor  0x825
+
 // gTileset_Pacifidlog
 #define METATILE_Pacifidlog_Door                               0x21A
 #define METATILE_Pacifidlog_FloatingLogs_HorizontalLeft        0x250
@@ -1168,6 +1172,9 @@
 #define METATILE_VermilionGym_Beam_Node_TopRight_Off             0x816
 #define METATILE_VermilionGym_Beam_Node_TopRight_On              0x82C
 #define METATILE_VermilionGym_Floor                              0x801
+
+// gTileset_VioletCity
+#define METATILE_VioletCity_WoodenDoor  0x87B
 
 // gTileset_ViridianCity
 #define METATILE_ViridianCity_Door  0x819

@@ -5749,6 +5749,7 @@ bool8 CheckAddCoins(void)
 void NameJohtoRival(void)
 {
 #if IS_FRLG
+    StringCopy(gSaveBlock1Ptr->rivalName, COMPOUND_STRING("Silver"));
     DoNamingScreen(NAMING_SCREEN_RIVAL, gSaveBlock1Ptr->rivalName, 0, 0, 0, CB2_ReturnToFieldContinueScriptPlayMapMusic);
 #endif
 }

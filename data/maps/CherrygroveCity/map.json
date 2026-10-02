@@ -174,7 +174,7 @@
       "y": 11,
       "elevation": 0,
       "var": "VAR_CHERRYGROVE_CITY_STATE",
-      "var_value": "0",
+      "var_value": "3",
       "script": "CherrygroveCity_EventScript_RivalTrigger3"
     }
   ],

@@ -1659,9 +1659,9 @@
 
 // FRLG flags
 
-#define FLAG_HIDE_BULBASAUR_BALL                           0
-#define FLAG_HIDE_SQUIRTLE_BALL                            0
-#define FLAG_HIDE_CHARMANDER_BALL                          0
+#define FLAG_HIDE_STARTER_1_BALL                           0
+#define FLAG_HIDE_STARTER_2_BALL                           0
+#define FLAG_HIDE_STARTER_3_BALL                           0
 #define FLAG_HIDE_OAK_IN_HIS_LAB                           0
 #define FLAG_HIDE_OAK_IN_PALLET_TOWN                       0
 #define FLAG_HIDE_RIVAL_IN_LAB                             0
@@ -2445,9 +2445,10 @@
 #define FLAG_HIDE_YOUNGSTER_BATTLE_ROUTE_30  0
 #define FLAG_HIDE_ROUTE_30_YOUNGSTER         0
 #define FLAG_HIDE_ROUTE_30_OAK               0
-#define FLAG_SYS_RADIO_UPGRADE                0
+#define FLAG_SYS_RADIO_UPGRADE               0
 #define FLAG_SYS_HAS_RADIO_CARD              0
 #define FLAG_ROCKETS_IN_RADIO_TOWER          0
+#define FLAG_HIDE_LAB_POLICE                 0
 
 #endif
 

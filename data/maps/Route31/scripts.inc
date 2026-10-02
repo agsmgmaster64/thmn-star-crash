@@ -1,3 +1,9 @@
 Route31_MapScripts::
 	.byte 0
 
+
+Route31_EventScript_Wade::
+	trainerbattle_single TRAINER_BUG_CATCHER_WADE, Route30_Text_JoeyIntro, Route30_Text_JoeyDefeat
+	msgbox Route30_Text_JoeyPostBattle, MSGBOX_AUTOCLOSE
+	end
+

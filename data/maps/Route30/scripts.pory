@@ -12,6 +12,61 @@ mapscripts Route30_MapScripts {
     ]
 }
 
+# Todo: figure out rematch for Joey
+script Route30_EventScript_Joey {
+	trainerbattle_single(TRAINER_YOUNGSTER_JOEY, Route30_Text_JoeyIntro, Route30_Text_JoeyDefeat)
+	msgbox(Route30_Text_JoeyPostBattle, MSGBOX_AUTOCLOSE)
+	end
+}
+
+script Route30_EventScript_Mikey {
+	trainerbattle_single(TRAINER_YOUNGSTER_MIKEY, Route30_Text_MikeyIntro, Route30_Text_MikeyDefeat)
+	msgbox(Route30_Text_MikeyPostBattle, MSGBOX_AUTOCLOSE)
+	end
+}
+
+script Route30_EventScript_Don {
+	trainerbattle_single(TRAINER_BUG_CATCHER_DON, Route30_Text_DonIntro, Route30_Text_DonDefeat)
+	msgbox(Route30_Text_DonPostBattle, MSGBOX_AUTOCLOSE)
+	end
+}
+
 text Route30_Text_ElmBrokenInto {
     format("Proceed to New Bark")
+}
+
+text Route30_Text_JoeyIntro {
+    format("Top percentage")
+}
+
+text Route30_Text_JoeyDefeat {
+    format("I lost")
+}
+
+text Route30_Text_JoeyPostBattle {
+    format("Number Later")
+}
+
+text Route30_Text_MikeyIntro {
+    format("The other puppet")
+}
+
+text Route30_Text_MikeyDefeat {
+    format("You win")
+}
+
+text Route30_Text_MikeyPostBattle {
+    format("You won already")
+}
+
+text Route30_Text_DonIntro {
+    format("Fairies")
+}
+
+text Route30_Text_DonDefeat {
+    format("Fairies lost")
+}
+
+text Route30_Text_DonPostBattle {
+    format("Medium")
 }

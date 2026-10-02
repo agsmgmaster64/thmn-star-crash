@@ -5036,7 +5036,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_NiceNature = {
 
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_KrisDelta = {
     .tileTag = TAG_NONE,
-    .paletteTag = OBJ_EVENT_PAL_TAG_NICE_NATURE,
+    .paletteTag = OBJ_EVENT_PAL_TAG_KRIS_DELTA,
     .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
     .size = 256,
     .width = 16,

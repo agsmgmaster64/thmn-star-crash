@@ -1,5 +1,52 @@
 NewBarkTown_ElmsLab_MapScripts::
+	map_script MAP_SCRIPT_ON_FRAME_TABLE, NewBarkTown_ElmsLab_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE
 	.byte 0
+
+NewBarkTown_ElmsLab_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE:
+	map_script_2 VAR_NEW_BARK_TOWN_LAB_STATE, 4, NewBarkTown_ElmsLab_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE_0
+	.2byte 0
+
+NewBarkTown_ElmsLab_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE_0:
+	lockall
+	applymovement LOCALID_PLAYER, NewBarkTown_ElmsLab_Movement_GoToOfficer
+	waitmovement LOCALID_PLAYER
+	applymovement LOCALID_NEW_BARK_TOWN_LAB_POLICE, Common_Movement_FaceDown
+	waitmovement LOCALID_NEW_BARK_TOWN_LAB_POLICE
+	msgbox NewBarkTown_ElmsLab_Text_PoliceIntro
+	closemessage
+	call NewBarkTown_ElmsLab_EventScript_NameRival
+	msgbox NewBarkTown_ElmsLab_Text_PoliceExit
+	closemessage
+	applymovement LOCALID_NEW_BARK_TOWN_LAB_POLICE, NewBarkTown_ElmsLab_Movement_PoliceExit
+	waitmovement LOCALID_NEW_BARK_TOWN_LAB_POLICE
+	removeobject LOCALID_NEW_BARK_TOWN_LAB_POLICE
+	applymovement LOCALID_PLAYER, NewBarkTown_ElmsLab_Movement_StarterNoLeave
+	waitmovement LOCALID_PLAYER
+	msgbox NewBarkTown_ElmsLab_Text_ElmAfterPolice
+	msgbox NewBarkTown_ElmsLab_Text_GiveOrb
+	removeitem ITEM_MYSTERY_ORB
+	msgbox NewBarkTown_ElmsLab_Text_ElmGymMom
+	closemessage
+	setvar VAR_NEW_BARK_TOWN_LAB_STATE, 5
+	setflag FLAG_HIDE_YOUNGSTER_BATTLE_ROUTE_30
+	clearflag FLAG_HIDE_ROUTE_30_YOUNGSTER
+	setflag FLAG_ADVENTURE_STARTED
+	releaseall
+	end
+
+
+NewBarkTown_ElmsLab_EventScript_NameRival::
+	special NameJohtoRival
+	msgbox NewBarkTown_ElmsLab_Text_PoliceRivalConfirm, MSGBOX_YESNO
+	compare VAR_RESULT, NO
+	goto_if_eq NewBarkTown_ElmsLab_EventScript_NameRival_2
+NewBarkTown_ElmsLab_EventScript_NameRival_1:
+	return
+
+NewBarkTown_ElmsLab_EventScript_NameRival_2:
+	closemessage
+	goto NewBarkTown_ElmsLab_EventScript_NameRival
+	goto NewBarkTown_ElmsLab_EventScript_NameRival_1
 
 
 NewBarkTown_ElmsLab_EventScript_ElmIntroTrigger1::
@@ -220,6 +267,47 @@ NewBarkTown_ElmsLab_EventScript_AideAssistCommon::
 	return
 
 
+NewBarkTown_ElmsLab_EventScript_AideAssist2Trigger1::
+	lockall
+	applymovement LOCALID_NEW_BARK_TOWN_LAB_AIDE, NewBarkTown_ElmsLab_Movement_Aide_Approach1
+	waitmovement LOCALID_NEW_BARK_TOWN_LAB_AIDE
+	call NewBarkTown_ElmsLab_EventScript_AideAssist2Common
+	applymovement LOCALID_NEW_BARK_TOWN_LAB_AIDE, NewBarkTown_ElmsLab_Movement_Aide_GoBack1
+	waitmovement LOCALID_NEW_BARK_TOWN_LAB_AIDE
+	releaseall
+	end
+
+
+NewBarkTown_ElmsLab_EventScript_AideAssist2Trigger2::
+	lockall
+	applymovement LOCALID_NEW_BARK_TOWN_LAB_AIDE, NewBarkTown_ElmsLab_Movement_Aide_Approach2
+	waitmovement LOCALID_NEW_BARK_TOWN_LAB_AIDE
+	call NewBarkTown_ElmsLab_EventScript_AideAssist2Common
+	applymovement LOCALID_NEW_BARK_TOWN_LAB_AIDE, NewBarkTown_ElmsLab_Movement_Aide_GoBack2
+	waitmovement LOCALID_NEW_BARK_TOWN_LAB_AIDE
+	releaseall
+	end
+
+
+NewBarkTown_ElmsLab_EventScript_AideAssist2Trigger3::
+	lockall
+	applymovement LOCALID_NEW_BARK_TOWN_LAB_AIDE, NewBarkTown_ElmsLab_Movement_Aide_Approach3
+	waitmovement LOCALID_NEW_BARK_TOWN_LAB_AIDE
+	call NewBarkTown_ElmsLab_EventScript_AideAssist2Common
+	applymovement LOCALID_NEW_BARK_TOWN_LAB_AIDE, NewBarkTown_ElmsLab_Movement_Aide_GoBack3
+	waitmovement LOCALID_NEW_BARK_TOWN_LAB_AIDE
+	releaseall
+	end
+
+
+NewBarkTown_ElmsLab_EventScript_AideAssist2Common::
+	msgbox NewBarkTown_ElmsLab_Text_AideGiveOrbs
+	giveitem ITEM_TOHO_ORB, 5
+	setvar VAR_NEW_BARK_TOWN_LAB_STATE, 6
+	closemessage
+	return
+
+
 NewBarkTown_ElmsLab_Movement_Approach_Elm1:
 	walk_up
 	walk_up
@@ -309,6 +397,27 @@ NewBarkTown_ElmsLab_Movement_StarterNoLeave:
 	walk_up
 	step_end
 
+NewBarkTown_ElmsLab_Movement_GoToOfficer:
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	step_end
+
+NewBarkTown_ElmsLab_Movement_PoliceExit:
+	walk_left
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	step_end
+
 NewBarkTown_ElmsLab_Text_ElmIntro::
 	.string "Pick starter$"
 
@@ -339,3 +448,24 @@ NewBarkTown_ElmsLab_Text_StarterChosenAlready::
 
 NewBarkTown_ElmsLab_Text_AideGivePotion::
 	.string "A potion$"
+
+NewBarkTown_ElmsLab_Text_AideGiveOrbs::
+	.string "5 Orbs$"
+
+NewBarkTown_ElmsLab_Text_PoliceIntro::
+	.string "Something stolen/p Info?$"
+
+NewBarkTown_ElmsLab_Text_PoliceRivalConfirm::
+	.string "{RIVAL}?$"
+
+NewBarkTown_ElmsLab_Text_PoliceExit::
+	.string "Thanks$"
+
+NewBarkTown_ElmsLab_Text_ElmAfterPolice::
+	.string "what's that$"
+
+NewBarkTown_ElmsLab_Text_GiveOrb::
+	.string "You gave the Mysterious Orb.$"
+
+NewBarkTown_ElmsLab_Text_ElmGymMom::
+	.string "Gym mom$"

@@ -1,7 +1,48 @@
 const PLAYER_STARTER_NUM = VAR_TEMP_1
 const PLAYER_STARTER_SPECIES = VAR_TEMP_2
 
-mapscripts NewBarkTown_ElmsLab_MapScripts {}
+mapscripts NewBarkTown_ElmsLab_MapScripts {
+    MAP_SCRIPT_ON_FRAME_TABLE [
+        VAR_NEW_BARK_TOWN_LAB_STATE, 4 {
+            lockall
+            applymovement(LOCALID_PLAYER, NewBarkTown_ElmsLab_Movement_GoToOfficer)
+            waitmovement(LOCALID_PLAYER)
+            applymovement(LOCALID_NEW_BARK_TOWN_LAB_POLICE, Common_Movement_FaceDown)
+            waitmovement(LOCALID_NEW_BARK_TOWN_LAB_POLICE)
+            msgbox(NewBarkTown_ElmsLab_Text_PoliceIntro)
+            closemessage
+            call(NewBarkTown_ElmsLab_EventScript_NameRival)
+            msgbox(NewBarkTown_ElmsLab_Text_PoliceExit)
+            closemessage
+            applymovement(LOCALID_NEW_BARK_TOWN_LAB_POLICE, NewBarkTown_ElmsLab_Movement_PoliceExit)
+            waitmovement(LOCALID_NEW_BARK_TOWN_LAB_POLICE)
+            removeobject(LOCALID_NEW_BARK_TOWN_LAB_POLICE)
+            applymovement(LOCALID_PLAYER, NewBarkTown_ElmsLab_Movement_StarterNoLeave)
+            waitmovement(LOCALID_PLAYER)
+            msgbox(NewBarkTown_ElmsLab_Text_ElmAfterPolice)
+            msgbox(NewBarkTown_ElmsLab_Text_GiveOrb)
+            removeitem(ITEM_MYSTERY_ORB)
+            msgbox(NewBarkTown_ElmsLab_Text_ElmGymMom)
+            closemessage
+            setvar(VAR_NEW_BARK_TOWN_LAB_STATE, 5)
+            setflag(FLAG_HIDE_YOUNGSTER_BATTLE_ROUTE_30)
+            clearflag(FLAG_HIDE_ROUTE_30_YOUNGSTER)
+            setflag(FLAG_ADVENTURE_STARTED)
+            releaseall
+            end
+        }
+    ]
+}
+
+script NewBarkTown_ElmsLab_EventScript_NameRival {
+    special(NameJohtoRival)
+	msgbox(NewBarkTown_ElmsLab_Text_PoliceRivalConfirm, MSGBOX_YESNO)
+    if (var(VAR_RESULT) == NO) {
+        closemessage
+        goto(NewBarkTown_ElmsLab_EventScript_NameRival)
+    }
+    return
+}
 
 script NewBarkTown_ElmsLab_EventScript_ElmIntroTrigger1 {
     lockall
@@ -187,6 +228,47 @@ script NewBarkTown_ElmsLab_EventScript_AideAssistCommon {
     return
 }
 
+script NewBarkTown_ElmsLab_EventScript_AideAssist2Trigger1 {
+    lockall
+    applymovement(LOCALID_NEW_BARK_TOWN_LAB_AIDE, NewBarkTown_ElmsLab_Movement_Aide_Approach1)
+    waitmovement(LOCALID_NEW_BARK_TOWN_LAB_AIDE)
+    call(NewBarkTown_ElmsLab_EventScript_AideAssist2Common)
+    applymovement(LOCALID_NEW_BARK_TOWN_LAB_AIDE, NewBarkTown_ElmsLab_Movement_Aide_GoBack1)
+    waitmovement(LOCALID_NEW_BARK_TOWN_LAB_AIDE)
+    releaseall
+    end
+}
+
+script NewBarkTown_ElmsLab_EventScript_AideAssist2Trigger2 {
+    lockall
+    applymovement(LOCALID_NEW_BARK_TOWN_LAB_AIDE, NewBarkTown_ElmsLab_Movement_Aide_Approach2)
+    waitmovement(LOCALID_NEW_BARK_TOWN_LAB_AIDE)
+    call(NewBarkTown_ElmsLab_EventScript_AideAssist2Common)
+    applymovement(LOCALID_NEW_BARK_TOWN_LAB_AIDE, NewBarkTown_ElmsLab_Movement_Aide_GoBack2)
+    waitmovement(LOCALID_NEW_BARK_TOWN_LAB_AIDE)
+    releaseall
+    end
+}
+
+script NewBarkTown_ElmsLab_EventScript_AideAssist2Trigger3 {
+    lockall
+    applymovement(LOCALID_NEW_BARK_TOWN_LAB_AIDE, NewBarkTown_ElmsLab_Movement_Aide_Approach3)
+    waitmovement(LOCALID_NEW_BARK_TOWN_LAB_AIDE)
+    call(NewBarkTown_ElmsLab_EventScript_AideAssist2Common)
+    applymovement(LOCALID_NEW_BARK_TOWN_LAB_AIDE, NewBarkTown_ElmsLab_Movement_Aide_GoBack3)
+    waitmovement(LOCALID_NEW_BARK_TOWN_LAB_AIDE)
+    releaseall
+    end
+}
+
+script NewBarkTown_ElmsLab_EventScript_AideAssist2Common {
+    msgbox(NewBarkTown_ElmsLab_Text_AideGiveOrbs)
+    giveitem(ITEM_TOHO_ORB, 5)
+    setvar(VAR_NEW_BARK_TOWN_LAB_STATE, 6)
+    closemessage
+    return
+}
+
 movement NewBarkTown_ElmsLab_Movement_Approach_Elm1 {
     walk_up * 3
     walk_right * 1
@@ -252,6 +334,15 @@ movement NewBarkTown_ElmsLab_Movement_StarterNoLeave {
     walk_up
 }
 
+movement NewBarkTown_ElmsLab_Movement_GoToOfficer {
+    walk_up * 7
+}
+
+movement NewBarkTown_ElmsLab_Movement_PoliceExit {
+    walk_left
+    walk_down * 7
+}
+
 text NewBarkTown_ElmsLab_Text_ElmIntro {
     format("Pick starter")
 }
@@ -291,4 +382,33 @@ text NewBarkTown_ElmsLab_Text_StarterChosenAlready {
 
 text NewBarkTown_ElmsLab_Text_AideGivePotion {
     format("A potion")
+}
+
+text NewBarkTown_ElmsLab_Text_AideGiveOrbs {
+    format("5 Orbs")
+}
+
+text NewBarkTown_ElmsLab_Text_PoliceIntro {
+    format("Something stolen/p"
+            "Info?")
+}
+
+text NewBarkTown_ElmsLab_Text_PoliceRivalConfirm {
+    format("{RIVAL}?")
+}
+
+text NewBarkTown_ElmsLab_Text_PoliceExit {
+    format("Thanks")
+}
+
+text NewBarkTown_ElmsLab_Text_ElmAfterPolice {
+    format("what's that")
+}
+
+text NewBarkTown_ElmsLab_Text_GiveOrb {
+    format("You gave the Mysterious Orb.")
+}
+
+text NewBarkTown_ElmsLab_Text_ElmGymMom {
+    format("Gym mom")
 }

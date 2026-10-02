@@ -276,5 +276,6 @@ EventScript_ResetAllMapFlags::
 EventScript_ResetAllMapFlagsFrlg::
 	setflag FLAG_HIDE_RIVAL_CHERRYGROVE
 	setflag FLAG_HIDE_ROUTE_30_YOUNGSTER
+	setflag FLAG_HIDE_LAB_POLICE
 	setvar VAR_MASSAGE_COOLDOWN_STEP_COUNTER, 500
 	end

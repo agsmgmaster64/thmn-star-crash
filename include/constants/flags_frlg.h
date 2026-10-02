@@ -12,9 +12,9 @@
 #define FLAG_0x027               0x027
 
 // Hide/show flags
-#define FLAG_HIDE_BULBASAUR_BALL                           0x028
-#define FLAG_HIDE_SQUIRTLE_BALL                            0x029
-#define FLAG_HIDE_CHARMANDER_BALL                          0x02A
+#define FLAG_HIDE_STARTER_1_BALL                           0x028
+#define FLAG_HIDE_STARTER_2_BALL                           0x029
+#define FLAG_HIDE_STARTER_3_BALL                           0x02A
 #define FLAG_HIDE_OAK_IN_HIS_LAB                           0x02B
 #define FLAG_HIDE_OAK_IN_PALLET_TOWN                       0x02C
 #define FLAG_HIDE_RIVAL_IN_LAB                             0x02D
@@ -763,8 +763,8 @@
 #define FLAG_HIDE_ROUTE_30_YOUNGSTER         0x307
 #define FLAG_HIDE_ROUTE_30_OAK               0x308
 #define FLAG_ROCKETS_IN_RADIO_TOWER          0x309
-#define FLAG_0x30A               0x30A
-#define FLAG_0x30B               0x30B
+#define FLAG_HIDE_LAB_POLICE                 0x30A
+#define FLAG_ADVENTURE_STARTED               0x30B
 #define FLAG_0x30C               0x30C
 #define FLAG_0x30D               0x30D
 #define FLAG_0x30E               0x30E
@@ -1540,7 +1540,6 @@
 #define FLAG_UNUSED_RS_LEGENDARY_BATTLE_DONE 0 // Unused Flag. Used in R/S to indicate whether player defeated or caught Groudon/Kyogre in Cave of Origin.
 #define FLAG_SCOTT_CALL_BATTLE_FRONTIER      0 // Used in order to activate a phone call from Scott, inviting the player to the SS Tidal.
 #define FLAG_RECEIVED_METEORITE              0
-#define FLAG_ADVENTURE_STARTED               0 // RECEIVED Pokédex.
 #define FLAG_DEFEATED_MAGMA_SPACE_CENTER     0 // Set when Team Magma is defeated at Mossdeep's Space Center.
 #define FLAG_MET_HIDDEN_POWER_GIVER          0
 

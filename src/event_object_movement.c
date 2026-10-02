@@ -569,6 +569,7 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
     {gObjectEventPal_TokaiTeio,             OBJ_EVENT_PAL_TAG_TOKAI_TEIO},
     {gObjectEventPal_NiceNature,            OBJ_EVENT_PAL_TAG_NICE_NATURE},
     {gObjectEventPal_ApricornTree,          OBJ_EVENT_PAL_TAG_APRICORN_TREE},
+    {gObjectEventPal_KrisDelta,             OBJ_EVENT_PAL_TAG_KRIS_DELTA},
     {gObjectEventPal_PlayerFrlg,            OBJ_EVENT_PAL_TAG_PLAYER_RED},
     {gObjectEventPal_PlayerReflectionFrlg,  OBJ_EVENT_PAL_TAG_PLAYER_RED_REFLECTION},
     {gObjectEventPal_PlayerFrlg,            OBJ_EVENT_PAL_TAG_PLAYER_GREEN},

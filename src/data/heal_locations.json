@@ -397,7 +397,7 @@
       "map": "MAP_VIOLET_CITY",
       "x": 39,
       "y": 46,
-      "respawn_map": "MAP_VIOLET_CITY",
+      "respawn_map": "MAP_VIOLET_CITY_POKEMON_CENTER_1F",
       "respawn_npc": "1"
     },
     {

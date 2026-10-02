@@ -11,14 +11,14 @@ Route3_EventScript_BenRematch::
 	end
 
 Route3_EventScript_Calvin::
-	trainerbattle_single TRAINER_YOUNGSTER_CALVIN, Route3_Text_CalvinIntro, Route3_Text_CalvinDefeat
+	trainerbattle_single TRAINER_YOUNGSTER_MIKEY, Route3_Text_CalvinIntro, Route3_Text_CalvinDefeat
 	specialvar VAR_RESULT, ShouldTryRematchBattle
 	goto_if_eq VAR_RESULT, TRUE, Route3_EventScript_CalvinRematch
 	msgbox Route3_Text_CalvinPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route3_EventScript_CalvinRematch::
-	trainerbattle_rematch TRAINER_YOUNGSTER_CALVIN, Route3_Text_CalvinRematchIntro, Route3_Text_CalvinDefeat
+	trainerbattle_rematch TRAINER_YOUNGSTER_MIKEY, Route3_Text_CalvinRematchIntro, Route3_Text_CalvinDefeat
 	msgbox Route3_Text_CalvinPostBattle, MSGBOX_AUTOCLOSE
 	end
 
@@ -107,14 +107,14 @@ Route4_EventScript_CrissyRematch::
 	end
 
 Route24_EventScript_Timmy::
-	trainerbattle_single TRAINER_YOUNGSTER_TIMMY, Route24_Text_TimmyIntro, Route24_Text_TimmyDefeat
+	trainerbattle_single TRAINER_BUG_CATCHER_WADE, Route24_Text_TimmyIntro, Route24_Text_TimmyDefeat
 	specialvar VAR_RESULT, ShouldTryRematchBattle
 	goto_if_eq VAR_RESULT, TRUE, Route24_EventScript_TimmyRematch
 	msgbox Route24_Text_TimmyPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route24_EventScript_TimmyRematch::
-	trainerbattle_rematch TRAINER_YOUNGSTER_TIMMY, Route24_Text_TimmyRematchIntro, Route24_Text_TimmyDefeat
+	trainerbattle_rematch TRAINER_BUG_CATCHER_WADE, Route24_Text_TimmyRematchIntro, Route24_Text_TimmyDefeat
 	msgbox Route24_Text_TimmyPostBattle, MSGBOX_AUTOCLOSE
 	end
 

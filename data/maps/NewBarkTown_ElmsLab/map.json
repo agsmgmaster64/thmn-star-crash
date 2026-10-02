@@ -57,7 +57,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NewBarkTown_ElmsLab_EventScript_Starter1Ball",
-      "flag": "FLAG_HIDE_BULBASAUR_BALL"
+      "flag": "FLAG_HIDE_STARTER_1_BALL"
     },
     {
       "type": "object",
@@ -71,7 +71,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NewBarkTown_ElmsLab_EventScript_Starter2Ball",
-      "flag": "FLAG_HIDE_SQUIRTLE_BALL"
+      "flag": "FLAG_HIDE_STARTER_2_BALL"
     },
     {
       "type": "object",
@@ -85,7 +85,22 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NewBarkTown_ElmsLab_EventScript_Starter3Ball",
-      "flag": "FLAG_HIDE_CHARMANDER_BALL"
+      "flag": "FLAG_HIDE_STARTER_3_BALL"
+    },
+    {
+      "local_id": "LOCALID_NEW_BARK_TOWN_LAB_POLICE",
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_POLICEMAN",
+      "x": 5,
+      "y": 4,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_UP",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "FLAG_HIDE_LAB_POLICE"
     }
   ],
   "warp_events": [
@@ -178,6 +193,33 @@
       "var": "VAR_NEW_BARK_TOWN_LAB_STATE",
       "var_value": "2",
       "script": "NewBarkTown_ElmsLab_EventScript_AideAssistTrigger3"
+    },
+    {
+      "type": "trigger",
+      "x": 4,
+      "y": 8,
+      "elevation": 0,
+      "var": "VAR_NEW_BARK_TOWN_LAB_STATE",
+      "var_value": "5",
+      "script": "NewBarkTown_ElmsLab_EventScript_AideAssist2Trigger1"
+    },
+    {
+      "type": "trigger",
+      "x": 5,
+      "y": 8,
+      "elevation": 0,
+      "var": "VAR_NEW_BARK_TOWN_LAB_STATE",
+      "var_value": "5",
+      "script": "NewBarkTown_ElmsLab_EventScript_AideAssist2Trigger2"
+    },
+    {
+      "type": "trigger",
+      "x": 6,
+      "y": 8,
+      "elevation": 0,
+      "var": "VAR_NEW_BARK_TOWN_LAB_STATE",
+      "var_value": "5",
+      "script": "NewBarkTown_ElmsLab_EventScript_AideAssist2Trigger3"
     }
   ],
   "bg_events": [],

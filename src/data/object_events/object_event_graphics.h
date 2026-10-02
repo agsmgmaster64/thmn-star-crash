@@ -216,6 +216,7 @@ const u16 gObjectEventPal_BattleGirl[] = INCGFX_U16("graphics/object_events/pale
 const u16 gObjectEventPal_BirdKeeper[] = INCGFX_U16("graphics/object_events/palettes/bird_keeper.pal", ".gbapal");
 const u16 gObjectEventPal_TokaiTeio[] = INCGFX_U16("graphics/object_events/palettes/tokai_teio.pal", ".gbapal");
 const u16 gObjectEventPal_NiceNature[] = INCGFX_U16("graphics/object_events/palettes/nice_nature.pal", ".gbapal");
+const u16 gObjectEventPal_KrisDelta[] = INCGFX_U16("graphics/object_events/palettes/kris_delta.pal", ".gbapal");
 const u16 gObjectEventPal_Kyogre[] = INCGFX_U16("graphics/object_events/palettes/kyogre.pal", ".gbapal");
 const u16 gObjectEventPal_KyogreReflection[] = INCGFX_U16("graphics/object_events/palettes/kyogre_reflection.pal", ".gbapal");
 const u16 gObjectEventPal_Groudon[] = INCGFX_U16("graphics/object_events/palettes/groudon.pal", ".gbapal");
