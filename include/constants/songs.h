@@ -277,6 +277,7 @@
 #define SE_PIKE_CURTAIN_OPEN        268 // SE_CURTAIN1
 #define SE_SUDOWOODO_SHAKE          269 // SE_USSOKI
 #define SE_WLD_FAINT                270
+#define SE_TEXT_BLIP_TEMPLATE       271
 
 // Music
 #define START_MUS                   350

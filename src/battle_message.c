@@ -21,6 +21,7 @@
 #include "strings.h"
 #include "test_runner.h"
 #include "text.h"
+#include "text_blips.h"
 #include "trainer_hill.h"
 #include "trainer_slide.h"
 #include "trainer_tower.h"
@@ -3899,6 +3900,9 @@ void BattlePutTextOnWindow(const u8 *text, u8 windowId)
             speed = sRecordedBattleTextSpeeds[GetTextSpeedInRecordedBattle()];
         else
             speed = GetPlayerTextSpeedDelay();
+
+        if (USE_DEFAULT_TEXT_BLIP && DEFAULT_TEXT_BLIP_BATTLE)
+            gTextBlipSetActive = TRUE;
 
         gTextFlags.canABSpeedUpPrint = 1;
     }

@@ -469,6 +469,21 @@ DESTROY_MUGSHOT = FC 1C
 ACCENT = FC 1D @ same as FC 01. sets accent color
 BACKGROUND = FC 1E @ same as FC 01. sets background color
 TEXT_COLORS = FC 1F @ takes 3 colors: text base color, shadow and accent
+SET_TEXT_BLIP = FC 20 @ takes text blip ID listed below. sets text blip parameters
+STOP_TEXT_BLIP = FC 21
+
+@ text blip IDs
+TEXT_PRINTER_1 = 00
+TEXT_PRINTER_2 = 01
+TEXT_PRINTER_3 = 02
+TEXT_PRINTER_4 = 03
+TEXT_PRINTER_5 = 04
+TEXT_PRINTER_6 = 05
+SPOOKY = 06
+ROBO_1 = 07
+ROBO_2 = 08
+ROBO_3 = 09
+ROBO_4 = 0A
 
 @ Speaker names, the order must be matching with include/constants/speaker_names.h
 NAME_NONE = 00
@@ -820,6 +835,7 @@ SE_PIKE_CURTAIN_CLOSE = 0B 01
 SE_PIKE_CURTAIN_OPEN = 0C 01
 SE_SUDOWOODO_SHAKE = 0D 01
 SE_WLD_FAINT = 0E 01
+SE_TEXT_BLIP_TEMPLATE = 0F 01
 MUS_LITTLEROOT_TEST = 5E 01
 MUS_GSC_ROUTE38 = 5F 01
 MUS_CAUGHT = 60 01

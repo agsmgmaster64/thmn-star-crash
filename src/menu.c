@@ -23,6 +23,7 @@
 #include "strings.h"
 #include "script.h"
 #include "task.h"
+#include "text_blips.h"
 #include "text_window.h"
 #include "window.h"
 #include "config/overworld.h"
@@ -194,6 +195,10 @@ bool16 AddTextPrinterParameterized2(u8 windowId, u8 fontId, const u8 *str, u8 sp
     printer.color.accent = bgColor;
 
     gTextFlags.useAlternateDownArrow = 0;
+
+    if (USE_DEFAULT_TEXT_BLIP && DEFAULT_TEXT_BLIP_MSG_BOX)
+        gTextBlipSetActive = TRUE;
+    
     return AddTextPrinter(&printer, speed, callback);
 }
 
