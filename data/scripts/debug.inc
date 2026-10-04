@@ -233,7 +233,8 @@ Debug_EventScript_Script_1_TestMessage:
 	.string "{DESTROY_MUGSHOT}{CREATE_MUGSHOT MUGSHOT_GIGI EMOTE_ALT_8}Gigi X Smile\p"
 	.string "{DESTROY_MUGSHOT}{CREATE_MUGSHOT MUGSHOT_GIGI EMOTE_ALT_9}Gigi Laugh\p"
 	.string "{DESTROY_MUGSHOT}{CREATE_MUGSHOT MUGSHOT_GIGI EMOTE_SHADOW}Gigi Shadow\p"
-	.string "{DESTROY_MUGSHOT}{SET_TEXT_BLIP TEXT_PRINTER_1}Text Blip Test$"
+	.string "{DESTROY_MUGSHOT}{CREATE_MUGSHOT MUGSHOT_SUSIE EMOTE_NORMAL}{SET_TEXT_BLIP TXT_SUS}"
+	.string "Susie text blip test$"
 
 	.align 2
 Debug_EventScript_Script_1_Mart:
@@ -361,21 +362,15 @@ Debug_EventScript_Script_5_Text_SkittySoMuchCuterThanImagined:
 
 Debug_EventScript_Script_6::
 	lockall
-	message gText_HowMayIServeYou
-	waitmessage
-	pokemartoutfit Debug_EventScript_Script_6_Mart
-	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	msgbox Debug_EventScript_Script_6_Text_SusieTestThing, MSGBOX_DEFAULT
+	closemessage
 	releaseall
 	end
 
-	.align 2
-Debug_EventScript_Script_6_Mart:
-	.2byte OUTFIT_THE_ALTERNATE
-	.2byte OUTFIT_YOUNG_START
-	.2byte OUTFIT_ALTERED_YOUTH
-	.2byte OUTFIT_GIGI_MURIN
-	.2byte OUTFIT_FRLG
-	.2byte OUTFIT_NONE
+Debug_EventScript_Script_6_Text_SusieTestThing:
+	.string "{CREATE_MUGSHOT MUGSHOT_SUSIE EMOTE_DEADPAN}{SET_TEXT_BLIP TXT_SUS}"
+	.string "Huh, where even am I right now?\p"
+	.string "Wonder where's Kris right now.$"
 
 Debug_EventScript_Script_7::
 	showbankbalancebox 0, 0

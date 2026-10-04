@@ -1267,6 +1267,10 @@ Voice_GigiBoatGoesBinted::
 	.incbin "sound/direct_sound_samples/voice_lines/uncomp_gigi_boat_goes_binted.bin"
 
 	.align 2
+TextBlip_Susie::
+	.incbin "sound/direct_sound_samples/txt_sus.bin"
+
+	.align 2
 DirectSoundWaveData_pinball_7_clav::
 	.incbin "sound/direct_sound_samples/pinball_7_clav.bin"
 

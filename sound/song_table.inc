@@ -278,7 +278,7 @@ gSongTable::
 	song se_sudowoodo_shake, MUSIC_PLAYER_SE1, 1
 	song se_wld_faint, MUSIC_PLAYER_SE1, 1
 	song se_text_blip_template, MUSIC_PLAYER_SE2, 2
-	song dummy_song_header, MUSIC_PLAYER_BGM, 0
+	song se_text_delta, MUSIC_PLAYER_SE2, 2
 	song dummy_song_header, MUSIC_PLAYER_BGM, 0
 	song dummy_song_header, MUSIC_PLAYER_BGM, 0
 	song dummy_song_header, MUSIC_PLAYER_BGM, 0

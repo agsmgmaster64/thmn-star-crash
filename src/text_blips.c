@@ -96,6 +96,10 @@ static const struct TextBlipAudioClip sRobo4Clips[] = {
     {SE_TEXT_BLIP_TEMPLATE,  WEIGHT_DEFAULT, 3}
 };
 
+static const struct TextBlipAudioClip sSusieClips[] = {
+    {SE_TEXT_DELTA,  WEIGHT_DEFAULT, VOICE_DEFAULT}
+};
+
 static const struct TextBlipAudioValues sTextBlipAudioValues[] = {
     [TEXT_PRINTER_1] =
     {
@@ -238,6 +242,19 @@ static const struct TextBlipAudioValues sTextBlipAudioValues[] = {
         .pitchShift = PITCH_SHIFT_DEFAULT,
         .pitchRange = PITCH_VARIANCE_NONE,
         .frequency = FREQUENCY_DEFAULT,
+        .validChars = PRINTED_CHARACTERS,
+    },
+    [TXT_SUS] =
+    {
+        .clips = sSusieClips,
+        .numClips = ARRAY_COUNT(sSusieClips),
+        .equalWeights = TRUE,
+        .tempoAdjust = TEMPO_DEFAULT,
+        .volume = VOLUME_DEFAULT,
+        .volumeRange = VOLUME_VARIANCE_DEFAULT,
+        .pitchShift = PITCH_SHIFT_DEFAULT,
+        .pitchRange = PITCH_VARIANCE_NONE,
+        .frequency = FREQUENCY_EVERY_CHARACTER,
         .validChars = PRINTED_CHARACTERS,
     },
 };

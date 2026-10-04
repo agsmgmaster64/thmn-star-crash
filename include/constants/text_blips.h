@@ -42,5 +42,6 @@
 #define ROBO_2          8
 #define ROBO_3          9
 #define ROBO_4          10
+#define TXT_SUS         11
 
 #endif //GUARD_CONSTANTS_TEXT_BLIPS_H

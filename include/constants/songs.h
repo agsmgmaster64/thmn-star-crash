@@ -278,6 +278,7 @@
 #define SE_SUDOWOODO_SHAKE          269 // SE_USSOKI
 #define SE_WLD_FAINT                270
 #define SE_TEXT_BLIP_TEMPLATE       271
+#define SE_TEXT_DELTA               272
 
 // Music
 #define START_MUS                   350

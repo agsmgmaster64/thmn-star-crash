@@ -209,3 +209,4 @@
 .include "sound/voicegroups/rg_sevii_67.inc"
 .include "sound/voicegroups/drumsets/rg_credits.inc"
 .include "sound/voicegroups/se_text_blip_template.inc"
+.include "sound/voicegroups/delta_text_blips.inc"
