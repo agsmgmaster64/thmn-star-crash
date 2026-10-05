@@ -451,6 +451,7 @@ enum BattleRoom
     B_ROOM_MAGIC,
     B_ROOM_TRICK,
     B_ROOM_WONDER,
+    B_ROOM_INVERSE,
 };
 
 // Field affecting statuses.

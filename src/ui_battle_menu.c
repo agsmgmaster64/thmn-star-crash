@@ -148,7 +148,6 @@ enum
     STATUS_INFO_PROTOSYNTHESIS,
     STATUS_INFO_QUARK_DRIVE,
     STATUS_INFO_COMMANDED,
-    STATUS_INFO_DRAGON_CHEER,
     STATUS_INFO_WRAPPED,
     NUM_STATUS_INFO,
 };
@@ -644,11 +643,7 @@ void UI_Battle_Menu_Init(MainCallback callback)
                     isExtraInfoShown = TRUE;
                 break;
             case STATUS_INFO_FOCUS_ENERGY:
-                if (gBattleMons[j].volatiles.focusEnergy)
-                    isExtraInfoShown = TRUE;
-                break;
-            case STATUS_INFO_DRAGON_CHEER:
-                if (gBattleMons[j].volatiles.dragonCheer)
+                if (gBattleMons[j].volatiles.criticalHitBoost)
                     isExtraInfoShown = TRUE;
                 break;
             case STATUS_INFO_TRANSFORMED:
@@ -2203,15 +2198,6 @@ static void PrintStatusTab(void)
 
                 //Description
                 StringCopy(gStringVar1, sText_Title_Status_Focus_Energy_Description);
-                AddTextPrinterParameterized4(windowId, FONT_SMALL_NARROW, (x * 8) + x2, ((y + 1) * 8) + y2, 0, 0, sMenuWindowFontColors[FONT_BLACK], 0xFF, gStringVar1);
-                printedInfo = TRUE;
-            break;
-            case STATUS_INFO_DRAGON_CHEER:
-                StringCopy(gStringVar1, sText_Title_Status_Dragon_Cheer);
-                AddTextPrinterParameterized4(windowId, FONT_SMALL_NARROW, (x * 8) + x2, (y * 8) + y2, 0, 0, sMenuWindowFontColors[FONT_WHITE], 0xFF, gStringVar1);
-
-                //Description
-                StringCopy(gStringVar1, sText_Title_Status_Dragon_Cheer_Description);
                 AddTextPrinterParameterized4(windowId, FONT_SMALL_NARROW, (x * 8) + x2, ((y + 1) * 8) + y2, 0, 0, sMenuWindowFontColors[FONT_BLACK], 0xFF, gStringVar1);
                 printedInfo = TRUE;
             break;
