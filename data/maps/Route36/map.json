@@ -28,6 +28,11 @@
       "map": "MAP_ROUTE37",
       "offset": 22,
       "direction": "up"
+    },
+    {
+      "map": "MAP_RUINS_OF_ALPH_OUTSIDE",
+      "offset": 36,
+      "direction": "down"
     }
   ],
   "object_events": [
@@ -46,7 +51,15 @@
       "flag": "0"
     }
   ],
-  "warp_events": [],
+  "warp_events": [
+    {
+      "x": 56,
+      "y": 25,
+      "elevation": 0,
+      "dest_map": "MAP_RUINS_OF_ALPH_OUTSIDE",
+      "dest_warp_id": "1"
+    }
+  ],
   "coord_events": [],
   "bg_events": [],
   "build_version": [

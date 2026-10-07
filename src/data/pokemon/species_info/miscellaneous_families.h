@@ -379,6 +379,61 @@ const struct SpeciesInfo gSpeciesInfoMiscellaneous[] =
         .teachableLearnset = sAppleTeachableLearnset,
     },
 
+#define HOSHIZAKO_MISC_INFO(letter, backYOffset, iconPal)                                               \
+    {                                                                                                   \
+        .baseHP        = 48,                                                                            \
+        .baseAttack    = 72,                                                                            \
+        .baseDefense   = 48,                                                                            \
+        .baseSpeed     = 48,                                                                            \
+        .baseSpAttack  = 72,                                                                            \
+        .baseSpDefense = 48,                                                                            \
+        .types = MON_TYPES(TYPE_PSYCHIC),                                                               \
+        .catchRate = 225,                                                                               \
+        .expYield = (P_UPDATED_EXP_YIELDS >= GEN_5) ? 118 : 61,                                         \
+        .evYield_Attack = 1,                                                                            \
+        .evYield_SpAttack = 1,                                                                          \
+        .genderRatio = MON_GENDERLESS,                                                                  \
+        .eggCycles = 40,                                                                                \
+        .friendship = STANDARD_FRIENDSHIP,                                                              \
+        .growthRate = GROWTH_MEDIUM_FAST,                                                               \
+        .eggGroups = MON_EGG_GROUPS(EGG_GROUP_NO_EGGS_DISCOVERED),                                      \
+        .abilities = { ABILITY_LEVITATE, ABILITY_NONE, ABILITY_NONE },                                  \
+        .sourceGame = SOURCE_OTHER,                                                                     \
+        .noFlip = TRUE,                                                                                 \
+        .speciesName = _("Hoshizako"),                                                                  \
+        .cryId = CRY_UNOWN,                                                                             \
+        .natDexNum = NATIONAL_DEX_UNOWN,                                                                \
+        .categoryName = _("Star"),                                                                      \
+        .height = 5,                                                                                    \
+        .weight = 50,                                                                                   \
+        .description = gUnownPokedexText,                                                               \
+        .pokemonScale = 411,                                                                            \
+        .pokemonOffset = 2,                                                                             \
+        .trainerScale = 256,                                                                            \
+        .trainerOffset = 0,                                                                             \
+        .frontPic = gMonFrontPic_Unown ##letter,                                                        \
+        .frontPicSize = MON_COORDS_SIZE(64, 64),                                                        \
+        .frontPicYOffset = 16,                                                                          \
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,                                               \
+        .frontAnimId = ANIM_ZIGZAG_FAST,                                                                \
+        .enemyMonElevation = 8,                                                                         \
+        .backPic = gMonBackPic_Unown ##letter,                                                          \
+        .backPicSize = MON_COORDS_SIZE(64, 64),                                                         \
+        .backPicYOffset = backYOffset,                                                                  \
+        .backAnimId = BACK_ANIM_SHRINK_GROW_VIBRATE,                                                    \
+        .palette = gMonPalette_Unown ##letter,                                                          \
+        .shinyPalette = gMonShinyPalette_Unown ##letter,                                                \
+        .iconSprite = gMonIcon_Unown ##letter,                                                          \
+        .iconPalIndex = iconPal,                                                                        \
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,                                                         \
+        SHADOW(0, 3, SHADOW_SIZE_S)                                                                     \
+        FOOTPRINT(Unown)                                                                                \
+        .teachingType = TM_ILLITERATE,                                                                  \
+        .levelUpLearnset = sUnownLevelUpLearnset,                                                       \
+        .teachableLearnset = sUnownTeachableLearnset,                                                   \
+        .formSpeciesIdTable = sUnownFormSpeciesIdTable,                                                 \
+    }
+
 #ifdef __INTELLISENSE__
 };
 #endif
