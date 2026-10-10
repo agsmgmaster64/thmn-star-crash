@@ -3085,6 +3085,10 @@ extern const u16 gBattleAnimSpritePal_TeraStarstormBeam[];
 extern const u32 gBattleAnimSpriteGfx_SaltParticle[];
 extern const u16 gBattleAnimSpritePal_SaltParticle[];
 
+//new touhoumon stuff
+extern const u32 gBattleAnimSpriteGfx_Apollon[];
+extern const u16 gBattleAnimSpritePal_Apollon[];
+
 extern const u32 gBattleAnimBgImage_Dark[];
 extern const u32 gBattleAnimBgImage_Ghost[];
 extern const u32 gBattleAnimBgImage_Psychic[];

@@ -4386,6 +4386,41 @@ static void HandleSetEffectDragonCheer(struct BattleCalcValues *cv, struct SetEf
     }
 }
 
+static void HandleSetEffectDeathRattle(struct BattleCalcValues *cv, struct SetEffect *se)
+{
+    u32 moveEffect = MOVE_EFFECT_NONE;
+
+    u8 soundMoveCount = 0;
+
+    for (u8 i = 0; i < MAX_MON_MOVES; i++)
+    {
+        if (IsSoundMove(gBattleMons[cv->battlerAtk].moves[i]) && gBattleMons[cv->battlerAtk].moves[i] != cv->move) //check for sound move but dont count itself, no safety check for duplicate moves since that is not legal anyway
+        {
+            soundMoveCount++;
+        }
+    }
+
+    if (soundMoveCount == 2)
+    {
+        moveEffect = MOVE_EFFECT_POISON;
+    }
+
+    if (soundMoveCount == 3)
+    {
+        moveEffect = MOVE_EFFECT_TOXIC;
+    }
+
+    se->moveEffect = moveEffect;
+    SetMoveEffect(cv, se);
+}
+
+static void HandleSetEffectIdentify(struct BattleCalcValues *cv, struct SetEffect *se)
+{
+    if (cv->onlyChecking) return;
+
+    BattleScriptPushAndSet(se->script, BattleScript_Identify);
+}
+
 static void (*const sSetEffectHandlers[])(struct BattleCalcValues *cv, struct SetEffect *se) =
 {
     [MOVE_EFFECT_NONE] = HandleSetEffectNone,
@@ -4444,8 +4479,6 @@ static void (*const sSetEffectHandlers[])(struct BattleCalcValues *cv, struct Se
     [MOVE_EFFECT_RAINBOW] = HandleSetEffectRainbow,
     [MOVE_EFFECT_SEA_OF_FIRE] = HandleSetEffectSeaOfFire,
     [MOVE_EFFECT_SWAMP] = HandleSetEffectSwamp,
-    [MOVE_EFFECT_DEBT_SPIRAL] = HandleSetEffectDebtSpiral,
-    [MOVE_EFFECT_MAD_HONEY] = HandleSetEffectMadHoney,
     [MOVE_EFFECT_SPEED_SWAP] = HandleSetEffectSpeedSwap,
     [MOVE_EFFECT_SAFEGUARD] = HandleSetEffectSafeguard,
     [MOVE_EFFECT_LASER_FOCUS] = HandleSetEffectLaserFocus,
@@ -4535,7 +4568,11 @@ static void (*const sSetEffectHandlers[])(struct BattleCalcValues *cv, struct Se
     [MOVE_EFFECT_HEAL_PULSE] = HandleSetEffectHealPulse,
     [MOVE_EFFECT_POLLEN_PUFF] = HandleSetEffectPollenPuff,
     [MOVE_EFFECT_FLORAL_HEALING] = HandleSetEffectHealPulse,
+    [MOVE_EFFECT_DEBT_SPIRAL] = HandleSetEffectDebtSpiral,
+    [MOVE_EFFECT_MAD_HONEY] = HandleSetEffectMadHoney,
     [MOVE_EFFECT_HONEYBOILED] = HandleSetEffectHoneyBoiled,
+    [MOVE_EFFECT_DEATH_RATTLE] = HandleSetEffectDeathRattle,
+    [MOVE_EFFECT_IDENTIFY] = HandleSetEffectIdentify,
     [MOVE_EFFECT_SUN] = HandleSetEffectWeather,
     [MOVE_EFFECT_RAIN] = HandleSetEffectWeather,
     [MOVE_EFFECT_SANDSTORM] = HandleSetEffectWeather,

@@ -35093,25 +35093,25 @@ MoodSwing_Atk::
 	setalpha 12, 8
 	createvisualtask AnimTask_BlendMonInAndOut, 3, 0, 31, 10, 0, 2
 	createsprite gAngerMarkSpriteTemplate, ANIM_ATTACKER, 2, 0, -20, -28
-	playsewithpan SE_M_SWAGGER2, 192
+	playsewithpan SE_M_SWAGGER2, SOUND_PAN_ATTACKER
 	waitforvisualfinish
 	clearmonbg 1
 	end
  
 MoodSwing_Def::
 	createsprite gBreathPuffSpriteTemplate, ANIM_ATTACKER, 2, 
-	loopsewithpan SE_M_SWAGGER, 192, 4, 2
+	loopsewithpan SE_M_SWAGGER, SOUND_PAN_ATTACKER, 4, 2
 	waitforvisualfinish
 	end
 
 MoodSwing_Speed::
 	createsprite gSprayWaterDropletSpriteTemplate, ANIM_TARGET, 5, 0, 1
-	playsewithpan SE_M_SKETCH, 63
+	playsewithpan SE_M_SKETCH, SOUND_PAN_TARGET
 	createsprite gSprayWaterDropletSpriteTemplate, ANIM_TARGET, 5, 1, 1
 	createvisualtask AnimTask_ShakeMon2, 2, 1, 4, 0, 5, 1
 	createvisualtask AnimTask_StretchTargetUp, 3, 
 	delay 2
-	playsewithpan SE_M_SKETCH, 63
+	playsewithpan SE_M_SKETCH, SOUND_PAN_TARGET
 	waitforvisualfinish
 	end
 
@@ -35128,7 +35128,7 @@ MoodSwing_SpDef::
 	monbg ANIM_ATK_PARTNER
 	createvisualtask AnimTask_SetGrayscaleOrOriginalPal, 5, 1, 0
 	setalpha 8, 8
-	playsewithpan SE_M_PSYBEAM, 192
+	playsewithpan SE_M_PSYBEAM, SOUND_PAN_ATTACKER
 	delay 20
 	createvisualtask AnimTask_SetGrayscaleOrOriginalPal, 5, 1, 1
 	clearmonbg ANIM_ATK_PARTNER
@@ -35142,9 +35142,117 @@ MoodSwing_Accuracy::
 
 MoodSwing_Evasion::
 	createsprite gQuestionMarkSpriteTemplate, ANIM_ATTACKER, 20 
-	playsewithpan SE_M_METRONOME, 192
+	playsewithpan SE_M_METRONOME, SOUND_PAN_ATTACKER
 	delay 54
-	loopsewithpan SE_M_METRONOME, 192, 16, 3
+	loopsewithpan SE_M_METRONOME, SOUND_PAN_ATTACKER, 16, 3
+	waitforvisualfinish
+	end
+
+gBattleAnimMove_Apollon::
+	choosetwoturnanim ApollonSetUp ApollonHit
+ApollonSetUp::
+	createsprite gApollon1SpriteTemplate, ANIM_ATTACKER, 2, 0, 32, 0, -96, 25, 0
+	playsewithpan SE_M_WING_ATTACK, SOUND_PAN_TARGET
+    
+    delay 6
+	createsprite gApollon1SpriteTemplate, ANIM_ATTACKER, 2, -10, 32, -10, -96, 25, 0
+	createsprite gApollon1SpriteTemplate, ANIM_ATTACKER, 2, 10, 32, 10, -96, 25, 0
+	playsewithpan SE_M_WING_ATTACK, SOUND_PAN_TARGET
+
+    delay 6
+	createsprite gApollon1SpriteTemplate, ANIM_ATTACKER, 2, -20, 32, -20, -96, 25, 0
+	createsprite gApollon1SpriteTemplate, ANIM_ATTACKER, 2, 20, 32, 20, -96, 25, 0
+	playsewithpan SE_M_WING_ATTACK, SOUND_PAN_TARGET
+
+	waitforvisualfinish
+    end
+
+ApollonHit::
+	playsewithpan SE_M_SKETCH, 0
+	createsprite gApollon2SpriteTemplate, ANIM_TARGET, 2, 0, -96, 0, 32, 25, 0
+	playsewithpan SE_M_WING_ATTACK, SOUND_PAN_TARGET
+    delay 6
+	createsprite gApollon2SpriteTemplate, ANIM_TARGET, 2, -10, -96, -10, 32, 25, 0
+	createsprite gApollon2SpriteTemplate, ANIM_TARGET, 2, 10, -96, 10, 32, 25, 0
+	playsewithpan SE_M_WING_ATTACK, SOUND_PAN_TARGET
+    delay 6
+	createsprite gApollon2SpriteTemplate, ANIM_TARGET, 2, -20, -96, -20, 32, 25, 0
+	createsprite gApollon2SpriteTemplate, ANIM_TARGET, 2, 20, -96, 20, 32, 25, 0
+	playsewithpan SE_M_WING_ATTACK, SOUND_PAN_TARGET
+    delay 10
+	createvisualtask AnimTask_ShakeMon2, 2, 1, 8, 0, 16, 1
+	loopsewithpan SE_M_HORN_ATTACK, SOUND_PAN_TARGET, 3, 5
+	waitforvisualfinish
+    end
+
+gBattleAnimMove_AegisMerge::
+	loopsewithpan SE_SHINY, SOUND_PAN_ATTACKER, 28, 2
+	createvisualtask AnimTask_MetallicShine, 5, 0, 1, RGB(31, 31, 10)
+	createsprite gComplexPaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, 1, 8, 2, -1, 14, -1, 0
+	waitforvisualfinish
+	end
+
+gBattleAnimMove_Invocation::
+	fadetobg 2
+	playsewithpan SE_M_PSYBEAM, SOUND_PAN_ATTACKER
+	waitbgfadein
+	createvisualtask AnimTask_LoadMusicNotesPals, 5
+	createsprite gBellSpriteTemplate, ANIM_ATTACKER, 2, 0, -24, 0, 1
+	delay 12
+	createsprite gHealBellMusicNoteSpriteTemplate, ANIM_ATTACKER, 40, 0, -24, 48, -18, 35, 0, 0
+	createsprite gHealBellMusicNoteSpriteTemplate, ANIM_ATTACKER, 40, 0, -24, -48, 20, 30, 1, 1
+	createsprite gHealBellMusicNoteSpriteTemplate, ANIM_ATTACKER, 40, 0, -24, -38, -29, 30, 2, 2
+	createsprite gHealBellMusicNoteSpriteTemplate, ANIM_ATTACKER, 40, 0, -24, 36, 18, 30, 3, 3
+	createsprite gThinRingExpandingSpriteTemplate, ANIM_ATTACKER, 40, 0, -24, 0, 1
+	playsewithpan SE_M_PSYBEAM, SOUND_PAN_ATTACKER
+	delay 33
+	createsprite gHealBellMusicNoteSpriteTemplate, ANIM_ATTACKER, 40, 0, -24, 19, 26, 35, 4, 4
+	createsprite gHealBellMusicNoteSpriteTemplate, ANIM_ATTACKER, 40, 0, -24, -34, -12, 30, 5, 5
+	createsprite gHealBellMusicNoteSpriteTemplate, ANIM_ATTACKER, 40, 0, -24, 41, -20, 34, 6, 2
+	createsprite gHealBellMusicNoteSpriteTemplate, ANIM_ATTACKER, 40, 0, -24, -15, 26, 32, 7, 0
+	createsprite gThinRingExpandingSpriteTemplate, ANIM_ATTACKER, 40, 0, -24, 0, 1
+	playsewithpan SE_M_PSYBEAM, SOUND_PAN_ATTACKER
+	delay 33
+	createsprite gHealBellMusicNoteSpriteTemplate, ANIM_ATTACKER, 40, 0, -24, -48, 18, 31, 0, 2
+	createsprite gHealBellMusicNoteSpriteTemplate, ANIM_ATTACKER, 40, 0, -24, 48, -20, 30, 2, 5
+	createsprite gHealBellMusicNoteSpriteTemplate, ANIM_ATTACKER, 40, 0, -24, 38, 29, 33, 4, 3
+	createsprite gHealBellMusicNoteSpriteTemplate, ANIM_ATTACKER, 40, 0, -24, -36, -18, 30, 6, 1
+	createsprite gThinRingExpandingSpriteTemplate, ANIM_ATTACKER, 40, 0, -24, 0, 1
+	playsewithpan SE_M_PSYBEAM, SOUND_PAN_ATTACKER
+	waitforvisualfinish
+	createvisualtask AnimTask_FreeMusicNotesPals, 5
+	waitforvisualfinish
+
+	playsewithpan SE_M_NIGHTMARE, SOUND_PAN_TARGET
+	createsprite gCurseGhostSpriteTemplate, ANIM_TARGET, 2
+	createvisualtask AnimTask_ShakeMon2, 2, 1, 2, 0, 14, 1
+	waitforvisualfinish
+	
+	restorebg
+	waitbgfadein
+	clearmonbg 1
+	end
+
+gBattleAnimMove_BeddyBye::
+	goto gBattleAnimMove_Rest
+
+gBattleAnimMove_Identify::
+	createsprite gIdentifySpriteTemplate, ANIM_ATTACKER, 50, 112, -16, 140, 128, 36
+	delay 2
+	createsprite gIdentifySpriteTemplate, ANIM_ATTACKER, 50, 208, 128, -16, 48, 36
+	playsewithpan SE_M_SCRATCH, SOUND_PAN_MIDDLE
+	delay 2
+	createsprite gIdentifySpriteTemplate, ANIM_ATTACKER, 50, -16, 112, 256, -16, 36
+	playsewithpan SE_M_SCRATCH, SOUND_PAN_MIDDLE
+	delay 2
+	createsprite gIdentifySpriteTemplate, ANIM_ATTACKER, 50, 108, 128, 84, -16, 36
+	playsewithpan SE_M_SCRATCH, SOUND_PAN_MIDDLE
+	delay 2
+	createsprite gIdentifySpriteTemplate, ANIM_ATTACKER, 50, -16, 56, 256, 56, 36
+	playsewithpan SE_M_SCRATCH, SOUND_PAN_MIDDLE
+	waitforvisualfinish
+	createvisualtask AnimTask_BlendMonInAndOut, 5, 1, RGB_WHITE, 12, 2, 1
+	playsewithpan SE_M_DETECT, SOUND_PAN_TARGET
 	waitforvisualfinish
 	end
 

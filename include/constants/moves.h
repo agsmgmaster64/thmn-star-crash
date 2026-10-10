@@ -905,6 +905,11 @@ enum __attribute__((packed)) Move
 
     // Add any custom moves here, not further down!
     MOVE_MOOD_SWING = 848,
+    MOVE_APOLLON = 849,
+    MOVE_AEGIS_MERGE = 850,
+    MOVE_INVOCATION = 851,
+    MOVE_BEDDY_BYE = 852,
+    MOVE_IDENTIFY = 853,
     MOVES_COUNT_CUSTOM,
 
     MOVES_COUNT = MOVES_COUNT_CUSTOM,

@@ -1625,6 +1625,37 @@ const struct BattleMoveEffect gBattleMoveEffects[NUM_BATTLE_MOVE_EFFECTS] =
         .battleTvScore = 0, // TODO: Assign points
     },
 
+    [EFFECT_APOLLON] =
+    {
+        .battleTvScore = 1,
+        .encourageEncore = TRUE,
+    },
+
+    [EFFECT_AEGIS_MERGE] =
+    {
+        .battleTvScore = 1,
+        .encourageEncore = TRUE,
+    },
+
+    [EFFECT_INVOCATION] =
+    {
+        .battleTvScore = 1,
+        .encourageEncore = TRUE,
+    },
+
+    [EFFECT_IDENTIFY] =
+    {
+        .battleTvScore = 1,
+        .encourageEncore = TRUE,
+    },
+
+    [EFFECT_BEDDY_BYE] =
+    {
+        .battleTvScore = 7,
+        .battleFactoryStyle = FACTORY_STYLE_ENDURANCE,
+        .encourageEncore = TRUE,
+    },
+
     [EFFECT_SECRET_POWER] =
     {
         .battleTvScore = 1,

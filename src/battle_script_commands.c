@@ -9737,3 +9737,67 @@ void BS_TryDoMoveEffectsBeforeMoves(void)
 
     gBattlescriptCurrInstr = cmd->nextInstr;
 }
+
+void BS_IdentifyHPBuffer(void)
+{
+    NATIVE_ARGS();
+
+    GetBattlerPartyState(gEffectBattler)->identified = TRUE;
+    PREPARE_HWORD_NUMBER_BUFFER(gBattleTextBuff1, 4, gBattleMons[gEffectBattler].hp);
+    PREPARE_HWORD_NUMBER_BUFFER(gBattleTextBuff2, 4, gBattleMons[gEffectBattler].maxHP);
+
+    gBattlescriptCurrInstr = cmd->nextInstr;
+}
+
+void BS_IdentifyHPUpdate(void)
+{
+    NATIVE_ARGS();
+
+    if (gBattleControllerExecFlags)
+        return;
+
+    BtlController_EmitHealthBarUpdate(gEffectBattler, B_COMM_TO_CONTROLLER, HP_BAR_REFRESH);
+    MarkBattlerForControllerExec(gEffectBattler);
+    gBattlescriptCurrInstr = cmd->nextInstr;
+}
+
+void BS_IdentifyItemBuffer(void)
+{
+    NATIVE_ARGS();
+
+    if (gBattleMons[gEffectBattler].item)
+    {
+        PREPARE_ITEM_BUFFER(gBattleTextBuff1, gBattleMons[gEffectBattler].item);
+    }
+    else
+    {
+        gBattleTextBuff1[0] = CHAR_n;
+        gBattleTextBuff1[1] = CHAR_o;
+        gBattleTextBuff1[2] = CHAR_t;
+        gBattleTextBuff1[3] = CHAR_h;
+        gBattleTextBuff1[4] = CHAR_i;
+        gBattleTextBuff1[5] = CHAR_n;
+        gBattleTextBuff1[6] = CHAR_g;
+        gBattleTextBuff1[7] = EOS;
+    }
+    gBattlescriptCurrInstr = cmd->nextInstr;
+}
+
+void BS_IdentifyMovesBuffer1(void)
+{
+    NATIVE_ARGS();
+
+    PREPARE_MOVE_BUFFER(gBattleTextBuff1, gBattleMons[gEffectBattler].moves[0]);
+    PREPARE_MOVE_BUFFER(gBattleTextBuff2, gBattleMons[gEffectBattler].moves[1]);
+
+    gBattlescriptCurrInstr = cmd->nextInstr;
+}
+
+void BS_IdentifyMovesBuffer2(void)
+{
+    NATIVE_ARGS();
+
+    PREPARE_MOVE_BUFFER(gBattleTextBuff1, gBattleMons[gEffectBattler].moves[2]);
+    PREPARE_MOVE_BUFFER(gBattleTextBuff2, gBattleMons[gEffectBattler].moves[3]);
+    gBattlescriptCurrInstr = cmd->nextInstr;
+}

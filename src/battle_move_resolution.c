@@ -1300,6 +1300,14 @@ static enum CancelerResult CancelerMoveFailure(struct BattleCalcValues *cv)
         if (gBattleMons[cv->battlerAtk].volatiles.noRetreat)
             battleScript = BattleScript_ButItFailed;
         break;
+    case EFFECT_AEGIS_MERGE:
+        if (gBattleMons[cv->battlerAtk].volatiles.root)
+            battleScript = BattleScript_ButItFailed;
+        break;
+    case EFFECT_INVOCATION:
+        if (gBattleMons[cv->battlerAtk].volatiles.cursed)
+            battleScript = BattleScript_ButItFailed;
+        break;
     case EFFECT_PROTECT:
     case EFFECT_ENDURE:
         TryResetConsecutiveUseCounter(cv->battlerAtk);
@@ -1327,6 +1335,7 @@ static enum CancelerResult CancelerMoveFailure(struct BattleCalcValues *cv)
         }
         break;
     case EFFECT_REST:
+    case EFFECT_BEDDY_BYE:
         battleScript = GetRestFailureScript(cv->battlerAtk, cv->abilities[cv->battlerAtk]);
         break;
     case EFFECT_SNORE:
@@ -1469,6 +1478,7 @@ static enum CancelerResult CancelerMoveEffectFailureTarget(struct BattleCalcValu
         case EFFECT_FLING:
             numAffectedTargets++;
             continue;
+        case EFFECT_APOLLON:
         case EFFECT_FUTURE_SIGHT:
             if (gBattleStruct->futureSight[battlerDef].counter > 0)
             {
@@ -1748,6 +1758,7 @@ static enum CancelerResult CancelerInterruptibleMoves(struct BattleCalcValues *c
     switch (cv->moveEffect)
     {
     case EFFECT_FUTURE_SIGHT:
+    case EFFECT_APOLLON:
         gBattleStruct->futureSight[cv->battlerDef].move = cv->move;
         gBattleStruct->futureSight[cv->battlerDef].battlerIndex = cv->battlerAtk;
         gBattleStruct->futureSight[cv->battlerDef].partyIndex = gBattlerPartyIndexes[cv->battlerAtk];
@@ -4303,6 +4314,7 @@ static enum MoveEndResult MoveEndDamagedEffectsBlock(struct BattleCalcValues *cv
                  && !IsBattlerAlly(cv->battlerAtk, battlerDef)
                  && !IsZMove(cv->move)
                  && cv->move != MOVE_STRUGGLE
+                 && cv->moveEffect != EFFECT_APOLLON
                  && cv->moveEffect != EFFECT_FUTURE_SIGHT)
                 {
                     enum MoveSlot moveIndex = gBattleStruct->chosenMovePositions[cv->battlerAtk];
@@ -5438,6 +5450,7 @@ static bool32 TryRedCard(enum BattlerId battlerAtk, enum BattlerId redCardBattle
      || gBattleStruct->redCardActivated
      || !IsBattlerTurnDamaged(redCardBattler, EXCLUDING_SUBSTITUTES)
      || moveEffect == EFFECT_FUTURE_SIGHT
+     || moveEffect == EFFECT_APOLLON
      || gBattleTypeFlags & BATTLE_TYPE_ARENA
      || !HasBattlerViablePartyMonsForSwitch(battlerAtk))
         return FALSE;
@@ -5461,6 +5474,7 @@ static bool32 TryEjectButton(enum BattlerId battlerAtk, u32 ejectButtonBattler, 
 {
     if (!IsBattlerTurnDamaged(ejectButtonBattler, EXCLUDING_SUBSTITUTES)
      || moveEffect == EFFECT_FUTURE_SIGHT
+     || moveEffect == EFFECT_APOLLON
      || HasAnyBattlerQueuedSwitch()
      || IsBattlerInvolvedInSkyDrop(ejectButtonBattler)
      || IsPursuitTargetSet()
@@ -5680,6 +5694,11 @@ static enum MoveEndResult MoveEndMoveSwitchUser(struct BattleCalcValues *cv)
         gBattleScripting.battler = cv->battlerAtk;
         result = MOVEEND_RESULT_RUN_SCRIPT;
         BattleScriptCall(BattleScript_BatonPass);
+        break;
+    case EFFECT_BEDDY_BYE:
+        gBattleScripting.battler = cv->battlerAtk;
+        result = MOVEEND_RESULT_RUN_SCRIPT;
+        BattleScriptCall(BattleScript_MoveSwitchRet);
         break;
     case EFFECT_HEALING_WISH:
     case EFFECT_LUNAR_DANCE:

@@ -1762,6 +1762,26 @@
 	callnative BS_MultiHitPlurality
 	.endm
 
+	.macro identifyhpbuffer
+	callnative BS_IdentifyHPBuffer
+	.endm
+
+	.macro identifyhpupdate
+	callnative BS_IdentifyHPUpdate
+	.endm
+
+	.macro identifyitembuffer
+	callnative BS_IdentifyItemBuffer
+	.endm
+
+	.macro identifymovesbuffer1
+	callnative BS_IdentifyMovesBuffer1
+	.endm
+
+	.macro identifymovesbuffer2
+	callnative BS_IdentifyMovesBuffer2
+	.endm
+
 	.macro jumpifterrain comparison:req, terrain:req, jumpInstr:req
 	.byte B_SCR_OP_JUMPIFTERRAIN
 	.byte \comparison

@@ -22584,6 +22584,152 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .battleAnimScript = gBattleAnimMove_MoodSwing,
     },
 
+    [MOVE_APOLLON] =
+    {
+        .name = COMPOUND_STRING("Apollon"),
+        .description = COMPOUND_STRING(
+            "Arrow storm that deals\n"
+            "1.5x user's Lv. as damage.\n"
+            "Ignores protect."),
+        .effect = EFFECT_APOLLON,
+        .power = 1,
+        .type = TYPE_STEEL,
+        .accuracy = 100,
+        .pp = 5,
+        .target = TARGET_SELECTED,
+        .priority = 0,
+        .category = DAMAGE_CATEGORY_PHYSICAL,
+        .ignoresProtect = TRUE,
+        .mirrorMoveBanned = TRUE,
+        .contestEffect = CONTEST_EFFECT_DONT_EXCITE_AUDIENCE,
+        .contestCategory = CONTEST_CATEGORY_COOL,
+        .contestComboStarterId = 0,
+        .contestComboMoves = {0},
+        .battleAnimScript = gBattleAnimMove_Apollon,
+        .validApprenticeMove = TRUE,
+    },
+
+    [MOVE_AEGIS_MERGE] =
+    {
+        .name = COMPOUND_STRING("Aegis Merge"),
+        .description = COMPOUND_STRING(
+            "Gain titanic defenses and\n"
+            "regen. Can't switch out.\n"
+            "(+3/+3)"),
+        .effect = EFFECT_AEGIS_MERGE,
+        .power = 0,
+        .type = TYPE_FAITH,
+        .accuracy = 0,
+        .pp = 5,
+        .target = TARGET_USER,
+        .priority = 0,
+        .category = DAMAGE_CATEGORY_STATUS,
+        .snatchAffected = TRUE,
+        .ignoresProtect = TRUE,
+        .mirrorMoveBanned = TRUE,
+        .contestEffect = CONTEST_EFFECT_IMPROVE_CONDITION_PREVENT_NERVOUSNESS,
+        .contestCategory = CONTEST_CATEGORY_TOUGH,
+        .contestComboStarterId = 0,
+        .contestComboMoves = {0},
+        .additionalEffects = ADDITIONAL_EFFECTS({
+            .moveEffect = STAT_CHANGE_EFFECT_PLUS,
+            .defense = 3,
+            .spDef = 3,
+        }),
+        .battleAnimScript = gBattleAnimMove_AegisMerge,
+    },
+
+    [MOVE_INVOCATION] =
+    {
+        .name = COMPOUND_STRING("Invocation"),
+        .description = COMPOUND_STRING(
+            "Increases Sp. Atk, Sp. Def,\n"
+            "and Speed by 2 stages, but\n"
+            "curses the user."),
+        .effect = EFFECT_INVOCATION,
+        .power = 0,
+        .type = TYPE_GHOST,
+        .accuracy = 0,
+        .pp = 5,
+        .target = TARGET_USER,
+        .priority = 0,
+        .category = DAMAGE_CATEGORY_STATUS,
+        .zMove = { .effect = Z_EFFECT_RESET_STATS },
+        .snatchAffected = TRUE,
+        .ignoresProtect = TRUE,
+        .mirrorMoveBanned = TRUE,
+        .additionalEffects = ADDITIONAL_EFFECTS({
+            .moveEffect = STAT_CHANGE_EFFECT_PLUS,
+            .spAtk = 2,
+            .spDef = 2,
+            .speed = 2,
+        }),
+        .contestEffect = CONTEST_EFFECT_IMPROVE_CONDITION_PREVENT_NERVOUSNESS,
+        .contestCategory = CONTEST_CATEGORY_SMART,
+        .contestComboStarterId = 0,
+        .contestComboMoves = {0},
+        .battleAnimScript = gBattleAnimMove_Invocation,
+        .validApprenticeMove = TRUE,
+    },
+
+    [MOVE_BEDDY_BYE] =
+    {
+        .name = COMPOUND_STRING("Beddy Bye"),
+        .description = COMPOUND_STRING(
+            "Fall asleep for 2 turns,\n"
+            "healing and switching out."),
+        .effect = EFFECT_BEDDY_BYE,
+        .power = 0,
+        .type = TYPE_REASON,
+        .accuracy = 0,
+        .pp = 5,
+        .target = TARGET_USER,
+        .priority = 0,
+        .category = DAMAGE_CATEGORY_STATUS,
+        .zMove = { .effect = Z_EFFECT_RESET_STATS },
+        .snatchAffected = TRUE,
+        .ignoresProtect = TRUE,
+        .mirrorMoveBanned = TRUE,
+        .healingMove = TRUE,
+        .additionalEffects = ADDITIONAL_EFFECTS({
+            .moveEffect = MOVE_EFFECT_REST,
+        }),
+        .contestEffect = CONTEST_EFFECT_AVOID_STARTLE_ONCE,
+        .contestCategory = CONTEST_CATEGORY_CUTE,
+        .contestComboStarterId = COMBO_STARTER_REST,
+        .contestComboMoves = {COMBO_STARTER_YAWN},
+        .battleAnimScript = gBattleAnimMove_BeddyBye,
+        .validApprenticeMove = TRUE,
+    },
+
+    [MOVE_IDENTIFY] =
+    {
+        .name = COMPOUND_STRING("Identify"),
+        .description = COMPOUND_STRING(
+            "Reveals most information\n"
+            "about the foe. +1 Priority."),
+        .effect = EFFECT_IDENTIFY,
+        .power = 0,
+        .type = TYPE_ILLUSION,
+        .accuracy = 0,
+        .pp = 40,
+        .target = TARGET_SELECTED,
+        .priority = 1,
+        .category = DAMAGE_CATEGORY_STATUS,
+        .zMove = { .effect = Z_EFFECT_BOOST_CRITS },
+        .magicCoatAffected = B_UPDATED_MOVE_FLAGS >= GEN_5,
+        .ignoresSubstitute = TRUE,
+        .additionalEffects = ADDITIONAL_EFFECTS({
+            .moveEffect = MOVE_EFFECT_IDENTIFY,
+        }),
+        .contestEffect = CONTEST_EFFECT_WORSEN_CONDITION_OF_PREV_MONS,
+        .contestCategory = CONTEST_CATEGORY_SMART,
+        .contestComboStarterId = 0,
+        .contestComboMoves = {0},
+        .battleAnimScript = gBattleAnimMove_Identify,
+        .validApprenticeMove = TRUE,
+    },
+
     // Z-Moves
     [MOVE_BREAKNECK_BLITZ] =
     {

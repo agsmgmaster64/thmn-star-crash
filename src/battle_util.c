@@ -4095,6 +4095,7 @@ u32 AbilityBattleEffects(enum AbilityEffect caseID, enum BattlerId battler, enum
         case ABILITY_CURSED_BODY:
             if (IsBattlerTurnDamaged(battler, EXCLUDING_SUBSTITUTES)
              && GetMoveEffect(move) != EFFECT_FUTURE_SIGHT
+             && GetMoveEffect(move) != EFFECT_APOLLON
              && gBattleMons[gBattlerAttacker].volatiles.disabledMove == MOVE_NONE
              && IsBattlerAlive(gBattlerAttacker)
              && !gSpecialStatuses[gBattlerAttacker].attackerInParty
@@ -4769,6 +4770,7 @@ u32 AbilityBattleEffects(enum AbilityEffect caseID, enum BattlerId battler, enum
             if (GetMoveEffect(move) != EFFECT_FLING
              && GetMoveEffect(move) != EFFECT_NATURAL_GIFT
              && GetMoveEffect(move) != EFFECT_FUTURE_SIGHT
+             && GetMoveEffect(move) != EFFECT_APOLLON
              && gBattleMons[battler].item == ITEM_NONE
              && !gSpecialStatuses[battler].gemBoost) // In base game, gems are consumed after magician would activate.
             {
@@ -6966,7 +6968,7 @@ static inline u32 CalcMoveBasePowerAfterModifiers(struct DamageContext *ctx)
             modifier = uq4_12_multiply(modifier, UQ_4_12(0.75));
         break;
     case ABILITY_ANALYTIC:
-        if (moveEffect == EFFECT_FUTURE_SIGHT)
+        if (moveEffect == EFFECT_FUTURE_SIGHT || moveEffect == EFFECT_APOLLON)
             break;
 
         if (ctx->aiCalc)
@@ -8140,6 +8142,9 @@ s32 DoFixedDamageMoveCalc(struct DamageContext *ctx)
         break;
     case EFFECT_GROUP_PRANK:
         dmg = GetNonDynamaxHP(ctx->battlerDef) * 50 / 100; // argument is already used up by the two-turn messages
+        break;
+    case EFFECT_APOLLON:
+        dmg = (gBattleMons[ctx->battlerAtk].level * 1.5);
         break;
     case EFFECT_FINAL_GAMBIT:
         dmg = GetNonDynamaxHP(ctx->battlerAtk);
@@ -10287,7 +10292,7 @@ enum Type GetBattleMoveType(enum Move move)
             return gBattleStruct->dynamicMoveType;
 
         enum BattleMoveEffects effect = GetMoveEffect(move);
-        if ((effect == EFFECT_BEAT_UP || effect == EFFECT_FUTURE_SIGHT)
+        if ((effect == EFFECT_BEAT_UP || effect == EFFECT_FUTURE_SIGHT || effect == EFFECT_APOLLON)
          && GetConfig(B_UPDATED_MOVE_TYPES) < GEN_5)
             return TYPE_NONE;
     }

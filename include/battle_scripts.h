@@ -629,6 +629,9 @@ extern const u8 BattleScript_HitSwitchTargetDynamaxed[];
 extern const u8 BattleScript_AbilityPreventsPhasingOut[];
 extern const u8 BattleScript_FinalGambit[];
 extern const u8 BattleScript_Defog[];
+extern const u8 BattleScript_AegisMergeMessage[];
+extern const u8 BattleScript_InvocationMessage[];
+extern const u8 BattleScript_Identify[];
 
 extern const u8 BattleScript_MoveEffectPsychoShift[];
 extern const u8 BattleScript_Bestow[];

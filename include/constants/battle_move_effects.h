@@ -282,6 +282,11 @@ enum  BattleMoveEffects
     EFFECT_GROUP_PRANK,
     EFFECT_DEMON_BOOK,
     EFFECT_MOOD_SWING,
+    EFFECT_APOLLON,
+    EFFECT_AEGIS_MERGE,
+    EFFECT_INVOCATION,
+    EFFECT_BEDDY_BYE,
+    EFFECT_IDENTIFY,
     EFFECT_ICE_SPINNER, // Removes terrain unless attacker is removed from field either by fainting or ejected out
     EFFECT_STEEL_ROLLER, // Will fail if there is no terrain up but removes it regardless if attacker is removed from field or not
     EFFECT_STONE_AXE, // Not to be confused with MOVE_EFFECT_STEALTH_ROCK. They have two different activation timings.

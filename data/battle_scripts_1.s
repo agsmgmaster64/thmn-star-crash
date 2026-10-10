@@ -5425,3 +5425,31 @@ BattleScript_BelchFails::
 	printstring STRINGID_BELCHCANTSELECT
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_MoveEnd
+
+BattleScript_AegisMergeMessage::
+	printstring STRINGID_BEGINSREGENERATING
+	waitmessage B_WAIT_TIME_LONG
+	trymovestatchanges
+	goto BattleScript_MoveEnd
+
+BattleScript_InvocationMessage::
+	printstring STRINGID_PKMNCURSEDSELF
+	waitmessage B_WAIT_TIME_LONG
+	trymovestatchanges
+	goto BattleScript_MoveEnd
+
+BattleScript_Identify::
+	identifyhpbuffer
+	printstring STRINGID_IDENTIFY
+	waitmessage B_WAIT_TIME_LONG
+	identifyhpupdate
+	identifyitembuffer
+	printstring STRINGID_IDENTIFYITEMABILITY
+	waitmessage B_WAIT_TIME_LONG
+	identifymovesbuffer1
+	printstring STRINGID_IDENTIFYMOVESET1
+	waitmessage B_WAIT_TIME_LONG
+	identifymovesbuffer2
+	printstring STRINGID_IDENTIFYMOVESET2
+	waitmessage B_WAIT_TIME_LONG
+	return

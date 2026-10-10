@@ -59,8 +59,6 @@ enum __attribute__((packed)) MoveEffect
     MOVE_EFFECT_RAINBOW,
     MOVE_EFFECT_SEA_OF_FIRE,
     MOVE_EFFECT_SWAMP,
-    MOVE_EFFECT_MAD_HONEY,
-    MOVE_EFFECT_DEBT_SPIRAL,
     MOVE_EFFECT_SPEED_SWAP,
     MOVE_EFFECT_SAFEGUARD,
     MOVE_EFFECT_LASER_FOCUS,
@@ -120,7 +118,6 @@ enum __attribute__((packed)) MoveEffect
     MOVE_EFFECT_HEAL_PULSE,
     MOVE_EFFECT_POLLEN_PUFF,
     MOVE_EFFECT_FLORAL_HEALING,
-    MOVE_EFFECT_HONEYBOILED,
     MOVE_EFFECT_THIRD_TYPE,
     MOVE_EFFECT_MIMIC,
     MOVE_EFFECT_SKETCH,
@@ -156,6 +153,12 @@ enum __attribute__((packed)) MoveEffect
     MOVE_EFFECT_INSTRUCT,
     MOVE_EFFECT_FOCUS_ENERGY,
     MOVE_EFFECT_DRAGON_CHEER,
+
+    MOVE_EFFECT_MAD_HONEY,
+    MOVE_EFFECT_DEBT_SPIRAL,
+    MOVE_EFFECT_HONEYBOILED,
+    MOVE_EFFECT_DEATH_RATTLE,
+    MOVE_EFFECT_IDENTIFY,
 
     // Max move effects happen earlier in the execution chain.
     // For example stealth rock from G-Max Stonesurge is set up before abilities but from Stone Axe after.

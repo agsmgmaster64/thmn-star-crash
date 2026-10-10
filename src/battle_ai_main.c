@@ -1704,6 +1704,12 @@ static s32 AI_CheckBadMove(enum BattlerId battlerAtk, enum BattlerId battlerDef,
         else if (!AI_CanAnyStatChange(battlerAtk, battlerAtk, move))
             ADJUST_SCORE(-10);
         break;
+    case EFFECT_AEGIS_MERGE:
+        if (gBattleMons[battlerAtk].volatiles.root)
+            ADJUST_SCORE(-10);
+        else if (!AI_CanAnyStatChange(battlerAtk, battlerAtk, move))
+            ADJUST_SCORE(-10);
+        break;
     case EFFECT_TOXIC_THREAD:
         if (!AI_CanAnyStatChange(battlerAtk, battlerDef, move)
          && !AI_CanPoison(battlerAtk, battlerDef, aiData->abilities[battlerDef], move, aiData->partnerMove))
@@ -2085,6 +2091,7 @@ static s32 AI_CheckBadMove(enum BattlerId battlerAtk, enum BattlerId battlerDef,
     case EFFECT_HIT_ESCAPE:
         break;
     case EFFECT_FUTURE_SIGHT:
+    case EFFECT_APOLLON:
         if (gBattleStruct->futureSight[GetBattlerLeftFoe(battlerAtk)].counter > 0
          || gBattleStruct->futureSight[GetBattlerRightFoe(battlerAtk)].counter > 0)
             ADJUST_SCORE(-12);
@@ -3199,6 +3206,7 @@ static bool32 ShouldAvoidRedundantTarget(enum BattlerId battlerAtk, enum Battler
       && aiData->holdEffects[partner] != HOLD_EFFECT_POWER_HERB)
      || (IsTwoTurnNotSemiInvulnerableMove(partner, partnerMove) && !gBattleMons[partner].volatiles.multipleTurns)
      || GetMoveEffect(partnerMove) == EFFECT_FUTURE_SIGHT
+     || GetMoveEffect(partnerMove) == EFFECT_APOLLON
      || GetMoveEffect(partnerMove) == EFFECT_FOCUS_PUNCH)
     {
         return FALSE;
@@ -4557,6 +4565,9 @@ static s32 AI_CalcMoveEffectScore(enum BattlerId battlerAtk, enum BattlerId batt
         ADJUST_SCORE(GetStatChangeScore(battlerAtk, battlerDef, move));
         break;
     case EFFECT_NO_RETREAT:
+        ADJUST_SCORE(GetStatChangeScore(battlerAtk, battlerDef, move));
+        break;
+    case EFFECT_AEGIS_MERGE:
         ADJUST_SCORE(GetStatChangeScore(battlerAtk, battlerDef, move));
         break;
     case EFFECT_TIDY_UP:
@@ -6691,6 +6702,7 @@ static s32 AI_PredictSwitch(enum BattlerId battlerAtk, enum BattlerId battlerDef
         ADJUST_SCORE(BEST_EFFECT);
         break;
     case EFFECT_FUTURE_SIGHT:
+    case EFFECT_APOLLON:
     case EFFECT_TELEKINESIS:
     case EFFECT_GRAVITY:
     case EFFECT_WEATHER:
@@ -6751,6 +6763,8 @@ static s32 AI_PredictSwitch(enum BattlerId battlerAtk, enum BattlerId battlerDef
     case EFFECT_TAUNT:
     case EFFECT_INGRAIN:
     case EFFECT_NO_RETREAT:
+    case EFFECT_AEGIS_MERGE:
+    case EFFECT_INVOCATION:
     case EFFECT_MEAN_LOOK:
         ADJUST_SCORE(AWFUL_EFFECT);
         break;

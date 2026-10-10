@@ -927,6 +927,12 @@ const u8 *const gBattleStringsTable[STRINGID_COUNT] =
     [STRINGID_S]                                    = COMPOUND_STRING("s"),
     [STRINGID_LOSTSOMEOFITSHP]                      = COMPOUND_STRING("{B_ATK_NAME_WITH_PREFIX} lost some of its HP!"),
     [STRINGID_BELCHCANTUSE]                         = COMPOUND_STRING("{B_ATK_NAME_WITH_PREFIX} hasn't eaten any held Berries, so it can't possibly belch!\p"),
+    [STRINGID_BEGINSREGENERATING]                   = COMPOUND_STRING("{B_ATK_NAME_WITH_PREFIX} anchors itself and starts regenerating!"),
+    [STRINGID_PKMNCURSEDSELF]                       = COMPOUND_STRING("{B_ATK_NAME_WITH_PREFIX} became cursed!"),
+    [STRINGID_IDENTIFY]                             = COMPOUND_STRING("{B_EFF_NAME_WITH_PREFIX} was identified! Current HP: {B_BUFF1}/{B_BUFF2}."),
+    [STRINGID_IDENTIFYITEMABILITY]                  = COMPOUND_STRING("It is holding {B_BUFF1}.\nIts ability is {B_EFF_ABILITY}."),
+    [STRINGID_IDENTIFYMOVESET1]                     = COMPOUND_STRING("1st move: {B_BUFF1}.\n2nd move: {B_BUFF2}."),
+    [STRINGID_IDENTIFYMOVESET2]                     = COMPOUND_STRING("3rd move: {B_BUFF1}.\n4th move: {B_BUFF2}."),
 };
 
 const u16 gTrainerUsedItemStringIds[] =
