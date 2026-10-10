@@ -6737,6 +6737,15 @@ static bool32 DoFaintedEffectsBlock(void)
                 return TRUE;
             break;
         }
+        case FAINTED_EFFECTS_BLOCK_GIVING_HEART:
+        {
+            enum BattlerId faintedBattler = gBattlerFainted;
+            gBattleStruct->eventState.faintedEffects++;
+
+            if (AbilityBattleEffects(ABILITYEFFECT_GIVING_HEART, faintedBattler, GetBattlerAbility(faintedBattler), MOVE_NONE, TRUE))
+                return TRUE;
+            break;
+        }
         case FAINTED_EFFECTS_BLOCK_SAVE_ORDER_INDEX:
             SaveBattlerOrderIndex();
             gBattleStruct->eventState.faintedEffects++;
@@ -7719,25 +7728,6 @@ void BS_ResetTerrainAbilityFlags(void)
         gBattleMons[i].volatiles.terrainAbilityDone = 0;
 
     gBattlescriptCurrInstr = cmd->nextInstr;
-}
-
-void BS_StoreGivingHeart(void)
-{
-    NATIVE_ARGS(u8 battler);
-
-    u32 battler = GetBattlerForBattleScript(cmd->battler);
-    if (GetBattlerAbility(battler) == ABILITY_GIVING_HEART)
-    {
-        gLastUsedAbility = ABILITY_GIVING_HEART;
-        gBattleStruct->battlerState[battler].storedGivingHeart = TRUE;
-        gBattlerAbility = gBattleScripting.battler = battler;
-        BattleScriptPush(cmd->nextInstr);
-        gBattlescriptCurrInstr = BattleScript_GivingHeartStore;
-    }
-    else
-    {
-        gBattlescriptCurrInstr = cmd->nextInstr;
-    }
 }
 
 void BS_TryRevivalBlessing(void)

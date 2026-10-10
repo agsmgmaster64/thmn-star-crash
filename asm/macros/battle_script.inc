@@ -1131,12 +1131,6 @@
 	callnative BS_ResetTerrainAbilityFlags
 	.endm
 
-	@ Stores GivingHeart effect.
-	.macro storegivingheart battler:req
-	callnative BS_StoreGivingHeart
-	.byte \battler
-	.endm
-
 	.macro tryrevivalblessing
 	callnative BS_TryRevivalBlessing
 	.endm
