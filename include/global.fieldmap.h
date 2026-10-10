@@ -315,6 +315,13 @@ struct ObjectEvent
     /*size = 0x24*/
 };
 
+enum ObjectEventCompressionMode
+{
+    OBJECT_EVENT_COMPRESSION_NONE,
+    OBJECT_EVENT_COMPRESSION_FAST,
+    OBJECT_EVENT_COMPRESSION_SLOW,
+};
+
 struct ObjectEventGraphicsInfo
 {
     /*0x00*/ u16 tileTag;
@@ -326,8 +333,9 @@ struct ObjectEventGraphicsInfo
     /*0x0C*/ u8 paletteSlot:4;
              u8 shadowSize:2;
              u8 inanimate:1;
-             u8 compressed:1;
-    /*0x0D*/ u8 tracks;
+             u8 unused:1;
+    /*0x0D*/ u8 tracks:6;
+             enum ObjectEventCompressionMode compressionMode:2;
     /*0x0E*/ u8 rematchMovement;
     /*0x10*/ const struct OamData *oam;
     /*0x14*/ const struct SubspriteTable *subspriteTables;

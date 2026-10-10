@@ -4906,6 +4906,58 @@ u32 AbilityBattleEffects(enum AbilityEffect caseID, enum BattlerId battler, enum
             break;
         }
         break;
+    case ABILITYEFFECT_RECEIVER:
+        switch (ability)
+        {
+        case ABILITY_RECEIVER:
+        case ABILITY_POWER_OF_ALCHEMY:
+            if (GetBattlerHoldEffectIgnoreAbility(battler) != HOLD_EFFECT_ABILITY_SHIELD
+             && !gAbilitiesInfo[gBattleMons[gBattlerFainted].ability].cantBeCopied)
+            {
+                gBattlerAbility = battler;
+                gBattleStruct->tracedAbility[battler] = gBattleMons[gBattlerFainted].ability; // re-using the variable for trace
+                gBattleScripting.battler = gBattlerFainted;
+                BattleScriptCall(BattleScript_ReceiverActivates);
+                effect++;
+            }
+            break;
+        default:
+            break;
+        }
+        break;
+    case ABILITYEFFECT_GIVING_HEART:
+        switch (ability)
+        {
+        case ABILITY_GIVING_HEART:
+            if (!NoAliveMonsForEitherParty())
+            {
+                gEffectBattler = gBattlerAbility = battler;
+                gBattleStruct->battlerState[battler].storedGivingHeart = TRUE;
+                BattleScriptCall(BattleScript_GivingHeartStore);
+                effect++;
+            }
+            break;
+        default:
+            break;
+        }
+        break;
+    case ABILITYEFFECT_ON_FAINT:
+        switch (ability)
+        {
+        case ABILITY_SOUL_HEART:
+            if (!NoAliveMonsForEitherParty()
+             && CompareStat(battler, STAT_SPATK, MAX_STAT_STAGE, CMP_LESS_THAN, ability))
+            {
+                gEffectBattler = gBattlerAbility = battler;
+                SetStatChange(battler, STAT_SPATK, 1);
+                BattleScriptCall(BattleScript_AbilityStatChange);
+                effect++;
+            }
+            break;
+        default:
+            break;
+        }
+        break;
     case ABILITYEFFECT_OPPORTUNIST:
         switch (ability)
         {
@@ -8494,7 +8546,7 @@ s32 GetAdjustedDamage(struct DamageContext *ctx, s32 damage)
     if (gBattleMons[ctx->battlerDef].volatiles.endured)
     {
         enduredHit = TRUE;
-        gBattleStruct->moveResultFlags[ctx->battlerDef] |= MOVE_RESULT_FOE_ENDURED;
+        AddBattlerMoveResultFlag(ctx->battlerDef, MOVE_RESULT_FOE_ENDURED);
     }
     else if (GetMoveEffect(ctx->move) == EFFECT_FALSE_SWIPE)
     {
@@ -8505,21 +8557,21 @@ s32 GetAdjustedDamage(struct DamageContext *ctx, s32 damage)
         enduredHit = TRUE;
         RecordAbilityBattle(ctx->battlerDef, ABILITY_STURDY);
         gLastUsedAbility = ABILITY_STURDY;
-        gBattleStruct->moveResultFlags[ctx->battlerDef] |= MOVE_RESULT_STURDIED;
+        AddBattlerMoveResultFlag(ctx->battlerDef, MOVE_RESULT_STURDIED);
     }
     else if (ctx->holdEffects[ctx->battlerDef] == HOLD_EFFECT_FOCUS_BAND && rand < GetBattlerHoldEffectParam(ctx->battlerDef))
     {
         enduredHit = TRUE;
         RecordItemEffectBattle(ctx->battlerDef, ctx->holdEffects[ctx->battlerDef]);
         gLastUsedItem = gBattleMons[ctx->battlerDef].item;
-        gBattleStruct->moveResultFlags[ctx->battlerDef] |= MOVE_RESULT_FOE_HUNG_ON;
+        AddBattlerMoveResultFlag(ctx->battlerDef, MOVE_RESULT_FOE_HUNG_ON);
     }
     else if (ctx->holdEffects[ctx->battlerDef] == HOLD_EFFECT_FOCUS_SASH && IsBattlerAtMaxHp(ctx->battlerDef))
     {
         enduredHit = TRUE;
         RecordItemEffectBattle(ctx->battlerDef, ctx->holdEffects[ctx->battlerDef]);
         gLastUsedItem = gBattleMons[ctx->battlerDef].item;
-        gBattleStruct->moveResultFlags[ctx->battlerDef] |= MOVE_RESULT_FOE_HUNG_ON;
+        AddBattlerMoveResultFlag(ctx->battlerDef, MOVE_RESULT_FOE_HUNG_ON);
     }
     else if (B_AFFECTION_MECHANICS == TRUE && IsOnPlayerSide(ctx->battlerDef) && affectionScore >= AFFECTION_THREE_HEARTS)
     {
@@ -8528,7 +8580,7 @@ s32 GetAdjustedDamage(struct DamageContext *ctx, s32 damage)
          || (affectionScore == AFFECTION_THREE_HEARTS && rand < 10))
         {
             enduredHit = TRUE;
-            gBattleStruct->moveResultFlags[ctx->battlerDef] |= MOVE_RESULT_FOE_ENDURED_AFFECTION;
+            AddBattlerMoveResultFlag(ctx->battlerDef, MOVE_RESULT_FOE_ENDURED_AFFECTION);
         }
     }
 
@@ -8746,7 +8798,7 @@ static inline uq4_12_t CalcTypeEffectivenessMultiplierInternal(struct DamageCont
         if (ctx->updateFlags)
         {
             gLastUsedAbility = ctx->abilities[ctx->battlerDef];
-            gBattleStruct->moveResultFlags[ctx->battlerDef] |= MOVE_RESULT_MISSED;
+            AddBattlerMoveResultFlag(ctx->battlerDef, MOVE_RESULT_MISSED);
             RecordAbilityBattle(ctx->battlerDef, gBattleMons[ctx->battlerDef].ability);
         }
     }
@@ -10035,11 +10087,14 @@ bool32 CanBeInfatuated(enum BattlerId battlerAtk, enum BattlerId battlerDef)
     return AreBattlersOfOppositeGender(battlerAtk, battlerDef);
 }
 
-u32 CalcSecondaryEffectChance(enum BattlerId battler, enum Ability battlerAbility, const struct AdditionalEffect *additionalEffect)
+u32 CalcSecondaryEffectChance(enum BattlerId battler, enum Ability battlerAbility, const struct AdditionalEffect *additionalEffect, enum Move move)
 {
     bool8 hasSereneGrace = (battlerAbility == ABILITY_SERENE_GRACE);
     bool8 hasRainbow = (gSideStatuses[GetBattlerSide(battler)] & SIDE_STATUS_RAINBOW) != 0;
     u16 secondaryEffectChance = additionalEffect->chance;
+
+    if (IsMaxMove(move)) // G-Max Replenish / Snooze
+        return secondaryEffectChance;
 
     if (hasRainbow && hasSereneGrace && additionalEffect->moveEffect == MOVE_EFFECT_FLINCH)
         return secondaryEffectChance * 2;
@@ -10052,9 +10107,9 @@ u32 CalcSecondaryEffectChance(enum BattlerId battler, enum Ability battlerAbilit
     return secondaryEffectChance;
 }
 
-bool32 MoveEffectIsGuaranteed(enum BattlerId battler, enum Ability battlerAbility, const struct AdditionalEffect *additionalEffect)
+bool32 MoveEffectIsGuaranteed(enum BattlerId battler, enum Ability battlerAbility, const struct AdditionalEffect *additionalEffect, enum Move move)
 {
-    return additionalEffect->chance == 0 || CalcSecondaryEffectChance(battler, battlerAbility, additionalEffect) >= 100;
+    return additionalEffect->chance == 0 || CalcSecondaryEffectChance(battler, battlerAbility, additionalEffect, move) >= 100;
 }
 
 bool32 IsGen6ExpShareEnabled(void)
@@ -10079,14 +10134,14 @@ bool32 MoveHasAdditionalEffect(enum Move move, enum MoveEffect moveEffect)
     return FALSE;
 }
 
-bool32 MoveHasAdditionalOnSideEffect(enum Move move)
+bool32 MoveHasAdditionalEffectOnSide(enum Move move, enum MoveEffect moveEffect)
 {
     u32 i;
     u32 numAdditionalEffects = GetMoveAdditionalEffectCount(move);
     for (i = 0; i < numAdditionalEffects; i++)
     {
         const struct AdditionalEffect *additionalEffect = GetMoveAdditionalEffectById(move, i);
-        if (additionalEffect->onSide)
+        if (additionalEffect->onSide && additionalEffect->moveEffect == moveEffect)
             return TRUE;
     }
     return FALSE;
@@ -10279,9 +10334,14 @@ bool32 IsBattlerUnaffectedByMove(enum BattlerId battler)
     return gBattleStruct->moveResultFlags[battler] & MOVE_RESULT_NO_EFFECT;
 }
 
-bool32 IsBattlerMoveResult(enum BattlerId battler, u32 moveResult)
+bool32 IsBattlerMoveResultSet(enum BattlerId battler, enum MoveResultFlags flag)
 {
-    return gBattleStruct->moveResultFlags[battler] & moveResult;
+    return gBattleStruct->moveResultFlags[battler] & flag;
+}
+
+void AddBattlerMoveResultFlag(enum BattlerId battler, enum MoveResultFlags flag)
+{
+    gBattleStruct->moveResultFlags[battler] |= flag;
 }
 
 enum Type GetBattleMoveType(enum Move move)
@@ -11044,19 +11104,19 @@ bool32 DoesOHKOMoveMissTarget(struct BattleCalcValues *cv)
     // Dynamaxed Pokemon cannot be hit by OHKO moves.
     if (GetActiveGimmick(cv->battlerDef) == GIMMICK_DYNAMAX)
     {
-        gBattleStruct->moveResultFlags[cv->battlerDef] |= MOVE_RESULT_ONE_HIT_KO_NO_AFFECT;
+        AddBattlerMoveResultFlag(cv->battlerDef, MOVE_RESULT_ONE_HIT_KO_NO_AFFECT);
         return TRUE;
     }
 
     if (gBattleMons[cv->battlerDef].level > gBattleMons[cv->battlerAtk].level)
     {
-        gBattleStruct->moveResultFlags[cv->battlerDef] |= MOVE_RESULT_ONE_HIT_KO_NO_AFFECT;
+        AddBattlerMoveResultFlag(cv->battlerDef, MOVE_RESULT_ONE_HIT_KO_NO_AFFECT);
         return TRUE;
     }
 
     if (cv->abilities[cv->battlerDef] == ABILITY_STURDY)
     {
-        gBattleStruct->moveResultFlags[cv->battlerDef] |= MOVE_RESULT_ONE_HIT_KO_STURDY;
+        AddBattlerMoveResultFlag(cv->battlerDef, MOVE_RESULT_ONE_HIT_KO_STURDY);
         return TRUE;
     }
 
@@ -11085,7 +11145,7 @@ bool32 DoesOHKOMoveMissTarget(struct BattleCalcValues *cv)
 
     if (lands == SURE_HIT)
     {
-        gBattleStruct->moveResultFlags[cv->battlerDef] |= MOVE_RESULT_ONE_HIT_KO_NO_AFFECT;
+        AddBattlerMoveResultFlag(cv->battlerDef, MOVE_RESULT_ONE_HIT_KO_NO_AFFECT);
         return FALSE;
     }
 
@@ -11277,35 +11337,10 @@ bool32 IsAnyTargetTurnDamaged(enum BattlerId battlerAtk, enum SubCheck subCheck)
 
 bool32 IsAnyTargetAffected(void)
 {
-    enum MoveTarget moveTarget = GetBattlerMoveTargetType(gBattlerAttacker, gCurrentMove);
-    bool32 isSpreadMove = IsSpreadMove(moveTarget);
-
     for (enum BattlerId battler = 0; battler < gBattlersCount; battler++)
     {
-        if (gBattleStruct->moveResultFlags[battler] & MOVE_RESULT_NOT_PRESENT)
+        if (IsBattlerMoveResultSet(battler, MOVE_RESULT_NOT_TARGETED))
             continue;
-
-        switch (moveTarget)
-        {
-        case TARGET_ALL_BATTLERS: // check all battlers
-            break;
-        case TARGET_USER_AND_ALLY: // only check allied battlers
-            if (!IsBattlerAlly(gBattlerAttacker, battler))
-                continue;
-            break;
-        default:
-            if (isSpreadMove) // check all battlers except attacker (flags are set for non-targeted battlers)
-            {
-                if (battler == gBattlerAttacker)
-                    continue;
-            }
-            else // check a single target
-            {
-                if (battler != gBattlerTarget)
-                    continue;
-            }
-            break;
-        }
 
         if (!IsBattlerUnaffectedByMove(battler))
             return TRUE;

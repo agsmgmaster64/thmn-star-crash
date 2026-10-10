@@ -1,6 +1,6 @@
 // Normally, INCGFX_COMP acts like INCGFX_U32, but appends `.smol` to the file, compressing it;
 // If not compressing overworld gfx, make this an alias to INCGFX_32, so gfx will *not* be compressed
-#if !(OW_GFX_COMPRESS)
+#if OW_GFX_COMPRESS == OGC_NONE
 #define INCGFX_COMP INCGFX_U32
 #endif
 
@@ -8,7 +8,7 @@ const u32 gMonFrontPic_CircledQuestionMark[] = INCGFX_U32("graphics/pokemon/ques
 const u32 gMonBackPic_CircledQuestionMark[] = INCGFX_U32("graphics/pokemon/question_mark/circled/back.png", ".4bpp.smol");
 const u16 gMonPalette_CircledQuestionMark[] = INCGFX_U16("graphics/pokemon/question_mark/circled/normal.pal", ".gbapal");
 const u16 gMonShinyPalette_CircledQuestionMark[] = INCGFX_U16("graphics/pokemon/question_mark/circled/shiny.pal", ".gbapal");
-const u8 gMonIcon_QuestionMark[] = INCGFX_U8("graphics/pokemon/question_mark/icon.png", ".4bpp");
+const u8 gMonIcon_QuestionMark[] = INCGFX_U8("graphics/pokemon/question_mark/icon.png", ".4bpp.rlfast");
 #if P_FOOTPRINTS
 #if !P_GBA_STYLE_SPECIES_FOOTPRINTS
     const u8 gMonFootprint_QuestionMark[] = INCGFX_U8("graphics/pokemon/question_mark/footprint.png", ".1bpp");
@@ -31,9 +31,9 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u16 gMonShinyPalette_Porygon[] = INCGFX_U16("graphics/pokemon/porygon/shiny_gba.pal", ".gbapal");
 #endif //P_GBA_STYLE_SPECIES_GFX
 #if !P_GBA_STYLE_SPECIES_ICONS
-    const u8 gMonIcon_Porygon[] = INCGFX_U8("graphics/pokemon/porygon/icon.png", ".4bpp");
+    const u8 gMonIcon_Porygon[] = INCGFX_U8("graphics/pokemon/porygon/icon.png", ".4bpp.rlfast");
 #else
-    const u8 gMonIcon_Porygon[] = INCGFX_U8("graphics/pokemon/porygon/icon_gba.png", ".4bpp");
+    const u8 gMonIcon_Porygon[] = INCGFX_U8("graphics/pokemon/porygon/icon_gba.png", ".4bpp.rlfast");
 #endif //P_GBA_STYLE_SPECIES_ICONS
 #if P_FOOTPRINTS
     const u8 gMonFootprint_Porygon[] = INCGFX_U8("graphics/pokemon/porygon/footprint.png", ".1bpp");
@@ -59,9 +59,9 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u16 gMonShinyPalette_Porygon2[] = INCGFX_U16("graphics/pokemon/porygon2/shiny_gba.pal", ".gbapal");
 #endif //P_GBA_STYLE_SPECIES_GFX
 #if !P_GBA_STYLE_SPECIES_ICONS
-    const u8 gMonIcon_Porygon2[] = INCGFX_U8("graphics/pokemon/porygon2/icon.png", ".4bpp");
+    const u8 gMonIcon_Porygon2[] = INCGFX_U8("graphics/pokemon/porygon2/icon.png", ".4bpp.rlfast");
 #else
-    const u8 gMonIcon_Porygon2[] = INCGFX_U8("graphics/pokemon/porygon2/icon_gba.png", ".4bpp");
+    const u8 gMonIcon_Porygon2[] = INCGFX_U8("graphics/pokemon/porygon2/icon_gba.png", ".4bpp.rlfast");
 #endif //P_GBA_STYLE_SPECIES_ICONS
 #if P_FOOTPRINTS
     const u8 gMonFootprint_Porygon2[] = INCGFX_U8("graphics/pokemon/porygon2/footprint.png", ".1bpp");
@@ -79,7 +79,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u16 gMonPalette_PorygonZ[] = INCGFX_U16("graphics/pokemon/porygon_z/normal.pal", ".gbapal");
     const u32 gMonBackPic_PorygonZ[] = INCGFX_U32("graphics/pokemon/porygon_z/back.png", ".4bpp.smol");
     const u16 gMonShinyPalette_PorygonZ[] = INCGFX_U16("graphics/pokemon/porygon_z/shiny.pal", ".gbapal");
-    const u8 gMonIcon_PorygonZ[] = INCGFX_U8("graphics/pokemon/porygon_z/icon.png", ".4bpp");
+    const u8 gMonIcon_PorygonZ[] = INCGFX_U8("graphics/pokemon/porygon_z/icon.png", ".4bpp.rlfast");
 #if P_FOOTPRINTS
     const u8 gMonFootprint_PorygonZ[] = INCGFX_U8("graphics/pokemon/porygon_z/footprint.png", ".1bpp");
 #endif //P_FOOTPRINTS
@@ -99,7 +99,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u16 gMonPalette_TerapagosNormal[] = INCGFX_U16("graphics/pokemon/terapagos/normal.pal", ".gbapal");
     const u32 gMonBackPic_TerapagosNormal[] = INCGFX_U32("graphics/pokemon/terapagos/back.png", ".4bpp.smol");
     const u16 gMonShinyPalette_TerapagosNormal[] = INCGFX_U16("graphics/pokemon/terapagos/shiny.pal", ".gbapal");
-    const u8 gMonIcon_TerapagosNormal[] = INCGFX_U8("graphics/pokemon/terapagos/icon.png", ".4bpp");
+    const u8 gMonIcon_TerapagosNormal[] = INCGFX_U8("graphics/pokemon/terapagos/icon.png", ".4bpp.rlfast");
 #if P_FOOTPRINTS
     const u8 gMonFootprint_TerapagosNormal[] = INCGFX_U8("graphics/pokemon/terapagos/footprint.png", ".1bpp");
 #endif //P_FOOTPRINTS
@@ -115,7 +115,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u16 gMonPalette_TerapagosTerastal[] = INCGFX_U16("graphics/pokemon/terapagos/terastal/normal.pal", ".gbapal");
     const u32 gMonBackPic_TerapagosTerastal[] = INCGFX_U32("graphics/pokemon/terapagos/terastal/back.png", ".4bpp.smol");
     const u16 gMonShinyPalette_TerapagosTerastal[] = INCGFX_U16("graphics/pokemon/terapagos/terastal/shiny.pal", ".gbapal");
-    const u8 gMonIcon_TerapagosTerastal[] = INCGFX_U8("graphics/pokemon/terapagos/terastal/icon.png", ".4bpp");
+    const u8 gMonIcon_TerapagosTerastal[] = INCGFX_U8("graphics/pokemon/terapagos/terastal/icon.png", ".4bpp.rlfast");
 #if P_FOOTPRINTS
     const u8 gMonFootprint_TerapagosTerastal[] = INCGFX_U8("graphics/pokemon/terapagos/terastal/footprint.png", ".1bpp");
 #endif //P_FOOTPRINTS
@@ -131,7 +131,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u16 gMonPalette_TerapagosStellar[] = INCGFX_U16("graphics/pokemon/terapagos/stellar/normal.pal", ".gbapal");
     const u32 gMonBackPic_TerapagosStellar[] = INCGFX_U32("graphics/pokemon/terapagos/stellar/back.png", ".4bpp.smol");
     const u16 gMonShinyPalette_TerapagosStellar[] = INCGFX_U16("graphics/pokemon/terapagos/stellar/shiny.pal", ".gbapal");
-    const u8 gMonIcon_TerapagosStellar[] = INCGFX_U8("graphics/pokemon/terapagos/stellar/icon.png", ".4bpp");
+    const u8 gMonIcon_TerapagosStellar[] = INCGFX_U8("graphics/pokemon/terapagos/stellar/icon.png", ".4bpp.rlfast");
 #if P_FOOTPRINTS
     const u8 gMonFootprint_TerapagosStellar[] = INCGFX_U8("graphics/pokemon/terapagos/stellar/footprint.png", ".1bpp");
 #endif //P_FOOTPRINTS
@@ -5040,4 +5040,4 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
 
     const u32 gMonFrontPic_Egg[] = INCGFX_U32("graphics/pokemon/egg/anim_front.png", ".4bpp.smol");
     const u16 gMonPalette_Egg[] = INCGFX_U16("graphics/pokemon/egg/normal.pal", ".gbapal");
-    const u8 gMonIcon_Egg[] = INCGFX_U8("graphics/pokemon/egg/icon.png", ".4bpp");
+    const u8 gMonIcon_Egg[] = INCGFX_U8("graphics/pokemon/egg/icon.png", ".4bpp.rlfast");
