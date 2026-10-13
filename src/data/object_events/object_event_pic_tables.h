@@ -1507,6 +1507,62 @@ static const struct SpriteFrameImage sPicTable_KrisDelta[] = {
 static const struct SpriteFrameImage sPicTable_ApricornTree[] = {
     overworld_frame(gObjectEventPic_ApricornTree, 2, 4, 0),
 };
+static const struct SpriteFrameImage sPicTable_RotatingGateL1[] = {
+    overworld_frame(gObjectEventPic_RotatingGateL1, 4, 4, 0),
+    overworld_frame(gObjectEventPic_RotatingGateL1, 4, 4, 1),
+    overworld_frame(gObjectEventPic_RotatingGateL1, 4, 4, 2),
+    overworld_frame(gObjectEventPic_RotatingGateL1, 4, 4, 3),
+};
+
+static const struct SpriteFrameImage sPicTable_RotatingGateL2[] = {
+    overworld_frame(gObjectEventPic_RotatingGateL2, 8, 8, 0),
+    overworld_frame(gObjectEventPic_RotatingGateL2, 8, 8, 1),
+    overworld_frame(gObjectEventPic_RotatingGateL2, 8, 8, 2),
+    overworld_frame(gObjectEventPic_RotatingGateL2, 8, 8, 3),
+};
+
+static const struct SpriteFrameImage sPicTable_RotatingGateL3[] = {
+    overworld_frame(gObjectEventPic_RotatingGateL3, 8, 8, 0),
+    overworld_frame(gObjectEventPic_RotatingGateL3, 8, 8, 1),
+    overworld_frame(gObjectEventPic_RotatingGateL3, 8, 8, 2),
+    overworld_frame(gObjectEventPic_RotatingGateL3, 8, 8, 3),
+};
+
+static const struct SpriteFrameImage sPicTable_RotatingGateL4[] = {
+    overworld_frame(gObjectEventPic_RotatingGateL4, 8, 8, 0),
+    overworld_frame(gObjectEventPic_RotatingGateL4, 8, 8, 1),
+    overworld_frame(gObjectEventPic_RotatingGateL4, 8, 8, 2),
+    overworld_frame(gObjectEventPic_RotatingGateL4, 8, 8, 3),
+};
+
+static const struct SpriteFrameImage sPicTable_RotatingGateT1[] = {
+    overworld_frame(gObjectEventPic_RotatingGateT1, 4, 4, 0),
+    overworld_frame(gObjectEventPic_RotatingGateT1, 4, 4, 1),
+    overworld_frame(gObjectEventPic_RotatingGateT1, 4, 4, 2),
+    overworld_frame(gObjectEventPic_RotatingGateT1, 4, 4, 3),
+};
+
+static const struct SpriteFrameImage sPicTable_RotatingGateT2[] = {
+    overworld_frame(gObjectEventPic_RotatingGateT2, 8, 8, 0),
+    overworld_frame(gObjectEventPic_RotatingGateT2, 8, 8, 1),
+    overworld_frame(gObjectEventPic_RotatingGateT2, 8, 8, 2),
+    overworld_frame(gObjectEventPic_RotatingGateT2, 8, 8, 3),
+};
+
+static const struct SpriteFrameImage sPicTable_RotatingGateT3[] = {
+    overworld_frame(gObjectEventPic_RotatingGateT3, 8, 8, 0),
+    overworld_frame(gObjectEventPic_RotatingGateT3, 8, 8, 1),
+    overworld_frame(gObjectEventPic_RotatingGateT3, 8, 8, 2),
+    overworld_frame(gObjectEventPic_RotatingGateT3, 8, 8, 3),
+};
+
+static const struct SpriteFrameImage sPicTable_RotatingGateT4[] = {
+    overworld_frame(gObjectEventPic_RotatingGateT4, 8, 8, 0),
+    overworld_frame(gObjectEventPic_RotatingGateT4, 8, 8, 1),
+    overworld_frame(gObjectEventPic_RotatingGateT4, 8, 8, 2),
+    overworld_frame(gObjectEventPic_RotatingGateT4, 8, 8, 3),
+};
+
 
 static const struct SpriteFrameImage sPicTable_RedNormal[] = {
     overworld_frame(gObjectEventPic_RedNormal, 2, 4, 0),
