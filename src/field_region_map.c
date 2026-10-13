@@ -200,6 +200,7 @@ static void FieldUpdateRegionMap(void)
                     gSkipShowMonAnim = TRUE;
                     ReturnToFieldFromFlyMapSelect();
                 }
+                [[fallthrough]];
         case MAP_INPUT_CHANGE_MAP:
             BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 16, RGB_BLACK);
             sFieldRegionMapHandler->state = 7;

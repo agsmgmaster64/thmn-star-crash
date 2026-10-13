@@ -357,6 +357,7 @@ static void CB2_SetupOutfitMenu(void)
         CpuFill16(0, (void *) VRAM, VRAM_SIZE);
         SetVBlankHBlankCallbacksToNull();
         ClearScheduledBgCopiesToVram();
+        [[fallthrough]];
     case STATE_RESET:
         ScanlineEffect_Stop();
         FreeAllSpritePalettes();

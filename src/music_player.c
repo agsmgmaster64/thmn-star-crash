@@ -1035,6 +1035,7 @@ static void Task_SwapCards(u8 taskId)
             tCurrentPos = 0;
             gSprites[tIconSprites(sMP3PlayerDataPtr->menuMode)].data[0] = 2;
             tState++;
+            break;
         case 1:
             tCurrentPos += CARD_SLIDE_SPEED;
             if (tCurrentPos < CARD_SLIDE_RIGHT_X)

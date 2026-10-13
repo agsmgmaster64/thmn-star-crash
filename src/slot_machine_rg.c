@@ -2294,7 +2294,7 @@ static bool8 SlotsTask_HideHelp(u8 * state, struct SlotMachineSetupTaskData * pt
     case 0:
         PlaySE(SE_WIN_OPEN);
         (*state)++;
-        // fallthrough
+        [[fallthrough]];
     case 1:
         ptr->bg1X -= 16;
         if (ptr->bg1X <= 0)
@@ -2343,9 +2343,11 @@ static void SetLineStatesByBet(u16 * bgTilemapBuffer)
     case 3:
         SetLineState(bgTilemapBuffer, 0, PALSLOT_LINE_BET);
         SetLineState(bgTilemapBuffer, 4, PALSLOT_LINE_BET);
+        [[fallthrough]];
     case 2:
         SetLineState(bgTilemapBuffer, 1, PALSLOT_LINE_BET);
         SetLineState(bgTilemapBuffer, 3, PALSLOT_LINE_BET);
+        [[fallthrough]];
     case 1:
         SetLineState(bgTilemapBuffer, 2, PALSLOT_LINE_BET);
         break;

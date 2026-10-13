@@ -1757,9 +1757,11 @@ static bool8 Mining_LoadBgGraphics(void)
             LoadPalette(gStressLevelAndTerrainPalette, BG_PLTT_ID(1), PLTT_SIZE_4BPP);
             LoadPalette(sUiPalette, BG_PLTT_ID(0), PLTT_SIZE_4BPP);
             sMiningUiState->loadGameState++;
+            break;
         case 3:
             Mining_DrawRandomTerrain();
             sMiningUiState->loadGameState++;
+            break;
         default:
             sMiningUiState->loadGameState = STATE_GAME_START;
             return TRUE;
