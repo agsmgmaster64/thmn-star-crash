@@ -5880,6 +5880,7 @@ bool32 CanSetNonVolatileStatus(enum BattlerId battlerAtk, enum BattlerId battler
             abilityAffected = TRUE;
             battleScript = BattleScript_DoesntAffectScripting;
         }
+        break;
     case MOVE_EFFECT_FROSTBITE:
         if (gBattleMons[battlerDef].status1 & STATUS1_FROSTBITE)
         {

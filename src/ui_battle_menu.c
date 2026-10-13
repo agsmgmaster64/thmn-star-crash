@@ -634,6 +634,7 @@ void UI_Battle_Menu_Init(MainCallback callback)
             case STATUS_INFO_FUTURE_SIGHT:
                 if (gBattleStruct->futureSight[j].counter != 0)
                     isExtraInfoShown = TRUE;
+                break;
             case STATUS_INFO_UPROAR:
                 if (gBattleMons[j].volatiles.uproarTurns)
                     isExtraInfoShown = TRUE;

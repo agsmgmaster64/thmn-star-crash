@@ -2268,6 +2268,7 @@ bool8 ObjectMovingOnRockStairs(struct ObjectEvent *objectEvent, enum Direction d
             // directionOverwrite is only used for sideways stairs motion
             if (objectEvent->directionOverwrite)
                 return TRUE;
+            return FALSE;
         default:
             return FALSE;
         }

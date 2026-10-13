@@ -948,6 +948,7 @@ static void UTTilePuzzlePerStepCallback(u8 taskId)
             PlaySE(SE_SELECT);
             tState = TILE_STEP_CHECK_COORDS;
         }
+        break;
     case TILE_STEP_ORANGES:
         if (tDelay != 0)
         {
@@ -958,6 +959,7 @@ static void UTTilePuzzlePerStepCallback(u8 taskId)
             PlaySE(SE_PIN);
             tState = TILE_STEP_CHECK_COORDS;
         }
+        break;
     }
 }
 

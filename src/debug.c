@@ -5022,7 +5022,7 @@ static void DebugAction_Party_SetFieldMovesParty(u8 taskId)
     for (u32 i = 0; i < max; i++)
     {
         if (i % 4 == 0)
-            CreateRandomMon(&gParties[B_TRAINER_PLAYER][i / 4], SPECIES_SMEARGLE, 100);
+            CreateRandomMon(&gParties[B_TRAINER_PLAYER][i / 4], SPECIES_AKYUU, 100);
         enum Move move = FieldMove_GetMoveId(i);
         SetMonData(&gParties[B_TRAINER_PLAYER][i / 4], MON_DATA_MOVE1 + (i % 4), &move);
     }

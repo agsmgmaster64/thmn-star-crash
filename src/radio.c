@@ -504,6 +504,7 @@ void Task_PlayRadioShow(u8 taskId)
     case POKEDEX_SHOW_3:
         StringCopy(gStringVar4, GetSpeciesPokedexDescription(NationalPokedexNumToSpecies(tMiscValue)));
         tMiscValue = 0;
+        [[fallthrough]];
     case POKEDEX_SHOW_4:
         {
             u8 index;
