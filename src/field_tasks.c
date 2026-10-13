@@ -461,6 +461,15 @@ static void TryLowerFortreeBridge(s16 x, s16 y)
         case METATILE_Swamp_BridgeOverTrees_Raised:
             MapGridSetMetatileIdAt(x, y, METATILE_Swamp_BridgeOverTrees_Lowered);
             break;
+        case METATILE_Swamp_BridgeOverTreesVert_Raised:
+            MapGridSetMetatileIdAt(x, y, METATILE_Swamp_BridgeOverTreesVert_Lowered);
+            break;
+        case METATILE_Swamp_BridgeTreesConnectDown_Raised:
+            MapGridSetMetatileIdAt(x, y, METATILE_Swamp_BridgeTreesConnectDown_Lowered);
+            break;
+        case METATILE_Swamp_BridgeTreesConnectUp_Raised:
+            MapGridSetMetatileIdAt(x, y, METATILE_Swamp_BridgeTreesConnectUp_Lowered);
+            break;
         }
     }
 }
@@ -477,6 +486,15 @@ static void TryRaiseFortreeBridge(s16 x, s16 y)
             break;
         case METATILE_Swamp_BridgeOverTrees_Lowered:
             MapGridSetMetatileIdAt(x, y, METATILE_Swamp_BridgeOverTrees_Raised);
+            break;
+        case METATILE_Swamp_BridgeOverTreesVert_Lowered:
+            MapGridSetMetatileIdAt(x, y, METATILE_Swamp_BridgeOverTreesVert_Raised);
+            break;
+        case METATILE_Swamp_BridgeTreesConnectDown_Lowered:
+            MapGridSetMetatileIdAt(x, y, METATILE_Swamp_BridgeTreesConnectDown_Raised);
+            break;
+        case METATILE_Swamp_BridgeTreesConnectUp_Lowered:
+            MapGridSetMetatileIdAt(x, y, METATILE_Swamp_BridgeTreesConnectUp_Raised);
             break;
         }
     }

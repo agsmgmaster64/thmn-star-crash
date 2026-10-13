@@ -13201,7 +13201,7 @@
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_GeneralFrlg",
-      "secondary_tileset": "gTileset_Barn",
+      "secondary_tileset": "gTileset_Swamp",
       "border_filepath": "data/layouts/TracenAcademy/border.bin",
       "blockdata_filepath": "data/layouts/TracenAcademy/map.bin",
       "build_version": [

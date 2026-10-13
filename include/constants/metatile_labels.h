@@ -1068,8 +1068,14 @@
 // gTileset_Swamp
 #define METATILE_Swamp_BridgeOverGrass_Lowered           0x867
 #define METATILE_Swamp_BridgeOverGrass_Raised            0x866
+#define METATILE_Swamp_BridgeOverTreesVert_Lowered       0x94E
+#define METATILE_Swamp_BridgeOverTreesVert_Raised        0x94D
 #define METATILE_Swamp_BridgeOverTrees_Lowered           0x863
 #define METATILE_Swamp_BridgeOverTrees_Raised            0x862
+#define METATILE_Swamp_BridgeTreesConnectDown_Lowered    0x961
+#define METATILE_Swamp_BridgeTreesConnectDown_Raised     0x960
+#define METATILE_Swamp_BridgeTreesConnectUp_Lowered      0x959
+#define METATILE_Swamp_BridgeTreesConnectUp_Raised       0x958
 #define METATILE_Swamp_LongGrassInner_Mud                0x803
 #define METATILE_Swamp_LongGrass_Mud                     0x801
 #define METATILE_Swamp_LongGrass_Root_Mud                0x802
