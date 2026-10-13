@@ -3732,7 +3732,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .description = COMPOUND_STRING(
             "Recovers up to half the\n"
             "user's maximum HP."),
-        .effect = EFFECT_SOFTBOILED,
+        .effect = EFFECT_RESTORE_HP,
         .power = 0,
         .type = TYPE_ILLUSION,
         .accuracy = 0,
@@ -7663,8 +7663,8 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .category = DAMAGE_CATEGORY_STATUS,
         .zMove = { .effect = Z_EFFECT_SPD_UP_1 },
         .additionalEffects = ADDITIONAL_EFFECTS({
-            .moveEffect = MOVE_EFFECT_ROLE_PLAY,
-            .self = TRUE, // hack so doodle works correctly
+            .moveEffect = MOVE_EFFECT_OVERWRITE_ABILITY,
+            .self = TRUE,
         }),
         .ignoresProtect = TRUE,
         .ignoresSubstitute = TRUE,
@@ -13550,7 +13550,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .category = DAMAGE_CATEGORY_STATUS,
         .zMove = { .effect = Z_EFFECT_SPDEF_UP_1 },
         .additionalEffects = ADDITIONAL_EFFECTS({
-            .moveEffect = MOVE_EFFECT_ENTRAINMENT,
+            .moveEffect = MOVE_EFFECT_OVERWRITE_ABILITY,
         }),
         .magicCoatAffected = TRUE,
         .contestEffect = CONTEST_EFFECT_STARTLE_MONS_SAME_TYPE_APPEAL,
@@ -21345,8 +21345,8 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .mirrorMoveBanned = TRUE,
         .metronomeBanned = TRUE,
         .additionalEffects = ADDITIONAL_EFFECTS({
-            .moveEffect = MOVE_EFFECT_ROLE_PLAY,
-            .self = TRUE, // hack so doodle works correctly
+            .moveEffect = MOVE_EFFECT_OVERWRITE_ABILITY,
+            .self = TRUE,
             .onSide = TRUE,
         }),
         .battleAnimScript = gBattleAnimMove_Doodle,

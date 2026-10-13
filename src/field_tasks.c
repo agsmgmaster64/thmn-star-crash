@@ -580,7 +580,7 @@ static void FortreeBridgePerStepCallback(u8 taskId)
 
         tBounceTime = 16;
         tState = 2;
-        // fallthrough
+        [[fallthrough]];
     case 2:
         tBounceTime--;
         prevX = tOldBridgeX;

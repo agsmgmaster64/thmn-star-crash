@@ -94,7 +94,6 @@ enum  BattleMoveEffects
     EFFECT_TELEPORT,
     EFFECT_BEAT_UP,
     EFFECT_SEMI_INVULNERABLE,
-    EFFECT_SOFTBOILED, // differences vs Recover - can be used outside of battle to restore HP
     EFFECT_HONEYBOILED,
     EFFECT_FIRST_TURN_ONLY,
     EFFECT_STOCKPILE,

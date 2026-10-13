@@ -462,6 +462,7 @@ static void ChangeDowsingColor(enum Direction direction, struct Sprite *sprite)
             sprite->sDowseState = ORASD_WIGGLE_FASTER;
             break;
         }
+        [[fallthrough]];
     case 2:
         color = I_ORAS_DOWSING_COLOR_FAST;
         sprite->sDowseState = ORASD_WIGGLE_FAST;
