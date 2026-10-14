@@ -1614,7 +1614,6 @@ static void RotomPhone_OverworldMenu_LoadBgGfx(bool32 firstInit)
 {
     u8* buf = GetBgTilemapBuffer(0);
     const u32 *tilemap;
-    LoadBgTilemap(0, 0, 0, 0);
     if (FlagGet(FLAG_SYS_PHONE_UPGRADE))
     {
         DecompressAndCopyTileDataToVram(0, sRotomPhone_OverworldTiles, 0, 0, 0);
@@ -3017,6 +3016,7 @@ static bool32 RotomPhone_RotomRealityMenu_LoadGraphics(void)
     case 2:
         RotomPhone_RotomRealityMenu_LoadBgPalette();
         sRotomPhone_StartMenu->menuRotomRealityLoadState++;
+        break;
     default:
         sRotomPhone_StartMenu->menuRotomRealityLoadState = 0;
         return TRUE;
@@ -3484,7 +3484,7 @@ static void RotomPhone_StartMenu_LoadRotomFaceSpritesheet(void)
     rotomFace.tag = TAG_ROTOM_FACE_GFX;
     LoadCompressedSpriteSheet(&rotomFace);
     sRotomPhone_StartMenu->rotomFaceLastLoaded = RP_FACE_COUNT - 1;
-    
+
     if (GetSpriteTileStartByTag(rotomFace.tag) == TAG_NONE)
     {
         rotomFace.size = 64 * 384 / 2;
