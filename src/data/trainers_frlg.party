@@ -3,7 +3,7 @@ Name: PH
 Class: Pkmn Trainer 1
 Pic: Hiker Frlg
 Gender: Male
-Music: Male
+Music: Serious
 Double Battle: No
 
 === TRAINER_YOUNGSTER_JOEY ===
@@ -83,7 +83,7 @@ Name: BEN
 Class: Youngster Frlg
 Pic: Youngster Frlg
 Gender: Male
-Music: Male
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -100,7 +100,7 @@ Name: DAN
 Class: Youngster Frlg
 Pic: Youngster Frlg
 Gender: Male
-Music: Male
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -113,7 +113,7 @@ Name: CHAD
 Class: Youngster Frlg
 Pic: Youngster Frlg
 Gender: Male
-Music: Male
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -130,7 +130,7 @@ Name: TYLER
 Class: Youngster Frlg
 Pic: Youngster Frlg
 Gender: Male
-Music: Male
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -143,7 +143,7 @@ Name: EDDIE
 Class: Youngster Frlg
 Pic: Youngster Frlg
 Gender: Male
-Music: Male
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -156,7 +156,7 @@ Name: DILLON
 Class: Youngster Frlg
 Pic: Youngster Frlg
 Gender: Male
-Music: Male
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -173,7 +173,7 @@ Name: YASU
 Class: Youngster Frlg
 Pic: Youngster Frlg
 Gender: Male
-Music: Male
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -194,7 +194,7 @@ Name: DAVE
 Class: Youngster Frlg
 Pic: Youngster Frlg
 Gender: Male
-Music: Male
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -211,7 +211,7 @@ Name: BEN
 Class: Youngster Frlg
 Pic: Youngster Frlg
 Gender: Male
-Music: Male
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -228,7 +228,7 @@ Name: RICK
 Class: Bug Catcher Frlg
 Pic: Bug Catcher Frlg
 Gender: Male
-Music: Male
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -245,7 +245,7 @@ Name: DOUG
 Class: Bug Catcher Frlg
 Pic: Bug Catcher Frlg
 Gender: Male
-Music: Male
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -266,7 +266,7 @@ Name: SAMMY
 Class: Bug Catcher Frlg
 Pic: Bug Catcher Frlg
 Gender: Male
-Music: Male
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -279,7 +279,7 @@ Name: COLTON
 Class: Bug Catcher Frlg
 Pic: Bug Catcher Frlg
 Gender: Male
-Music: Male
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -300,7 +300,7 @@ Name: GREG
 Class: Bug Catcher Frlg
 Pic: Bug Catcher Frlg
 Gender: Male
-Music: Male
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -325,7 +325,7 @@ Name: JAMES
 Class: Bug Catcher Frlg
 Pic: Bug Catcher Frlg
 Gender: Male
-Music: Male
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -342,7 +342,7 @@ Name: KENT
 Class: Bug Catcher Frlg
 Pic: Bug Catcher Frlg
 Gender: Male
-Music: Male
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -359,7 +359,7 @@ Name: ROBBY
 Class: Bug Catcher Frlg
 Pic: Bug Catcher Frlg
 Gender: Male
-Music: Male
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -380,7 +380,7 @@ Name: CALE
 Class: Bug Catcher Frlg
 Pic: Bug Catcher Frlg
 Gender: Male
-Music: Male
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -405,7 +405,7 @@ Name: KEIGO
 Class: Bug Catcher Frlg
 Pic: Bug Catcher Frlg
 Gender: Male
-Music: Male
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -426,7 +426,7 @@ Name: ELIJAH
 Class: Bug Catcher Frlg
 Pic: Bug Catcher Frlg
 Gender: Male
-Music: Male
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -439,7 +439,7 @@ Name: BRENT
 Class: Bug Catcher Frlg
 Pic: Bug Catcher Frlg
 Gender: Male
-Music: Male
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -456,7 +456,7 @@ Name: CONNER
 Class: Bug Catcher Frlg
 Pic: Bug Catcher Frlg
 Gender: Male
-Music: Male
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -477,7 +477,7 @@ Name: JANICE
 Class: Lass Frlg
 Pic: Lass Frlg
 Gender: Male
-Music: Female
+Music: Cute
 Double Battle: No
 AI: Check Bad Move
 
@@ -494,7 +494,7 @@ Name: SALLY
 Class: Lass Frlg
 Pic: Lass Frlg
 Gender: Male
-Music: Female
+Music: Cute
 Double Battle: No
 AI: Check Bad Move
 
@@ -511,7 +511,7 @@ Name: ROBIN
 Class: Lass Frlg
 Pic: Lass Frlg
 Gender: Male
-Music: Female
+Music: Cute
 Double Battle: No
 AI: Check Bad Move
 
@@ -524,7 +524,7 @@ Name: CRISSY
 Class: Lass Frlg
 Pic: Lass Frlg
 Gender: Male
-Music: Female
+Music: Cute
 Double Battle: No
 AI: Check Bad Move
 
@@ -545,7 +545,7 @@ Name: MIRIAM
 Class: Lass Frlg
 Pic: Lass Frlg
 Gender: Male
-Music: Female
+Music: Cute
 Double Battle: No
 AI: Check Bad Move
 
@@ -562,7 +562,7 @@ Name: IRIS
 Class: Lass Frlg
 Pic: Lass Frlg
 Gender: Male
-Music: Female
+Music: Cute
 Double Battle: No
 AI: Check Bad Move
 
@@ -575,7 +575,7 @@ Name: RELI
 Class: Lass Frlg
 Pic: Lass Frlg
 Gender: Male
-Music: Female
+Music: Cute
 Double Battle: No
 AI: Check Bad Move
 
@@ -592,7 +592,7 @@ Name: ALI
 Class: Lass Frlg
 Pic: Lass Frlg
 Gender: Male
-Music: Female
+Music: Cute
 Double Battle: No
 AI: Check Bad Move
 
@@ -613,7 +613,7 @@ Name: HALEY
 Class: Lass Frlg
 Pic: Lass Frlg
 Gender: Male
-Music: Female
+Music: Cute
 Double Battle: No
 AI: Check Bad Move
 
@@ -634,7 +634,7 @@ Name: ANN
 Class: Lass Frlg
 Pic: Lass Frlg
 Gender: Male
-Music: Female
+Music: Cute
 Double Battle: No
 AI: Check Bad Move
 
@@ -651,7 +651,7 @@ Name: DAWN
 Class: Lass Frlg
 Pic: Lass Frlg
 Gender: Male
-Music: Female
+Music: Cute
 Double Battle: No
 AI: Check Bad Move
 
@@ -668,7 +668,7 @@ Name: PAIGE
 Class: Lass Frlg
 Pic: Lass Frlg
 Gender: Male
-Music: Female
+Music: Cute
 Double Battle: No
 AI: Check Bad Move
 
@@ -685,7 +685,7 @@ Name: ANDREA
 Class: Lass Frlg
 Pic: Lass Frlg
 Gender: Male
-Music: Female
+Music: Cute
 Double Battle: No
 AI: Check Bad Move
 
@@ -706,7 +706,7 @@ Name: MEGAN
 Class: Lass Frlg
 Pic: Lass Frlg
 Gender: Male
-Music: Female
+Music: Cute
 Double Battle: No
 AI: Check Bad Move
 
@@ -735,7 +735,7 @@ Name: JULIA
 Class: Lass Frlg
 Pic: Lass Frlg
 Gender: Male
-Music: Female
+Music: Cute
 Double Battle: No
 AI: Check Bad Move
 
@@ -752,7 +752,7 @@ Name: KAY
 Class: Lass Frlg
 Pic: Lass Frlg
 Gender: Male
-Music: Female
+Music: Cute
 Double Battle: No
 AI: Check Bad Move
 
@@ -769,7 +769,7 @@ Name: LISA
 Class: Lass Frlg
 Pic: Lass Frlg
 Gender: Male
-Music: Female
+Music: Cute
 Double Battle: No
 AI: Check Bad Move
 
@@ -786,7 +786,7 @@ Name: EDMOND
 Class: Sailor Frlg
 Pic: Sailor Frlg
 Gender: Male
-Music: Male
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -803,7 +803,7 @@ Name: TREVOR
 Class: Sailor Frlg
 Pic: Sailor Frlg
 Gender: Male
-Music: Male
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -820,7 +820,7 @@ Name: LEONARD
 Class: Sailor Frlg
 Pic: Sailor Frlg
 Gender: Male
-Music: Male
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -833,7 +833,7 @@ Name: DUNCAN
 Class: Sailor Frlg
 Pic: Sailor Frlg
 Gender: Male
-Music: Male
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -854,7 +854,7 @@ Name: HUEY
 Class: Sailor Frlg
 Pic: Sailor Frlg
 Gender: Male
-Music: Male
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -871,7 +871,7 @@ Name: DYLAN
 Class: Sailor Frlg
 Pic: Sailor Frlg
 Gender: Male
-Music: Male
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -892,7 +892,7 @@ Name: PHILLIP
 Class: Sailor Frlg
 Pic: Sailor Frlg
 Gender: Male
-Music: Male
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -905,7 +905,7 @@ Name: DWAYNE
 Class: Sailor Frlg
 Pic: Sailor Frlg
 Gender: Male
-Music: Male
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -922,7 +922,7 @@ Name: LIAM
 Class: Camper Frlg
 Pic: Camper Frlg
 Gender: Male
-Music: Male
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -939,7 +939,7 @@ Name: SHANE
 Class: Camper Frlg
 Pic: Camper Frlg
 Gender: Male
-Music: Male
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -956,7 +956,7 @@ Name: ETHAN
 Class: Camper Frlg
 Pic: Camper Frlg
 Gender: Male
-Music: Male
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -969,7 +969,7 @@ Name: RICKY
 Class: Camper Frlg
 Pic: Camper Frlg
 Gender: Male
-Music: Male
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -982,7 +982,7 @@ Name: JEFF
 Class: Camper Frlg
 Pic: Camper Frlg
 Gender: Male
-Music: Male
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -999,7 +999,7 @@ Name: CHRIS
 Class: Camper Frlg
 Pic: Camper Frlg
 Gender: Male
-Music: Male
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -1016,7 +1016,7 @@ Name: DREW
 Class: Camper Frlg
 Pic: Camper Frlg
 Gender: Male
-Music: Male
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -1041,7 +1041,7 @@ Name: DIANA
 Class: Picnicker Frlg
 Pic: Picnicker Frlg
 Gender: Male
-Music: Girl
+Music: Cute
 Double Battle: No
 AI: Check Bad Move
 
@@ -1054,7 +1054,7 @@ Name: NANCY
 Class: Picnicker Frlg
 Pic: Picnicker Frlg
 Gender: Male
-Music: Girl
+Music: Cute
 Double Battle: No
 AI: Check Bad Move
 
@@ -1071,7 +1071,7 @@ Name: ISABELLE
 Class: Picnicker Frlg
 Pic: Picnicker Frlg
 Gender: Male
-Music: Girl
+Music: Cute
 Double Battle: No
 AI: Check Bad Move
 
@@ -1092,7 +1092,7 @@ Name: KELSEY
 Class: Picnicker Frlg
 Pic: Picnicker Frlg
 Gender: Male
-Music: Girl
+Music: Cute
 Double Battle: No
 AI: Check Bad Move
 
@@ -1109,7 +1109,7 @@ Name: ALICIA
 Class: Picnicker Frlg
 Pic: Picnicker Frlg
 Gender: Male
-Music: Girl
+Music: Cute
 Double Battle: No
 AI: Check Bad Move
 
@@ -1134,7 +1134,7 @@ Name: CAITLIN
 Class: Picnicker Frlg
 Pic: Picnicker Frlg
 Gender: Male
-Music: Girl
+Music: Cute
 Double Battle: No
 AI: Check Bad Move
 
@@ -1147,7 +1147,7 @@ Name: HEIDI
 Class: Picnicker Frlg
 Pic: Picnicker Frlg
 Gender: Male
-Music: Girl
+Music: Cute
 Double Battle: No
 AI: Check Bad Move
 
@@ -1164,7 +1164,7 @@ Name: CAROL
 Class: Picnicker Frlg
 Pic: Picnicker Frlg
 Gender: Male
-Music: Girl
+Music: Cute
 Double Battle: No
 AI: Check Bad Move
 
@@ -1181,7 +1181,7 @@ Name: SOFIA
 Class: Picnicker Frlg
 Pic: Picnicker Frlg
 Gender: Male
-Music: Girl
+Music: Cute
 Double Battle: No
 AI: Check Bad Move
 
@@ -1202,7 +1202,7 @@ Name: MARTHA
 Class: Picnicker Frlg
 Pic: Picnicker Frlg
 Gender: Male
-Music: Girl
+Music: Cute
 Double Battle: No
 AI: Check Bad Move
 
@@ -1219,7 +1219,7 @@ Name: TINA
 Class: Picnicker Frlg
 Pic: Picnicker Frlg
 Gender: Male
-Music: Girl
+Music: Cute
 Double Battle: No
 AI: Check Bad Move
 
@@ -1236,7 +1236,7 @@ Name: HANNAH
 Class: Picnicker Frlg
 Pic: Picnicker Frlg
 Gender: Male
-Music: Girl
+Music: Cute
 Double Battle: No
 AI: Check Bad Move
 
@@ -1265,7 +1265,7 @@ Name: MARK
 Class: Pokemaniac Frlg
 Pic: Pokemaniac Frlg
 Gender: Male
-Music: Suspicious
+Music: Dangerous
 Double Battle: No
 AI: Check Bad Move
 
@@ -1282,7 +1282,7 @@ Name: HERMAN
 Class: Pokemaniac Frlg
 Pic: Pokemaniac Frlg
 Gender: Male
-Music: Suspicious
+Music: Dangerous
 Double Battle: No
 AI: Check Bad Move
 
@@ -1299,7 +1299,7 @@ Name: COOPER
 Class: Pokemaniac Frlg
 Pic: Pokemaniac Frlg
 Gender: Male
-Music: Suspicious
+Music: Dangerous
 Double Battle: No
 AI: Check Bad Move
 
@@ -1320,7 +1320,7 @@ Name: STEVE
 Class: Pokemaniac Frlg
 Pic: Pokemaniac Frlg
 Gender: Male
-Music: Suspicious
+Music: Dangerous
 Double Battle: No
 AI: Check Bad Move
 
@@ -1337,7 +1337,7 @@ Name: WINSTON
 Class: Pokemaniac Frlg
 Pic: Pokemaniac Frlg
 Gender: Male
-Music: Suspicious
+Music: Dangerous
 Double Battle: No
 AI: Check Bad Move
 
@@ -1350,7 +1350,7 @@ Name: DAWSON
 Class: Pokemaniac Frlg
 Pic: Pokemaniac Frlg
 Gender: Male
-Music: Suspicious
+Music: Dangerous
 Double Battle: No
 AI: Check Bad Move
 
@@ -1371,7 +1371,7 @@ Name: ASHTON
 Class: Pokemaniac Frlg
 Pic: Pokemaniac Frlg
 Gender: Male
-Music: Suspicious
+Music: Dangerous
 Double Battle: No
 AI: Check Bad Move
 
@@ -1388,7 +1388,7 @@ Name: JOVAN
 Class: Super Nerd Frlg
 Pic: Super Nerd Frlg
 Gender: Male
-Music: Suspicious
+Music: Dangerous
 Double Battle: No
 AI: Check Bad Move
 
@@ -1405,7 +1405,7 @@ Name: MIGUEL
 Class: Super Nerd Frlg
 Pic: Super Nerd Frlg
 Gender: Male
-Music: Suspicious
+Music: Dangerous
 Double Battle: No
 AI: Check Bad Move
 
@@ -1426,7 +1426,7 @@ Name: AIDAN
 Class: Super Nerd Frlg
 Pic: Super Nerd Frlg
 Gender: Male
-Music: Suspicious
+Music: Dangerous
 Double Battle: No
 AI: Check Bad Move
 
@@ -1467,7 +1467,7 @@ Name: GLENN
 Class: Super Nerd Frlg
 Pic: Super Nerd Frlg
 Gender: Male
-Music: Suspicious
+Music: Dangerous
 Double Battle: No
 AI: Check Bad Move
 
@@ -1488,7 +1488,7 @@ Name: LESLIE
 Class: Super Nerd Frlg
 Pic: Super Nerd Frlg
 Gender: Male
-Music: Suspicious
+Music: Dangerous
 Double Battle: No
 AI: Check Bad Move
 
@@ -1505,7 +1505,7 @@ Name: ERIK
 Class: Super Nerd Frlg
 Pic: Super Nerd Frlg
 Gender: Male
-Music: Suspicious
+Music: Dangerous
 Double Battle: No
 AI: Check Bad Move
 
@@ -1526,7 +1526,7 @@ Name: AVERY
 Class: Super Nerd Frlg
 Pic: Super Nerd Frlg
 Gender: Male
-Music: Suspicious
+Music: Dangerous
 Double Battle: No
 AI: Check Bad Move
 
@@ -1551,7 +1551,7 @@ Name: DEREK
 Class: Super Nerd Frlg
 Pic: Super Nerd Frlg
 Gender: Male
-Music: Suspicious
+Music: Dangerous
 Double Battle: No
 AI: Check Bad Move
 
@@ -1564,7 +1564,7 @@ Name: ZAC
 Class: Super Nerd Frlg
 Pic: Super Nerd Frlg
 Gender: Male
-Music: Suspicious
+Music: Dangerous
 Double Battle: No
 AI: Check Bad Move
 
@@ -1581,7 +1581,7 @@ Name: MARCOS
 Class: Hiker Frlg
 Pic: Hiker Frlg
 Gender: Male
-Music: Hiker
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -1602,7 +1602,7 @@ Name: FRANKLIN
 Class: Hiker Frlg
 Pic: Hiker Frlg
 Gender: Male
-Music: Hiker
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -1619,7 +1619,7 @@ Name: NOB
 Class: Hiker Frlg
 Pic: Hiker Frlg
 Gender: Male
-Music: Hiker
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -1644,7 +1644,7 @@ Name: WAYNE
 Class: Hiker Frlg
 Pic: Hiker Frlg
 Gender: Male
-Music: Hiker
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -1657,7 +1657,7 @@ Name: ALAN
 Class: Hiker Frlg
 Pic: Hiker Frlg
 Gender: Male
-Music: Hiker
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -1682,7 +1682,7 @@ Name: BRICE
 Class: Hiker Frlg
 Pic: Hiker Frlg
 Gender: Male
-Music: Hiker
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -1703,7 +1703,7 @@ Name: CLARK
 Class: Hiker Frlg
 Pic: Hiker Frlg
 Gender: Male
-Music: Hiker
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -1728,7 +1728,7 @@ Name: TRENT
 Class: Hiker Frlg
 Pic: Hiker Frlg
 Gender: Male
-Music: Hiker
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -1745,7 +1745,7 @@ Name: DUDLEY
 Class: Hiker Frlg
 Pic: Hiker Frlg
 Gender: Male
-Music: Hiker
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -1778,7 +1778,7 @@ Name: ALLEN
 Class: Hiker Frlg
 Pic: Hiker Frlg
 Gender: Male
-Music: Hiker
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -1795,7 +1795,7 @@ Name: ERIC
 Class: Hiker Frlg
 Pic: Hiker Frlg
 Gender: Male
-Music: Hiker
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -1812,7 +1812,7 @@ Name: LENNY
 Class: Hiker Frlg
 Pic: Hiker Frlg
 Gender: Male
-Music: Hiker
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -1837,7 +1837,7 @@ Name: OLIVER
 Class: Hiker Frlg
 Pic: Hiker Frlg
 Gender: Male
-Music: Hiker
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -1858,7 +1858,7 @@ Name: LUCAS
 Class: Hiker Frlg
 Pic: Hiker Frlg
 Gender: Male
-Music: Hiker
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -1883,7 +1883,7 @@ Name: JARED
 Class: Biker Frlg
 Pic: Biker Frlg
 Gender: Male
-Music: Male
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -1916,7 +1916,7 @@ Name: MALIK
 Class: Biker Frlg
 Pic: Biker Frlg
 Gender: Male
-Music: Male
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -1941,7 +1941,7 @@ Name: ERNEST
 Class: Biker Frlg
 Pic: Biker Frlg
 Gender: Male
-Music: Male
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -1990,7 +1990,7 @@ Name: ALEX
 Class: Biker Frlg
 Pic: Biker Frlg
 Gender: Male
-Music: Male
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -2023,7 +2023,7 @@ Name: LAO
 Class: Biker Frlg
 Pic: Biker Frlg
 Gender: Male
-Music: Male
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -2048,7 +2048,7 @@ Name: HIDEO
 Class: Biker Frlg
 Pic: Biker Frlg
 Gender: Male
-Music: Male
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -2061,7 +2061,7 @@ Name: RUBEN
 Class: Biker Frlg
 Pic: Biker Frlg
 Gender: Male
-Music: Male
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -2094,7 +2094,7 @@ Name: BILLY
 Class: Biker Frlg
 Pic: Biker Frlg
 Gender: Male
-Music: Male
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -2107,7 +2107,7 @@ Name: NIKOLAS
 Class: Biker Frlg
 Pic: Biker Frlg
 Gender: Male
-Music: Male
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -2132,7 +2132,7 @@ Name: JAXON
 Class: Biker Frlg
 Pic: Biker Frlg
 Gender: Male
-Music: Male
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -2157,7 +2157,7 @@ Name: WILLIAM
 Class: Biker Frlg
 Pic: Biker Frlg
 Gender: Male
-Music: Male
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -2206,7 +2206,7 @@ Name: LUKAS
 Class: Biker Frlg
 Pic: Biker Frlg
 Gender: Male
-Music: Male
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -2247,7 +2247,7 @@ Name: ISAAC
 Class: Biker Frlg
 Pic: Biker Frlg
 Gender: Male
-Music: Male
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -2280,7 +2280,7 @@ Name: GERALD
 Class: Biker Frlg
 Pic: Biker Frlg
 Gender: Male
-Music: Male
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -2305,7 +2305,7 @@ Name: QUINN
 Class: Burglar Frlg
 Pic: Burglar Frlg
 Gender: Male
-Music: Suspicious
+Music: Dangerous
 Double Battle: No
 AI: Check Bad Move
 
@@ -2326,7 +2326,7 @@ Name: RAMON
 Class: Burglar Frlg
 Pic: Burglar Frlg
 Gender: Male
-Music: Suspicious
+Music: Dangerous
 Double Battle: No
 AI: Check Bad Move
 
@@ -2339,7 +2339,7 @@ Name: DUSTY
 Class: Burglar Frlg
 Pic: Burglar Frlg
 Gender: Male
-Music: Suspicious
+Music: Dangerous
 Double Battle: No
 AI: Check Bad Move
 
@@ -2356,7 +2356,7 @@ Name: ARNIE
 Class: Burglar Frlg
 Pic: Burglar Frlg
 Gender: Male
-Music: Suspicious
+Music: Dangerous
 Double Battle: No
 AI: Check Bad Move
 
@@ -2373,7 +2373,7 @@ Name: SIMON
 Class: Burglar Frlg
 Pic: Burglar Frlg
 Gender: Male
-Music: Suspicious
+Music: Dangerous
 Double Battle: No
 AI: Check Bad Move
 
@@ -2386,7 +2386,7 @@ Name: LEWIS
 Class: Burglar Frlg
 Pic: Burglar Frlg
 Gender: Male
-Music: Suspicious
+Music: Dangerous
 Double Battle: No
 AI: Check Bad Move
 
@@ -2403,7 +2403,7 @@ Name: BAILY
 Class: Engineer Frlg
 Pic: Engineer Frlg
 Gender: Male
-Music: Male
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -2420,7 +2420,7 @@ Name: BRAXTON
 Class: Engineer Frlg
 Pic: Engineer Frlg
 Gender: Male
-Music: Male
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -2433,7 +2433,7 @@ Name: BERNIE
 Class: Engineer Frlg
 Pic: Engineer Frlg
 Gender: Male
-Music: Male
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -2454,7 +2454,7 @@ Name: DALE
 Class: Fisherman Frlg
 Pic: Fisherman Frlg
 Gender: Male
-Music: Hiker
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -2475,7 +2475,7 @@ Name: BARNY
 Class: Fisherman Frlg
 Pic: Fisherman Frlg
 Gender: Male
-Music: Hiker
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -2496,7 +2496,7 @@ Name: NED
 Class: Fisherman Frlg
 Pic: Fisherman Frlg
 Gender: Male
-Music: Hiker
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -2517,7 +2517,7 @@ Name: CHIP
 Class: Fisherman Frlg
 Pic: Fisherman Frlg
 Gender: Male
-Music: Hiker
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -2534,7 +2534,7 @@ Name: HANK
 Class: Fisherman Frlg
 Pic: Fisherman Frlg
 Gender: Male
-Music: Hiker
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -2547,7 +2547,7 @@ Name: ELLIOT
 Class: Fisherman Frlg
 Pic: Fisherman Frlg
 Gender: Male
-Music: Hiker
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -2572,7 +2572,7 @@ Name: RONALD
 Class: Fisherman Frlg
 Pic: Fisherman Frlg
 Gender: Male
-Music: Hiker
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -2597,7 +2597,7 @@ Name: CLAUDE
 Class: Fisherman Frlg
 Pic: Fisherman Frlg
 Gender: Male
-Music: Hiker
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -2614,7 +2614,7 @@ Name: WADE
 Class: Fisherman Frlg
 Pic: Fisherman Frlg
 Gender: Male
-Music: Hiker
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -2647,7 +2647,7 @@ Name: NOLAN
 Class: Fisherman Frlg
 Pic: Fisherman Frlg
 Gender: Male
-Music: Hiker
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -2664,7 +2664,7 @@ Name: ANDREW
 Class: Fisherman Frlg
 Pic: Fisherman Frlg
 Gender: Male
-Music: Hiker
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -2681,7 +2681,7 @@ Name: LUIS
 Class: Swimmer M Frlg
 Pic: Swimmer M Frlg
 Gender: Male
-Music: Swimmer
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -2698,7 +2698,7 @@ Name: RICHARD
 Class: Swimmer M Frlg
 Pic: Swimmer M Frlg
 Gender: Male
-Music: Swimmer
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -2715,7 +2715,7 @@ Name: REECE
 Class: Swimmer M Frlg
 Pic: Swimmer M Frlg
 Gender: Male
-Music: Swimmer
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -2736,7 +2736,7 @@ Name: MATTHEW
 Class: Swimmer M Frlg
 Pic: Swimmer M Frlg
 Gender: Male
-Music: Swimmer
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -2753,7 +2753,7 @@ Name: DOUGLAS
 Class: Swimmer M Frlg
 Pic: Swimmer M Frlg
 Gender: Male
-Music: Swimmer
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -2778,7 +2778,7 @@ Name: DAVID
 Class: Swimmer M Frlg
 Pic: Swimmer M Frlg
 Gender: Male
-Music: Swimmer
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -2799,7 +2799,7 @@ Name: TONY
 Class: Swimmer M Frlg
 Pic: Swimmer M Frlg
 Gender: Male
-Music: Swimmer
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -2816,7 +2816,7 @@ Name: AXLE
 Class: Swimmer M Frlg
 Pic: Swimmer M Frlg
 Gender: Male
-Music: Swimmer
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -2845,7 +2845,7 @@ Name: BARRY
 Class: Swimmer M Frlg
 Pic: Swimmer M Frlg
 Gender: Male
-Music: Swimmer
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -2862,7 +2862,7 @@ Name: DEAN
 Class: Swimmer M Frlg
 Pic: Swimmer M Frlg
 Gender: Male
-Music: Swimmer
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -2875,7 +2875,7 @@ Name: DARRIN
 Class: Swimmer M Frlg
 Pic: Swimmer M Frlg
 Gender: Male
-Music: Swimmer
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -2900,7 +2900,7 @@ Name: SPENCER
 Class: Swimmer M Frlg
 Pic: Swimmer M Frlg
 Gender: Male
-Music: Swimmer
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -2917,7 +2917,7 @@ Name: JACK
 Class: Swimmer M Frlg
 Pic: Swimmer M Frlg
 Gender: Male
-Music: Swimmer
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -2930,7 +2930,7 @@ Name: JEROME
 Class: Swimmer M Frlg
 Pic: Swimmer M Frlg
 Gender: Male
-Music: Swimmer
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -2947,7 +2947,7 @@ Name: ROLAND
 Class: Swimmer M Frlg
 Pic: Swimmer M Frlg
 Gender: Male
-Music: Swimmer
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -2968,7 +2968,7 @@ Name: KOJI
 Class: Cue Ball Frlg
 Pic: Cue Ball Frlg
 Gender: Male
-Music: Male
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -2989,7 +2989,7 @@ Name: LUKE
 Class: Cue Ball Frlg
 Pic: Cue Ball Frlg
 Gender: Male
-Music: Male
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -3006,7 +3006,7 @@ Name: CAMRON
 Class: Cue Ball Frlg
 Pic: Cue Ball Frlg
 Gender: Male
-Music: Male
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -3023,7 +3023,7 @@ Name: RAUL
 Class: Cue Ball Frlg
 Pic: Cue Ball Frlg
 Gender: Male
-Music: Male
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -3040,7 +3040,7 @@ Name: ISAIAH
 Class: Cue Ball Frlg
 Pic: Cue Ball Frlg
 Gender: Male
-Music: Male
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -3057,7 +3057,7 @@ Name: ZEEK
 Class: Cue Ball Frlg
 Pic: Cue Ball Frlg
 Gender: Male
-Music: Male
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -3070,7 +3070,7 @@ Name: JAMAL
 Class: Cue Ball Frlg
 Pic: Cue Ball Frlg
 Gender: Male
-Music: Male
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -3095,7 +3095,7 @@ Name: COREY
 Class: Cue Ball Frlg
 Pic: Cue Ball Frlg
 Gender: Male
-Music: Male
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -3112,7 +3112,7 @@ Name: CHASE
 Class: Cue Ball Frlg
 Pic: Cue Ball Frlg
 Gender: Male
-Music: Male
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -3133,7 +3133,7 @@ Name: HUGO
 Class: Gamer Frlg
 Pic: Gamer Frlg
 Gender: Male
-Music: Male
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -3150,7 +3150,7 @@ Name: JASPER
 Class: Gamer Frlg
 Pic: Gamer Frlg
 Gender: Male
-Music: Male
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -3167,7 +3167,7 @@ Name: DIRK
 Class: Gamer Frlg
 Pic: Gamer Frlg
 Gender: Male
-Music: Male
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -3184,7 +3184,7 @@ Name: DARIAN
 Class: Gamer Frlg
 Pic: Gamer Frlg
 Gender: Male
-Music: Male
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -3201,7 +3201,7 @@ Name: STAN
 Class: Gamer Frlg
 Pic: Gamer Frlg
 Gender: Male
-Music: Male
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -3222,7 +3222,7 @@ Name: RICH
 Class: Gamer Frlg
 Pic: Gamer Frlg
 Gender: Male
-Music: Male
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -3239,7 +3239,7 @@ Name: BRIDGET
 Class: Beauty Frlg
 Pic: Beauty Frlg
 Gender: Male
-Music: Female
+Music: Cute
 Double Battle: No
 AI: Check Bad Move
 
@@ -3264,7 +3264,7 @@ Name: TAMIA
 Class: Beauty Frlg
 Pic: Beauty Frlg
 Gender: Male
-Music: Female
+Music: Cute
 Double Battle: No
 AI: Check Bad Move
 
@@ -3281,7 +3281,7 @@ Name: LORI
 Class: Beauty Frlg
 Pic: Beauty Frlg
 Gender: Male
-Music: Female
+Music: Cute
 Double Battle: No
 AI: Check Bad Move
 
@@ -3294,7 +3294,7 @@ Name: LOLA
 Class: Beauty Frlg
 Pic: Beauty Frlg
 Gender: Male
-Music: Female
+Music: Cute
 Double Battle: No
 AI: Check Bad Move
 
@@ -3315,7 +3315,7 @@ Name: SHEILA
 Class: Beauty Frlg
 Pic: Beauty Frlg
 Gender: Male
-Music: Female
+Music: Cute
 Double Battle: No
 AI: Check Bad Move
 
@@ -3332,7 +3332,7 @@ Name: TIFFANY
 Class: Swimmer F Frlg
 Pic: Swimmer F Frlg
 Gender: Male
-Music: Female
+Music: Cute
 Double Battle: No
 AI: Check Bad Move
 
@@ -3345,7 +3345,7 @@ Name: NORA
 Class: Swimmer F Frlg
 Pic: Swimmer F Frlg
 Gender: Male
-Music: Female
+Music: Cute
 Double Battle: No
 AI: Check Bad Move
 
@@ -3366,7 +3366,7 @@ Name: MELISSA
 Class: Swimmer F Frlg
 Pic: Swimmer F Frlg
 Gender: Male
-Music: Female
+Music: Cute
 Double Battle: No
 AI: Check Bad Move
 
@@ -3383,7 +3383,7 @@ Name: GRACE
 Class: Beauty Frlg
 Pic: Beauty Frlg
 Gender: Male
-Music: Female
+Music: Cute
 Double Battle: No
 AI: Check Bad Move
 
@@ -3400,7 +3400,7 @@ Name: OLIVIA
 Class: Beauty Frlg
 Pic: Beauty Frlg
 Gender: Male
-Music: Female
+Music: Cute
 Double Battle: No
 AI: Check Bad Move
 
@@ -3417,7 +3417,7 @@ Name: LAUREN
 Class: Beauty Frlg
 Pic: Swimmer F Frlg
 Gender: Male
-Music: Female
+Music: Cute
 Double Battle: No
 AI: Check Bad Move
 
@@ -3438,7 +3438,7 @@ Name: ANYA
 Class: Swimmer F Frlg
 Pic: Swimmer F Frlg
 Gender: Male
-Music: Female
+Music: Cute
 Double Battle: No
 AI: Check Bad Move
 
@@ -3467,7 +3467,7 @@ Name: ALICE
 Class: Swimmer F Frlg
 Pic: Swimmer F Frlg
 Gender: Male
-Music: Female
+Music: Cute
 Double Battle: No
 AI: Check Bad Move
 
@@ -3484,7 +3484,7 @@ Name: CONNIE
 Class: Swimmer F Frlg
 Pic: Swimmer F Frlg
 Gender: Male
-Music: Female
+Music: Cute
 Double Battle: No
 AI: Check Bad Move
 
@@ -3505,7 +3505,7 @@ Name: SHIRLEY
 Class: Swimmer F Frlg
 Pic: Swimmer F Frlg
 Gender: Male
-Music: Female
+Music: Cute
 Double Battle: No
 AI: Check Bad Move
 
@@ -3526,7 +3526,7 @@ Name: JOHAN
 Class: Psychic Frlg
 Pic: Psychic M Frlg
 Gender: Male
-Music: Intense
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -3551,7 +3551,7 @@ Name: TYRON
 Class: Psychic Frlg
 Pic: Psychic M Frlg
 Gender: Male
-Music: Intense
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -3568,7 +3568,7 @@ Name: CAMERON
 Class: Psychic Frlg
 Pic: Psychic M Frlg
 Gender: Male
-Music: Intense
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -3589,7 +3589,7 @@ Name: PRESTON
 Class: Psychic Frlg
 Pic: Psychic M Frlg
 Gender: Male
-Music: Intense
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -3602,7 +3602,7 @@ Name: RANDALL
 Class: Rocker Frlg
 Pic: Rocker Frlg
 Gender: Male
-Music: Male
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -3623,7 +3623,7 @@ Name: LUCA
 Class: Rocker Frlg
 Pic: Rocker Frlg
 Gender: Male
-Music: Male
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -3640,7 +3640,7 @@ Name: DALTON
 Class: Juggler Frlg
 Pic: Juggler Frlg
 Gender: Male
-Music: Hiker
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -3657,7 +3657,7 @@ Name: NELSON
 Class: Juggler Frlg
 Pic: Juggler Frlg
 Gender: Male
-Music: Hiker
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -3682,7 +3682,7 @@ Name: KIRK
 Class: Juggler Frlg
 Pic: Juggler Frlg
 Gender: Male
-Music: Hiker
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -3707,7 +3707,7 @@ Name: SHAWN
 Class: Juggler Frlg
 Pic: Juggler Frlg
 Gender: Male
-Music: Hiker
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -3724,7 +3724,7 @@ Name: GREGORY
 Class: Juggler Frlg
 Pic: Juggler Frlg
 Gender: Male
-Music: Hiker
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -3741,7 +3741,7 @@ Name: EDWARD
 Class: Juggler Frlg
 Pic: Juggler Frlg
 Gender: Male
-Music: Hiker
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -3782,7 +3782,7 @@ Name: KAYDEN
 Class: Juggler Frlg
 Pic: Juggler Frlg
 Gender: Male
-Music: Hiker
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -3795,7 +3795,7 @@ Name: NATE
 Class: Juggler Frlg
 Pic: Juggler Frlg
 Gender: Male
-Music: Hiker
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -3812,7 +3812,7 @@ Name: PHIL
 Class: Tamer Frlg
 Pic: Tamer Frlg
 Gender: Male
-Music: Hiker
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -3829,7 +3829,7 @@ Name: EDGAR
 Class: Tamer Frlg
 Pic: Tamer Frlg
 Gender: Male
-Music: Hiker
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -3850,7 +3850,7 @@ Name: JASON
 Class: Tamer Frlg
 Pic: Tamer Frlg
 Gender: Male
-Music: Hiker
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -3863,7 +3863,7 @@ Name: COLE
 Class: Tamer Frlg
 Pic: Tamer Frlg
 Gender: Male
-Music: Hiker
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -3880,7 +3880,7 @@ Name: VINCENT
 Class: Tamer Frlg
 Pic: Tamer Frlg
 Gender: Male
-Music: Hiker
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -3897,7 +3897,7 @@ Name: JOHN
 Class: Tamer Frlg
 Pic: Tamer Frlg
 Gender: Male
-Music: Hiker
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -3922,7 +3922,7 @@ Name: SEBASTIAN
 Class: Bird Keeper Frlg
 Pic: Bird Keeper Frlg
 Gender: Male
-Music: Cool
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -3939,7 +3939,7 @@ Name: PERRY
 Class: Bird Keeper Frlg
 Pic: Bird Keeper Frlg
 Gender: Male
-Music: Cool
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -3968,7 +3968,7 @@ Name: ROBERT
 Class: Bird Keeper Frlg
 Pic: Bird Keeper Frlg
 Gender: Male
-Music: Cool
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -3993,7 +3993,7 @@ Name: DONALD
 Class: Bird Keeper Frlg
 Pic: Bird Keeper Frlg
 Gender: Male
-Music: Cool
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -4006,7 +4006,7 @@ Name: BENNY
 Class: Bird Keeper Frlg
 Pic: Bird Keeper Frlg
 Gender: Male
-Music: Cool
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -4023,7 +4023,7 @@ Name: EDWIN
 Class: Bird Keeper Frlg
 Pic: Bird Keeper Frlg
 Gender: Male
-Music: Cool
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -4048,7 +4048,7 @@ Name: CHESTER
 Class: Bird Keeper Frlg
 Pic: Bird Keeper Frlg
 Gender: Male
-Music: Cool
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -4069,7 +4069,7 @@ Name: WILTON
 Class: Bird Keeper Frlg
 Pic: Bird Keeper Frlg
 Gender: Male
-Music: Cool
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -4086,7 +4086,7 @@ Name: RAMIRO
 Class: Bird Keeper Frlg
 Pic: Bird Keeper Frlg
 Gender: Male
-Music: Cool
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -4099,7 +4099,7 @@ Name: JACOB
 Class: Bird Keeper Frlg
 Pic: Bird Keeper Frlg
 Gender: Male
-Music: Cool
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -4124,7 +4124,7 @@ Name: ROGER
 Class: Bird Keeper Frlg
 Pic: Bird Keeper Frlg
 Gender: Male
-Music: Cool
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -4145,7 +4145,7 @@ Name: REED
 Class: Bird Keeper Frlg
 Pic: Bird Keeper Frlg
 Gender: Male
-Music: Cool
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -4170,7 +4170,7 @@ Name: KEITH
 Class: Bird Keeper Frlg
 Pic: Bird Keeper Frlg
 Gender: Male
-Music: Cool
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -4187,7 +4187,7 @@ Name: CARTER
 Class: Bird Keeper Frlg
 Pic: Bird Keeper Frlg
 Gender: Male
-Music: Cool
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -4208,7 +4208,7 @@ Name: MITCH
 Class: Bird Keeper Frlg
 Pic: Bird Keeper Frlg
 Gender: Male
-Music: Cool
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -4233,7 +4233,7 @@ Name: BECK
 Class: Bird Keeper Frlg
 Pic: Bird Keeper Frlg
 Gender: Male
-Music: Cool
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -4250,7 +4250,7 @@ Name: MARLON
 Class: Bird Keeper Frlg
 Pic: Bird Keeper Frlg
 Gender: Male
-Music: Cool
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -4271,7 +4271,7 @@ Name: KOICHI
 Class: Black Belt Frlg
 Pic: Black Belt Frlg
 Gender: Male
-Music: Intense
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -4288,7 +4288,7 @@ Name: MIKE
 Class: Black Belt Frlg
 Pic: Black Belt Frlg
 Gender: Male
-Music: Intense
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -4309,7 +4309,7 @@ Name: HIDEKI
 Class: Black Belt Frlg
 Pic: Black Belt Frlg
 Gender: Male
-Music: Intense
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -4326,7 +4326,7 @@ Name: AARON
 Class: Black Belt Frlg
 Pic: Black Belt Frlg
 Gender: Male
-Music: Intense
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -4339,7 +4339,7 @@ Name: HITOSHI
 Class: Black Belt Frlg
 Pic: Black Belt Frlg
 Gender: Male
-Music: Intense
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -4360,7 +4360,7 @@ Name: ATSUSHI
 Class: Black Belt Frlg
 Pic: Black Belt Frlg
 Gender: Male
-Music: Intense
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -4377,7 +4377,7 @@ Name: KIYO
 Class: Black Belt Frlg
 Pic: Black Belt Frlg
 Gender: Male
-Music: Intense
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -4390,7 +4390,7 @@ Name: TAKASHI
 Class: Black Belt Frlg
 Pic: Black Belt Frlg
 Gender: Male
-Music: Intense
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -4411,7 +4411,7 @@ Name: DAISUKE
 Class: Black Belt Frlg
 Pic: Black Belt Frlg
 Gender: Male
-Music: Intense
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -4432,7 +4432,7 @@ Name: TERRY
 Class: Rival Early Frlg
 Pic: Rival Early Frlg
 Gender: Male
-Music: Male
+Music: Serious
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 
@@ -4445,7 +4445,7 @@ Name: TERRY
 Class: Rival Early Frlg
 Pic: Rival Early Frlg
 Gender: Male
-Music: Male
+Music: Serious
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 
@@ -4458,7 +4458,7 @@ Name: TERRY
 Class: Rival Early Frlg
 Pic: Rival Early Frlg
 Gender: Male
-Music: Male
+Music: Serious
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 
@@ -4471,7 +4471,7 @@ Name: TERRY
 Class: Rival Early Frlg
 Pic: Rival Early Frlg
 Gender: Male
-Music: Male
+Music: Serious
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 
@@ -4488,7 +4488,7 @@ Name: TERRY
 Class: Rival Early Frlg
 Pic: Rival Early Frlg
 Gender: Male
-Music: Male
+Music: Serious
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 
@@ -4505,7 +4505,7 @@ Name: TERRY
 Class: Rival Early Frlg
 Pic: Rival Early Frlg
 Gender: Male
-Music: Male
+Music: Serious
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 
@@ -4522,7 +4522,7 @@ Name: TERRY
 Class: Rival Early Frlg
 Pic: Rival Early Frlg
 Gender: Male
-Music: Male
+Music: Serious
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 
@@ -4559,7 +4559,7 @@ Name: TERRY
 Class: Rival Early Frlg
 Pic: Rival Early Frlg
 Gender: Male
-Music: Male
+Music: Serious
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 
@@ -4596,7 +4596,7 @@ Name: TERRY
 Class: Rival Early Frlg
 Pic: Rival Early Frlg
 Gender: Male
-Music: Male
+Music: Serious
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 
@@ -4633,7 +4633,7 @@ Name: TED
 Class: Scientist Frlg
 Pic: Scientist Frlg
 Gender: Male
-Music: Suspicious
+Music: Dangerous
 Double Battle: No
 AI: Check Bad Move
 
@@ -4650,7 +4650,7 @@ Name: CONNOR
 Class: Scientist Frlg
 Pic: Scientist Frlg
 Gender: Male
-Music: Suspicious
+Music: Dangerous
 Double Battle: No
 AI: Check Bad Move
 
@@ -4691,7 +4691,7 @@ Name: JERRY
 Class: Scientist Frlg
 Pic: Scientist Frlg
 Gender: Male
-Music: Suspicious
+Music: Dangerous
 Double Battle: No
 AI: Check Bad Move
 
@@ -4712,7 +4712,7 @@ Name: JOSE
 Class: Scientist Frlg
 Pic: Scientist Frlg
 Gender: Male
-Music: Suspicious
+Music: Dangerous
 Double Battle: No
 AI: Check Bad Move
 
@@ -4737,7 +4737,7 @@ Name: RODNEY
 Class: Scientist Frlg
 Pic: Scientist Frlg
 Gender: Male
-Music: Suspicious
+Music: Dangerous
 Double Battle: No
 AI: Check Bad Move
 
@@ -4750,7 +4750,7 @@ Name: BEAU
 Class: Scientist Frlg
 Pic: Scientist Frlg
 Gender: Male
-Music: Suspicious
+Music: Dangerous
 Double Battle: No
 AI: Check Bad Move
 
@@ -4791,7 +4791,7 @@ Name: TAYLOR
 Class: Scientist Frlg
 Pic: Scientist Frlg
 Gender: Male
-Music: Suspicious
+Music: Dangerous
 Double Battle: No
 AI: Check Bad Move
 
@@ -4840,7 +4840,7 @@ Name: JOSHUA
 Class: Scientist Frlg
 Pic: Scientist Frlg
 Gender: Male
-Music: Suspicious
+Music: Dangerous
 Double Battle: No
 AI: Check Bad Move
 
@@ -4857,7 +4857,7 @@ Name: PARKER
 Class: Scientist Frlg
 Pic: Scientist Frlg
 Gender: Male
-Music: Suspicious
+Music: Dangerous
 Double Battle: No
 AI: Check Bad Move
 
@@ -4874,7 +4874,7 @@ Name: ED
 Class: Scientist Frlg
 Pic: Scientist Frlg
 Gender: Male
-Music: Suspicious
+Music: Dangerous
 Double Battle: No
 AI: Check Bad Move
 
@@ -4907,7 +4907,7 @@ Name: TRAVIS
 Class: Scientist Frlg
 Pic: Scientist Frlg
 Gender: Male
-Music: Suspicious
+Music: Dangerous
 Double Battle: No
 AI: Check Bad Move
 
@@ -4924,7 +4924,7 @@ Name: BRAYDON
 Class: Scientist Frlg
 Pic: Scientist Frlg
 Gender: Male
-Music: Suspicious
+Music: Dangerous
 Double Battle: No
 AI: Check Bad Move
 
@@ -4945,7 +4945,7 @@ Name: IVAN
 Class: Scientist Frlg
 Pic: Scientist Frlg
 Gender: Male
-Music: Suspicious
+Music: Dangerous
 Double Battle: No
 AI: Check Bad Move
 
@@ -4962,7 +4962,7 @@ Name: GIOVANNI
 Class: Boss Frlg
 Pic: Leader Giovanni Frlg
 Gender: Male
-Music: Aqua
+Music: Dangerous
 Double Battle: No
 AI: Check Bad Move
 
@@ -4983,7 +4983,7 @@ Name: GIOVANNI
 Class: Boss Frlg
 Pic: Leader Giovanni Frlg
 Gender: Male
-Music: Aqua
+Music: Dangerous
 Double Battle: No
 AI: Check Bad Move
 
@@ -5008,7 +5008,7 @@ Name: GIOVANNI
 Class: Leader Frlg
 Pic: Leader Giovanni Frlg
 Gender: Male
-Music: Aqua
+Music: Dangerous
 Items: Hyper Potion / Hyper Potion / Full Heal
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
@@ -5058,7 +5058,7 @@ Name: GRUNT
 Class: Team Rocket Frlg
 Pic: Rocket Grunt M Frlg
 Gender: Male
-Music: Aqua
+Music: Dangerous
 Double Battle: No
 AI: Check Bad Move
 
@@ -5075,7 +5075,7 @@ Name: GRUNT
 Class: Team Rocket Frlg
 Pic: Rocket Grunt M Frlg
 Gender: Male
-Music: Aqua
+Music: Dangerous
 Double Battle: No
 AI: Check Bad Move
 
@@ -5096,7 +5096,7 @@ Name: GRUNT
 Class: Team Rocket Frlg
 Pic: Rocket Grunt M Frlg
 Gender: Male
-Music: Aqua
+Music: Dangerous
 Double Battle: No
 AI: Check Bad Move
 
@@ -5113,7 +5113,7 @@ Name: GRUNT
 Class: Team Rocket Frlg
 Pic: Rocket Grunt M Frlg
 Gender: Male
-Music: Aqua
+Music: Dangerous
 Double Battle: No
 AI: Check Bad Move
 
@@ -5130,7 +5130,7 @@ Name: GRUNT
 Class: Team Rocket Frlg
 Pic: Rocket Grunt M Frlg
 Gender: Male
-Music: Aqua
+Music: Dangerous
 Double Battle: No
 AI: Check Bad Move
 
@@ -5147,7 +5147,7 @@ Name: GRUNT
 Class: Team Rocket Frlg
 Pic: Rocket Grunt M Frlg
 Gender: Male
-Music: Aqua
+Music: Dangerous
 Double Battle: No
 AI: Check Bad Move
 
@@ -5164,7 +5164,7 @@ Name: GRUNT
 Class: Team Rocket Frlg
 Pic: Rocket Grunt M Frlg
 Gender: Male
-Music: Aqua
+Music: Dangerous
 Double Battle: No
 AI: Check Bad Move
 
@@ -5181,7 +5181,7 @@ Name: GRUNT
 Class: Team Rocket Frlg
 Pic: Rocket Grunt M Frlg
 Gender: Male
-Music: Aqua
+Music: Dangerous
 Double Battle: No
 AI: Check Bad Move
 
@@ -5198,7 +5198,7 @@ Name: GRUNT
 Class: Team Rocket Frlg
 Pic: Rocket Grunt M Frlg
 Gender: Male
-Music: Aqua
+Music: Dangerous
 Double Battle: No
 AI: Check Bad Move
 
@@ -5215,7 +5215,7 @@ Name: GRUNT
 Class: Team Rocket Frlg
 Pic: Rocket Grunt M Frlg
 Gender: Male
-Music: Aqua
+Music: Dangerous
 Double Battle: No
 AI: Check Bad Move
 
@@ -5246,7 +5246,7 @@ Name: GRUNT
 Class: Team Rocket Frlg
 Pic: Rocket Grunt M Frlg
 Gender: Male
-Music: Aqua
+Music: Dangerous
 Double Battle: No
 AI: Check Bad Move
 
@@ -5271,7 +5271,7 @@ Name: GRUNT
 Class: Team Rocket Frlg
 Pic: Rocket Grunt M Frlg
 Gender: Male
-Music: Aqua
+Music: Dangerous
 Double Battle: No
 AI: Check Bad Move
 
@@ -5296,7 +5296,7 @@ Name: GRUNT
 Class: Team Rocket Frlg
 Pic: Rocket Grunt M Frlg
 Gender: Male
-Music: Aqua
+Music: Dangerous
 Double Battle: No
 AI: Check Bad Move
 
@@ -5344,7 +5344,7 @@ Name: GRUNT
 Class: Team Rocket Frlg
 Pic: Rocket Grunt M Frlg
 Gender: Male
-Music: Aqua
+Music: Dangerous
 Double Battle: No
 AI: Check Bad Move
 
@@ -5365,7 +5365,7 @@ Name: GRUNT
 Class: Team Rocket Frlg
 Pic: Rocket Grunt M Frlg
 Gender: Male
-Music: Aqua
+Music: Dangerous
 Double Battle: No
 AI: Check Bad Move
 
@@ -5382,7 +5382,7 @@ Name: GRUNT
 Class: Team Rocket Frlg
 Pic: Rocket Grunt M Frlg
 Gender: Male
-Music: Aqua
+Music: Dangerous
 Double Battle: No
 AI: Check Bad Move
 
@@ -5403,7 +5403,7 @@ Name: GRUNT
 Class: Team Rocket Frlg
 Pic: Rocket Grunt M Frlg
 Gender: Male
-Music: Aqua
+Music: Dangerous
 Double Battle: No
 AI: Check Bad Move
 
@@ -5424,7 +5424,7 @@ Name: GRUNT
 Class: Team Rocket Frlg
 Pic: Rocket Grunt M Frlg
 Gender: Male
-Music: Aqua
+Music: Dangerous
 Double Battle: No
 AI: Check Bad Move
 
@@ -5441,7 +5441,7 @@ Name: GRUNT
 Class: Team Rocket Frlg
 Pic: Rocket Grunt M Frlg
 Gender: Male
-Music: Aqua
+Music: Dangerous
 Double Battle: No
 AI: Check Bad Move
 
@@ -5462,7 +5462,7 @@ Name: GRUNT
 Class: Team Rocket Frlg
 Pic: Rocket Grunt M Frlg
 Gender: Male
-Music: Aqua
+Music: Dangerous
 Double Battle: No
 AI: Check Bad Move
 
@@ -5479,7 +5479,7 @@ Name: GRUNT
 Class: Team Rocket Frlg
 Pic: Rocket Grunt M Frlg
 Gender: Male
-Music: Aqua
+Music: Dangerous
 Double Battle: No
 AI: Check Bad Move
 
@@ -5504,7 +5504,7 @@ Name: GRUNT
 Class: Team Rocket Frlg
 Pic: Rocket Grunt M Frlg
 Gender: Male
-Music: Aqua
+Music: Dangerous
 Double Battle: No
 AI: Check Bad Move
 
@@ -5521,7 +5521,7 @@ Name: GRUNT
 Class: Team Rocket Frlg
 Pic: Rocket Grunt M Frlg
 Gender: Male
-Music: Aqua
+Music: Dangerous
 Double Battle: No
 AI: Check Bad Move
 
@@ -5538,7 +5538,7 @@ Name: GRUNT
 Class: Team Rocket Frlg
 Pic: Rocket Grunt M Frlg
 Gender: Male
-Music: Aqua
+Music: Dangerous
 Double Battle: No
 AI: Check Bad Move
 
@@ -5567,7 +5567,7 @@ Name: GRUNT
 Class: Team Rocket Frlg
 Pic: Rocket Grunt M Frlg
 Gender: Male
-Music: Aqua
+Music: Dangerous
 Double Battle: No
 AI: Check Bad Move
 
@@ -5588,7 +5588,7 @@ Name: GRUNT
 Class: Team Rocket Frlg
 Pic: Rocket Grunt M Frlg
 Gender: Male
-Music: Aqua
+Music: Dangerous
 Double Battle: No
 AI: Check Bad Move
 
@@ -5605,7 +5605,7 @@ Name: GRUNT
 Class: Team Rocket Frlg
 Pic: Rocket Grunt M Frlg
 Gender: Male
-Music: Aqua
+Music: Dangerous
 Double Battle: No
 AI: Check Bad Move
 
@@ -5626,7 +5626,7 @@ Name: GRUNT
 Class: Team Rocket Frlg
 Pic: Rocket Grunt M Frlg
 Gender: Male
-Music: Aqua
+Music: Dangerous
 Double Battle: No
 AI: Check Bad Move
 
@@ -5639,7 +5639,7 @@ Name: GRUNT
 Class: Team Rocket Frlg
 Pic: Rocket Grunt M Frlg
 Gender: Male
-Music: Aqua
+Music: Dangerous
 Double Battle: No
 AI: Check Bad Move
 
@@ -5652,7 +5652,7 @@ Name: GRUNT
 Class: Team Rocket Frlg
 Pic: Rocket Grunt M Frlg
 Gender: Male
-Music: Aqua
+Music: Dangerous
 Double Battle: No
 AI: Check Bad Move
 
@@ -5669,7 +5669,7 @@ Name: GRUNT
 Class: Team Rocket Frlg
 Pic: Rocket Grunt M Frlg
 Gender: Male
-Music: Aqua
+Music: Dangerous
 Double Battle: No
 AI: Check Bad Move
 
@@ -5690,7 +5690,7 @@ Name: GRUNT
 Class: Team Rocket Frlg
 Pic: Rocket Grunt M Frlg
 Gender: Male
-Music: Aqua
+Music: Dangerous
 Double Battle: No
 AI: Check Bad Move
 
@@ -5731,7 +5731,7 @@ Name: GRUNT
 Class: Team Rocket Frlg
 Pic: Rocket Grunt M Frlg
 Gender: Male
-Music: Aqua
+Music: Dangerous
 Double Battle: No
 AI: Check Bad Move
 
@@ -5748,7 +5748,7 @@ Name: GRUNT
 Class: Team Rocket Frlg
 Pic: Rocket Grunt M Frlg
 Gender: Male
-Music: Aqua
+Music: Dangerous
 Double Battle: No
 AI: Check Bad Move
 
@@ -5765,7 +5765,7 @@ Name: GRUNT
 Class: Team Rocket Frlg
 Pic: Rocket Grunt M Frlg
 Gender: Male
-Music: Aqua
+Music: Dangerous
 Double Battle: No
 AI: Check Bad Move
 
@@ -5790,7 +5790,7 @@ Name: GRUNT
 Class: Team Rocket Frlg
 Pic: Rocket Grunt M Frlg
 Gender: Male
-Music: Aqua
+Music: Dangerous
 Double Battle: No
 AI: Check Bad Move
 
@@ -5811,7 +5811,7 @@ Name: GRUNT
 Class: Team Rocket Frlg
 Pic: Rocket Grunt M Frlg
 Gender: Male
-Music: Aqua
+Music: Dangerous
 Double Battle: No
 AI: Check Bad Move
 
@@ -5832,7 +5832,7 @@ Name: GRUNT
 Class: Team Rocket Frlg
 Pic: Rocket Grunt M Frlg
 Gender: Male
-Music: Aqua
+Music: Dangerous
 Double Battle: No
 AI: Check Bad Move
 
@@ -5853,7 +5853,7 @@ Name: GRUNT
 Class: Team Rocket Frlg
 Pic: Rocket Grunt M Frlg
 Gender: Male
-Music: Aqua
+Music: Dangerous
 Double Battle: No
 AI: Check Bad Move
 
@@ -5866,7 +5866,7 @@ Name: GRUNT
 Class: Team Rocket Frlg
 Pic: Rocket Grunt M Frlg
 Gender: Male
-Music: Aqua
+Music: Dangerous
 Double Battle: No
 AI: Check Bad Move
 
@@ -5895,7 +5895,7 @@ Name: GRUNT
 Class: Team Rocket Frlg
 Pic: Rocket Grunt M Frlg
 Gender: Male
-Music: Aqua
+Music: Dangerous
 Double Battle: No
 AI: Check Bad Move
 
@@ -5916,7 +5916,7 @@ Name: SAMUEL
 Class: Cooltrainer Frlg
 Pic: Cooltrainer M Frlg
 Gender: Male
-Music: Cool
+Music: Serious
 Items: Super Potion
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
@@ -5966,7 +5966,7 @@ Name: GEORGE
 Class: Cooltrainer Frlg
 Pic: Cooltrainer M Frlg
 Gender: Male
-Music: Cool
+Music: Serious
 Items: Hyper Potion
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
@@ -6016,7 +6016,7 @@ Name: COLBY
 Class: Cooltrainer Frlg
 Pic: Cooltrainer M Frlg
 Gender: Male
-Music: Cool
+Music: Serious
 Items: Hyper Potion
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
@@ -6066,7 +6066,7 @@ Name: PAUL
 Class: Cooltrainer Frlg
 Pic: Cooltrainer M Frlg
 Gender: Male
-Music: Cool
+Music: Serious
 Items: Full Restore
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
@@ -6116,7 +6116,7 @@ Name: ROLANDO
 Class: Cooltrainer Frlg
 Pic: Cooltrainer M Frlg
 Gender: Male
-Music: Cool
+Music: Serious
 Items: Hyper Potion
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
@@ -6166,7 +6166,7 @@ Name: GILBERT
 Class: Cooltrainer Frlg
 Pic: Cooltrainer M Frlg
 Gender: Male
-Music: Cool
+Music: Serious
 Items: Hyper Potion
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
@@ -6216,7 +6216,7 @@ Name: OWEN
 Class: Cooltrainer Frlg
 Pic: Cooltrainer M Frlg
 Gender: Male
-Music: Cool
+Music: Serious
 Items: Hyper Potion
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
@@ -6266,7 +6266,7 @@ Name: BERKE
 Class: Cooltrainer Frlg
 Pic: Cooltrainer M Frlg
 Gender: Male
-Music: Cool
+Music: Serious
 Items: Full Restore
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
@@ -6316,7 +6316,7 @@ Name: YUJI
 Class: Cooltrainer Frlg
 Pic: Cooltrainer M Frlg
 Gender: Male
-Music: Cool
+Music: Serious
 Items: Hyper Potion
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
@@ -6366,7 +6366,7 @@ Name: WARREN
 Class: Cooltrainer Frlg
 Pic: Cooltrainer M Frlg
 Gender: Male
-Music: Cool
+Music: Serious
 Items: Hyper Potion
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
@@ -6416,7 +6416,7 @@ Name: MARY
 Class: Cooltrainer Frlg
 Pic: Cooltrainer F Frlg
 Gender: Male
-Music: Cool
+Music: Serious
 Items: Super Potion
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
@@ -6466,7 +6466,7 @@ Name: CAROLINE
 Class: Cooltrainer Frlg
 Pic: Cooltrainer F Frlg
 Gender: Male
-Music: Cool
+Music: Serious
 Items: Hyper Potion
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
@@ -6516,7 +6516,7 @@ Name: ALEXA
 Class: Cooltrainer Frlg
 Pic: Cooltrainer F Frlg
 Gender: Male
-Music: Cool
+Music: Serious
 Items: Full Restore
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
@@ -6566,7 +6566,7 @@ Name: SHANNON
 Class: Cooltrainer Frlg
 Pic: Cooltrainer F Frlg
 Gender: Male
-Music: Cool
+Music: Serious
 Items: Full Restore
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
@@ -6616,7 +6616,7 @@ Name: NAOMI
 Class: Cooltrainer Frlg
 Pic: Cooltrainer F Frlg
 Gender: Male
-Music: Cool
+Music: Serious
 Items: Hyper Potion
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
@@ -6666,7 +6666,7 @@ Name: BROOKE
 Class: Cooltrainer Frlg
 Pic: Cooltrainer F Frlg
 Gender: Male
-Music: Cool
+Music: Serious
 Items: Full Restore
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
@@ -6716,7 +6716,7 @@ Name: AUSTINA
 Class: Cooltrainer Frlg
 Pic: Cooltrainer F Frlg
 Gender: Male
-Music: Cool
+Music: Serious
 Items: Full Restore
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
@@ -6766,7 +6766,7 @@ Name: JULIE
 Class: Cooltrainer Frlg
 Pic: Cooltrainer F Frlg
 Gender: Male
-Music: Cool
+Music: Serious
 Items: Hyper Potion
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
@@ -6816,7 +6816,7 @@ Name: LORELEI
 Class: Elite Four Frlg
 Pic: Elite Four Lorelei Frlg
 Gender: Male
-Music: Elite Four
+Music: Serious
 Items: Full Restore / Full Restore
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
@@ -6867,7 +6867,7 @@ Name: BRUNO
 Class: Elite Four Frlg
 Pic: Elite Four Bruno Frlg
 Gender: Male
-Music: Elite Four
+Music: Serious
 Items: Full Restore / Full Restore
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
@@ -6918,7 +6918,7 @@ Name: AGATHA
 Class: Elite Four Frlg
 Pic: Elite Four Agatha Frlg
 Gender: Male
-Music: Elite Four
+Music: Serious
 Items: Full Restore / Full Restore
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
@@ -6969,7 +6969,7 @@ Name: LANCE
 Class: Elite Four Frlg
 Pic: Elite Four Lance Frlg
 Gender: Male
-Music: Elite Four
+Music: Serious
 Items: Full Restore / Full Restore
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
@@ -7020,7 +7020,7 @@ Name: BROCK
 Class: Leader Frlg
 Pic: Leader Brock Frlg
 Gender: Male
-Music: Male
+Music: Serious
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 
@@ -7043,7 +7043,7 @@ Name: MISTY
 Class: Leader Frlg
 Pic: Leader Misty Frlg
 Gender: Male
-Music: Female
+Music: Cute
 Items: Super Potion
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
@@ -7069,7 +7069,7 @@ Name: LT. SURGE
 Class: Leader Frlg
 Pic: Leader Lt Surge Frlg
 Gender: Male
-Music: Male
+Music: Serious
 Items: Super Potion / Full Heal
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
@@ -7103,7 +7103,7 @@ Name: ERIKA
 Class: Leader Frlg
 Pic: Leader Erika Frlg
 Gender: Male
-Music: Female
+Music: Cute
 Items: Hyper Potion / Full Heal
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
@@ -7137,7 +7137,7 @@ Name: KOGA
 Class: Leader Frlg
 Pic: Leader Koga Frlg
 Gender: Male
-Music: Male
+Music: Serious
 Items: Hyper Potion / Hyper Potion / Full Heal
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
@@ -7179,7 +7179,7 @@ Name: BLAINE
 Class: Leader Frlg
 Pic: Leader Blaine Frlg
 Gender: Male
-Music: Male
+Music: Serious
 Items: Hyper Potion / Hyper Potion / Full Heal
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
@@ -7221,7 +7221,7 @@ Name: SABRINA
 Class: Leader Frlg
 Pic: Leader Sabrina Frlg
 Gender: Male
-Music: Female
+Music: Cute
 Items: Hyper Potion / Hyper Potion / Full Heal
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
@@ -7263,7 +7263,7 @@ Name: THOMAS
 Class: Gentleman Frlg
 Pic: Gentleman Frlg
 Gender: Male
-Music: Rich
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -7280,7 +7280,7 @@ Name: ARTHUR
 Class: Gentleman Frlg
 Pic: Gentleman Frlg
 Gender: Male
-Music: Rich
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -7297,7 +7297,7 @@ Name: TUCKER
 Class: Gentleman Frlg
 Pic: Gentleman Frlg
 Gender: Male
-Music: Rich
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -7310,7 +7310,7 @@ Name: NORTON
 Class: Gentleman Frlg
 Pic: Gentleman Frlg
 Gender: Male
-Music: Rich
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -7323,7 +7323,7 @@ Name: WALTER
 Class: Gentleman Frlg
 Pic: Gentleman Frlg
 Gender: Male
-Music: Rich
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -7340,7 +7340,7 @@ Name: TERRY
 Class: Rival Late Frlg
 Pic: Rival Late Frlg
 Gender: Male
-Music: Male
+Music: Serious
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 
@@ -7365,7 +7365,7 @@ Name: TERRY
 Class: Rival Late Frlg
 Pic: Rival Late Frlg
 Gender: Male
-Music: Male
+Music: Serious
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 
@@ -7390,7 +7390,7 @@ Name: TERRY
 Class: Rival Late Frlg
 Pic: Rival Late Frlg
 Gender: Male
-Music: Male
+Music: Serious
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 
@@ -7415,7 +7415,7 @@ Name: TERRY
 Class: Rival Late Frlg
 Pic: Rival Late Frlg
 Gender: Male
-Music: Male
+Music: Serious
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 
@@ -7444,7 +7444,7 @@ Name: TERRY
 Class: Rival Late Frlg
 Pic: Rival Late Frlg
 Gender: Male
-Music: Male
+Music: Serious
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 
@@ -7473,7 +7473,7 @@ Name: TERRY
 Class: Rival Late Frlg
 Pic: Rival Late Frlg
 Gender: Male
-Music: Male
+Music: Serious
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 
@@ -7502,7 +7502,7 @@ Name: TERRY
 Class: Rival Late Frlg
 Pic: Rival Late Frlg
 Gender: Male
-Music: Male
+Music: Serious
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 
@@ -7531,7 +7531,7 @@ Name: TERRY
 Class: Rival Late Frlg
 Pic: Rival Late Frlg
 Gender: Male
-Music: Male
+Music: Serious
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 
@@ -7560,7 +7560,7 @@ Name: TERRY
 Class: Rival Late Frlg
 Pic: Rival Late Frlg
 Gender: Male
-Music: Male
+Music: Serious
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 
@@ -7589,7 +7589,7 @@ Name: TERRY
 Class: Rival Late Frlg
 Pic: Rival Late Frlg
 Gender: Male
-Music: Male
+Music: Serious
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 
@@ -7646,7 +7646,7 @@ Name: TERRY
 Class: Rival Late Frlg
 Pic: Rival Late Frlg
 Gender: Male
-Music: Male
+Music: Serious
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 
@@ -7703,7 +7703,7 @@ Name: TERRY
 Class: Rival Late Frlg
 Pic: Rival Late Frlg
 Gender: Male
-Music: Male
+Music: Serious
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 
@@ -7760,7 +7760,7 @@ Name: TERRY
 Class: Champion Frlg
 Pic: Champion Rival Frlg
 Gender: Male
-Music: Male
+Music: Serious
 Items: Full Restore / Full Restore / Full Restore / Full Restore
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
@@ -7819,7 +7819,7 @@ Name: TERRY
 Class: Champion Frlg
 Pic: Champion Rival Frlg
 Gender: Male
-Music: Male
+Music: Serious
 Items: Full Restore / Full Restore / Full Restore / Full Restore
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
@@ -7878,7 +7878,7 @@ Name: TERRY
 Class: Champion Frlg
 Pic: Champion Rival Frlg
 Gender: Male
-Music: Male
+Music: Serious
 Items: Full Restore / Full Restore / Full Restore / Full Restore
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
@@ -7937,7 +7937,7 @@ Name: PATRICIA
 Class: Channeler Frlg
 Pic: Channeler Frlg
 Gender: Male
-Music: Suspicious
+Music: Dangerous
 Double Battle: No
 AI: Check Bad Move
 
@@ -7950,7 +7950,7 @@ Name: CARLY
 Class: Channeler Frlg
 Pic: Channeler Frlg
 Gender: Male
-Music: Suspicious
+Music: Dangerous
 Double Battle: No
 AI: Check Bad Move
 
@@ -7963,7 +7963,7 @@ Name: HOPE
 Class: Channeler Frlg
 Pic: Channeler Frlg
 Gender: Male
-Music: Suspicious
+Music: Dangerous
 Double Battle: No
 AI: Check Bad Move
 
@@ -7976,7 +7976,7 @@ Name: PAULA
 Class: Channeler Frlg
 Pic: Channeler Frlg
 Gender: Male
-Music: Suspicious
+Music: Dangerous
 Double Battle: No
 AI: Check Bad Move
 
@@ -7989,7 +7989,7 @@ Name: LAUREL
 Class: Channeler Frlg
 Pic: Channeler Frlg
 Gender: Male
-Music: Suspicious
+Music: Dangerous
 Double Battle: No
 AI: Check Bad Move
 
@@ -8006,7 +8006,7 @@ Name: JODY
 Class: Channeler Frlg
 Pic: Channeler Frlg
 Gender: Male
-Music: Suspicious
+Music: Dangerous
 Double Battle: No
 AI: Check Bad Move
 
@@ -8019,7 +8019,7 @@ Name: TAMMY
 Class: Channeler Frlg
 Pic: Channeler Frlg
 Gender: Male
-Music: Suspicious
+Music: Dangerous
 Double Battle: No
 AI: Check Bad Move
 
@@ -8032,7 +8032,7 @@ Name: RUTH
 Class: Channeler Frlg
 Pic: Channeler Frlg
 Gender: Male
-Music: Suspicious
+Music: Dangerous
 Double Battle: No
 AI: Check Bad Move
 
@@ -8045,7 +8045,7 @@ Name: KARINA
 Class: Channeler Frlg
 Pic: Channeler Frlg
 Gender: Male
-Music: Suspicious
+Music: Dangerous
 Double Battle: No
 AI: Check Bad Move
 
@@ -8058,7 +8058,7 @@ Name: JANAE
 Class: Channeler Frlg
 Pic: Channeler Frlg
 Gender: Male
-Music: Suspicious
+Music: Dangerous
 Double Battle: No
 AI: Check Bad Move
 
@@ -8071,7 +8071,7 @@ Name: ANGELICA
 Class: Channeler Frlg
 Pic: Channeler Frlg
 Gender: Male
-Music: Suspicious
+Music: Dangerous
 Double Battle: No
 AI: Check Bad Move
 
@@ -8092,7 +8092,7 @@ Name: EMILIA
 Class: Channeler Frlg
 Pic: Channeler Frlg
 Gender: Male
-Music: Suspicious
+Music: Dangerous
 Double Battle: No
 AI: Check Bad Move
 
@@ -8105,7 +8105,7 @@ Name: JENNIFER
 Class: Channeler Frlg
 Pic: Channeler Frlg
 Gender: Male
-Music: Suspicious
+Music: Dangerous
 Double Battle: No
 AI: Check Bad Move
 
@@ -8118,7 +8118,7 @@ Name: AMANDA
 Class: Channeler Frlg
 Pic: Channeler Frlg
 Gender: Male
-Music: Suspicious
+Music: Dangerous
 Double Battle: No
 AI: Check Bad Move
 
@@ -8135,7 +8135,7 @@ Name: STACY
 Class: Channeler Frlg
 Pic: Channeler Frlg
 Gender: Male
-Music: Suspicious
+Music: Dangerous
 Double Battle: No
 AI: Check Bad Move
 
@@ -8148,7 +8148,7 @@ Name: TASHA
 Class: Channeler Frlg
 Pic: Channeler Frlg
 Gender: Male
-Music: Suspicious
+Music: Dangerous
 Double Battle: No
 AI: Check Bad Move
 
@@ -8169,7 +8169,7 @@ Name: JEREMY
 Class: Hiker Frlg
 Pic: Hiker Frlg
 Gender: Male
-Music: Hiker
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -8186,7 +8186,7 @@ Name: ALMA
 Class: Picnicker Frlg
 Pic: Picnicker Frlg
 Gender: Male
-Music: Girl
+Music: Cute
 Double Battle: No
 AI: Check Bad Move
 
@@ -8207,7 +8207,7 @@ Name: SUSIE
 Class: Picnicker Frlg
 Pic: Picnicker Frlg
 Gender: Male
-Music: Girl
+Music: Cute
 Double Battle: No
 AI: Check Bad Move
 
@@ -8236,7 +8236,7 @@ Name: VALERIE
 Class: Picnicker Frlg
 Pic: Picnicker Frlg
 Gender: Male
-Music: Girl
+Music: Cute
 Double Battle: No
 AI: Check Bad Move
 
@@ -8253,7 +8253,7 @@ Name: GWEN
 Class: Picnicker Frlg
 Pic: Picnicker Frlg
 Gender: Male
-Music: Girl
+Music: Cute
 Double Battle: No
 AI: Check Bad Move
 
@@ -8278,7 +8278,7 @@ Name: VIRGIL
 Class: Biker Frlg
 Pic: Biker Frlg
 Gender: Male
-Music: Male
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -8311,7 +8311,7 @@ Name: FLINT
 Class: Camper Frlg
 Pic: Camper Frlg
 Gender: Male
-Music: Male
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -8328,7 +8328,7 @@ Name: MISSY
 Class: Picnicker Frlg
 Pic: Picnicker Frlg
 Gender: Male
-Music: Girl
+Music: Cute
 Double Battle: No
 AI: Check Bad Move
 
@@ -8345,7 +8345,7 @@ Name: IRENE
 Class: Picnicker Frlg
 Pic: Picnicker Frlg
 Gender: Male
-Music: Girl
+Music: Cute
 Double Battle: No
 AI: Check Bad Move
 
@@ -8366,7 +8366,7 @@ Name: DANA
 Class: Picnicker Frlg
 Pic: Picnicker Frlg
 Gender: Male
-Music: Girl
+Music: Cute
 Double Battle: No
 AI: Check Bad Move
 
@@ -8387,7 +8387,7 @@ Name: ARIANA
 Class: Picnicker Frlg
 Pic: Picnicker Frlg
 Gender: Male
-Music: Girl
+Music: Cute
 Double Battle: No
 AI: Check Bad Move
 
@@ -8412,7 +8412,7 @@ Name: LEAH
 Class: Picnicker Frlg
 Pic: Picnicker Frlg
 Gender: Male
-Music: Girl
+Music: Cute
 Double Battle: No
 AI: Check Bad Move
 
@@ -8429,7 +8429,7 @@ Name: JUSTIN
 Class: Camper Frlg
 Pic: Camper Frlg
 Gender: Male
-Music: Male
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -8446,7 +8446,7 @@ Name: YAZMIN
 Class: Picnicker Frlg
 Pic: Picnicker Frlg
 Gender: Male
-Music: Girl
+Music: Cute
 Double Battle: No
 AI: Check Bad Move
 
@@ -8467,7 +8467,7 @@ Name: KINDRA
 Class: Picnicker Frlg
 Pic: Picnicker Frlg
 Gender: Male
-Music: Girl
+Music: Cute
 Double Battle: No
 AI: Check Bad Move
 
@@ -8488,7 +8488,7 @@ Name: BECKY
 Class: Picnicker Frlg
 Pic: Picnicker Frlg
 Gender: Male
-Music: Girl
+Music: Cute
 Double Battle: No
 AI: Check Bad Move
 
@@ -8505,7 +8505,7 @@ Name: CELIA
 Class: Picnicker Frlg
 Pic: Picnicker Frlg
 Gender: Male
-Music: Girl
+Music: Cute
 Double Battle: No
 AI: Check Bad Move
 
@@ -8518,7 +8518,7 @@ Name: BROOKS
 Class: Gentleman Frlg
 Pic: Gentleman Frlg
 Gender: Male
-Music: Rich
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -8531,7 +8531,7 @@ Name: LAMAR
 Class: Gentleman Frlg
 Pic: Gentleman Frlg
 Gender: Male
-Music: Rich
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -8548,7 +8548,7 @@ Name: ELI & ANNE
 Class: Twins Frlg
 Pic: Twins Frlg
 Gender: Male
-Music: Twins
+Music: Cute
 Double Battle: Yes
 AI: Check Bad Move
 
@@ -8565,7 +8565,7 @@ Name: RAY & TYRA
 Class: Cool Couple Frlg
 Pic: Cool Couple Frlg
 Gender: Male
-Music: Cool
+Music: Serious
 Double Battle: Yes
 AI: Check Bad Move / Try To Faint / Check Viability
 
@@ -8590,7 +8590,7 @@ Name: GIA & JES
 Class: Young Couple Frlg
 Pic: Young Couple Frlg
 Gender: Male
-Music: Girl
+Music: Cute
 Double Battle: Yes
 AI: Check Bad Move
 
@@ -8607,7 +8607,7 @@ Name: KIRI & JAN
 Class: Twins Frlg
 Pic: Twins Frlg
 Gender: Male
-Music: Twins
+Music: Cute
 Double Battle: Yes
 AI: Check Bad Move
 
@@ -8624,7 +8624,7 @@ Name: RON & MYA
 Class: Crush Kin Frlg
 Pic: Crush Kin Frlg
 Gender: Male
-Music: Intense
+Music: Serious
 Double Battle: Yes
 AI: Check Bad Move
 
@@ -8641,7 +8641,7 @@ Name: LEA & JED
 Class: Young Couple Frlg
 Pic: Young Couple Frlg
 Gender: Male
-Music: Girl
+Music: Cute
 Double Battle: Yes
 AI: Check Bad Move
 
@@ -8658,7 +8658,7 @@ Name: LIA & LUC
 Class: Sis And Bro Frlg
 Pic: Sis And Bro Frlg
 Gender: Male
-Music: Swimmer
+Music: Serious
 Double Battle: Yes
 AI: Check Bad Move
 
@@ -8675,7 +8675,7 @@ Name: LIL & IAN
 Class: Sis And Bro Frlg
 Pic: Sis And Bro Frlg
 Gender: Male
-Music: Swimmer
+Music: Serious
 Double Battle: Yes
 AI: Check Bad Move
 
@@ -8692,7 +8692,7 @@ Name: BEN
 Class: Youngster Frlg
 Pic: Youngster Frlg
 Gender: Male
-Music: Male
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -8709,7 +8709,7 @@ Name: BEN
 Class: Youngster Frlg
 Pic: Youngster Frlg
 Gender: Male
-Music: Male
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -8726,7 +8726,7 @@ Name: CHAD
 Class: Youngster Frlg
 Pic: Youngster Frlg
 Gender: Male
-Music: Male
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -8743,7 +8743,7 @@ Name: RELI
 Class: Lass Frlg
 Pic: Lass Frlg
 Gender: Male
-Music: Female
+Music: Cute
 Double Battle: No
 AI: Check Bad Move
 
@@ -8760,7 +8760,7 @@ Name: RELI
 Class: Lass Frlg
 Pic: Lass Frlg
 Gender: Male
-Music: Female
+Music: Cute
 Double Battle: No
 AI: Check Bad Move
 
@@ -8777,7 +8777,7 @@ Name: TIMMY
 Class: Youngster Frlg
 Pic: Youngster Frlg
 Gender: Male
-Music: Male
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -8798,7 +8798,7 @@ Name: TIMMY
 Class: Youngster Frlg
 Pic: Youngster Frlg
 Gender: Male
-Music: Male
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -8819,7 +8819,7 @@ Name: TIMMY
 Class: Youngster Frlg
 Pic: Youngster Frlg
 Gender: Male
-Music: Male
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -8840,7 +8840,7 @@ Name: CHAD
 Class: Youngster Frlg
 Pic: Youngster Frlg
 Gender: Male
-Music: Male
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -8857,7 +8857,7 @@ Name: JANICE
 Class: Lass Frlg
 Pic: Lass Frlg
 Gender: Male
-Music: Female
+Music: Cute
 Double Battle: No
 AI: Check Bad Move
 
@@ -8874,7 +8874,7 @@ Name: JANICE
 Class: Lass Frlg
 Pic: Lass Frlg
 Gender: Male
-Music: Female
+Music: Cute
 Double Battle: No
 AI: Check Bad Move
 
@@ -8891,7 +8891,7 @@ Name: CHAD
 Class: Youngster Frlg
 Pic: Youngster Frlg
 Gender: Male
-Music: Male
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -8908,7 +8908,7 @@ Name: FRANKLIN
 Class: Hiker Frlg
 Pic: Hiker Frlg
 Gender: Male
-Music: Hiker
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -8925,7 +8925,7 @@ Name: PROF. OAK
 Class: Pkmn Prof Frlg
 Pic: Professor Oak Frlg
 Gender: Male
-Music: Male
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -8938,7 +8938,7 @@ Name: GRUNT
 Class: Team Rocket Frlg
 Pic: Rocket Grunt F Frlg
 Gender: Male
-Music: Aqua
+Music: Dangerous
 Double Battle: No
 AI: Check Bad Move
 
@@ -8955,7 +8955,7 @@ Name: JACLYN
 Class: Psychic Frlg
 Pic: Psychic F Frlg
 Gender: Male
-Music: Intense
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -8988,7 +8988,7 @@ Name: SHARON
 Class: Crush Girl Frlg
 Pic: Crush Girl Frlg
 Gender: Male
-Music: Intense
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -9005,7 +9005,7 @@ Name: AMIRA
 Class: Tuber Frlg
 Pic: Tuber F Frlg
 Gender: Male
-Music: Girl
+Music: Cute
 Double Battle: No
 AI: Check Bad Move
 
@@ -9026,7 +9026,7 @@ Name: ALIZE
 Class: Pkmn Breeder Frlg
 Pic: Pokemon Breeder Frlg
 Gender: Male
-Music: Female
+Music: Cute
 Double Battle: No
 AI: Check Bad Move
 
@@ -9047,7 +9047,7 @@ Name: NICOLAS
 Class: Pkmn Ranger Frlg
 Pic: Pokemon Ranger M Frlg
 Gender: Male
-Music: Cool
+Music: Serious
 Items: Full Restore
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
@@ -9073,7 +9073,7 @@ Name: MADELINE
 Class: Pkmn Ranger Frlg
 Pic: Pokemon Ranger F Frlg
 Gender: Male
-Music: Cool
+Music: Serious
 Items: Full Restore
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
@@ -9099,7 +9099,7 @@ Name: NIKKI
 Class: Aroma Lady Frlg
 Pic: Aroma Lady Frlg
 Gender: Male
-Music: Female
+Music: Cute
 Double Battle: No
 AI: Check Bad Move
 
@@ -9116,7 +9116,7 @@ Name: STANLY
 Class: Ruin Maniac Frlg
 Pic: Ruin Maniac Frlg
 Gender: Male
-Music: Hiker
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -9137,7 +9137,7 @@ Name: JACKI
 Class: Lady Frlg
 Pic: Lady Frlg
 Gender: Male
-Music: Female
+Music: Cute
 Items: Full Restore
 Double Battle: No
 AI: Check Bad Move
@@ -9155,7 +9155,7 @@ Name: DAISY
 Class: Painter Frlg
 Pic: Painter Frlg
 Gender: Male
-Music: Female
+Music: Cute
 Double Battle: No
 AI: Check Bad Move
 
@@ -9172,7 +9172,7 @@ Name: GOON
 Class: Biker Frlg
 Pic: Biker Frlg
 Gender: Male
-Music: Male
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -9197,7 +9197,7 @@ Name: GOON
 Class: Biker Frlg
 Pic: Biker Frlg
 Gender: Male
-Music: Male
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -9214,7 +9214,7 @@ Name: GOON
 Class: Biker Frlg
 Pic: Biker Frlg
 Gender: Male
-Music: Male
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -9227,7 +9227,7 @@ Name: ANTHONY
 Class: Bug Catcher Frlg
 Pic: Bug Catcher Frlg
 Gender: Male
-Music: Male
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -9244,7 +9244,7 @@ Name: CHARLIE
 Class: Bug Catcher Frlg
 Pic: Bug Catcher Frlg
 Gender: Male
-Music: Male
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -9265,7 +9265,7 @@ Name: ELI & ANNE
 Class: Twins Frlg
 Pic: Twins Frlg
 Gender: Male
-Music: Twins
+Music: Cute
 Double Battle: Yes
 AI: Check Bad Move
 
@@ -9282,7 +9282,7 @@ Name: JOHNSON
 Class: Youngster Frlg
 Pic: Youngster Frlg
 Gender: Male
-Music: Male
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -9303,7 +9303,7 @@ Name: RICARDO
 Class: Biker Frlg
 Pic: Biker Frlg
 Gender: Male
-Music: Male
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -9336,7 +9336,7 @@ Name: JAREN
 Class: Biker Frlg
 Pic: Biker Frlg
 Gender: Male
-Music: Male
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -9353,7 +9353,7 @@ Name: GRUNT
 Class: Team Rocket Frlg
 Pic: Rocket Grunt M Frlg
 Gender: Male
-Music: Aqua
+Music: Dangerous
 Double Battle: No
 AI: Check Bad Move
 
@@ -9370,7 +9370,7 @@ Name: GRUNT
 Class: Team Rocket Frlg
 Pic: Rocket Grunt M Frlg
 Gender: Male
-Music: Aqua
+Music: Dangerous
 Double Battle: No
 AI: Check Bad Move
 
@@ -9395,7 +9395,7 @@ Name: GRUNT
 Class: Team Rocket Frlg
 Pic: Rocket Grunt M Frlg
 Gender: Male
-Music: Aqua
+Music: Dangerous
 Double Battle: No
 AI: Check Bad Move
 
@@ -9416,7 +9416,7 @@ Name: GRUNT
 Class: Team Rocket Frlg
 Pic: Rocket Grunt M Frlg
 Gender: Male
-Music: Aqua
+Music: Dangerous
 Double Battle: No
 AI: Check Bad Move
 
@@ -9437,7 +9437,7 @@ Name: GRUNT
 Class: Team Rocket Frlg
 Pic: Rocket Grunt M Frlg
 Gender: Male
-Music: Aqua
+Music: Dangerous
 Double Battle: No
 AI: Check Bad Move
 
@@ -9458,7 +9458,7 @@ Name: GRUNT
 Class: Team Rocket Frlg
 Pic: Rocket Grunt M Frlg
 Gender: Male
-Music: Aqua
+Music: Dangerous
 Double Battle: No
 AI: Check Bad Move
 
@@ -9475,7 +9475,7 @@ Name: ADMIN
 Class: Team Rocket Frlg
 Pic: Rocket Grunt F Frlg
 Gender: Male
-Music: Aqua
+Music: Dangerous
 Items: Hyper Potion
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
@@ -9509,7 +9509,7 @@ Name: ADMIN
 Class: Team Rocket Frlg
 Pic: Rocket Grunt M Frlg
 Gender: Male
-Music: Aqua
+Music: Dangerous
 Items: Hyper Potion
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
@@ -9543,7 +9543,7 @@ Name: GIDEON
 Class: Scientist Frlg
 Pic: Scientist Frlg
 Gender: Male
-Music: Suspicious
+Music: Dangerous
 Double Battle: No
 AI: Check Bad Move
 
@@ -9592,7 +9592,7 @@ Name: AMARA
 Class: Swimmer F Frlg
 Pic: Swimmer F Frlg
 Gender: Male
-Music: Female
+Music: Cute
 Double Battle: No
 AI: Check Bad Move
 
@@ -9613,7 +9613,7 @@ Name: MARIA
 Class: Swimmer F Frlg
 Pic: Swimmer F Frlg
 Gender: Male
-Music: Female
+Music: Cute
 Double Battle: No
 AI: Check Bad Move
 
@@ -9630,7 +9630,7 @@ Name: ABIGAIL
 Class: Swimmer F Frlg
 Pic: Swimmer F Frlg
 Gender: Male
-Music: Female
+Music: Cute
 Double Battle: No
 AI: Check Bad Move
 
@@ -9651,7 +9651,7 @@ Name: FINN
 Class: Swimmer M Frlg
 Pic: Swimmer M Frlg
 Gender: Male
-Music: Swimmer
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -9664,7 +9664,7 @@ Name: GARRETT
 Class: Swimmer M Frlg
 Pic: Swimmer M Frlg
 Gender: Male
-Music: Swimmer
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -9685,7 +9685,7 @@ Name: TOMMY
 Class: Fisherman Frlg
 Pic: Fisherman Frlg
 Gender: Male
-Music: Hiker
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -9714,7 +9714,7 @@ Name: TANYA
 Class: Crush Girl Frlg
 Pic: Crush Girl Frlg
 Gender: Male
-Music: Intense
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -9731,7 +9731,7 @@ Name: SHEA
 Class: Black Belt Frlg
 Pic: Black Belt Frlg
 Gender: Male
-Music: Intense
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -9748,7 +9748,7 @@ Name: HUGH
 Class: Black Belt Frlg
 Pic: Black Belt Frlg
 Gender: Male
-Music: Intense
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -9765,7 +9765,7 @@ Name: BRYCE
 Class: Camper Frlg
 Pic: Camper Frlg
 Gender: Male
-Music: Male
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -9786,7 +9786,7 @@ Name: CLAIRE
 Class: Picnicker Frlg
 Pic: Picnicker Frlg
 Gender: Male
-Music: Girl
+Music: Cute
 Double Battle: No
 AI: Check Bad Move
 
@@ -9811,7 +9811,7 @@ Name: MIK & KIA
 Class: Crush Kin Frlg
 Pic: Crush Kin Frlg
 Gender: Male
-Music: Intense
+Music: Serious
 Double Battle: Yes
 AI: Check Bad Move
 
@@ -9828,7 +9828,7 @@ Name: VIOLET
 Class: Aroma Lady Frlg
 Pic: Aroma Lady Frlg
 Gender: Male
-Music: Female
+Music: Cute
 Double Battle: No
 AI: Check Bad Move
 
@@ -9849,7 +9849,7 @@ Name: ALEXIS
 Class: Tuber Frlg
 Pic: Tuber F Frlg
 Gender: Male
-Music: Girl
+Music: Cute
 Double Battle: No
 AI: Check Bad Move
 
@@ -9874,7 +9874,7 @@ Name: JOY & MEG
 Class: Twins Frlg
 Pic: Twins Frlg
 Gender: Male
-Music: Twins
+Music: Cute
 Double Battle: Yes
 AI: Check Bad Move
 
@@ -9891,7 +9891,7 @@ Name: TISHA
 Class: Swimmer F Frlg
 Pic: Swimmer F Frlg
 Gender: Male
-Music: Female
+Music: Cute
 Double Battle: No
 AI: Check Bad Move
 
@@ -9904,7 +9904,7 @@ Name: CELINA
 Class: Painter Frlg
 Pic: Painter Frlg
 Gender: Male
-Music: Female
+Music: Cute
 Double Battle: No
 AI: Check Bad Move
 
@@ -9921,7 +9921,7 @@ Name: RAYNA
 Class: Painter Frlg
 Pic: Painter Frlg
 Gender: Male
-Music: Female
+Music: Cute
 Double Battle: No
 AI: Check Bad Move
 
@@ -9938,7 +9938,7 @@ Name: GILLIAN
 Class: Lady Frlg
 Pic: Lady Frlg
 Gender: Male
-Music: Female
+Music: Cute
 Items: Full Restore
 Double Battle: No
 AI: Check Bad Move
@@ -9960,7 +9960,7 @@ Name: DESTIN
 Class: Youngster Frlg
 Pic: Youngster Frlg
 Gender: Male
-Music: Male
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -9977,7 +9977,7 @@ Name: TOBY
 Class: Swimmer M Frlg
 Pic: Swimmer M Frlg
 Gender: Male
-Music: Swimmer
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -9998,7 +9998,7 @@ Name: GRUNT
 Class: Team Rocket Frlg
 Pic: Rocket Grunt M Frlg
 Gender: Male
-Music: Aqua
+Music: Dangerous
 Double Battle: No
 AI: Check Bad Move
 
@@ -10019,7 +10019,7 @@ Name: GRUNT
 Class: Team Rocket Frlg
 Pic: Rocket Grunt M Frlg
 Gender: Male
-Music: Aqua
+Music: Dangerous
 Double Battle: No
 AI: Check Bad Move
 
@@ -10044,7 +10044,7 @@ Name: GRUNT
 Class: Team Rocket Frlg
 Pic: Rocket Grunt F Frlg
 Gender: Male
-Music: Aqua
+Music: Dangerous
 Double Battle: No
 AI: Check Bad Move
 
@@ -10065,7 +10065,7 @@ Name: MILO
 Class: Bird Keeper Frlg
 Pic: Bird Keeper Frlg
 Gender: Male
-Music: Cool
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -10082,7 +10082,7 @@ Name: CHAZ
 Class: Bird Keeper Frlg
 Pic: Bird Keeper Frlg
 Gender: Male
-Music: Cool
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -10099,7 +10099,7 @@ Name: HAROLD
 Class: Bird Keeper Frlg
 Pic: Bird Keeper Frlg
 Gender: Male
-Music: Cool
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -10116,7 +10116,7 @@ Name: TYLOR
 Class: Fisherman Frlg
 Pic: Fisherman Frlg
 Gender: Male
-Music: Hiker
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -10133,7 +10133,7 @@ Name: MYMO
 Class: Swimmer M Frlg
 Pic: Swimmer M Frlg
 Gender: Male
-Music: Swimmer
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -10150,7 +10150,7 @@ Name: NICOLE
 Class: Swimmer F Frlg
 Pic: Swimmer F Frlg
 Gender: Male
-Music: Female
+Music: Cute
 Double Battle: No
 AI: Check Bad Move
 
@@ -10163,7 +10163,7 @@ Name: AVA & GEB
 Class: Sis And Bro Frlg
 Pic: Sis And Bro Frlg
 Gender: Male
-Music: Swimmer
+Music: Serious
 Double Battle: Yes
 AI: Check Bad Move
 
@@ -10180,7 +10180,7 @@ Name: ROSE
 Class: Aroma Lady Frlg
 Pic: Aroma Lady Frlg
 Gender: Male
-Music: Female
+Music: Cute
 Double Battle: No
 AI: Check Bad Move
 
@@ -10197,7 +10197,7 @@ Name: SAMIR
 Class: Swimmer M Frlg
 Pic: Swimmer M Frlg
 Gender: Male
-Music: Swimmer
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -10210,7 +10210,7 @@ Name: DENISE
 Class: Swimmer F Frlg
 Pic: Swimmer F Frlg
 Gender: Male
-Music: Female
+Music: Cute
 Double Battle: No
 AI: Check Bad Move
 
@@ -10227,7 +10227,7 @@ Name: MIU & MIA
 Class: Twins Frlg
 Pic: Twins Frlg
 Gender: Male
-Music: Twins
+Music: Cute
 Double Battle: Yes
 AI: Check Bad Move
 
@@ -10244,7 +10244,7 @@ Name: EARL
 Class: Hiker Frlg
 Pic: Hiker Frlg
 Gender: Male
-Music: Hiker
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -10261,7 +10261,7 @@ Name: FOSTER
 Class: Ruin Maniac Frlg
 Pic: Ruin Maniac Frlg
 Gender: Male
-Music: Hiker
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -10274,7 +10274,7 @@ Name: LARRY
 Class: Ruin Maniac Frlg
 Pic: Ruin Maniac Frlg
 Gender: Male
-Music: Hiker
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -10291,7 +10291,7 @@ Name: DARYL
 Class: Hiker Frlg
 Pic: Hiker Frlg
 Gender: Male
-Music: Hiker
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -10304,7 +10304,7 @@ Name: HECTOR
 Class: Pokemaniac Frlg
 Pic: Pokemaniac Frlg
 Gender: Male
-Music: Suspicious
+Music: Dangerous
 Double Battle: No
 AI: Check Bad Move
 
@@ -10321,7 +10321,7 @@ Name: DARIO
 Class: Psychic Frlg
 Pic: Psychic M Frlg
 Gender: Male
-Music: Intense
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -10338,7 +10338,7 @@ Name: RODETTE
 Class: Psychic Frlg
 Pic: Psychic F Frlg
 Gender: Male
-Music: Intense
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -10371,7 +10371,7 @@ Name: MIAH
 Class: Aroma Lady Frlg
 Pic: Aroma Lady Frlg
 Gender: Male
-Music: Female
+Music: Cute
 Double Battle: No
 AI: Check Bad Move
 
@@ -10388,7 +10388,7 @@ Name: EVE & JON
 Class: Young Couple Frlg
 Pic: Young Couple Frlg
 Gender: Male
-Music: Girl
+Music: Cute
 Double Battle: Yes
 AI: Check Bad Move
 
@@ -10405,7 +10405,7 @@ Name: MASON
 Class: Juggler Frlg
 Pic: Juggler Frlg
 Gender: Male
-Music: Hiker
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -10446,7 +10446,7 @@ Name: CYNDY
 Class: Crush Girl Frlg
 Pic: Crush Girl Frlg
 Gender: Male
-Music: Intense
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -10467,7 +10467,7 @@ Name: JOCELYN
 Class: Crush Girl Frlg
 Pic: Crush Girl Frlg
 Gender: Male
-Music: Intense
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -10484,7 +10484,7 @@ Name: EVAN
 Class: Tamer Frlg
 Pic: Tamer Frlg
 Gender: Male
-Music: Hiker
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -10505,7 +10505,7 @@ Name: MARK
 Class: Pokemaniac Frlg
 Pic: Pokemaniac Frlg
 Gender: Male
-Music: Suspicious
+Music: Dangerous
 Double Battle: No
 AI: Check Bad Move
 
@@ -10522,7 +10522,7 @@ Name: LOGAN
 Class: Pkmn Ranger Frlg
 Pic: Pokemon Ranger M Frlg
 Gender: Male
-Music: Cool
+Music: Serious
 Items: Full Restore
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
@@ -10548,7 +10548,7 @@ Name: JACKSON
 Class: Pkmn Ranger Frlg
 Pic: Pokemon Ranger M Frlg
 Gender: Male
-Music: Cool
+Music: Serious
 Items: Full Restore
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
@@ -10582,7 +10582,7 @@ Name: BETH
 Class: Pkmn Ranger Frlg
 Pic: Pokemon Ranger F Frlg
 Gender: Male
-Music: Cool
+Music: Serious
 Items: Full Restore
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
@@ -10604,7 +10604,7 @@ Name: KATELYN
 Class: Pkmn Ranger Frlg
 Pic: Pokemon Ranger F Frlg
 Gender: Male
-Music: Cool
+Music: Serious
 Items: Full Restore
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
@@ -10622,7 +10622,7 @@ Name: LEROY
 Class: Cooltrainer Frlg
 Pic: Cooltrainer M Frlg
 Gender: Male
-Music: Cool
+Music: Serious
 Items: Full Restore
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
@@ -10672,7 +10672,7 @@ Name: MICHELLE
 Class: Cooltrainer Frlg
 Pic: Cooltrainer F Frlg
 Gender: Male
-Music: Cool
+Music: Serious
 Items: Hyper Potion
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
@@ -10722,7 +10722,7 @@ Name: LEX & NYA
 Class: Cool Couple Frlg
 Pic: Cool Couple Frlg
 Gender: Male
-Music: Cool
+Music: Serious
 Items: Full Restore / Full Restore
 Double Battle: Yes
 AI: Check Bad Move / Try To Faint / Check Viability
@@ -10748,7 +10748,7 @@ Name: BRANDON
 Class: Ruin Maniac Frlg
 Pic: Ruin Maniac Frlg
 Gender: Male
-Music: Hiker
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -10761,7 +10761,7 @@ Name: BENJAMIN
 Class: Ruin Maniac Frlg
 Pic: Ruin Maniac Frlg
 Gender: Male
-Music: Hiker
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -10794,7 +10794,7 @@ Name: EDNA
 Class: Painter Frlg
 Pic: Painter Frlg
 Gender: Male
-Music: Female
+Music: Cute
 Double Battle: No
 AI: Check Bad Move
 
@@ -10811,7 +10811,7 @@ Name: CLIFFORD
 Class: Gentleman Frlg
 Pic: Gentleman Frlg
 Gender: Male
-Music: Rich
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -10828,7 +10828,7 @@ Name: SELPHY
 Class: Lady Frlg
 Pic: Lady Frlg
 Gender: Male
-Music: Female
+Music: Cute
 Items: Full Restore
 Double Battle: No
 AI: Check Bad Move
@@ -10854,7 +10854,7 @@ Name: LAWSON
 Class: Ruin Maniac Frlg
 Pic: Ruin Maniac Frlg
 Gender: Male
-Music: Hiker
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -10875,7 +10875,7 @@ Name: LAURA
 Class: Psychic Frlg
 Pic: Psychic F Frlg
 Gender: Male
-Music: Intense
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -10896,7 +10896,7 @@ Name: BETHANY
 Class: Pkmn Breeder Frlg
 Pic: Pokemon Breeder Frlg
 Gender: Male
-Music: Female
+Music: Cute
 Double Battle: No
 AI: Check Bad Move
 
@@ -10909,7 +10909,7 @@ Name: ALLISON
 Class: Pkmn Breeder Frlg
 Pic: Pokemon Breeder Frlg
 Gender: Male
-Music: Female
+Music: Cute
 Double Battle: No
 AI: Check Bad Move
 
@@ -10930,7 +10930,7 @@ Name: GARRET
 Class: Bug Catcher Frlg
 Pic: Bug Catcher Frlg
 Gender: Male
-Music: Male
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -10943,7 +10943,7 @@ Name: JONAH
 Class: Bug Catcher Frlg
 Pic: Bug Catcher Frlg
 Gender: Male
-Music: Male
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -10968,7 +10968,7 @@ Name: VANCE
 Class: Bug Catcher Frlg
 Pic: Bug Catcher Frlg
 Gender: Male
-Music: Male
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -10985,7 +10985,7 @@ Name: NASH
 Class: Youngster Frlg
 Pic: Youngster Frlg
 Gender: Male
-Music: Male
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -11006,7 +11006,7 @@ Name: CORDELL
 Class: Youngster Frlg
 Pic: Youngster Frlg
 Gender: Male
-Music: Male
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -11023,7 +11023,7 @@ Name: DALIA
 Class: Lass Frlg
 Pic: Lass Frlg
 Gender: Male
-Music: Female
+Music: Cute
 Double Battle: No
 AI: Check Bad Move
 
@@ -11048,7 +11048,7 @@ Name: JOANA
 Class: Lass Frlg
 Pic: Lass Frlg
 Gender: Male
-Music: Female
+Music: Cute
 Double Battle: No
 AI: Check Bad Move
 
@@ -11061,7 +11061,7 @@ Name: RILEY
 Class: Camper Frlg
 Pic: Camper Frlg
 Gender: Male
-Music: Male
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -11078,7 +11078,7 @@ Name: MARCY
 Class: Picnicker Frlg
 Pic: Picnicker Frlg
 Gender: Male
-Music: Girl
+Music: Cute
 Double Battle: No
 AI: Check Bad Move
 
@@ -11099,7 +11099,7 @@ Name: LAYTON
 Class: Ruin Maniac Frlg
 Pic: Ruin Maniac Frlg
 Gender: Male
-Music: Hiker
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -11120,7 +11120,7 @@ Name: KELSEY
 Class: Picnicker Frlg
 Pic: Picnicker Frlg
 Gender: Male
-Music: Girl
+Music: Cute
 Double Battle: No
 AI: Check Bad Move
 
@@ -11137,7 +11137,7 @@ Name: KELSEY
 Class: Picnicker Frlg
 Pic: Picnicker Frlg
 Gender: Male
-Music: Girl
+Music: Cute
 Double Battle: No
 AI: Check Bad Move
 
@@ -11154,7 +11154,7 @@ Name: KELSEY
 Class: Picnicker Frlg
 Pic: Picnicker Frlg
 Gender: Male
-Music: Girl
+Music: Cute
 Double Battle: No
 AI: Check Bad Move
 
@@ -11171,7 +11171,7 @@ Name: RICKY
 Class: Camper Frlg
 Pic: Camper Frlg
 Gender: Male
-Music: Male
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -11184,7 +11184,7 @@ Name: RICKY
 Class: Camper Frlg
 Pic: Camper Frlg
 Gender: Male
-Music: Male
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -11197,7 +11197,7 @@ Name: RICKY
 Class: Camper Frlg
 Pic: Camper Frlg
 Gender: Male
-Music: Male
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -11210,7 +11210,7 @@ Name: JEFF
 Class: Camper Frlg
 Pic: Camper Frlg
 Gender: Male
-Music: Male
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -11227,7 +11227,7 @@ Name: JEFF
 Class: Camper Frlg
 Pic: Camper Frlg
 Gender: Male
-Music: Male
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -11244,7 +11244,7 @@ Name: JEFF
 Class: Camper Frlg
 Pic: Camper Frlg
 Gender: Male
-Music: Male
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -11261,7 +11261,7 @@ Name: ISABELLE
 Class: Picnicker Frlg
 Pic: Picnicker Frlg
 Gender: Male
-Music: Girl
+Music: Cute
 Double Battle: No
 AI: Check Bad Move
 
@@ -11282,7 +11282,7 @@ Name: ISABELLE
 Class: Picnicker Frlg
 Pic: Picnicker Frlg
 Gender: Male
-Music: Girl
+Music: Cute
 Double Battle: No
 AI: Check Bad Move
 
@@ -11303,7 +11303,7 @@ Name: ISABELLE
 Class: Picnicker Frlg
 Pic: Picnicker Frlg
 Gender: Male
-Music: Girl
+Music: Cute
 Double Battle: No
 AI: Check Bad Move
 
@@ -11324,7 +11324,7 @@ Name: YASU
 Class: Youngster Frlg
 Pic: Youngster Frlg
 Gender: Male
-Music: Male
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -11345,7 +11345,7 @@ Name: YASU
 Class: Youngster Frlg
 Pic: Youngster Frlg
 Gender: Male
-Music: Male
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -11366,7 +11366,7 @@ Name: BERNIE
 Class: Engineer Frlg
 Pic: Engineer Frlg
 Gender: Male
-Music: Male
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -11387,7 +11387,7 @@ Name: DARIAN
 Class: Gamer Frlg
 Pic: Gamer Frlg
 Gender: Male
-Music: Male
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -11404,7 +11404,7 @@ Name: CHRIS
 Class: Camper Frlg
 Pic: Camper Frlg
 Gender: Male
-Music: Male
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -11421,7 +11421,7 @@ Name: CHRIS
 Class: Camper Frlg
 Pic: Camper Frlg
 Gender: Male
-Music: Male
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -11438,7 +11438,7 @@ Name: CHRIS
 Class: Camper Frlg
 Pic: Camper Frlg
 Gender: Male
-Music: Male
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -11455,7 +11455,7 @@ Name: ALICIA
 Class: Picnicker Frlg
 Pic: Picnicker Frlg
 Gender: Male
-Music: Girl
+Music: Cute
 Double Battle: No
 AI: Check Bad Move
 
@@ -11468,7 +11468,7 @@ Name: ALICIA
 Class: Picnicker Frlg
 Pic: Picnicker Frlg
 Gender: Male
-Music: Girl
+Music: Cute
 Double Battle: No
 AI: Check Bad Move
 
@@ -11481,7 +11481,7 @@ Name: ALICIA
 Class: Picnicker Frlg
 Pic: Picnicker Frlg
 Gender: Male
-Music: Girl
+Music: Cute
 Double Battle: No
 AI: Check Bad Move
 
@@ -11494,7 +11494,7 @@ Name: JEREMY
 Class: Hiker Frlg
 Pic: Hiker Frlg
 Gender: Male
-Music: Hiker
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -11511,7 +11511,7 @@ Name: MARK
 Class: Pokemaniac Frlg
 Pic: Pokemaniac Frlg
 Gender: Male
-Music: Suspicious
+Music: Dangerous
 Double Battle: No
 AI: Check Bad Move
 
@@ -11528,7 +11528,7 @@ Name: HERMAN
 Class: Pokemaniac Frlg
 Pic: Pokemaniac Frlg
 Gender: Male
-Music: Suspicious
+Music: Dangerous
 Double Battle: No
 AI: Check Bad Move
 
@@ -11545,7 +11545,7 @@ Name: HERMAN
 Class: Pokemaniac Frlg
 Pic: Pokemaniac Frlg
 Gender: Male
-Music: Suspicious
+Music: Dangerous
 Double Battle: No
 AI: Check Bad Move
 
@@ -11562,7 +11562,7 @@ Name: TRENT
 Class: Hiker Frlg
 Pic: Hiker Frlg
 Gender: Male
-Music: Hiker
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -11579,7 +11579,7 @@ Name: MEGAN
 Class: Lass Frlg
 Pic: Lass Frlg
 Gender: Male
-Music: Female
+Music: Cute
 Double Battle: No
 AI: Check Bad Move
 
@@ -11608,7 +11608,7 @@ Name: MEGAN
 Class: Lass Frlg
 Pic: Lass Frlg
 Gender: Male
-Music: Female
+Music: Cute
 Double Battle: No
 AI: Check Bad Move
 
@@ -11637,7 +11637,7 @@ Name: GLENN
 Class: Super Nerd Frlg
 Pic: Super Nerd Frlg
 Gender: Male
-Music: Suspicious
+Music: Dangerous
 Double Battle: No
 AI: Check Bad Move
 
@@ -11658,7 +11658,7 @@ Name: RICH
 Class: Gamer Frlg
 Pic: Gamer Frlg
 Gender: Male
-Music: Male
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -11675,7 +11675,7 @@ Name: JAREN
 Class: Biker Frlg
 Pic: Biker Frlg
 Gender: Male
-Music: Male
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -11692,7 +11692,7 @@ Name: ELLIOT
 Class: Fisherman Frlg
 Pic: Fisherman Frlg
 Gender: Male
-Music: Hiker
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -11717,7 +11717,7 @@ Name: LUCA
 Class: Rocker Frlg
 Pic: Rocker Frlg
 Gender: Male
-Music: Male
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -11734,7 +11734,7 @@ Name: SHEILA
 Class: Beauty Frlg
 Pic: Beauty Frlg
 Gender: Male
-Music: Female
+Music: Cute
 Double Battle: No
 AI: Check Bad Move
 
@@ -11751,7 +11751,7 @@ Name: ROBERT
 Class: Bird Keeper Frlg
 Pic: Bird Keeper Frlg
 Gender: Male
-Music: Cool
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -11776,7 +11776,7 @@ Name: ROBERT
 Class: Bird Keeper Frlg
 Pic: Bird Keeper Frlg
 Gender: Male
-Music: Cool
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -11801,7 +11801,7 @@ Name: SUSIE
 Class: Picnicker Frlg
 Pic: Picnicker Frlg
 Gender: Male
-Music: Girl
+Music: Cute
 Double Battle: No
 AI: Check Bad Move
 
@@ -11830,7 +11830,7 @@ Name: SUSIE
 Class: Picnicker Frlg
 Pic: Picnicker Frlg
 Gender: Male
-Music: Girl
+Music: Cute
 Double Battle: No
 AI: Check Bad Move
 
@@ -11859,7 +11859,7 @@ Name: SUSIE
 Class: Picnicker Frlg
 Pic: Picnicker Frlg
 Gender: Male
-Music: Girl
+Music: Cute
 Double Battle: No
 AI: Check Bad Move
 
@@ -11888,7 +11888,7 @@ Name: LUKAS
 Class: Biker Frlg
 Pic: Biker Frlg
 Gender: Male
-Music: Male
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -11913,7 +11913,7 @@ Name: BENNY
 Class: Bird Keeper Frlg
 Pic: Bird Keeper Frlg
 Gender: Male
-Music: Cool
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -11930,7 +11930,7 @@ Name: BENNY
 Class: Bird Keeper Frlg
 Pic: Bird Keeper Frlg
 Gender: Male
-Music: Cool
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -11947,7 +11947,7 @@ Name: MARLON
 Class: Bird Keeper Frlg
 Pic: Bird Keeper Frlg
 Gender: Male
-Music: Cool
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -11968,7 +11968,7 @@ Name: MARLON
 Class: Bird Keeper Frlg
 Pic: Bird Keeper Frlg
 Gender: Male
-Music: Cool
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -11989,7 +11989,7 @@ Name: GRACE
 Class: Beauty Frlg
 Pic: Beauty Frlg
 Gender: Male
-Music: Female
+Music: Cute
 Double Battle: No
 AI: Check Bad Move
 
@@ -12006,7 +12006,7 @@ Name: CHESTER
 Class: Bird Keeper Frlg
 Pic: Bird Keeper Frlg
 Gender: Male
-Music: Cool
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -12027,7 +12027,7 @@ Name: CHESTER
 Class: Bird Keeper Frlg
 Pic: Bird Keeper Frlg
 Gender: Male
-Music: Cool
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -12048,7 +12048,7 @@ Name: BECKY
 Class: Picnicker Frlg
 Pic: Picnicker Frlg
 Gender: Male
-Music: Girl
+Music: Cute
 Double Battle: No
 AI: Check Bad Move
 
@@ -12065,7 +12065,7 @@ Name: BECKY
 Class: Picnicker Frlg
 Pic: Picnicker Frlg
 Gender: Male
-Music: Girl
+Music: Cute
 Double Battle: No
 AI: Check Bad Move
 
@@ -12082,7 +12082,7 @@ Name: BECKY
 Class: Picnicker Frlg
 Pic: Picnicker Frlg
 Gender: Male
-Music: Girl
+Music: Cute
 Double Battle: No
 AI: Check Bad Move
 
@@ -12099,7 +12099,7 @@ Name: RON & MYA
 Class: Crush Kin Frlg
 Pic: Crush Kin Frlg
 Gender: Male
-Music: Intense
+Music: Serious
 Double Battle: Yes
 AI: Check Bad Move
 
@@ -12116,7 +12116,7 @@ Name: RON & MYA
 Class: Crush Kin Frlg
 Pic: Crush Kin Frlg
 Gender: Male
-Music: Intense
+Music: Serious
 Double Battle: Yes
 AI: Check Bad Move
 
@@ -12133,7 +12133,7 @@ Name: RON & MYA
 Class: Crush Kin Frlg
 Pic: Crush Kin Frlg
 Gender: Male
-Music: Intense
+Music: Serious
 Double Battle: Yes
 AI: Check Bad Move
 
@@ -12150,7 +12150,7 @@ Name: RUBEN
 Class: Biker Frlg
 Pic: Biker Frlg
 Gender: Male
-Music: Male
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -12171,7 +12171,7 @@ Name: CAMRON
 Class: Cue Ball Frlg
 Pic: Cue Ball Frlg
 Gender: Male
-Music: Male
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -12188,7 +12188,7 @@ Name: JAXON
 Class: Biker Frlg
 Pic: Biker Frlg
 Gender: Male
-Music: Male
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -12205,7 +12205,7 @@ Name: ISAIAH
 Class: Cue Ball Frlg
 Pic: Cue Ball Frlg
 Gender: Male
-Music: Male
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -12222,7 +12222,7 @@ Name: COREY
 Class: Cue Ball Frlg
 Pic: Cue Ball Frlg
 Gender: Male
-Music: Male
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -12239,7 +12239,7 @@ Name: JACOB
 Class: Bird Keeper Frlg
 Pic: Bird Keeper Frlg
 Gender: Male
-Music: Cool
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -12264,7 +12264,7 @@ Name: JACOB
 Class: Bird Keeper Frlg
 Pic: Bird Keeper Frlg
 Gender: Male
-Music: Cool
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -12289,7 +12289,7 @@ Name: ALICE
 Class: Swimmer F Frlg
 Pic: Swimmer F Frlg
 Gender: Male
-Music: Female
+Music: Cute
 Double Battle: No
 AI: Check Bad Move
 
@@ -12306,7 +12306,7 @@ Name: DARRIN
 Class: Swimmer M Frlg
 Pic: Swimmer M Frlg
 Gender: Male
-Music: Swimmer
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -12331,7 +12331,7 @@ Name: MISSY
 Class: Picnicker Frlg
 Pic: Picnicker Frlg
 Gender: Male
-Music: Girl
+Music: Cute
 Double Battle: No
 AI: Check Bad Move
 
@@ -12348,7 +12348,7 @@ Name: MISSY
 Class: Picnicker Frlg
 Pic: Picnicker Frlg
 Gender: Male
-Music: Girl
+Music: Cute
 Double Battle: No
 AI: Check Bad Move
 
@@ -12365,7 +12365,7 @@ Name: WADE
 Class: Fisherman Frlg
 Pic: Fisherman Frlg
 Gender: Male
-Music: Hiker
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -12398,7 +12398,7 @@ Name: JACK
 Class: Swimmer M Frlg
 Pic: Swimmer M Frlg
 Gender: Male
-Music: Swimmer
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -12411,7 +12411,7 @@ Name: LIL & IAN
 Class: Sis And Bro Frlg
 Pic: Sis And Bro Frlg
 Gender: Male
-Music: Swimmer
+Music: Serious
 Double Battle: Yes
 AI: Check Bad Move
 
@@ -12428,7 +12428,7 @@ Name: LIL & IAN
 Class: Sis And Bro Frlg
 Pic: Sis And Bro Frlg
 Gender: Male
-Music: Swimmer
+Music: Serious
 Double Battle: Yes
 AI: Check Bad Move
 
@@ -12445,7 +12445,7 @@ Name: FINN
 Class: Swimmer M Frlg
 Pic: Swimmer M Frlg
 Gender: Male
-Music: Swimmer
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -12458,7 +12458,7 @@ Name: SHARON
 Class: Crush Girl Frlg
 Pic: Crush Girl Frlg
 Gender: Male
-Music: Intense
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -12475,7 +12475,7 @@ Name: SHARON
 Class: Crush Girl Frlg
 Pic: Crush Girl Frlg
 Gender: Male
-Music: Intense
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -12492,7 +12492,7 @@ Name: TANYA
 Class: Crush Girl Frlg
 Pic: Crush Girl Frlg
 Gender: Male
-Music: Intense
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -12509,7 +12509,7 @@ Name: TANYA
 Class: Crush Girl Frlg
 Pic: Crush Girl Frlg
 Gender: Male
-Music: Intense
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -12526,7 +12526,7 @@ Name: SHEA
 Class: Black Belt Frlg
 Pic: Black Belt Frlg
 Gender: Male
-Music: Intense
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -12543,7 +12543,7 @@ Name: SHEA
 Class: Black Belt Frlg
 Pic: Black Belt Frlg
 Gender: Male
-Music: Intense
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -12560,7 +12560,7 @@ Name: HUGH
 Class: Black Belt Frlg
 Pic: Black Belt Frlg
 Gender: Male
-Music: Intense
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -12577,7 +12577,7 @@ Name: HUGH
 Class: Black Belt Frlg
 Pic: Black Belt Frlg
 Gender: Male
-Music: Intense
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -12594,7 +12594,7 @@ Name: MIK & KIA
 Class: Crush Kin Frlg
 Pic: Crush Kin Frlg
 Gender: Male
-Music: Intense
+Music: Serious
 Double Battle: Yes
 AI: Check Bad Move
 
@@ -12611,7 +12611,7 @@ Name: MIK & KIA
 Class: Crush Kin Frlg
 Pic: Crush Kin Frlg
 Gender: Male
-Music: Intense
+Music: Serious
 Double Battle: Yes
 AI: Check Bad Move
 
@@ -12628,7 +12628,7 @@ Name: AMIRA
 Class: Tuber Frlg
 Pic: Tuber F Frlg
 Gender: Male
-Music: Girl
+Music: Cute
 Double Battle: No
 AI: Check Bad Move
 
@@ -12649,7 +12649,7 @@ Name: JOY & MEG
 Class: Twins Frlg
 Pic: Twins Frlg
 Gender: Male
-Music: Twins
+Music: Cute
 Double Battle: Yes
 AI: Check Bad Move
 
@@ -12666,7 +12666,7 @@ Name: RAYNA
 Class: Painter Frlg
 Pic: Painter Frlg
 Gender: Male
-Music: Female
+Music: Cute
 Double Battle: No
 AI: Check Bad Move
 
@@ -12683,7 +12683,7 @@ Name: DESTIN
 Class: Youngster Frlg
 Pic: Youngster Frlg
 Gender: Male
-Music: Male
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -12700,7 +12700,7 @@ Name: ALIZE
 Class: Pkmn Breeder Frlg
 Pic: Pokemon Breeder Frlg
 Gender: Male
-Music: Female
+Music: Cute
 Double Battle: No
 AI: Check Bad Move
 
@@ -12721,7 +12721,7 @@ Name: GIA & JES
 Class: Young Couple Frlg
 Pic: Young Couple Frlg
 Gender: Male
-Music: Girl
+Music: Cute
 Double Battle: Yes
 AI: Check Bad Move
 
@@ -12738,7 +12738,7 @@ Name: GIA & JES
 Class: Young Couple Frlg
 Pic: Young Couple Frlg
 Gender: Male
-Music: Girl
+Music: Cute
 Double Battle: Yes
 AI: Check Bad Move
 
@@ -12755,7 +12755,7 @@ Name: MILO
 Class: Bird Keeper Frlg
 Pic: Bird Keeper Frlg
 Gender: Male
-Music: Cool
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -12772,7 +12772,7 @@ Name: CHAZ
 Class: Bird Keeper Frlg
 Pic: Bird Keeper Frlg
 Gender: Male
-Music: Cool
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -12789,7 +12789,7 @@ Name: HAROLD
 Class: Bird Keeper Frlg
 Pic: Bird Keeper Frlg
 Gender: Male
-Music: Cool
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -12806,7 +12806,7 @@ Name: NICOLE
 Class: Swimmer F Frlg
 Pic: Swimmer F Frlg
 Gender: Male
-Music: Female
+Music: Cute
 Double Battle: No
 AI: Check Bad Move
 
@@ -12819,7 +12819,7 @@ Name: JACLYN
 Class: Psychic Frlg
 Pic: Psychic F Frlg
 Gender: Male
-Music: Intense
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -12852,7 +12852,7 @@ Name: SAMIR
 Class: Swimmer M Frlg
 Pic: Swimmer M Frlg
 Gender: Male
-Music: Swimmer
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -12865,7 +12865,7 @@ Name: EARL
 Class: Hiker Frlg
 Pic: Hiker Frlg
 Gender: Male
-Music: Hiker
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -12882,7 +12882,7 @@ Name: LARRY
 Class: Ruin Maniac Frlg
 Pic: Ruin Maniac Frlg
 Gender: Male
-Music: Hiker
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -12899,7 +12899,7 @@ Name: HECTOR
 Class: Pokemaniac Frlg
 Pic: Pokemaniac Frlg
 Gender: Male
-Music: Suspicious
+Music: Dangerous
 Double Battle: No
 AI: Check Bad Move
 
@@ -12916,7 +12916,7 @@ Name: DARIO
 Class: Psychic Frlg
 Pic: Psychic M Frlg
 Gender: Male
-Music: Intense
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -12933,7 +12933,7 @@ Name: RODETTE
 Class: Psychic Frlg
 Pic: Psychic F Frlg
 Gender: Male
-Music: Intense
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -12966,7 +12966,7 @@ Name: MASON
 Class: Juggler Frlg
 Pic: Juggler Frlg
 Gender: Male
-Music: Hiker
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -12991,7 +12991,7 @@ Name: NICOLAS
 Class: Pkmn Ranger Frlg
 Pic: Pokemon Ranger M Frlg
 Gender: Male
-Music: Cool
+Music: Serious
 Items: Full Restore
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
@@ -13017,7 +13017,7 @@ Name: MADELINE
 Class: Pkmn Ranger Frlg
 Pic: Pokemon Ranger F Frlg
 Gender: Male
-Music: Cool
+Music: Serious
 Items: Full Restore
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
@@ -13043,7 +13043,7 @@ Name: CYNDY
 Class: Crush Girl Frlg
 Pic: Crush Girl Frlg
 Gender: Male
-Music: Intense
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -13064,7 +13064,7 @@ Name: EVAN
 Class: Tamer Frlg
 Pic: Tamer Frlg
 Gender: Male
-Music: Hiker
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -13085,7 +13085,7 @@ Name: JACKSON
 Class: Pkmn Ranger Frlg
 Pic: Pokemon Ranger M Frlg
 Gender: Male
-Music: Cool
+Music: Serious
 Items: Full Restore
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
@@ -13119,7 +13119,7 @@ Name: KATELYN
 Class: Pkmn Ranger Frlg
 Pic: Pokemon Ranger F Frlg
 Gender: Male
-Music: Cool
+Music: Serious
 Items: Full Restore
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
@@ -13137,7 +13137,7 @@ Name: LEROY
 Class: Cooltrainer Frlg
 Pic: Cooltrainer M Frlg
 Gender: Male
-Music: Cool
+Music: Serious
 Items: Full Restore
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
@@ -13187,7 +13187,7 @@ Name: MICHELLE
 Class: Cooltrainer Frlg
 Pic: Cooltrainer F Frlg
 Gender: Male
-Music: Cool
+Music: Serious
 Items: Hyper Potion
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
@@ -13237,7 +13237,7 @@ Name: LEX & NYA
 Class: Cool Couple Frlg
 Pic: Cool Couple Frlg
 Gender: Male
-Music: Cool
+Music: Serious
 Items: Full Restore / Full Restore
 Double Battle: Yes
 AI: Check Bad Move / Try To Faint / Check Viability
@@ -13263,7 +13263,7 @@ Name: COLTON
 Class: Bug Catcher Frlg
 Pic: Bug Catcher Frlg
 Gender: Male
-Music: Male
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -13284,7 +13284,7 @@ Name: COLTON
 Class: Bug Catcher Frlg
 Pic: Bug Catcher Frlg
 Gender: Male
-Music: Male
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -13305,7 +13305,7 @@ Name: COLTON
 Class: Bug Catcher Frlg
 Pic: Bug Catcher Frlg
 Gender: Male
-Music: Male
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -13326,7 +13326,7 @@ Name: MATTHEW
 Class: Swimmer M Frlg
 Pic: Swimmer M Frlg
 Gender: Male
-Music: Swimmer
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -13343,7 +13343,7 @@ Name: TONY
 Class: Swimmer M Frlg
 Pic: Swimmer M Frlg
 Gender: Male
-Music: Swimmer
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
@@ -13360,7 +13360,7 @@ Name: MELISSA
 Class: Swimmer F Frlg
 Pic: Swimmer F Frlg
 Gender: Male
-Music: Female
+Music: Cute
 Double Battle: No
 AI: Check Bad Move
 
@@ -13377,7 +13377,7 @@ Name: LORELEI
 Class: Elite Four Frlg
 Pic: Elite Four Lorelei Frlg
 Gender: Male
-Music: Elite Four
+Music: Serious
 Items: Full Restore / Full Restore
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
@@ -13428,7 +13428,7 @@ Name: BRUNO
 Class: Elite Four Frlg
 Pic: Elite Four Bruno Frlg
 Gender: Male
-Music: Elite Four
+Music: Serious
 Items: Full Restore / Full Restore
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
@@ -13479,7 +13479,7 @@ Name: AGATHA
 Class: Elite Four Frlg
 Pic: Elite Four Agatha Frlg
 Gender: Male
-Music: Elite Four
+Music: Serious
 Items: Full Restore / Full Restore
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
@@ -13530,7 +13530,7 @@ Name: LANCE
 Class: Elite Four Frlg
 Pic: Elite Four Lance Frlg
 Gender: Male
-Music: Elite Four
+Music: Serious
 Items: Full Restore / Full Restore
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
@@ -13581,7 +13581,7 @@ Name: TERRY
 Class: Champion Frlg
 Pic: Champion Rival Frlg
 Gender: Male
-Music: Male
+Music: Serious
 Items: Full Restore / Full Restore / Full Restore / Full Restore
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
@@ -13640,7 +13640,7 @@ Name: TERRY
 Class: Champion Frlg
 Pic: Champion Rival Frlg
 Gender: Male
-Music: Male
+Music: Serious
 Items: Full Restore / Full Restore / Full Restore / Full Restore
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
@@ -13699,7 +13699,7 @@ Name: TERRY
 Class: Champion Frlg
 Pic: Champion Rival Frlg
 Gender: Male
-Music: Male
+Music: Serious
 Items: Full Restore / Full Restore / Full Restore / Full Restore
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
@@ -13758,7 +13758,7 @@ Name: PAXTON
 Class: Cue Ball Frlg
 Pic: Cue Ball Frlg
 Gender: Male
-Music: Male
+Music: Serious
 Double Battle: No
 AI: Check Bad Move
 

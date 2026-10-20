@@ -107,6 +107,7 @@ EventScript_RockSmash::
 	goto_if_eq VAR_RESULT, PARTY_SIZE, EventScript_CanUseRockSmashOtherwise
 EventScript_DoRockSmash::
 	setfieldeffectargument 0, VAR_RESULT
+	copyvar VAR_0x8006, VAR_RESULT
 	bufferpartymonnick STR_VAR_1, VAR_RESULT
 	msgbox Text_WantToSmash, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, EventScript_CancelSmash
@@ -128,6 +129,14 @@ EventScript_SmashRock::
 	removeobject VAR_LAST_TALKED
 	specialvar VAR_RESULT, TryUpdateRusturfTunnelState
 	goto_if_eq VAR_RESULT, TRUE, EventScript_EndSmash
+	callnative rockSmashRNG
+	goto_if_eq VAR_RESULT, ROCK_SMASH_ENCOUNTER, EventScript_RockSmashWildEncounter
+	goto_if_eq VAR_RESULT, ROCK_SMASH_ITEM, EventScript_RockSmashItem
+EventScript_EndSmash::
+	releaseall
+	end
+
+EventScript_RockSmashWildEncounter::
 	special RockSmashWildEncounter
 	goto_if_eq VAR_RESULT, FALSE, EventScript_EndSmash
 	waitstate
@@ -160,6 +169,15 @@ EventScript_UsePickaxe_SkipCheck::
 	msgbox Text_PlayerUsedFieldTool, MSGBOX_DEFAULT
 	closemessage
 	goto EventScript_SmashRock
+
+EventScript_RockSmashItem::
+	callnative Scrcmd_rockSmashGenerateItem
+	goto_if_eq VAR_0x8005, ITEM_NONE, EventScript_EndSmash
+	checkitemspace VAR_0x8005
+	goto_if_eq VAR_RESULT, FALSE, EventScript_EndSmash
+	giveitem VAR_0x8005
+	releaseall
+	end
 
 EventScript_FollowerFieldMove:
 	setflag FLAG_SAFE_FOLLOWER_MOVEMENT
@@ -233,9 +251,6 @@ EventScript_FollowerJumpWest:
 	waitmovement 0
 	return
 
-EventScript_EndSmash::
-	releaseall
-	end
 
 Movement_WalkUp:
 	walk_up
