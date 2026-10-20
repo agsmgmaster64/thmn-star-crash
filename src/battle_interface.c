@@ -3108,9 +3108,6 @@ static bool32 ShouldUseDoublesBattleStatusHintPosition(void)
     if (IsDoubleBattle())
         return TRUE;
 
-    if (B_LAST_USED_BALL_BUTTON == L_BUTTON && gSaveBlock2Ptr->optionsButtonMode == OPTIONS_BUTTON_MODE_L_EQUALS_A)
-        return FALSE;
-
     return CanThrowLastUsedBall();
 }
 
@@ -3208,9 +3205,6 @@ void TryToHideMoveInfoWindow(void)
 
 void TryToAddBattleStatusHint(void)
 {
-    if (B_BATTLE_INFO_BUTTON == L_BUTTON && gSaveBlock2Ptr->optionsButtonMode == OPTIONS_BUTTON_MODE_L_EQUALS_A)
-        return;
-
     LoadSpritePalette(&sSpritePalette_AbilityPopUp);
     if (GetSpriteTileStartByTag(BATTLE_STATUS_HINT_WINDOW_TAG) == 0xFFFF)
         LoadSpriteSheet(&sSpriteSheet_BattleStatusWindow);

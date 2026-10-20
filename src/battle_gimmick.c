@@ -309,7 +309,7 @@ const u32 *GetIndicatorSpriteSrc(enum BattlerId battler)
 const u32 *GetTeraIndicatorSpriteSrc(enum Type type)
 {
     if (type >= ARRAY_COUNT(sTeraIndicatorDataPtrs))
-        type = TYPE_NORMAL;
+        type = TYPE_ILLUSION;
     return (const u32 *)sTeraIndicatorDataPtrs[type];
 }
 

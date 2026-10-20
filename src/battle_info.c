@@ -512,11 +512,6 @@ static const struct BattleInfoEffectData sBattleInfoEffects[INFO_COUNT] =
         COMPOUND_STRING("Toxic Spikes"),
         COMPOUND_STRING("Pokémon that switch into battle will be poisoned or, if 2 layers of Toxic Spikes are set, badly poisoned. Pokémon such as Flying types or ones with the Levitate Ability are unaffected.")
     },
-    [INFO_MUD_SPORT] =
-    {
-        COMPOUND_STRING("Mud Sport"),
-        COMPOUND_STRING("The power of Electric-type moves will be halved.")
-    },
     [INFO_WISH] =
     {
         COMPOUND_STRING("Wish"),
@@ -566,11 +561,6 @@ static const struct BattleInfoEffectData sBattleInfoEffects[INFO_COUNT] =
     {
         COMPOUND_STRING("Spikes"),
         COMPOUND_STRING("Pokémon that switch into battle will take damage equal to 1/8 of their max HP. This damage will increase if 2 layers of Spikes are set, and again if 3 layers are set. Pokémon such as Flying types or ones with the Levitate Ability are unaffected.")
-    },
-    [INFO_WATER_SPORT] =
-    {
-        COMPOUND_STRING("Water Sport"),
-        COMPOUND_STRING("The power of Fire-type moves will be halved.")
     },
     [INFO_DESTINY_BOND] =
     {
@@ -631,11 +621,6 @@ static const struct BattleInfoEffectData sBattleInfoEffects[INFO_COUNT] =
     {
         COMPOUND_STRING("Landed"),
         COMPOUND_STRING("The Pokémon is now grounded and can be affected by Ground-type moves.")
-    },
-    [INFO_FAIRY_LOCK] =
-    {
-        COMPOUND_STRING("Fairy Locked"),
-        COMPOUND_STRING("No Pokémon on the field can be switched out of battle until the end of the next turn after the Fairy Locked status is activated.")
     },
     [INFO_RAINBOW] =
     {
@@ -2169,9 +2154,6 @@ static void Detail_BuildActiveEffectsForBattler(void)
     TryAddActiveFieldStatus(INFO_MAGIC_ROOM, STATUS_FIELD_MAGIC_ROOM, fieldStatus->magicRoomTimer, 5, side);
     TryAddActiveFieldStatus(INFO_WONDER_ROOM, STATUS_FIELD_WONDER_ROOM, fieldStatus->wonderRoomTimer, 5, side);
     TryAddActiveFieldStatus(INFO_GRAVITY, STATUS_FIELD_GRAVITY, fieldStatus->gravityTimer, 5, side);
-    TryAddActiveFieldStatus(INFO_MUD_SPORT, STATUS_FIELD_MUDSPORT, fieldStatus->mudSportTimer, 5, side);
-    TryAddActiveFieldStatus(INFO_WATER_SPORT, STATUS_FIELD_WATERSPORT, fieldStatus->waterSportTimer, 5, side);
-    TryAddActiveFieldStatus(INFO_FAIRY_LOCK, STATUS_FIELD_FAIRY_LOCK, fieldStatus->fairyLockTimer, 2, side);
 
     #define SIDE_STATUS(s) (gSideStatuses[side] & s) != 0
     TryAddActiveScreen(INFO_LIGHT_SCREEN, SIDE_STATUS(SIDE_STATUS_LIGHTSCREEN), sideStatus->lightscreenTimer, sideStatus->lightscreenTimerTotal, side);
@@ -2499,10 +2481,10 @@ static void TryAddActiveDamageNonTypes(enum BattleSide side)
     case TYPE_FIRE:
         TryAddActiveStatus(INFO_G_MAX_WILDFIRE, PERMANENT_STATUS, side);
         break;
-    case TYPE_ROCK:
+    case TYPE_BEAST:
         TryAddActiveStatus(INFO_G_MAX_VOLCALITH, PERMANENT_STATUS, side);
         break;
-    case TYPE_GRASS:
+    case TYPE_NATURE:
         TryAddActiveStatus(INFO_G_MAX_VINE_LASH, PERMANENT_STATUS, side);
         break;
     case TYPE_WATER:
@@ -2522,7 +2504,7 @@ static void TryAddActiveThirdType(enum BattlerId battler, enum BattleSide side)
     case TYPE_GHOST:
         TryAddActiveStatus(INFO_TRICK_OR_TREAT, TRUE, side);
         break;
-    case TYPE_GRASS:
+    case TYPE_NATURE:
         TryAddActiveStatus(INFO_FORESTS_CURSE, TRUE, side);
         break;
     default:

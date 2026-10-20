@@ -311,8 +311,7 @@ static void HandleInputChooseAction(enum BattlerId battler)
         }
     }
 
-    if (JOY_NEW(B_BATTLE_INFO_BUTTON)
-     && !(B_BATTLE_INFO_BUTTON == L_BUTTON && gSaveBlock2Ptr->optionsButtonMode == OPTIONS_BUTTON_MODE_L_EQUALS_A))
+    if (JOY_NEW(B_BATTLE_INFO_BUTTON))
     {
         TryToHideBattleStatusHint();
         PlaySE(SE_SELECT);
