@@ -252,7 +252,7 @@ static void HandleInputChooseAction(enum BattlerId battler)
 
     if (B_LAST_USED_BALL == TRUE && B_LAST_USED_BALL_CYCLE == TRUE)
     {
-        if (!gLastUsedBallMenuPresent || gBattleTypeFlags & (BATTLE_TYPE_TRAINER | BATTLE_TYPE_FRONTIER))
+        if (!gLastUsedBallMenuPresent)
         {
             gBattleStruct->ackBallUseBtn = FALSE;
         }
@@ -401,7 +401,7 @@ static void HandleInputChooseAction(enum BattlerId battler)
     {
         SwapHpBarsWithHpText();
     }
-    else if (gSaveBlock2Ptr->optionsBattleMenu && JOY_NEW(SELECT_BUTTON))
+    else if (DEBUG_BATTLE_MENU == TRUE && JOY_NEW(SELECT_BUTTON))
     {
         BtlController_EmitTwoReturnValues(battler, B_COMM_TO_ENGINE, B_ACTION_DEBUG, 0);
         BtlController_Complete(battler);
@@ -2370,15 +2370,8 @@ static void PlayerHandleBattleDebug(enum BattlerId battler)
 {
     PlaySE(SE_PC_LOGIN);
     BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 0x10, RGB_BLACK);
-    if (gSaveBlock2Ptr->optionsBattleMenu != 3)
-    {
-        gBattlerControllerFuncs[battler] = Controller_WaitToTransitionStatusMenu;
-    }
-    else
-    {
-        SetMainCallback2(CB2_BattleDebugMenu);
-        gBattlerControllerFuncs[battler] = Controller_WaitForDebug;
-    }
+    SetMainCallback2(CB2_BattleDebugMenu);
+    gBattlerControllerFuncs[battler] = Controller_WaitForDebug;
 }
 
 // Order based numerically, with EFFECTIVENESS_CANNOT_VIEW at 0 to always prioritize any other effectiveness during comparison

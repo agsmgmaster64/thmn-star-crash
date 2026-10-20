@@ -286,6 +286,15 @@ BattleScript_MoveSwitchOpenPartyScreen::
 BattleScript_MoveSwitchEnd:
 	return
 
+BattleScript_BeddyBye::
+	jumpifbattletype BATTLE_TYPE_ARENA, BattleScript_MoveSwitchEnd
+	jumpifcommanderactive BS_ATTACKER, BattleScript_MoveSwitchEnd
+	jumpifcantswitch SWITCH_IGNORE_ESCAPE_PREVENTION | BS_ATTACKER, BattleScript_MoveSwitchEnd
+	printstring STRINGID_PKMNWENTBACK
+	waitmessage B_WAIT_TIME_SHORT
+    playmoveanimation MOVE_BATON_PASS
+	goto BattleScript_MoveSwitchOpenPartyScreen
+
 BattleScript_MoveSwitch::
 	call BattleScript_MoveSwitchRet
 	end

@@ -2720,7 +2720,7 @@ static void HandleSetEffectThirdEye(struct BattleCalcValues *cv, struct SetEffec
 
         PREPARE_MOVE_BUFFER(gBattleTextBuff1, moveToSketch)
 
-        PrepareStringBattleWithWait(STRINGID_PKMNSKETCHEDMOVE, cv->battlerAtk);
+        PrepareStringBattleWithWait(STRINGID_THIRDEYE, cv->battlerAtk);
         BattleScriptPushAndSet(se->script, BattleScript_WaitMessage);
     }
 }

@@ -5683,7 +5683,7 @@ static enum MoveEndResult MoveEndMoveSwitchUser(struct BattleCalcValues *cv)
     case EFFECT_BEDDY_BYE:
         gBattleScripting.battler = cv->battlerAtk;
         result = MOVEEND_RESULT_RUN_SCRIPT;
-        BattleScriptCall(BattleScript_MoveSwitchRet);
+        BattleScriptCall(BattleScript_BeddyBye);
         break;
     case EFFECT_HEALING_WISH:
     case EFFECT_LUNAR_DANCE:
