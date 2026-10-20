@@ -54,6 +54,9 @@ static const u32 sFieldMugshotGfx_SusieLookAwaySerious[] = INCGFX_U32("graphics/
 static const u32 sFieldMugshotGfx_SusieLookDownSerious[] = INCGFX_U32("graphics/field_mugshots/susie/look_down_serious.png", ".4bpp.smol");
 static const u16 sFieldMugshotPal_SusieGeneral[] = INCGFX_U16("graphics/field_mugshots/susie/happy.png", ".gbapal");
 
+static const u32 sFieldMugshotGfx_ChiyonoNormal[] = INCGFX_U32("graphics/field_mugshots/chiyono/normal.png", ".4bpp.smol");
+static const u16 sFieldMugshotPal_ChiyonoGeneral[] = INCGFX_U16("graphics/field_mugshots/chiyono/normal.png", ".gbapal");
+
 struct MugshotGfx
 {
     const u32 *gfx;
@@ -327,6 +330,17 @@ static const struct MugshotGfx sFieldMugshots[MUGSHOT_COUNT][EMOTE_COUNT] =
         {
             .gfx = sFieldMugshotGfx_KroniiShocked,
             .pal = sFieldMugshotPal_KroniiGeneral,
+            .x = MUGSHOT_X,
+            .y = MUGSHOT_Y,
+        },
+    },
+
+    [MUGSHOT_CHIYONO] =
+    {
+        [EMOTE_NORMAL] =
+        {
+            .gfx = sFieldMugshotGfx_ChiyonoNormal,
+            .pal = sFieldMugshotPal_ChiyonoGeneral,
             .x = MUGSHOT_X,
             .y = MUGSHOT_Y,
         },

@@ -3,7 +3,7 @@
 
 static const enum Item sGen6DefaultSmashTable[] = {
     ITEM_STAR_PIECE,
-    ITEM_HARD_STONE,
+    //ITEM_HARD_STONE,
     ITEM_SOFT_SAND,
     ITEM_REVIVE,
     ITEM_MAX_REVIVE,
@@ -12,17 +12,14 @@ static const enum Item sGen6DefaultSmashTable[] = {
     ITEM_PEARL,
     ITEM_BIG_PEARL,
     ITEM_HEART_SCALE,
-    ITEM_NORMAL_GEM,
+    //ITEM_NORMAL_GEM,
 };
 
 static const enum Item sGen6FossilSmashTable[] = {
     ITEM_DOME_FOSSIL,
-    ITEM_ARMOR_FOSSIL,
-    ITEM_PLUME_FOSSIL,
     ITEM_OLD_AMBER,
     ITEM_HELIX_FOSSIL,
-    ITEM_SKULL_FOSSIL,
-    ITEM_COVER_FOSSIL,
+    ITEM_ROOT_FOSSIL,
 };
 
 #define ROCK_SMASH_TABLE_STRUCT(array)  {      \

@@ -2555,16 +2555,16 @@ static void FillHealthboxObject(void *dest, u32 valMult, u32 numTiles)
 static const union TextColor sBattlerTextColor =
 {
     .background = 0,
-    .foreground = 7,
-    .shadow = 1,
+    .foreground = 1,
+    .shadow = 2,
     .accent = 0,
 };
 
 static const union TextColor sAbilityTextColor =
 {
     .background = 0,
-    .foreground = 9,
-    .shadow = 1,
+    .foreground = 1,
+    .shadow = 7,
     .accent = 0,
 };
 
