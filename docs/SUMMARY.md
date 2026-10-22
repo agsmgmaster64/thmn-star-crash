@@ -60,6 +60,7 @@
   - [How to create new region maps (Part 2: Game Data)](tutorials/how_to_multi_region.md)
   - [How to use dynamic trainer battle scripts](tutorials/how_to_dynamic_trainer_script.md)
   - [How to use the Dynamic Multichoice](tutorials/how_to_dynmultichoice.md)
+  - [Safari Zones](tutorials/safari_zones.md)
   - [Bring X Pick Y](tutorials/bring_x_pick_y.md)
   - [How to use the Battle Status Menu](tutorials/how_to_battle_status_menu.md)
 - [Changelog](./CHANGELOG.md)

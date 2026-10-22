@@ -1037,8 +1037,8 @@ static void HandleSetEffectEerieSpell(struct BattleCalcValues *cv, struct SetEff
         if (gBattleMons[se->effectBattler].pp[i] == 0)
             CancelMultiTurnMoves(se->effectBattler);
 
-        PrepareStringBattleWithWait(STRINGID_PKMNREDUCEDPP, cv->battlerAtk);
-        BattleScriptPushAndSet(se->script, BattleScript_WaitMessage);
+        gBattleScripting.savedStringId = STRINGID_PKMNREDUCEDPP;
+        BattleScriptPushAndSet(se->script, BattleScript_PrintSavedMessage);
     }
 }
 
@@ -1655,8 +1655,8 @@ static void HandleSetEffectRecycle(struct BattleCalcValues *cv, struct SetEffect
             );
         MarkBattlerForControllerExec(se->effectBattler);
 
-        PrepareStringBattleWithWait(STRINGID_XFOUNDONEY, se->effectBattler);
-        BattleScriptPushAndSet(se->script, BattleScript_WaitMessage);
+        gBattleScripting.savedStringId = STRINGID_XFOUNDONEY;
+        BattleScriptPushAndSet(se->script, BattleScript_PrintSavedMessage);
     }
 }
 
@@ -1739,8 +1739,8 @@ static void HandleSetEffectSpite(struct BattleCalcValues *cv, struct SetEffect *
         if (gBattleMons[se->effectBattler].pp[moveSlot] == 0)
             CancelMultiTurnMoves(se->effectBattler);
 
-        PrepareStringBattleWithWait(STRINGID_PKMNREDUCEDPP, se->effectBattler);
-        BattleScriptPushAndSet(se->script, BattleScript_WaitMessage);
+        gBattleScripting.savedStringId = STRINGID_PKMNREDUCEDPP;
+        BattleScriptPushAndSet(se->script, BattleScript_PrintSavedMessage);
     }
 }
 
@@ -2699,9 +2699,8 @@ static void HandleSetEffectSketch(struct BattleCalcValues *cv, struct SetEffect 
         MarkBattlerForControllerExec(cv->battlerAtk);
 
         PREPARE_MOVE_BUFFER(gBattleTextBuff1, moveToSketch)
-
-        PrepareStringBattleWithWait(STRINGID_PKMNSKETCHEDMOVE, cv->battlerAtk);
-        BattleScriptPushAndSet(se->script, BattleScript_WaitMessage);
+        gBattleScripting.savedStringId = STRINGID_PKMNSKETCHEDMOVE;
+        BattleScriptPushAndSet(se->script, BattleScript_PrintSavedMessage);
     }
 }
 
@@ -3729,7 +3728,6 @@ static void HandleSetEffectBestow(struct BattleCalcValues *cv, struct SetEffect 
     else if (!cv->onlyChecking)
     {
         BestowItem(cv->battlerAtk, se->effectBattler);
-        PrepareStringBattleWithWait(STRINGID_BESTOWITEMGIVING, cv->battlerAtk);
         BattleScriptPushAndSet(se->script, BattleScript_Bestow);
     }
 }
@@ -3748,7 +3746,7 @@ static void HandleSetEffectStickyWeb(struct BattleCalcValues *cv, struct SetEffe
         gSideTimers[effectSide].stickyWebBattlerId = cv->battlerAtk; // For Mirror Armor
         gSideTimers[effectSide].stickyWebBattlerSide = GetBattlerSide(cv->battlerAtk); // For Court Change/Defiant - set this to the user's side
 
-        PrepareStringBattle(STRINGID_STICKYWEBUSED, se->effectBattler);
+        PrepareStringBattleWithWait(STRINGID_STICKYWEBUSED, se->effectBattler);
         BattleScriptPushAndSet(se->script, BattleScript_WaitMessage);
     }
 }
@@ -3830,7 +3828,7 @@ static void HandleSetEffectTopsyTurvy(struct BattleCalcValues *cv, struct SetEff
             gBattleMons[se->effectBattler].statStages[stat] = MAX_STAT_STAGE - gBattleMons[se->effectBattler].statStages[stat] + MIN_STAT_STAGE;
         }
 
-        PrepareStringBattle(STRINGID_TOPSYTURVYSWITCHEDSTATS, se->effectBattler);
+        PrepareStringBattleWithWait(STRINGID_TOPSYTURVYSWITCHEDSTATS, se->effectBattler);
         BattleScriptPushAndSet(se->script, BattleScript_WaitMessage);
     }
 }
