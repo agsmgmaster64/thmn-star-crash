@@ -33,9 +33,11 @@ gBattlescriptsForUsingItem::
 	.align 2
 gBattlescriptsForSafariActions::
 	.4byte BattleScript_ActionWatchesCarefully
+	.4byte BattleScript_ActionGetNear
+	.4byte BattleScript_ActionThrowPokeblock
+	.4byte BattleScript_ActionWallyThrow
 	.4byte BattleScript_ActionThrowRock
 	.4byte BattleScript_ActionThrowBait
-	.4byte BattleScript_ActionWallyThrow
 
 BattleScript_ItemEnd:
 	end
@@ -260,7 +262,22 @@ BattleScript_RunByUsingItem::
 BattleScript_ActionWatchesCarefully:
 	printfromtable gSafariReactionStringIds
 	waitmessage B_WAIT_TIME_LONG
+#if IS_FRLG
 	playanimation BS_OPPONENT1, B_ANIM_SAFARI_REACTION
+#endif
+	end
+
+BattleScript_ActionGetNear:
+	printfromtable gSafariGetNearStringIds
+	waitmessage B_WAIT_TIME_LONG
+	end
+
+BattleScript_ActionThrowPokeblock:
+	printstring STRINGID_THREWPOKEBLOCKATPKMN
+	waitmessage B_WAIT_TIME_LONG
+	playanimation BS_ATTACKER, B_ANIM_POKEBLOCK_THROW, NULL
+	printfromtable gSafariPokeblockResultStringIds
+	waitmessage B_WAIT_TIME_LONG
 	end
 
 BattleScript_ActionWallyThrow:

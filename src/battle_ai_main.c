@@ -6836,22 +6836,32 @@ static s32 AI_Roaming(enum BattlerId battlerAtk, enum BattlerId battlerDef, enum
     return score;
 }
 
+#define safariBaitThrowCounter safariPkblThrowCounter
+#define safariRockThrowCounter safariGoNearCounter
+
 // Safari Pokémon logic
 static s32 AI_Safari(enum BattlerId battlerAtk, enum BattlerId battlerDef, enum Move move, s32 score)
 {
     u32 safariFleeRate;
 
-    if (gBattleStruct->safariRockThrowCounter)
+    if (IS_FRLG)
     {
-        safariFleeRate = gBattleStruct->safariEscapeFactor * 2;
-        if (safariFleeRate > 20)
-            safariFleeRate = 20;
-    }
-    else if (gBattleStruct->safariBaitThrowCounter != 0)
-    {
-        safariFleeRate = gBattleStruct->safariEscapeFactor / 4;
-        if (safariFleeRate == 0)
-            safariFleeRate = 1;
+        if (gBattleStruct->safariRockThrowCounter)
+        {
+            safariFleeRate = gBattleStruct->safariEscapeFactor * 2;
+            if (safariFleeRate > 20)
+                safariFleeRate = 20;
+        }
+        else if (gBattleStruct->safariBaitThrowCounter != 0)
+        {
+            safariFleeRate = gBattleStruct->safariEscapeFactor / 4;
+            if (safariFleeRate == 0)
+                safariFleeRate = 1;
+        }
+        else
+        {
+            safariFleeRate = gBattleStruct->safariEscapeFactor;
+        }
     }
     else
     {
@@ -6867,6 +6877,9 @@ static s32 AI_Safari(enum BattlerId battlerAtk, enum BattlerId battlerDef, enum 
 
     return score;
 }
+
+#undef safariBaitThrowCounter
+#undef safariRockThrowCounter
 
 // First battle logic
 static s32 AI_FirstBattle(enum BattlerId battlerAtk, enum BattlerId battlerDef, enum Move move, s32 score)

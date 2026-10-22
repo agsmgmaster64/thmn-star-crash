@@ -637,8 +637,8 @@ struct BattleStruct
     enum PartyMon monToSwitchIntoId[MAX_BATTLERS_COUNT];
     u8 battlerPartyOrders[MAX_BATTLERS_COUNT][PARTY_SIZE / 2];
     u8 runTries;
-    u8 safariRockThrowCounter;
-    u8 safariBaitThrowCounter;
+    u8 safariGoNearCounter;
+    u8 safariPkblThrowCounter;
     u8 safariEscapeFactor;
     u8 safariCatchFactor;
     u8 linkBattleVsSpriteId_V; // The letter "V"

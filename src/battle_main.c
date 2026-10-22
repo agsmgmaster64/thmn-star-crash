@@ -434,8 +434,8 @@ static void (*const sTurnActionsFuncsTable[])(void) =
     [B_ACTION_RUN]                    = HandleAction_Run,
     [B_ACTION_SAFARI_WATCH_CAREFULLY] = HandleAction_WatchesCarefully,
     [B_ACTION_SAFARI_BALL]            = HandleAction_SafariZoneBallThrow,
-    [B_ACTION_SAFARI_POKEBLOCK]       = HandleAction_ThrowBait,
-    [B_ACTION_SAFARI_GO_NEAR]         = HandleAction_ThrowRock,
+    [B_ACTION_SAFARI_POKEBLOCK]       = HandleAction_ThrowPokeblock,
+    [B_ACTION_SAFARI_GO_NEAR]         = HandleAction_GoNear,
     [B_ACTION_SAFARI_RUN]             = HandleAction_SafariZoneRun,
     [B_ACTION_WALLY_THROW]            = HandleAction_WallyBallThrow,
     [B_ACTION_EXEC_SCRIPT]            = HandleAction_RunBattleScript,
@@ -2755,12 +2755,19 @@ static void BattleStartClearSetData(void)
     gLeveledUpInBattle = 0;
     gAbsentBattlerFlags = 0;
     gBattleStruct->runTries = 0;
-    gBattleStruct->safariRockThrowCounter = 0;
-    gBattleStruct->safariBaitThrowCounter = 0;
+    gBattleStruct->safariGoNearCounter = 0;
+    gBattleStruct->safariPkblThrowCounter = 0;
     gBattleStruct->safariCatchFactor = gSpeciesInfo[GetMonData(&gParties[B_TRAINER_OPPONENT_A][0], MON_DATA_SPECIES)].catchRate * 100 / 1275;
-    gBattleStruct->safariEscapeFactor = gSpeciesInfo[GetMonData(&gParties[B_TRAINER_OPPONENT_A][0], MON_DATA_SPECIES)].safariZoneFleeRate * 100 / 1275;
-    if (gBattleStruct->safariEscapeFactor <= 1)
-        gBattleStruct->safariEscapeFactor = 2;
+    if (IS_FRLG)
+    {
+        gBattleStruct->safariEscapeFactor = gSpeciesInfo[GetMonData(&gParties[B_TRAINER_OPPONENT_A][0], MON_DATA_SPECIES)].safariZoneFleeRate * 100 / 1275;
+        if (gBattleStruct->safariEscapeFactor <= 1)
+            gBattleStruct->safariEscapeFactor = 2;
+    }
+    else
+    {
+        gBattleStruct->safariEscapeFactor = 3;
+    }
     gBattleStruct->wildVictorySong = 0;
     gBattleStruct->moneyMultiplier = 1;
 
@@ -3928,6 +3935,11 @@ static void HandleTurnActionSelectionState(void)
                     }
                     break;
                 case B_ACTION_SAFARI_POKEBLOCK:
+                    if (!IS_FRLG)
+                    {
+                        BtlController_EmitChooseItem(battler, B_COMM_TO_CONTROLLER, gBattleStruct->battlerPartyOrders[battler]);
+                        MarkBattlerForControllerExec(battler);
+                    }
                     break;
                 case B_ACTION_CANCEL_PARTNER:
                     gBattleCommunication[battler] = STATE_WAIT_SET_BEFORE_ACTION;
@@ -4130,7 +4142,17 @@ static void HandleTurnActionSelectionState(void)
                     gBattleCommunication[battler]++;
                     break;
                 case B_ACTION_SAFARI_POKEBLOCK:
-                    gBattleCommunication[battler]++;
+                    if (IS_FRLG)
+                    {
+                        gBattleCommunication[battler]++;
+                    }
+                    else
+                    {
+                        if ((gBattleResources->bufferB[battler][1] | (gBattleResources->bufferB[battler][2] << 8)) != 0)
+                            gBattleCommunication[battler]++;
+                        else
+                            gBattleCommunication[battler] = STATE_BEFORE_ACTION_CHOSEN;
+                    }
                     break;
                 case B_ACTION_SAFARI_GO_NEAR:
                     gBattleCommunication[battler]++;

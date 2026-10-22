@@ -438,7 +438,11 @@ const u8 *const gBattleStringsTable[STRINGID_COUNT] =
     [STRINGID_PKMNTURNEDAWAY]                       = COMPOUND_STRING("{B_ATK_NAME_WITH_PREFIX} turned away!"),
     [STRINGID_PKMNPRETENDNOTNOTICE]                 = COMPOUND_STRING("{B_ATK_NAME_WITH_PREFIX} pretended not to notice!"),
     [STRINGID_ENEMYABOUTTOSWITCHPKMN]               = COMPOUND_STRING("{B_TRAINER1_NAME_WITH_CLASS} is about to send out {B_BUFF2}. Will you switch your Puppet?"),
+    [STRINGID_CREPTCLOSER]                          = COMPOUND_STRING("{B_PLAYER_NAME} crept closer to {B_OPPONENT_MON1_NAME}!"), //safari
+    [STRINGID_CANTGETCLOSER]                        = COMPOUND_STRING("{B_PLAYER_NAME} can't get any closer!"), //safari
     [STRINGID_PKMNWATCHINGCAREFULLY]                = COMPOUND_STRING("{B_OPPONENT_MON1_NAME} is watching carefully!"), //safari
+    [STRINGID_PKMNCURIOUSABOUTX]                    = COMPOUND_STRING("{B_OPPONENT_MON1_NAME} is curious about the {B_BUFF1}!"), //safari
+    [STRINGID_PKMNENTHRALLEDBYX]                    = COMPOUND_STRING("{B_OPPONENT_MON1_NAME} is enthralled by the {B_BUFF1}!"), //safari
     [STRINGID_PKMNIGNOREDX]                         = COMPOUND_STRING("{B_OPPONENT_MON1_NAME} completely ignored the {B_BUFF1}!"), //safari
     [STRINGID_THREWPOKEBLOCKATPKMN]                 = COMPOUND_STRING("{B_PLAYER_NAME} threw a {POKEBLOCK} at the {B_OPPONENT_MON1_NAME}!"), //safari
     [STRINGID_OUTOFSAFARIBALLS]                     = COMPOUND_STRING("{PLAY_SE SE_DING_DONG}ANNOUNCER: You're out of Safari Balls! Game over!\p"), //safari
@@ -1370,6 +1374,19 @@ const u16 gSafariReactionStringIds[NUM_SAFARI_REACTIONS] =
     [B_MSG_MON_WATCHING] = STRINGID_PKMNWATCHINGCAREFULLY,
     [B_MSG_MON_ANGRY]    = STRINGID_PKMNANGRY,
     [B_MSG_MON_EATING]   = STRINGID_PKMNEATING
+};
+
+const u16 gSafariGetNearStringIds[] =
+{
+    [B_MSG_CREPT_CLOSER]    = STRINGID_CREPTCLOSER,
+    [B_MSG_CANT_GET_CLOSER] = STRINGID_CANTGETCLOSER
+};
+
+const u16 gSafariPokeblockResultStringIds[] =
+{
+    [B_MSG_MON_CURIOUS]    = STRINGID_PKMNCURIOUSABOUTX,
+    [B_MSG_MON_ENTHRALLED] = STRINGID_PKMNENTHRALLEDBYX,
+    [B_MSG_MON_IGNORED]    = STRINGID_PKMNIGNOREDX
 };
 
 const u16 CureStatusBerryEffectStringID[] =
