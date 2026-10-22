@@ -41,6 +41,18 @@ u32 GetInitialSafariCatchFactor(void)
     return gSpeciesInfo[GetMonData(&gParties[B_TRAINER_OPPONENT_A][0], MON_DATA_SPECIES)].catchRate * 100 / 1275;
 }
 
+u32 GetInitialSafariEscapeFactor(void)
+{
+    if (GetSafariActions() == SAFARI_ACTIONS_FRLG)
+    {
+        u32 escapeFactor = gSpeciesInfo[GetMonData(&gParties[B_TRAINER_OPPONENT_A][0], MON_DATA_SPECIES)].safariZoneFleeRate * 100 / 1275;
+        if (escapeFactor <= 1)
+            escapeFactor = 2;
+        return escapeFactor;
+    }
+    return 3;
+}
+
 static const u8 sPkblToEscapeFactor[][3] = {
     {
         [B_MSG_MON_CURIOUS]    = 0,

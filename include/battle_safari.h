@@ -4,6 +4,7 @@
 const u8 *GetSafariControllerMenu(void);
 const u8 *GetSafariControllerActions(void);
 u32 GetInitialSafariCatchFactor(void);
+u32 GetInitialSafariEscapeFactor(void);
 void HandleAction_WatchesCarefully(void);
 void HandleAction_SafariZoneBallThrow(void);
 void HandleAction_ThrowPokeblock(void);

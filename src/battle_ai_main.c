@@ -22,6 +22,7 @@
 #include "pokemon.h"
 #include "random.h"
 #include "recorded_battle.h"
+#include "safari_zone.h"
 #include "util.h"
 #include "script.h"
 #include "constants/abilities.h"
@@ -6845,7 +6846,7 @@ static s32 AI_Safari(enum BattlerId battlerAtk, enum BattlerId battlerDef, enum 
 {
     u32 safariFleeRate;
 
-    if (IS_FRLG)
+    if (GetSafariActions() == SAFARI_ACTIONS_FRLG)
     {
         if (gBattleStruct->safariRockThrowCounter)
         {
