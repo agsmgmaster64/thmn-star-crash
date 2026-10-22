@@ -105,7 +105,7 @@ void HandleAction_SafariZoneBallThrow(void)
     gBattle_BG0_X = 0;
     gBattle_BG0_Y = 0;
     DecrementSafariBalls();
-    gLastUsedItem = ITEM_SAFARI_BALL;
+    gLastUsedItem = ITEM_SAFARI_ORB;
     gBattlescriptCurrInstr = BattleScript_SafariBallThrow;
     gCurrentActionFuncId = B_ACTION_EXEC_SCRIPT;
 }

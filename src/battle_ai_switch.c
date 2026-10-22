@@ -1308,7 +1308,7 @@ void GetBestMonDynFuncExample(struct SwitchAiContext *switchContext)
 {
     // If the AI has a Zigzagoon, it should send it out
     enum Species species = gBattleMons[switchContext->battler].species;
-    if (species == SPECIES_ZIGZAGOON)
+    if (species == SPECIES_CHIBI_NAZRIN)
     {
         switchContext->dynamicSingleId = switchContext->partyMonIndex; // Tracks most recent candidate Zigzagoon
         switchContext->dynamicMultipleIds |= (1u << switchContext->partyMonIndex); // Tracks all candidate Zigzagoons

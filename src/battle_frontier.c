@@ -248,8 +248,8 @@ void PickRandomFacilityMons(struct FacilityMonGenerator *generator, u16 trainerI
         }
         if (generator->facility == FRONTIER_FACILITY_FACTORY)
         {
-            if (generator->facilityMonList[monId].species == SPECIES_UNOWN)
-                isMonValid = FALSE;
+            //if (generator->facilityMonList[monId].species == SPECIES_UNOWN)
+                //isMonValid = FALSE;
 
             for (u32 j = 0; j < 2 * FRONTIER_PARTY_SIZE; j++)
             {

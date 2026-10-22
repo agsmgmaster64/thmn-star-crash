@@ -1877,12 +1877,13 @@ static void RotomPhone_OverworldMenu_PrintSafari(u8 taskId)
     u8 textBuffer[80];
     u8 numBalls[2];
     u8 nameItem[20];
+    u32 safariBalls = GetSafariBallCount();
 
-    ConvertIntToDecimalStringN(numBalls, gNumSafariBalls, STR_CONV_MODE_LEADING_ZEROS, 2);
+    ConvertIntToDecimalStringN(numBalls, safariBalls, STR_CONV_MODE_LEADING_ZEROS, 2);
     StringCopy(textBuffer, COMPOUND_STRING("You have "));
     StringAppend(textBuffer, numBalls);
     StringAppend(textBuffer, COMPOUND_STRING(" "));
-    CopyItemNameHandlePlural(ITEM_SAFARI_ORB, nameItem, gNumSafariBalls);
+    CopyItemNameHandlePlural(ITEM_SAFARI_ORB, nameItem, safariBalls);
     StringAppend(textBuffer, nameItem);
     StringAppend(textBuffer, COMPOUND_STRING(" remaining."));
     RotomPhone_OverworldMenu_PrintRotomSpeech(textBuffer, TRUE, TRUE);
