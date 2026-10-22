@@ -89,6 +89,7 @@
 #define FLDEFF_SNOW_FOOTPRINTS           84
 #define FLDEFF_SNOW_BIKE_TIRE_TRACKS     85
 #define FLDEFF_USE_HEADBUTT              86
+#define FLDEFF_DEEP_MUD                  87
 
 #define FLDEFFOBJ_SHADOW_S              0
 #define FLDEFFOBJ_SHADOW_M              1
@@ -140,6 +141,7 @@
 #define FLDEFFOBJ_SHINY_SPARKLE         47
 #define FLDEFFOBJ_SNOW_FOOTPRINTS       48
 #define FLDEFFOBJ_SNOW_BIKE_TIRE_TRACKS 49
+#define FLDEFFOBJ_DEEP_MUD              50
 
 #define FLDEFF_PAL_TAG_CUT_GRASS          0x1000
 #define FLDEFF_PAL_TAG_SECRET_POWER_TREE  0x1003

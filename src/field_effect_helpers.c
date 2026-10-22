@@ -407,6 +407,7 @@ void UpdateShadowFieldEffect(struct Sprite *sprite)
         if (!objectEvent->active
          || objectEvent->noShadow
          || objectEvent->inHotSprings
+         || objectEvent->inDeepMud
          || objectEvent->inSandPile
          || gWeatherPtr->noShadows
          || MetatileBehavior_IsPokeGrass(objectEvent->currentMetatileBehavior)
@@ -1231,6 +1232,44 @@ void UpdateHotSpringsWaterFieldEffect(struct Sprite *sprite)
     if (TryGetObjectEventIdByLocalIdAndMap(sprite->sLocalId, sprite->sMapNum, sprite->sMapGroup, &objectEventId) || !gObjectEvents[objectEventId].inHotSprings)
     {
         FieldEffectStop(sprite, FLDEFF_HOT_SPRINGS_WATER);
+    }
+    else
+    {
+        const struct ObjectEventGraphicsInfo *graphicsInfo = GetObjectEventGraphicsInfo(gObjectEvents[objectEventId].graphicsId);
+        struct Sprite *linkedSprite = &gSprites[gObjectEvents[objectEventId].spriteId];
+        sprite->x = linkedSprite->x;
+        sprite->y = (graphicsInfo->height >> 1) + linkedSprite->y - 8;
+        sprite->subpriority = linkedSprite->subpriority - 1;
+        UpdateObjectEventSpriteInvisibility(sprite, FALSE);
+    }
+}
+
+u32 FldEff_DeepMud(void)
+{
+    u8 objectEventId = GetObjectEventIdByLocalIdAndMap(gFieldEffectArguments[0], gFieldEffectArguments[1], gFieldEffectArguments[2]);
+    struct ObjectEvent *objectEvent = &gObjectEvents[objectEventId];
+    u8 spriteId = CreateSpriteAtEndUnchecked(gFieldEffectObjectTemplatePointers[FLDEFFOBJ_DEEP_MUD], 0, 0, 0);
+    if (spriteId != MAX_SPRITES)
+    {
+        struct Sprite *sprite = &gSprites[spriteId];
+        sprite->coordOffsetEnabled = TRUE;
+        sprite->oam.priority = gSprites[objectEvent->spriteId].oam.priority;
+        sprite->sLocalId = gFieldEffectArguments[0];
+        sprite->sMapNum = gFieldEffectArguments[1];
+        sprite->sMapGroup = gFieldEffectArguments[2];
+        sprite->sPrevX = gSprites[objectEvent->spriteId].x; // Unused
+        sprite->sPrevY = gSprites[objectEvent->spriteId].y; // Unused
+    }
+    return 0;
+}
+
+void UpdateDeepMudFieldEffect(struct Sprite *sprite)
+{
+    u8 objectEventId;
+
+    if (TryGetObjectEventIdByLocalIdAndMap(sprite->sLocalId, sprite->sMapNum, sprite->sMapGroup, &objectEventId) || !gObjectEvents[objectEventId].inDeepMud)
+    {
+        FieldEffectStop(sprite, FLDEFF_DEEP_MUD);
     }
     else
     {

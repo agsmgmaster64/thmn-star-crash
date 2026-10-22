@@ -1139,6 +1139,10 @@ static const struct SpriteFrameImage sPicTable_HotSpringsWater[] = {
     obj_frame_tiles(gFieldEffectObjectPic_HotSpringsWater),
 };
 
+static const struct SpriteFrameImage sPicTable_DeepMud[] = {
+    obj_frame_tiles(gFieldEffectObjectPic_DeepMud),
+};
+
 static const union AnimCmd sAnim_HotSpringsWater[] =
 {
     ANIMCMD_FRAME(0, 4),
@@ -1157,6 +1161,15 @@ const struct SpriteTemplate gFieldEffectObjectTemplate_HotSpringsWater = {
     .anims = sAnimTable_HotSpringsWater,
     .images = sPicTable_HotSpringsWater,
     .callback = UpdateHotSpringsWaterFieldEffect,
+};
+
+const struct SpriteTemplate gFieldEffectObjectTemplate_DeepMud = {
+    .tileTag = TAG_NONE,
+    .paletteTag = FLDEFF_PAL_TAG_SEASON_GRASS,
+    .oam = &gObjectEventBaseOam_16x16,
+    .anims = sAnimTable_HotSpringsWater,
+    .images = sPicTable_DeepMud,
+    .callback = UpdateDeepMudFieldEffect,
 };
 
 static const struct SpriteFrameImage sPicTable_AshPuff[] = {

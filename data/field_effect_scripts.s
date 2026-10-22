@@ -93,6 +93,7 @@ gFieldEffectScriptPointers::
 	.4byte gFieldEffectScript_SnowFootprints            @ FLDEFF_SNOW_FOOTPRINTS
 	.4byte gFieldEffectScript_SnowBikeTireTracks        @ FLDEFF_SNOW_BIKE_TIRE_TRACKS
 	.4byte gFieldEffectScript_UseHeadbutt               @ FLDEFF_USE_HEADBUTT
+	.4byte gFieldEffectScript_DeepMud                   @ FLDEFF_DEEP_MUD
 
 gFieldEffectScript_ExclamationMarkIcon1::
 	field_eff_callnative FldEff_ExclamationMarkIcon
@@ -444,4 +445,8 @@ gFieldEffectScript_SnowBikeTireTracks::
 
 gFieldEffectScript_UseHeadbutt::
 	field_eff_callnative FldEff_UseHeadbutt
+	field_eff_end
+
+gFieldEffectScript_DeepMud::
+	field_eff_loadfadedpal_callnative gSpritePalette_SeasonGrass, FldEff_DeepMud
 	field_eff_end

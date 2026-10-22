@@ -440,6 +440,7 @@ extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BirdKeeper;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_TokaiTeio;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_NiceNature;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_KrisDelta;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SakuraChiyonoO;
 
 const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM_OBJ_EVENT_GFX] = {
     [OBJ_EVENT_GFX_RENKO_NORMAL] =             &gObjectEventGraphicsInfo_BrendanNormal,
@@ -715,6 +716,7 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_TOKAI_TEIO] =               &gObjectEventGraphicsInfo_TokaiTeio,
     [OBJ_EVENT_GFX_NICE_NATURE] =              &gObjectEventGraphicsInfo_NiceNature,
     [OBJ_EVENT_GFX_KRIS_DELTA] =               &gObjectEventGraphicsInfo_KrisDelta,
+    [OBJ_EVENT_GFX_SAKURA_CHIYONO_O] =         &gObjectEventGraphicsInfo_SakuraChiyonoO,
     [OBJ_EVENT_GFX_APRICORN_TREE] =            &gObjectEventGraphicsInfo_ApricornTree,
     [OBJ_EVENT_GFX_ROTATING_GATE_L1] =          &gObjectEventGraphicsInfo_RotatingGateL1,
     [OBJ_EVENT_GFX_ROTATING_GATE_L2] =          &gObjectEventGraphicsInfo_RotatingGateL2,
