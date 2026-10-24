@@ -13473,7 +13473,7 @@
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_GeneralFrlg",
-      "secondary_tileset": "gTileset_PewterCity",
+      "secondary_tileset": "gTileset_Route32",
       "border_filepath": "data/layouts/Route32/border.bin",
       "blockdata_filepath": "data/layouts/Route32/map.bin",
       "build_version": [
@@ -13921,7 +13921,7 @@
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_BuildingFrlg",
-      "secondary_tileset": "gTileset_PokemonDayCare",
+      "secondary_tileset": "gTileset_VioletCityGym",
       "border_filepath": "data/layouts/VioletCity_Gym/border.bin",
       "blockdata_filepath": "data/layouts/VioletCity_Gym/map.bin",
       "build_version": [
@@ -13932,8 +13932,8 @@
     {
       "id": "LAYOUT_UNION_CAVE_1F",
       "name": "UnionCave_1F_Layout",
-      "width": 11,
-      "height": 9,
+      "width": 40,
+      "height": 60,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_GeneralFrlg",

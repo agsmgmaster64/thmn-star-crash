@@ -1997,3 +1997,36 @@ const struct Tileset gTileset_VioletCity =
     .metatileAttributes = gMetatileAttributes_VioletCity,
     .callback = NULL,
 };
+
+const struct Tileset gTileset_VioletCityGym =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_VioletCityGym,
+    .palettes = gTilesetPalettes_VioletCityGym,
+    .metatiles = gMetatiles_VioletCityGym,
+    .metatileAttributes = gMetatileAttributes_VioletCityGym,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_Route32 =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_Route32,
+    .palettes = gTilesetPalettes_Route32,
+    .metatiles = gMetatiles_Route32,
+    .metatileAttributes = gMetatileAttributes_Route32,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_AzaleaTown =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_AzaleaTown,
+    .palettes = gTilesetPalettes_AzaleaTown,
+    .metatiles = gMetatiles_AzaleaTown,
+    .metatileAttributes = gMetatileAttributes_AzaleaTown,
+    .callback = NULL,
+};

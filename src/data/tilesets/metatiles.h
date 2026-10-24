@@ -531,3 +531,12 @@ const u32 gMetatileAttributes_CherrygroveCity[] = INCBIN_U32("data/tilesets/seco
 
 const u16 gMetatiles_VioletCity[] = INCBIN_U16("data/tilesets/secondary/violet_city/metatiles.bin");
 const u32 gMetatileAttributes_VioletCity[] = INCBIN_U32("data/tilesets/secondary/violet_city/metatile_attributes.bin");
+
+const u16 gMetatiles_VioletCityGym[] = INCBIN_U16("data/tilesets/secondary/violet_city_gym/metatiles.bin");
+const u32 gMetatileAttributes_VioletCityGym[] = INCBIN_U32("data/tilesets/secondary/violet_city_gym/metatile_attributes.bin");
+
+const u16 gMetatiles_Route32[] = INCBIN_U16("data/tilesets/secondary/route_32/metatiles.bin");
+const u32 gMetatileAttributes_Route32[] = INCBIN_U32("data/tilesets/secondary/route_32/metatile_attributes.bin");
+
+const u16 gMetatiles_AzaleaTown[] = INCBIN_U16("data/tilesets/secondary/azalea_town/metatiles.bin");
+const u32 gMetatileAttributes_AzaleaTown[] = INCBIN_U32("data/tilesets/secondary/azalea_town/metatile_attributes.bin");
