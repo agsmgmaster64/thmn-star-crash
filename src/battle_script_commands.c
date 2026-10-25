@@ -5827,6 +5827,14 @@ static void ComputeBallData(u32 wildMonBattler, u32 playerBattler, struct BallDa
                 ball->multiplier = 300;
         }
         break;
+    case BALL_LOVE:
+        if (IS_BATTLER_OF_TYPE(wildMonBattler, TYPE_HEART))
+            ball->multiplier = 350;
+        break;
+    case BALL_FAST:
+        if (GetSpeciesBaseSpeed(battleMon->species) >= 100)
+            ball->multiplier = 400;
+        break;
     case BALL_DREAM:
         if (B_DREAM_BALL_MODIFIER >= GEN_8 && (battleMon->status1 & STATUS1_SLEEP || (GetBattlerAbilityIgnoreMoldBreaker(wildMonBattler) == ABILITY_COMATOSE)))
             ball->multiplier = 400;
@@ -5834,6 +5842,10 @@ static void ComputeBallData(u32 wildMonBattler, u32 playerBattler, struct BallDa
     case BALL_BEAST:
         ball->multiplier = 410;
         ball->divider = 4096;
+        break;
+    case BALL_IGNITE:
+        if (IS_BATTLER_ANY_TYPE(wildMonBattler, TYPE_FIRE, TYPE_EARTH))
+            ball->multiplier = 350;
         break;
     default:
         break;
