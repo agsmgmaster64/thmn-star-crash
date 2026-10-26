@@ -79,12 +79,12 @@ bool32 CanDynamax(enum BattlerId battler)
         return FALSE;
 
     // Prevents Zigzagoon from dynamaxing in vanilla.
-    if (gBattleTypeFlags & BATTLE_TYPE_FIRST_BATTLE && !IsOnPlayerSide(battler))
+    if (HasAnyBattleFlags(BATTLE_TYPE_FIRST_BATTLE) && !IsOnPlayerSide(battler))
         return FALSE;
 
     // Check if Player has a Dynamax Band.
     if (!TESTING && (GetBattlerPosition(battler) == B_POSITION_PLAYER_LEFT
-        || (!(gBattleTypeFlags & BATTLE_TYPE_MULTI) && GetBattlerPosition(battler) == B_POSITION_PLAYER_RIGHT)))
+        || (!HasAnyBattleFlags(BATTLE_TYPE_MULTI) && GetBattlerPosition(battler) == B_POSITION_PLAYER_RIGHT)))
     {
         if (!CheckBagHasItem(ITEM_DYNAMAX_BAND, 1))
             return FALSE;
@@ -111,7 +111,7 @@ bool32 CanDynamax(enum BattlerId battler)
         return FALSE;
 
     // TODO: Cannot Dynamax in a Max Raid if you don't have Dynamax Energy.
-    // if (gBattleTypeFlags & BATTLE_TYPE_RAID && gBattleStruct->raid.dynamaxEnergy != battler)
+    // if (HasAnyBattleFlags(BATTLE_TYPE_RAID) && gBattleStruct->raid.dynamaxEnergy != battler)
     //    return FALSE;
 
     // No checks failed, all set!

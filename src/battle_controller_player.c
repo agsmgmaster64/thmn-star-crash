@@ -175,7 +175,7 @@ void SetControllerToPlayer(enum BattlerId battler)
 void PlayerBufferExecCompleted(enum BattlerId battler)
 {
     gBattlerControllerFuncs[battler] = PlayerBufferRunCommand;
-    if (gBattleTypeFlags & BATTLE_TYPE_LINK)
+    if (HasAnyBattleFlags(BATTLE_TYPE_LINK))
     {
         u8 playerId = GetMultiplayerId();
 
@@ -390,7 +390,7 @@ static void HandleInputChooseAction(enum BattlerId battler)
         if (IsDoubleBattle()
          && GetBattlerPosition(battler) == B_POSITION_PLAYER_RIGHT
          && !(gAbsentBattlerFlags & (1u << GetBattlerAtPosition(B_POSITION_PLAYER_LEFT)))
-         && !(gBattleTypeFlags & BATTLE_TYPE_MULTI))
+         && !HasAnyBattleFlags(BATTLE_TYPE_MULTI))
         {
             // Return item to bag if partner had selected one (if consumable).
             if (gBattleResources->bufferA[battler][1] == B_ACTION_USE_ITEM && GetItemConsumability(itemId))
@@ -403,7 +403,7 @@ static void HandleInputChooseAction(enum BattlerId battler)
         }
         else if (B_QUICK_MOVE_CURSOR_TO_RUN)
         {
-            if (!(gBattleTypeFlags & BATTLE_TYPE_TRAINER)) // If wild battle, pressing B moves cursor to "Run".
+            if (!IsTrainerBattle()) // If wild battle, pressing B moves cursor to "Run".
             {
                 PlaySE(SE_SELECT);
                 ActionSelectionDestroyCursorAt(gActionSelectionCursor[battler]);
@@ -904,7 +904,7 @@ void HandleInputChooseMove(enum BattlerId battler)
     }
     else if (B_MOVE_REARRANGEMENT_IN_BATTLE < GEN_4 && JOY_NEW(SELECT_BUTTON) && !gBattleStruct->zmove.viewing && !gBattleStruct->descriptionSubmenu)
     {
-        if (gNumberOfMovesToChoose > 1 && !(gBattleTypeFlags & BATTLE_TYPE_LINK))
+        if (gNumberOfMovesToChoose > 1 && !HasAnyBattleFlags(BATTLE_TYPE_LINK))
         {
             MoveSelectionCreateCursorAt(gMoveSelectionCursor[battler], 29);
 
@@ -1123,7 +1123,7 @@ void HandleMoveSwitching(enum BattlerId battler)
             }
         }
 
-        if (IS_FRLG && gBattleTypeFlags & BATTLE_TYPE_FIRST_BATTLE)
+        if (IS_FRLG && HasAnyBattleFlags(BATTLE_TYPE_FIRST_BATTLE))
             gBattlerControllerFuncs[battler] = OakOldManHandleInputChooseMove;
         else
             gBattlerControllerFuncs[battler] = HandleInputChooseMove;
@@ -1141,7 +1141,7 @@ void HandleMoveSwitching(enum BattlerId battler)
         MoveSelectionDestroyCursorAt(gMultiUsePlayerCursor);
         MoveSelectionCreateCursorAt(gMoveSelectionCursor[battler], 0);
 
-        if (gBattleTypeFlags & BATTLE_TYPE_FIRST_BATTLE)
+        if (HasAnyBattleFlags(BATTLE_TYPE_FIRST_BATTLE))
             gBattlerControllerFuncs[battler] = OakOldManHandleInputChooseMove;
         else
             gBattlerControllerFuncs[battler] = HandleInputChooseMove;
@@ -1260,7 +1260,7 @@ void SetBattleEndCallbacks(enum BattlerId battler)
 {
     if (!gPaletteFade.active)
     {
-        if (gBattleTypeFlags & BATTLE_TYPE_LINK)
+        if (HasAnyBattleFlags(BATTLE_TYPE_LINK))
         {
             if (IsLinkTaskFinished())
             {
@@ -1287,7 +1287,7 @@ static void Intro_WaitForShinyAnimAndHealthbox(enum BattlerId battler)
     bool8 healthboxAnimDone = FALSE;
 
     // Check if healthbox has finished sliding in
-    if (TwoPlayerIntroMons(battler) && !(gBattleTypeFlags & BATTLE_TYPE_MULTI))
+    if (TwoPlayerIntroMons(battler) && !HasAnyBattleFlags(BATTLE_TYPE_MULTI))
     {
         if (gSprites[gHealthboxSpriteIds[battler]].callback == SpriteCallbackDummy
          && gSprites[gHealthboxSpriteIds[GetPartnerBattler(battler)]].callback == SpriteCallbackDummy)
@@ -1341,7 +1341,7 @@ static void Intro_TryShinyAnimShowHealthbox(enum BattlerId battler)
     {
         if (!gBattleSpritesDataPtr->healthBoxesData[battler].healthboxSlideInStarted)
         {
-            if (TwoPlayerIntroMons(battler) && !(gBattleTypeFlags & BATTLE_TYPE_MULTI))
+            if (TwoPlayerIntroMons(battler) && !HasAnyBattleFlags(BATTLE_TYPE_MULTI))
             {
                 UpdateHealthboxAttribute(gHealthboxSpriteIds[GetPartnerBattler(battler)], GetBattlerMon(GetPartnerBattler(battler)), HEALTHBOX_ALL);
                 StartHealthboxSlideIn(GetPartnerBattler(battler));
@@ -1362,7 +1362,7 @@ static void Intro_TryShinyAnimShowHealthbox(enum BattlerId battler)
     {
         if (!gBattleSpritesDataPtr->healthBoxesData[battler].bgmRestored)
         {
-            if (gBattleTypeFlags & BATTLE_TYPE_MULTI && gBattleTypeFlags & BATTLE_TYPE_LINK)
+            if (HasAllBattleFlags(BATTLE_TYPE_MULTI | BATTLE_TYPE_LINK))
                 m4aMPlayContinue(&gMPlayInfo_BGM);
             else
                 m4aMPlayVolumeControl(&gMPlayInfo_BGM, TRACKS_ALL, 0x100);
@@ -1372,7 +1372,7 @@ static void Intro_TryShinyAnimShowHealthbox(enum BattlerId battler)
     }
 
     // Wait for battler anims
-    if (TwoPlayerIntroMons(battler) && !(gBattleTypeFlags & BATTLE_TYPE_MULTI))
+    if (TwoPlayerIntroMons(battler) && !HasAnyBattleFlags(BATTLE_TYPE_MULTI))
     {
         if (gSprites[gBattleControllerData[battler]].callback == SpriteCallbackDummy
             && gSprites[gBattlerSpriteIds[battler]].callback == SpriteCallbackDummy
@@ -1394,7 +1394,7 @@ static void Intro_TryShinyAnimShowHealthbox(enum BattlerId battler)
     // Clean up
     if (bgmRestored && battlerAnimsDone)
     {
-        if (TwoPlayerIntroMons(battler) && !(gBattleTypeFlags & BATTLE_TYPE_MULTI))
+        if (TwoPlayerIntroMons(battler) && !HasAnyBattleFlags(BATTLE_TYPE_MULTI))
             DestroySprite(&gSprites[gBattleControllerData[GetPartnerBattler(battler)]]);
         DestroySprite(&gSprites[gBattleControllerData[battler]]);
 
@@ -1884,7 +1884,7 @@ void CB2_SetUpReshowBattleScreenAfterMenu2(void)
 
 static void PrintLinkStandbyMsg(void)
 {
-    if (gBattleTypeFlags & BATTLE_TYPE_LINK)
+    if (HasAnyBattleFlags(BATTLE_TYPE_LINK))
     {
         gBattle_BG0_X = 0;
         gBattle_BG0_Y = 0;
@@ -1916,7 +1916,7 @@ static enum TrainerPicID PlayerGetTrainerBackPicId(void)
 {
     enum TrainerPicID trainerPicId;
 
-    if (gBattleTypeFlags & BATTLE_TYPE_LINK)
+    if (HasAnyBattleFlags(BATTLE_TYPE_LINK))
         trainerPicId = LinkPlayerGetTrainerPicId(GetMultiplayerId());
     else
         trainerPicId = GetPlayerTrainerPicIdByOutfitGenderType(gSaveBlock3Ptr->currOutfitId, gSaveBlock2Ptr->playerGender);
@@ -1936,7 +1936,7 @@ static void PlayerHandleDrawTrainerPic(enum BattlerId battler)
     if (TESTING)
     {
         trainerPicId = TRAINER_PIC_RENKO;
-        if (gBattleTypeFlags & BATTLE_TYPE_INGAME_PARTNER)
+        if (HasAnyBattleFlags(BATTLE_TYPE_INGAME_PARTNER))
             xPos = 32;
         else
             xPos = 80;
@@ -1946,14 +1946,14 @@ static void PlayerHandleDrawTrainerPic(enum BattlerId battler)
     {
         trainerPicId = PlayerGetTrainerBackPicId();
 
-        if (gBattleTypeFlags & BATTLE_TYPE_MULTI)
+        if (HasAnyBattleFlags(BATTLE_TYPE_MULTI))
         {
             if ((GetBattlerPosition(battler) & BIT_FLANK) != B_FLANK_LEFT) // Second mon, on the right.
                 xPos = 90;
             else // First mon, on the left.
                 xPos = 32;
 
-            if ((gBattleTypeFlags & BATTLE_TYPE_INGAME_PARTNER && gPartnerTrainerId < TRAINER_PARTNER(PARTNER_NONE))
+            if ((HasAnyBattleFlags(BATTLE_TYPE_INGAME_PARTNER) && gPartnerTrainerId < TRAINER_PARTNER(PARTNER_NONE))
              || !HasTrainerOutfitGenderBackPic(gSaveBlock3Ptr->currOutfitId, gSaveBlock2Ptr->playerGender))
             {
                 xPos = 90;
@@ -1977,7 +1977,7 @@ static void PlayerHandleDrawTrainerPic(enum BattlerId battler)
     }
 
     // Use front pic table for any tag battles unless your partner is Steven or a custom partner.
-    if ((gBattleTypeFlags & BATTLE_TYPE_INGAME_PARTNER && gPartnerTrainerId < TRAINER_PARTNER(PARTNER_NONE))
+    if ((HasAnyBattleFlags(BATTLE_TYPE_INGAME_PARTNER) && gPartnerTrainerId < TRAINER_PARTNER(PARTNER_NONE))
      || !HasTrainerOutfitGenderBackPic(gSaveBlock3Ptr->currOutfitId, gSaveBlock2Ptr->playerGender))
     {
         trainerPicId = GetPlayerTrainerPicIdByOutfitGenderType(gSaveBlock3Ptr->currOutfitId, gSaveBlock2Ptr->playerGender);
@@ -2051,7 +2051,7 @@ static void PlayerHandleChooseAction(enum BattlerId battler)
 
     gBattlerControllerFuncs[battler] = HandleChooseActionAfterDma3;
     BattleTv_ClearExplosionFaintCause();
-    if (gBattleTypeFlags & BATTLE_TYPE_TRAINER)
+    if (HasAnyBattleFlags(BATTLE_TYPE_TRAINER))
         BattlePutTextOnWindow(gText_TrainerBattleMenu, B_WIN_ACTION_MENU);
     else
         BattlePutTextOnWindow(gText_BattleMenu, B_WIN_ACTION_MENU);
@@ -2066,7 +2066,7 @@ static void PlayerHandleChooseAction(enum BattlerId battler)
     BattleStringExpandPlaceholdersToDisplayedString(gText_WhatWillPkmnDo);
 
     enum BattlerId partner = GetBattlerAtPosition(B_POSITION_PLAYER_RIGHT);
-    if (B_SHOW_PARTNER_TARGET && gBattleTypeFlags & BATTLE_TYPE_INGAME_PARTNER && IsBattlerAlive(partner))
+    if (B_SHOW_PARTNER_TARGET && HasAnyBattleFlags(BATTLE_TYPE_INGAME_PARTNER) && IsBattlerAlive(partner))
     {
         StringCopy(gStringVar1, COMPOUND_STRING("Partner will use:\n"));
         enum Move move = GetBattlerChosenMove(partner);
@@ -2147,7 +2147,7 @@ static void PlayerChooseMoveInBattlePalace(enum BattlerId battler)
 
 void PlayerHandleChooseMove(enum BattlerId battler)
 {
-    if (gBattleTypeFlags & BATTLE_TYPE_PALACE)
+    if (HasAnyBattleFlags(BATTLE_TYPE_PALACE))
     {
         gBattleStruct->arenaMindPoints[battler] = 8;
         gBattlerControllerFuncs[battler] = PlayerChooseMoveInBattlePalace;
@@ -2210,7 +2210,7 @@ static void PlayerHandleChoosePokemon(enum BattlerId battler)
 
     memcpy(gBattleStruct->battlerPartyOrders[battler], gBattlePartyCurrentOrder, sizeof(gBattlePartyCurrentOrder));
 
-    if (gBattleTypeFlags & BATTLE_TYPE_ARENA && gBattleResources->bufferA[battler][1] != PARTY_ACTION_CANT_SWITCH
+    if (HasAnyBattleFlags(BATTLE_TYPE_ARENA) && gBattleResources->bufferA[battler][1] != PARTY_ACTION_CANT_SWITCH
         && gBattleResources->bufferA[battler][1] != PARTY_ACTION_CHOOSE_FAINTED_MON
         && gBattleResources->bufferA[battler][1] != PARTY_ACTION_SEND_MON_TO_BOX)
     {

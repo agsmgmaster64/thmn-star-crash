@@ -135,7 +135,7 @@ static const u8* const *GetTrainerSlideArray(enum DifficultyLevel difficulty, u3
 #if TESTING
     return (FlagGet(TESTING_FLAG_TRAINER_SLIDES) ? sTestTrainerSlides[difficulty][trainerId] : NULL);
 #else
-    if (gBattleTypeFlags & BATTLE_TYPE_FRONTIER)
+    if (HasAnyBattleFlags(BATTLE_TYPE_FRONTIER))
         return sFrontierTrainerSlides[difficulty][trainerId];
     else
         return sTrainerSlides[difficulty][trainerId];
@@ -318,7 +318,7 @@ static void SetTrainerSlideParameters(enum BattlerId battler, u32* lastId, u32* 
 {
     if ((battler & BIT_SIDE) == B_SIDE_OPPONENT)
     {
-        if (gBattleTypeFlags & BATTLE_TYPE_TWO_OPPONENTS)
+        if (HasAnyBattleFlags(BATTLE_TYPE_TWO_OPPONENTS))
         {
             if (!AreMultiPartiesFullTeams())
                 *lastId = MULTI_PARTY_SIZE;
@@ -329,7 +329,7 @@ static void SetTrainerSlideParameters(enum BattlerId battler, u32* lastId, u32* 
             }
         }
     }
-    else if (GetBattlerTrainer(battler) == B_TRAINER_PARTNER && gBattleTypeFlags & BATTLE_TYPE_INGAME_PARTNER)
+    else if (GetBattlerTrainer(battler) == B_TRAINER_PARTNER && HasAnyBattleFlags(BATTLE_TYPE_INGAME_PARTNER))
     {
         if (!AreMultiPartiesFullTeams())
             *lastId = MULTI_PARTY_SIZE;
@@ -352,7 +352,7 @@ enum TrainerSlideTargets ShouldDoTrainerSlide(enum BattlerId battler, enum Train
     u32 retValue = TRAINER_SLIDE_TARGET_TRAINER_A;
     bool32 shouldRun = FALSE;
 
-    if (!(gBattleTypeFlags & BATTLE_TYPE_TRAINER))
+    if (!IsTrainerBattle())
         return TRAINER_SLIDE_TARGET_NONE;
 
     if (!IsDoubleBattle() && (battler > B_BATTLER_1))
