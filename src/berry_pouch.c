@@ -1319,7 +1319,7 @@ static void BerryPouch_BattleUse_BagMenu(u8 taskId)
     else
     {
         PlaySE(SE_SELECT);
-        if (!GetItemImportance(gSpecialVar_ItemId) && !(B_TRY_CATCH_TRAINER_BALL >= GEN_4 && (GetItemBattleUsage(gSpecialVar_ItemId) == EFFECT_ITEM_THROW_BALL) && (gBattleTypeFlags & BATTLE_TYPE_TRAINER)))
+        if (!GetItemImportance(gSpecialVar_ItemId) && !(B_TRY_CATCH_TRAINER_BALL >= GEN_4 && (GetItemBattleUsage(gSpecialVar_ItemId) == EFFECT_ITEM_THROW_BALL) && (HasAnyBattleFlags(BATTLE_TYPE_TRAINER))))
             BerryPouch_RemoveUsedItem();
         sIsInBerryPouch = FALSE;
         sBerryPouchDynamicResources->exitCallback = CB2_SetUpReshowBattleScreenAfterMenu2;
