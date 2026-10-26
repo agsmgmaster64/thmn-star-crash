@@ -364,7 +364,6 @@ static void Cmd_printstring(void);
 static void Cmd_printselectionstring(void);
 static void Cmd_waitmessage(void);
 static void Cmd_printfromtable(void);
-static void Cmd_setadditionaleffects(void);
 static void Cmd_seteffectprimary(void);
 static void Cmd_clearvolatile(void);
 static void Cmd_tryfaintmon(void);
@@ -518,7 +517,6 @@ void (*const gBattleScriptingCommandsTable[])(void) =
     [B_SCR_OP_PRINTSELECTIONSTRING]                  = Cmd_printselectionstring,
     [B_SCR_OP_WAITMESSAGE]                           = Cmd_waitmessage,
     [B_SCR_OP_PRINTFROMTABLE]                        = Cmd_printfromtable,
-    [B_SCR_OP_SETADDITIONALEFFECTS]                  = Cmd_setadditionaleffects,
     [B_SCR_OP_SETEFFECTPRIMARY]                      = Cmd_seteffectprimary,
     [B_SCR_OP_CLEARVOLATILE]                         = Cmd_clearvolatile,
     [B_SCR_OP_TRYFAINTMON]                           = Cmd_tryfaintmon,
@@ -750,6 +748,7 @@ void (*const gBattleScriptingCommandsTable[])(void) =
     [B_SCR_OP_UNUSED_94]                             = Cmd_dummy,
     [B_SCR_OP_UNUSED_95]                             = Cmd_dummy,
     [B_SCR_OP_UNUSED_96]                             = Cmd_dummy,
+    [B_SCR_OP_UNUSED_97]                             = Cmd_dummy,
 
     [B_SCR_OP_CALLNATIVE]                            = Cmd_callnative,
 };
@@ -1396,64 +1395,6 @@ void SetNonVolatileStatus(enum BattlerId battlerAtk, enum BattlerId effectBattle
     if ((effect == MOVE_EFFECT_POISON || effect == MOVE_EFFECT_TOXIC) && trigger == TRIGGER_ON_MOVE)
         gSpecialStatuses[effectBattler].poisonPuppeteer = TRUE;
 }
-
-static void Cmd_setadditionaleffects(void)
-{
-    CMD_ARGS();
-
-    // Only onChargingTurnOnly additional effects are handled here
-    // TODO: Refactor CancelerCharging to include this
-    if (!IsBattlerUnaffectedByMove(gBattlerTarget))
-    {
-        struct BattleCalcValues cv = {0};
-        cv.battlerAtk = gBattlerAttacker;
-        cv.battlerDef = gBattlerTarget;
-        cv.move = gCurrentMove;
-        cv.abilities[cv.battlerAtk] = GetBattlerAbility(cv.battlerAtk);
-        cv.abilities[cv.battlerDef] = GetBattlerAbility(cv.battlerDef);
-
-        struct SetEffect se = {0};
-
-        u32 numAdditionalEffects = GetMoveAdditionalEffectCount(gCurrentMove);
-        if (numAdditionalEffects > gBattleStruct->additionalEffectsCounter)
-        {
-            u32 percentChance;
-            const struct AdditionalEffect *additionalEffect = GetMoveAdditionalEffectById(gCurrentMove, gBattleStruct->additionalEffectsCounter);
-            enum BattlerId effectBattler = additionalEffect->self ? gBattlerAttacker : gBattlerTarget;
-
-            // Various checks for if this move effect can be applied this turn
-            if (!additionalEffect->preAttackEffect
-             && !(additionalEffect->pledgeCombo && gBattleStruct->pledgeState != PLEDGE_COMBO_ATTACK)
-             && !(additionalEffect->onlyIfTargetRaisedStats && !gProtectStructs[effectBattler].statRaised)
-             && (effectBattler == gBattlerAttacker) == additionalEffect->self
-             && gBattleMons[gBattlerAttacker].volatiles.chargeTurn
-             && additionalEffect->onChargeTurnOnly)
-            {
-                percentChance = CalcSecondaryEffectChance(gBattlerAttacker, cv.abilities[cv.battlerAtk], additionalEffect, gCurrentMove);
-
-                // Activate effect if it's primary (chance == 0) or if RNGesus says so
-                if ((percentChance == 0) || RandomPercentage(RNG_SECONDARY_EFFECT + gBattleStruct->additionalEffectsCounter, percentChance))
-                {
-                    se.additionalEffect = additionalEffect;
-                    se.moveEffect = additionalEffect->moveEffect;
-                    se.script = gBattlescriptCurrInstr;
-                    se.effectBattler = effectBattler;
-                    se.primary = percentChance == 0;
-                    se.certain = percentChance >= 100;
-                    SetMoveEffect(&cv, &se);
-                }
-            }
-
-            gBattleStruct->additionalEffectsCounter++;
-            return;
-        }
-    }
-
-    gBattleStruct->additionalEffectsCounter = 0;
-    gBattleScripting.moveEffect = 0;
-    gBattlescriptCurrInstr = cmd->nextInstr;
-}
-
 
 static void Cmd_seteffectprimary(void)
 {
@@ -3971,12 +3912,10 @@ static void Cmd_removeitem(void)
 
     if (gBattleStruct->flungItem == FLUNG_ITEM_REMOVE)
     {
-        gBattleStruct->flungItem = FLUNG_ITEM_REMOVED;
         battler = gBattlerAttacker;
         itemId = gLastUsedItem;
     }
     else if (gBattleScripting.overrideBerryRequirements
-          || gBattleStruct->flungItem == FLUNG_ITEM_REMOVED
           || itemId == ITEM_NONE)
     {
         // bug bite / pluck / no item - don't remove current item
@@ -4000,8 +3939,15 @@ static void Cmd_removeitem(void)
 
     ClearBattlerItemEffectHistory(battler);
     scriptQueued = TrySymbiosis(battler, itemId, cmd->nextInstr);
-    if (TryCheekPouch(battler, itemId, scriptQueued ? gBattlescriptCurrInstr : cmd->nextInstr))
+    if (gBattleStruct->flungItem == FLUNG_ITEM_REMOVE)
+    {
+        // Don't activate Cheek Pouch in this case since it doesn't make sense
+        gBattleStruct->flungItem = FLUNG_ITEM_REMOVED;
+    }
+    else if (TryCheekPouch(battler, itemId, scriptQueued ? gBattlescriptCurrInstr : cmd->nextInstr))
+    {
         scriptQueued = TRUE;
+    }
     if (!scriptQueued)
         gBattlescriptCurrInstr = cmd->nextInstr;
 }
