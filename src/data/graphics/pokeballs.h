@@ -73,6 +73,9 @@ const u16 gBallPal_Safari[] = INCGFX_U16("graphics/balls/safari.png", ".gbapal")
 const u32 gBallGfx_Foul[] = INCGFX_U32("graphics/balls/foul.png", ".4bpp.smol");
 const u16 gBallPal_Foul[] = INCGFX_U16("graphics/balls/foul.png", ".gbapal");
 
+const u32 gBallGfx_Ignite[] = INCGFX_U32("graphics/balls/ignite.png", ".4bpp.smol");
+const u16 gBallPal_Ignite[] = INCGFX_U16("graphics/balls/ignite.png", ".gbapal");
+
 const u32 gBallGfx_Bomb[] = INCGFX_U32("graphics/balls/bomb.png", ".4bpp.smol");
 const u16 gBallPal_Bomb[] = INCGFX_U16("graphics/balls/bomb.png", ".gbapal");
 

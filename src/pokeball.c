@@ -220,7 +220,7 @@ const struct PokeBallSprite gPokeBalls[POKEBALL_COUNT] =
     [BALL_STRANGE] =
     {
         POKE_BALL_SPRITE(GFX_TAG_STRANGE_BALL, gBallGfx_Strange, gBallPal_Strange),
-        .itemId = ITEM_STRANGE_BALL,
+        .itemId = ITEM_STRANGE_ORB,
     },
 
     [BALL_POKE]    =
@@ -310,13 +310,13 @@ const struct PokeBallSprite gPokeBalls[POKEBALL_COUNT] =
     [BALL_LEVEL]   =
     {
         POKE_BALL_SPRITE(GFX_TAG_LEVEL_BALL, gBallGfx_Level, gBallPal_Level),
-        .itemId = ITEM_LEVEL_BALL,
+        .itemId = ITEM_LEVEL_ORB,
     },
 
     [BALL_LURE]    =
     {
         POKE_BALL_SPRITE(GFX_TAG_LURE_BALL, gBallGfx_Lure, gBallPal_Lure),
-        .itemId = ITEM_LURE_BALL,
+        .itemId = ITEM_LURE_ORB,
     },
 
     [BALL_MOON]    =
@@ -334,13 +334,13 @@ const struct PokeBallSprite gPokeBalls[POKEBALL_COUNT] =
     [BALL_LOVE]    =
     {
         POKE_BALL_SPRITE(GFX_TAG_LOVE_BALL, gBallGfx_Love, gBallPal_Love),
-        .itemId = ITEM_LOVE_BALL,
+        .itemId = ITEM_LOVE_ORB,
     },
 
     [BALL_FAST]    =
     {
         POKE_BALL_SPRITE(GFX_TAG_FAST_BALL, gBallGfx_Fast, gBallPal_Fast),
-        .itemId = ITEM_FAST_BALL,
+        .itemId = ITEM_FAST_ORB,
     },
 
     [BALL_HEAVY]   =
@@ -352,7 +352,7 @@ const struct PokeBallSprite gPokeBalls[POKEBALL_COUNT] =
     [BALL_DREAM]   =
     {
         POKE_BALL_SPRITE(GFX_TAG_DREAM_BALL, gBallGfx_Dream, gBallPal_Dream),
-        .itemId = ITEM_DREAM_BALL,
+        .itemId = ITEM_DREAM_ORB,
     },
 
     [BALL_SAFARI]  =
@@ -369,7 +369,7 @@ const struct PokeBallSprite gPokeBalls[POKEBALL_COUNT] =
 
     [BALL_IGNITE]  =
     {
-        POKE_BALL_SPRITE(GFX_TAG_IGNITE_BALL, gBallGfx_Park, gBallPal_Park),
+        POKE_BALL_SPRITE(GFX_TAG_IGNITE_BALL, gBallGfx_Ignite, gBallPal_Ignite),
         .itemId = ITEM_IGNITE_ORB,
     },
 

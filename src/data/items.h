@@ -36,7 +36,7 @@ const struct ItemInfo gItemsInfo[] =
 
 // Poké Balls
 
-    [ITEM_STRANGE_BALL] =
+    [ITEM_STRANGE_ORB] =
     {
         .name = ITEM_NAME("Strange Orb"),
         .price = 0,
@@ -183,6 +183,10 @@ const struct ItemInfo gItemsInfo[] =
             "An Orb that catches\n"
             "Water- and Beast-\n"
             "type Puppets well."),
+        .descriptionLong = COMPOUND_STRING(
+            "A somewhat different orb that\n"
+            "works especially well on Water and\n"
+            "Beast-type Puppets."),
         .pocket = POCKET_POKE_BALLS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_Pokeball,
@@ -315,7 +319,7 @@ const struct ItemInfo gItemsInfo[] =
         .iconPalette = gItemIconPalette_LuxuryBall,
     },
 
-    [ITEM_LEVEL_BALL] =
+    [ITEM_LEVEL_ORB] =
     {
         .name = ITEM_NAME("Level Orb"),
         .price = (I_PRICE >= GEN_7) ? 0 : 300,
@@ -332,7 +336,7 @@ const struct ItemInfo gItemsInfo[] =
         .iconPalette = gItemIconPalette_LevelBall,
     },
 
-    [ITEM_LURE_BALL] =
+    [ITEM_LURE_ORB] =
     {
         .name = ITEM_NAME("Lure Orb"),
         .price = (I_PRICE >= GEN_7) ? 0 : 300,
@@ -382,9 +386,9 @@ const struct ItemInfo gItemsInfo[] =
         .iconPalette = gItemIconPalette_FriendBall,
     },
 
-    [ITEM_LOVE_BALL] =
+    [ITEM_LOVE_ORB] =
     {
-        .name = ITEM_NAME("Love Ball"),
+        .name = ITEM_NAME("Love Orb"),
         .price = (I_PRICE >= GEN_7) ? 0 : 300,
         .description = COMPOUND_STRING(
             "A Ball that works\n"
@@ -398,9 +402,9 @@ const struct ItemInfo gItemsInfo[] =
         .iconPalette = gItemIconPalette_LoveBall,
     },
 
-    [ITEM_FAST_BALL] =
+    [ITEM_FAST_ORB] =
     {
-        .name = ITEM_NAME("Fast Ball"),
+        .name = ITEM_NAME("Fast Orb"),
         .price = (I_PRICE >= GEN_7) ? 0 : 300,
         .description = COMPOUND_STRING(
             "A Ball that works\n"
@@ -431,9 +435,9 @@ const struct ItemInfo gItemsInfo[] =
         .iconPalette = gItemIconPalette_HeavyBall,
     },
 
-    [ITEM_DREAM_BALL] =
+    [ITEM_DREAM_ORB] =
     {
-        .name = ITEM_NAME("Dream Ball"),
+        .name = ITEM_NAME("Dream Orb"),
         .price = 0,
         .description = COMPOUND_STRING(
         #if B_DREAM_BALL_MODIFIER >= GEN_8
@@ -500,13 +504,17 @@ const struct ItemInfo gItemsInfo[] =
             "A cozy Orb that\n"
             "makes Puppets\n"
             "more friendly."),
+        .descriptionLong = COMPOUND_STRING(
+            "A somewhat different orb that\n"
+            "works especially well on Fire and\n"
+            "Earth-type Puppets."),
         .pocket = POCKET_POKE_BALLS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_Pokeball,
         .battleUsage = EFFECT_ITEM_THROW_BALL,
         .secondaryId = BALL_IGNITE,
-        .iconPic = gItemIcon_LuxuryBall,
-        .iconPalette = gItemIconPalette_LuxuryBall,
+        .iconPic = gItemIcon_IgniteOrb,
+        .iconPalette = gItemIconPalette_IgniteOrb,
     },
 
     [ITEM_BOMB_ORB] =

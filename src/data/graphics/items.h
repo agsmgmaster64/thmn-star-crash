@@ -6,8 +6,8 @@ const u16 gItemIconPalette_ReturnToFieldArrow[] = INCGFX_U16("graphics/items/ico
 
 // Poké Balls
 
-const u32 gItemIcon_StrangeBall[] = INCGFX_U32("graphics/items/icons/strange_ball.png", ".4bpp.smol");
-const u16 gItemIconPalette_StrangeBall[] = INCGFX_U16("graphics/items/icon_palettes/strange_ball.pal", ".gbapal");
+const u32 gItemIcon_StrangeBall[] = INCGFX_U32("graphics/items/icons/strange_orb.png", ".4bpp.smol");
+const u16 gItemIconPalette_StrangeBall[] = INCGFX_U16("graphics/items/icon_palettes/strange_orb.pal", ".gbapal");
 
 const u32 gItemIcon_PokeBall[] = INCGFX_U32("graphics/items/icons/toho_orb.png", ".4bpp.smol");
 const u16 gItemIconPalette_PokeBall[] = INCGFX_U16("graphics/items/icon_palettes/toho_orb.pal", ".gbapal");
@@ -50,11 +50,11 @@ const u16 gItemIconPalette_RepeatBall[] = INCGFX_U16("graphics/items/icon_palett
 const u32 gItemIcon_LuxuryBall[] = INCGFX_U32("graphics/items/icons/luxury_orb.png", ".4bpp.smol");
 const u16 gItemIconPalette_LuxuryBall[] = INCGFX_U16("graphics/items/icon_palettes/luxury_orb.pal", ".gbapal");
 
-const u32 gItemIcon_LevelBall[] = INCGFX_U32("graphics/items/icons/level_ball.png", ".4bpp.smol");
-const u16 gItemIconPalette_LevelBall[] = INCGFX_U16("graphics/items/icon_palettes/level_ball.pal", ".gbapal");
+const u32 gItemIcon_LevelBall[] = INCGFX_U32("graphics/items/icons/level_orb.png", ".4bpp.smol");
+const u16 gItemIconPalette_LevelBall[] = INCGFX_U16("graphics/items/icon_palettes/level_orb.pal", ".gbapal");
 
-const u32 gItemIcon_LureBall[] = INCGFX_U32("graphics/items/icons/lure_ball.png", ".4bpp.smol");
-const u16 gItemIconPalette_LureBall[] = INCGFX_U16("graphics/items/icon_palettes/lure_ball.pal", ".gbapal");
+const u32 gItemIcon_LureBall[] = INCGFX_U32("graphics/items/icons/lure_orb.png", ".4bpp.smol");
+const u16 gItemIconPalette_LureBall[] = INCGFX_U16("graphics/items/icon_palettes/lure_orb.pal", ".gbapal");
 
 const u32 gItemIcon_MoonBall[] = INCGFX_U32("graphics/items/icons/moon_ball.png", ".4bpp.smol");
 const u16 gItemIconPalette_MoonBall[] = INCGFX_U16("graphics/items/icon_palettes/moon_ball.pal", ".gbapal");
@@ -62,23 +62,26 @@ const u16 gItemIconPalette_MoonBall[] = INCGFX_U16("graphics/items/icon_palettes
 const u32 gItemIcon_FriendBall[] = INCGFX_U32("graphics/items/icons/friend_orb.png", ".4bpp.smol");
 const u16 gItemIconPalette_FriendBall[] = INCGFX_U16("graphics/items/icon_palettes/friend_orb.pal", ".gbapal");
 
-const u32 gItemIcon_LoveBall[] = INCGFX_U32("graphics/items/icons/love_ball.png", ".4bpp.smol");
-const u16 gItemIconPalette_LoveBall[] = INCGFX_U16("graphics/items/icon_palettes/love_ball.pal", ".gbapal");
+const u32 gItemIcon_LoveBall[] = INCGFX_U32("graphics/items/icons/love_orb.png", ".4bpp.smol");
+const u16 gItemIconPalette_LoveBall[] = INCGFX_U16("graphics/items/icon_palettes/love_orb.pal", ".gbapal");
 
-const u32 gItemIcon_FastBall[] = INCGFX_U32("graphics/items/icons/fast_ball.png", ".4bpp.smol");
-const u16 gItemIconPalette_FastBall[] = INCGFX_U16("graphics/items/icon_palettes/fast_ball.pal", ".gbapal");
+const u32 gItemIcon_FastBall[] = INCGFX_U32("graphics/items/icons/fast_orb.png", ".4bpp.smol");
+const u16 gItemIconPalette_FastBall[] = INCGFX_U16("graphics/items/icon_palettes/fast_orb.pal", ".gbapal");
 
 const u32 gItemIcon_HeavyBall[] = INCGFX_U32("graphics/items/icons/heavy_ball.png", ".4bpp.smol");
 const u16 gItemIconPalette_HeavyBall[] = INCGFX_U16("graphics/items/icon_palettes/heavy_ball.pal", ".gbapal");
 
-const u32 gItemIcon_DreamBall[] = INCGFX_U32("graphics/items/icons/dream_ball.png", ".4bpp.smol");
-const u16 gItemIconPalette_DreamBall[] = INCGFX_U16("graphics/items/icon_palettes/dream_ball.pal", ".gbapal");
+const u32 gItemIcon_DreamBall[] = INCGFX_U32("graphics/items/icons/dream_orb.png", ".4bpp.smol");
+const u16 gItemIconPalette_DreamBall[] = INCGFX_U16("graphics/items/icon_palettes/dream_orb.pal", ".gbapal");
 
 const u32 gItemIcon_SafariBall[] = INCGFX_U32("graphics/items/icons/safari_orb.png", ".4bpp.smol");
 const u16 gItemIconPalette_SafariBall[] = INCGFX_U16("graphics/items/icon_palettes/safari_orb.pal", ".gbapal");
 
 const u32 gItemIcon_FoulOrb[] = INCGFX_U32("graphics/items/icons/foul_orb.png", ".4bpp.smol");
 const u16 gItemIconPalette_FoulOrb[] = INCGFX_U16("graphics/items/icon_palettes/foul_orb.pal", ".gbapal");
+
+const u32 gItemIcon_IgniteOrb[] = INCGFX_U32("graphics/items/icons/ignite_orb.png", ".4bpp.smol");
+const u16 gItemIconPalette_IgniteOrb[] = INCGFX_U16("graphics/items/icon_palettes/ignite_orb.pal", ".gbapal");
 
 const u32 gItemIcon_BombOrb[] = INCGFX_U32("graphics/items/icons/bomb_orb.png", ".4bpp.smol");
 const u16 gItemIconPalette_BombOrb[] = INCGFX_U16("graphics/items/icon_palettes/bomb_orb.pal", ".gbapal");

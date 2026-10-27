@@ -104,9 +104,9 @@ enum {
 };
 
 #define TEXT_COLOR_BAG_TRANSPARENT TEXT_COLOR_TRANSPARENT
-#define TEXT_COLOR_BAG_DARK_GRAY TEXT_COLOR_WHITE
-#define TEXT_COLOR_BAG_WHITE TEXT_COLOR_DARK_GRAY
-#define TEXT_COLOR_BAG_LIGHT_GRAY TEXT_DYNAMIC_COLOR_1
+#define TEXT_COLOR_BAG_DARK_GRAY TEXT_COLOR_DARK_GRAY
+#define TEXT_COLOR_BAG_WHITE TEXT_COLOR_WHITE
+#define TEXT_COLOR_BAG_LIGHT_GRAY TEXT_COLOR_LIGHT_GRAY
 #define TEXT_COLOR_BAG_MESSAGE_NORMAL TEXT_COLOR_DARK_GRAY
 #define TEXT_COLOR_BAG_MESSAGE_SHADOW TEXT_COLOR_LIGHT_GRAY
 
@@ -293,7 +293,7 @@ static const struct WindowTemplate sWindowTemplates[] = {
         .tilemapTop = 17,
         .width = 7,
         .height = 2,
-        .paletteNum = 15,
+        .paletteNum = 13,
         .baseBlock = 0x20a
     },
     [FRLG_BAG_SUBWINDOW_OPTIONS_2] =
@@ -303,7 +303,7 @@ static const struct WindowTemplate sWindowTemplates[] = {
         .tilemapTop = 15,
         .width = 7,
         .height = 4,
-        .paletteNum = 15,
+        .paletteNum = 13,
         .baseBlock = 0x20a
     },
     [FRLG_BAG_SUBWINDOW_OPTIONS_3] =
@@ -313,7 +313,7 @@ static const struct WindowTemplate sWindowTemplates[] = {
         .tilemapTop = 13,
         .width = 7,
         .height = 6,
-        .paletteNum = 15,
+        .paletteNum = 13,
         .baseBlock = 0x20a
     },
     [FRLG_BAG_SUBWINDOW_OPTIONS_4] =
@@ -323,7 +323,7 @@ static const struct WindowTemplate sWindowTemplates[] = {
         .tilemapTop = 11,
         .width = 7,
         .height = 8,
-        .paletteNum = 15,
+        .paletteNum = 13,
         .baseBlock = 0x20a
     },
     [FRLG_BAG_SUBWINDOW_OPTIONS_5] =
@@ -333,7 +333,7 @@ static const struct WindowTemplate sWindowTemplates[] = {
         .tilemapTop = 9,
         .width = 7,
         .height = 10,
-        .paletteNum = 15,
+        .paletteNum = 13,
         .baseBlock = 0x20a
     },
 };
