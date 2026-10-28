@@ -31,6 +31,7 @@ enum __attribute__((packed)) Item
     ITEM_LOVE_ORB,
     ITEM_FAST_ORB,
     ITEM_HEAVY_BALL,
+    ITEM_ORANGE_BALL,
     ITEM_DREAM_ORB,
     ITEM_SAFARI_ORB,
     ITEM_FOUL_ORB,
@@ -43,6 +44,8 @@ enum __attribute__((packed)) Item
     ITEM_GREAT_BALL_HISUI,
     ITEM_ULTRA_BALL_HISUI,
     ITEM_STRANGE_ORB,
+    ITEM_MOSS_ORB,
+    ITEM_FEATHER_ORB,
 
     // Medicine
     ITEM_POTION,
@@ -75,6 +78,8 @@ enum __attribute__((packed)) Item
     ITEM_MAX_HONEY,
 
     // Regional Specialties
+    ITEM_PEWTER_CRUNCHIES,
+    ITEM_RAGE_CANDY_BAR,
     ITEM_LAVA_COOKIE,
     ITEM_SCARLET_TEA,
     ITEM_GEYSER_WATER,
@@ -238,9 +243,10 @@ enum __attribute__((packed)) Item
 
     // Apricorns
     ITEM_RED_APRICORN,
-    ITEM_BLUE_APRICORN,
+    ITEM_ORANGE_APRICORN,
     ITEM_YELLOW_APRICORN,
     ITEM_GREEN_APRICORN,
+    ITEM_BLUE_APRICORN,
     ITEM_PINK_APRICORN,
     ITEM_WHITE_APRICORN,
     ITEM_BLACK_APRICORN,
@@ -808,6 +814,15 @@ enum __attribute__((packed)) Item
     ITEM_SAPPHIRE,
 
     ITEM_MYSTERY_ORB,
+    ITEM_SECRET_MEDICINE,
+    ITEM_MACHINE_PART,
+    ITEM_LOST_ITEM,
+    ITEM_CLEAR_BELL,
+    ITEM_TIDAL_BELL,
+    ITEM_TRAIN_PASS,
+    ITEM_RED_SCALE,
+    ITEM_RAINBOW_WING,
+    ITEM_SILVER_WING,
 
     ITEM_TEACHY_TV,
     ITEM_POKE_RADAR,

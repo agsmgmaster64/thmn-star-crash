@@ -71,17 +71,18 @@ static enum PokeBall GetBattlerPokeballItemId(enum BattlerId battler);
 #define GFX_TAG_LOVE_BALL    55019
 #define GFX_TAG_FAST_BALL    55020
 #define GFX_TAG_HEAVY_BALL   55021
-#define GFX_TAG_DREAM_BALL   55022
-#define GFX_TAG_SAFARI_BALL  55023
-#define GFX_TAG_FOUL_BALL    55024
-#define GFX_TAG_IGNITE_BALL  55025
-#define GFX_TAG_BOMB_BALL    55026
-#define GFX_TAG_PARK_BALL    55027
-#define GFX_TAG_BEAST_BALL   55028
-#define GFX_TAG_CHERISH_BALL 55029
-#define GFX_TAG_POKE_BALL2   55030
-#define GFX_TAG_GREAT_BALL2  55031
-#define GFX_TAG_ULTRA_BALL2  55032
+#define GFX_TAG_ORNG_BALL    55022
+#define GFX_TAG_DREAM_BALL   55023
+#define GFX_TAG_SAFARI_BALL  55024
+#define GFX_TAG_FOUL_BALL    55025
+#define GFX_TAG_IGNITE_BALL  55026
+#define GFX_TAG_BOMB_BALL    55027
+#define GFX_TAG_PARK_BALL    55028
+#define GFX_TAG_BEAST_BALL   55029
+#define GFX_TAG_CHERISH_BALL 55030
+#define GFX_TAG_POKE_BALL2   55031
+#define GFX_TAG_GREAT_BALL2  55032
+#define GFX_TAG_ULTRA_BALL2  55033
 
 static const struct OamData sBallOamData =
 {
@@ -347,6 +348,12 @@ const struct PokeBallSprite gPokeBalls[POKEBALL_COUNT] =
     {
         POKE_BALL_SPRITE(GFX_TAG_HEAVY_BALL, gBallGfx_Heavy, gBallPal_Heavy),
         .itemId = ITEM_HEAVY_BALL,
+    },
+
+    [BALL_ORANGE]   =
+    {
+        POKE_BALL_SPRITE(GFX_TAG_ORNG_BALL, gBallGfx_Heavy, gBallPal_Heavy),
+        .itemId = ITEM_ORANGE_BALL,
     },
 
     [BALL_DREAM]   =

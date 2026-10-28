@@ -654,6 +654,7 @@ enum
 #define OBJ_EVENT_PAL_TAG_BALL_POKE2              0x116B
 #define OBJ_EVENT_PAL_TAG_BALL_GREAT2             0x116C
 #define OBJ_EVENT_PAL_TAG_BALL_ULTRA2             0x116D
+#define OBJ_EVENT_PAL_TAG_BALL_ORANGE             0x116E
 #endif //OW_FOLLOWERS_POKEBALLS
 // Used as a placeholder follower graphic
 #define OBJ_EVENT_PAL_TAG_SUBSTITUTE              0x7611

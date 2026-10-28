@@ -176,17 +176,18 @@ static const struct CaptureStar sCaptureStarsHisui[] =
 #define TAG_PARTICLES_LOVE_BALL    65049
 #define TAG_PARTICLES_FAST_BALL    65050
 #define TAG_PARTICLES_HEAVY_BALL   65051
-#define TAG_PARTICLES_DREAM_BALL   65052
-#define TAG_PARTICLES_SAFARI_BALL  65053
-#define TAG_PARTICLES_FOUL_BALL    65054
-#define TAG_PARTICLES_IGNITE_BALL  65055
-#define TAG_PARTICLES_BOMB_BALL    65056
-#define TAG_PARTICLES_PARK_BALL    65057
-#define TAG_PARTICLES_BEAST_BALL   65058
-#define TAG_PARTICLES_CHERISH_BALL 65059
-#define TAG_PARTICLES_POKE_BALL2   65060
-#define TAG_PARTICLES_GREAT_BALL2  65061
-#define TAG_PARTICLES_ULTRA_BALL2  65062
+#define TAG_PARTICLES_ORNG_BALL    65052
+#define TAG_PARTICLES_DREAM_BALL   65053
+#define TAG_PARTICLES_SAFARI_BALL  65054
+#define TAG_PARTICLES_FOUL_BALL    65055
+#define TAG_PARTICLES_IGNITE_BALL  65056
+#define TAG_PARTICLES_BOMB_BALL    65057
+#define TAG_PARTICLES_PARK_BALL    65058
+#define TAG_PARTICLES_BEAST_BALL   65059
+#define TAG_PARTICLES_CHERISH_BALL 65060
+#define TAG_PARTICLES_POKE_BALL2   65061
+#define TAG_PARTICLES_GREAT_BALL2  65062
+#define TAG_PARTICLES_ULTRA_BALL2  65063
 
 static const union AnimCmd sAnim_RegularBall[] =
 {
@@ -434,6 +435,14 @@ static const struct PokeBallParticles sBallParticles[POKEBALL_COUNT] =
     [BALL_HEAVY] =
     {
         POKE_BALL_ANIMATION(TAG_PARTICLES_HEAVY_BALL, gBattleAnimSpriteGfx_Particles2, gBattleAnimSpritePal_Particles2),
+        .openFadeColor = RGB(7, 11, 20),
+        .animNums = 0,
+        .particleAnimationFunc = GreatBallOpenParticleAnimation,
+    },
+
+    [BALL_ORANGE] =
+    {
+        POKE_BALL_ANIMATION(TAG_PARTICLES_ORNG_BALL, gBattleAnimSpriteGfx_Particles2, gBattleAnimSpritePal_Particles2),
         .openFadeColor = RGB(7, 11, 20),
         .animNums = 0,
         .particleAnimationFunc = GreatBallOpenParticleAnimation,
