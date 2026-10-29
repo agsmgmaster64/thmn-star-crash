@@ -78,7 +78,7 @@ Chibi Cirno
 Level: 3
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-=== TRAINER_YOUNGSTER_BEN ===
+=== TRAINER_SAGE_NICO ===
 Name: BEN
 Class: Youngster Frlg
 Pic: Youngster Frlg
@@ -95,7 +95,7 @@ Chibi Chen
 Level: 11
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-=== TRAINER_YOUNGSTER_DAN ===
+=== TRAINER_SAGE_CHOW ===
 Name: DAN
 Class: Youngster Frlg
 Pic: Youngster Frlg
@@ -108,7 +108,7 @@ Chibi Nitori
 Level: 17
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-=== TRAINER_YOUNGSTER_CHAD ===
+=== TRAINER_SAGE_EDMOND ===
 Name: CHAD
 Class: Youngster Frlg
 Pic: Youngster Frlg
@@ -125,7 +125,7 @@ Chibi Letty
 Level: 14
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-=== TRAINER_YOUNGSTER_TYLER ===
+=== TRAINER_SAGE_JIN ===
 Name: TYLER
 Class: Youngster Frlg
 Pic: Youngster Frlg
@@ -138,7 +138,7 @@ Chibi Momiji
 Level: 21
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-=== TRAINER_YOUNGSTER_EDDIE ===
+=== TRAINER_SAGE_NEAL ===
 Name: EDDIE
 Class: Youngster Frlg
 Pic: Youngster Frlg
@@ -151,7 +151,7 @@ Chibi Chen
 Level: 21
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-=== TRAINER_YOUNGSTER_DILLON ===
+=== TRAINER_SAGE_TROY ===
 Name: DILLON
 Class: Youngster Frlg
 Pic: Youngster Frlg
@@ -168,7 +168,7 @@ Chibi Momiji
 Level: 19
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-=== TRAINER_YOUNGSTER_YASU ===
+=== TRAINER_ELDER_LI ===
 Name: YASU
 Class: Youngster Frlg
 Pic: Youngster Frlg
@@ -189,7 +189,7 @@ Chibi Letty
 Level: 18
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-=== TRAINER_YOUNGSTER_DAVE ===
+=== TRAINER_BIRD_KEEPER_ABE ===
 Name: DAVE
 Class: Youngster Frlg
 Pic: Youngster Frlg
@@ -206,7 +206,7 @@ Chibi Nazrin
 Level: 18
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-=== TRAINER_YOUNGSTER_BEN_2 ===
+=== TRAINER_BIRD_KEEPER_ROD ===
 Name: BEN
 Class: Youngster Frlg
 Pic: Youngster Frlg
@@ -7258,7 +7258,7 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 - Future Sight
 - Calm Mind
 
-=== TRAINER_GENTLEMAN_THOMAS ===
+=== TRAINER_LEADER_FALKNER ===
 Name: THOMAS
 Class: Gentleman Frlg
 Pic: Gentleman Frlg
@@ -7275,7 +7275,7 @@ Akyuu
 Level: 18
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-=== TRAINER_GENTLEMAN_ARTHUR ===
+=== TRAINER_LEADER_BUGSY ===
 Name: ARTHUR
 Class: Gentleman Frlg
 Pic: Gentleman Frlg
@@ -7292,7 +7292,7 @@ Akyuu
 Level: 19
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-=== TRAINER_GENTLEMAN_TUCKER ===
+=== TRAINER_LEADER_WHITNEY ===
 Name: TUCKER
 Class: Gentleman Frlg
 Pic: Gentleman Frlg

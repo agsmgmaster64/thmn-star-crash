@@ -1,12 +1,12 @@
 Route3_EventScript_Ben::
-	trainerbattle_single TRAINER_YOUNGSTER_BEN, Route3_Text_BenIntro, Route3_Text_BenDefeat
+	trainerbattle_single TRAINER_SAGE_NICO, Route3_Text_BenIntro, Route3_Text_BenDefeat
 	specialvar VAR_RESULT, ShouldTryRematchBattle
 	goto_if_eq VAR_RESULT, TRUE, Route3_EventScript_BenRematch
 	msgbox Route3_Text_BenPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route3_EventScript_BenRematch::
-	trainerbattle_rematch TRAINER_YOUNGSTER_BEN, Route3_Text_BenRematchIntro, Route3_Text_BenDefeat
+	trainerbattle_rematch TRAINER_SAGE_NICO, Route3_Text_BenRematchIntro, Route3_Text_BenDefeat
 	msgbox Route3_Text_BenPostBattle, MSGBOX_AUTOCLOSE
 	end
 
@@ -191,26 +191,26 @@ Route25_EventScript_JoeyRematch::
 	end
 
 Route25_EventScript_Dan::
-	trainerbattle_single TRAINER_YOUNGSTER_DAN, Route25_Text_DanIntro, Route25_Text_DanDefeat
+	trainerbattle_single TRAINER_SAGE_CHOW, Route25_Text_DanIntro, Route25_Text_DanDefeat
 	specialvar VAR_RESULT, ShouldTryRematchBattle
 	goto_if_eq VAR_RESULT, TRUE, Route25_EventScript_DanRematch
 	msgbox Route25_Text_DanPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route25_EventScript_DanRematch::
-	trainerbattle_rematch TRAINER_YOUNGSTER_DAN, Route25_Text_DanRematchIntro, Route25_Text_DanDefeat
+	trainerbattle_rematch TRAINER_SAGE_CHOW, Route25_Text_DanRematchIntro, Route25_Text_DanDefeat
 	msgbox Route25_Text_DanPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route25_EventScript_Chad::
-	trainerbattle_single TRAINER_YOUNGSTER_CHAD, Route25_Text_ChadIntro, Route25_Text_ChadDefeat
+	trainerbattle_single TRAINER_SAGE_EDMOND, Route25_Text_ChadIntro, Route25_Text_ChadDefeat
 	specialvar VAR_RESULT, ShouldTryRematchBattle
 	goto_if_eq VAR_RESULT, TRUE, Route25_EventScript_ChadRematch
 	msgbox Route25_Text_ChadPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route25_EventScript_ChadRematch::
-	trainerbattle_rematch TRAINER_YOUNGSTER_CHAD, Route25_Text_ChadRematchIntro, Route25_Text_ChadDefeat
+	trainerbattle_rematch TRAINER_SAGE_EDMOND, Route25_Text_ChadRematchIntro, Route25_Text_ChadDefeat
 	msgbox Route25_Text_ChadPostBattle, MSGBOX_AUTOCLOSE
 	end
 
@@ -359,50 +359,50 @@ Route6_EventScript_IsabelleRematch::
 	end
 
 Route11_EventScript_Eddie::
-	trainerbattle_single TRAINER_YOUNGSTER_EDDIE, Route11_Text_EddieIntro, Route11_Text_EddieDefeat
+	trainerbattle_single TRAINER_SAGE_NEAL, Route11_Text_EddieIntro, Route11_Text_EddieDefeat
 	specialvar VAR_RESULT, ShouldTryRematchBattle
 	goto_if_eq VAR_RESULT, TRUE, Route11_EventScript_EddieRematch
 	msgbox Route11_Text_EddiePostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route11_EventScript_EddieRematch::
-	trainerbattle_rematch TRAINER_YOUNGSTER_EDDIE, Route11_Text_EddieRematchIntro, Route11_Text_EddieDefeat
+	trainerbattle_rematch TRAINER_SAGE_NEAL, Route11_Text_EddieRematchIntro, Route11_Text_EddieDefeat
 	msgbox Route11_Text_EddiePostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route11_EventScript_Dillon::
-	trainerbattle_single TRAINER_YOUNGSTER_DILLON, Route11_Text_DillonIntro, Route11_Text_DillonDefeat
+	trainerbattle_single TRAINER_SAGE_TROY, Route11_Text_DillonIntro, Route11_Text_DillonDefeat
 	specialvar VAR_RESULT, ShouldTryRematchBattle
 	goto_if_eq VAR_RESULT, TRUE, Route11_EventScript_DillonRematch
 	msgbox Route11_Text_DillonPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route11_EventScript_DillonRematch::
-	trainerbattle_rematch TRAINER_YOUNGSTER_DILLON, Route11_Text_DillonRematchIntro, Route11_Text_DillonDefeat
+	trainerbattle_rematch TRAINER_SAGE_TROY, Route11_Text_DillonRematchIntro, Route11_Text_DillonDefeat
 	msgbox Route11_Text_DillonPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route11_EventScript_Yasu::
-	trainerbattle_single TRAINER_YOUNGSTER_YASU, Route11_Text_YasuIntro, Route11_Text_YasuDefeat
+	trainerbattle_single TRAINER_ELDER_LI, Route11_Text_YasuIntro, Route11_Text_YasuDefeat
 	specialvar VAR_RESULT, ShouldTryRematchBattle
 	goto_if_eq VAR_RESULT, TRUE, Route11_EventScript_YasuRematch
 	msgbox Route11_Text_YasuPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route11_EventScript_YasuRematch::
-	trainerbattle_rematch TRAINER_YOUNGSTER_YASU, Route11_Text_YasuRematchIntro, Route11_Text_YasuDefeat
+	trainerbattle_rematch TRAINER_ELDER_LI, Route11_Text_YasuRematchIntro, Route11_Text_YasuDefeat
 	msgbox Route11_Text_YasuPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route11_EventScript_Dave::
-	trainerbattle_single TRAINER_YOUNGSTER_DAVE, Route11_Text_DaveIntro, Route11_Text_DaveDefeat
+	trainerbattle_single TRAINER_BIRD_KEEPER_ABE, Route11_Text_DaveIntro, Route11_Text_DaveDefeat
 	specialvar VAR_RESULT, ShouldTryRematchBattle
 	goto_if_eq VAR_RESULT, TRUE, Route11_EventScript_DaveRematch
 	msgbox Route11_Text_DavePostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route11_EventScript_DaveRematch::
-	trainerbattle_rematch TRAINER_YOUNGSTER_DAVE, Route11_Text_DaveRematchIntro, Route11_Text_DaveDefeat
+	trainerbattle_rematch TRAINER_BIRD_KEEPER_ABE, Route11_Text_DaveRematchIntro, Route11_Text_DaveDefeat
 	msgbox Route11_Text_DavePostBattle, MSGBOX_AUTOCLOSE
 	end
 
