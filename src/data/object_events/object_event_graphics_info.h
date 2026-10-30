@@ -6282,7 +6282,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_TuberFFrlg = {
     .oam = &gObjectEventBaseOam_16x16,
     .subspriteTables = sOamTables_16x16,
     .anims = sAnimTable_Standard,
-    .images = sPicTable_TuberF,
+    .images = sPicTable_TuberFFrlg,
     .affineAnims = gDummySpriteAffineAnimTable,
 };
 
