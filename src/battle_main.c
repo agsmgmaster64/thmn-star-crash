@@ -342,7 +342,7 @@ const struct TrainerClass gTrainerClasses[TRAINER_CLASS_COUNT] =
     [TRAINER_CLASS_POKEFAN] = { _("POKéFAN"), 20 },
     [TRAINER_CLASS_YOUNGSTER] = { _("Youngster"), 4 },
     [TRAINER_CLASS_CHAMPION] = { _("Champion"), 50 },
-    [TRAINER_CLASS_FISHERMAN] = { _("Fisherman"), 10, B_TRAINER_CLASS_POKE_BALLS >= GEN_8 ? BALL_DIVE : BALL_LURE },
+    [TRAINER_CLASS_FISHERMAN] = { _("Fisher"), 10, B_TRAINER_CLASS_POKE_BALLS >= GEN_8 ? BALL_DIVE : BALL_LURE },
     [TRAINER_CLASS_TRIATHLETE] = { _("Triathelete"), 10 },
     [TRAINER_CLASS_DRAGON_TAMER] = { _("DRAGON TAMER"), 12 },
     [TRAINER_CLASS_NINJA_BOY] = { _("Ninja Boy"), 3 },
@@ -386,7 +386,7 @@ const struct TrainerClass gTrainerClasses[TRAINER_CLASS_COUNT] =
     [TRAINER_CLASS_BIKER_FRLG] =           { _("BIKER"), 5 },
     [TRAINER_CLASS_BURGLAR_FRLG] =         { _("BURGLAR"), 22 },
     [TRAINER_CLASS_ENGINEER_FRLG] =        { _("ENGINEER"), 12 },
-    [TRAINER_CLASS_FISHERMAN_FRLG] =       { _("FISHERMAN"), 9, B_TRAINER_CLASS_POKE_BALLS >= GEN_8 ? BALL_DIVE : BALL_LURE },
+    [TRAINER_CLASS_FISHERMAN_FRLG] =       { _("Fisher"), 9, B_TRAINER_CLASS_POKE_BALLS >= GEN_8 ? BALL_DIVE : BALL_LURE },
     [TRAINER_CLASS_SWIMMER_M_FRLG] =       { _("SWIMMER♂"), 1 },
     [TRAINER_CLASS_CUE_BALL_FRLG] =        { _("CUE BALL"), 6 },
     [TRAINER_CLASS_GAMER_FRLG] =           { _("GAMER"), 18 },
@@ -424,6 +424,18 @@ const struct TrainerClass gTrainerClasses[TRAINER_CLASS_COUNT] =
     [TRAINER_CLASS_RUIN_MANIAC_FRLG] =     { _("RUIN MANIAC"), 12 },
     [TRAINER_CLASS_LADY_FRLG] =            { _("LADY"), 50 },
     [TRAINER_CLASS_PAINTER_FRLG] =         { _("PAINTER"), 4 },
+
+    [TRAINER_CLASS_BOARDER] =              { _("Boarder"), 7 },
+    [TRAINER_CLASS_SKIER] =                { _("Skier"), 7 },
+    [TRAINER_CLASS_FAIRY_TALE_GIRL] =      { _("Tale Girl"), 3, BALL_LOVE },
+    [TRAINER_CLASS_FIREBENDER] =           { _("Firebender"), 6 },
+    [TRAINER_CLASS_MEDIUM] =               { _("Medium"), 8 },
+    [TRAINER_CLASS_SAGE] =                 { _("Sage"), 6 },
+    [TRAINER_CLASS_PUNK_GIRL] =            { _("Punk Girl"), 18 },
+    [TRAINER_CLASS_VILLAIN] =              { _("Villain"), 22 },
+    [TRAINER_CLASS_NURSE] =                { _("Nurse"), 15 },
+    [TRAINER_CLASS_WORKER] =               { _("Worker"), 15 },
+    [TRAINER_CLASS_SAGE_LEADER] =          { _("Leader"), 15 },
 };
 
 static void (*const sTurnActionsFuncsTable[])(void) =
