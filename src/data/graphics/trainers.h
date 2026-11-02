@@ -307,8 +307,8 @@ const u16 gTrainerPalette_TokaiTeio[] = INCGFX_U16("graphics/trainers/front_pics
 const u32 gTrainerFrontPic_Boarder[] = INCGFX_U32("graphics/trainers/front_pics/boarder.png", ".4bpp.smol");
 const u16 gTrainerPalette_Boarder[] = INCGFX_U16("graphics/trainers/front_pics/boarder.png", ".gbapal");
 
-const u32 gTrainerFrontPic_Skier[] = INCGFX_U32("graphics/trainers/front_pics/skier.png", ".4bpp.smol");
-const u16 gTrainerPalette_Skier[] = INCGFX_U16("graphics/trainers/front_pics/skier.png", ".gbapal");
+const u32 gTrainerFrontPic_Skier[] = INCGFX_U32("graphics/trainers/front_pics/skier_f.png", ".4bpp.smol");
+const u16 gTrainerPalette_Skier[] = INCGFX_U16("graphics/trainers/front_pics/skier_f.png", ".gbapal");
 
 const u32 gTrainerFrontPic_FairyTaleGirl[] = INCGFX_U32("graphics/trainers/front_pics/fairy_tale_girl.png", ".4bpp.smol");
 const u16 gTrainerPalette_FairyTaleGirl[] = INCGFX_U16("graphics/trainers/front_pics/fairy_tale_girl.png", ".gbapal");
