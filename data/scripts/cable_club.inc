@@ -658,7 +658,7 @@ EventScript_BattleColosseum_2P_PlayerSpot1::
 
 EventScript_BattleColosseum_4P_PlayerSpot0::
 	fadescreen FADE_TO_BLACK
-	special ChooseHalfPartyForBattle
+	choosepartyforbattle 3
 	goto_if_eq VAR_RESULT, 0, EventScript_BattleColosseum_4P_CancelSpotTrigger
 	setvar VAR_0x8005, 0
 	special ColosseumPlayerSpotTriggered
@@ -666,7 +666,7 @@ EventScript_BattleColosseum_4P_PlayerSpot0::
 
 EventScript_BattleColosseum_4P_PlayerSpot1::
 	fadescreen FADE_TO_BLACK
-	special ChooseHalfPartyForBattle
+	choosepartyforbattle 3
 	goto_if_eq VAR_RESULT, 0, EventScript_BattleColosseum_4P_CancelSpotTrigger
 	setvar VAR_0x8005, 1
 	special ColosseumPlayerSpotTriggered
@@ -674,7 +674,7 @@ EventScript_BattleColosseum_4P_PlayerSpot1::
 
 EventScript_BattleColosseum_4P_PlayerSpot2::
 	fadescreen FADE_TO_BLACK
-	special ChooseHalfPartyForBattle
+	choosepartyforbattle 3
 	goto_if_eq VAR_RESULT, 0, EventScript_BattleColosseum_4P_CancelSpotTrigger
 	setvar VAR_0x8005, 2
 	special ColosseumPlayerSpotTriggered
@@ -682,7 +682,7 @@ EventScript_BattleColosseum_4P_PlayerSpot2::
 
 EventScript_BattleColosseum_4P_PlayerSpot3::
 	fadescreen FADE_TO_BLACK
-	special ChooseHalfPartyForBattle
+	choosepartyforbattle 3
 	goto_if_eq VAR_RESULT, 0, EventScript_BattleColosseum_4P_CancelSpotTrigger
 	setvar VAR_0x8005, 3
 	special ColosseumPlayerSpotTriggered

@@ -42,6 +42,7 @@
 #include "line_break.h"
 #include "outfit_menu.h"
 #include "ui_battle_menu.h"
+#include "config/battle_info.h"
 #include "constants/battle_anim.h"
 #include "constants/battle_move_effects.h"
 #include "constants/battle_partner.h"
@@ -311,7 +312,8 @@ static void HandleInputChooseAction(enum BattlerId battler)
         }
     }
 
-    if (JOY_NEW(B_BATTLE_INFO_BUTTON))
+    if (B_INFO_ENABLED
+     && JOY_NEW(B_BATTLE_INFO_BUTTON))
     {
         TryToHideBattleStatusHint();
         PlaySE(SE_SELECT);

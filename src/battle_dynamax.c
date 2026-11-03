@@ -86,7 +86,7 @@ bool32 CanDynamax(enum BattlerId battler)
     if (!TESTING && (GetBattlerPosition(battler) == B_POSITION_PLAYER_LEFT
         || (!HasAnyBattleFlags(BATTLE_TYPE_MULTI) && GetBattlerPosition(battler) == B_POSITION_PLAYER_RIGHT)))
     {
-        if (!CheckBagHasItem(ITEM_DYNAMAX_BAND, 1))
+        if (!HasPlayerUnlockedGimmick(GIMMICK_DYNAMAX))
             return FALSE;
     }
 

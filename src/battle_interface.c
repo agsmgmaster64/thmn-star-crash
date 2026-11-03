@@ -33,6 +33,7 @@
 #include "item_icon.h"
 #include "item_use.h"
 #include "test_runner.h"
+#include "config/battle_info.h"
 #include "constants/battle_anim.h"
 #include "constants/rgb.h"
 #include "constants/songs.h"
@@ -3205,6 +3206,9 @@ void TryToHideMoveInfoWindow(void)
 
 void TryToAddBattleStatusHint(void)
 {
+    if (!B_INFO_ENABLED)
+        return;
+
     LoadSpritePalette(&sSpritePalette_AbilityPopUp);
     if (GetSpriteTileStartByTag(BATTLE_STATUS_HINT_WINDOW_TAG) == 0xFFFF)
         LoadSpriteSheet(&sSpriteSheet_BattleStatusWindow);

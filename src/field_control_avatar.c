@@ -320,7 +320,6 @@ int ProcessPlayerFieldInput(struct FieldInput *input)
     {
         ResetSpinTimer();
         TrySpecialOverworldEvo(); // Special vars set in CanTriggerSpinEvolution.
-        return TRUE;
     }
 
     return FALSE;
