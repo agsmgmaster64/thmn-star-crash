@@ -199,8 +199,7 @@ BattleFrontier_BattleTowerLobby_EventScript_TryEnterSinglesChallenge::
 	callnative RemoveFollowingPokemon
 	call BattleFrontier_EventScript_GetLvlMode
 	copyvar VAR_0x8004, VAR_RESULT
-	setvar VAR_0x8005, FRONTIER_PARTY_SIZE
-	special ChoosePartyForBattleFrontier
+	choosepartyforbattlefrontier FRONTIER_PARTY_SIZE
 	goto_if_eq VAR_RESULT, 0, BattleFrontier_BattleTowerLobby_EventScript_LoadPartyCancelChallenge
 	msgbox BattleFrontier_BattleTowerLobby_Text_OkayToSaveBeforeEntering, MSGBOX_YESNO
 	switch VAR_RESULT
@@ -262,8 +261,7 @@ BattleFrontier_BattleTowerLobby_EventScript_TryEnterDoublesChallenge::
 	callnative RemoveFollowingPokemon
 	call BattleFrontier_EventScript_GetLvlMode
 	copyvar VAR_0x8004, VAR_RESULT
-	setvar VAR_0x8005, FRONTIER_DOUBLES_PARTY_SIZE
-	special ChoosePartyForBattleFrontier
+	choosepartyforbattlefrontier FRONTIER_DOUBLES_PARTY_SIZE
 	goto_if_eq VAR_RESULT, 0, BattleFrontier_BattleTowerLobby_EventScript_LoadPartyCancelChallenge
 	msgbox BattleFrontier_BattleTowerLobby_Text_OkayToSaveBeforeEntering, MSGBOX_YESNO
 	switch VAR_RESULT
@@ -326,8 +324,7 @@ BattleFrontier_BattleTowerLobby_EventScript_TryEnterMultisChallenge::
 	callnative RemoveFollowingPokemon
 	call BattleFrontier_EventScript_GetLvlMode
 	copyvar VAR_0x8004, VAR_RESULT
-	setvar VAR_0x8005, FRONTIER_MULTI_PARTY_SIZE
-	special ChoosePartyForBattleFrontier
+	choosepartyforbattlefrontier FRONTIER_MULTI_PARTY_SIZE
 	goto_if_eq VAR_RESULT, 0, BattleFrontier_BattleTowerLobby_EventScript_LoadPartyCancelChallenge
 	msgbox BattleFrontier_BattleTowerLobby_Text_OkayToSaveBeforeEntering, MSGBOX_YESNO
 	switch VAR_RESULT
@@ -389,8 +386,7 @@ BattleFrontier_BattleTowerLobby_EventScript_TryEnterLinkMultisChallenge::
 	callnative RemoveFollowingPokemon
 	call BattleFrontier_EventScript_GetLvlMode
 	copyvar VAR_0x8004, VAR_RESULT
-	setvar VAR_0x8005, FRONTIER_MULTI_PARTY_SIZE
-	special ChoosePartyForBattleFrontier
+	choosepartyforbattlefrontier FRONTIER_MULTI_PARTY_SIZE
 	goto_if_eq VAR_RESULT, 0, BattleFrontier_BattleTowerLobby_EventScript_LoadPartyCancelChallenge
 	msgbox BattleFrontier_BattleTowerLobby_Text_OkayToSaveBeforeEntering, MSGBOX_YESNO
 	switch VAR_RESULT
