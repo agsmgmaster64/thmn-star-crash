@@ -13964,8 +13964,8 @@
     {
       "id": "LAYOUT_UNION_CAVE_B1F",
       "name": "UnionCave_B1F_Layout",
-      "width": 11,
-      "height": 9,
+      "width": 48,
+      "height": 48,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_GeneralFrlg",
@@ -14001,7 +14001,7 @@
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_GeneralFrlg",
-      "secondary_tileset": "gTileset_Cave_Frlg",
+      "secondary_tileset": "gTileset_RG_RockTunnel",
       "border_filepath": "data/layouts/SlowpokeWell_B1F/border.bin",
       "blockdata_filepath": "data/layouts/SlowpokeWell_B1F/map.bin",
       "build_version": [
