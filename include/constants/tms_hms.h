@@ -57,7 +57,7 @@
     F(ENERGY_LIGHT) \
     F(FALSE_SWIPE) \
     F(CHILLING_WATER) \
-    F(FLING) \
+    F(SILVER_WIND) \
     F(CHARGE_BEAM) \
     F(ENDURE) \
     F(INCINERATE) \
@@ -81,12 +81,12 @@
     F(PSYCH_UP) \
     F(CURSE) \
     F(DARK_PULSE) \
+    F(ROCK_SLIDE) \
     F(FIRE_PUNCH) \
     F(ICE_PUNCH) \
     F(THUNDER_PUNCH) \
-    F(SLEEP_TALK) \
     F(POISON_JAB) \
-    F(DREAM_EATER) \
+    F(SNARL) \
     F(TRAILBLAZE) \
     F(SWAGGER) \
     F(BODY_SLAM) \

@@ -11101,14 +11101,14 @@ const struct ItemInfo gItemsInfo[] =
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
     },
 
-    [ITEM_TM_FLING] =
+    [ITEM_TM_SILVER_WIND] =
     {
         .name = ITEM_NAME("TM56"),
         .price = 3000,
         .description = COMPOUND_STRING(
-            "The user throws\n"
-            "their held item\n"
-            "on the foe."),
+            "\n"
+            "\n"
+            "."),
         .importance = I_REUSABLE_TMS,
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
@@ -11437,7 +11437,7 @@ const struct ItemInfo gItemsInfo[] =
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
     },
 
-    [ITEM_TM_FIRE_PUNCH] =
+    [ITEM_TM_ROCK_SLIDE] =
     {
         .name = ITEM_NAME("TM80"),
         .price = 3000,
@@ -11451,7 +11451,7 @@ const struct ItemInfo gItemsInfo[] =
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
     },
 
-    [ITEM_TM_ICE_PUNCH] =
+    [ITEM_TM_FIRE_PUNCH] =
     {
         .name = ITEM_NAME("TM81"),
         .price = 3000,
@@ -11465,7 +11465,7 @@ const struct ItemInfo gItemsInfo[] =
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
     },
 
-    [ITEM_TM_THUNDER_PUNCH] =
+    [ITEM_TM_ICE_PUNCH] =
     {
         .name = ITEM_NAME("TM82"),
         .price = 3000,
@@ -11479,7 +11479,7 @@ const struct ItemInfo gItemsInfo[] =
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
     },
 
-    [ITEM_TM_SLEEP_TALK] =
+    [ITEM_TM_THUNDER_PUNCH] =
     {
         .name = ITEM_NAME("TM83"),
         .price = 3000,
@@ -11507,7 +11507,7 @@ const struct ItemInfo gItemsInfo[] =
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
     },
 
-    [ITEM_TM_DREAM_EATER] =
+    [ITEM_TM_SNARL] =
     {
         .name = ITEM_NAME("TM85"),
         .price = 3000,
