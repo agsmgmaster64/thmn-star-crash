@@ -1,1 +1,37 @@
 mapscripts SproutTower_2F_MapScripts {}
+
+script SproutTower_2F_EventScript_Edmond {
+	trainerbattle_single(TRAINER_SAGE_EDMOND, SproutTower_2F_Text_EdmondIntro, SproutTower_2F_Text_EdmondDefeat)
+	msgbox(SproutTower_2F_Text_EdmondPostBattle, MSGBOX_AUTOCLOSE)
+	end
+}
+
+script SproutTower_2F_EventScript_Jin {
+	trainerbattle_single(TRAINER_SAGE_JIN, SproutTower_2F_Text_JinIntro, SproutTower_2F_Text_JinDefeat)
+	msgbox(SproutTower_2F_Text_JinPostBattle, MSGBOX_AUTOCLOSE)
+	end
+}
+
+text SproutTower_2F_Text_EdmondIntro {
+    format("Top percentage")
+}
+
+text SproutTower_2F_Text_EdmondDefeat {
+    format("I lost")
+}
+
+text SproutTower_2F_Text_EdmondPostBattle {
+    format("Number Later")
+}
+
+text SproutTower_2F_Text_JinIntro {
+    format("Top percentage")
+}
+
+text SproutTower_2F_Text_JinDefeat {
+    format("I lost")
+}
+
+text SproutTower_2F_Text_JinPostBattle {
+    format("Number Later")
+}

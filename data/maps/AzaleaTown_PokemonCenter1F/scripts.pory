@@ -1,0 +1,15 @@
+mapscripts AzaleaTown_PokemonCenter1F_MapScripts {
+    MAP_SCRIPT_ON_TRANSITION {
+        setrespawn(HEAL_LOCATION_AZALEA_TOWN)
+        end
+    }
+    MAP_SCRIPT_ON_RESUME : CableClub_OnResume
+}
+
+script AzaleaTown_PokemonCenter_1F_EventScript_Nurse {
+	lock
+	faceplayer
+	call(EventScript_PkmnCenterNurse_Frlg)
+	release
+	end
+}

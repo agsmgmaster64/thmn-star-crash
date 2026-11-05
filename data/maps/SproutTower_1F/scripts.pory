@@ -1,1 +1,19 @@
 mapscripts SproutTower_1F_MapScripts {}
+
+script SproutTower_1F_EventScript_Chow {
+	trainerbattle_single(TRAINER_SAGE_CHOW, SproutTower_1F_Text_ChowIntro, SproutTower_1F_Text_ChowDefeat)
+	msgbox(SproutTower_1F_Text_ChowPostBattle, MSGBOX_AUTOCLOSE)
+	end
+}
+
+text SproutTower_1F_Text_ChowIntro {
+    format("Top percentage")
+}
+
+text SproutTower_1F_Text_ChowDefeat {
+    format("I lost")
+}
+
+text SproutTower_1F_Text_ChowPostBattle {
+    format("Number Later")
+}

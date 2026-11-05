@@ -72,7 +72,15 @@
       "flag": "0"
     }
   ],
-  "warp_events": [],
+  "warp_events": [
+    {
+      "x": 9,
+      "y": 19,
+      "elevation": 0,
+      "dest_map": "MAP_VIOLET_CITY",
+      "dest_warp_id": "4"
+    }
+  ],
   "coord_events": [],
   "bg_events": [],
   "build_version": [

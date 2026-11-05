@@ -1227,7 +1227,13 @@
     "VioletCity_Gym",
     "VioletCity_Mart"
   ],
-  "gMapGroup_IndoorAzaleaTown": [],
+  "gMapGroup_IndoorAzaleaTown": [
+    "AzaleaTown_PokemonCenter1F",
+    "AzaleaTown_PokemonCenter2F",
+    "AzaleaTown_Mart",
+    "AzaleaTown_Gym",
+    "AzaleaTown_KurtsHouse"
+  ],
   "gMapGroup_IndoorGoldenrodCity": [],
   "gMapGroup_IndoorEcruteakCity": [],
   "gMapGroup_IndoorOlivineCity": [],
@@ -1235,6 +1241,8 @@
   "gMapGroup_IndoorMahoganyTown": [],
   "gMapGroup_IndoorBlackthornCity": [],
   "gMapGroup_IndoorRoutes_Johto": [
-    "Route30_MrPuppetHouse"
+    "Route30_MrPuppetHouse",
+    "Route32_PokemonCenter1F",
+    "Route32_PokemonCenter2F"
   ]
 }

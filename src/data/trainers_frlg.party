@@ -83,131 +83,143 @@ Name: BEN
 Class: Youngster Frlg
 Pic: Youngster Frlg
 Gender: Male
-Music: Serious
+Music: Male
 Double Battle: No
 AI: Check Bad Move
 
-Chibi Nazrin
-Level: 11
+Chibi Shou
+Level: 3
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-Chibi Chen
-Level: 11
+Chibi Shou
+Level: 3
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Chibi Shou
+Level: 3
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_SAGE_CHOW ===
-Name: DAN
-Class: Youngster Frlg
-Pic: Youngster Frlg
+Name: Chow
+Class: Sage
+Pic: Sage
 Gender: Male
-Music: Serious
+Music: Male
 Double Battle: No
 AI: Check Bad Move
 
-Chibi Nitori
-Level: 17
+Chibi Shou
+Level: 3
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Chibi Shou
+Level: 3
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Chibi Shou
+Level: 3
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_SAGE_EDMOND ===
-Name: CHAD
-Class: Youngster Frlg
-Pic: Youngster Frlg
+Name: Edmond
+Class: Sage
+Pic: Sage
 Gender: Male
-Music: Serious
+Music: Male
 Double Battle: No
 AI: Check Bad Move
 
-Chibi Cirno
-Level: 14
+Chibi Shou
+Level: 3
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-Chibi Letty
-Level: 14
+Chibi Shou
+Level: 3
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+Chibi Shou
+Level: 3
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_SAGE_JIN ===
-Name: TYLER
-Class: Youngster Frlg
-Pic: Youngster Frlg
+Name: Jin
+Class: Sage
+Pic: Sage
 Gender: Male
-Music: Serious
+Music: Male
 Double Battle: No
 AI: Check Bad Move
 
-Chibi Momiji
-Level: 21
+Chibi Shou
+Level: 6
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_SAGE_NEAL ===
-Name: EDDIE
-Class: Youngster Frlg
-Pic: Youngster Frlg
+Name: Neal
+Class: Sage
+Pic: Sage
 Gender: Male
-Music: Serious
+Music: Male
 Double Battle: No
 AI: Check Bad Move
 
-Chibi Chen
-Level: 21
+Chibi Ichirin
+Level: 6
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_SAGE_TROY ===
-Name: DILLON
-Class: Youngster Frlg
-Pic: Youngster Frlg
+Name: Troy
+Class: Sage
+Pic: Sage
 Gender: Male
 Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
-Chibi Wriggle
-Level: 19
+Chibi Shou
+Level: 6
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-Chibi Momiji
-Level: 19
+Chibi Tokiko
+Level: 6
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_ELDER_LI ===
-Name: YASU
-Class: Youngster Frlg
-Pic: Youngster Frlg
+Name: Li
+Class: Sage Leader
+Pic: Sage Leader
 Gender: Male
 Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
-Chibi Letty
-Level: 17
+Chibi Ichirin
+Level: 7
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-Chibi Letty
-Level: 17
+Chibi Shou
+Level: 7
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-Chibi Letty
-Level: 18
+Chibi Byakuren
+Level: 10
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_BIRD_KEEPER_ABE ===
-Name: DAVE
-Class: Youngster Frlg
-Pic: Youngster Frlg
+Name: Abe
+Class: Bird Keeper Frlg
+Pic: Bird Keeper Frlg
 Gender: Male
 Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
 Chibi Mystia
-Level: 18
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-
-Chibi Nazrin
-Level: 18
+Level: 9
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_BIRD_KEEPER_ROD ===
-Name: BEN
+Name: Rod
 Class: Youngster Frlg
 Pic: Youngster Frlg
 Gender: Male
@@ -215,12 +227,12 @@ Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
-Chibi Nazrin
-Level: 17
+Chibi Tokiko
+Level: 7
 IVs: 2 HP / 2 Atk / 2 Def / 2 SpA / 2 SpD / 2 Spe
 
-Chibi Chen
-Level: 17
+Chibi Hatate
+Level: 7
 IVs: 2 HP / 2 Atk / 2 Def / 2 SpA / 2 SpD / 2 Spe
 
 === TRAINER_BUG_CATCHER_RICK ===
@@ -7259,20 +7271,20 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 - Calm Mind
 
 === TRAINER_LEADER_FALKNER ===
-Name: THOMAS
-Class: Gentleman Frlg
+Name: Falkner
+Class: Leader Frlg
 Pic: Gentleman Frlg
 Gender: Male
 Music: Serious
 Double Battle: No
 AI: Check Bad Move
 
-Akyuu
-Level: 18
+Chibi Mystia
+Level: 7
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-Akyuu
-Level: 18
+Chibi Aya
+Level: 13
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_LEADER_BUGSY ===

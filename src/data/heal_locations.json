@@ -445,7 +445,7 @@
       "map": "MAP_ROUTE32",
       "x": 25,
       "y": 85,
-      "respawn_map": "MAP_ROUTE32",
+      "respawn_map": "MAP_ROUTE32_POKEMON_CENTER1F",
       "respawn_npc": "1"
     }
   ]

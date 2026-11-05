@@ -1992,3 +1992,24 @@ EventScript_PalletTown_PlayersHouse_2F_TurnOnPC::
 	.include "data/maps/SlowpokeWell_B1F/text.inc"
 
 .endif
+
+	.include "data/maps/AzaleaTown_Mart/scripts.inc"
+	.include "data/maps/AzaleaTown_Mart/text.inc"
+
+	.include "data/maps/AzaleaTown_PokemonCenter2F/scripts.inc"
+	.include "data/maps/AzaleaTown_PokemonCenter2F/text.inc"
+
+	.include "data/maps/AzaleaTown_PokemonCenter1F/scripts.inc"
+	.include "data/maps/AzaleaTown_PokemonCenter1F/text.inc"
+
+	.include "data/maps/AzaleaTown_KurtsHouse/scripts.inc"
+	.include "data/maps/AzaleaTown_KurtsHouse/text.inc"
+
+	.include "data/maps/AzaleaTown_Gym/scripts.inc"
+	.include "data/maps/AzaleaTown_Gym/text.inc"
+
+	.include "data/maps/Route32_PokemonCenter1F/scripts.inc"
+	.include "data/maps/Route32_PokemonCenter1F/text.inc"
+
+	.include "data/maps/Route32_PokemonCenter2F/scripts.inc"
+	.include "data/maps/Route32_PokemonCenter2F/text.inc"
