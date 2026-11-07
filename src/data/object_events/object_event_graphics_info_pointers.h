@@ -391,6 +391,7 @@ extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SSAnne;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_PokeBall;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Follower;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BallLight;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_PokeBallTM;
 
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Bard;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Hipster;
@@ -804,6 +805,7 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_KRIS_DELTA] =               &gObjectEventGraphicsInfo_KrisDelta,
     [OBJ_EVENT_GFX_SAKURA_CHIYONO_O] =         &gObjectEventGraphicsInfo_SakuraChiyonoO,
     [OBJ_EVENT_GFX_APRICORN_TREE] =            &gObjectEventGraphicsInfo_ApricornTree,
+    [OBJ_EVENT_GFX_POKE_BALL_TM] =             &gObjectEventGraphicsInfo_PokeBallTM,
     [OBJ_EVENT_GFX_ROTATING_GATE_L1] =          &gObjectEventGraphicsInfo_RotatingGateL1,
     [OBJ_EVENT_GFX_ROTATING_GATE_L2] =          &gObjectEventGraphicsInfo_RotatingGateL2,
     [OBJ_EVENT_GFX_ROTATING_GATE_L3] =          &gObjectEventGraphicsInfo_RotatingGateL3,

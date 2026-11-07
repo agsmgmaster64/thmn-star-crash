@@ -1,6 +1,6 @@
 mapscripts NewBarkTown_MapScripts {
     MAP_SCRIPT_ON_TRANSITION {
-        setflag(FLAG_WORLD_MAP_NEW_BARK_TOWN)
+        setworldmapflag(FLAG_WORLD_MAP_NEW_BARK_TOWN)
 		if (var(VAR_NEW_BARK_TOWN_STATE) < 2) {
 			setobjectxyperm(LOCALID_NEW_BARK_TOWN_LASS, 1, 11)
 			setobjectmovementtype(LOCALID_NEW_BARK_TOWN_LASS, MOVEMENT_TYPE_LOOK_AROUND)

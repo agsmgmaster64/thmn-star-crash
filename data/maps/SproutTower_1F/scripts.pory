@@ -1,4 +1,9 @@
-mapscripts SproutTower_1F_MapScripts {}
+mapscripts SproutTower_1F_MapScripts {
+    MAP_SCRIPT_ON_TRANSITION {
+        setworldmapflag(FLAG_WORLD_MAP_SPROUT_TOWER)
+        end
+    }
+}
 
 script SproutTower_1F_EventScript_Chow {
 	trainerbattle_single(TRAINER_SAGE_CHOW, SproutTower_1F_Text_ChowIntro, SproutTower_1F_Text_ChowDefeat)
