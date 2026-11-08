@@ -311,6 +311,14 @@
 #define VAR_NEW_BARK_TOWN_LAB_STATE                         0
 #define VAR_NEW_BARK_TOWN_STATE    0
 #define VAR_CHERRYGROVE_CITY_STATE 0
+#define VAR_VIOLET_CITY_STATE              0
+#define VAR_AZALEA_TOWN_STATE              0
+#define VAR_GOLDENROD_CITY_STATE           0
+#define VAR_ECRUTEAK_CITY_STATE            0
+#define VAR_OLIVINE_CITY_STATE             0
+#define VAR_CIANWOORD_CITY_STATE           0
+#define VAR_MAHOGANY_TOWN_STATE            0
+#define VAR_BLACKTHORN_CITY_STATE          0
 
 #endif
 
