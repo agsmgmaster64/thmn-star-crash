@@ -22,6 +22,7 @@
 #include "pokemon.h"
 #include "random.h"
 #include "recorded_battle.h"
+#include "roamer.h"
 #include "safari_zone.h"
 #include "util.h"
 #include "script.h"
@@ -274,7 +275,7 @@ u64 GetAiFlags(u16 trainerId, enum BattlerId battler)
             flags = GetAiScriptsInRecordedBattle(battler);
         else if (HasAnyBattleFlags(BATTLE_TYPE_SAFARI))
             flags = AI_FLAG_SAFARI;
-        else if (HasAnyBattleFlags(BATTLE_TYPE_ROAMER))
+        else if (HasAnyBattleFlags(BATTLE_TYPE_ROAMER) && DoesRoamerFlee())
             flags = AI_FLAG_ROAMING;
         else if (HasAnyBattleFlags(BATTLE_TYPE_FIRST_BATTLE))
             flags = AI_FLAG_FIRST_BATTLE;

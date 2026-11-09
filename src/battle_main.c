@@ -5424,15 +5424,16 @@ static void ReturnFromBattleToOverworld(void)
         UpdateRoamerHPStatus(&gParties[B_TRAINER_OPPONENT_A][0]);
         ZeroEnemyPartyMons();
 
-#ifndef BUGFIX
-        // Bug: When Roar is used by a roamer, gBattleOutcome is B_OUTCOME_PLAYER_TELEPORTED (5),
-        // which deactivates the roamer.
-        if ((gBattleOutcome & B_OUTCOME_WON) || gBattleOutcome == B_OUTCOME_CAUGHT)
-#else
-        if ((gBattleOutcome == B_OUTCOME_WON) || gBattleOutcome == B_OUTCOME_CAUGHT ||
-            gBattleOutcome == B_OUTCOME_DREW)
-#endif
+        if ((gBattleOutcome == B_OUTCOME_WON && !CanRoamerRespawn(gEncounteredRoamerIndex))
+         || gBattleOutcome == B_OUTCOME_CAUGHT
+         || gBattleOutcome == B_OUTCOME_DREW)
+        {
             SetRoamerInactive(gEncounteredRoamerIndex);
+        }
+        else if (gBattleOutcome & B_OUTCOME_WON) // and roamer can respawn
+        {
+            HandleRoamerRespawnTimer();
+        }
     }
 
     m4aSongNumStop(SE_LOW_HEALTH);

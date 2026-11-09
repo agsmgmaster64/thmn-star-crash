@@ -62,6 +62,7 @@ void DoDailyEvents(u32 daysSince)
         UpdateMirageRnd(daysSince);
         SetRandomLotteryNumber(daysSince);
     }
+    UpdateRoamerRespawns(daysSince);
     DailyResetApricornTrees();
 }
 
