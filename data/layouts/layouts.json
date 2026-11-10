@@ -13980,12 +13980,12 @@
     {
       "id": "LAYOUT_ILEX_FOREST",
       "name": "IlexForest_Layout",
-      "width": 11,
-      "height": 9,
+      "width": 82,
+      "height": 73,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_GeneralFrlg",
-      "secondary_tileset": "gTileset_Swamp",
+      "secondary_tileset": "gTileset_ViridianForest",
       "border_filepath": "data/layouts/IlexForest/border.bin",
       "blockdata_filepath": "data/layouts/IlexForest/map.bin",
       "build_version": [

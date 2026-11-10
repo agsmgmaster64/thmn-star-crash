@@ -1978,6 +1978,36 @@
       "name": "S.S. Aqua"
     },
     {
+      "id": "MAPSEC_UNDERWATER_41",
+      "name": "Underwater",
+      "x": 5,
+      "y": 9,
+      "width": 2,
+      "height": 2,
+      "map_region": "REGION_MAP_JOHTO",
+      "pokemon_region": "POKEMON_REGION_JOHTO"
+    },
+    {
+      "id": "MAPSEC_UNDERWATER_27",
+      "name": "Underwater",
+      "x": 0,
+      "y": 11,
+      "width": 3,
+      "height": 1,
+      "map_region": "REGION_MAP_KANTO",
+      "pokemon_region": "POKEMON_REGION_KANTO"
+    },
+    {
+      "id": "MAPSEC_JOHTO_BATTLE_FRONTIER",
+      "name": "Battle Frontier",
+      "x": 6,
+      "y": 5,
+      "width": 1,
+      "height": 1,
+      "map_region": "REGION_MAP_JOHTO",
+      "pokemon_region": "POKEMON_REGION_JOHTO"
+    },
+    {
       "id": "MAPSEC_TRAINER_TOWER_2",
       "name": "TRAINER TOWER",
       "x": 5,
