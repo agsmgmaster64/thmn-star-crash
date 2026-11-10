@@ -377,7 +377,6 @@ void Contest_PrintTextToBg0WindowAt(u32 windowId, u8 *currChar, s32 x, s32 y, s3
 void ResetContestLinkResults(void);
 bool8 SaveContestWinner(u8 rank);
 u8 GetContestWinnerSaveIdx(u8 rank, bool8 shift);
-void ClearContestWinnerPicsInContestHall(void);
 void StripPlayerAndMonNamesForLinkContest(struct ContestPokemon *mon, enum Language language);
 
 #endif //GUARD_CONTEST_H

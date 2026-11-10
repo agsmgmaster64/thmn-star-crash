@@ -161,7 +161,6 @@ gSpecials::
 	def_special CountPartyAliveNonEggMons_IgnoreVar0x8004Slot
 	def_special ShouldReadyContestArtist
 	def_special SaveMuseumContestPainting
-	def_special DoesContestCategoryHaveMuseumPainting
 	def_special CountPlayerMuseumPaintings
 	def_special UpdateTrainerCardPhotoIcons
 	def_special MauvilleGymSetDefaultBarriers

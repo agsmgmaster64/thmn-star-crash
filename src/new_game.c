@@ -141,17 +141,6 @@ static void ClearPokedexFlags(void)
     memset(&gSaveBlock1Ptr->dexSeen, 0, sizeof(gSaveBlock1Ptr->dexSeen));
 }
 
-void ClearAllContestWinnerPics(void)
-{
-    s32 i;
-
-    ClearContestWinnerPicsInContestHall();
-
-    // Clear Museum paintings
-    for (i = MUSEUM_CONTEST_WINNERS_START; i < NUM_CONTEST_WINNERS; i++)
-        gSaveBlock1Ptr->contestWinners[i] = sContestWinnerPicDummy;
-}
-
 static void ClearFrontierRecord(void)
 {
     CpuFill32(0, &gSaveBlock2Ptr->frontier, sizeof(gSaveBlock2Ptr->frontier));
@@ -237,7 +226,6 @@ void NewGameInitData(void)
     GetNewDerby();
     ResetLinkContestBoolean();
     ResetGameStats();
-    ClearAllContestWinnerPics();
     ClearPlayerLinkBattleRecords();
     InitSeedotSizeRecord();
     InitLotadSizeRecord();

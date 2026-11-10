@@ -3,7 +3,16 @@ Route31_MapScripts::
 
 
 Route31_EventScript_Wade::
-	trainerbattle_single TRAINER_BUG_CATCHER_WADE, Route30_Text_JoeyIntro, Route30_Text_JoeyDefeat
-	msgbox Route30_Text_JoeyPostBattle, MSGBOX_AUTOCLOSE
+	trainerbattle_single TRAINER_BUG_CATCHER_WADE, Route31_Text_WadeIntro, Route31_Text_WadeDefeat
+	msgbox Route31_Text_WadePostBattle, MSGBOX_AUTOCLOSE
 	end
 
+
+Route31_Text_WadeIntro::
+	.string "Top percentage$"
+
+Route31_Text_WadeDefeat::
+	.string "I lost$"
+
+Route31_Text_WadePostBattle::
+	.string "Number Later$"

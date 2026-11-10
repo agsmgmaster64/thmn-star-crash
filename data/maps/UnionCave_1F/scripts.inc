@@ -1,3 +1,8 @@
 UnionCave_1F_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, UnionCave_1F_MapScripts_MAP_SCRIPT_ON_TRANSITION
 	.byte 0
+
+UnionCave_1F_MapScripts_MAP_SCRIPT_ON_TRANSITION:
+	setworldmapflag FLAG_WORLD_MAP_UNION_CAVE
+	end
 

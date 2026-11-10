@@ -3,7 +3,7 @@ NewBarkTown_MapScripts::
 	.byte 0
 
 NewBarkTown_MapScripts_MAP_SCRIPT_ON_TRANSITION:
-	setflag FLAG_WORLD_MAP_NEW_BARK_TOWN
+	setworldmapflag FLAG_WORLD_MAP_NEW_BARK_TOWN
 	compare VAR_NEW_BARK_TOWN_STATE, 2
 	goto_if_lt NewBarkTown_MapScripts_MAP_SCRIPT_ON_TRANSITION_2
 NewBarkTown_MapScripts_MAP_SCRIPT_ON_TRANSITION_1:

@@ -11,6 +11,7 @@
 #include "overworld.h"
 #include "pokerus.h"
 #include "random.h"
+#include "roamer.h"
 #include "rtc.h"
 #include "time_events.h"
 #include "tv.h"

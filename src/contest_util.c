@@ -2226,36 +2226,6 @@ void BufferContestTrainerAndMonNames(void)
     BufferContestantMonSpecies();
 }
 
-// Unused
-void DoesContestCategoryHaveMuseumPainting(void)
-{
-    int contestWinner;
-    switch (gSpecialVar_ContestCategory)
-    {
-    case CONTEST_CATEGORY_COOL:
-        contestWinner = CONTEST_WINNER_MUSEUM_COOL;
-        break;
-    case CONTEST_CATEGORY_BEAUTY:
-        contestWinner = CONTEST_WINNER_MUSEUM_BEAUTY;
-        break;
-    case CONTEST_CATEGORY_CUTE:
-        contestWinner = CONTEST_WINNER_MUSEUM_CUTE;
-        break;
-    case CONTEST_CATEGORY_SMART:
-        contestWinner = CONTEST_WINNER_MUSEUM_SMART;
-        break;
-    case CONTEST_CATEGORY_TOUGH:
-    default:
-        contestWinner = CONTEST_WINNER_MUSEUM_TOUGH;
-        break;
-    }
-
-    if (gSaveBlock1Ptr->contestWinners[contestWinner - 1].species == SPECIES_NONE)
-        gSpecialVar_0x8004 = FALSE;
-    else
-        gSpecialVar_0x8004 = TRUE;
-}
-
 void SaveMuseumContestPainting(void)
 {
     SaveContestWinner(CONTEST_SAVE_FOR_MUSEUM);

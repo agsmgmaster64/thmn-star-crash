@@ -218,7 +218,7 @@ void RoamerMove(u32 roamerIndex)
 {
     u8 locSet = 0;
 
-    if ((Random() % 16) == 0 || ROAMER(index)->isStalker)
+    if ((Random() % 16) == 0 || ROAMER(roamerIndex)->isStalker)
     {
         RoamerMoveToOtherLocationSet(roamerIndex);
     }

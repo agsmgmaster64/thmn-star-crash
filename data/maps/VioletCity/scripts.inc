@@ -3,6 +3,6 @@ VioletCity_MapScripts::
 	.byte 0
 
 VioletCity_MapScripts_MAP_SCRIPT_ON_TRANSITION:
-	setflag FLAG_WORLD_MAP_VIOLET_CITY
+	setworldmapflag FLAG_WORLD_MAP_VIOLET_CITY
 	end
 

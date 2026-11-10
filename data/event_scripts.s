@@ -1991,8 +1991,6 @@ EventScript_PalletTown_PlayersHouse_2F_TurnOnPC::
 	.include "data/maps/SlowpokeWell_B1F/scripts.inc"
 	.include "data/maps/SlowpokeWell_B1F/text.inc"
 
-.endif
-
 	.include "data/maps/AzaleaTown_Mart/scripts.inc"
 	.include "data/maps/AzaleaTown_Mart/text.inc"
 
@@ -2013,3 +2011,5 @@ EventScript_PalletTown_PlayersHouse_2F_TurnOnPC::
 
 	.include "data/maps/Route32_PokemonCenter2F/scripts.inc"
 	.include "data/maps/Route32_PokemonCenter2F/text.inc"
+
+.endif
