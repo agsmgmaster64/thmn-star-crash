@@ -40,9 +40,6 @@ SootopolisCity_OnTransition:
 	call SootopolisCity_EventScript_SetLayout
 	call_if_between VAR_SOOTOPOLIS_CITY_STATE, 1, 5, SootopolisCity_EventScript_SetBattleSpectators
 	call_if_between VAR_SOOTOPOLIS_CITY_STATE, 2, 3, SootopolisCity_EventScript_CheckSetEnterCaveOfOriginObjPos
-	call_if_eq VAR_SOOTOPOLIS_CITY_STATE, 4, SootopolisCity_EventScript_SetExitCaveOfOriginObjPos
-	call_if_eq VAR_SOOTOPOLIS_CITY_STATE, 5, SootopolisCity_EventScript_SetOutsideGymObjPos
-	call_if_eq VAR_SOOTOPOLIS_CITY_STATE, 6, SootopolisCity_EventScript_SetExpertBlockCaveEntrance
 	end
 
 SootopolisCity_EventScript_HideMapNamePopup::
