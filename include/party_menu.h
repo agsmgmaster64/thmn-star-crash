@@ -147,6 +147,7 @@ void MoveDeleterChooseMoveToForget(void);
 void ItemUseCB_UsePokevial(u8 taskId, TaskFunc task);
 void InitPartyMenuForPokevialFromField(u8 taskId);
 void ItemUseCB_Pokeball(u8 taskId, TaskFunc task);
+bool32 IsAFusedMon(enum Species species);
 
 // Start qol_field_moves
 // These are all moved from src/party_menu.c

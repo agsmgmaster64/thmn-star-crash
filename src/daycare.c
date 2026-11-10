@@ -924,9 +924,8 @@ static enum Species DetermineEggSpeciesAndParentSlots(struct DayCare *daycare, u
 {
     u32 i;
     enum Species species[DAYCARE_MON_COUNT];
-    enum Species eggSpecies;
     bool32 hasMotherEverstone, hasFatherEverstone, motherIsForeign, fatherIsForeign;
-    bool32 motherEggSpecies, fatherEggSpecies;
+    enum Species motherEggSpecies, fatherEggSpecies, eggSpecies;
     enum PokemonRegion currentRegion = GetDaycareRegion(daycare);
 
     for (i = 0; i < DAYCARE_MON_COUNT; i++)
@@ -953,7 +952,7 @@ static enum Species DetermineEggSpeciesAndParentSlots(struct DayCare *daycare, u
 
     if (hasMotherEverstone)
         eggSpecies = motherEggSpecies;
-    else if (fatherIsForeign && hasFatherEverstone)
+    else if (fatherIsForeign && hasFatherEverstone && GetBaseSpecies(motherEggSpecies) == GetBaseSpecies(fatherEggSpecies))
         eggSpecies = fatherEggSpecies;
     else if (motherIsForeign)
         eggSpecies = GetRegionalFormByRegion(motherEggSpecies, currentRegion);
