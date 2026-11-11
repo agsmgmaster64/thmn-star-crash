@@ -31,7 +31,7 @@
     },
     {
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_ROTATING_GATE_L4",
+      "graphics_id": "OBJ_EVENT_GFX_NICE_NATURE",
       "x": 21,
       "y": 40,
       "elevation": 0,
@@ -45,7 +45,7 @@
     },
     {
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_ROTATING_GATE_L4",
+      "graphics_id": "OBJ_EVENT_GFX_NICE_NATURE",
       "x": 19,
       "y": 43,
       "elevation": 0,
@@ -59,7 +59,7 @@
     },
     {
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_ROTATING_GATE_T2",
+      "graphics_id": "OBJ_EVENT_GFX_NICE_NATURE",
       "x": 18,
       "y": 39,
       "elevation": 0,
@@ -73,7 +73,7 @@
     },
     {
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_ROTATING_GATE_T4",
+      "graphics_id": "OBJ_EVENT_GFX_NICE_NATURE",
       "x": 27,
       "y": 38,
       "elevation": 0,
@@ -87,7 +87,7 @@
     },
     {
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_ROTATING_GATE_L4",
+      "graphics_id": "OBJ_EVENT_GFX_NICE_NATURE",
       "x": 29,
       "y": 40,
       "elevation": 0,

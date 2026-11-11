@@ -10,6 +10,7 @@
 #include "sound.h"
 #include "frontier_pass.h"
 #include "overworld.h"
+#include "outfit_menu.h"
 #include "menu.h"
 #include "text.h"
 #include "event_data.h"
