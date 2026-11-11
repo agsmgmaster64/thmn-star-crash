@@ -401,14 +401,6 @@ extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Giddy;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_UnusedMauvilleOldMan1;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_UnusedMauvilleOldMan2;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ApricornTree;
-extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RotatingGateL1;
-extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RotatingGateL2;
-extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RotatingGateL3;
-extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RotatingGateL4;
-extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RotatingGateT1;
-extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RotatingGateT2;
-extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RotatingGateT3;
-extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RotatingGateT4;
 
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanVSSeeker;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MayVSSeeker;
@@ -806,14 +798,6 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_SAKURA_CHIYONO_O] =         &gObjectEventGraphicsInfo_SakuraChiyonoO,
     [OBJ_EVENT_GFX_APRICORN_TREE] =            &gObjectEventGraphicsInfo_ApricornTree,
     [OBJ_EVENT_GFX_POKE_BALL_TM] =             &gObjectEventGraphicsInfo_PokeBallTM,
-    [OBJ_EVENT_GFX_ROTATING_GATE_L1] =          &gObjectEventGraphicsInfo_RotatingGateL1,
-    [OBJ_EVENT_GFX_ROTATING_GATE_L2] =          &gObjectEventGraphicsInfo_RotatingGateL2,
-    [OBJ_EVENT_GFX_ROTATING_GATE_L3] =          &gObjectEventGraphicsInfo_RotatingGateL3,
-    [OBJ_EVENT_GFX_ROTATING_GATE_L4] =          &gObjectEventGraphicsInfo_RotatingGateL4,
-    [OBJ_EVENT_GFX_ROTATING_GATE_T1] =          &gObjectEventGraphicsInfo_RotatingGateT1,
-    [OBJ_EVENT_GFX_ROTATING_GATE_T2] =          &gObjectEventGraphicsInfo_RotatingGateT2,
-    [OBJ_EVENT_GFX_ROTATING_GATE_T3] =          &gObjectEventGraphicsInfo_RotatingGateT3,
-    [OBJ_EVENT_GFX_ROTATING_GATE_T4] =          &gObjectEventGraphicsInfo_RotatingGateT4,
     [OBJ_EVENT_GFX_RED_NORMAL] =               &gObjectEventGraphicsInfo_RedNormal,
     [OBJ_EVENT_GFX_RED_BIKE] =                 &gObjectEventGraphicsInfo_RedBike,
     [OBJ_EVENT_GFX_RED_SURF] =                 &gObjectEventGraphicsInfo_RedSurf,
