@@ -23,7 +23,6 @@
 #include "intro.h"
 #include "main.h"
 #include "trainer_hill.h"
-#include "emulator_check.h"
 #include "test_runner.h"
 #include "constants/rgb.h"
 #include "randomizer.h"
@@ -114,8 +113,6 @@ void AgbMain(void)
     ResetBgs();
     SetDefaultFontsPointer();
     InitHeap(gHeap, HEAP_SIZE);
-    if (IsInaccurateEmulator())
-        RunEmulatorCheckUI(CB2_InitCopyrightScreenAfterBootup);
 
     gSoftResetDisabled = FALSE;
 

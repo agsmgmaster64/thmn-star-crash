@@ -1670,17 +1670,13 @@ u8 Rogue_ModifySoundVolume(struct MusicPlayerInfo *mplayInfo, u8 volume, u16 sou
     switch (soundType)
     {
     case ROGUE_SOUND_TYPE_CRY:
-        audioLevel = 10 - gSaveBlock2Ptr->optionsVolumeCries;
+        audioLevel = gSaveBlock2Ptr->optionsVolumeCries;
         break;
     default:
         if (mplayInfo == &gMPlayInfo_BGM)
-        {
-            audioLevel = 10 - gSaveBlock2Ptr->optionsVolumeBGM;
-        }
+            audioLevel = gSaveBlock2Ptr->optionsVolumeBGM;
         else
-        {
-            audioLevel = 10 - gSaveBlock2Ptr->optionsVolumeSFX;
-        }
+            audioLevel = gSaveBlock2Ptr->optionsVolumeSFX;
         break;
     }
 
