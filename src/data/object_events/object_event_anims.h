@@ -1124,6 +1124,14 @@ static const union AnimCmd sAnim_NurseBow[] =
     ANIMCMD_END,
 };
 
+static const union AnimCmd sAnim_NurseBow_Asym[] =
+{
+    ANIMCMD_FRAME(0, 8),
+    ANIMCMD_FRAME(12, 32),
+    ANIMCMD_FRAME(0, 8),
+    ANIMCMD_END,
+};
+
 static const union AnimCmd sAnim_RockBreak[] =
 {
     ANIMCMD_FRAME(0, 8),
@@ -1737,6 +1745,30 @@ static const union AnimCmd *const sAnimTable_Nurse[] = {
     [ANIM_NURSE_BOW] = sAnim_NurseBow,
 };
 
+static const union AnimCmd *const sAnimTable_Nurse_Asym[] = {
+    [ANIM_STD_FACE_SOUTH] = sAnim_FaceSouth,
+    [ANIM_STD_FACE_NORTH] = sAnim_FaceNorth,
+    [ANIM_STD_FACE_WEST] = sAnim_FaceWest,
+    [ANIM_STD_FACE_EAST] = sAnim_FaceEast_Asym,
+    [ANIM_STD_GO_SOUTH] = sAnim_GoSouth_Asym,
+    [ANIM_STD_GO_NORTH] = sAnim_GoNorth_Asym,
+    [ANIM_STD_GO_WEST] = sAnim_GoWest_Asym,
+    [ANIM_STD_GO_EAST] = sAnim_GoEast_Asym,
+    [ANIM_STD_GO_FAST_SOUTH] = sAnim_GoFastSouth_Asym,
+    [ANIM_STD_GO_FAST_NORTH] = sAnim_GoFastNorth_Asym,
+    [ANIM_STD_GO_FAST_WEST] = sAnim_GoFastWest_Asym,
+    [ANIM_STD_GO_FAST_EAST] = sAnim_GoFastEast_Asym,
+    [ANIM_STD_GO_FASTER_SOUTH] = sAnim_GoFasterSouth_Asym,
+    [ANIM_STD_GO_FASTER_NORTH] = sAnim_GoFasterNorth_Asym,
+    [ANIM_STD_GO_FASTER_WEST] = sAnim_GoFasterWest_Asym,
+    [ANIM_STD_GO_FASTER_EAST] = sAnim_GoFasterEast_Asym,
+    [ANIM_STD_GO_FASTEST_SOUTH] = sAnim_GoFastestSouth,
+    [ANIM_STD_GO_FASTEST_NORTH] = sAnim_GoFastestNorth,
+    [ANIM_STD_GO_FASTEST_WEST] = sAnim_GoFastestWest,
+    [ANIM_STD_GO_FASTEST_EAST] = sAnim_GoFastestEast,
+    [ANIM_NURSE_BOW] = sAnim_NurseBow_Asym,
+};
+
 static const union AnimCmd *const sAnimTable_FieldMove[] = {
     [ANIM_FIELD_MOVE] = sAnim_FieldMove,
 };
@@ -1829,6 +1861,10 @@ static const struct StepAnimTable sStepAnimTables[] = {
     },
     {
         .anims = sAnimTable_Nurse,
+        .animPos = {1, 3, 0, 2},
+    },
+    {
+        .anims = sAnimTable_Nurse_Asym,
         .animPos = {1, 3, 0, 2},
     },
     {

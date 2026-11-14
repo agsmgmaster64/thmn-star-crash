@@ -1074,7 +1074,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Nurse = {
     .compressionMode = OBJECT_EVENT_COMPRESSION_NONE,
     .oam = &gObjectEventBaseOam_16x32,
     .subspriteTables = sOamTables_16x32,
-    .anims = sAnimTable_Nurse,
+    .anims = sAnimTable_Nurse_Asym,
     .images = sPicTable_Nurse,
 };
 

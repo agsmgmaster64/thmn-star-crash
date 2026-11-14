@@ -13313,7 +13313,7 @@
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_GeneralFrlg",
-      "secondary_tileset": "gTileset_PalletTown",
+      "secondary_tileset": "gTileset_AzaleaTown",
       "border_filepath": "data/layouts/AzaleaTown/border.bin",
       "blockdata_filepath": "data/layouts/AzaleaTown/map.bin",
       "build_version": [
@@ -13996,8 +13996,8 @@
     {
       "id": "LAYOUT_SLOWPOKE_WELL_B1F",
       "name": "SlowpokeWell_B1F_Layout",
-      "width": 11,
-      "height": 9,
+      "width": 32,
+      "height": 32,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_GeneralFrlg",

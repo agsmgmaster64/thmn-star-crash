@@ -24,6 +24,6 @@
 #define USE_DEFAULT_TEXT_BLIP       TRUE           // If TRUE, text blips will default to play with the text blip ID defined by DEFAULT_TEXT_BLIP whenever text is printed as specified in the settings below.
 #define DEFAULT_TEXT_BLIP           TEXT_PRINTER_1  // If USE_DEFAULT_TEXT_BLIP is TRUE, the text blip ID set here will act as the default text blip that will play when text is printed as specified in the settings below. The {SET_TEXT_BLIP} and {STOP_TEXT_BLIP} controls will override this default.
 #define DEFAULT_TEXT_BLIP_MSG_BOX   FALSE            // If TRUE and USE_DEFAULT_TEXT_BLIP is TRUE, the text blip ID set to DEFAULT_TEXT_BLIP will play whenever text is printed in message boxes.
-#define DEFAULT_TEXT_BLIP_BATTLE    TRUE           // If TRUE and USE_DEFAULT_TEXT_BLIP is TRUE, the text blip ID set to DEFAULT_TEXT_BLIP will play whenever text is printed during battles.
+#define DEFAULT_TEXT_BLIP_BATTLE    FALSE           // If TRUE and USE_DEFAULT_TEXT_BLIP is TRUE, the text blip ID set to DEFAULT_TEXT_BLIP will play whenever text is printed during battles.
 
 #endif // GUARD_CONFIG_TEXT_H
