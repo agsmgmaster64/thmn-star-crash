@@ -372,7 +372,7 @@ void CreateBattlerSprite(enum BattlerId battler)
         else
         {
             struct Pokemon *mon = GetBattlerMon(battler);
-            if (!IsValidForBattle(mon))
+            if (!IsMonValidAndAliveForBattle(mon))
                 return;
             if (gBattleStruct->battlerState[battler].notOnField) // Don't create sprite for a mon that has switched out
                 return;
@@ -435,7 +435,7 @@ static void CreateHealthboxSprite(enum BattlerId battler)
         }
         else if (!HasAnyBattleFlags(BATTLE_TYPE_SAFARI))
         {
-            if (!IsValidForBattle(GetBattlerMon(battler)) || gBattleStruct->battlerState[battler].notOnField)
+            if (!IsMonValidAndAliveForBattle(GetBattlerMon(battler)) || gBattleStruct->battlerState[battler].notOnField)
                 SetHealthboxSpriteInvisible(healthboxSpriteId);
         }
     }
