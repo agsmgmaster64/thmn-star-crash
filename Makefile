@@ -4,16 +4,16 @@ GAME_CODE    ?= BPEE
 BUILD_NAME   ?= emerald
 
 ifeq (firered, $(or $(BUILD), $(MAKECMDGOALS)))
-	GAME_VERSION 	:= FIRERED
-	TITLE       	:= Solar Blast 
-	GAME_CODE   	:= BPRE
-	BUILD_NAME  	:= firered
+    GAME_VERSION    := FIRERED
+    TITLE           := Solar Blast 
+    GAME_CODE       := BPRE
+    BUILD_NAME      := firered
 else
 ifeq (leafgreen, $(or $(BUILD), $(MAKECMDGOALS)))
-	GAME_VERSION 	:= LEAFGREEN
-	TITLE       	:= POKEMON LEAF
-	GAME_CODE   	:= BPGE
-	BUILD_NAME  	:= leafgreen
+    GAME_VERSION    := LEAFGREEN
+    TITLE           := POKEMON LEAF
+    GAME_CODE       := BPGE
+    BUILD_NAME      := leafgreen
 endif
 endif
 

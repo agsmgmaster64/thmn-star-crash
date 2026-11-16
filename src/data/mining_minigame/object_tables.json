@@ -51,7 +51,7 @@
         {
             "id": "OVAL_STONE",
             "label": "ItemOvalStone",
-            "item": "ITEM_OVAL_STONE",
+            "item": "ITEM_STAR_PIECE",
             "path": "./graphics/mining_minigame/items/oval_stone.png"
         },
         {
@@ -63,7 +63,7 @@
         {
             "id": "HARD_STONE",
             "label": "ItemHardStone",
-            "item": "ITEM_HARD_STONE",
+            "item": "ITEM_STAR_PIECE",
             "path": "./graphics/mining_minigame/items/hard_stone.png"
         },
         {
@@ -105,37 +105,37 @@
         {
             "id": "LEAF_STONE",
             "label": "ItemLeafStone",
-            "item": "ITEM_LEAF_STONE",
+            "item": "ITEM_STAR_PIECE",
             "path": "./graphics/mining_minigame/items/leaf_stone.png"
         },
         {
             "id": "FIRE_STONE",
             "label": "ItemFireStone",
-            "item": "ITEM_FIRE_STONE",
+            "item": "ITEM_STAR_PIECE",
             "path": "./graphics/mining_minigame/items/fire_stone.png"
         },
         {
             "id": "WATER_STONE",
             "label": "ItemWatetStone",
-            "item": "ITEM_WATER_STONE",
+            "item": "ITEM_STAR_PIECE",
             "path": "./graphics/mining_minigame/items/water_stone.png"
         },
         {
             "id": "THUNDER_STONE",
             "label": "ItemThunderStone",
-            "item": "ITEM_THUNDER_STONE",
+            "item": "ITEM_STAR_PIECE",
             "path": "./graphics/mining_minigame/items/thunder_stone.png"
         },
         {
             "id": "MOON_STONE",
             "label": "ItemMoonStone",
-            "item": "ITEM_MOON_STONE",
+            "item": "ITEM_STAR_PIECE",
             "path": "./graphics/mining_minigame/items/moon_stone.png"
         },
         {
             "id": "SUN_STONE",
             "label": "ItemSunStone",
-            "item": "ITEM_SUN_STONE",
+            "item": "ITEM_STAR_PIECE",
             "path": "./graphics/mining_minigame/items/sun_stone.png"
         },
         {
@@ -147,13 +147,13 @@
         {
             "id": "SKULL_FOSSIL",
             "label": "ItemSkullFossil",
-            "item": "ITEM_SKULL_FOSSIL",
+            "item": "ITEM_STAR_PIECE",
             "path": "./graphics/mining_minigame/items/skull_fossil.png"
         },
         {
             "id": "ARMOR_FOSSIL",
             "label": "ItemArmorFossil",
-            "item": "ITEM_ARMOR_FOSSIL",
+            "item": "ITEM_STAR_PIECE",
             "path": "./graphics/mining_minigame/items/armor_fossil.png"
         }
     ],
