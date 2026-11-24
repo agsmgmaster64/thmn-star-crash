@@ -421,7 +421,10 @@ void DoWhiteOut(void)
         if (GetFirstBoxPokemon() == IN_BOX_COUNT * TOTAL_BOXES_COUNT)
             DoSoftReset();
     }
-    RunScriptImmediately(EventScript_WhiteOut);
+    if (IS_FRLG)
+        RunScriptImmediately(EventScript_ResetEliteFourEnd);
+    else
+        RunScriptImmediately(EventScript_WhiteOut);
     if (B_WHITEOUT_MONEY <= GEN_3)
         SetMoney(&gSaveBlock1Ptr->money, GetMoney(&gSaveBlock1Ptr->money) / 2);
     else
